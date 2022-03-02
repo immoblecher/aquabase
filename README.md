@@ -20,8 +20,10 @@ What is needed to compile?
 * For spreadsheet functionalities the FPSpreadsheet components https://sourceforge.net/projects/lazarus-ccr/files/FPSpreadsheet/OPM/update_FPSpreadsheet.json/download
 * Synapse for online functions http://www.ararat.cz/synapse/doku.php/start
 
-The additional requirements on top of Lazarus/FreePascal should be installed/updated through the Online Package Manager in Lazarus. If you want to cross-compile under Windows you need to install the cross-compile packages for Lazarus as well.
+The additional requirements on top of Lazarus/FreePascal above should be installed/updated through the Online Package Manager in Lazarus. If you want to cross-compile under Windows you need to install the cross-compile packages for Lazarus as well.
 
 Aquabase needs a lot of additional libraries (.dll, .o etc.) to run. Most of these are distributed with Aquabase: The Inno Setup files to create Windows installations are under the .../install directory. So it might be a good idea to install Aquabase from the website and have a look at the "\Program Files\Aquabase 2020" directory for the required files to be distributed with Aquabase.
 
 Under Linux use Debreate or any other for Debian based installations and make sure that required libraries are installed (minimum proj/mod_spatialite and sqlite). For access to other databases make sure to install the relevant client libraries.
+
+The /po_files directory contains some translations for German already. These are only in the starting phase and need a lot of work so that Aquabase can be distributed in other languages. Another important language file is the en_za.sqlite (for South Africa), which contains South Africa specific tables for codes, standards etc. This should then be adapted for other countries; e.g. de_de.sqlite for Germany etc.
