@@ -21,3 +21,7 @@ What is needed to compile?
 * Synapse for online functions http://www.ararat.cz/synapse/doku.php/start
 
 The additional requirements on top of Lazarus/FreePascal should be installed/updated through the Online Package Manager in Lazarus. If you want to cross-compile under Windows you need to install the cross-compile packages for Lazarus as well.
+
+Aquabase needs a lot of additional libraries (.dll, .o etc.) to run. Most of these are distributed with Aquabase: The Inno Setup files to create Windows installations are under the .../install directory. So it might be a good idea to install Aquabase from the website and have a look at the "\Program Files\Aquabase 2020" directory for the required files to be distributed with Aquabase.
+
+Under Linux use Debreate or any other for Debian based installations and make sure that required libraries are installed (minimum proj/mod_spatialite and sqlite). For access to other databases make sure to install the relevant client libraries.
