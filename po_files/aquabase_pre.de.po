@@ -1,0 +1,1455 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"X-Generator: Poedit 2.4\n"
+
+#: main.mainmenudatabase
+msgid "&Database"
+msgstr "&Datenbank"
+
+#: main.mainmenufile
+msgctxt "main.mainmenufile"
+msgid "&File"
+msgstr "&Datei"
+
+#: main.spanel1
+msgid "<no view>"
+msgstr "<kein \"View\">"
+
+#: main.spanel2
+msgctxt "main.spanel2"
+msgid "<no site>"
+msgstr "<kein Standort>"
+
+#: main.spanel3
+msgctxt "main.spanel3"
+msgid "Editing: <none>"
+msgstr "Bearbeiten: <keiner>"
+
+#: main.spanel4
+msgctxt "main.spanel4"
+msgid "<no workspace open>"
+msgstr "<keine Arbeitsumgebung offen>"
+
+#: main.spanelopening
+msgid "Please wait, opening database \""
+msgstr "Bitte warten, Datenbank wird geöffnet \""
+
+#: tmainform.additionalinformationreport1.caption
+msgid "&Additional Site Information"
+msgstr "&Zusätzliche Lage Information"
+
+#: tmainform.appenddatabaseimport.caption
+msgid "&Aquabase Workspace..."
+msgstr "&Aquabase Umgebung..."
+
+#: tmainform.aquifer2.caption
+msgid "&Aquifer"
+msgstr "&Aquifer"
+
+#: tmainform.basicinfbutton.caption
+msgctxt "tmainform.basicinfbutton.caption"
+msgid "&Basic Site Information"
+msgstr "&Grundlegende Standortsinformation"
+
+#: tmainform.basicinfbutton.hint
+msgctxt "tmainform.basicinfbutton.hint"
+msgid "Open basic information"
+msgstr "Standortsinformation öffnen"
+
+#: tmainform.boreholelog1.caption
+msgid "&Lithology && borehole construction"
+msgstr "&Lithologie && Konstruktion"
+
+#: tmainform.caption
+msgid "Aquabase Twenty20"
+msgstr "Aquabase Zwanzig20"
+
+#: tmainform.chemistry1.caption
+msgctxt "tmainform.chemistry1.caption"
+msgid "&Chemistry"
+msgstr "&Geochemische Zusammensetzung"
+
+#: tmainform.chemistrybutton.caption
+msgctxt "tmainform.chemistrybutton.caption"
+msgid "&Standard Parameters"
+msgstr "&Standardparameter"
+
+#: tmainform.chemistrybutton.hint
+msgctxt "tmainform.chemistrybutton.hint"
+msgid "Open standard chemistry"
+msgstr "Standardparameter öffnen"
+
+#: tmainform.chemistrystandard2.caption
+msgid "Chemistry St&andard"
+msgstr "Chemie St&andard"
+
+#: tmainform.closewspacebutton.caption
+msgctxt "tmainform.closewspacebutton.caption"
+msgid "&Close Workspace"
+msgstr "&Umgebung schliessen"
+
+#: tmainform.closewspacebutton.hint
+msgctxt "tmainform.closewspacebutton.hint"
+msgid "Close current workspace"
+msgstr "Aktuelle Umgebung schliessen"
+
+#: tmainform.constructionbutton.caption
+msgctxt "tmainform.constructionbutton.caption"
+msgid "Hole &Construction"
+msgstr "Bohrloch Konstruktion"
+
+#: tmainform.constructionbutton.hint
+msgctxt "tmainform.constructionbutton.hint"
+msgid "Open hole construction"
+msgstr "Bohrloch Konstruktion öffnen"
+
+#: tmainform.copybutton.caption
+msgctxt "tmainform.copybutton.caption"
+msgid "Cop&y"
+msgstr "&Kopieren"
+
+#: tmainform.copybutton.hint
+msgctxt "tmainform.copybutton.hint"
+msgid "Copy current selection to clipboard"
+msgstr "Auswahl in die Zwischeablage"
+
+#: tmainform.createviewbutton.caption
+msgctxt "tmainform.createviewbutton.caption"
+msgid "Create new &View"
+msgstr "Neue &Ansicht erstellen"
+
+#: tmainform.createviewbutton.hint
+msgctxt "tmainform.createviewbutton.hint"
+msgid "Create new View"
+msgstr "Neue Ansicht erstellen"
+
+#: tmainform.cutbutton.caption
+msgctxt "tmainform.cutbutton.caption"
+msgid "&Cut"
+msgstr "&Schneiden"
+
+#: tmainform.cutbutton.hint
+msgctxt "tmainform.cutbutton.hint"
+msgid "Cut current selection to clipboard"
+msgstr "Auswahl in die Zwischenablage schneiden"
+
+#: tmainform.database1.caption
+msgid "&Other Table..."
+msgstr "&Andere Tabelle..."
+
+#: tmainform.database1.hint
+msgid "Database in dBase format"
+msgstr "Datenbank im dBase Format"
+
+#: tmainform.datatofc1.caption
+msgid "Data to &FC"
+msgstr "Daten ins FC Format"
+
+#: tmainform.datatoolbar.caption
+msgid "Data"
+msgstr "Daten"
+
+#: tmainform.depthcharts.caption
+msgid "&Depth dependent charts"
+msgstr "&Tiefe-abhängige Grafik"
+
+#: tmainform.depthdependent1.caption
+msgid "&Depth dependent"
+msgstr "&Tiefe-abhängig"
+
+#: tmainform.dewateringsummary1.caption
+msgid "&Utilization Summary"
+msgstr "&Nutzungszusammenfassung"
+
+#: tmainform.dewateringsummary1.hint
+msgid "Summary of Pump Utilization"
+msgstr "Zusammenfassung der Pumpennutzung"
+
+#: tmainform.dischargebutton.caption
+msgctxt "tmainform.dischargebutton.caption"
+msgid "&Discharge rate"
+msgstr "&Abgaberate"
+
+#: tmainform.dischargebutton.hint
+msgctxt "tmainform.dischargebutton.hint"
+msgid "Open discharges"
+msgstr "Abgaberaten öffnen"
+
+#: tmainform.dischargerate2.caption
+msgctxt "tmainform.dischargerate2.caption"
+msgid "&Discharge rate"
+msgstr "&Abgaberate"
+
+#: tmainform.dischargestreamflow1.caption
+msgid "Stream &Discharge/Flow Velocity"
+msgstr "&Vorfluter Abgabe/Fließgeschwindigkeit"
+
+#: tmainform.distancedependent1.caption
+msgid "&Dis&tance dependent"
+msgstr "Abs&tands-abhängig"
+
+#: tmainform.dividerpref.caption
+msgid "DividerPref"
+msgstr ""
+
+#: tmainform.dividerqgis.caption
+msgid "DividerQGIS"
+msgstr ""
+
+#: tmainform.downtheholegeophysics1.caption
+msgid "&Down-the-hole geophysics"
+msgstr "&Geophysikalische Bohrlochmessungen"
+
+#: tmainform.fieldmeasurements1.caption
+msgctxt "tmainform.fieldmeasurements1.caption"
+msgid "&Field Measurement"
+msgstr "&Geländemessungen"
+
+#: tmainform.geology2.caption
+msgctxt "tmainform.geology2.caption"
+msgid "&Geology"
+msgstr "&Geologie"
+
+#: tmainform.geologybutton.caption
+msgctxt "tmainform.geologybutton.caption"
+msgid "&Geology"
+msgstr "&Geologie"
+
+#: tmainform.geophysicalinformation1.caption
+msgid "&Geophysical Information"
+msgstr "&Geophysikalische Information"
+
+#: tmainform.helpspeedbutton.caption
+msgctxt "tmainform.helpspeedbutton.caption"
+msgid "&Contents"
+msgstr "&Inhalt"
+
+#: tmainform.helpspeedbutton.hint
+msgctxt "tmainform.helpspeedbutton.hint"
+msgid "Display the help contents screen"
+msgstr "Hilfeinhalt anzeigen"
+
+#: tmainform.holeconstruction2.caption
+msgctxt "tmainform.holeconstruction2.caption"
+msgid "Hole &Construction"
+msgstr "Bohrloch Konstruktion"
+
+#: tmainform.holefinish2.caption
+msgctxt "tmainform.holefinish2.caption"
+msgid "&Hole Finish"
+msgstr "&Bohrlochabfertigung"
+
+#: tmainform.lastwspace1.caption
+msgid "LastWSpace1"
+msgstr ""
+
+#: tmainform.lastwspace10.caption
+msgid "LastWSpace10"
+msgstr ""
+
+#: tmainform.lastwspace2.caption
+msgid "LastWSpace2"
+msgstr ""
+
+#: tmainform.lastwspace3.caption
+msgid "LastWSpace3"
+msgstr ""
+
+#: tmainform.lastwspace4.caption
+msgid "LastWSpace4"
+msgstr ""
+
+#: tmainform.lastwspace5.caption
+msgid "LastWSpace5"
+msgstr ""
+
+#: tmainform.lastwspace6.caption
+msgid "LastWSpace6"
+msgstr ""
+
+#: tmainform.lastwspace7.caption
+msgid "LastWSpace7"
+msgstr ""
+
+#: tmainform.lastwspace8.caption
+msgid "LastWSpace8"
+msgstr ""
+
+#: tmainform.lastwspace9.caption
+msgid "LastWSpace9"
+msgstr ""
+
+#: tmainform.locationandchemistry1.caption
+msgid "Location and &Chemistry"
+msgstr "&Lage und Geochemie"
+
+#: tmainform.locationandmanagement1.caption
+msgid "Location and &Management"
+msgstr "&Lage und Management"
+
+#: tmainform.managementrecommendation1.caption
+msgctxt "tmainform.managementrecommendation1.caption"
+msgid "&Management Recommendations"
+msgstr "&Managementempfehlungen"
+
+#: tmainform.menubackupsqlite.caption
+msgid "Backup Database"
+msgstr "&Datenbank-Backup"
+
+#: tmainform.menuchemistryreport.caption
+msgctxt "tmainform.menuchemistryreport.caption"
+msgid "&Chemistry"
+msgstr "Geo&chemie"
+
+#: tmainform.menuitem1.caption
+msgctxt "tmainform.menuitem1.caption"
+msgid "&Installation"
+msgstr "&Installation"
+
+#: tmainform.menuitem13.caption
+msgid "Distance de&pendent charts"
+msgstr "Abstands-abhängige Grafiken"
+
+#: tmainform.menuitem15.caption
+msgid "&Other Identifier"
+msgstr "Andere &Kennungen"
+
+#: tmainform.menuitem16.caption
+msgid "&Site Status"
+msgstr "Lage &Status"
+
+#: tmainform.menuitem17.caption
+msgid "Member of &Group"
+msgstr "Mitglied einer &Gruppe"
+
+#: tmainform.menuitem21.caption
+msgid "Reload &Lookup Codes"
+msgstr "Suchcodes neu &laden"
+
+#: tmainform.menuitem22.caption
+msgid "Sync Lookup Codes with &Default Codes"
+msgstr "Suchcodes mit Standardcodes synchronisieren"
+
+#: tmainform.menuitem24.caption
+msgctxt "tmainform.menuitem24.caption"
+msgid "Report Documents"
+msgstr "Berichts&dokumente"
+
+#: tmainform.menuitem28.caption
+msgctxt "tmainform.menuitem28.caption"
+msgid "Site-linked Reports"
+msgstr "Berichte zur Lage"
+
+#: tmainform.menuitem3.caption
+msgid "Parameters for &Reports"
+msgstr "Pa&rameter zum Bericht"
+
+#: tmainform.menuitem30.caption
+msgid "Open Test Form"
+msgstr "Pumpversuch öffnen"
+
+#: tmainform.menuitem32.caption
+msgid "Online Data"
+msgstr "Online Daten"
+
+#: tmainform.menuitem33.caption
+msgid "SA DWS Hydrology Data"
+msgstr "SA DWS Hydrologie Daten"
+
+#: tmainform.menuitem4.caption
+msgid "Data Logger Data"
+msgstr "Datenlogger Daten"
+
+#: tmainform.menuitem5.caption
+msgctxt "tmainform.menuitem5.caption"
+msgid "Pumping Test"
+msgstr "Pumpversuch"
+
+#: tmainform.menuitem6.caption
+msgctxt "tmainform.menuitem6.caption"
+msgid "Testing Details"
+msgstr "Pumpversuch Details"
+
+#: tmainform.menuitem9.caption
+msgctxt "tmainform.menuitem9.caption"
+msgid "&Borehole Properties"
+msgstr "Bohrloch Eigenschaften"
+
+#: tmainform.menuitemabout.caption
+msgid "&About Aquabase"
+msgstr "Über Aquabase"
+
+#: tmainform.menuitemabout.hint
+msgid "Show program information"
+msgstr "Programminformationen anzeigen"
+
+#: tmainform.menuitemaccessdata.caption
+msgid "&Access Data..."
+msgstr "D&atenzugang..."
+
+#: tmainform.menuitemaccessdata.hint
+msgid "Access Database Information"
+msgstr "Datenbankinformationszugang"
+
+#: tmainform.menuitemadditionalinformation.caption
+msgid "&Additional Information"
+msgstr "Zusätzliche Inform&ation"
+
+#: tmainform.menuitemallsites.caption
+msgid "Show \"allsites\" View on &Map"
+msgstr "\"allsites\" \"View\" auf Karte anzeigen"
+
+#: tmainform.menuitemappfont.caption
+msgid "&Change Application Font"
+msgstr "Anwendungsfont ändern"
+
+#: tmainform.menuitemapplycoords.caption
+msgid "&Apply Coordinate System"
+msgstr "Koordinatensystem übertragen"
+
+#: tmainform.menuitemaquifer.caption
+msgid "&Aquifer - progressive yield"
+msgstr "&Aquifer - progressive Entnahme"
+
+#: tmainform.menuitemaquifertesting.caption
+msgid "&Aquifer testing"
+msgstr "&Pumpversuch"
+
+#: tmainform.menuitembasicinformation.caption
+msgctxt "tmainform.menuitembasicinformation.caption"
+msgid "&Basic Site Information"
+msgstr "&Grundlegende Standortsinformation"
+
+#: tmainform.menuitembasicinformation.hint
+msgctxt "tmainform.menuitembasicinformation.hint"
+msgid "Open basic information"
+msgstr "Standortsinformation öffnen"
+
+#: tmainform.menuitembhproperties.caption
+msgctxt "tmainform.menuitembhproperties.caption"
+msgid "&Borehole Properties"
+msgstr "&Bohrloch Eigenschaften"
+
+#: tmainform.menuitemboreholelogs.caption
+msgid "&Borehole logs"
+msgstr "&Bohrlochprotokolle"
+
+#: tmainform.menuitemboxwhisker.caption
+msgid "Box and Whisker Diagram"
+msgstr "Box und Whisker Diagramm"
+
+#: tmainform.menuitemcategorised.caption
+msgid "Categorised &Points Map"
+msgstr "Kategorisierte &Punktekarte"
+
+#: tmainform.menuitemchangesiteidentifier.caption
+msgid "Change Site &Identifier..."
+msgstr "Standorts&kennung ändern..."
+
+#: tmainform.menuitemcharts.caption
+msgid "&Chart"
+msgstr "&Grafiken"
+
+#: tmainform.menuitemchemcharts.caption
+msgid "&Chemistry charts"
+msgstr "Geo&chemie Grafiken"
+
+#: tmainform.menuitemchemdata.caption
+msgid "Chemistry Data in CSV/DBF Table"
+msgstr "Geochemie Daten aus CSV/DBF Tabelle"
+
+#: tmainform.menuitemchemimport.caption
+msgid "Chemistry Data"
+msgstr "Geochemie Daten"
+
+#: tmainform.menuitemchemistry.caption
+msgid "C&hemistry"
+msgstr "Geoc&hemie"
+
+#: tmainform.menuitemchemistryunits.caption
+msgctxt "tmainform.menuitemchemistryunits.caption"
+msgid "&Chemistry"
+msgstr "Geo&chemie"
+
+#: tmainform.menuitemclearmarked.caption
+msgid "&Clear marked sites List"
+msgstr "Liste markierter &Standorte löschen"
+
+#: tmainform.menuitemcloseworkspace.caption
+msgctxt "tmainform.menuitemcloseworkspace.caption"
+msgid "&Close Workspace"
+msgstr "&Arbeitsumgebung schließen"
+
+#: tmainform.menuitemcloseworkspace.hint
+msgctxt "tmainform.menuitemcloseworkspace.hint"
+msgid "Close current workspace"
+msgstr "Aktuelle Arbeitsumgebung schließen"
+
+#: tmainform.menuitemcolours.caption
+msgid "C&olours"
+msgstr "&Farben"
+
+#: tmainform.menuitemcolumnarreports.caption
+msgid "&Columnar Report"
+msgstr "&Spaltenbericht"
+
+#: tmainform.menuitemcomments.caption
+msgid "Co&mments"
+msgstr "Ko&mmentare"
+
+#: tmainform.menuitemconstruction.caption
+msgid "&Construction"
+msgstr "&Konstruktion"
+
+#: tmainform.menuitemcopy.caption
+msgctxt "tmainform.menuitemcopy.caption"
+msgid "Cop&y"
+msgstr "&Kopieren"
+
+#: tmainform.menuitemcopy.hint
+msgctxt "tmainform.menuitemcopy.hint"
+msgid "Copy current selection to clipboard"
+msgstr "Auswahl in die Zwischenablage kopieren"
+
+#: tmainform.menuitemcreateedituserstandards.caption
+msgid "Create/&Edit/Delete Standards"
+msgstr "Standard Erstellen/B&earbeiten/Löschen"
+
+#: tmainform.menuitemcreateview.caption
+msgctxt "tmainform.menuitemcreateview.caption"
+msgid "Create new &View"
+msgstr "Neuen \"&View\" erstellen"
+
+#: tmainform.menuitemcreateview.hint
+msgctxt "tmainform.menuitemcreateview.hint"
+msgid "Create new View"
+msgstr "Neuen \"View\" erstellen"
+
+#: tmainform.menuitemcrsinfo.caption
+msgid "View available C&oordinate Systems"
+msgstr "Verfügbare K&oordinatensysteme anzeigen"
+
+#: tmainform.menuitemcurrentstandard.caption
+msgid "&Current Standard Parameters"
+msgstr "&Aktuellen Standard Parameter"
+
+#: tmainform.menuitemcut.caption
+msgctxt "tmainform.menuitemcut.caption"
+msgid "&Cut"
+msgstr "Aus&schneiden"
+
+#: tmainform.menuitemcut.hint
+msgctxt "tmainform.menuitemcut.hint"
+msgid "Cut current selection to clipboard"
+msgstr "Auswahl in die Z&wischenablage ausschneiden"
+
+#: tmainform.menuitemdatabasespecific.caption
+msgid "&Database specific"
+msgstr "Datenbank speziefisch"
+
+#: tmainform.menuitemdeletesites.caption
+msgid "&Delete Sites"
+msgstr "&Standorte löschen"
+
+#: tmainform.menuitemdiammet.caption
+msgid "Diameter/&Meteorology"
+msgstr "Durchmesser/&Meteorologie"
+
+#: tmainform.menuitemdischargerate.caption
+msgctxt "tmainform.menuitemdischargerate.caption"
+msgid "&Discharge rate"
+msgstr "&Abgaberate"
+
+#: tmainform.menuitemdischargerate.hint
+msgctxt "tmainform.menuitemdischargerate.hint"
+msgid "Open discharges"
+msgstr "Abgaberaten öffnen"
+
+#: tmainform.menuitemdownhole.caption
+msgid "&Down-the-Hole"
+msgstr "&Dem Bohrloch folgend"
+
+#: tmainform.menuitemdroptriggers.caption
+msgid "Drop spatial triggers"
+msgstr "Räumliche \"Trigger\" entfernen"
+
+#: tmainform.menuitemdroptriggers.hint
+msgid "You can use this to work on basicinf and profilng in other applications without spatial error messages"
+msgstr "Dies kann benutzt werden um in den Tabellen \"basicinf\" und \"profilng\" in anderen Anwendungen zu arbeiten damit keine räumlichen Fehlermeldungen auftreten"
+
+#: tmainform.menuitemedit.caption
+msgid "&Edit"
+msgstr "B&earbeiten"
+
+#: tmainform.menuitemelectricalcond.caption
+msgid "&Electrical Conductivity"
+msgstr "&Elektrische Leitfähigkeit"
+
+#: tmainform.menuitemengineering.caption
+#, fuzzy
+msgid "&Engineering"
+msgstr "&Ingeneurwesen"
+
+#: tmainform.menuitemexit.caption
+msgctxt "tmainform.menuitemexit.caption"
+msgid "E&xit"
+msgstr "&Schließen"
+
+#: tmainform.menuitemexit.hint
+msgctxt "tmainform.menuitemexit.hint"
+msgid "Exit Aquabase"
+msgstr "Aquabase schließen"
+
+#: tmainform.menuitemexpenditure.caption
+msgid "&Expenditure"
+msgstr "&Ausgaben"
+
+#: tmainform.menuitemexport.caption
+msgid "E&xport"
+msgstr "E&xportieren"
+
+#: tmainform.menuitemfieldmeasurement.caption
+msgctxt "tmainform.menuitemfieldmeasurement.caption"
+msgid "&Field Measurement"
+msgstr "&Geländemessungen"
+
+#: tmainform.menuitemfile.caption
+msgctxt "tmainform.menuitemfile.caption"
+msgid "&File"
+msgstr "&Datei"
+
+#: tmainform.menuitemfillmaterialcolour.caption
+msgid "&Fill Material Bitmaps && Colour"
+msgstr "&Füllmaterial \"Bitmaps\" && Farbe"
+
+#: tmainform.menuitemgeoelectricmethods.caption
+msgid "&Geo-electric Methods"
+msgstr "&Geo-elektrische Methoden"
+
+#: tmainform.menuitemgeology.caption
+#, fuzzy
+msgctxt "tmainform.menuitemgeology.caption"
+msgid "&Geology"
+msgstr "&Geologie"
+
+#: tmainform.menuitemgeophysics.caption
+msgid "Geo&physics"
+msgstr "Geo&physik"
+
+#: tmainform.menuitemgraduated.caption
+msgid "&Graduated Points Map"
+msgstr "Ab&gestufte Punktkarte"
+
+#: tmainform.menuitemground.caption
+msgid "&Ground"
+msgstr "An der &Oberfläche"
+
+#: tmainform.menuitemgroundwater.caption
+msgid "&Groundwater"
+msgstr "&Grundwasser"
+
+#: tmainform.menuitemgroundwaterproperties.caption
+msgid "Groundwater &Properties"
+msgstr "Grundwasser &Eigenschaften"
+
+#: tmainform.menuitemhelp.caption
+msgid "&Help"
+msgstr "&Hilfe"
+
+#: tmainform.menuitemhelpcontents.caption
+msgctxt "tmainform.menuitemhelpcontents.caption"
+msgid "&Contents"
+msgstr "&Inhalt"
+
+#: tmainform.menuitemhelpcontents.hint
+msgctxt "tmainform.menuitemhelpcontents.hint"
+msgid "Display the help contents screen"
+msgstr "Inhalt der Hilfe anzeigen"
+
+#: tmainform.menuitemhelponshortcuts.caption
+msgid "Help &on Shortcuts"
+msgstr "Hilfe &zu Tastenkürzeln"
+
+#: tmainform.menuitemholeconstruction.caption
+#, fuzzy
+msgctxt "tmainform.menuitemholeconstruction.caption"
+msgid "Hole &Construction"
+msgstr "Bohrloch Konstruktion"
+
+#: tmainform.menuitemholeconstruction.hint
+#, fuzzy
+msgctxt "tmainform.menuitemholeconstruction.hint"
+msgid "Open hole construction"
+msgstr "Bohrloch Konstruktion öffnen"
+
+#: tmainform.menuitemholefinish.caption
+#, fuzzy
+msgctxt "tmainform.menuitemholefinish.caption"
+msgid "&Hole Finish"
+msgstr "&Bohrlochabfertigung"
+
+#: tmainform.menuitemhowtouse.caption
+msgid "&How to Use Help"
+msgstr "Wie benutzt man die &Hilfe"
+
+#: tmainform.menuitemhowtouse.hint
+msgid "Help on using the help system"
+msgstr "Hilfe zum Hilfesystem"
+
+#: tmainform.menuitemhydrochemistry.caption
+#, fuzzy
+msgctxt "tmainform.menuitemhydrochemistry.caption"
+msgid "&Chemistry"
+msgstr "&Geochemische Zusammensetzung"
+
+#: tmainform.menuitemimport.caption
+msgid "&Import"
+msgstr "&Import"
+
+#: tmainform.menuitemimportoldaquabase.caption
+msgid "Old Aquabase &Workspace"
+msgstr "\"Alte\" Aquabase Arbeitsumgebung"
+
+#: tmainform.menuiteminsertcharacter.caption
+msgid "Insert &Character in Site ID..."
+msgstr "&Zeichen in die Standortskennung einfügen..."
+
+#: tmainform.menuiteminstallation.caption
+#, fuzzy
+msgctxt "tmainform.menuiteminstallation.caption"
+msgid "&Installation"
+msgstr "&Installation"
+
+#: tmainform.menuiteminstrumentation.caption
+msgid "&Instrumentation"
+msgstr "&Instrumentation"
+
+#: tmainform.menuitemkmlfile.caption
+msgid "Create &KML file for Google Earth/My Maps"
+msgstr "KML Datei fürGoogle Earth/My Maps erstellen"
+
+#: tmainform.menuitemlength.caption
+msgid "&Length"
+msgstr "&Länge"
+
+#: tmainform.menuitemlithlog.caption
+msgid "&Borehole log && construction"
+msgstr "&Bohrlochprotokoll && Konstruktion"
+
+#: tmainform.menuitemlithologybitmaps.caption
+msgid "Lithology &Bitmaps && Colour"
+msgstr "Lithologie &Bitmaps && Farben"
+
+#: tmainform.menuitemlithprofile.caption
+msgid "Lithology &Profile"
+msgstr "Lithologie &Profil"
+
+#: tmainform.menuitemlookupcodes.caption
+msgid "Lookup Codes"
+msgstr "Suchcodes"
+
+#: tmainform.menuitemlookupcodesreport.caption
+msgid "L&ookup Codes"
+msgstr "S&uchcodes"
+
+#: tmainform.menuitemlookups.caption
+msgid "&Lookup Codes"
+msgstr "&Suchcodes"
+
+#: tmainform.menuitemmagneticsuscept.caption
+msgid "&Magnetic Susceptibility"
+msgstr "&Magnetische Suszeptibilität"
+
+#: tmainform.menuitemmaintenance.caption
+msgid "&Maintenance"
+msgstr "&Instandhaltung"
+
+#: tmainform.menuitemmanagefilters.caption
+msgid "&Manage Views"
+msgstr "\"Views\" verwalten"
+
+#: tmainform.menuitemmanrec.caption
+msgctxt "tmainform.menuitemmanrec.caption"
+msgid "&Management Recommendations"
+msgstr "&Managementempfehlungen"
+
+#: tmainform.menuitemmapview.caption
+msgid "&View Map"
+msgstr "&Karte anzeigen"
+
+#: tmainform.menuitemmarkcurrent.caption
+msgid "&Mark current Site"
+msgstr "Aktuellen Standort &markieren"
+
+#: tmainform.menuitemmarksites.caption
+msgid "&Mark Sites"
+msgstr "Standort &markieren"
+
+#: tmainform.menuitemmember.caption
+msgid "&Member of Group"
+msgstr "&Mitglied einer Gruppe"
+
+#: tmainform.menuitemmeteorology.caption
+msgid "Mete&orology"
+msgstr "Mete&orologie"
+
+#: tmainform.menuitemmeterreadings.caption
+msgid "Me&ter Readings"
+msgstr "&Zählerstände"
+
+#: tmainform.menuitemnameofowner.caption
+msgid "&Name of Owner"
+msgstr "&Name des Eigentümers"
+
+#: tmainform.menuitemnewsqlite.caption
+msgid "Apply new S&QLite Database"
+msgstr "Neue S&QLite Datenbank übernehmen"
+
+#: tmainform.menuitemnewworkspace.caption
+msgid "&New Workspace"
+msgstr "&Neue Arbeitsumgebung"
+
+#: tmainform.menuitemnewworkspace.hint
+msgid "Create a new Workspace"
+msgstr "Neue Arbeitsumgebung erstellen"
+
+#: tmainform.menuitemopenworkspace.caption
+msgctxt "tmainform.menuitemopenworkspace.caption"
+msgid "&Open Workspace"
+msgstr "Arbeitsumgebung &öffnen"
+
+#: tmainform.menuitemopenworkspace.hint
+msgctxt "tmainform.menuitemopenworkspace.hint"
+msgid "Open a workspace"
+msgstr "Eine bestehende Arbeitsumgebung öffnen"
+
+#: tmainform.menuitemotherdata.caption
+msgid "Other &Data"
+msgstr "Ander &Daten"
+
+#: tmainform.menuitemotherhole.caption
+msgid "&Other Hole"
+msgstr "&Anderes Loch"
+
+#: tmainform.menuitemotheridentifier.caption
+msgid "Other &Identifier"
+msgstr "Andere &Kennung"
+
+#: tmainform.menuitemothrparam.caption
+msgid "Other &Parameters"
+msgstr "Andere &Parameter"
+
+#: tmainform.menuitempagereports.caption
+msgid "&Page Report"
+msgstr "&Seitenbericht"
+
+#: tmainform.menuitempaste.caption
+msgctxt "tmainform.menuitempaste.caption"
+msgid "&Paste"
+msgstr "Ein&fügen"
+
+#: tmainform.menuitempaste.hint
+msgctxt "tmainform.menuitempaste.hint"
+msgid "Paste from clipboard"
+msgstr "Aus der Zwischenablage einfügen"
+
+#: tmainform.menuitempenetrationrate.caption
+msgctxt "tmainform.menuitempenetrationrate.caption"
+msgid "&Penetration Rate"
+msgstr "&Penetrationsrate"
+
+#: tmainform.menuitempreferences.caption
+msgctxt "tmainform.menuitempreferences.caption"
+msgid "&Preferences"
+msgstr "&Einstellungen"
+
+#: tmainform.menuitemprefs.caption
+msgctxt "tmainform.menuitemprefs.caption"
+msgid "&Preferences"
+msgstr "&Einstellungen"
+
+#: tmainform.menuitempressure.caption
+msgid "Atmospheric Pressure"
+msgstr "Atmosphärischer Druck"
+
+#: tmainform.menuitemprint.caption
+msgctxt "tmainform.menuitemprint.caption"
+msgid "&Print"
+msgstr "&Drucken"
+
+#: tmainform.menuitemprint.hint
+msgctxt "tmainform.menuitemprint.hint"
+msgid "Print current file"
+msgstr "Aktuelles Element drucken"
+
+#: tmainform.menuitemprintsetup.caption
+msgid "P&rint Setup..."
+msgstr "D&rucker Einstellungen..."
+
+#: tmainform.menuitemprintsetup.hint
+msgid "Change printer setup"
+msgstr "Drucker Einstellungen ändern"
+
+#: tmainform.menuitemprofiling.caption
+msgid "&Profiling"
+msgstr "&Profilerstellung"
+
+#: tmainform.menuitemprojects.caption
+msgctxt "tmainform.menuitemprojects.caption"
+msgid "&Project Information"
+msgstr "&Projektinformation"
+
+#: tmainform.menuitempumpengine.caption
+msgid "Pump/&Engine Details"
+msgstr "Pumpen-/Antriebsdetails"
+
+#: tmainform.menuitempumpingtest.caption
+#, fuzzy
+msgctxt "tmainform.menuitempumpingtest.caption"
+msgid "Pumping Test"
+msgstr "Pumpversuch"
+
+#: tmainform.menuitempumpingtest.hint
+msgctxt "tmainform.menuitempumpingtest.hint"
+msgid "Open pumping tests"
+msgstr "Pumpversuche öffnen"
+
+#: tmainform.menuitemqgis.caption
+msgid "&QGIS"
+msgstr "&QGIS"
+
+#: tmainform.menuitemqgisgoto.caption
+msgctxt "tmainform.menuitemqgisgoto.caption"
+msgid "&Go to selected site"
+msgstr "&Zum ausgewählten Standort gegen"
+
+#: tmainform.menuitemqgisgoto.hint
+msgctxt "tmainform.menuitemqgisgoto.hint"
+msgid "Go to site selected in QGIS"
+msgstr "Zum ausgewählten Standort in QGIS gehen"
+
+#: tmainform.menuitemqgismark.caption
+msgctxt "tmainform.menuitemqgismark.caption"
+msgid "&Mark site as selected"
+msgstr "Standort as aktiv &markieren"
+
+#: tmainform.menuitemqgismark.hint
+msgctxt "tmainform.menuitemqgismark.hint"
+msgid "Mark site as selected in QGIS"
+msgstr "Standort als aktiv in QGIS markieren"
+
+#: tmainform.menuitemquicksearch.caption
+msgctxt "tmainform.menuitemquicksearch.caption"
+msgid "&Quick Search"
+msgstr "&Schnellsuche"
+
+#: tmainform.menuitemquicksearch.hint
+msgctxt "tmainform.menuitemquicksearch.hint"
+msgid "Quick search"
+msgstr "Schnellsuche öffnen"
+
+#: tmainform.menuitemradioactivemethods.caption
+msgid "&Radio-active Methods"
+msgstr "&Radioaktivmethoden"
+
+#: tmainform.menuitemrainevaporationhumidity.caption
+msgid "&Hydrologic Parameters"
+msgstr "&Hydrologische Parameter"
+
+#: tmainform.menuitemrecentworkspaces.caption
+msgid "Recent &Workspaces"
+msgstr "Zuletzt benutzte &Arbeitsumgebungen"
+
+#: tmainform.menuitemrecommendations.caption
+msgctxt "tmainform.menuitemrecommendations.caption"
+msgid "Management &Recommendations"
+msgstr "Management&empfehlungen"
+
+#: tmainform.menuitemrecommendations.hint
+msgctxt "tmainform.menuitemrecommendations.hint"
+msgid "Open management recommendations"
+msgstr "Managementempfehlungen öffnen"
+
+#: tmainform.menuitemreconcilesites.caption
+msgid "Rec&oncile Sites"
+msgstr "&Standorte miteinander vereinbaren"
+
+#: tmainform.menuitemreconcilesites.hint
+msgid "Combine info of two sites into one"
+msgstr "Information zweier Standorte kombinieren"
+
+#: tmainform.menuitemreferences.caption
+msgid "&References"
+msgstr "&Verweise"
+
+#: tmainform.menuitemremovecurrent.caption
+msgid "&Remove current marked Site"
+msgstr "Markie&rten Standort löschen"
+
+#: tmainform.menuitemreportdocs.caption
+#, fuzzy
+msgctxt "tmainform.menuitemreportdocs.caption"
+msgid "Report Documents"
+msgstr "Berichts&dokumente"
+
+#: tmainform.menuitemreports.caption
+msgid "&Report"
+msgstr "&Be&richt"
+
+#: tmainform.menuitemresetview.caption
+msgid "Reset &view to \"allsites\""
+msgstr "\"allsites\" \"&View\" aktivieren"
+
+#: tmainform.menuitemrestoretriggers.caption
+msgid "Restore spatial triggers"
+msgstr "Räumliche \"Trigger\" wiederherstellen"
+
+#: tmainform.menuitemrunsqlquery.caption
+msgid "Run &SQL query"
+msgstr "&SQL \"Query\" ausführen"
+
+#: tmainform.menuitemsavemarked.caption
+msgid "Create &View from marked sites"
+msgstr "\"View\" aus markierten Standorten erstellen"
+
+#: tmainform.menuitemsearchstatus.caption
+msgid "&Search Status"
+msgstr "&Suchstatus"
+
+#: tmainform.menuitemselectsites.caption
+msgid "S&elect Sites for new View"
+msgstr "Standorte für n&euen \"View\" auswählen"
+
+#: tmainform.menuitemsitelinked.caption
+msgctxt "tmainform.menuitemsitelinked.caption"
+msgid "Site-linked Reports"
+msgstr "Berichte zum Standort"
+
+#: tmainform.menuitemsiteselection.caption
+msgid "&Site Selection"
+msgstr "&Standortauswahl"
+
+#: tmainform.menuitemsitespecific.caption
+msgid "Current &Site specific"
+msgstr "Aktueller &Standort spezifisch"
+
+#: tmainform.menuitemsitestatus.caption
+msgid "Site Stat&us"
+msgstr "Standort Stat&us"
+
+#: tmainform.menuitemsitetargets.caption
+msgid "Site T&argets"
+msgstr "Standort &Ziele"
+
+#: tmainform.menuitemsqlscript.caption
+msgid "&Run SQL script"
+msgstr "SQL \"Sc&ript\" ausführen"
+
+#: tmainform.menuitemsqlsearch.caption
+msgid "&SQL Search"
+msgstr "&SQL Suche"
+
+#: tmainform.menuitemstandardparameters.caption
+#, fuzzy
+msgctxt "tmainform.menuitemstandardparameters.caption"
+msgid "&Standard Parameters"
+msgstr "&Standardparameter"
+
+#: tmainform.menuitemstandardparameters.hint
+msgctxt "tmainform.menuitemstandardparameters.hint"
+msgid "Open standard chemistry"
+msgstr "Standardparameter öffnen"
+
+#: tmainform.menuitemstartqgis.caption
+msgid "Start &QGIS"
+msgstr "&QGIS starten"
+
+#: tmainform.menuitemstartqgis.hint
+msgid "Start QGIS"
+msgstr "QGIS starten"
+
+#: tmainform.menuitemstatistics.caption
+msgid "&Statistics"
+msgstr "&Statistiken"
+
+#: tmainform.menuitemsurfacehydrology.caption
+msgid "Sur&face Hydrology"
+msgstr "Oberflächenhydrologie"
+
+#: tmainform.menuitemtemperatureradiationwind.caption
+msgid "&Atmospheric Parameters"
+msgstr "&Atmosphärische Parameter"
+
+#: tmainform.menuitemtestingdetails.caption
+#, fuzzy
+msgctxt "tmainform.menuitemtestingdetails.caption"
+msgid "Testing Details"
+msgstr "Pumpversuch Details"
+
+#: tmainform.menuitemtime.caption
+msgid "&Time"
+msgstr "&Zeit"
+
+#: tmainform.menuitemtools.caption
+msgid "&Tools"
+msgstr "&Werkzeuge"
+
+#: tmainform.menuitemunits.caption
+msgid "&Units"
+msgstr "&Einheiten"
+
+#: tmainform.menuitemupdatecoords.caption
+msgid "&Update Coordinates from Geometry"
+msgstr "Koordinaten aus der Geometrie akt&ualisieren"
+
+#: tmainform.menuitemuserdefinedparameters.caption
+msgctxt "tmainform.menuitemuserdefinedparameters.caption"
+msgid "&User defined Parameters"
+msgstr "Ben&utzer-definierte Parameter"
+
+#: tmainform.menuitemuseview.caption
+msgctxt "tmainform.menuitemuseview.caption"
+msgid "&Use View..."
+msgstr "\"View\" ben&utzen..."
+
+#: tmainform.menuitemuseview.hint
+msgctxt "tmainform.menuitemuseview.hint"
+msgid "Use existing View"
+msgstr "Bestehenden \"View\" benutzen"
+
+#: tmainform.menuitemviewcurrent.caption
+msgid "&Show current Site on Map"
+msgstr "Aktuellen &Standort auf Karte anzeigen"
+
+#: tmainform.menuitemviewview.caption
+msgid "Show sites in &current View on Map"
+msgstr "Standorte im a&ktuellen \"View\" auf Karte anzeigen"
+
+#: tmainform.menuitemvisitstosite.caption
+msgid "&Visits to Site"
+msgstr "Standort &Besuche"
+
+#: tmainform.menuitemvolume.caption
+msgid "&Volume"
+msgstr "&Volumen"
+
+#: tmainform.menuitemvqb.caption
+msgid "Visual Query &Builder"
+msgstr "Visueller \"Query &Builder\""
+
+#: tmainform.menuitemwaterlevel.caption
+msgctxt "tmainform.menuitemwaterlevel.caption"
+msgid "&Water level"
+msgstr "&Wasserspiegel"
+
+#: tmainform.menuitemwaterlevel.hint
+#, fuzzy
+msgctxt "tmainform.menuitemwaterlevel.hint"
+msgid "Open water levels"
+msgstr "Wasserspiegel öffnen"
+
+#: tmainform.menuitemwatersample.caption
+#, fuzzy
+msgctxt "tmainform.menuitemwatersample.caption"
+msgid "&Water Sample"
+msgstr "&Wasserprobe"
+
+#: tmainform.menuitemwms.caption
+msgid "WMS Chemistry Data in CSV File"
+msgstr "WMS geochemiedaten in CSV Datei"
+
+#: tmainform.menuitemwritemember.caption
+msgid "Create M&embers from View"
+msgstr "Mitgli&eder aus \"View\" erstellen"
+
+#: tmainform.menusqlitedb.caption
+msgid "SQLite Database"
+msgstr "SQLite Datenbank"
+
+#: tmainform.menuvacuum.caption
+msgid "Vacuum Database"
+msgstr "\"Vacuum\" Datenbank"
+
+#: tmainform.menuvacuum.hint
+msgid "Clean up empty space in database"
+msgstr "Leere Stellen in der Datenbank säubern"
+
+#: tmainform.meterorology1.caption
+msgid "&Meteorology"
+msgstr "&Meteorologie"
+
+#: tmainform.meterreading2.caption
+msgctxt "tmainform.meterreading2.caption"
+msgid "Meter &Reading"
+msgstr "&Zählerstand"
+
+#: tmainform.meterreading3.caption
+msgctxt "tmainform.meterreading3.caption"
+msgid "Meter &Reading"
+msgstr "&Zählerstand"
+
+#: tmainform.opendialog1.title
+msgid "Open Aquabase Workspace"
+msgstr "Aquabase Arbeitsumgebung öffnen"
+
+#: tmainform.openwspacebutton.caption
+msgctxt "tmainform.openwspacebutton.caption"
+msgid "&Open Workspace"
+msgstr "Arbeitsumgebung &öffnen"
+
+#: tmainform.openwspacebutton.hint
+msgctxt "tmainform.openwspacebutton.hint"
+msgid "Open a workspace"
+msgstr "Eine Arbeitsumgebung öffnen"
+
+#: tmainform.othercases1.caption
+msgid "Special &Cases"
+msgstr "Bes&ondere Fälle"
+
+#: tmainform.pastebutton.caption
+msgctxt "tmainform.pastebutton.caption"
+msgid "&Paste"
+msgstr "Ein&fügen"
+
+#: tmainform.pastebutton.hint
+msgctxt "tmainform.pastebutton.hint"
+msgid "Paste from clipboard"
+msgstr "Aus der Zwischenablage ein&fügen"
+
+#: tmainform.penetrationrate2.caption
+msgid "&Penetration rate"
+msgstr "&Penetrationsrate"
+
+#: tmainform.penetrationrate3.caption
+msgctxt "tmainform.penetrationrate3.caption"
+msgid "&Penetration Rate"
+msgstr "&Penetrationsrate"
+
+#: tmainform.preferencesbutton.caption
+msgctxt "tmainform.preferencesbutton.caption"
+msgid "&Preferences"
+msgstr "&Einstellungen"
+
+#: tmainform.printbutton.caption
+msgctxt "tmainform.printbutton.caption"
+msgid "&Print"
+msgstr "&Drucken"
+
+#: tmainform.printbutton.hint
+msgctxt "tmainform.printbutton.hint"
+msgid "Print current file"
+msgstr "Aktuelles Element drucken"
+
+#: tmainform.projectinformation1.caption
+msgctxt "tmainform.projectinformation1.caption"
+msgid "&Project Information"
+msgstr "&Projektinformation"
+
+#: tmainform.projectmanagement1.caption
+msgid "&Site Management"
+msgstr "&Standortmanagement"
+
+#: tmainform.pumpingtestdata1.caption
+msgid "&Pumping test data..."
+msgstr "&Pumpversuchdaten..."
+
+#: tmainform.pumpingtestdata2.caption
+msgid "&Pumping test data"
+msgstr "&Pumpversuchdaten"
+
+#: tmainform.qgisgotobutton.caption
+msgctxt "tmainform.qgisgotobutton.caption"
+msgid "&Go to selected site"
+msgstr "&Zum ausgewählten Standort gehen"
+
+#: tmainform.qgisgotobutton.hint
+msgctxt "tmainform.qgisgotobutton.hint"
+msgid "Go to site selected in QGIS"
+msgstr "In QGIS zum ausgewählten Standort gehen"
+
+#: tmainform.qgismarkbutton.caption
+msgctxt "tmainform.qgismarkbutton.caption"
+msgid "&Mark site as selected"
+msgstr "Standort als ausgewählt markieren"
+
+#: tmainform.qgismarkbutton.hint
+msgctxt "tmainform.qgismarkbutton.hint"
+msgid "Mark site as selected in QGIS"
+msgstr "Standort in QGIS als ausgewählt markieren"
+
+#: tmainform.quicksearchbutton.caption
+msgctxt "tmainform.quicksearchbutton.caption"
+msgid "&Quick Search"
+msgstr "Schnells&uche"
+
+#: tmainform.quicksearchbutton.hint
+msgctxt "tmainform.quicksearchbutton.hint"
+msgid "Quick search"
+msgstr "Schnellsuche"
+
+#: tmainform.savefilterdialog.title
+msgid "Save Filter File"
+msgstr "\"View\" sichern"
+
+#: tmainform.siteimages1.caption
+msgid "Site &Images"
+msgstr "Standortb&ilder"
+
+#: tmainform.siteinformation2.caption
+msgctxt "tmainform.siteinformation2.caption"
+msgid "&Site Information"
+msgstr "&Standortinformation"
+
+#: tmainform.siteinformation3.caption
+msgctxt "tmainform.siteinformation3.caption"
+msgid "&Site Information"
+msgstr "&Standortinformation"
+
+#: tmainform.sitemanagementbutton.caption
+msgctxt "tmainform.sitemanagementbutton.caption"
+msgid "Management &Recommendations"
+msgstr "Management&empfehlungen"
+
+#: tmainform.sitemanagementbutton.hint
+msgctxt "tmainform.sitemanagementbutton.hint"
+msgid "Open management recommendations"
+msgstr "Managementempfehlungen öffnen"
+
+#: tmainform.sounding1.caption
+msgid "&Sounding"
+msgstr "&Sondierung"
+
+#: tmainform.stageheight1.caption
+msgid "&Stage Height"
+msgstr "&Pegelmessungen"
+
+#: tmainform.standardparameters3.caption
+#, fuzzy
+msgctxt "tmainform.standardparameters3.caption"
+msgid "&Standard Parameters"
+msgstr "&Standardparameter"
+
+#: tmainform.statusbar1.panels[1].text
+msgid "<no View>"
+msgstr "<kein \"View\">"
+
+#: tmainform.statusbar1.panels[2].text
+msgctxt "tmainform.statusbar1.panels[2].text"
+msgid "<no site>"
+msgstr "<kein Standort>"
+
+#: tmainform.statusbar1.panels[3].text
+msgctxt "tmainform.statusbar1.panels[3].text"
+msgid "Editing: <none>"
+msgstr "Bearbeiten: <keiner>"
+
+#: tmainform.statusbar1.panels[4].text
+msgctxt "tmainform.statusbar1.panels[4].text"
+msgid "<no workspace open>"
+msgstr "<keine Arbeitsumgebung offen>"
+
+#: tmainform.surfacehydrology2.caption
+msgid "Surface &Hydrology"
+msgstr ""
+
+#: tmainform.testingbutton.caption
+msgctxt "tmainform.testingbutton.caption"
+msgid "Pumping Test"
+msgstr "Pumpversuch"
+
+#: tmainform.testingbutton.hint
+msgctxt "tmainform.testingbutton.hint"
+msgid "Open pumping tests"
+msgstr "Pumpversuche öffnen"
+
+#: tmainform.testpumping1.caption
+msgid "Pumping &Test"
+msgstr "Pump&versuch"
+
+#: tmainform.timecharts.caption
+msgid "&Time dependent charts"
+msgstr "&Zeit-abhängige Grafiken"
+
+#: tmainform.timedependent1.caption
+msgid "&Time dependent"
+msgstr "&Zeit-abhängig"
+
+#: tmainform.toolbutton11.caption
+msgid "ToolButton11"
+msgstr ""
+
+#: tmainform.toolbutton21.caption
+msgid "ToolButton21"
+msgstr ""
+
+#: tmainform.toolbutton22.caption
+#, fuzzy
+msgctxt "tmainform.toolbutton22.caption"
+msgid "E&xit"
+msgstr "&Schließen"
+
+#: tmainform.toolbutton22.hint
+#, fuzzy
+msgctxt "tmainform.toolbutton22.hint"
+msgid "Exit Aquabase"
+msgstr "Aquabase schließen"
+
+#: tmainform.toolbutton4.caption
+msgid "ToolButton4"
+msgstr ""
+
+#: tmainform.toolbutton8.caption
+msgid "ToolButton8"
+msgstr ""
+
+#: tmainform.usefilterdialog.title
+msgid "Use Filter"
+msgstr "\"View\" benutzen"
+
+#: tmainform.userdefinedparameters4.caption
+msgctxt "tmainform.userdefinedparameters4.caption"
+msgid "&User defined Parameters"
+msgstr "Benutzer-definierte Parameter"
+
+#: tmainform.useviewbutton.caption
+msgctxt "tmainform.useviewbutton.caption"
+msgid "&Use View..."
+msgstr "\"View\" ben&utzen..."
+
+#: tmainform.useviewbutton.hint
+msgctxt "tmainform.useviewbutton.hint"
+msgid "Use existing View"
+msgstr "Bestehenden \"View\" benutzen"
+
+#: tmainform.waterlevel2.caption
+msgctxt "tmainform.waterlevel2.caption"
+msgid "&Water level"
+msgstr "&Wasserspiegel"
+
+#: tmainform.waterlevelbutton.caption
+msgctxt "tmainform.waterlevelbutton.caption"
+msgid "&Water level"
+msgstr "&Wasserspeigel"
+
+#: tmainform.waterlevelbutton.hint
+msgctxt "tmainform.waterlevelbutton.hint"
+msgid "Open water levels"
+msgstr "Wasserspiegel öffnen"
+
+#: tmainform.watersample3.caption
+msgctxt "tmainform.watersample3.caption"
+msgid "&Water Sample"
+msgstr "&Wasserprobe"
+
+#: tmainform.yield1.caption
+msgid "Aquifer &Yield"
+msgstr "A&quifer-Ertrag"
