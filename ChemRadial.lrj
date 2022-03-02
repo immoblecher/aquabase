@@ -1,0 +1,16 @@
+{"version":1,"strings":[
+{"hash":198068196,"name":"tchemradialform.caption","sourcebytes":[82,97,100,105,97,108,32,67,104,97,114,116],"value":"Radial Chart"},
+{"hash":2795129,"name":"tchemradialform.menuitem1.caption","sourcebytes":[38,67,111,112,121],"value":"&Copy"},
+{"hash":17559920,"name":"tchemradialform.menuitem2.caption","sourcebytes":[38,67,111,112,121,32,97,115,32,98,105,116,109,97,112],"value":"&Copy as bitmap"},
+{"hash":43117950,"name":"tchemradialform.menuitem3.caption","sourcebytes":[83,97,118,101,32,38,97,115,46,46,46],"value":"Save &as..."},
+{"hash":45584468,"name":"tchemradialform.menuitem5.caption","sourcebytes":[38,80,114,105,110,116],"value":"&Print"},
+{"hash":102773972,"name":"tchemradialform.menuitemreport.caption","sourcebytes":[38,85,112,100,97,116,101,32,99,104,97,114,116,32,102,111,114,32,114,101,112,111,114,116],"value":"&Update chart for report"},
+{"hash":95736933,"name":"tchemradialform.menuitem6.caption","sourcebytes":[38,77,111,110,111,99,104,114,111,109,101],"value":"&Monochrome"},
+{"hash":257788532,"name":"tchemradialform.quickformat1.caption","sourcebytes":[38,81,117,105,99,107,32,70,111,114,109,97,116],"value":"&Quick Format"},
+{"hash":129899845,"name":"tchemradialform.menuitembackground.caption","sourcebytes":[38,66,97,99,107,103,114,111,117,110,100,32,119,104,105,116,101],"value":"&Background white"},
+{"hash":241125525,"name":"tchemradialform.menuitempanel.caption","sourcebytes":[80,97,110,101,108,32,38,99,111,108,111,117,114,32,119,104,105,108,101],"value":"Panel &colour while"},
+{"hash":44927029,"name":"tchemradialform.menuitemframe.caption","sourcebytes":[38,70,114,97,109,101],"value":"&Frame"},
+{"hash":2812148,"name":"tchemradialform.grid1.caption","sourcebytes":[38,71,114,105,100],"value":"&Grid"},
+{"hash":10612,"name":"tchemradialform.n3d1.caption","sourcebytes":[38,51,68],"value":"&3D"},
+{"hash":187423844,"name":"tchemradialform.legend1.caption","sourcebytes":[38,76,101,103,101,110,100],"value":"&Legend"}
+]}

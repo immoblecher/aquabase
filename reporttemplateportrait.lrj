@@ -1,0 +1,14 @@
+{"version":1,"strings":[
+{"hash":99082621,"name":"tportraitreportform.caption","sourcebytes":[80,111,114,116,114,97,105,116,82,101,112,111,114,116,70,111,114,109],"value":"PortraitReportForm"},
+{"hash":211175168,"name":"tportraitreportform.rlsysteminfo1.text","sourcebytes":[68,97,116,101,32,67,111,109,112,105,108,101,100,58,32],"value":"Date Compiled: "},
+{"hash":5263178,"name":"tportraitreportform.rllabel4.caption","sourcebytes":[77,105,110,105,109,117,109,58],"value":"Minimum:"},
+{"hash":149966650,"name":"tportraitreportform.rllabel5.caption","sourcebytes":[77,97,120,105,109,117,109,58],"value":"Maximum:"},
+{"hash":214464778,"name":"tportraitreportform.rllabel6.caption","sourcebytes":[65,118,101,114,97,103,101,58],"value":"Average:"},
+{"hash":5668208,"name":"tportraitreportform.rlsysteminfo2.text","sourcebytes":[80,97,103,101,32],"value":"Page "},
+{"hash":230092970,"name":"tportraitreportform.rllabel1.caption","sourcebytes":[83,105,116,101,32,73,100,101,110,116,105,102,105,101,114,58],"value":"Site Identifier:"},
+{"hash":193994834,"name":"tportraitreportform.rllabelheader2.caption","sourcebytes":[76,97,98,101,108,72,101,97,100,101,114,50],"value":"LabelHeader2"},
+{"hash":193994833,"name":"tportraitreportform.rllabelheader1.caption","sourcebytes":[76,97,98,101,108,72,101,97,100,101,114,49],"value":"LabelHeader1"},
+{"hash":193994835,"name":"tportraitreportform.rllabelheader3.caption","sourcebytes":[76,97,98,101,108,72,101,97,100,101,114,51],"value":"LabelHeader3"},
+{"hash":96701450,"name":"tportraitreportform.rllabel2.caption","sourcebytes":[78,117,109,98,101,114,58],"value":"Number:"},
+{"hash":265788250,"name":"tportraitreportform.rllabel3.caption","sourcebytes":[83,105,116,101,32,78,97,109,101,47,68,101,115,99,114,46,58],"value":"Site Name/Descr.:"}
+]}

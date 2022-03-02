@@ -1,0 +1,16 @@
+{"version":1,"strings":[
+{"hash":48301379,"name":"tgwpropertiesform.caption","sourcebytes":[68,111,119,110,45,116,104,101,45,104,111,108,101,32,71,114,111,117,110,100,119,97,116,101,114,32,80,114,111,112,101,114,116,105,101,115],"value":"Down-the-hole Groundwater Properties"},
+{"hash":43912133,"name":"tgwpropertiesform.graphspeedbutton.hint","sourcebytes":[68,101,112,116,104,32,100,101,112,101,110,100,101,110,116,32,99,104,97,114,116,32,111,102,32,84,101,109,112,101,114,97,116,117,114,101],"value":"Depth dependent chart of Temperature"},
+{"hash":184981677,"name":"tgwpropertiesform.linkedlabel.caption","sourcebytes":[80,97,114,97,109,101,116,101,114,32,45,32,68,101,112,116,104,32,91,109,93],"value":"Parameter - Depth [m]"},
+{"hash":215120101,"name":"tgwpropertiesform.tabsheet1.hint","sourcebytes":[84,101,109,112,101,114,97,116,117,114,101],"value":"Temperature"},
+{"hash":194358381,"name":"tgwpropertiesform.tabsheet1.caption","sourcebytes":[84,101,109,112,101,114,97,116,117,114,101,32,91,194,176,67,93],"value":"Temperature [\u00B0C]"},
+{"hash":78027742,"name":"tgwpropertiesform.dbgrid1.hint","sourcebytes":[84,101,109,112,101,114,97,116,117,114,101,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Temperature Information"},
+{"hash":97994569,"name":"tgwpropertiesform.tabsheet2.hint","sourcebytes":[69,108,101,99,116,114,105,99,97,108,32,67,111,110,100,117,99,116,105,118,105,116,121],"value":"Electrical Conductivity"},
+{"hash":158741197,"name":"tgwpropertiesform.tabsheet2.caption","sourcebytes":[69,108,101,99,116,114,105,99,97,108,32,67,111,110,100,117,99,116,105,118,105,116,121,32,91,109,83,47,109,93],"value":"Electrical Conductivity [mS/m]"},
+{"hash":85257406,"name":"tgwpropertiesform.dbgrid2.hint","sourcebytes":[69,108,101,99,116,114,46,32,67,111,110,100,46,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Electr. Cond. Information"},
+{"hash":119739705,"name":"tgwpropertiesform.tabsheet3.hint","sourcebytes":[70,108,111,119,32,86,101,108,111,99,105,116,121],"value":"Flow Velocity"},
+{"hash":209908157,"name":"tgwpropertiesform.tabsheet3.caption","sourcebytes":[70,108,111,119,32,118,101,108,111,99,105,116,121,32,91,109,47,115,93],"value":"Flow velocity [m/s]"},
+{"hash":89519630,"name":"tgwpropertiesform.dbgrid3.hint","sourcebytes":[70,108,111,119,32,86,101,108,111,99,105,116,121,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Flow Velocity Information"},
+{"hash":11440179,"name":"tgwpropertiesform.tabsheet4.caption","sourcebytes":[85,115,101,114,45,100,101,102,105,110,101,100,32,80,97,114,97,109,101,116,101,114,115],"value":"User-defined Parameters"},
+{"hash":84239022,"name":"tgwpropertiesform.amslcheckbox.caption","sourcebytes":[97,46,109,46,115,46,108,46],"value":"a.m.s.l."}
+]}

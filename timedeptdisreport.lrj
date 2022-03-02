@@ -1,0 +1,10 @@
+{"version":1,"strings":[
+{"hash":145673716,"name":"tportraitreportformdis.caption","sourcebytes":[68,105,115,99,104,97,114,103,101,32,82,97,116,101,32,80,111,114,116,114,97,105,116,32,82,101,112,111,114,116],"value":"Discharge Rate Portrait Report"},
+{"hash":119655604,"name":"tportraitreportformdis.rllabelheader2.caption","sourcebytes":[77,101,116,104,46,32,109,101,97,115,117,114,101,100],"value":"Meth. measured"},
+{"hash":33729678,"name":"tportraitreportformdis.rllabelheader1.caption","sourcebytes":[73,110,102,111,46,32,115,114,99,46],"value":"Info. src."},
+{"hash":233598037,"name":"tportraitreportformdis.rllabelheader3.caption","sourcebytes":[68,105,115,99,104,97,114,103,101,32,84,121,112,101],"value":"Discharge Type"},
+{"hash":4970078,"name":"tportraitreportformdis.rllabelheader4.caption","sourcebytes":[82,101,112,46,32,73,110,115,116,46],"value":"Rep. Inst."},
+{"hash":234315502,"name":"tportraitreportformdis.rllabelheader5.caption","sourcebytes":[68,97,116,101,47,84,105,109,101,32,109,101,97,115,46],"value":"Date/Time meas."},
+{"hash":23344429,"name":"tportraitreportformdis.rllabelheader7.caption","sourcebytes":[68,105,115,46,32,82,97,116,101,32,91,108,47,115,93],"value":"Dis. Rate [l/s]"},
+{"hash":174341140,"name":"tportraitreportformdis.rllabelheader8.caption","sourcebytes":[67,111,109,109,101,110,116],"value":"Comment"}
+]}

@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":158714375,"name":"tselectviewform.caption","sourcebytes":[85,115,101,32,86,105,101,119],"value":"Use View"},
+{"hash":71048359,"name":"tselectviewform.listboxviews.hint","sourcebytes":[67,108,105,99,107,32,116,111,32,115,101,108,101,99,116,32,86,105,101,119,44,32,116,104,101,110,32,100,111,117,98,108,101,45,99,108,105,99,107,32,111,114,32,79,75,32,116,111,32,117,115,101,32,116,104,101,32,118,105,101,119],"value":"Click to select View, then double-click or OK to use the view"},
+{"hash":82073966,"name":"tselectviewform.dbmemo.hint","sourcebytes":[86,105,101,119,32,68,101,102,105,110,105,116,105,111,110],"value":"View Definition"}
+]}

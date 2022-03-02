@@ -1,0 +1,23 @@
+{"version":1,"strings":[
+{"hash":129407681,"name":"tlogform.caption","sourcebytes":[67,111,110,115,116,114,117,99,116,105,111,110,44,32,108,105,116,104,111,108,111,103,121,32,97,110,100,32,100,101,112,116,104,32,100,101,112,101,110,100,101,110,116,32,100,97,116,97],"value":"Construction, lithology and depth dependent data"},
+{"hash":87400452,"name":"tlogform.buttonpanel1.okbutton.caption","sourcebytes":[38,83,104,111,119,32,114,101,112,111,114,116],"value":"&Show report"},
+{"hash":62115712,"name":"tlogform.menuitemcopyclip.caption","sourcebytes":[38,67,111,112,121,32,116,111,32,99,108,105,112,98,111,97,114,100,32,97,115,32,66,105,116,109,97,112],"value":"&Copy to clipboard as Bitmap"},
+{"hash":117772963,"name":"tlogform.menuitemsave.caption","sourcebytes":[38,83,97,118,101,32,99,104,97,114,116,32,97,115],"value":"&Save chart as"},
+{"hash":148931701,"name":"tlogform.menuitembitmap.caption","sourcebytes":[38,66,105,116,109,97,112,32,73,109,97,103,101],"value":"&Bitmap Image"},
+{"hash":157622629,"name":"tlogform.menuitemjpeg.caption","sourcebytes":[38,74,112,101,103,32,73,109,97,103,101],"value":"&Jpeg Image"},
+{"hash":120950003,"name":"tlogform.menuitem2.caption","sourcebytes":[38,86,105,101,119,32,101,120,116,101,110,116,115],"value":"&View extents"},
+{"hash":73332260,"name":"tlogform.menuitemfullextent.caption","sourcebytes":[86,105,101,119,32,38,102,117,108,108,32,101,120,116,101,110,116],"value":"View &full extent"},
+{"hash":266851252,"name":"tlogform.menuitemtopextent.caption","sourcebytes":[86,105,101,119,32,38,116,111,112,32,101,120,116,101,110,116],"value":"View &top extent"},
+{"hash":56159540,"name":"tlogform.menuitembotextent.caption","sourcebytes":[86,105,101,119,32,38,98,111,116,116,111,109,32,101,120,116,101,110,116],"value":"View &bottom extent"},
+{"hash":236568116,"name":"tlogform.menuitem7.caption","sourcebytes":[76,105,116,104,111,108,111,103,121,32,102,111,110,116],"value":"Lithology font"},
+{"hash":171454578,"name":"tlogform.menuitemfontsmaller.caption","sourcebytes":[38,83,109,97,108,108,101,114],"value":"&Smaller"},
+{"hash":187207138,"name":"tlogform.menuitemfontlarger.caption","sourcebytes":[38,76,97,114,103,101,114],"value":"&Larger"},
+{"hash":35737140,"name":"tlogform.menuitem3.caption","sourcebytes":[65,120,105,115,32,116,105,116,108,101,32,102,111,110,116],"value":"Axis title font"},
+{"hash":22612254,"name":"tlogform.menuitem4.caption","sourcebytes":[82,111,116,97,116,101,32,38,108,101,102,116,32,97,120,105,115,32,116,105,116,108,101,32,57,48,194,176,32,97,110,116,105,45,99,119,46],"value":"Rotate &left axis title 90\u00B0 anti-cw."},
+{"hash":261129614,"name":"tlogform.menuitemtopaxis.caption","sourcebytes":[77,111,118,101,32,84,111,112,32,65,120,105,115,46,46,46],"value":"Move Top Axis..."},
+{"hash":244153024,"name":"tlogform.menuitemtopup.caption","sourcebytes":[49,32,80,105,120,101,108,32,38,117,112],"value":"1 Pixel &up"},
+{"hash":226211934,"name":"tlogform.menuitemtopdown.caption","sourcebytes":[49,32,80,105,120,101,108,32,38,100,111,119,110],"value":"1 Pixel &down"},
+{"hash":172461230,"name":"tlogform.menuitembotaxis.caption","sourcebytes":[77,111,118,101,32,66,111,116,116,111,109,32,65,120,105,115,46,46,46],"value":"Move Bottom Axis..."},
+{"hash":244153024,"name":"tlogform.menuitembotup.caption","sourcebytes":[49,32,80,105,120,101,108,32,38,117,112],"value":"1 Pixel &up"},
+{"hash":226211934,"name":"tlogform.menuitembotdown.caption","sourcebytes":[49,32,80,105,120,101,108,32,38,100,111,119,110],"value":"1 Pixel &down"}
+]}

@@ -1,0 +1,13 @@
+{"version":1,"strings":[
+{"hash":101922483,"name":"tflagform.caption","sourcebytes":[70,108,97,103,32,84,97,98,108,101,32,82,101,99,111,114,100,115],"value":"Flag Table Records"},
+{"hash":216772101,"name":"tflagform.buttonpanel1.okbutton.caption","sourcebytes":[38,69,120,101,99,117,116,101],"value":"&Execute"},
+{"hash":94868106,"name":"tflagform.label1.caption","sourcebytes":[84,97,98,108,101,58],"value":"Table:"},
+{"hash":5056426,"name":"tflagform.label2.caption","sourcebytes":[70,108,97,103,58],"value":"Flag:"},
+{"hash":226222330,"name":"tflagform.label3.caption","sourcebytes":[87,72,69,82,69,32,67,111,110,100,105,116,105,111,110,58],"value":"WHERE Condition:"},
+{"hash":256749470,"name":"tflagform.bitbtncheck.caption","sourcebytes":[67,104,101,99,107,32,67,111,110,100,105,116,105,111,110],"value":"Check Condition"},
+{"hash":136050691,"name":"tflagform.synedit1.hint","sourcebytes":[73,110,115,101,114,116,32,99,111,110,100,105,116,105,111,110,46,32,67,116,114,108,45,83,112,97,99,101,32,102,111,114,32,102,105,101,108,100,115,44,32,83,104,105,102,116,43,83,112,97,99,101,32,102,111,114,32,116,97,98,108,101,115],"value":"Insert condition. Ctrl-Space for fields, Shift+Space for tables"},
+{"hash":95490949,"name":"tflagform.openspeedbutton.hint","sourcebytes":[79,112,101,110,32,113,117,101,114,121,32,102,105,108,101],"value":"Open query file"},
+{"hash":137532453,"name":"tflagform.savespeedbutton.hint","sourcebytes":[83,97,118,101,32,113,117,101,114,121,32,116,111,32,102,105,108,101],"value":"Save query to file"},
+{"hash":171786805,"name":"tflagform.openquerydialog.title","sourcebytes":[79,112,101,110,32,83,81,76,32,81,117,101,114,121,32,70,105,108,101],"value":"Open SQL Query File"},
+{"hash":116757445,"name":"tflagform.savequerydialog.title","sourcebytes":[83,97,118,101,32,83,81,76,32,81,117,101,114,121,32,116,111,32,70,105,108,101],"value":"Save SQL Query to File"}
+]}

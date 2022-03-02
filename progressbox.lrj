@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":157190611,"name":"tprogressboxform.caption","sourcebytes":[80,114,111,103,114,101,115,115],"value":"Progress"},
+{"hash":225915491,"name":"tprogressboxform.cancelbitbtn.hint","sourcebytes":[67,97,110,99,101,108,32,116,104,101,32,112,114,111,99,101,115,115],"value":"Cancel the process"},
+{"hash":177609854,"name":"tprogressboxform.label1.caption","sourcebytes":[66,117,115,121,32,119,105,116,104,46,46,46],"value":"Busy with..."}
+]}

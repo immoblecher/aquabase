@@ -1,0 +1,6 @@
+{"version":1,"strings":[
+{"hash":251033198,"name":"tparamselectionform.caption","sourcebytes":[80,97,114,97,109,101,116,101,114,32,83,101,108,101,99,116,105,111,110],"value":"Parameter Selection"},
+{"hash":60572138,"name":"tparamselectionform.groupbox1.caption","sourcebytes":[80,97,114,97,109,101,116,101,114,115,58],"value":"Parameters:"},
+{"hash":2301450,"name":"tparamselectionform.srclabel.caption","sourcebytes":[65,118,97,105,108,97,98,108,101,58],"value":"Available:"},
+{"hash":120032762,"name":"tparamselectionform.dstlabel.caption","sourcebytes":[84,111,32,98,101,32,117,115,101,100,58],"value":"To be used:"}
+]}

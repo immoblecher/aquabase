@@ -1,0 +1,7 @@
+{"version":1,"strings":[
+{"hash":171796245,"name":"tlookupform.caption","sourcebytes":[83,101,108,101,99,116,32,67,111,100,101],"value":"Select Code"},
+{"hash":113685146,"name":"tlookupform.label1.caption","sourcebytes":[65,118,97,105,108,97,98,108,101,32,99,111,100,101,115,58],"value":"Available codes:"},
+{"hash":185650085,"name":"tlookupform.rxdbgrid.hint","sourcebytes":[67,108,105,99,107,32,117,112,47,100,111,119,110,32,97,114,114,111,119,32,102,111,114,32,109,101,110,117],"value":"Click up/down arrow for menu"},
+{"hash":304549,"name":"tlookupform.rxdbgrid.columns[0].title.caption","sourcebytes":[67,111,100,101],"value":"Code"},
+{"hash":156067838,"name":"tlookupform.rxdbgrid.columns[1].title.caption","sourcebytes":[68,101,115,99,114,105,112,116,105,111,110],"value":"Description"}
+]}

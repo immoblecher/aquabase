@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":56987141,"name":"tprovideviewnameform.caption","sourcebytes":[80,114,111,118,105,100,101,32,86,105,101,119,32,78,97,109,101],"value":"Provide View Name"},
+{"hash":14270794,"name":"tprovideviewnameform.label1.caption","sourcebytes":[80,114,111,118,105,100,101,32,97,32,110,97,109,101,32,102,111,114,32,116,104,101,32,86,105,101,119,32,40,111,110,108,121,32,115,109,97,108,108,32,108,101,116,116,101,114,115,44,32,110,117,109,98,101,114,115,32,97,110,100,32,95,32,97,108,108,111,119,101,100,41,58],"value":"Provide a name for the View (only small letters, numbers and _ allowed):"},
+{"hash":10448579,"name":"tprovideviewnameform.checkbox1.caption","sourcebytes":[71,114,97,110,116,32,97,99,99,101,115,115,32,116,111,32,116,104,105,115,32,118,105,101,119,32,116,111,32,97,108,108,32,117,115,101,114,115],"value":"Grant access to this view to all users"}
+]}

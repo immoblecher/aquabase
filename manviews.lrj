@@ -1,0 +1,7 @@
+{"version":1,"strings":[
+{"hash":40155955,"name":"tmanageviewsform.caption","sourcebytes":[77,97,110,97,103,101,32,86,105,101,119,115],"value":"Manage Views"},
+{"hash":166051431,"name":"tmanageviewsform.listboxviews.hint","sourcebytes":[67,108,105,99,107,32,116,111,32,115,101,108,101,99,116,32,86,105,101,119],"value":"Click to select View"},
+{"hash":82073966,"name":"tmanageviewsform.dbmemo.hint","sourcebytes":[86,105,101,119,32,68,101,102,105,110,105,116,105,111,110],"value":"View Definition"},
+{"hash":179055749,"name":"tmanageviewsform.deletebutton.caption","sourcebytes":[38,68,101,108,101,116,101],"value":"&Delete"},
+{"hash":193742869,"name":"tmanageviewsform.renamebutton.caption","sourcebytes":[38,82,101,110,97,109,101],"value":"&Rename"}
+]}

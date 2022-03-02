@@ -1,0 +1,6 @@
+{"version":1,"strings":[
+{"hash":177570004,"name":"tfldmeasform.caption","sourcebytes":[70,105,101,108,100,32,77,101,97,115,117,114,101,109,101,110,116],"value":"Field Measurement"},
+{"hash":84239022,"name":"tfldmeasform.amslcheckbox.caption","sourcebytes":[97,46,109,46,115,46,108,46],"value":"a.m.s.l."},
+{"hash":81885994,"name":"tfldmeasform.label8.caption","sourcebytes":[71,111,32,116,111,58],"value":"Go to:"},
+{"hash":342540,"name":"tfldmeasform.datetimepicker1.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"}
+]}

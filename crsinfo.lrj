@@ -1,0 +1,14 @@
+{"version":1,"strings":[
+{"hash":80351235,"name":"tcrsinfoform.caption","sourcebytes":[65,118,97,105,108,97,98,108,101,32,67,111,111,114,100,105,110,97,116,101,32,82,101,102,101,114,101,110,99,101,32,83,121,115,116,101,109,115],"value":"Available Coordinate Reference Systems"},
+{"hash":12906589,"name":"tcrsinfoform.closebitbtn.hint","sourcebytes":[67,108,111,115,101,32,101,110,116,114,121,32,102,111,114,109],"value":"Close entry form"},
+{"hash":349765,"name":"tcrsinfoform.combobox1.text","sourcebytes":[78,111,110,101],"value":"None"},
+{"hash":80755394,"name":"tcrsinfoform.label1.caption","sourcebytes":[70,105,108,116,101,114],"value":"Filter"},
+{"hash":516264,"name":"tcrsinfoform.label2.caption","sourcebytes":[119,105,116,104],"value":"with"},
+{"hash":234364418,"name":"tcrsinfoform.edit1.hint","sourcebytes":[84,121,112,101,32,101,46,103,46,32,97,32,99,111,117,110,116,114,121,32,97,110,100,32,112,114,101,115,115,32,69,78,84,69,82],"value":"Type e.g. a country and press ENTER"},
+{"hash":141013981,"name":"tcrsinfoform.edit1.texthint","sourcebytes":[69,110,116,101,114,32,102,105,108,116,101,114,32,105,116,101,109],"value":"Enter filter item"},
+{"hash":362196,"name":"tcrsinfoform.rxdbgrid1.columns[0].title.caption","sourcebytes":[83,82,73,68],"value":"SRID"},
+{"hash":376933,"name":"tcrsinfoform.rxdbgrid1.columns[1].title.caption","sourcebytes":[84,121,112,101],"value":"Type"},
+{"hash":98936557,"name":"tcrsinfoform.rxdbgrid1.columns[2].title.caption","sourcebytes":[67,111,111,114,100,105,110,97,116,101,32,82,101,102,101,114,101,110,99,101,32,83,121,115,116,101,109],"value":"Coordinate Reference System"},
+{"hash":188186932,"name":"tcrsinfoform.rxdbgrid1.columns[3].title.caption","sourcebytes":[65,114,101,97,32,117,115,101,100],"value":"Area used"},
+{"hash":206171982,"name":"tcrsinfoform.rxdbgrid1.columns[4].title.caption","sourcebytes":[65,114,101,97,32,68,101,115,99,114,105,112,116,105,111,110],"value":"Area Description"}
+]}

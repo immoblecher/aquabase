@@ -1,0 +1,11 @@
+{"version":1,"strings":[
+{"hash":177977719,"name":"twritememberform.caption","sourcebytes":[67,114,101,97,116,101,32,77,101,109,98,101,114,115,32,102,114,111,109,32,86,105,101,119],"value":"Create Members from View"},
+{"hash":158721031,"name":"twritememberform.label1.caption","sourcebytes":[38,85,115,101,32,86,105,101,119],"value":"&Use View"},
+{"hash":149909834,"name":"twritememberform.labelededitmemberid.editlabel.caption","sourcebytes":[38,77,101,109,98,101,114,32,73,68,58],"value":"&Member ID:"},
+{"hash":342540,"name":"twritememberform.datetimepicker1.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":342540,"name":"twritememberform.datetimepicker2.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":44930570,"name":"twritememberform.label2.caption","sourcebytes":[38,70,114,111,109,58],"value":"&From:"},
+{"hash":178986,"name":"twritememberform.label3.caption","sourcebytes":[38,84,111,58],"value":"&To:"},
+{"hash":240867705,"name":"twritememberform.button1.caption","sourcebytes":[60,60,32,84,111,100,97,121],"value":"<< Today"},
+{"hash":171689338,"name":"twritememberform.labelededitmemberdescr.editlabel.caption","sourcebytes":[38,68,101,115,99,114,105,112,116,105,111,110,32,102,111,114,32,116,104,101,32,109,101,109,98,101,114,47,103,114,111,117,112,58],"value":"&Description for the member/group:"}
+]}

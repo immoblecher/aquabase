@@ -1,0 +1,12 @@
+{"version":1,"strings":[
+{"hash":161782099,"name":"tchemreportsettingsform.caption","sourcebytes":[67,104,101,109,105,115,116,114,121,32,82,101,112,111,114,116,32,83,101,116,116,105,110,103,115],"value":"Chemistry Report Settings"},
+{"hash":75939684,"name":"tchemreportsettingsform.titleedit.text","sourcebytes":[67,72,69,77,73,83,84,82,89,32,82,69,80,79,82,84],"value":"CHEMISTRY REPORT"},
+{"hash":44670435,"name":"tchemreportsettingsform.checkgroup1.caption","sourcebytes":[83,104,111,119,32,80,97,114,97,109,101,116,101,114,115],"value":"Show Parameters"},
+{"hash":342540,"name":"tchemreportsettingsform.datetimepicker1.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":342540,"name":"tchemreportsettingsform.datetimepicker2.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":62793402,"name":"tchemreportsettingsform.label3.caption","sourcebytes":[70,114,111,109,32,68,97,116,101,47,84,105,109,101,58],"value":"From Date/Time:"},
+{"hash":224291706,"name":"tchemreportsettingsform.label4.caption","sourcebytes":[84,111,32,68,97,116,101,47,84,105,109,101,58],"value":"To Date/Time:"},
+{"hash":135863123,"name":"tchemreportsettingsform.bitbtn1.hint","sourcebytes":[83,101,108,101,99,116,32,115,97,109,112,108,101,115,32,119,105,116,104,105,110,32,86,105,101,119,32,97,110,100,32,100,97,116,101,115,47,116,105,109,101,115],"value":"Select samples within View and dates/times"},
+{"hash":219158526,"name":"tchemreportsettingsform.bitbtn1.caption","sourcebytes":[83,101,108,101,99,116,32,83,97,109,112,108,101,115,46,46,46],"value":"Select Samples..."},
+{"hash":80183075,"name":"tchemreportsettingsform.bitbtncharts.caption","sourcebytes":[83,104,111,119,32,67,104,97,114,116,115],"value":"Show Charts"}
+]}

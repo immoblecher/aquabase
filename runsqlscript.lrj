@@ -1,0 +1,13 @@
+{"version":1,"strings":[
+{"hash":161419268,"name":"tsqlscriptform.caption","sourcebytes":[82,117,110,32,83,81,76,32,83,99,114,105,112,116],"value":"Run SQL Script"},
+{"hash":94317684,"name":"tsqlscriptform.speedbutton1.hint","sourcebytes":[82,117,110,32,83,99,114,105,112,116],"value":"Run Script"},
+{"hash":20465716,"name":"tsqlscriptform.speedbutton2.hint","sourcebytes":[67,108,101,97,114,32,83,99,114,105,112,116],"value":"Clear Script"},
+{"hash":119144933,"name":"tsqlscriptform.openspeedbutton.hint","sourcebytes":[79,112,101,110,32,115,99,114,105,112,116,32,102,105,108,101],"value":"Open script file"},
+{"hash":168480661,"name":"tsqlscriptform.savespeedbutton.hint","sourcebytes":[83,97,118,101,32,115,99,114,105,112,116,32,116,111,32,102,105,108,101],"value":"Save script to file"},
+{"hash":10568387,"name":"tsqlscriptform.combobox1.hint","sourcebytes":[84,104,101,32,115,116,97,116,101,109,101,110,116,32,100,101,108,105,109,105,116,101,114,32,116,111,32,115,101,112,97,114,97,116,101,32,109,117,108,116,105,45,108,105,110,101,32,115,116,97,116,101,109,101,110,116,115],"value":"The statement delimiter to separate multi-line statements"},
+{"hash":59,"name":"tsqlscriptform.combobox1.text","sourcebytes":[59],"value":";"},
+{"hash":4456554,"name":"tsqlscriptform.label1.caption","sourcebytes":[68,101,108,105,109,105,116,101,114,58],"value":"Delimiter:"},
+{"hash":136050691,"name":"tsqlscriptform.synedit1.hint","sourcebytes":[73,110,115,101,114,116,32,99,111,110,100,105,116,105,111,110,46,32,67,116,114,108,45,83,112,97,99,101,32,102,111,114,32,102,105,101,108,100,115,44,32,83,104,105,102,116,43,83,112,97,99,101,32,102,111,114,32,116,97,98,108,101,115],"value":"Insert condition. Ctrl-Space for fields, Shift+Space for tables"},
+{"hash":268253717,"name":"tsqlscriptform.openquerydialog.title","sourcebytes":[79,112,101,110,32,83,81,76,32,83,99,114,105,112,116,32,70,105,108,101],"value":"Open SQL Script File"},
+{"hash":108581301,"name":"tsqlscriptform.savequerydialog.title","sourcebytes":[83,97,118,101,32,83,81,76,32,83,99,114,105,112,116,32,116,111,32,70,105,108,101],"value":"Save SQL Script to File"}
+]}

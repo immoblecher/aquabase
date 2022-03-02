@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":63316323,"name":"tselectsitesdlg.caption","sourcebytes":[83,101,108,101,99,116,32,83,105,116,101,115],"value":"Select Sites"},
+{"hash":65278010,"name":"tselectsitesdlg.srclabel.caption","sourcebytes":[48,32,115,105,116,101,115,32,105,110,32,99,117,114,114,101,110,116,32,86,105,101,119,58],"value":"0 sites in current View:"},
+{"hash":246481239,"name":"tselectsitesdlg.dstlabel.caption","sourcebytes":[48,32,115,105,116,101,115,32,105,110,99,108,117,100,101,100,32,105,110,32,110,101,119,32,86,105,101,119],"value":"0 sites included in new View"}
+]}

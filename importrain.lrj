@@ -1,0 +1,18 @@
+{"version":1,"strings":[
+{"hash":124667724,"name":"timportrainform.caption","sourcebytes":[73,109,112,111,114,116,32,68,97,105,108,121,32,82,97,105,110,102,97,108,108],"value":"Import Daily Rainfall"},
+{"hash":87531722,"name":"timportrainform.radiogroup1.caption","sourcebytes":[83,105,116,101,115,32,102,114,111,109,58],"value":"Sites from:"},
+{"hash":6093994,"name":"timportrainform.label1.caption","sourcebytes":[86,105,101,119,58],"value":"View:"},
+{"hash":22855166,"name":"timportrainform.viewcombobox.text","sourcebytes":[60,78,111,32,86,105,101,119,62],"value":"<No View>"},
+{"hash":101720602,"name":"timportrainform.label2.caption","sourcebytes":[83,116,97,114,116,32,68,97,116,101,58],"value":"Start Date:"},
+{"hash":24183957,"name":"timportrainform.datetimepicker1.hint","sourcebytes":[69,97,114,108,105,101,115,116,32,112,111,115,115,105,98,108,101,32,100,97,116,101,32,102,111,114,32,116,104,105,115,32,116,111,111,108,32,105,115,32,50,48,49,56,45,48,54,45,50,53],"value":"Earliest possible date for this tool is 2018-06-25"},
+{"hash":342540,"name":"timportrainform.datetimepicker1.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":105563850,"name":"timportrainform.label3.caption","sourcebytes":[69,110,100,32,68,97,116,101,58],"value":"End Date:"},
+{"hash":342540,"name":"timportrainform.datetimepicker2.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":40746501,"name":"timportrainform.checkboxdelete.hint","sourcebytes":[73,102,32,101,46,103,46,32,109,111,110,116,104,108,121,32,100,97,116,97,32,104,97,115,32,98,101,101,110,32,115,116,111,114,101,100,32,98,101,102,111,114,101],"value":"If e.g. monthly data has been stored before"},
+{"hash":257545716,"name":"timportrainform.checkboxdelete.caption","sourcebytes":[68,101,108,101,116,101,32,111,116,104,101,114,32,115,116,111,114,101,100,32,100,97,116,97,32,102,111,114,32,116,104,105,115,32,112,101,114,105,111,100],"value":"Delete other stored data for this period"},
+{"hash":147765395,"name":"timportrainform.checkbox2.hint","sourcebytes":[75,101,101,112,32,116,104,101,109,32,116,111,32,115,112,101,101,100,32,117,112,32,102,117,116,117,114,101,32,100,111,119,110,108,111,97,100,115],"value":"Keep them to speed up future downloads"},
+{"hash":86305715,"name":"timportrainform.checkbox2.caption","sourcebytes":[68,101,108,101,116,101,32,116,101,109,112,111,114,97,114,121,32,100,111,119,110,108,111,97,100,32,102,105,108,101,115],"value":"Delete temporary download files"},
+{"hash":28263546,"name":"timportrainform.checkbox3.caption","sourcebytes":[83,116,111,114,101,32,109,111,110,116,104,108,121,32,99,117,109,117,108,97,116,105,118,101,32,40,116,111,116,97,108,41,32,105,110,115,116,101,97,100,32,111,102,32,100,97,105,108,121,32,114,97,105,110,102,97,108,108,32,111,110,32,100,97,121,58],"value":"Store monthly cumulative (total) instead of daily rainfall on day:"},
+{"hash":98554552,"name":"timportrainform.spinedit1.hint","sourcebytes":[51,49,32,119,105,108,108,32,115,116,111,114,101,32,114,97,105,110,102,97,108,108,32,111,110,32,108,97,115,116,32,100,97,121,32,111,102,32,116,104,101,32,109,111,110,116,104],"value":"31 will store rainfall on last day of the month"},
+{"hash":222048060,"name":"timportrainform.checkbox4.caption","sourcebytes":[65,100,100,32,34,48,34,32,40,122,101,114,111,41,32,114,97,105,110,102,97,108,108,32,102,111,114,32,109,111,110,116,104,115,32,119,105,116,104,32,110,111,32,114,97,105,110,102,97,108,108],"value":"Add \"0\" (zero) rainfall for months with no rainfall"}
+]}

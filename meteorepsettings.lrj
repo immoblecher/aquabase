@@ -1,0 +1,9 @@
+{"version":1,"strings":[
+{"hash":117325379,"name":"tmeteoreportsettingsform.caption","sourcebytes":[77,101,116,101,111,114,111,108,111,103,121,32,82,101,112,111,114,116,32,83,101,116,116,105,110,103,115],"value":"Meteorology Report Settings"},
+{"hash":22151812,"name":"tmeteoreportsettingsform.titleedit.text","sourcebytes":[77,69,84,69,79,82,79,76,79,71,89,32,82,69,80,79,82,84],"value":"METEOROLOGY REPORT"},
+{"hash":110361194,"name":"tmeteoreportsettingsform.checkgroup1.caption","sourcebytes":[82,101,112,111,114,116,32,111,110,58],"value":"Report on:"},
+{"hash":62793402,"name":"tmeteoreportsettingsform.label3.caption","sourcebytes":[70,114,111,109,32,68,97,116,101,47,84,105,109,101,58],"value":"From Date/Time:"},
+{"hash":342540,"name":"tmeteoreportsettingsform.datetimepicker1.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":224291706,"name":"tmeteoreportsettingsform.label4.caption","sourcebytes":[84,111,32,68,97,116,101,47,84,105,109,101,58],"value":"To Date/Time:"},
+{"hash":342540,"name":"tmeteoreportsettingsform.datetimepicker2.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"}
+]}

@@ -1,0 +1,14 @@
+{"version":1,"strings":[
+{"hash":38920643,"name":"tmeteorologyform1.caption","sourcebytes":[77,101,116,101,111,114,111,108,111,103,121,58,32,72,121,100,114,111,108,111,103,105,99,32,80,97,114,97,109,101,116,101,114,115],"value":"Meteorology: Hydrologic Parameters"},
+{"hash":23818268,"name":"tmeteorologyform1.graphspeedbutton.hint","sourcebytes":[84,105,109,101,32,100,101,112,101,110,100,101,110,116,32,99,104,97,114,116,32,111,102,32,82,97,105,110,102,97,108,108],"value":"Time dependent chart of Rainfall"},
+{"hash":83869235,"name":"tmeteorologyform1.linkedlabel.caption","sourcebytes":[72,121,100,114,111,108,111,103,105,99,32,80,97,114,97,109,101,116,101,114,115],"value":"Hydrologic Parameters"},
+{"hash":134529964,"name":"tmeteorologyform1.tabsheet1.hint","sourcebytes":[82,97,105,110,102,97,108,108],"value":"Rainfall"},
+{"hash":174485533,"name":"tmeteorologyform1.tabsheet1.caption","sourcebytes":[82,97,105,110,102,97,108,108,32,91,109,109,93],"value":"Rainfall [mm]"},
+{"hash":259276958,"name":"tmeteorologyform1.dbgrid1.hint","sourcebytes":[82,97,105,110,102,97,108,108,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Rainfall Information"},
+{"hash":113521326,"name":"tmeteorologyform1.tabsheet2.hint","sourcebytes":[80,97,110,32,69,118,97,112,111,114,97,116,105,111,110],"value":"Pan Evaporation"},
+{"hash":191521037,"name":"tmeteorologyform1.tabsheet2.caption","sourcebytes":[80,97,110,32,69,118,97,112,111,114,97,116,105,111,110,32,91,109,109,93],"value":"Pan Evaporation [mm]"},
+{"hash":99226926,"name":"tmeteorologyform1.dbgrid2.hint","sourcebytes":[80,97,110,32,69,118,97,112,111,114,46,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Pan Evapor. Information"},
+{"hash":205501513,"name":"tmeteorologyform1.tabsheet3.hint","sourcebytes":[72,117,109,105,100,105,116,121],"value":"Humidity"},
+{"hash":71787037,"name":"tmeteorologyform1.tabsheet3.caption","sourcebytes":[72,117,109,105,100,105,116,121,32,91,37,93],"value":"Humidity [%]"},
+{"hash":4806510,"name":"tmeteorologyform1.dbgrid3.hint","sourcebytes":[72,117,109,105,100,105,116,121,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Humidity Information"}
+]}

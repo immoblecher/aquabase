@@ -1,0 +1,18 @@
+{"version":1,"strings":[
+{"hash":161782099,"name":"ttimechemreportsettingsform.caption","sourcebytes":[67,104,101,109,105,115,116,114,121,32,82,101,112,111,114,116,32,83,101,116,116,105,110,103,115],"value":"Chemistry Report Settings"},
+{"hash":89069076,"name":"ttimechemreportsettingsform.titleedit.text","sourcebytes":[84,73,77,69,45,68,69,80,69,78,68,69,78,84,32,67,72,69,77,73,83,84,82,89,32,82,69,80,79,82,84],"value":"TIME-DEPENDENT CHEMISTRY REPORT"},
+{"hash":86934601,"name":"ttimechemreportsettingsform.buttonselparam.hint","sourcebytes":[83,101,108,101,99,116,32,112,97,114,97,109,101,116,101,114,115,32,102,111,114,32,116,104,101,32,108,105,115,116,32,40,109,97,120,46,32,49,52,41],"value":"Select parameters for the list (max. 14)"},
+{"hash":234882723,"name":"ttimechemreportsettingsform.buttonselparam.caption","sourcebytes":[83,101,108,101,99,116,32,80,97,114,97,109,101,116,101,114,115],"value":"Select Parameters"},
+{"hash":62793402,"name":"ttimechemreportsettingsform.label3.caption","sourcebytes":[70,114,111,109,32,68,97,116,101,47,84,105,109,101,58],"value":"From Date/Time:"},
+{"hash":342540,"name":"ttimechemreportsettingsform.datetimepicker1.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":224291706,"name":"ttimechemreportsettingsform.label4.caption","sourcebytes":[84,111,32,68,97,116,101,47,84,105,109,101,58],"value":"To Date/Time:"},
+{"hash":342540,"name":"ttimechemreportsettingsform.datetimepicker2.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":63245934,"name":"ttimechemreportsettingsform.listboxparams.hint","sourcebytes":[80,97,114,101,109,101,116,101,114,115,32,117,115,101,100,32,111,110,32,114,101,112,111,114,116,46,32,68,114,97,103,45,68,114,111,112,32,116,111,32,114,101,111,114,100,101,114,46],"value":"Paremeters used on report. Drag-Drop to reorder."},
+{"hash":24920554,"name":"ttimechemreportsettingsform.label5.caption","sourcebytes":[38,80,97,114,97,109,101,116,101,114,115,58],"value":"&Parameters:"},
+{"hash":197826613,"name":"ttimechemreportsettingsform.button1.hint","sourcebytes":[83,97,118,101,32,112,97,114,97,109,101,116,101,114,32,108,105,115,116,32,97,98,111,118,101,32,116,111,32,97,32,102,105,108,101],"value":"Save parameter list above to a file"},
+{"hash":366789,"name":"ttimechemreportsettingsform.button1.caption","sourcebytes":[83,97,118,101],"value":"Save"},
+{"hash":80815365,"name":"ttimechemreportsettingsform.button2.hint","sourcebytes":[76,111,97,100,32,97,32,112,97,114,97,109,101,116,101,114,32,102,105,108,101,32,105,110,116,111,32,116,104,101,32,108,105,115,116,32,97,98,111,118,101],"value":"Load a parameter file into the list above"},
+{"hash":341364,"name":"ttimechemreportsettingsform.button2.caption","sourcebytes":[76,111,97,100],"value":"Load"},
+{"hash":242086789,"name":"ttimechemreportsettingsform.opendialog1.title","sourcebytes":[79,112,101,110,32,101,120,105,115,116,105,110,103,32,112,97,114,97,109,101,116,101,114,32,102,105,108,101],"value":"Open existing parameter file"},
+{"hash":129217075,"name":"ttimechemreportsettingsform.savedialog1.title","sourcebytes":[83,97,118,101,32,112,97,114,97,109,101,116,101,114,32,108,105,115,116,32,97,115],"value":"Save parameter list as"}
+]}

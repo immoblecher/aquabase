@@ -1,0 +1,7 @@
+{"version":1,"strings":[
+{"hash":56136318,"name":"tquicksearchform.caption","sourcebytes":[81,117,105,99,107,32,83,101,97,114,99,104,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Quick Search Information"},
+{"hash":114283130,"name":"tquicksearchform.label1.caption","sourcebytes":[105,110,32,102,105,101,108,100,58],"value":"in field:"},
+{"hash":317018,"name":"tquicksearchform.label2.caption","sourcebytes":[70,111,114,58],"value":"For:"},
+{"hash":94079128,"name":"tquicksearchform.searchbtn.caption","sourcebytes":[83,101,97,114,99,104],"value":"Search"},
+{"hash":227984292,"name":"tquicksearchform.speedbutton2.hint","sourcebytes":[67,108,101,97,114,32,115,101,97,114,99,104,32,108,105,115,116],"value":"Clear search list"}
+]}

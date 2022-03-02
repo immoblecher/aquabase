@@ -1,0 +1,11 @@
+{"version":1,"strings":[
+{"hash":246670857,"name":"timportchemform.caption","sourcebytes":[73,109,112,111,114,116,32,67,104,101,109,105,115,116,114,121],"value":"Import Chemistry"},
+{"hash":98630586,"name":"timportchemform.label1.caption","sourcebytes":[73,109,112,111,114,116,32,84,97,98,108,101,58],"value":"Import Table:"},
+{"hash":77164181,"name":"timportchemform.buttonbrowse.hint","sourcebytes":[66,114,111,119,115,101],"value":"Browse"},
+{"hash":12558,"name":"timportchemform.buttonbrowse.caption","sourcebytes":[46,46,46],"value":"..."},
+{"hash":54063870,"name":"timportchemform.stringgrid1.hint","sourcebytes":[83,101,108,101,99,116,32,34,73,110,116,111,32,70,105,101,108,100,34,32,98,121,32,99,108,105,99,107,105,110,103,32,100,114,111,112,100,111,119,110,32,111,110,32,114,105,103,104,116,32,115,105,100,101,32,111,102,32,99,111,108,117,109,110],"value":"Select \"Into Field\" by clicking dropdown on right side of column"},
+{"hash":68351380,"name":"timportchemform.stringgrid1.columns[0].title.caption","sourcebytes":[73,109,112,111,114,116,32,84,97,98,108,101,32,70,105,101,108,100],"value":"Import Table Field"},
+{"hash":21626772,"name":"timportchemform.stringgrid1.columns[1].title.caption","sourcebytes":[73,110,116,111,32,70,105,101,108,100],"value":"Into Field"},
+{"hash":80194402,"name":"timportchemform.stringgrid1.columns[2].title.caption","sourcebytes":[70,97,99,116,111,114],"value":"Factor"},
+{"hash":189419802,"name":"timportchemform.label2.caption","sourcebytes":[70,105,101,108,100,32,77,97,112,112,105,110,103,115,58],"value":"Field Mappings:"}
+]}

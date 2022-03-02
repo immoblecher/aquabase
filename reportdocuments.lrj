@@ -1,0 +1,14 @@
+{"version":1,"strings":[
+{"hash":204505747,"name":"treportdocsform.caption","sourcebytes":[82,101,112,111,114,116,32,68,111,99,117,109,101,110,116,115],"value":"Report Documents"},
+{"hash":59163266,"name":"treportdocsform.bitbtnsave.hint","sourcebytes":[83,97,118,101,32,97,32,100,111,99,117,109,101,110,116,32,102,114,111,109,32,116,104,101,32,100,97,116,97,98,97,115,101,32,116,111,32,99,111,109,112,117,116,101,114],"value":"Save a document from the database to computer"},
+{"hash":2857157,"name":"treportdocsform.bitbtnsave.caption","sourcebytes":[38,83,97,118,101],"value":"&Save"},
+{"hash":195820405,"name":"treportdocsform.bitbtnload.hint","sourcebytes":[76,111,97,100,32,97,32,100,111,99,117,109,101,110,116,32,105,110,116,111,32,116,104,101,32,100,97,116,97,98,97,115,101],"value":"Load a document into the database"},
+{"hash":2831732,"name":"treportdocsform.bitbtnload.caption","sourcebytes":[38,76,111,97,100],"value":"&Load"},
+{"hash":185650085,"name":"treportdocsform.rxdbgrid.hint","sourcebytes":[67,108,105,99,107,32,117,112,47,100,111,119,110,32,97,114,114,111,119,32,102,111,114,32,109,101,110,117],"value":"Click up/down arrow for menu"},
+{"hash":228413938,"name":"treportdocsform.rxdbgrid.columns[0].title.caption","sourcebytes":[82,101,112,111,114,116,32,78,117,109,98,101,114],"value":"Report Number"},
+{"hash":64454069,"name":"treportdocsform.rxdbgrid.columns[1].title.caption","sourcebytes":[82,101,112,111,114,116,32,84,105,116,108,101],"value":"Report Title"},
+{"hash":227484578,"name":"treportdocsform.rxdbgrid.columns[2].title.caption","sourcebytes":[80,114,105,109,97,114,121,32,65,117,116,104,111,114],"value":"Primary Author"},
+{"hash":76025186,"name":"treportdocsform.rxdbgrid.columns[3].title.caption","sourcebytes":[67,111,46,32,65,117,116,104,111,114],"value":"Co. Author"},
+{"hash":4970078,"name":"treportdocsform.rxdbgrid.columns[4].title.caption","sourcebytes":[82,101,112,46,32,73,110,115,116,46],"value":"Rep. Inst."},
+{"hash":126728628,"name":"treportdocsform.rxdbgrid.columns[5].title.caption","sourcebytes":[82,101,112,46,32,108,111,97,100,101,100],"value":"Rep. loaded"}
+]}

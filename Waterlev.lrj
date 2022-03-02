@@ -1,0 +1,9 @@
+{"version":1,"strings":[
+{"hash":128336621,"name":"twaterlevelform.caption","sourcebytes":[87,97,116,101,114,32,76,101,118,101,108,32,70,111,114,109],"value":"Water Level Form"},
+{"hash":50710332,"name":"twaterlevelform.linkedlabel.hint","sourcebytes":[98,46,103,46,108,46,32,32,61,32,98,101,108,111,119,32,103,114,111,117,110,100,32,108,101,118,101,108],"value":"b.g.l.  = below ground level"},
+{"hash":84239022,"name":"twaterlevelform.amslcheckbox.caption","sourcebytes":[97,46,109,46,115,46,108,46],"value":"a.m.s.l."},
+{"hash":342540,"name":"twaterlevelform.datetimepicker1.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":81885994,"name":"twaterlevelform.label8.caption","sourcebytes":[71,111,32,116,111,58],"value":"Go to:"},
+{"hash":239062942,"name":"twaterlevelform.combobox1.text","sourcebytes":[68,97,116,101,44,32,116,105,109,101,44,32,115,101,99,115,44,32,112,105,101,122,46],"value":"Date, time, secs, piez."},
+{"hash":90745946,"name":"twaterlevelform.label9.caption","sourcebytes":[79,114,100,101,114,58],"value":"Order:"}
+]}

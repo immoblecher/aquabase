@@ -1,0 +1,8 @@
+{"version":1,"strings":[
+{"hash":256456147,"name":"ttimedisreportsettingsform.caption","sourcebytes":[68,105,115,99,104,97,114,103,101,32,82,97,116,101,32,82,101,112,111,114,116,32,83,101,116,116,105,110,103,115],"value":"Discharge Rate Report Settings"},
+{"hash":6072516,"name":"ttimedisreportsettingsform.titleedit.text","sourcebytes":[84,73,77,69,45,68,69,80,69,78,68,69,78,84,32,68,73,83,67,72,65,82,71,69,32,82,65,84,69,32,82,69,80,79,82,84],"value":"TIME-DEPENDENT DISCHARGE RATE REPORT"},
+{"hash":62793402,"name":"ttimedisreportsettingsform.label3.caption","sourcebytes":[70,114,111,109,32,68,97,116,101,47,84,105,109,101,58],"value":"From Date/Time:"},
+{"hash":224291706,"name":"ttimedisreportsettingsform.label4.caption","sourcebytes":[84,111,32,68,97,116,101,47,84,105,109,101,58],"value":"To Date/Time:"},
+{"hash":342540,"name":"ttimedisreportsettingsform.datetimepicker1.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":342540,"name":"ttimedisreportsettingsform.datetimepicker2.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"}
+]}

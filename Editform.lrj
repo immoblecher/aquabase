@@ -1,0 +1,6 @@
+{"version":1,"strings":[
+{"hash":199136629,"name":"teditlookupform.hint","sourcebytes":[67,108,105,99,107,32,85,112,45,68,111,119,110,32,97,114,114,111,119,32,105,110,32,116,111,112,32,108,101,102,116,32,99,111,114,110,101,114,32,111,102,32,103,114,105,100,32,102,111,114,32,109,101,110,117],"value":"Click Up-Down arrow in top left corner of grid for menu"},
+{"hash":121088099,"name":"teditlookupform.caption","sourcebytes":[69,100,105,116,32,76,111,111,107,117,112,32,67,111,100,101,115],"value":"Edit Lookup Codes"},
+{"hash":90721266,"name":"teditlookupform.panel2.caption","sourcebytes":[80,97,110,101,108,50],"value":"Panel2"},
+{"hash":185650085,"name":"teditlookupform.rxdbgrid.hint","sourcebytes":[67,108,105,99,107,32,117,112,47,100,111,119,110,32,97,114,114,111,119,32,102,111,114,32,109,101,110,117],"value":"Click up/down arrow for menu"}
+]}

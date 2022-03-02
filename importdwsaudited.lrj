@@ -1,0 +1,15 @@
+{"version":1,"strings":[
+{"hash":227734275,"name":"tformdwsaudited.caption","sourcebytes":[73,109,112,111,114,116,32,68,87,83,32,65,117,100,105,116,101,100,32,38,32,82,101,100,117,99,101,100,32,87,97,116,101,114,32,76,101,118,101,108,115],"value":"Import DWS Audited & Reduced Water Levels"},
+{"hash":26055562,"name":"tformdwsaudited.label1.caption","sourcebytes":[73,109,112,111,114,116,32,70,105,108,101,32,119,105,116,104,32,97,117,100,105,116,101,100,32,97,110,100,32,114,101,100,117,99,101,100,32,119,97,116,101,114,32,108,101,118,101,108,115,58],"value":"Import File with audited and reduced water levels:"},
+{"hash":101720602,"name":"tformdwsaudited.label2.caption","sourcebytes":[83,116,97,114,116,32,68,97,116,101,58],"value":"Start Date:"},
+{"hash":105563850,"name":"tformdwsaudited.label3.caption","sourcebytes":[69,110,100,32,68,97,116,101,58],"value":"End Date:"},
+{"hash":24183957,"name":"tformdwsaudited.datetimepicker1.hint","sourcebytes":[69,97,114,108,105,101,115,116,32,112,111,115,115,105,98,108,101,32,100,97,116,101,32,102,111,114,32,116,104,105,115,32,116,111,111,108,32,105,115,32,50,48,49,56,45,48,54,45,50,53],"value":"Earliest possible date for this tool is 2018-06-25"},
+{"hash":342540,"name":"tformdwsaudited.datetimepicker1.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":342540,"name":"tformdwsaudited.datetimepicker2.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":51727829,"name":"tformdwsaudited.checkboxdelete.hint","sourcebytes":[87,105,108,108,32,100,101,108,101,116,101,32,65,76,76,32,100,97,116,97,44,32,101,118,101,110,32,119,104,101,110,32,110,111,116,32,111,110,32,115,97,109,101,32,100,97,116,101,47,116,105,109,101],"value":"Will delete ALL data, even when not on same date/time"},
+{"hash":257545716,"name":"tformdwsaudited.checkboxdelete.caption","sourcebytes":[68,101,108,101,116,101,32,111,116,104,101,114,32,115,116,111,114,101,100,32,100,97,116,97,32,102,111,114,32,116,104,105,115,32,112,101,114,105,111,100],"value":"Delete other stored data for this period"},
+{"hash":127866650,"name":"tformdwsaudited.groupbox1.caption","sourcebytes":[85,115,101,32,76,111,111,107,117,112,32,67,111,100,101,115,58],"value":"Use Lookup Codes:"},
+{"hash":2804026,"name":"tformdwsaudited.label4.caption","sourcebytes":[73,110,102,111,46,32,115,114,99,46,58],"value":"Info. src.:"},
+{"hash":67579674,"name":"tformdwsaudited.label5.caption","sourcebytes":[77,101,116,104,46,32,109,101,97,115,46,58],"value":"Meth. meas.:"},
+{"hash":133777946,"name":"tformdwsaudited.label6.caption","sourcebytes":[76,118,108,46,32,115,116,97,116,46,58],"value":"Lvl. stat.:"}
+]}

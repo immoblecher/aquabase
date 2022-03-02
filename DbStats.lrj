@@ -1,0 +1,4 @@
+{"version":1,"strings":[
+{"hash":183860707,"name":"tdbstatform.caption","sourcebytes":[68,97,116,97,98,97,115,101,32,83,116,97,116,105,115,116,105,99,115],"value":"Database Statistics"},
+{"hash":4488243,"name":"tdbstatform.bitbtnprint.caption","sourcebytes":[38,80,114,105,110,116,32,83,116,97,116,105,115,116,105,99,115],"value":"&Print Statistics"}
+]}
