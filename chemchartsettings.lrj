@@ -1,0 +1,20 @@
+{"version":1,"strings":[
+{"hash":169554323,"name":"tchemchartsettingsform.caption","sourcebytes":[67,104,101,109,105,115,116,114,121,32,71,114,97,112,104,32,83,101,116,116,105,110,103,115],"value":"Chemistry Graph Settings"},
+{"hash":43228325,"name":"tchemchartsettingsform.tabsheet1.caption","sourcebytes":[68,105,97,103,114,97,109,115,32,97,110,100,32,115,99,111,112,101],"value":"Diagrams and scope"},
+{"hash":242613525,"name":"tchemchartsettingsform.label1.caption","sourcebytes":[38,70,114,111,109,32,68,97,116,101,32,47,32,84,105,109,101],"value":"&From Date / Time"},
+{"hash":73338869,"name":"tchemchartsettingsform.label2.caption","sourcebytes":[38,84,111,32,68,97,116,101,32,47,32,84,105,109,101],"value":"&To Date / Time"},
+{"hash":194668202,"name":"tchemchartsettingsform.label3.caption","sourcebytes":[38,83,99,111,112,101,58],"value":"&Scope:"},
+{"hash":188019367,"name":"tchemchartsettingsform.comboboxviews.hint","sourcebytes":[67,104,111,111,115,101,32,99,117,114,114,101,110,116,32,115,105,116,101,32,111,114,32,86,105,101,119],"value":"Choose current site or View"},
+{"hash":29956197,"name":"tchemchartsettingsform.comboboxviews.text","sourcebytes":[67,117,114,114,101,110,116,32,83,105,116,101],"value":"Current Site"},
+{"hash":342540,"name":"tchemchartsettingsform.datetimepickerfrom.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":342540,"name":"tchemchartsettingsform.datetimepickerto.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":243892085,"name":"tchemchartsettingsform.label4.caption","sourcebytes":[38,65,103,103,114,101,103,97,116,101],"value":"&Aggregate"},
+{"hash":259949795,"name":"tchemchartsettingsform.checkgroupdiagrams.caption","sourcebytes":[68,105,97,103,114,97,109,115],"value":"Diagrams"},
+{"hash":147621781,"name":"tchemchartsettingsform.comboboxaggregate.text","sourcebytes":[65,118,101,114,97,103,101],"value":"Average"},
+{"hash":81010083,"name":"tchemchartsettingsform.buttonselparam.caption","sourcebytes":[83,101,108,101,99,116,32,80,105,101,47,66,97,114,32,80,97,114,97,109,101,116,101,114,115],"value":"Select Pie/Bar Parameters"},
+{"hash":33929572,"name":"tchemchartsettingsform.checkboxgroup.caption","sourcebytes":[38,67,111,108,111,117,114,32,98,121,32,115,101,108,101,99,116,101,100,32,103,114,111,117,112,32,109,101,109,98,101,114,115,32,105,110,32,116,104,101,32,108,105,115,116],"value":"&Colour by selected group members in the list"},
+{"hash":39000404,"name":"tchemchartsettingsform.tabsheet2.caption","sourcebytes":[76,97,98,101,108,115,47,76,101,103,101,110,100],"value":"Labels/Legend"},
+{"hash":127777434,"name":"tchemchartsettingsform.checkgrouplabels.caption","sourcebytes":[76,97,98,101,108,32,118,97,108,117,101,115,32,119,105,116,104,58],"value":"Label values with:"},
+{"hash":166170746,"name":"tchemchartsettingsform.checkgrouplegend.caption","sourcebytes":[76,97,98,101,108,32,115,101,114,105,101,115,47,108,101,103,101,110,100,32,119,105,116,104,58],"value":"Label series/legend with:"},
+{"hash":205048922,"name":"tchemchartsettingsform.groupbox1.caption","sourcebytes":[77,101,109,98,101,114,115,58],"value":"Members:"}
+]}

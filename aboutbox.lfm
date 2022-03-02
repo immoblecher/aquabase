@@ -1,0 +1,176 @@
+object AboutBoxForm: TAboutBoxForm
+  Left = 675
+  Height = 328
+  Top = 186
+  Width = 458
+  BorderStyle = bsSingle
+  Caption = 'About Aquabase'
+  ClientHeight = 328
+  ClientWidth = 458
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 328
+    Top = 0
+    Width = 458
+    ActivePage = TabSheet1
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'General'
+      ClientHeight = 301
+      ClientWidth = 448
+      object Image1: TImage
+        Left = 0
+        Height = 301
+        Top = 0
+        Width = 448
+        Align = alClient
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Information'
+      ClientHeight = 301
+      ClientWidth = 448
+      object Memo1: TMemo
+        Left = 0
+        Height = 301
+        Top = 0
+        Width = 448
+        Align = alClient
+        Lines.Strings = (
+          'Aquabase was originally developed in Delphi by Immo Blecher with support from various developers working on different sections of the code.'
+          ''
+          'Since 2006 Aquabase was only barely maintained and further development and bug fixing resumed only in 2014 in the Open Source FreePascal / Lazarus environment by Immo Blecher.'
+          ''
+          'This software is therefore Copyright (c) 2021, Immo Blecher, immo@blecher.co.za. Please contact me if you want to contribute to the code or have any suggestions for the improvement and additional functionality.'
+          ''
+          'Aquabase is free software. If you want to use it for free you may do so. But you do not get any support. Support is time and money and you will therefore have to pay for support. Please contact me if you need support with installation or use. Donations are also welcome to continue the development of Aquabase.'
+          ''
+          'The source code is also free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.'
+          ''
+          'This code is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.'
+          ''
+          'A copy of the GNU General Public License is available on the World Wide Web at http://www.gnu.org/copyleft/gpl.html. You can also obtain it by writing to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.'
+          ''
+          'You will find more information about Aquabase at https://aquabase.blecher.co.za.'
+          ''
+          'Most of the icons used are from the Silk Icon set found at http://www.famfamfam.com/lab/icons/silk/, author of which is hereby acknowledged. Well done!'
+          ''
+          'Other icons used are from https://www.flaticon.com from various authors (too many to list) under the Creative Commons License.'
+          ''
+          'Some 118 lithology bitmaps are from the USGS Federal Geographic Data Committee (Doc. No. FGDC-STD-013-2006), who are herewith acknowledged. Good work and very useful!'
+          ''
+          'The beautiful splash photo on Aquabase startup is by Ulf Blecher. Thank you!'
+          ''
+          'Please read the Proj tab to obtain more information about the Proj library, which we use extensively for the coordinate conversions.'
+        )
+        ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 0
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Readme'
+      ClientHeight = 301
+      ClientWidth = 448
+      object Memo2: TMemo
+        Left = 0
+        Height = 301
+        Top = 0
+        Width = 448
+        Align = alClient
+        HideSelection = False
+        ReadOnly = True
+        ScrollBars = ssAutoVertical
+        TabOrder = 0
+      end
+    end
+    object TabSheet4: TTabSheet
+      Caption = 'Proj Library'
+      ClientHeight = 301
+      ClientWidth = 448
+      object Memo3: TMemo
+        Left = 0
+        Height = 301
+        Top = 0
+        Width = 448
+        Align = alClient
+        Lines.Strings = (
+          'PROJ is a generic coordinate transformation software that transforms geospatial coordinates from one coordinate reference system (CRS) to another. This includes cartographic projections as well as geodetic transformations. PROJ is released under the X/MIT open source license'
+          ''
+          'PROJ includes command line applications for easy conversion of coordinates from text files or directly from user input. In addition to the command line utilities PROJ also exposes an application programming interface, or API in short. The API lets developers use the functionality of PROJ in their own software without having to implement similar functionality themselves.'
+          ''
+          'PROJ started purely as a cartography application letting users convert geodetic coordinates into projected coordinates using a number of different cartographic projections. Over the years, as the need has become apparent, support for datum shifts has slowly worked its way into PROJ as well. Today PROJ supports more than a hundred different map projections and can transform coordinates between datums using all but the most obscure geodetic techniques.'
+          ''
+          'You can download the source code for PROJ on the download section and find links to prepackaged executables in the installation section of their website at https://proj.org'
+          ''
+          'PROJ uses the MIT license. The software was initially released by the USGS in the public domain. When Frank Warmerdam took over the development of PROJ it was moved under the MIT license. The license is as follows:'
+          ''
+          'Copyright (c) 2000, Frank Warmerdam'
+          ''
+          'Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:'
+          ''
+          'The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.'
+          ''
+          'THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.'
+        )
+        ScrollBars = ssBoth
+        TabOrder = 0
+      end
+    end
+    object TabSheet5: TTabSheet
+      Caption = 'Synapse'
+      ClientHeight = 301
+      ClientWidth = 448
+      object Memo4: TMemo
+        Left = 0
+        Height = 301
+        Top = 0
+        Width = 448
+        Align = alClient
+        Lines.Strings = (
+          '{==============================================================================|'
+          ' Project : Ararat Synapse                                       009.008.005'
+          '==============================================================================|'
+          ' Content: Library base'
+          '==============================================================================|'
+          ' Copyright (c)1999-2012, Lukas Gebauer'
+          ' All rights reserved.'
+          ''
+          ' Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:'
+          ''
+          ' Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.'
+          ''
+          ' Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.'
+          ''
+          ' Neither the name of Lukas Gebauer nor the names of its contributors may| be used to endorse or promote products derived from this software without | specific prior written permission.'
+          ''
+          '|THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER|CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.'
+          ''
+          '==============================================================================|'
+          ' The Initial Developer of the Original Code is Lukas Gebauer (Czech Republic).'
+          ' Portions created by Lukas Gebauer are Copyright (c)1999-2012.'
+          ' All Rights Reserved.'
+          '==============================================================================|'
+          ' Contributor(s):'
+          '==============================================================================|'
+          ' History: see HISTORY.HTM from distribution package'
+          ' (Found at URL: http://www.ararat.cz/synapse/)'
+          '==============================================================================}'
+          ''
+          '{'
+          'Special thanks to Gregor Ibic <gregor.ibic@intelicom.si> (Intelicom d.o.o., http://www.intelicom.si) for good inspiration about SSL programming.'
+          '} '
+        )
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 0
+      end
+    end
+  end
+end

@@ -1,0 +1,336 @@
+object CalcForm: TCalcForm
+  Left = 1028
+  Height = 252
+  Top = 214
+  Width = 291
+  BorderIcons = [biSystemMenu, biMinimize, biHelp]
+  BorderStyle = bsSingle
+  Caption = 'Calculated Parameters'
+  ClientHeight = 252
+  ClientWidth = 291
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  FormStyle = fsMDIChild
+  Icon.Data = {
+    FE0200000000010001002020100000000000E802000016000000280000002000
+    0000400000000100040000000000800200000000000000000000000000000000
+    0000000000000000800000800000008080008000000080008000808000008080
+    8000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+    FF00000000000000000000000000000000000000000000000000000000000000
+    0000000000000000088888000000000000000000000000088444448800000000
+    0000000000000084477777448000000000000000000008444444444448000000
+    0000000000008444444444444480000000000000000084444444444444800000
+    00000000000844444E444444444800000000000000084444E444444444480000
+    000000000008444E6E44444444480000000000000008444CECECCCCC44480000
+    0000000000084CCE6ECCCCCCCC4800000000000000008CCCE6ECCCCCCC800000
+    00000000000088FCCECCCCCCF8800000000000000000088F8F8F8F8F88000000
+    0000000000000088FFF8F8F88000000000000000000000088FFF8F8800000000
+    000000000000000088FFF8800000000000000000000000007F8F8F7000000000
+    000000000000000008FFF800000000000000000000000000088F880000000000
+    000000000000000008FFF800000000000000000000000000088F880000000000
+    000000000000000008FFF800000000000000000000000000088F880000000000
+    000000000000000008F877000000000000000000000000078888888700000000
+    0000000000000008877777880000000000000000000000077888887700000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000FFFFFFFFFFF83FFFFFE00FFFFFC007FFFF8003FFFF0001FFFE0000FFFE00
+    00FFFC00007FFC00007FFC00007FFC00007FFC00007FFE0000FFFE0000FFFF00
+    01FFFF8003FFFFC007FFFFE00FFFFFE00FFFFFF01FFFFFF01FFFFFF01FFFFFF0
+    1FFFFFF01FFFFFF01FFFFFE00FFFFFC007FFFFC007FFFFC007FFFFE00FFFFFFF
+    FFFF
+  }
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poDefaultSizeOnly
+  SessionProperties = 'Left;Top'
+  LCLVersion = '1.8.4.0'
+  object Bevel1: TBevel
+    Left = 0
+    Height = 252
+    Top = 0
+    Width = 291
+    Align = alClient
+  end
+  object Label1: TLabel
+    Left = 12
+    Height = 15
+    Top = 8
+    Width = 178
+    Caption = 'TDS by summation [mg/l]:'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 12
+    Height = 15
+    Top = 28
+    Width = 129
+    Caption = 'TDS (EC * 7) [mg/l]:'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 12
+    Height = 15
+    Top = 49
+    Width = 192
+    Caption = 'Sum of major cations [me/l]:'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 12
+    Height = 15
+    Top = 69
+    Width = 188
+    Caption = 'Sum of major anions [me/l]:'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 12
+    Height = 15
+    Top = 89
+    Width = 147
+    Caption = 'Ion balance error [%]:'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 12
+    Height = 15
+    Top = 110
+    Width = 196
+    Caption = 'Total hardness [mg/l CaCO3]:'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label7: TLabel
+    Left = 12
+    Height = 15
+    Top = 130
+    Width = 218
+    Caption = 'Calcium hardness [mg/l CaCO3]:'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label8: TLabel
+    Left = 12
+    Height = 15
+    Top = 151
+    Width = 243
+    Caption = 'Magnesium hardness [mg/l CaCO3]:'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label9: TLabel
+    Left = 12
+    Height = 15
+    Top = 171
+    Width = 153
+    Caption = 'Aggressiveness index:'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label10: TLabel
+    Left = 12
+    Height = 15
+    Top = 191
+    Width = 186
+    Caption = 'Langelier saturation index:'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label11: TLabel
+    Left = 12
+    Height = 15
+    Top = 212
+    Width = 174
+    Caption = 'Corrosion tendency ratio:'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label12: TLabel
+    Left = 12
+    Height = 15
+    Top = 232
+    Width = 172
+    Caption = 'Sodium Adsorption ratio:'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object SUMTDSDBText: TDBText
+    Left = 220
+    Height = 13
+    Top = 8
+    Width = 64
+    Alignment = taRightJustify
+    AutoSize = False
+    DataField = 'SumTDS'
+    ParentColor = False
+  end
+  object TDS7DBText: TDBText
+    Left = 220
+    Height = 13
+    Top = 28
+    Width = 64
+    Alignment = taRightJustify
+    AutoSize = False
+    DataField = 'TDS7'
+    ParentColor = False
+  end
+  object CATIONSDBText: TDBText
+    Left = 220
+    Height = 13
+    Top = 49
+    Width = 64
+    Alignment = taRightJustify
+    AutoSize = False
+    DataField = 'Cations'
+    ParentColor = False
+  end
+  object ANIONSDBText: TDBText
+    Left = 220
+    Height = 13
+    Top = 69
+    Width = 64
+    Alignment = taRightJustify
+    AutoSize = False
+    DataField = 'Anions'
+    ParentColor = False
+  end
+  object BERRORDBText: TDBText
+    Left = 220
+    Height = 13
+    Top = 89
+    Width = 64
+    Alignment = taRightJustify
+    AutoSize = False
+    DataField = 'BError'
+    ParentColor = False
+  end
+  object THARDDBText: TDBText
+    Left = 220
+    Height = 13
+    Top = 110
+    Width = 64
+    Alignment = taRightJustify
+    AutoSize = False
+    DataField = 'THard'
+    ParentColor = False
+  end
+  object CAHARDDBText: TDBText
+    Left = 220
+    Height = 13
+    Top = 130
+    Width = 64
+    Alignment = taRightJustify
+    AutoSize = False
+    DataField = 'CaHard'
+    ParentColor = False
+  end
+  object MGHARDDBText: TDBText
+    Left = 220
+    Height = 13
+    Top = 151
+    Width = 64
+    Alignment = taRightJustify
+    AutoSize = False
+    DataField = 'MgHard'
+    ParentColor = False
+  end
+  object AGGRESSIVEDBText: TDBText
+    Left = 220
+    Height = 13
+    Top = 171
+    Width = 64
+    Alignment = taRightJustify
+    AutoSize = False
+    DataField = 'Aggressive'
+    ParentColor = False
+  end
+  object LANGELIERDBText: TDBText
+    Left = 220
+    Height = 13
+    Top = 191
+    Width = 64
+    Alignment = taRightJustify
+    AutoSize = False
+    DataField = 'Langelier'
+    ParentColor = False
+  end
+  object CORROSIONDBText: TDBText
+    Left = 220
+    Height = 13
+    Top = 212
+    Width = 64
+    Alignment = taRightJustify
+    AutoSize = False
+    DataField = 'Corrosion'
+    ParentColor = False
+  end
+  object SARDBText: TDBText
+    Left = 220
+    Height = 13
+    Top = 232
+    Width = 64
+    Alignment = taRightJustify
+    AutoSize = False
+    DataField = 'SAR'
+    ParentColor = False
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    left = 59
+    top = 82
+  end
+end

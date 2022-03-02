@@ -1,0 +1,67 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TBorderDlg','FORMDATA',[
+  'TPF0'#10'TBorderDlg'#9'BorderDlg'#4'Left'#3'A'#4#6'Height'#3#191#0#3'Top'#3
+  +#224#0#5'Width'#3#245#0#11'BorderStyle'#7#8'bsDialog'#7'Caption'#6#13'Border'
+  +' Editor'#12'ClientHeight'#3#191#0#11'ClientWidth'#3#245#0#10'Font.Color'#7
+  +#12'clWindowText'#11'Font.Height'#2#245#9'Font.Name'#6#13'MS Sans Serif'#9'I'
+  +'con.Data'#10#2#3#0#0#254#2#0#0#0#0#1#0#1#0'  '#16#0#0#0#0#0#232#2#0#0#22#0#0
+  +#0'('#0#0#0' '#0#0#0'@'#0#0#0#1#0#4#0#0#0#0#0#128#2#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#0#0#0#0#0#0#0#0#0#0#128#0#0#128#0#0#0#128#128#0#128#0#0#0#128#0#128#0#128
+  +#128#0#0#128#128#128#0#192#192#192#0#0#0#255#0#0#255#0#0#0#255#255#0#255#0#0
+  +#0#255#0#255#0#255#255#0#0#255#255#255#0#0#0#0#0#0#7'wwwwwwx'#136#0#135#0#0#0
+  +#0#0#15'www'#17'ww'#136#128#8#127#0#0#0#0#0#15'www'#145'wx'#136#0#135#240#0#0
+  +#0#0#0#15'wwwww'#136#128#8#127#0#0#0#0#0#0#15'www'#145'x'#136#0#135#240#0#0#0
+  +#0#0#0#15'www'#145#136#128#8#127#0#7#0#0#0#0#0#7'www'#152#136#0#135#240#0'w'
+  +#0#0#0#0#0#8#136#136#136#136#128#8#127#0#7'w'#0#0#0#0#136#8#136#136#136#136#0
+  +#0#240#0'ww'#0#0#0#136#136#8#136#136#136#128#0#128#0#7'ww'#0#0#8#136#0#8#127
+  +'x'#0#0#8#127#0'www'#0#8#136#0#0#0#8#0#0#0#135#240#1'www'#0#136#128#0#7'wy'
+  +#145#0#0#15#0#145'www'#8#128#0#7'wwy'#145'w'#0#0#0#145'www'#8#0#0'wwwy'#153
+  +#23'p'#0#9#145'www'#136#0#7'wwww'#153#145'w'#0#9#151'www'#128#0#15'wwwwy'#153
+  +#23'p'#0'wwww'#128#0#15'wwwww'#153#145'p'#128'wwww'#0#0#15'ww'#17#23'wy'#145
+  +'w'#0#7'www'#8#0#7'ww'#217#23'wy'#145'w'#8#7#255#255#247#8#0#8#136'w'#217#145
+  +'w'#153#145'w'#8#0#0#0#0#8#0#8#136#135'}'#153#17#153#145'w'#8#0#0#0#0#8#0#0#0
+  +#0#7#217#153#153#215'w'#8#0#0#0#0#0#0#0#136#127#7'}'#221#221'ww'#0#0#0#0#0#0
+  +#128#0#8'w'#7'wwwwp'#128#0#0#0#0#0#0#0#0#135#7'wwwwp'#0#0#0#0#0#0#0#0#0#7#7
+  +'wwww'#0#0#0#0#0#0#0#0#0#0#0#7#255#255#247'p'#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#135#247#128#0#0#0#0#0
+  +#0#0#0#0#0#0#0#0#0#128#0#0#0#0#0#0#0#0#0#255#192#0#0#255#192#0#0#255#192#0#0
+  +#255#192#0#0#255#192#0#0#255#192#0#0#255#192#0#0#255#192#0#0#255#0#0#0#252#0
+  +#0#0#248#0#0#0#224#0#0#0#192#0#0#0#128#0#0#0#128#0#0#0#0#0#0#0#0#0#0#0#0#0#0
+  +#0#16#0#0#0#16#0#0#0#16#0#0#0#16#0#0#127#16#0#0#127#24#0#0#127#140#0#0#255
+  +#142#0#0#255#199#0#1#255#227#128#3#255#241#192#7#255#248#127#15#255#252#0#31
+  +#255#255#0#127#255#8'Position'#7#14'poScreenCenter'#10'LCLVersion'#6#3'1.7'#0
+  +#6'TLabel'#6'Label1'#4'Left'#2#16#6'Height'#2#14#3'Top'#2'L'#5'Width'#2'$'#7
+  +'Caption'#6#7'&Width:'#12'FocusControl'#7#19'SpinEditBorderWidth'#11'ParentC'
+  +'olor'#8#0#0#11'TRadioGroup'#21'RadioGroupBorderStyle'#4'Left'#2'x'#6'Height'
+  +#3#137#0#3'Top'#2#8#5'Width'#2'q'#8'AutoFill'#9#7'Caption'#6#6'&Style'#28'Ch'
+  +'ildSizing.LeftRightSpacing'#2#6#29'ChildSizing.EnlargeHorizontal'#7#24'crsH'
+  +'omogenousChildResize'#27'ChildSizing.EnlargeVertical'#7#24'crsHomogenousChi'
+  +'ldResize'#28'ChildSizing.ShrinkHorizontal'#7#14'crsScaleChilds'#26'ChildSiz'
+  +'ing.ShrinkVertical'#7#14'crsScaleChilds'#18'ChildSizing.Layout'#7#29'cclLef'
+  +'tToRightThenTopToBottom'#27'ChildSizing.ControlsPerLine'#2#1#12'ClientHeigh'
+  +'t'#2'y'#11'ClientWidth'#2'm'#9'ItemIndex'#2#0#13'Items.Strings'#1#6#5'Solid'
+  +#6#4'Dash'#6#3'Dot'#6#7'DashDot'#6#10'DashDotDot'#0#8'TabOrder'#2#0#0#0#9'TC'
+  +'heckBox'#21'CheckBoxBorderVisible'#4'Left'#2#16#6'Height'#2#24#3'Top'#2#8#5
+  +'Width'#2'>'#7'Caption'#6#8'&Visible'#7'Checked'#9#5'State'#7#9'cbChecked'#8
+  +'TabOrder'#2#1#0#0#9'TSpinEdit'#19'SpinEditBorderWidth'#4'Left'#2'5'#6'Heigh'
+  +'t'#2#24#3'Top'#2'H'#5'Width'#2'1'#9'Alignment'#7#14'taRightJustify'#8'MaxVa'
+  +'lue'#2'c'#8'MinValue'#2#1#8'TabOrder'#2#2#5'Value'#2#1#0#0#12'TColorButton'
+  +#17'ColorButtonBorder'#4'Left'#2#16#6'Height'#2#26#3'Top'#2'p'#5'Width'#2'V'
+  +#11'BorderWidth'#2#2#15'ButtonColorSize'#2#16#11'ButtonColor'#7#7'clBlack'#11
+  +'ColorDialog'#7#12'ColorDialog1'#7'Caption'#6#7'Colour:'#6'Layout'#7#12'blGl'
+  +'yphRight'#7'OnClick'#7#22'ColorButtonBorderClick'#0#0#12'TButtonPanel'#12'B'
+  +'uttonPanel1'#4'Left'#2#6#6'Height'#2'$'#3'Top'#3#149#0#5'Width'#3#233#0#13
+  +'OKButton.Name'#6#8'OKButton'#23'OKButton.DefaultCaption'#9#15'HelpButton.Na'
+  +'me'#6#10'HelpButton'#25'HelpButton.DefaultCaption'#9#16'CloseButton.Name'#6
+  +#11'CloseButton'#26'CloseButton.DefaultCaption'#9#17'CancelButton.Name'#6#12
+  +'CancelButton'#27'CancelButton.DefaultCaption'#9#8'TabOrder'#2#3#11'ShowButt'
+  +'ons'#11#4'pbOK'#8'pbCancel'#0#0#0#12'TColorDialog'#12'ColorDialog1'#5'Color'
+  +#7#7'clBlack'#20'CustomColors.Strings'#1#6#13'ColorA=000000'#6#13'ColorB=000'
+  +'080'#6#13'ColorC=008000'#6#13'ColorD=008080'#6#13'ColorE=800000'#6#13'Color'
+  +'F=800080'#6#13'ColorG=808000'#6#13'ColorH=808080'#6#13'ColorI=C0C0C0'#6#13
+  +'ColorJ=0000FF'#6#13'ColorK=00FF00'#6#13'ColorL=00FFFF'#6#13'ColorM=FF0000'#6
+  +#13'ColorN=FF00FF'#6#13'ColorO=FFFF00'#6#13'ColorP=FFFFFF'#6#13'ColorQ=C0DCC'
+  +'0'#6#13'ColorR=F0CAA6'#6#13'ColorS=F0FBFF'#6#13'ColorT=A4A0A0'#0#4'left'#2
+  +#24#3'top'#3#144#0#0#0#0
+]);

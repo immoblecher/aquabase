@@ -1,0 +1,126 @@
+object AppendProgForm: TAppendProgForm
+  Left = 951
+  Height = 134
+  Top = 199
+  Width = 342
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Progress'
+  ClientHeight = 134
+  ClientWidth = 342
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
+  object Bevel1: TBevel
+    Cursor = crSQLWait
+    Left = 6
+    Height = 76
+    Top = 8
+    Width = 331
+    Shape = bsFrame
+  end
+  object Label1: TLabel
+    Left = 14
+    Height = 11
+    Top = 24
+    Width = 314
+    Caption = 'Adjusting Chem. Ref. Nr in '
+    Constraints.MinWidth = 314
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    ParentColor = False
+    ParentFont = False
+  end
+  object ProgressBar1: TProgressBar
+    Cursor = crSQLWait
+    Left = 14
+    Height = 20
+    Top = 43
+    Width = 314
+    Smooth = True
+    Step = 1
+    TabOrder = 0
+    BarShowText = True
+  end
+  object BitBtn1: TBitBtn
+    Left = 129
+    Height = 30
+    Top = 96
+    Width = 84
+    Cancel = True
+    DefaultCaption = True
+    Kind = bkCancel
+    ModalResult = 2
+    OnClick = BitBtn1Click
+    TabOrder = 1
+  end
+  object ChemQuery: TZReadOnlyQuery
+    SQL.Strings = (
+      'SELECT MAX(CHM_REF_NR) FROM chem_000'
+    )
+    Params = <>
+    Left = 296
+  end
+  object ZConnectionOther: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings='
+    )
+    Port = 0
+    Left = 288
+    Top = 48
+  end
+  object ZSQLProcessor1: TZSQLProcessor
+    Params = <>
+    DelimiterType = dtDelimiter
+    Delimiter = ';'
+    Left = 40
+    Top = 40
+  end
+  object ProjectTable: TZTable
+    Left = 224
+    object ProjectTablePRO_REF_NR: TStringField
+      FieldKind = fkData
+      FieldName = 'PRO_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+  end
+  object SelectQuery: TZReadOnlyQuery
+    Connection = ZConnectionOther
+    Params = <>
+    Left = 72
+  end
+  object AppendTable: TZTable
+    Connection = DataModuleMain.ZConnectionDB
+    Left = 152
+  end
+  object ProfilingTable: TZTable
+    TableName = 'profilng'
+    Left = 184
+    Top = 48
+    object ProfilingTableTRAV_NR: TStringField
+      FieldKind = fkData
+      FieldName = 'TRAV_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 16
+    end
+  end
+end

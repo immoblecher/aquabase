@@ -1,0 +1,119 @@
+object ApplyNewSQLiteForm: TApplyNewSQLiteForm
+  Left = 984
+  Height = 164
+  Top = 149
+  Width = 305
+  BorderIcons = [biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Apply new SQLite format'
+  ClientHeight = 164
+  ClientWidth = 305
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 38
+    Top = 120
+    Width = 293
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CloseButton.OnClick = CloseButtonClick
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 0
+    ShowButtons = [pbOK, pbClose, pbHelp]
+  end
+  object StaticText2: TStaticText
+    Left = 8
+    Height = 17
+    Top = 72
+    Width = 286
+    Caption = 'Conversion not started...'
+    TabOrder = 1
+  end
+  object ProgressBar1: TProgressBar
+    Left = 8
+    Height = 20
+    Top = 90
+    Width = 284
+    Smooth = True
+    Step = 1
+    TabOrder = 2
+    BarShowText = True
+  end
+  object Panel1: TPanel
+    Left = 6
+    Height = 66
+    Top = 4
+    Width = 292
+    BevelOuter = bvNone
+    Caption = 'This tool applies a new SQLite format to your present workspace. Click on <OK> to start the conversion. You may continue in Aquabase normally, but do not edit data as the changes may be lost!'
+    TabOrder = 3
+    Wordwrap = True
+  end
+  object ZConnectionNew: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings='
+    )
+    Port = 0
+    Protocol = 'sqlite-3'
+    Left = 120
+    Top = 112
+  end
+  object ZReadOnlyQuery: TZReadOnlyQuery
+    BeforeOpen = ZReadOnlyQueryBeforeOpen
+    Params = <>
+    Left = 32
+    Top = 10
+  end
+  object ZQueryImg: TZQuery
+    Connection = ZConnectionNew
+    Params = <>
+    Left = 32
+    Top = 112
+  end
+  object ZSQLProcessorViews: TZSQLProcessor
+    Params = <>
+    Connection = ZConnectionNew
+    Delimiter = ';'
+    Left = 147
+    Top = 7
+  end
+  object ViewQuery: TZReadOnlyQuery
+    BeforeOpen = ZReadOnlyQueryBeforeOpen
+    Params = <>
+    Left = 32
+    Top = 56
+  end
+  object DefinitionQuery: TZReadOnlyQuery
+    BeforeOpen = ZReadOnlyQueryBeforeOpen
+    SQL.Strings = (
+      'SELECT name FROM sqlite_master WHERE type = ''view'''
+    )
+    Params = <>
+    Left = 147
+    Top = 64
+  end
+  object ZQueryNewFields: TZReadOnlyQuery
+    Connection = ZConnectionNew
+    Params = <>
+    Left = 248
+    Top = 8
+  end
+  object ZQueryOldFields: TZReadOnlyQuery
+    BeforeOpen = ZQueryOldFieldsBeforeOpen
+    Params = <>
+    Left = 248
+    Top = 52
+  end
+end

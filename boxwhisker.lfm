@@ -1,0 +1,156 @@
+object BoxWhiskerForm: TBoxWhiskerForm
+  Left = 690
+  Height = 344
+  Top = 199
+  Width = 606
+  Caption = 'Box & Whisker Diagram'
+  ClientHeight = 344
+  ClientWidth = 606
+  FormStyle = fsMDIChild
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  SessionProperties = 'Left;Top;Height;Width'
+  LCLVersion = '1.8.4.0'
+  object Chart1: TChart
+    Left = 0
+    Height = 325
+    Top = 0
+    Width = 606
+    AxisList = <    
+      item
+        Marks.Distance = 3
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.Visible = True
+        Title.Caption = 'Parameter'
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.Attachment = maEdge
+        Marks.Distance = 0
+        Marks.LabelFont.Orientation = -450
+        Marks.AtDataOnly = True
+        Marks.Format = '%2:s'
+        Marks.LabelBrush.Style = bsClear
+        Marks.RotationCenter = rcLeft
+        Marks.Source = ListChartSourceX
+        Marks.Style = smsLabel
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calRight
+        Marks.Distance = 3
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 2700
+        Title.Visible = True
+        Title.Caption = 'Parameter'
+        Title.LabelBrush.Style = bsClear
+      end>
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Legend.Alignment = laBottomCenter
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    Title.Visible = True
+    Toolset = ChartToolset1
+    Align = alClient
+    PopupMenu = PopupMenuCharts
+    OnDblClick = Chart1DblClick
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 19
+    Top = 325
+    Width = 606
+    Panels = <>
+    ParentShowHint = False
+    SimpleText = 'Mouse wheel zooms, Ctrl pans, ESC cancels pan, double-click zooms to full'
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    left = 512
+    top = 24
+  end
+  object ZQueryBox: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = ZQueryBoxBeforeOpen
+    AfterOpen = ZQueryBoxAfterOpen
+    Params = <>
+    left = 104
+    top = 40
+  end
+  object ZReadOnlyQuery1: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    left = 344
+    top = 24
+  end
+  object ListChartSourceX: TListChartSource
+    Sorted = True
+    left = 232
+    top = 240
+  end
+  object ChartToolset1: TChartToolset
+    left = 312
+    top = 112
+    object ChartToolset1ZoomMouseWheelTool1: TZoomMouseWheelTool
+      ZoomFactor = 1.1
+    end
+    object ChartToolset1PanDragTool1: TPanDragTool
+      Shift = [ssCtrl]
+      LimitToExtent = [pdLeft, pdUp, pdRight, pdDown]
+      EscapeCancels = True
+    end
+  end
+  object PopupMenuCharts: TPopupMenu
+    left = 188
+    top = 76
+    object Copyasbitmap1: TMenuItem
+      Caption = '&Copy as bitmap'
+      OnClick = Copyasbitmap1Click
+    end
+    object Saveas1: TMenuItem
+      Caption = 'Save &as...'
+      OnClick = Saveas1Click
+    end
+    object N2: TMenuItem
+      Caption = '-'
+      GroupIndex = 1
+    end
+    object QuickFormat1: TMenuItem
+      Caption = '&Quick Format'
+      GroupIndex = 1
+      object HorizGrid1: TMenuItem
+        Caption = '&Horiz. Grid'
+        Checked = True
+        OnClick = HorizGrid1Click
+      end
+      object VertGrid1: TMenuItem
+        Caption = '&Vert. Grid'
+        Checked = True
+        OnClick = VertGrid1Click
+      end
+    end
+    object Properties1: TMenuItem
+      Caption = '&Properties...'
+      Enabled = False
+      GroupIndex = 1
+    end
+  end
+  object SaveDialog: TSaveDialog
+    Title = 'Save chart as'
+    DefaultExt = '.jpg'
+    Filter = 'JPEG image file (*.jpg)|*.jpg|Bitmap image file (*.bmp)|*.bmp|Portable Network Graphics (*.png)|*.png'
+    InitialDir = 'WSpaceDir'
+    left = 424
+    top = 216
+  end
+end

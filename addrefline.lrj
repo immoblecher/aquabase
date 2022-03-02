@@ -1,0 +1,17 @@
+{"version":1,"strings":[
+{"hash":113492357,"name":"taddlineform.caption","sourcebytes":[65,100,100,32,82,101,102,101,114,101,110,99,101,32,76,105,110,101],"value":"Add Reference Line"},
+{"hash":93347386,"name":"taddlineform.labelededity.editlabel.caption","sourcebytes":[65,116,32,89,32,86,97,108,117,101,58],"value":"At Y Value:"},
+{"hash":209200,"name":"taddlineform.labelededity.text","sourcebytes":[48,46,48,48],"value":"0.00"},
+{"hash":26807642,"name":"taddlineform.labelededitname.editlabel.caption","sourcebytes":[76,105,110,101,32,40,83,101,114,105,101,115,41,32,78,97,109,101,58],"value":"Line (Series) Name:"},
+{"hash":138266238,"name":"taddlineform.labelededitname.texthint","sourcebytes":[60,109,121,32,114,101,102,101,114,101,110,99,101,62],"value":"<my reference>"},
+{"hash":167694021,"name":"taddlineform.checkbox1.caption","sourcebytes":[76,97,98,101,108,32,116,104,101,32,108,105,110,101],"value":"Label the line"},
+{"hash":45908899,"name":"taddlineform.groupbox1.caption","sourcebytes":[76,105,110,101,32,80,114,111,112,101,114,116,105,101,115],"value":"Line Properties"},
+{"hash":224714163,"name":"taddlineform.comboboxaxis.text","sourcebytes":[76,101,102,116,32,65,120,105,115],"value":"Left Axis"},
+{"hash":28527482,"name":"taddlineform.label3.caption","sourcebytes":[76,105,110,107,101,100,32,116,111,58],"value":"Linked to:"},
+{"hash":81212082,"name":"taddlineform.colorbutton1.caption","sourcebytes":[76,105,110,101,32,67,111,108,111,117,114],"value":"Line Colour"},
+{"hash":242300826,"name":"taddlineform.labelthick.caption","sourcebytes":[76,105,110,101,32,84,104,105,99,107,110,101,115,115,58],"value":"Line Thickness:"},
+{"hash":100206330,"name":"taddlineform.labelstyle.caption","sourcebytes":[76,105,110,101,32,83,116,121,108,101,58],"value":"Line Style:"},
+{"hash":5923572,"name":"taddlineform.comboboxstyle.text","sourcebytes":[83,111,108,105,100],"value":"Solid"},
+{"hash":168473466,"name":"taddlineform.label4.caption","sourcebytes":[80,111,115,105,116,105,111,110,58],"value":"Position:"},
+{"hash":88058661,"name":"taddlineform.comboboxpos.text","sourcebytes":[77,105,100,100,108,101],"value":"Middle"}
+]}

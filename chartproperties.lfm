@@ -1,0 +1,3327 @@
+object ChartPropDlg: TChartPropDlg
+  Left = 889
+  Height = 300
+  Top = 237
+  Width = 379
+  HelpContext = 99
+  BorderStyle = bsSingle
+  Caption = 'Chart Properties'
+  ClientHeight = 300
+  ClientWidth = 379
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Icon.Data = {
+    FE0200000000010001002020100000000000E802000016000000280000002000
+    0000400000000100040000000000800200000000000000000000000000000000
+    0000000000000000800000800000008080008000000080008000808000008080
+    8000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+    FF00000000000000000000808080808080800000000008080808080808080808
+    08080000000000000000000000000000008000077888888888888888F7F88888
+    F008000760000000000000087F60000870800007F66EEEEEEEEE6608F7678708
+    F0080007F66EEEEEEEEE66087F68780870800007F666666666666608F7678708
+    F0080007F66666666666660F7F68780870800007F777F7F7F7F7F7F7F76787F8
+    F008000F77F888888888888F7F68780870800007F7F0000000000087F7666667
+    F000000F77F3BBBBBBBB308F7F7F7F7F70800007F7F3FBBBBBB33087F7788888
+    F000000F77F333333333307F7F00000870800007F777F7F7F7F7F7F7F7333308
+    F000000F78888888888888887F3B330870800007F000000000000008F73FB308
+    F0000007F7F7F7F7F7F7F7087FB3330F70800007FF70808080807F08F7F7F7F7
+    F0000007F7F7F7F7F7F7F7087F78887F70000007FF70808080807F08F7F00087
+    F0000007F7F7F7F7F7F7F7087F66600870000007FF70808080807F08F7EE6608
+    F0000007F7F7F7F7F7F7F7087F6FE60870000007F444444444444447F7F666F7
+    F000000F7F7F7F7F7F7F7F7F7F7F7F7F70000000000000000000000000000000
+    0000000444444444444444444444444440000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000FFFFD555FFAAAAAAC0000001C0000002C0000001C0000002C0000001C000
+    0002C0000001C0000022C0000001C0000003C0000001C0000003C0000001C000
+    0003C0000001C0000003C0000001C0000003C0000003C0000003C0000003C000
+    0003C0000003C0000003C0000003C0000003C0000003C0000003FFFFFFFFFFFF
+    FFFF
+  }
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  Position = poScreenCenter
+  SessionProperties = 'Left;Top'
+  LCLVersion = '2.0.12.0'
+  object PageControl1: TPageControl
+    Tag = 2
+    Left = 0
+    Height = 250
+    Top = 0
+    Width = 379
+    ActivePage = TabSheetSeries
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 0
+    object TabSheetSeries: TTabSheet
+      Caption = 'Series'
+      ClientHeight = 224
+      ClientWidth = 369
+      object ComboBoxSeries: TComboBox
+        Left = 48
+        Height = 25
+        Top = 2
+        Width = 230
+        ItemHeight = 0
+        OnChange = ComboBoxSeriesChange
+        Style = csDropDownList
+        TabOrder = 1
+      end
+      object PageControlSeries: TPageControl
+        Left = 0
+        Height = 186
+        Top = 38
+        Width = 369
+        ActivePage = TabSheetSeriesGeneral
+        Align = alBottom
+        TabIndex = 0
+        TabOrder = 0
+        object TabSheetSeriesGeneral: TTabSheet
+          Caption = 'General'
+          ClientHeight = 160
+          ClientWidth = 359
+          object CheckBoxShowInLegend: TCheckBox
+            Left = 8
+            Height = 23
+            Top = 32
+            Width = 103
+            Caption = '&Show in Legend'
+            Checked = True
+            OnChange = CheckBoxShowInLegendChange
+            State = cbChecked
+            TabOrder = 0
+          end
+          object RadioGroupHorAxis: TRadioGroup
+            Left = 214
+            Height = 56
+            Top = 4
+            Width = 150
+            AutoFill = True
+            Caption = '&Horizontal Axis:'
+            ChildSizing.LeftRightSpacing = 6
+            ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+            ChildSizing.EnlargeVertical = crsHomogenousChildResize
+            ChildSizing.ShrinkHorizontal = crsScaleChilds
+            ChildSizing.ShrinkVertical = crsScaleChilds
+            ChildSizing.Layout = cclLeftToRightThenTopToBottom
+            ChildSizing.ControlsPerLine = 1
+            ClientHeight = 43
+            ClientWidth = 148
+            ItemIndex = 1
+            Items.Strings = (
+              '&Top Axis'
+              '&Bottom Axis'
+            )
+            OnClick = RadioGroupHorAxisClick
+            TabOrder = 1
+          end
+          object RadioGroupVertAxis: TRadioGroup
+            Left = 214
+            Height = 56
+            Top = 66
+            Width = 150
+            AutoFill = True
+            Caption = '&Vertical Axis:'
+            ChildSizing.LeftRightSpacing = 6
+            ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+            ChildSizing.EnlargeVertical = crsHomogenousChildResize
+            ChildSizing.ShrinkHorizontal = crsScaleChilds
+            ChildSizing.ShrinkVertical = crsScaleChilds
+            ChildSizing.Layout = cclLeftToRightThenTopToBottom
+            ChildSizing.ControlsPerLine = 1
+            ClientHeight = 43
+            ClientWidth = 148
+            ItemIndex = 0
+            Items.Strings = (
+              '&Left Axis'
+              '&Right Axis'
+            )
+            OnClick = RadioGroupVertAxisClick
+            TabOrder = 2
+          end
+          object EditSeriesTitle: TEdit
+            Left = 8
+            Height = 23
+            Top = 132
+            Width = 238
+            TabOrder = 3
+            TextHint = '<Title of the series>'
+          end
+          object LabelSeriesTitle: TLabel
+            Left = 8
+            Height = 10
+            Top = 120
+            Width = 56
+            Caption = 'Series Title:'
+            ParentColor = False
+          end
+          object ButtonApplySeriesTitle: TButton
+            Left = 258
+            Height = 26
+            Top = 130
+            Width = 102
+            AutoSize = True
+            Caption = ' &Apply Series Title '
+            OnClick = ButtonApplySeriesTitleClick
+            TabOrder = 4
+          end
+          object Label30: TLabel
+            Left = 8
+            Height = 10
+            Top = 66
+            Width = 77
+            Caption = '&Legend Format:'
+            ParentColor = False
+          end
+          object EditFormatLegend: TEdit
+            Left = 90
+            Height = 23
+            Top = 60
+            Width = 108
+            TabOrder = 5
+          end
+          object ButtonApplyFormat: TButton
+            Left = 64
+            Height = 26
+            Top = 88
+            Width = 84
+            AutoSize = True
+            Caption = ' Apply F&ormat '
+            OnClick = ButtonApplyFormatClick
+            TabOrder = 6
+          end
+          object CheckBoxShowSeries: TCheckBox
+            Left = 8
+            Height = 23
+            Top = 4
+            Width = 86
+            Caption = '&Show Series'
+            OnChange = CheckBoxShowSeriesChange
+            TabOrder = 7
+          end
+        end
+        object TabSheetFormatLine: TTabSheet
+          Caption = 'Format'
+          ClientHeight = 160
+          ClientWidth = 359
+          object GroupBoxPoints: TGroupBox
+            Left = 112
+            Height = 141
+            Top = 4
+            Width = 252
+            Caption = 'Points:'
+            ClientHeight = 127
+            ClientWidth = 250
+            TabOrder = 0
+            object Label27: TLabel
+              Left = 110
+              Height = 10
+              Top = 5
+              Width = 26
+              Caption = 'St&yle:'
+              ParentColor = False
+            end
+            object Label28: TLabel
+              Left = 6
+              Height = 10
+              Top = 5
+              Width = 30
+              Caption = '&Width:'
+              FocusControl = PointsWidthSpinEdit
+              ParentColor = False
+            end
+            object Label29: TLabel
+              Left = 56
+              Height = 10
+              Top = 5
+              Width = 34
+              Caption = '&Height:'
+              FocusControl = PointsHeightSpinEdit
+              ParentColor = False
+            end
+            object PointsBorderButton: TButton
+              Left = 6
+              Height = 25
+              Top = 88
+              Width = 66
+              Caption = 'B&order...'
+              OnClick = PointsBorderButtonClick
+              TabOrder = 0
+            end
+            object PointsStyleComboBox: TComboBox
+              Left = 110
+              Height = 25
+              Top = 22
+              Width = 130
+              ItemHeight = 0
+              ItemIndex = 0
+              Items.Strings = (
+                'None'
+                'Rectangle'
+                'Circle'
+                'Cross'
+                'DiagCross'
+                'Star'
+                'LowBracket'
+                'HighBracket'
+                'LeftBracket'
+                'RightBracket'
+                'Diamond'
+                'Triangle'
+                'LeftTriangle'
+                'RightTriangle'
+                'VertBar'
+                'HorBar'
+                'Point'
+                'DownTriangle'
+                'Hexagon'
+                'FullStar'
+              )
+              OnChange = PointsStyleComboBoxChange
+              Style = csDropDownList
+              TabOrder = 1
+              Text = 'None'
+            end
+            object PointsWidthSpinEdit: TSpinEdit
+              Left = 6
+              Height = 23
+              Top = 22
+              Width = 41
+              Alignment = taRightJustify
+              MaxValue = 50
+              OnChange = PointsWidthSpinEditChange
+              TabOrder = 2
+              Value = 1
+            end
+            object PointsHeightSpinEdit: TSpinEdit
+              Left = 56
+              Height = 23
+              Top = 22
+              Width = 41
+              Alignment = taRightJustify
+              MaxValue = 50
+              OnChange = PointsHeightSpinEditChange
+              TabOrder = 3
+              Value = 1
+            end
+            object Label26: TLabel
+              Left = 40
+              Height = 10
+              Top = 64
+              Width = 57
+              Alignment = taRightJustify
+              Caption = '&Point brush:'
+              FocusControl = PointsBrushComboBox
+              ParentColor = False
+              WordWrap = True
+            end
+            object PointsBrushComboBox: TComboBox
+              Left = 110
+              Height = 25
+              Top = 56
+              Width = 130
+              ItemHeight = 0
+              ItemIndex = 0
+              Items.Strings = (
+                'Solid'
+                'Clear'
+                'Horizontal'
+                'Vertical'
+                'FDiagonal'
+                'BDiagonal'
+                'Cross'
+                'DiagCross'
+              )
+              OnChange = PointsBrushComboBoxChange
+              Style = csDropDownList
+              TabOrder = 4
+              Text = 'Solid'
+            end
+            object ColorButtonPntsBrush: TColorButton
+              Left = 110
+              Height = 25
+              Top = 88
+              Width = 130
+              BorderWidth = 2
+              ButtonColorSize = 16
+              ButtonColor = clBlack
+              ColorDialog = ColorDialog1
+              Caption = 'Point Colour'
+              Layout = blGlyphRight
+              OnClick = ColorButtonClick
+              OnColorChanged = ColorButtonPntsBrushColorChanged
+            end
+          end
+          object ButtonLinePen: TButton
+            Left = 8
+            Height = 25
+            Top = 24
+            Width = 80
+            Caption = 'Line &Pen...'
+            OnClick = ButtonLinePenClick
+            TabOrder = 1
+          end
+          object CheckBoxShowPoints: TCheckBox
+            Left = 8
+            Height = 23
+            Top = 64
+            Width = 85
+            Alignment = taLeftJustify
+            Caption = '&Show Points'
+            OnChange = CheckBoxShowPointsChange
+            TabOrder = 2
+          end
+          object CheckBoxShowLines: TCheckBox
+            Left = 8
+            Height = 23
+            Top = 92
+            Width = 81
+            Alignment = taLeftJustify
+            Caption = 'Show &Lines'
+            OnChange = CheckBoxShowLinesChange
+            TabOrder = 3
+          end
+        end
+        object TabSheetFormatBar: TTabSheet
+          Caption = 'Format'
+          ClientHeight = 160
+          ClientWidth = 359
+          object Label60: TLabel
+            Left = 176
+            Height = 10
+            Top = 24
+            Width = 63
+            Caption = 'Bar &Width %:'
+            ParentColor = False
+          end
+          object Label61: TLabel
+            Left = 176
+            Height = 10
+            Top = 74
+            Width = 64
+            Caption = 'Bar O&ffset %:'
+            ParentColor = False
+          end
+          object SpinEditBarOffset: TSpinEdit
+            Left = 253
+            Height = 21
+            Top = 67
+            Width = 68
+            Alignment = taRightJustify
+            OnChange = SpinEditBarOffsetChange
+            TabOrder = 0
+          end
+          object SpinEditBarWidth: TSpinEdit
+            Left = 253
+            Height = 21
+            Top = 18
+            Width = 68
+            Alignment = taRightJustify
+            OnChange = SpinEditBarWidthChange
+            TabOrder = 1
+          end
+          object ButtonBarBorder: TButton
+            Left = 8
+            Height = 25
+            Top = 68
+            Width = 112
+            Caption = '&Bar Border...'
+            OnClick = ButtonBarBorderClick
+            TabOrder = 2
+          end
+          object ColorButtonBarColour: TColorButton
+            Left = 8
+            Height = 25
+            Top = 18
+            Width = 112
+            BorderWidth = 2
+            ButtonColorSize = 16
+            ButtonColor = clBlack
+            ColorDialog = ColorDialog1
+            Caption = 'Bar Colour'
+            Layout = blGlyphRight
+            OnClick = ColorButtonClick
+            OnColorChanged = ColorButtonBarColourColorChanged
+          end
+        end
+        object TabSheetMarks: TTabSheet
+          Caption = 'Marks'
+          ClientHeight = 160
+          ClientWidth = 359
+          object GroupBoxArrows: TGroupBox
+            Left = 190
+            Height = 72
+            Top = 80
+            Width = 174
+            Caption = 'Arrows:'
+            ClientHeight = 58
+            ClientWidth = 172
+            TabOrder = 0
+            object Label32: TLabel
+              Left = 8
+              Height = 10
+              Top = 38
+              Width = 36
+              Caption = '&Length:'
+              ParentColor = False
+            end
+            object SpinEditArrowLength: TSpinEdit
+              Left = 52
+              Height = 21
+              Top = 32
+              Width = 40
+              Alignment = taRightJustify
+              MaxValue = 0
+              OnChange = SpinEditArrowLengthChange
+              TabOrder = 1
+              Value = 8
+            end
+            object GroupBox9: TGroupBox
+              Left = 184
+              Height = 92
+              Top = 4
+              Width = 156
+              Caption = 'Format:'
+              TabOrder = 2
+            end
+            object Label35: TLabel
+              Left = 8
+              Height = 10
+              Top = 12
+              Width = 30
+              Caption = '&Width:'
+              ParentColor = False
+            end
+            object SpinEditArrowWidth: TSpinEdit
+              Left = 52
+              Height = 21
+              Top = 4
+              Width = 40
+              Alignment = taRightJustify
+              MaxValue = 0
+              OnChange = SpinEditArrowWidthChange
+              TabOrder = 0
+              Value = 5
+            end
+          end
+          object ColorButtonMarksBackground: TColorButton
+            Left = 4
+            Height = 25
+            Top = 120
+            Width = 166
+            BorderWidth = 2
+            ButtonColorSize = 16
+            ButtonColor = clYellow
+            ColorDialog = ColorDialog1
+            Caption = 'Background Colour:'
+            Layout = blGlyphRight
+            OnClick = ColorButtonClick
+            OnColorChanged = ColorButtonMarksBackgroundColorChanged
+          end
+          object Label8: TLabel
+            Left = 4
+            Height = 10
+            Top = 4
+            Width = 26
+            Caption = 'Style:'
+            ParentColor = False
+          end
+          object ComboBoxMarksStyle: TComboBox
+            Left = 4
+            Height = 27
+            Top = 18
+            Width = 166
+            ItemHeight = 0
+            ItemIndex = 0
+            Items.Strings = (
+              'None'
+              'Value'
+              'Percent'
+              'Label'
+              'Label%'
+              'LabelValue'
+              'Legend'
+              'PercentTot.'
+              'Label%Tot.'
+              'XValue'
+            )
+            OnChange = ComboBoxMarksStyleChange
+            Style = csDropDownList
+            TabOrder = 1
+            Text = 'None'
+          end
+          object CheckBoxMarksClipped: TCheckBox
+            Left = 4
+            Height = 21
+            Top = 52
+            Width = 60
+            Caption = 'C&lipped'
+            OnChange = CheckBoxMarksClippedChange
+            TabOrder = 2
+          end
+          object ButtonMarksFont: TButton
+            Left = 4
+            Height = 22
+            Top = 86
+            Width = 64
+            Caption = 'F&ont...'
+            OnClick = ButtonMarksFontClick
+            TabOrder = 3
+          end
+          object ButtonMarksBorder: TButton
+            Left = 96
+            Height = 22
+            Top = 86
+            Width = 74
+            Caption = 'Bo&rder...'
+            OnClick = ButtonMarksBorderClick
+            TabOrder = 4
+          end
+          object ButtonMarksBorder1: TButton
+            Left = 96
+            Height = 22
+            Top = 52
+            Width = 74
+            Caption = '&Link Pen...'
+            OnClick = LinkPenBorderClick
+            TabOrder = 5
+          end
+          object Label18: TLabel
+            Left = 190
+            Height = 10
+            Top = 36
+            Width = 45
+            Caption = 'Distance:'
+            ParentColor = False
+          end
+          object SpinEditMarksDistance: TSpinEdit
+            Left = 244
+            Height = 21
+            Top = 30
+            Width = 50
+            Alignment = taRightJustify
+            OnChange = SpinEditMarksDistanceChange
+            TabOrder = 6
+            Value = 20
+          end
+          object CheckBoxArrowsVisible: TCheckBox
+            Left = 190
+            Height = 21
+            Top = 56
+            Width = 91
+            Caption = 'Arrows &Visible'
+            OnChange = CheckBoxArrowsVisibleChange
+            TabOrder = 7
+          end
+          object CheckBoxMarksVisible: TCheckBox
+            Left = 190
+            Height = 21
+            Top = 6
+            Width = 54
+            Caption = 'Visible'
+            OnChange = CheckBoxMarksVisibleChange
+            TabOrder = 8
+          end
+        end
+      end
+      object Label1: TLabel
+        Left = 8
+        Height = 10
+        Top = 10
+        Width = 33
+        Alignment = taRightJustify
+        Caption = 'Series:'
+        ParentColor = False
+      end
+      object ButtonData: TButton
+        Left = 290
+        Height = 25
+        Top = 2
+        Width = 70
+        Caption = '&Edit Data'
+        OnClick = ButtonDataClick
+        TabOrder = 2
+      end
+    end
+    object TabSheetAxes: TTabSheet
+      Caption = 'Axes'
+      ClientHeight = 224
+      ClientWidth = 369
+      object PageControlAxes: TPageControl
+        Tag = 2
+        Left = 0
+        Height = 224
+        Top = 0
+        Width = 369
+        ActivePage = TabSheetLeft
+        Align = alClient
+        TabIndex = 0
+        TabOrder = 0
+        OnChange = PageControlAxesChange
+        object TabSheetLeft: TTabSheet
+          Caption = 'Left'
+          ClientHeight = 220
+          ClientWidth = 365
+          object LeftAxisPageControl: TPageControl
+            Left = 110
+            Height = 198
+            Top = 0
+            Width = 249
+            ActivePage = LAScalesTab
+            Align = alRight
+            TabIndex = 0
+            TabOrder = 0
+            OnChange = LeftAxisPageControlChange
+            object LAScalesTab: TTabSheet
+              Hint = 'User Intervals instead of automatic Nice Steps'
+              Caption = 'Scales'
+              ClientHeight = 194
+              ClientWidth = 245
+              object CheckBoxLAScalesAuto: TCheckBox
+                Left = 8
+                Height = 23
+                Top = 4
+                Width = 74
+                Caption = '&Automatic'
+                Checked = True
+                OnChange = CheckBoxLAScalesAutoChange
+                State = cbChecked
+                TabOrder = 0
+              end
+              object CheckBoxLALog: TCheckBox
+                Left = 8
+                Height = 23
+                Top = 138
+                Width = 82
+                Caption = 'Logarith&mic'
+                OnChange = CheckBoxLogChange
+                TabOrder = 1
+              end
+              object CheckBoxLAInverted: TCheckBox
+                Left = 144
+                Height = 23
+                Top = 138
+                Width = 65
+                Caption = '&Inverted'
+                OnChange = CheckBoxInvertedChange
+                TabOrder = 2
+              end
+              object GroupBoxLAScales: TGroupBox
+                Left = 8
+                Height = 106
+                Top = 28
+                Width = 230
+                Caption = 'Boundaries:'
+                ClientHeight = 92
+                ClientWidth = 228
+                Enabled = False
+                TabOrder = 3
+                object Label2: TLabel
+                  Left = 10
+                  Height = 10
+                  Top = 6
+                  Width = 49
+                  Alignment = taRightJustify
+                  Caption = 'Maximum:'
+                  ParentColor = False
+                end
+                object Label3: TLabel
+                  Left = 13
+                  Height = 10
+                  Top = 34
+                  Width = 46
+                  Alignment = taRightJustify
+                  Caption = 'Minimum:'
+                  ParentColor = False
+                end
+                object EditLAMax: TEdit
+                  Left = 70
+                  Height = 23
+                  Top = 0
+                  Width = 90
+                  Alignment = taRightJustify
+                  NumbersOnly = True
+                  TabOrder = 0
+                end
+                object EditLAMin: TEdit
+                  Left = 70
+                  Height = 23
+                  Top = 30
+                  Width = 90
+                  Alignment = taRightJustify
+                  NumbersOnly = True
+                  TabOrder = 1
+                end
+                object ButtonLARangesApply: TButton
+                  Left = 152
+                  Height = 25
+                  Top = 58
+                  Width = 68
+                  Caption = 'Apply...'
+                  OnClick = ButtonLARangesApplyClick
+                  TabOrder = 2
+                end
+                object Label41: TLabel
+                  Left = 10
+                  Height = 10
+                  Top = 66
+                  Width = 55
+                  Alignment = taRightJustify
+                  Caption = 'Nice Steps:'
+                  ParentColor = False
+                end
+                object EditLASteps: TEdit
+                  Left = 70
+                  Height = 23
+                  Top = 60
+                  Width = 72
+                  TabOrder = 3
+                end
+              end
+            end
+            object LATitleTab: TTabSheet
+              Caption = 'Title'
+              ClientHeight = 194
+              ClientWidth = 245
+              object Label6: TLabel
+                Left = 8
+                Height = 10
+                Top = 110
+                Width = 30
+                Caption = 'Angle:'
+                ParentColor = False
+              end
+              object Label7: TLabel
+                Left = 136
+                Height = 10
+                Top = 110
+                Width = 23
+                Caption = 'Size:'
+                ParentColor = False
+              end
+              object ButtonAxisTitleFont: TButton
+                Left = 8
+                Height = 25
+                Top = 136
+                Width = 75
+                Caption = 'Font...'
+                OnClick = ButtonAxisTitleFontClick
+                TabOrder = 0
+              end
+              object SpinEditLATitleAngle: TSpinEdit
+                Left = 48
+                Height = 23
+                Top = 104
+                Width = 60
+                Alignment = taRightJustify
+                Increment = 90
+                MaxValue = 360
+                OnChange = SpinEditTitleAngleChange
+                TabOrder = 1
+                Value = 90
+              end
+              object SpinEditLATitleSize: TSpinEdit
+                Left = 168
+                Height = 23
+                Top = 104
+                Width = 49
+                Alignment = taRightJustify
+                OnChange = SpinEditTitleSizeChange
+                TabOrder = 2
+              end
+              object GroupBox13: TGroupBox
+                Left = 8
+                Height = 72
+                Top = 4
+                Width = 230
+                Caption = 'Title'
+                ClientHeight = 58
+                ClientWidth = 228
+                TabOrder = 3
+                object EditLATitle: TEdit
+                  Left = 8
+                  Height = 23
+                  Top = 0
+                  Width = 210
+                  TabOrder = 0
+                end
+                object ButtonLATitleApply: TButton
+                  Left = 78
+                  Height = 25
+                  Top = 28
+                  Width = 75
+                  Caption = '&Apply...'
+                  OnClick = ButtonLATitleApplyClick
+                  TabOrder = 1
+                end
+              end
+              object CheckBoxLATitleVisible: TCheckBox
+                Left = 8
+                Height = 23
+                Top = 80
+                Width = 56
+                Caption = 'Visible'
+                Checked = True
+                OnChange = CheckBoxAxisTitleVisibleChange
+                State = cbChecked
+                TabOrder = 4
+              end
+              object ColorButtonLATitleFont: TColorButton
+                Left = 109
+                Height = 25
+                Top = 136
+                Width = 116
+                BorderWidth = 2
+                ButtonColorSize = 16
+                ButtonColor = clBlack
+                ColorDialog = ColorDialog1
+                Caption = 'Font Colour'
+                OnClick = ColorButtonTitlesFontClick
+                OnColorChanged = ColorButtonAxisTitleFontColorChanged
+              end
+            end
+            object LALabelsTab: TTabSheet
+              Caption = 'Marks'
+              ClientHeight = 194
+              ClientWidth = 245
+              object Label9: TLabel
+                Left = 8
+                Height = 10
+                Top = 80
+                Width = 68
+                Caption = 'Value For&mat:'
+                ParentColor = False
+              end
+              object Label10: TLabel
+                Left = 24
+                Height = 10
+                Top = 50
+                Width = 23
+                Caption = 'Si&ze:'
+                ParentColor = False
+              end
+              object Label11: TLabel
+                Left = 120
+                Height = 10
+                Top = 50
+                Width = 30
+                Caption = '&Angle:'
+                ParentColor = False
+              end
+              object CheckBoxLAMarksVisible: TCheckBox
+                Left = 8
+                Height = 23
+                Top = 8
+                Width = 56
+                Caption = 'V&isible'
+                Checked = True
+                OnClick = CheckBoxMarksVisibleClick
+                State = cbChecked
+                TabOrder = 0
+              end
+              object ButtonAxisFont: TButton
+                Left = 136
+                Height = 25
+                Top = 8
+                Width = 75
+                Caption = 'F&ont...'
+                OnClick = ButtonAxisFontClick
+                TabOrder = 1
+              end
+              object SpinEditLAMarksSize: TSpinEdit
+                Left = 56
+                Height = 23
+                Top = 44
+                Width = 49
+                Alignment = taRightJustify
+                MaxValue = 0
+                OnChange = SpinEditMarksSizeChange
+                TabOrder = 2
+              end
+              object SpinEditLAMarksAngle: TSpinEdit
+                Left = 160
+                Height = 23
+                Top = 44
+                Width = 49
+                Alignment = taRightJustify
+                Increment = 10
+                MaxValue = 180
+                MinValue = -180
+                OnChange = SpinEditMarksAngleChange
+                TabOrder = 3
+              end
+              object CheckBoxLAMarksAtData: TCheckBox
+                Left = 8
+                Height = 23
+                Top = 128
+                Width = 82
+                Caption = 'At data onl&y'
+                OnChange = CheckBoxMarksAtDataChange
+                TabOrder = 4
+              end
+              object CheckBoxLAMarksClipped: TCheckBox
+                Left = 120
+                Height = 23
+                Top = 128
+                Width = 62
+                Caption = 'Clipped'
+                OnChange = CheckBoxMarksClippedChange
+                TabOrder = 5
+              end
+              object ComboBoxLAValueFormat: TComboBox
+                Left = 8
+                Height = 25
+                Top = 94
+                Width = 82
+                Font.Color = clWindowText
+                Font.Height = -11
+                Font.Name = 'MS Sans Serif'
+                ItemHeight = 0
+                ItemIndex = 0
+                Items.Strings = (
+                  'General'
+                  'Fixed'
+                )
+                OnChange = LAValueFormatChange
+                ParentFont = False
+                Style = csDropDownList
+                TabOrder = 6
+                Text = 'General'
+              end
+              object Label45: TLabel
+                Left = 104
+                Height = 10
+                Top = 80
+                Width = 60
+                Caption = 'Digits (max.)'
+                ParentColor = False
+              end
+              object SpinEditLADigits: TSpinEdit
+                Left = 104
+                Height = 23
+                Top = 94
+                Width = 50
+                Alignment = taRightJustify
+                MaxValue = 9
+                OnChange = LAValueFormatChange
+                TabOrder = 7
+              end
+            end
+            object LATicksTab: TTabSheet
+              Caption = 'Ticks'
+              ClientHeight = 194
+              ClientWidth = 245
+              object Label12: TLabel
+                Left = 100
+                Height = 10
+                Top = 48
+                Width = 36
+                Caption = 'Length:'
+                ParentColor = False
+              end
+              object Label13: TLabel
+                Left = 100
+                Height = 10
+                Top = 78
+                Width = 64
+                Caption = 'Inner Length:'
+                ParentColor = False
+              end
+              object Label14: TLabel
+                Left = 100
+                Height = 10
+                Top = 108
+                Width = 36
+                Caption = 'Length:'
+                ParentColor = False
+              end
+              object Label15: TLabel
+                Left = 100
+                Height = 10
+                Top = 138
+                Width = 32
+                Caption = '&Count:'
+                ParentColor = False
+              end
+              object ButtonLATicksGridBorder: TButton
+                Left = 8
+                Height = 25
+                Top = 8
+                Width = 116
+                Caption = 'A&xis Grid Border...'
+                OnClick = ButtonTicksGridBorderClick
+                TabOrder = 0
+              end
+              object ButtonLATicksMinors: TButton
+                Left = 8
+                Height = 25
+                Top = 110
+                Width = 75
+                Caption = '&Minors...'
+                OnClick = ButtonTicksMinorsClick
+                TabOrder = 1
+              end
+              object SpinEditLATicksLength: TSpinEdit
+                Left = 180
+                Height = 21
+                Top = 40
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 99
+                OnChange = SpinEditTicksLengthChange
+                TabOrder = 2
+                Value = 4
+              end
+              object SpinEditLATicksInnerLength: TSpinEdit
+                Left = 180
+                Height = 21
+                Top = 70
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 99
+                OnChange = SpinEditTicksInnerLengthChange
+                TabOrder = 3
+              end
+              object SpinEditLATicksMinorsLength: TSpinEdit
+                Left = 180
+                Height = 21
+                Top = 100
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 99
+                MinValue = -99
+                OnChange = SpinEditTicksMinorsLengthChange
+                TabOrder = 4
+                Value = 2
+              end
+              object SpinEditLATicksMinorsCount: TSpinEdit
+                Left = 180
+                Height = 21
+                Top = 130
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 99
+                OnChange = SpinEditTicksMinorsCountChange
+                TabOrder = 5
+                Value = 3
+              end
+              object ColorButtonLATicks: TColorButton
+                Left = 8
+                Height = 25
+                Top = 45
+                Width = 75
+                BorderWidth = 2
+                ButtonColorSize = 16
+                ButtonColor = clBlack
+                ColorDialog = ColorDialog1
+                Caption = 'Ticks'
+                Layout = blGlyphRight
+                OnClick = ColorButtonClick
+                OnColorChanged = ColorButtonTicksColorChanged
+              end
+            end
+          end
+          object CheckBoxLeftAxisVisible: TCheckBox
+            Left = 8
+            Height = 23
+            Top = 8
+            Width = 56
+            Caption = '&Visible'
+            Checked = True
+            OnChange = CheckBoxAxisVisibleChange
+            State = cbChecked
+            TabOrder = 1
+          end
+          object ButtonLeftAxisPen: TButton
+            Left = 8
+            Height = 25
+            Top = 40
+            Width = 75
+            Caption = 'Axis &Pen...'
+            OnClick = ButtonAxisPenClick
+            TabOrder = 2
+          end
+        end
+        object TabSheetBottom: TTabSheet
+          Caption = 'Bottom'
+          ClientHeight = 220
+          ClientWidth = 365
+          object BottomAxisPageControl: TPageControl
+            Left = 110
+            Height = 198
+            Top = 0
+            Width = 249
+            ActivePage = TabSheetBATimeScales
+            Align = alRight
+            TabIndex = 0
+            TabOrder = 0
+            OnChange = BottomAxisPageControlChange
+            object TabSheetBATimeScales: TTabSheet
+              Caption = 'Time Scales'
+              ClientHeight = 194
+              ClientWidth = 245
+              object CheckBoxBATScalesAuto: TCheckBox
+                Left = 8
+                Height = 23
+                Top = 4
+                Width = 74
+                Caption = '&Automatic'
+                Checked = True
+                OnChange = CheckBoxBATScalesAutoChange
+                State = cbChecked
+                TabOrder = 0
+              end
+              object GroupBoxBATScales: TGroupBox
+                Left = 8
+                Height = 140
+                Top = 28
+                Width = 230
+                Caption = 'Date/Time Boundaries and Format:'
+                ClientHeight = 126
+                ClientWidth = 228
+                Enabled = False
+                TabOrder = 1
+                object Label33: TLabel
+                  Left = 6
+                  Height = 10
+                  Top = 4
+                  Width = 79
+                  Alignment = taRightJustify
+                  Caption = 'Start Date/Time:'
+                  ParentColor = False
+                end
+                object Label34: TLabel
+                  Left = 6
+                  Height = 10
+                  Top = 40
+                  Width = 75
+                  Alignment = taRightJustify
+                  Caption = 'End Date/Time:'
+                  ParentColor = False
+                end
+                object ButtonBATRangesApply: TButton
+                  Left = 152
+                  Height = 25
+                  Top = 11
+                  Width = 60
+                  Caption = 'Apply...'
+                  OnClick = ButtonBATRangesApplyClick
+                  TabOrder = 0
+                end
+                object BAStartDateTimePicker: TDateTimePicker
+                  Left = 6
+                  Height = 18
+                  Top = 18
+                  Width = 116
+                  CenturyFrom = 1941
+                  MaxDate = 2958465
+                  MinDate = -53780
+                  TabOrder = 1
+                  TrailingSeparator = False
+                  TextForNullDate = 'NULL'
+                  LeadingZeros = True
+                  Kind = dtkDateTime
+                  TimeFormat = tf24
+                  TimeDisplay = tdHM
+                  DateMode = dmComboBox
+                  Date = 43064
+                  Time = 0.66324408564833
+                  UseDefaultSeparators = True
+                  HideDateTimeParts = []
+                  MonthNames = 'Long'
+                end
+                object BAEndDateTimePicker: TDateTimePicker
+                  Left = 6
+                  Height = 18
+                  Top = 54
+                  Width = 116
+                  CenturyFrom = 1941
+                  MaxDate = 2958465
+                  MinDate = -53780
+                  TabOrder = 2
+                  TrailingSeparator = False
+                  TextForNullDate = 'NULL'
+                  LeadingZeros = True
+                  Kind = dtkDateTime
+                  TimeFormat = tf24
+                  TimeDisplay = tdHM
+                  DateMode = dmComboBox
+                  Date = 43064
+                  Time = 0.66324408564833
+                  UseDefaultSeparators = True
+                  HideDateTimeParts = []
+                  MonthNames = 'Long'
+                end
+                object Label31: TLabel
+                  Left = 6
+                  Height = 10
+                  Top = 84
+                  Width = 91
+                  Caption = 'Date/Time Format:'
+                  ParentColor = False
+                end
+                object EditDTFormatBot: TEdit
+                  Left = 6
+                  Height = 23
+                  Top = 98
+                  Width = 214
+                  TabOrder = 3
+                  TextHint = 'e.g. dd hh:nn or dd/mm'
+                end
+              end
+            end
+            object TabSheetBAScales: TTabSheet
+              Caption = 'Scales'
+              ClientHeight = 194
+              ClientWidth = 245
+              object CheckBoxBAScalesAuto: TCheckBox
+                Left = 8
+                Height = 23
+                Top = 4
+                Width = 74
+                Caption = '&Automatic'
+                Checked = True
+                OnChange = CheckBoxBAScalesAutoChange
+                State = cbChecked
+                TabOrder = 0
+              end
+              object CheckBoxBALog: TCheckBox
+                Tag = 1
+                Left = 8
+                Height = 23
+                Top = 136
+                Width = 82
+                Caption = 'Logarith&mic'
+                OnChange = CheckBoxLogChange
+                TabOrder = 1
+              end
+              object CheckBoxBAInverted: TCheckBox
+                Tag = 1
+                Left = 144
+                Height = 23
+                Top = 136
+                Width = 65
+                Caption = '&Inverted'
+                OnChange = CheckBoxInvertedChange
+                TabOrder = 2
+              end
+              object GroupBoxBAScales: TGroupBox
+                Left = 8
+                Height = 105
+                Top = 26
+                Width = 230
+                Caption = 'Boundaries:'
+                ClientHeight = 91
+                ClientWidth = 228
+                Enabled = False
+                TabOrder = 3
+                object Label5: TLabel
+                  Left = 10
+                  Height = 10
+                  Top = 4
+                  Width = 49
+                  Caption = 'Maximum:'
+                  ParentColor = False
+                end
+                object Label36: TLabel
+                  Left = 10
+                  Height = 10
+                  Top = 34
+                  Width = 46
+                  Caption = 'Minimum:'
+                  ParentColor = False
+                end
+                object EditBAMax: TEdit
+                  Left = 70
+                  Height = 23
+                  Top = 0
+                  Width = 90
+                  Alignment = taRightJustify
+                  NumbersOnly = True
+                  TabOrder = 0
+                end
+                object EditBAMin: TEdit
+                  Left = 70
+                  Height = 23
+                  Top = 30
+                  Width = 90
+                  Alignment = taRightJustify
+                  NumbersOnly = True
+                  TabOrder = 1
+                end
+                object ButtonBARangesApply: TButton
+                  Left = 152
+                  Height = 25
+                  Top = 58
+                  Width = 68
+                  Caption = 'Apply...'
+                  OnClick = ButtonBARangesApplyClick
+                  TabOrder = 2
+                end
+                object Label43: TLabel
+                  Left = 10
+                  Height = 10
+                  Top = 64
+                  Width = 55
+                  Caption = 'Nice Steps:'
+                  ParentColor = False
+                end
+                object EditBASteps: TEdit
+                  Left = 70
+                  Height = 23
+                  Top = 60
+                  Width = 72
+                  TabOrder = 3
+                end
+              end
+            end
+            object TabSheetBATitle: TTabSheet
+              Caption = 'Title'
+              ClientHeight = 194
+              ClientWidth = 245
+              object Label50: TLabel
+                Left = 8
+                Height = 10
+                Top = 110
+                Width = 30
+                Caption = 'Angle:'
+                ParentColor = False
+              end
+              object Label51: TLabel
+                Left = 136
+                Height = 10
+                Top = 110
+                Width = 23
+                Caption = 'Size:'
+                ParentColor = False
+              end
+              object ButtonBAFont: TButton
+                Tag = 1
+                Left = 8
+                Height = 25
+                Top = 136
+                Width = 75
+                Caption = 'Font...'
+                OnClick = ButtonAxisTitleFontClick
+                TabOrder = 0
+              end
+              object SpinEditBATitleAngle: TSpinEdit
+                Tag = 1
+                Left = 48
+                Height = 23
+                Top = 104
+                Width = 60
+                Alignment = taRightJustify
+                Increment = 90
+                MaxValue = 360
+                OnChange = SpinEditTitleAngleChange
+                TabOrder = 1
+                Value = 90
+              end
+              object SpinEditBATitleSize: TSpinEdit
+                Tag = 1
+                Left = 168
+                Height = 23
+                Top = 104
+                Width = 49
+                Alignment = taRightJustify
+                OnChange = SpinEditTitleSizeChange
+                TabOrder = 2
+              end
+              object GroupBox16: TGroupBox
+                Left = 8
+                Height = 72
+                Top = 4
+                Width = 230
+                Caption = 'Title'
+                ClientHeight = 58
+                ClientWidth = 228
+                TabOrder = 3
+                object EditBATitle: TEdit
+                  Left = 7
+                  Height = 23
+                  Top = 2
+                  Width = 210
+                  TabOrder = 0
+                end
+                object ButtonBATitleApply: TButton
+                  Left = 80
+                  Height = 25
+                  Top = 28
+                  Width = 75
+                  Caption = '&Apply...'
+                  OnClick = ButtonBATitleApplyClick
+                  TabOrder = 1
+                end
+              end
+              object CheckBoxBATitleVisible: TCheckBox
+                Tag = 1
+                Left = 8
+                Height = 23
+                Top = 80
+                Width = 56
+                Caption = 'Visible'
+                Checked = True
+                OnChange = CheckBoxAxisTitleVisibleChange
+                State = cbChecked
+                TabOrder = 4
+              end
+              object ColorButtonBATitleFont: TColorButton
+                Tag = 1
+                Left = 109
+                Height = 25
+                Top = 136
+                Width = 116
+                BorderWidth = 2
+                ButtonColorSize = 16
+                ButtonColor = clBlack
+                ColorDialog = ColorDialog1
+                Caption = 'Font Colour'
+                OnClick = ColorButtonTitlesFontClick
+                OnColorChanged = ColorButtonAxisTitleFontColorChanged
+              end
+            end
+            object TabSheetBALabels: TTabSheet
+              Caption = 'Marks'
+              ClientHeight = 194
+              ClientWidth = 245
+              object Label53: TLabel
+                Left = 8
+                Height = 10
+                Top = 80
+                Width = 68
+                Caption = 'Value For&mat:'
+                ParentColor = False
+              end
+              object Label54: TLabel
+                Left = 24
+                Height = 10
+                Top = 50
+                Width = 23
+                Caption = 'Si&ze:'
+                ParentColor = False
+              end
+              object Label55: TLabel
+                Left = 120
+                Height = 10
+                Top = 50
+                Width = 30
+                Caption = '&Angle:'
+                ParentColor = False
+              end
+              object CheckBoxBAMarksVisible: TCheckBox
+                Tag = 1
+                Left = 8
+                Height = 23
+                Top = 8
+                Width = 56
+                Caption = 'V&isible'
+                Checked = True
+                OnClick = CheckBoxMarksVisibleClick
+                State = cbChecked
+                TabOrder = 0
+              end
+              object ButtonBAMarksFont: TButton
+                Tag = 1
+                Left = 136
+                Height = 25
+                Top = 8
+                Width = 75
+                Caption = 'F&ont...'
+                OnClick = ButtonAxisFontClick
+                TabOrder = 1
+              end
+              object SpinEditBAMarksSize: TSpinEdit
+                Tag = 1
+                Left = 56
+                Height = 23
+                Top = 44
+                Width = 49
+                Alignment = taRightJustify
+                MaxValue = 0
+                OnChange = SpinEditMarksSizeChange
+                TabOrder = 2
+              end
+              object SpinEditBAMarksAngle: TSpinEdit
+                Tag = 1
+                Left = 160
+                Height = 23
+                Top = 44
+                Width = 49
+                Alignment = taRightJustify
+                Increment = 10
+                MaxValue = 180
+                MinValue = -180
+                OnChange = SpinEditMarksAngleChange
+                TabOrder = 3
+              end
+              object CheckBoxBAMarksAtData: TCheckBox
+                Tag = 1
+                Left = 8
+                Height = 23
+                Top = 128
+                Width = 84
+                Caption = 'At Data onl&y'
+                OnChange = CheckBoxMarksAtDataChange
+                TabOrder = 4
+              end
+              object CheckBoxBAMarksClipped: TCheckBox
+                Tag = 1
+                Left = 120
+                Height = 23
+                Top = 128
+                Width = 62
+                Caption = 'Clipped'
+                OnChange = CheckBoxMarksClippedChange
+                TabOrder = 5
+              end
+              object ComboBoxBAValueFormat: TComboBox
+                Left = 8
+                Height = 25
+                Top = 94
+                Width = 82
+                ItemHeight = 0
+                ItemIndex = 0
+                Items.Strings = (
+                  'General'
+                  'Fixed'
+                )
+                OnChange = LAValueFormatChange
+                Style = csDropDownList
+                TabOrder = 6
+                Text = 'General'
+              end
+              object Label46: TLabel
+                Left = 104
+                Height = 10
+                Top = 80
+                Width = 60
+                Caption = 'Digits (max.)'
+                ParentColor = False
+              end
+              object SpinEditBADigits: TSpinEdit
+                Left = 104
+                Height = 23
+                Top = 94
+                Width = 50
+                Alignment = taRightJustify
+                MaxValue = 9
+                OnChange = LAValueFormatChange
+                TabOrder = 7
+              end
+            end
+            object TabSheetBATicks: TTabSheet
+              Caption = 'Ticks'
+              ClientHeight = 194
+              ClientWidth = 245
+              object Label56: TLabel
+                Left = 100
+                Height = 10
+                Top = 48
+                Width = 36
+                Caption = 'Length:'
+                ParentColor = False
+              end
+              object Label57: TLabel
+                Left = 100
+                Height = 10
+                Top = 78
+                Width = 64
+                Caption = 'Inner Length:'
+                ParentColor = False
+              end
+              object Label58: TLabel
+                Left = 100
+                Height = 10
+                Top = 108
+                Width = 36
+                Caption = 'Length:'
+                ParentColor = False
+              end
+              object Label59: TLabel
+                Left = 100
+                Height = 10
+                Top = 138
+                Width = 32
+                Caption = '&Count:'
+                ParentColor = False
+              end
+              object ButtonBAGridBorder: TButton
+                Tag = 1
+                Left = 8
+                Height = 25
+                Top = 8
+                Width = 116
+                Caption = 'A&xis Grid Border...'
+                OnClick = ButtonTicksGridBorderClick
+                TabOrder = 0
+              end
+              object ButtonBATicksMinors: TButton
+                Tag = 1
+                Left = 8
+                Height = 25
+                Top = 110
+                Width = 75
+                Caption = '&Minors...'
+                OnClick = ButtonTicksMinorsClick
+                TabOrder = 1
+              end
+              object SpinEditBATicksLength: TSpinEdit
+                Tag = 1
+                Left = 180
+                Height = 21
+                Top = 40
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 99
+                OnChange = SpinEditTicksLengthChange
+                TabOrder = 2
+                Value = 4
+              end
+              object SpinEditBATicksInnerLength: TSpinEdit
+                Tag = 1
+                Left = 180
+                Height = 21
+                Top = 70
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 99
+                OnChange = SpinEditTicksInnerLengthChange
+                TabOrder = 3
+              end
+              object SpinEditBATicksMinorsLength: TSpinEdit
+                Tag = 1
+                Left = 180
+                Height = 21
+                Top = 100
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 99
+                OnChange = SpinEditTicksMinorsLengthChange
+                TabOrder = 4
+                Value = 2
+              end
+              object SpinEditBATicksMinorsCount: TSpinEdit
+                Tag = 1
+                Left = 180
+                Height = 21
+                Top = 130
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 99
+                OnChange = SpinEditTicksMinorsCountChange
+                TabOrder = 5
+                Value = 3
+              end
+              object ColorButtonBATicks: TColorButton
+                Tag = 1
+                Left = 8
+                Height = 25
+                Top = 45
+                Width = 75
+                BorderWidth = 2
+                ButtonColorSize = 16
+                ButtonColor = clBlack
+                ColorDialog = ColorDialog1
+                Caption = 'Ticks'
+                Layout = blGlyphRight
+                OnClick = ColorButtonClick
+                OnColorChanged = ColorButtonTicksColorChanged
+              end
+            end
+          end
+          object CheckBoxBottomAxisVisible: TCheckBox
+            Tag = 1
+            Left = 8
+            Height = 23
+            Top = 8
+            Width = 56
+            Caption = '&Visible'
+            Checked = True
+            OnChange = CheckBoxAxisVisibleChange
+            State = cbChecked
+            TabOrder = 1
+          end
+          object ButtonBottomAxisPen: TButton
+            Tag = 1
+            Left = 8
+            Height = 25
+            Top = 40
+            Width = 75
+            Caption = 'Axis &Pen...'
+            OnClick = ButtonAxisPenClick
+            TabOrder = 2
+          end
+        end
+        object TabSheetRight: TTabSheet
+          Caption = 'Right'
+          ClientHeight = 220
+          ClientWidth = 365
+          object CheckBoxRightAxisVisible: TCheckBox
+            Tag = 2
+            Left = 8
+            Height = 23
+            Top = 8
+            Width = 56
+            Caption = '&Visible'
+            Checked = True
+            OnChange = CheckBoxAxisVisibleChange
+            State = cbChecked
+            TabOrder = 0
+          end
+          object ButtonRightAxisPen: TButton
+            Tag = 2
+            Left = 8
+            Height = 25
+            Top = 40
+            Width = 75
+            Caption = 'Axis &Pen...'
+            OnClick = ButtonAxisPenClick
+            TabOrder = 1
+          end
+          object RightAxisPageControl: TPageControl
+            Left = 110
+            Height = 198
+            Top = 0
+            Width = 249
+            ActivePage = RAScalesTab
+            Align = alRight
+            TabIndex = 0
+            TabOrder = 2
+            OnChange = RightAxisPageControlChange
+            object RAScalesTab: TTabSheet
+              Caption = 'Scales'
+              ClientHeight = 194
+              ClientWidth = 245
+              object CheckBoxRAScalesAuto: TCheckBox
+                Left = 8
+                Height = 23
+                Top = 4
+                Width = 74
+                Caption = '&Automatic'
+                Checked = True
+                OnChange = CheckBoxRAScalesAutoChange
+                State = cbChecked
+                TabOrder = 0
+              end
+              object CheckBoxRALog: TCheckBox
+                Tag = 2
+                Left = 8
+                Height = 23
+                Top = 138
+                Width = 82
+                Caption = 'Logarith&mic'
+                OnChange = CheckBoxLogChange
+                TabOrder = 1
+              end
+              object CheckBoxRAInverted: TCheckBox
+                Tag = 2
+                Left = 144
+                Height = 23
+                Top = 138
+                Width = 65
+                Caption = '&Inverted'
+                OnChange = CheckBoxInvertedChange
+                TabOrder = 2
+              end
+              object GroupBoxRAScales: TGroupBox
+                Left = 8
+                Height = 106
+                Top = 28
+                Width = 230
+                Caption = 'Boundaries:'
+                ClientHeight = 92
+                ClientWidth = 228
+                Enabled = False
+                TabOrder = 3
+                object Label16: TLabel
+                  Left = 10
+                  Height = 10
+                  Top = 6
+                  Width = 49
+                  Alignment = taRightJustify
+                  Caption = 'Maximum:'
+                  ParentColor = False
+                end
+                object Label17: TLabel
+                  Left = 13
+                  Height = 10
+                  Top = 34
+                  Width = 46
+                  Alignment = taRightJustify
+                  Caption = 'Minimum:'
+                  ParentColor = False
+                end
+                object EditRAMax: TEdit
+                  Left = 70
+                  Height = 23
+                  Top = 0
+                  Width = 90
+                  Alignment = taRightJustify
+                  NumbersOnly = True
+                  TabOrder = 0
+                end
+                object EditRAMin: TEdit
+                  Left = 70
+                  Height = 23
+                  Top = 30
+                  Width = 90
+                  Alignment = taRightJustify
+                  NumbersOnly = True
+                  TabOrder = 1
+                end
+                object ButtonRAApply: TButton
+                  Left = 152
+                  Height = 25
+                  Top = 58
+                  Width = 68
+                  Caption = 'Apply...'
+                  OnClick = ButtonRAApplyClick
+                  TabOrder = 2
+                end
+                object Label42: TLabel
+                  Left = 10
+                  Height = 10
+                  Top = 66
+                  Width = 55
+                  Alignment = taRightJustify
+                  Caption = 'Nice Steps:'
+                  ParentColor = False
+                end
+                object EditRASteps: TEdit
+                  Left = 70
+                  Height = 23
+                  Top = 60
+                  Width = 72
+                  TabOrder = 3
+                end
+              end
+            end
+            object RATitleTab: TTabSheet
+              Caption = 'Title'
+              ClientHeight = 194
+              ClientWidth = 245
+              object Label21: TLabel
+                Left = 8
+                Height = 10
+                Top = 110
+                Width = 30
+                Caption = 'Angle:'
+                ParentColor = False
+              end
+              object Label22: TLabel
+                Left = 136
+                Height = 10
+                Top = 110
+                Width = 23
+                Caption = 'Size:'
+                ParentColor = False
+              end
+              object ButtonRATitleFont: TButton
+                Tag = 2
+                Left = 8
+                Height = 25
+                Top = 136
+                Width = 75
+                Caption = 'Font...'
+                OnClick = ButtonAxisTitleFontClick
+                TabOrder = 0
+              end
+              object SpinEditRATitleAngle: TSpinEdit
+                Tag = 2
+                Left = 48
+                Height = 23
+                Top = 104
+                Width = 60
+                Alignment = taRightJustify
+                Increment = 90
+                MaxValue = 360
+                OnChange = SpinEditTitleAngleChange
+                TabOrder = 1
+                Value = 90
+              end
+              object SpinEditRATitleSize: TSpinEdit
+                Left = 168
+                Height = 23
+                Top = 104
+                Width = 49
+                Alignment = taRightJustify
+                OnChange = SpinEditTitleSizeChange
+                TabOrder = 2
+              end
+              object GroupBox18: TGroupBox
+                Left = 8
+                Height = 72
+                Top = 4
+                Width = 230
+                Caption = 'Title'
+                ClientHeight = 58
+                ClientWidth = 228
+                TabOrder = 3
+                object EditRATitle: TEdit
+                  Left = 8
+                  Height = 23
+                  Top = 0
+                  Width = 210
+                  TabOrder = 0
+                end
+                object ButtonRATitleApply: TButton
+                  Left = 80
+                  Height = 25
+                  Top = 28
+                  Width = 75
+                  Caption = '&Apply...'
+                  OnClick = ButtonRATitleApplyClick
+                  TabOrder = 1
+                end
+              end
+              object CheckBoxRATitleVisible: TCheckBox
+                Tag = 2
+                Left = 8
+                Height = 23
+                Top = 80
+                Width = 56
+                Caption = 'Visible'
+                OnChange = CheckBoxAxisTitleVisibleChange
+                TabOrder = 4
+              end
+              object ColorButtonRATitleFont: TColorButton
+                Tag = 2
+                Left = 109
+                Height = 25
+                Top = 136
+                Width = 116
+                BorderWidth = 2
+                ButtonColorSize = 16
+                ButtonColor = clBlack
+                ColorDialog = ColorDialog1
+                Caption = 'Font Colour'
+                OnClick = ColorButtonTitlesFontClick
+                OnColorChanged = ColorButtonAxisTitleFontColorChanged
+              end
+            end
+            object RAMarksTab: TTabSheet
+              Caption = 'Marks'
+              ClientHeight = 194
+              ClientWidth = 245
+              object Label24: TLabel
+                Left = 8
+                Height = 10
+                Top = 80
+                Width = 68
+                Caption = 'Value For&mat:'
+                ParentColor = False
+              end
+              object Label25: TLabel
+                Left = 24
+                Height = 10
+                Top = 50
+                Width = 23
+                Caption = 'Si&ze:'
+                ParentColor = False
+              end
+              object Label62: TLabel
+                Left = 120
+                Height = 10
+                Top = 50
+                Width = 30
+                Caption = '&Angle:'
+                ParentColor = False
+              end
+              object CheckBoxRAMarksVisible: TCheckBox
+                Tag = 2
+                Left = 8
+                Height = 23
+                Top = 8
+                Width = 56
+                Caption = 'V&isible'
+                OnClick = CheckBoxMarksVisibleClick
+                TabOrder = 0
+              end
+              object ButtonRAMarksFont: TButton
+                Tag = 2
+                Left = 135
+                Height = 25
+                Top = 8
+                Width = 75
+                Caption = 'F&ont...'
+                OnClick = ButtonAxisFontClick
+                TabOrder = 1
+              end
+              object SpinEditRAMarksSize: TSpinEdit
+                Tag = 2
+                Left = 56
+                Height = 23
+                Top = 44
+                Width = 49
+                Alignment = taRightJustify
+                MaxValue = 0
+                OnChange = SpinEditMarksSizeChange
+                TabOrder = 2
+              end
+              object SpinEditRAMarksAngle: TSpinEdit
+                Tag = 2
+                Left = 160
+                Height = 23
+                Top = 44
+                Width = 49
+                Alignment = taRightJustify
+                Increment = 10
+                MaxValue = 180
+                MinValue = -180
+                OnChange = SpinEditMarksAngleChange
+                TabOrder = 3
+              end
+              object CheckBoxRAMarksAtData: TCheckBox
+                Tag = 2
+                Left = 8
+                Height = 23
+                Top = 128
+                Width = 82
+                Caption = 'At data onl&y'
+                OnChange = CheckBoxMarksAtDataChange
+                TabOrder = 4
+              end
+              object CheckBoxRAMarksClipped: TCheckBox
+                Tag = 2
+                Left = 120
+                Height = 23
+                Top = 128
+                Width = 62
+                Caption = 'Clipped'
+                OnChange = CheckBoxMarksClippedChange
+                TabOrder = 5
+              end
+              object ComboBoxRAValueFormat: TComboBox
+                Left = 8
+                Height = 25
+                Top = 94
+                Width = 82
+                ItemHeight = 0
+                ItemIndex = 0
+                Items.Strings = (
+                  'General'
+                  'Fixed'
+                )
+                OnChange = RAValueFormatChange
+                Style = csDropDownList
+                TabOrder = 6
+                Text = 'General'
+              end
+              object SpinEditRADigits: TSpinEdit
+                Left = 104
+                Height = 23
+                Top = 94
+                Width = 50
+                Alignment = taRightJustify
+                MaxValue = 9
+                OnChange = RAValueFormatChange
+                TabOrder = 7
+              end
+              object Label47: TLabel
+                Left = 104
+                Height = 10
+                Top = 80
+                Width = 60
+                Caption = 'Digits (max.)'
+                ParentColor = False
+              end
+            end
+            object RATicksTab: TTabSheet
+              Caption = 'Ticks'
+              ClientHeight = 194
+              ClientWidth = 245
+              object Label63: TLabel
+                Left = 100
+                Height = 10
+                Top = 48
+                Width = 36
+                Caption = 'Length:'
+                ParentColor = False
+              end
+              object Label64: TLabel
+                Left = 100
+                Height = 10
+                Top = 78
+                Width = 64
+                Caption = 'Inner Length:'
+                ParentColor = False
+              end
+              object Label65: TLabel
+                Left = 100
+                Height = 10
+                Top = 108
+                Width = 36
+                Caption = 'Length:'
+                ParentColor = False
+              end
+              object Label66: TLabel
+                Left = 100
+                Height = 10
+                Top = 138
+                Width = 32
+                Caption = '&Count:'
+                ParentColor = False
+              end
+              object ButtonRATicksGridBorder: TButton
+                Tag = 2
+                Left = 8
+                Height = 25
+                Top = 8
+                Width = 116
+                Caption = 'A&xis Grid Border...'
+                OnClick = ButtonTicksGridBorderClick
+                TabOrder = 0
+              end
+              object Button27: TButton
+                Tag = 2
+                Left = 8
+                Height = 25
+                Top = 110
+                Width = 75
+                Caption = '&Minors...'
+                OnClick = ButtonTicksMinorsClick
+                TabOrder = 1
+              end
+              object SpinEditRATicksLength: TSpinEdit
+                Tag = 2
+                Left = 180
+                Height = 21
+                Top = 40
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 99
+                OnChange = SpinEditTicksLengthChange
+                TabOrder = 2
+                Value = 4
+              end
+              object SpinEditRATicksInnerLength: TSpinEdit
+                Tag = 2
+                Left = 180
+                Height = 21
+                Top = 70
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 99
+                OnChange = SpinEditTicksInnerLengthChange
+                TabOrder = 3
+              end
+              object SpinEditRATicksMinorsLength: TSpinEdit
+                Tag = 2
+                Left = 180
+                Height = 21
+                Top = 100
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 99
+                MinValue = -99
+                TabOrder = 4
+                Value = 2
+              end
+              object SpinEditRATicksMinorsCount: TSpinEdit
+                Tag = 2
+                Left = 180
+                Height = 21
+                Top = 130
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 99
+                OnChange = SpinEditTicksMinorsCountChange
+                TabOrder = 5
+                Value = 3
+              end
+              object ColorButtonRATicks: TColorButton
+                Tag = 2
+                Left = 8
+                Height = 25
+                Top = 45
+                Width = 75
+                BorderWidth = 2
+                ButtonColorSize = 16
+                ButtonColor = clBlack
+                ColorDialog = ColorDialog1
+                Caption = 'Ticks'
+                Layout = blGlyphRight
+                OnClick = ColorButtonClick
+                OnColorChanged = ColorButtonTicksColorChanged
+              end
+            end
+          end
+        end
+        object TabSheetTop: TTabSheet
+          Caption = 'Top'
+          ClientHeight = 220
+          ClientWidth = 365
+          object CheckBoxTopAxisVisible: TCheckBox
+            Tag = 3
+            Left = 8
+            Height = 23
+            Top = 8
+            Width = 56
+            Caption = '&Visible'
+            Checked = True
+            OnChange = CheckBoxAxisVisibleChange
+            State = cbChecked
+            TabOrder = 0
+          end
+          object ButtonTopAxisPen: TButton
+            Tag = 3
+            Left = 8
+            Height = 25
+            Top = 40
+            Width = 75
+            Caption = 'Axis &Pen...'
+            OnClick = ButtonAxisPenClick
+            TabOrder = 1
+          end
+          object TopAxisPageControl: TPageControl
+            Left = 110
+            Height = 198
+            Top = 0
+            Width = 249
+            ActivePage = TabSheetTATimeScales
+            Align = alRight
+            TabIndex = 0
+            TabOrder = 2
+            OnChange = BottomAxisPageControlChange
+            object TabSheetTATimeScales: TTabSheet
+              Caption = 'Time Scales'
+              ClientHeight = 194
+              ClientWidth = 245
+              object CheckBoxTATScalesAuto: TCheckBox
+                Left = 8
+                Height = 23
+                Top = 4
+                Width = 74
+                Caption = '&Automatic'
+                Checked = True
+                OnChange = CheckBoxTATScalesAutoChange
+                State = cbChecked
+                TabOrder = 0
+              end
+              object GroupBoxTATScales: TGroupBox
+                Left = 8
+                Height = 140
+                Top = 28
+                Width = 230
+                Caption = 'Date/Time Boundaries and Format:'
+                ClientHeight = 126
+                ClientWidth = 228
+                Enabled = False
+                TabOrder = 1
+                object Label37: TLabel
+                  Left = 6
+                  Height = 10
+                  Top = 4
+                  Width = 79
+                  Alignment = taRightJustify
+                  Caption = 'Start Date/Time:'
+                  ParentColor = False
+                end
+                object Label38: TLabel
+                  Left = 6
+                  Height = 10
+                  Top = 40
+                  Width = 75
+                  Alignment = taRightJustify
+                  Caption = 'End Date/Time:'
+                  ParentColor = False
+                end
+                object ButtonTATRangesApply: TButton
+                  Left = 152
+                  Height = 25
+                  Top = 11
+                  Width = 60
+                  Caption = 'Apply...'
+                  OnClick = ButtonTATRangesApplyClick
+                  TabOrder = 0
+                end
+                object TAStartDateTimePicker: TDateTimePicker
+                  Left = 6
+                  Height = 18
+                  Top = 18
+                  Width = 116
+                  CenturyFrom = 1941
+                  MaxDate = 2958465
+                  MinDate = -53780
+                  TabOrder = 1
+                  TrailingSeparator = False
+                  TextForNullDate = 'NULL'
+                  LeadingZeros = True
+                  Kind = dtkDateTime
+                  TimeFormat = tf24
+                  TimeDisplay = tdHM
+                  DateMode = dmComboBox
+                  Date = 43064
+                  Time = 0.66324408564833
+                  UseDefaultSeparators = True
+                  HideDateTimeParts = []
+                  MonthNames = 'Long'
+                end
+                object TAEndDateTimePicker: TDateTimePicker
+                  Left = 6
+                  Height = 18
+                  Top = 54
+                  Width = 116
+                  CenturyFrom = 1941
+                  MaxDate = 2958465
+                  MinDate = -53780
+                  TabOrder = 2
+                  TrailingSeparator = False
+                  TextForNullDate = 'NULL'
+                  LeadingZeros = True
+                  Kind = dtkDateTime
+                  TimeFormat = tf24
+                  TimeDisplay = tdHM
+                  DateMode = dmComboBox
+                  Date = 43064
+                  Time = 0.66324408564833
+                  UseDefaultSeparators = True
+                  HideDateTimeParts = []
+                  MonthNames = 'Long'
+                end
+                object Label40: TLabel
+                  Left = 6
+                  Height = 10
+                  Top = 84
+                  Width = 91
+                  Caption = 'Date/Time Format:'
+                  ParentColor = False
+                end
+                object EditDTFormatTop: TEdit
+                  Left = 6
+                  Height = 23
+                  Top = 98
+                  Width = 214
+                  TabOrder = 3
+                  TextHint = 'e.g. dd hh:nn or dd/mm'
+                end
+              end
+            end
+            object TabSheetTAScales: TTabSheet
+              Caption = 'Scales'
+              ClientHeight = 194
+              ClientWidth = 245
+              object CheckBoxTAScalesAuto: TCheckBox
+                Left = 8
+                Height = 24
+                Top = 4
+                Width = 74
+                Caption = '&Automatic'
+                Checked = True
+                OnChange = CheckBoxTAScalesAutoChange
+                State = cbChecked
+                TabOrder = 0
+              end
+              object CheckBoxTALog: TCheckBox
+                Tag = 3
+                Left = 8
+                Height = 24
+                Top = 136
+                Width = 82
+                Caption = 'Logarith&mic'
+                OnChange = CheckBoxLogChange
+                TabOrder = 1
+              end
+              object CheckBoxTAInverted: TCheckBox
+                Tag = 3
+                Left = 144
+                Height = 24
+                Top = 136
+                Width = 65
+                Caption = '&Inverted'
+                OnChange = CheckBoxInvertedChange
+                TabOrder = 2
+              end
+              object GroupBoxTAScales: TGroupBox
+                Left = 8
+                Height = 105
+                Top = 28
+                Width = 230
+                Caption = 'Boundaries:'
+                ClientHeight = 91
+                ClientWidth = 228
+                Enabled = False
+                TabOrder = 3
+                object Label23: TLabel
+                  Left = 10
+                  Height = 10
+                  Top = 4
+                  Width = 49
+                  Caption = 'Maximum:'
+                  ParentColor = False
+                end
+                object Label39: TLabel
+                  Left = 10
+                  Height = 10
+                  Top = 34
+                  Width = 46
+                  Caption = 'Minimum:'
+                  ParentColor = False
+                end
+                object EditTAMax: TEdit
+                  Left = 70
+                  Height = 21
+                  Top = 0
+                  Width = 90
+                  Alignment = taRightJustify
+                  NumbersOnly = True
+                  TabOrder = 0
+                end
+                object EditTAMin: TEdit
+                  Left = 70
+                  Height = 21
+                  Top = 30
+                  Width = 90
+                  Alignment = taRightJustify
+                  NumbersOnly = True
+                  TabOrder = 1
+                end
+                object ButtonTARangesApply: TButton
+                  Left = 152
+                  Height = 25
+                  Top = 58
+                  Width = 68
+                  Caption = 'Apply...'
+                  OnClick = ButtonTARangesApplyClick
+                  TabOrder = 2
+                end
+                object Label44: TLabel
+                  Left = 10
+                  Height = 10
+                  Top = 64
+                  Width = 55
+                  Caption = 'Nice Steps:'
+                  ParentColor = False
+                end
+                object EditTASteps: TEdit
+                  Left = 70
+                  Height = 21
+                  Top = 60
+                  Width = 72
+                  TabOrder = 3
+                end
+              end
+            end
+            object TabSheetTATitle: TTabSheet
+              Caption = 'Title'
+              ClientHeight = 194
+              ClientWidth = 245
+              object Label69: TLabel
+                Left = 8
+                Height = 10
+                Top = 110
+                Width = 30
+                Caption = 'Angle:'
+                ParentColor = False
+              end
+              object Label70: TLabel
+                Left = 136
+                Height = 10
+                Top = 110
+                Width = 23
+                Caption = 'Size:'
+                ParentColor = False
+              end
+              object ButtonTAFont: TButton
+                Tag = 3
+                Left = 8
+                Height = 25
+                Top = 136
+                Width = 75
+                Caption = 'Font...'
+                OnClick = ButtonAxisTitleFontClick
+                TabOrder = 0
+              end
+              object SpinEditTATitleAngle: TSpinEdit
+                Tag = 3
+                Left = 48
+                Height = 23
+                Top = 104
+                Width = 60
+                Alignment = taRightJustify
+                Increment = 90
+                MaxValue = 360
+                OnChange = SpinEditTitleAngleChange
+                TabOrder = 1
+                Value = 90
+              end
+              object SpinEditTATitleSize: TSpinEdit
+                Tag = 3
+                Left = 176
+                Height = 23
+                Top = 104
+                Width = 49
+                Alignment = taRightJustify
+                OnChange = SpinEditTitleSizeChange
+                TabOrder = 2
+              end
+              object GroupBox17: TGroupBox
+                Left = 8
+                Height = 74
+                Top = 4
+                Width = 230
+                Caption = 'Title'
+                ClientHeight = 60
+                ClientWidth = 228
+                TabOrder = 3
+                object EditTATitle: TEdit
+                  Left = 7
+                  Height = 23
+                  Top = 2
+                  Width = 210
+                  TabOrder = 0
+                end
+                object ButtonTATitleApply: TButton
+                  Left = 80
+                  Height = 25
+                  Top = 28
+                  Width = 75
+                  Caption = '&Apply...'
+                  OnClick = ButtonTATitleApplyClick
+                  TabOrder = 1
+                end
+              end
+              object CheckBoxTATitleVisible: TCheckBox
+                Tag = 3
+                Left = 8
+                Height = 23
+                Top = 80
+                Width = 56
+                Caption = 'Visible'
+                OnChange = CheckBoxAxisTitleVisibleChange
+                TabOrder = 4
+              end
+              object ColorButtonTATitleFont: TColorButton
+                Tag = 3
+                Left = 109
+                Height = 25
+                Top = 136
+                Width = 116
+                BorderWidth = 2
+                ButtonColorSize = 16
+                ButtonColor = clBlack
+                ColorDialog = ColorDialog1
+                Caption = 'Font Colour'
+                OnClick = ColorButtonTitlesFontClick
+                OnColorChanged = ColorButtonAxisTitleFontColorChanged
+              end
+            end
+            object TabSheetLabels1: TTabSheet
+              Caption = 'Marks'
+              ClientHeight = 194
+              ClientWidth = 245
+              object Label71: TLabel
+                Left = 8
+                Height = 10
+                Top = 80
+                Width = 68
+                Caption = 'Value For&mat:'
+                ParentColor = False
+              end
+              object Label72: TLabel
+                Left = 24
+                Height = 10
+                Top = 50
+                Width = 23
+                Caption = 'Si&ze:'
+                ParentColor = False
+              end
+              object Label73: TLabel
+                Left = 120
+                Height = 10
+                Top = 50
+                Width = 30
+                Caption = '&Angle:'
+                ParentColor = False
+              end
+              object CheckBoxTAMarksVisible: TCheckBox
+                Tag = 3
+                Left = 8
+                Height = 23
+                Top = 8
+                Width = 56
+                Caption = 'V&isible'
+                Checked = True
+                OnClick = CheckBoxMarksVisibleClick
+                State = cbChecked
+                TabOrder = 0
+              end
+              object ButtonTAMarksFont: TButton
+                Tag = 3
+                Left = 136
+                Height = 25
+                Top = 8
+                Width = 75
+                Caption = 'F&ont...'
+                OnClick = ButtonAxisFontClick
+                TabOrder = 1
+              end
+              object SpinEditTAMarksSize: TSpinEdit
+                Tag = 3
+                Left = 56
+                Height = 23
+                Top = 44
+                Width = 49
+                Alignment = taRightJustify
+                MaxValue = 0
+                OnChange = SpinEditMarksSizeChange
+                TabOrder = 2
+              end
+              object SpinEditTAMarksAngle: TSpinEdit
+                Tag = 3
+                Left = 160
+                Height = 23
+                Top = 44
+                Width = 49
+                Alignment = taRightJustify
+                Increment = 10
+                MaxValue = 180
+                MinValue = -180
+                OnChange = SpinEditMarksAngleChange
+                TabOrder = 3
+              end
+              object CheckBoxTAMarksAtData: TCheckBox
+                Tag = 3
+                Left = 8
+                Height = 23
+                Top = 128
+                Width = 84
+                Caption = 'At Data onl&y'
+                OnChange = CheckBoxMarksAtDataChange
+                TabOrder = 4
+              end
+              object CheckBoxTAMarksClipped: TCheckBox
+                Tag = 3
+                Left = 112
+                Height = 23
+                Top = 128
+                Width = 62
+                Caption = 'Clipped'
+                OnChange = CheckBoxMarksClippedChange
+                TabOrder = 5
+              end
+              object ComboBoxTAValueFormat: TComboBox
+                Left = 8
+                Height = 25
+                Top = 94
+                Width = 82
+                ItemHeight = 0
+                ItemIndex = 0
+                Items.Strings = (
+                  'General'
+                  'Fixed'
+                )
+                OnChange = LAValueFormatChange
+                Style = csDropDownList
+                TabOrder = 6
+                Text = 'General'
+              end
+              object SpinEditTADigits: TSpinEdit
+                Left = 104
+                Height = 23
+                Top = 94
+                Width = 50
+                Alignment = taRightJustify
+                MaxValue = 9
+                OnChange = LAValueFormatChange
+                TabOrder = 7
+              end
+              object Label48: TLabel
+                Left = 104
+                Height = 10
+                Top = 80
+                Width = 60
+                Caption = 'Digits (max.)'
+                ParentColor = False
+              end
+            end
+            object TabSheetTicks1: TTabSheet
+              Caption = 'Ticks'
+              ClientHeight = 194
+              ClientWidth = 245
+              object Label74: TLabel
+                Left = 100
+                Height = 10
+                Top = 48
+                Width = 36
+                Caption = 'Length:'
+                ParentColor = False
+              end
+              object Label75: TLabel
+                Left = 100
+                Height = 10
+                Top = 78
+                Width = 64
+                Caption = 'Inner Length:'
+                ParentColor = False
+              end
+              object Label76: TLabel
+                Left = 100
+                Height = 10
+                Top = 108
+                Width = 36
+                Caption = 'Length:'
+                ParentColor = False
+              end
+              object Label77: TLabel
+                Left = 100
+                Height = 10
+                Top = 138
+                Width = 32
+                Caption = '&Count:'
+                ParentColor = False
+              end
+              object ButtonTAGridBorder: TButton
+                Tag = 3
+                Left = 8
+                Height = 25
+                Top = 8
+                Width = 116
+                Caption = 'A&xis Grid Border...'
+                OnClick = ButtonTicksGridBorderClick
+                TabOrder = 0
+              end
+              object ButtonTATicksMinors: TButton
+                Tag = 3
+                Left = 8
+                Height = 25
+                Top = 110
+                Width = 75
+                Caption = '&Minors...'
+                OnClick = ButtonTicksMinorsClick
+                TabOrder = 1
+              end
+              object SpinEditTATicksLength: TSpinEdit
+                Tag = 3
+                Left = 180
+                Height = 21
+                Top = 40
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 99
+                OnChange = SpinEditTicksLengthChange
+                TabOrder = 2
+                Value = 4
+              end
+              object SpinEditTATicksInnerLength: TSpinEdit
+                Tag = 3
+                Left = 180
+                Height = 21
+                Top = 70
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 99
+                OnChange = SpinEditTicksInnerLengthChange
+                TabOrder = 3
+              end
+              object SpinEditTATicksMinorsLength: TSpinEdit
+                Tag = 3
+                Left = 180
+                Height = 21
+                Top = 100
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 99
+                OnChange = SpinEditTicksMinorsLengthChange
+                TabOrder = 4
+                Value = 2
+              end
+              object SpinEditTATicksMinorsCount: TSpinEdit
+                Tag = 3
+                Left = 180
+                Height = 21
+                Top = 130
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 99
+                OnChange = SpinEditTicksMinorsCountChange
+                TabOrder = 5
+                Value = 3
+              end
+              object ColorButtonTATicks: TColorButton
+                Tag = 3
+                Left = 8
+                Height = 25
+                Top = 45
+                Width = 75
+                BorderWidth = 2
+                ButtonColorSize = 16
+                ButtonColor = clBlack
+                ColorDialog = ColorDialog1
+                Caption = 'Ticks'
+                Layout = blGlyphRight
+                OnClick = ColorButtonClick
+                OnColorChanged = ColorButtonTicksColorChanged
+              end
+            end
+          end
+        end
+      end
+    end
+    object TabsheetTitles: TTabSheet
+      Caption = 'Titles'
+      ClientHeight = 224
+      ClientWidth = 369
+      object ComboBoxTitles: TComboBox
+        Left = 8
+        Height = 25
+        Top = 8
+        Width = 73
+        ItemHeight = 0
+        ItemIndex = 0
+        Items.Strings = (
+          'Title'
+          'Footer'
+        )
+        OnChange = ComboBoxTitlesChange
+        Style = csDropDownList
+        TabOrder = 0
+        Text = 'Title'
+      end
+      object CheckBoxTitleVisible: TCheckBox
+        Left = 8
+        Height = 23
+        Top = 56
+        Width = 56
+        Caption = '&Visible'
+        Checked = True
+        OnChange = CheckBoxTitleVisibleChange
+        State = cbChecked
+        TabOrder = 1
+      end
+      object ButtonTitleFont: TButton
+        Left = 96
+        Height = 25
+        Top = 8
+        Width = 75
+        Caption = 'F&ont...'
+        OnClick = ButtonTitleFontClick
+        TabOrder = 2
+      end
+      object ButtonTitleBorder: TButton
+        Left = 184
+        Height = 25
+        Top = 8
+        Width = 75
+        Caption = '&Border...'
+        OnClick = ButtonTitleBorderClick
+        TabOrder = 3
+      end
+      object RadioGroupTitles: TRadioGroup
+        Left = 286
+        Height = 81
+        Top = 4
+        Width = 80
+        AutoFill = True
+        Caption = 'Alignment'
+        ChildSizing.LeftRightSpacing = 6
+        ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+        ChildSizing.EnlargeVertical = crsHomogenousChildResize
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclLeftToRightThenTopToBottom
+        ChildSizing.ControlsPerLine = 1
+        ClientHeight = 67
+        ClientWidth = 78
+        ItemIndex = 0
+        Items.Strings = (
+          '&Center'
+          '&Left'
+          '&Right'
+        )
+        OnClick = RadioGroupTitlesClick
+        TabOrder = 4
+      end
+      object Memo1: TMemo
+        Left = 8
+        Height = 97
+        Top = 124
+        Width = 280
+        ScrollBars = ssAutoBoth
+        TabOrder = 5
+        WordWrap = False
+      end
+      object ButtonTitleApply: TButton
+        Left = 300
+        Height = 25
+        Top = 186
+        Width = 64
+        Caption = 'Apply'
+        OnClick = ButtonTitleApplyClick
+        TabOrder = 6
+      end
+      object ComboBoxTitleBrush: TComboBox
+        Left = 170
+        Height = 25
+        Top = 56
+        Width = 88
+        ItemHeight = 0
+        ItemIndex = 0
+        Items.Strings = (
+          'Solid'
+          'Clear'
+          'Horizontal'
+          'Vertical'
+          'FDiagonal'
+          'BDiagonal'
+          'Cross'
+          'DiagCross'
+        )
+        OnChange = ComboBoxTitleBrushChange
+        Style = csDropDownList
+        TabOrder = 7
+        Text = 'Solid'
+      end
+      object Label4: TLabel
+        Left = 125
+        Height = 10
+        Top = 63
+        Width = 31
+        Caption = 'Brush:'
+        ParentColor = False
+      end
+      object ColorButtonTitleBkgrCol: TColorButton
+        Left = 140
+        Height = 25
+        Top = 90
+        Width = 150
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clBtnFace
+        Caption = 'Background Colour'
+        OnClick = ColorButtonTitleBkgrColClick
+        OnColorChanged = ColorButtonTitleBkgrColColorChanged
+      end
+      object ColorButtonTitlesFont: TColorButton
+        Left = 8
+        Height = 25
+        Top = 90
+        Width = 116
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clBlack
+        ColorDialog = ColorDialog1
+        Caption = 'Font Colour'
+        OnClick = ColorButtonTitlesFontClick
+        OnColorChanged = ColorButtonTitlesFontColorChanged
+      end
+    end
+    object TabsheetLegend: TTabSheet
+      Caption = 'Legend'
+      ClientHeight = 224
+      ClientWidth = 369
+      object Label19: TLabel
+        Left = 8
+        Height = 10
+        Top = 172
+        Width = 46
+        Caption = '&X Margin:'
+        ParentColor = False
+      end
+      object Label20: TLabel
+        Left = 8
+        Height = 10
+        Top = 142
+        Width = 46
+        Caption = '&Y Margin:'
+        ParentColor = False
+      end
+      object CheckBoxLegendVisible: TCheckBox
+        Left = 8
+        Height = 24
+        Top = 8
+        Width = 56
+        Caption = '&Visible'
+        OnChange = CheckBoxLegendVisibleChange
+        TabOrder = 0
+      end
+      object ButtonLegendFont: TButton
+        Left = 8
+        Height = 25
+        Top = 68
+        Width = 84
+        Caption = 'F&ont...'
+        OnClick = ButtonLegendFontClick
+        TabOrder = 1
+      end
+      object ButtonBorderLegend: TButton
+        Left = 8
+        Height = 25
+        Top = 100
+        Width = 84
+        Caption = 'Bo&rder...'
+        OnClick = ButtonBorderLegendClick
+        TabOrder = 2
+      end
+      object RadioGroupLegendPos: TRadioGroup
+        Left = 144
+        Height = 184
+        Top = 8
+        Width = 224
+        AutoFill = True
+        Caption = 'Position:'
+        ChildSizing.LeftRightSpacing = 6
+        ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+        ChildSizing.EnlargeVertical = crsHomogenousChildResize
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclTopToBottomThenLeftToRight
+        ChildSizing.ControlsPerLine = 4
+        ClientHeight = 170
+        ClientWidth = 222
+        ColumnLayout = clVerticalThenHorizontal
+        Columns = 2
+        ItemIndex = 0
+        Items.Strings = (
+          'Top Left'
+          'Center Left'
+          'Bottom Left'
+          'Top Center'
+          'Bottom Center'
+          'Top Right'
+          'Center Right'
+          'Bottom Right'
+        )
+        OnClick = RadioGroupLegendPosClick
+        TabOrder = 3
+      end
+      object SpinEditLegendX: TSpinEdit
+        Left = 65
+        Height = 21
+        Top = 168
+        Width = 57
+        Alignment = taRightJustify
+        MaxValue = 99
+        OnChange = SpinEditLegendXChange
+        TabOrder = 4
+      end
+      object SpinEditLegendY: TSpinEdit
+        Left = 65
+        Height = 21
+        Top = 136
+        Width = 57
+        Alignment = taRightJustify
+        OnChange = SpinEditLegendYChange
+        TabOrder = 5
+        Value = 10
+      end
+      object ColorButtonLegendBack: TColorButton
+        Left = 8
+        Height = 25
+        Top = 34
+        Width = 114
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clBlack
+        ColorDialog = ColorDialog1
+        Caption = 'Background'
+        Layout = blGlyphRight
+        OnClick = ColorButtonClick
+        OnColorChanged = ColorButtonLegendBackChanged
+      end
+      object CheckBoxOnSidePanel: TCheckBox
+        Left = 8
+        Height = 24
+        Top = 199
+        Width = 128
+        Caption = 'Legend on side panel'
+        OnChange = CheckBoxOnSidePanelChange
+        TabOrder = 6
+      end
+    end
+    object TabSheetGeneral: TTabSheet
+      Caption = 'General'
+      ClientHeight = 224
+      ClientWidth = 369
+      object GroupBoxMargins: TGroupBox
+        Left = 200
+        Height = 120
+        Top = 16
+        Width = 144
+        Caption = 'Margins %'
+        ClientHeight = 106
+        ClientWidth = 142
+        TabOrder = 0
+        object SpinEditMarginTop: TSpinEdit
+          Left = 48
+          Height = 23
+          Top = 8
+          Width = 41
+          Alignment = taRightJustify
+          MaxValue = 95
+          OnChange = SpinEditMarginTopChange
+          TabOrder = 0
+          Value = 3
+        end
+        object SpinEditMarginLeft: TSpinEdit
+          Left = 8
+          Height = 23
+          Top = 40
+          Width = 41
+          Alignment = taRightJustify
+          MaxValue = 95
+          OnChange = SpinEditMarginLeftChange
+          TabOrder = 1
+          Value = 3
+        end
+        object SpinEditMarginBottom: TSpinEdit
+          Left = 48
+          Height = 23
+          Top = 72
+          Width = 41
+          Alignment = taRightJustify
+          MaxValue = 95
+          OnChange = SpinEditMarginBottomChange
+          TabOrder = 2
+          Value = 3
+        end
+        object SpinEditMarginRight: TSpinEdit
+          Left = 90
+          Height = 23
+          Top = 40
+          Width = 41
+          Alignment = taRightJustify
+          MaxValue = 95
+          OnChange = SpinEditMarginRightChange
+          TabOrder = 3
+          Value = 6
+        end
+      end
+      object ButtonPrint: TButton
+        Left = 24
+        Height = 25
+        Top = 168
+        Width = 100
+        Caption = '&Print ...'
+        OnClick = ButtonPrintClick
+        TabOrder = 1
+      end
+      object ButtonExport: TButton
+        Left = 224
+        Height = 25
+        Top = 168
+        Width = 100
+        Caption = 'Export...'
+        Enabled = False
+        OnClick = ButtonExportClick
+        TabOrder = 2
+      end
+      object CheckBoxNoBackColour: TCheckBox
+        Left = 8
+        Height = 23
+        Top = 56
+        Width = 103
+        Caption = 'No B&ack Colour'
+        OnClick = CheckBoxNoBackColourClick
+        TabOrder = 3
+      end
+      object ColorButtonBack: TColorButton
+        Left = 8
+        Height = 25
+        Top = 88
+        Width = 116
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clBtnFace
+        ColorDialog = ColorDialog1
+        Caption = 'Back Colour'
+        Layout = blGlyphRight
+        OnClick = ColorButtonClick
+        OnColorChanged = ColorButtonBackColorChanged
+      end
+      object ColorButtonPanel: TColorButton
+        Left = 8
+        Height = 25
+        Top = 16
+        Width = 116
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clBtnFace
+        ColorDialog = ColorDialog1
+        Caption = 'Panel Colour'
+        Layout = blGlyphRight
+        OnClick = ColorButtonClick
+        OnColorChanged = ColorButtonPanelColorChanged
+      end
+    end
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 38
+    Top = 256
+    Width = 367
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.HelpContext = 99
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 1
+    DefaultButton = pbClose
+    ShowButtons = [pbClose, pbHelp]
+  end
+  object FontDialog: TFontDialog
+    Font.Color = clWindowText
+    Font.Height = -8
+    Font.Name = 'MS Sans Serif'
+    MinFontSize = 0
+    MaxFontSize = 0
+    Left = 256
+    Top = 248
+  end
+  object OpenPictureDialog1: TOpenPictureDialog
+    DefaultExt = '.bmp'
+    Filter = 'Bitmaps (*.bmp)|*.bmp'
+    Left = 96
+    Top = 240
+  end
+  object PrintDialog1: TPrintDialog
+    Left = 320
+    Top = 232
+  end
+  object XMLPropStorage1: TXMLPropStorage
+    StoredValues = <>
+    Left = 288
+  end
+  object ColorDialog1: TColorDialog
+    Color = clBlack
+    CustomColors.Strings = (
+      'ColorA=000000'
+      'ColorB=000080'
+      'ColorC=008000'
+      'ColorD=008080'
+      'ColorE=800000'
+      'ColorF=800080'
+      'ColorG=808000'
+      'ColorH=808080'
+      'ColorI=C0C0C0'
+      'ColorJ=0000FF'
+      'ColorK=00FF00'
+      'ColorL=00FFFF'
+      'ColorM=FF0000'
+      'ColorN=FF00FF'
+      'ColorO=FFFF00'
+      'ColorP=FFFFFF'
+      'ColorQ=C0DCC0'
+      'ColorR=F0CAA6'
+      'ColorS=F0FBFF'
+      'ColorT=A4A0A0'
+    )
+    Left = 312
+    Top = 112
+  end
+  object SaveDialog1: TSaveDialog
+    Title = 'Save chart as'
+    Filter = 'Bitmap (*.bmp)|bmp'
+    Left = 160
+    Top = 240
+  end
+end

@@ -1,0 +1,273 @@
+object BoxSettingsForm: TBoxSettingsForm
+  Left = 941
+  Height = 338
+  Top = 348
+  Width = 306
+  HelpContext = 92
+  BorderStyle = bsSingle
+  Caption = 'Settings for Box & Whisker Diagram'
+  ClientHeight = 338
+  ClientWidth = 306
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poScreenCenter
+  LCLVersion = '2.0.8.0'
+  object Bevel1: TBevel
+    Left = 8
+    Height = 278
+    Top = 8
+    Width = 290
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Shape = bsFrame
+  end
+  object Label1: TLabel
+    Left = 16
+    Height = 10
+    Top = 16
+    Width = 85
+    Caption = '&From Date / Time'
+    FocusControl = DateTimePicker1
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    ParentColor = False
+    ParentFont = False
+  end
+  object DateTimePicker1: TDateTimePicker
+    Left = 16
+    Height = 21
+    Top = 32
+    Width = 134
+    ArrowShape = asClassicSmaller
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoYMD
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 0
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDateTime
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 36526
+    Time = 0
+    UseDefaultSeparators = True
+    HideDateTimeParts = [dtpSecond, dtpMiliSec]
+    MonthNames = 'Long'
+  end
+  object Label2: TLabel
+    Left = 156
+    Height = 10
+    Top = 16
+    Width = 72
+    Caption = '&To Date / Time'
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    ParentColor = False
+    ParentFont = False
+  end
+  object DateTimePicker2: TDateTimePicker
+    Left = 156
+    Height = 21
+    Top = 32
+    Width = 134
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoYMD
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 1
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDateTime
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 42909
+    Time = 0.446677418978652
+    UseDefaultSeparators = True
+    HideDateTimeParts = [dtpSecond, dtpMiliSec]
+    MonthNames = 'Long'
+  end
+  object Label3: TLabel
+    Left = 16
+    Height = 10
+    Top = 110
+    Width = 34
+    Caption = '&Scope:'
+    FocusControl = ComboBoxViews
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    ParentColor = False
+    ParentFont = False
+  end
+  object ComboBoxViews: TComboBox
+    Left = 16
+    Height = 25
+    Hint = 'Choose current site or View'
+    Top = 123
+    Width = 274
+    Anchors = [akTop, akLeft, akRight]
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      'Current Site'
+    )
+    OnChange = ComboBoxViewsChange
+    ParentShowHint = False
+    ShowHint = True
+    Style = csDropDownList
+    TabOrder = 2
+    Text = 'Current Site'
+  end
+  object ComboBox1: TComboBox
+    Left = 16
+    Height = 25
+    Top = 80
+    Width = 150
+    Enabled = False
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      'Chemistry'
+      'Water levels'
+      'Discharge rates'
+      'Meter readings'
+      'Stage heights'
+    )
+    Style = csDropDownList
+    TabOrder = 3
+    Text = 'Chemistry'
+  end
+  object Label4: TLabel
+    Left = 16
+    Height = 13
+    Top = 63
+    Width = 135
+    Caption = 'Select Information Type:'
+    ParentColor = False
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 36
+    Top = 296
+    Width = 294
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.HelpContext = 92
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    CancelButton.OnClick = CancelButtonClick
+    TabOrder = 4
+    DefaultButton = pbCancel
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object CheckBox1: TCheckBox
+    Left = 16
+    Height = 24
+    Top = 156
+    Width = 193
+    Caption = 'All sites in view into one series'
+    Enabled = False
+    TabOrder = 5
+  end
+  object ComboBoxSort: TComboBox
+    Left = 16
+    Height = 25
+    Top = 200
+    Width = 160
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      'Site Identifier'
+      'Site number'
+      'Minimum'
+      '1st Quartile'
+      'Median'
+      '3rd Quartile'
+      'Maximum'
+    )
+    Style = csDropDownList
+    TabOrder = 6
+    Text = 'Site Identifier'
+  end
+  object Label5: TLabel
+    Left = 16
+    Height = 13
+    Top = 184
+    Width = 158
+    Caption = 'Order by (from left to right):'
+    ParentColor = False
+  end
+  object ComboBoxParams: TComboBox
+    Left = 170
+    Height = 28
+    Top = 80
+    Width = 120
+    ItemHeight = 0
+    Sorted = True
+    Style = csDropDownList
+    TabOrder = 7
+  end
+  object Label6: TLabel
+    Left = 170
+    Height = 13
+    Top = 63
+    Width = 61
+    Caption = 'Parameter:'
+    ParentColor = False
+  end
+  object Label7: TLabel
+    Left = 184
+    Height = 13
+    Top = 184
+    Width = 59
+    Caption = 'Label with:'
+    ParentColor = False
+  end
+  object ComboBox3: TComboBox
+    Left = 184
+    Height = 25
+    Top = 200
+    Width = 106
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      'Site Identifier'
+      'Site Number'
+    )
+    Style = csDropDownList
+    TabOrder = 8
+    Text = 'Site Identifier'
+  end
+  object LabeledEdit1: TLabeledEdit
+    Left = 16
+    Height = 23
+    Top = 250
+    Width = 274
+    EditLabel.Height = 13
+    EditLabel.Width = 274
+    EditLabel.Caption = 'Chart Title:'
+    EditLabel.ParentColor = False
+    TabOrder = 9
+    Text = 'Box and Whisker Diagram'
+  end
+  object ZReadOnlyQuery1: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    left = 224
+    top = 136
+  end
+end

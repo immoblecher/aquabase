@@ -1,0 +1,16 @@
+{"version":1,"strings":[
+{"hash":215927797,"name":"taddtrendlineform.caption","sourcebytes":[65,100,100,32,84,114,101,110,100,105,110,101],"value":"Add Trendine"},
+{"hash":26807642,"name":"taddtrendlineform.labelededitname.editlabel.caption","sourcebytes":[76,105,110,101,32,40,83,101,114,105,101,115,41,32,78,97,109,101,58],"value":"Line (Series) Name:"},
+{"hash":206271941,"name":"taddtrendlineform.labelededitname.texthint","sourcebytes":[84,114,101,110,100,108,105,110,101],"value":"Trendline"},
+{"hash":45908899,"name":"taddtrendlineform.groupbox1.caption","sourcebytes":[76,105,110,101,32,80,114,111,112,101,114,116,105,101,115],"value":"Line Properties"},
+{"hash":224714163,"name":"taddtrendlineform.comboboxaxis.text","sourcebytes":[76,101,102,116,32,65,120,105,115],"value":"Left Axis"},
+{"hash":28527482,"name":"taddtrendlineform.label3.caption","sourcebytes":[76,105,110,107,101,100,32,116,111,58],"value":"Linked to:"},
+{"hash":81212082,"name":"taddtrendlineform.colorbutton1.caption","sourcebytes":[76,105,110,101,32,67,111,108,111,117,114],"value":"Line Colour"},
+{"hash":242300826,"name":"taddtrendlineform.labelthick.caption","sourcebytes":[76,105,110,101,32,84,104,105,99,107,110,101,115,115,58],"value":"Line Thickness:"},
+{"hash":100206330,"name":"taddtrendlineform.labelstyle.caption","sourcebytes":[76,105,110,101,32,83,116,121,108,101,58],"value":"Line Style:"},
+{"hash":5923572,"name":"taddtrendlineform.comboboxstyle.text","sourcebytes":[83,111,108,105,100],"value":"Solid"},
+{"hash":105696026,"name":"taddtrendlineform.label1.caption","sourcebytes":[70,105,116,32,69,113,117,46,58],"value":"Fit Equ.:"},
+{"hash":208194206,"name":"taddtrendlineform.comboboxfit.hint","sourcebytes":[70,105,116,32,101,113,117,97,116,105,111,110],"value":"Fit equation"},
+{"hash":87051138,"name":"taddtrendlineform.comboboxfit.text","sourcebytes":[76,105,110,101,97,114],"value":"Linear"},
+{"hash":170480442,"name":"taddtrendlineform.label2.caption","sourcebytes":[83,101,114,105,101,115,32,102,111,114,32,116,114,101,110,100,108,105,110,101,58],"value":"Series for trendline:"}
+]}

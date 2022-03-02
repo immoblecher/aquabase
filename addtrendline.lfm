@@ -1,0 +1,220 @@
+object AddTrendLineForm: TAddTrendLineForm
+  Left = 907
+  Height = 280
+  Top = 162
+  Width = 320
+  BorderStyle = bsSingle
+  Caption = 'Add Trendine'
+  ClientHeight = 280
+  ClientWidth = 320
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  SessionProperties = 'ColorButton1.ButtonColor;ComboBoxStyle.ItemIndex;ComboBoxPos.ItemIndex;SpinEdit1.Value'
+  LCLVersion = '2.0.8.0'
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 42
+    Top = 232
+    Width = 308
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 0
+    DefaultButton = pbCancel
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object LabeledEditName: TLabeledEdit
+    Left = 8
+    Height = 23
+    Top = 70
+    Width = 302
+    AutoSize = False
+    EditLabel.Height = 13
+    EditLabel.Width = 302
+    EditLabel.Caption = 'Line (Series) Name:'
+    EditLabel.ParentColor = False
+    TabOrder = 1
+    TextHint = 'Trendline'
+  end
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 120
+    Top = 104
+    Width = 302
+    Caption = 'Line Properties'
+    ClientHeight = 104
+    ClientWidth = 300
+    TabOrder = 2
+    object ComboBoxAxis: TComboBox
+      Left = 62
+      Height = 25
+      Top = 8
+      Width = 80
+      AutoSize = False
+      ItemHeight = 0
+      ItemIndex = 0
+      Items.Strings = (
+        'Left Axis'
+        'Right Axis'
+      )
+      Style = csDropDownList
+      TabOrder = 0
+      Text = 'Left Axis'
+    end
+    object Label3: TLabel
+      Left = 6
+      Height = 13
+      Top = 13
+      Width = 54
+      Alignment = taRightJustify
+      Caption = 'Linked to:'
+      ParentColor = False
+    end
+    object ColorButton1: TColorButton
+      Left = 6
+      Height = 25
+      Top = 40
+      Width = 120
+      BorderWidth = 2
+      ButtonColorSize = 16
+      ButtonColor = clBlack
+      ColorDialog = ColorDialog1
+      Caption = 'Line Colour'
+    end
+    object LabelThick: TLabel
+      Left = 152
+      Height = 13
+      Top = 48
+      Width = 82
+      Alignment = taRightJustify
+      Caption = 'Line Thickness:'
+      ParentColor = False
+    end
+    object SpinEdit1: TSpinEdit
+      Left = 240
+      Height = 23
+      Top = 44
+      Width = 50
+      Alignment = taRightJustify
+      MaxValue = 10
+      MinValue = 1
+      TabOrder = 1
+      Value = 1
+    end
+    object LabelStyle: TLabel
+      Left = 104
+      Height = 13
+      Top = 78
+      Width = 56
+      Alignment = taRightJustify
+      Caption = 'Line Style:'
+      ParentColor = False
+    end
+    object ComboBoxStyle: TComboBox
+      Left = 170
+      Height = 25
+      Top = 71
+      Width = 120
+      AutoSize = False
+      ItemHeight = 0
+      ItemIndex = 0
+      Items.Strings = (
+        'Solid'
+        'Dash'
+        'Dot'
+        'DashDot'
+        'DashDotDot'
+      )
+      Style = csDropDownList
+      TabOrder = 2
+      Text = 'Solid'
+    end
+    object Label1: TLabel
+      Left = 150
+      Height = 13
+      Top = 13
+      Width = 44
+      Alignment = taRightJustify
+      Caption = 'Fit Equ.:'
+      ParentColor = False
+    end
+    object ComboBoxFit: TComboBox
+      Left = 200
+      Height = 25
+      Hint = 'Fit equation'
+      Top = 8
+      Width = 90
+      AutoSize = False
+      ItemHeight = 0
+      ItemIndex = 1
+      Items.Strings = (
+        'Polynomial'
+        'Linear'
+        'Exponential'
+        'Power'
+      )
+      ParentShowHint = False
+      ShowHint = True
+      Style = csDropDownList
+      TabOrder = 3
+      Text = 'Linear'
+    end
+  end
+  object ComboBoxSeries: TComboBox
+    Left = 8
+    Height = 25
+    Top = 20
+    Width = 302
+    AutoSize = False
+    ItemHeight = 0
+    Style = csDropDownList
+    TabOrder = 3
+  end
+  object Label2: TLabel
+    Left = 8
+    Height = 13
+    Top = 4
+    Width = 110
+    Caption = 'Series for trendline:'
+    ParentColor = False
+  end
+  object ColorDialog1: TColorDialog
+    Color = clBlack
+    CustomColors.Strings = (
+      'ColorA=000000'
+      'ColorB=000080'
+      'ColorC=008000'
+      'ColorD=008080'
+      'ColorE=800000'
+      'ColorF=800080'
+      'ColorG=808000'
+      'ColorH=808080'
+      'ColorI=C0C0C0'
+      'ColorJ=0000FF'
+      'ColorK=00FF00'
+      'ColorL=00FFFF'
+      'ColorM=FF0000'
+      'ColorN=FF00FF'
+      'ColorO=FFFF00'
+      'ColorP=FFFFFF'
+      'ColorQ=C0DCC0'
+      'ColorR=F0CAA6'
+      'ColorS=F0FBFF'
+      'ColorT=A4A0A0'
+    )
+    left = 32
+    top = 214
+  end
+  object XMLPropStorage1: TXMLPropStorage
+    StoredValues = <>
+    left = 264
+    top = 54
+  end
+end

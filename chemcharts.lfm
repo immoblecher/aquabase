@@ -1,0 +1,912 @@
+object ChemChartsForm: TChemChartsForm
+  Tag = 3
+  Left = 808
+  Height = 342
+  Top = 346
+  Width = 496
+  HelpContext = 1
+  ActiveControl = DurovChart
+  Caption = 'Chemistry Diagram(s)'
+  ClientHeight = 342
+  ClientWidth = 496
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  FormStyle = fsMDIChild
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDeactivate = FormDeactivate
+  OnShow = FormShow
+  Position = poDefaultSizeOnly
+  SessionProperties = 'Left;Top'
+  LCLVersion = '2.0.8.0'
+  object EDurovChart: TChart
+    Tag = 4
+    Left = 264
+    Height = 100
+    Hint = 'Ctrl-Drag or mouse wheel to zoom, left button drag to pan, dbl-click to full extent, right-click for menu'
+    Top = 216
+    Width = 217
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+      end>
+    AxisVisible = False
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Legend.Font.Height = -9
+    Legend.GroupFont.Height = -9
+    Margins.Left = 14
+    Margins.Top = 0
+    Margins.Right = 6
+    Margins.Bottom = 0
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'Expanded Durov Diagram'
+    )
+    Toolset = ChartToolset1
+    ParentShowHint = False
+    PopupMenu = PopupMenu1
+    ShowHint = True
+    Visible = False
+    OnDblClick = ChartDblClick
+    object BorderSeries: TLineSeries
+      Tag = 9999
+      Legend.Visible = False
+      Marks.Visible = False
+      Title = 'Border Lines'
+    end
+    object ExpGridLines: TLineSeries
+      Tag = 9999
+      Legend.Visible = False
+      Marks.Visible = False
+      Marks.Frame.Style = psDot
+      Title = 'Grid lines'
+      LinePen.Style = psDot
+    end
+    object ExpDurovLabels: TLineSeries
+      Tag = 9999
+      Legend.Visible = False
+      Marks.Distance = 0
+      Marks.LabelFont.Color = clBlack
+      Marks.LabelFont.Height = -11
+      Marks.Format = '%2:s'
+      Marks.Frame.Visible = False
+      Marks.LabelBrush.Color = clBtnFace
+      Marks.LabelBrush.Style = bsClear
+      Marks.LinkPen.Color = clBtnFace
+      Marks.LinkPen.Visible = False
+      Marks.Style = smsLabel
+      Title = 'Labels'
+      LinePen.Style = psClear
+      Pointer.HorizSize = 1
+      Pointer.Pen.Visible = False
+      Pointer.VertSize = 1
+    end
+  end
+  object PiperChart: TChart
+    Left = 264
+    Height = 92
+    Hint = 'Ctrl-Drag or mouse wheel to zoom, left button drag to pan, dbl-click to full extent, right-click for menu'
+    Top = 111
+    Width = 207
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+      end>
+    AxisVisible = False
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Legend.Font.Height = -9
+    Legend.GroupFont.Height = -9
+    Legend.UseSidebar = False
+    Margins.Left = 8
+    Margins.Right = 8
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'Piper Diagram'
+    )
+    Toolset = ChartToolset1
+    ParentShowHint = False
+    PopupMenu = PopupMenu1
+    ShowHint = True
+    Visible = False
+    OnDblClick = ChartDblClick
+    object PiperLabels: TLineSeries
+      Tag = 9999
+      Legend.Visible = False
+      Marks.Alignment = taCenter
+      Marks.Distance = 0
+      Marks.LabelFont.Color = clBlack
+      Marks.LabelFont.Height = -9
+      Marks.LabelFont.Name = 'Arial'
+      Marks.Format = '%2:s'
+      Marks.Frame.Visible = False
+      Marks.LabelBrush.Color = clNone
+      Marks.LabelBrush.Style = bsClear
+      Marks.LinkPen.Color = clSilver
+      Marks.LinkPen.Visible = False
+      Marks.Style = smsLabel
+      Title = 'Piper Lables'
+      ZPosition = 10
+      LinePen.Style = psClear
+      Pointer.HorizSize = 0
+      Pointer.VertSize = 0
+    end
+    object PiperLines: TLineSeries
+      Tag = 9999
+      Legend.Visible = False
+      Marks.Visible = False
+      Title = 'Piper Chart Gridlines'
+      ZPosition = 9
+      LinePen.Style = psDot
+    end
+    object ArrowSeries: TFieldSeries
+      Tag = 9998
+      Legend.Visible = False
+      Title = 'Arrows'
+      Arrow.Length = 5
+      Arrow.Visible = True
+      Arrow.Width = 3
+    end
+    object PiperLeftTriangle: TAreaSeries
+      Tag = 9999
+      Legend.Visible = False
+      Title = 'Left triangle'
+      AreaLinesPen.Style = psClear
+      UseZeroLevel = True
+    end
+    object PiperRightTriangle: TAreaSeries
+      Tag = 9999
+      Legend.Visible = False
+      Title = 'Right Triangle'
+      AreaLinesPen.Style = psClear
+      UseZeroLevel = True
+    end
+    object PiperDiamond: TAreaSeries
+      Tag = 9999
+      Legend.Visible = False
+      Title = 'Diamond'
+      AreaLinesPen.Style = psClear
+      UseZeroLevel = True
+      ZeroLevel = 20
+    end
+  end
+  object SARChart: TChart
+    Tag = 3
+    Left = 16
+    Height = 225
+    Hint = 'Ctrl-Drag or mouse wheel to zoom, left button drag to pan, dbl-click to full extent, right-click for menu'
+    Top = 112
+    Width = 224
+    AxisList = <    
+      item
+        Grid.Visible = False
+        TickLength = 2
+        AxisPen.Visible = True
+        Margin = 2
+        Marks.Distance = 2
+        Marks.LabelFont.Height = -11
+        Marks.LabelFont.Name = 'Arial'
+        Marks.LabelBrush.Style = bsClear
+        Marks.Range.Max = 32
+        Marks.Range.UseMax = True
+        Marks.Range.UseMin = True
+        Minors = <>
+        Range.Max = 32
+        Range.UseMax = True
+        Range.UseMin = True
+        Title.Clipped = False
+        Title.Distance = 2
+        Title.LabelFont.Height = -11
+        Title.LabelFont.Name = 'Arial'
+        Title.LabelFont.Orientation = 900
+        Title.Visible = True
+        Title.Caption = 'Sodium Hazard (SAR)'
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        TickLength = 2
+        Alignment = calBottom
+        AxisPen.Visible = True
+        Margin = 2
+        Marks.LabelFont.Height = -11
+        Marks.LabelFont.Name = 'Arial'
+        Marks.Format = '%4:.0f'
+        Marks.LabelBrush.Style = bsClear
+        Marks.Range.Max = 500
+        Marks.Range.Min = 10
+        Marks.Range.UseMax = True
+        Marks.Range.UseMin = True
+        Marks.Source = ListChartSourceSARx
+        Marks.Style = smsCustom
+        Minors = <>
+        Range.Max = 500
+        Range.Min = 10
+        Range.UseMax = True
+        Range.UseMin = True
+        Title.Alignment = taCenter
+        Title.Clipped = False
+        Title.Distance = 0
+        Title.LabelFont.Height = -11
+        Title.LabelFont.Name = 'Arial'
+        Title.Visible = True
+        Title.Caption = 'Salinity Hazard (Electrical Conductivity [mS/m])'
+        Title.LabelBrush.Style = bsClear
+        Transformations = SARChartAxisTransformations
+      end    
+      item
+        Grid.Visible = False
+        TickLength = 0
+        Alignment = calRight
+        Marks.Distance = 3
+        Marks.Format = '%2:s'
+        Marks.LabelBrush.Style = bsClear
+        Marks.Range.Max = 32
+        Marks.Range.UseMax = True
+        Marks.Range.UseMin = True
+        Marks.Source = ListChartSourceSARRight
+        Marks.Style = smsLabel
+        Minors = <>
+        Range.Max = 32
+        Range.UseMax = True
+        Range.UseMin = True
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Grid.Visible = False
+        TickLength = 0
+        Alignment = calTop
+        Marks.Format = '%2:s'
+        Marks.LabelBrush.Style = bsClear
+        Marks.Range.Max = 500
+        Marks.Range.UseMax = True
+        Marks.Source = ListChartSourceSARTop
+        Marks.Style = smsLabel
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+        Transformations = SARChartAxisTransformations
+      end>
+    BackColor = clWhite
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Legend.Font.Height = -11
+    Legend.GroupFont.Height = -12
+    Legend.MarginX = 8
+    Legend.MarginY = 8
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'Wilcox - SAR Diagram'
+    )
+    Toolset = ChartToolset1
+    ParentShowHint = False
+    PopupMenu = PopupMenu1
+    ShowHint = True
+    Visible = False
+    OnDblClick = ChartDblClick
+    object SARDiagonals: TLineSeries
+      Tag = 9999
+      Legend.Visible = False
+      Marks.Visible = False
+      Title = 'SAR Chart Gridlines'
+      AxisIndexX = 1
+      AxisIndexY = 0
+      LinePen.Style = psDot
+    end
+    object S1Series: TLineSeries
+      Tag = 10000
+      Legend.GroupIndex = 0
+      Legend.Order = 0
+      Title = 'S1: Low'
+      AxisIndexX = 3
+      AxisIndexY = 2
+      LineType = ltNone
+    end
+    object S2Series: TLineSeries
+      Tag = 10000
+      Legend.GroupIndex = 0
+      Legend.Order = 1
+      Title = 'S2: Medium'
+      AxisIndexX = 3
+      AxisIndexY = 2
+      LineType = ltNone
+    end
+    object S3Series: TLineSeries
+      Tag = 10000
+      Legend.GroupIndex = 0
+      Legend.Order = 2
+      Title = 'S3: High'
+      AxisIndexX = 3
+      AxisIndexY = 2
+      LineType = ltNone
+    end
+    object S4Series: TLineSeries
+      Tag = 10000
+      Legend.GroupIndex = 0
+      Legend.Order = 3
+      Title = 'S4: Very high'
+      AxisIndexX = 3
+      AxisIndexY = 2
+      LineType = ltNone
+    end
+    object C1Series: TLineSeries
+      Tag = 10000
+      Legend.GroupIndex = 1
+      Legend.Order = 0
+      Title = 'C1: Low'
+      AxisIndexX = 3
+      AxisIndexY = 2
+      LineType = ltNone
+    end
+    object C2Series: TLineSeries
+      Tag = 10000
+      Legend.GroupIndex = 1
+      Legend.Order = 1
+      Title = 'C2: Medium'
+      AxisIndexX = 3
+      AxisIndexY = 2
+      LineType = ltNone
+    end
+    object C3Series: TLineSeries
+      Tag = 10000
+      Legend.GroupIndex = 1
+      Legend.Order = 2
+      Title = 'C3: High'
+      AxisIndexX = 3
+      AxisIndexY = 2
+      LineType = ltNone
+    end
+    object C4Series: TLineSeries
+      Tag = 10000
+      Legend.GroupIndex = 1
+      Legend.Order = 3
+      Title = 'C4: Very high'
+      AxisIndexX = 3
+      AxisIndexY = 2
+      LineType = ltNone
+    end
+  end
+  object DurovChart: TChart
+    Tag = 2
+    Left = 240
+    Height = 100
+    Hint = 'Ctrl-Drag or mouse wheel to zoom, left button drag to pan, dbl-click to full extent, right-click for menu'
+    Top = 0
+    Width = 241
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Range.Max = 120
+        Range.Min = -1
+        Range.UseMax = True
+        Range.UseMin = True
+        Title.LabelBrush.Style = bsClear
+      end>
+    AxisVisible = False
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Legend.Font.Height = -9
+    Legend.GroupFont.Height = -9
+    Legend.MarginX = 6
+    Legend.MarginY = 6
+    Legend.SymbolWidth = 10
+    Title.Brush.Color = clSilver
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'Durov Diagram'
+    )
+    Toolset = ChartToolset1
+    ParentShowHint = False
+    PopupMenu = PopupMenu1
+    ShowHint = True
+    Visible = False
+    OnDblClick = ChartDblClick
+    object DurovLabelSeriesTop: TLineSeries
+      Tag = 9999
+      Legend.Visible = False
+      Marks.Distance = 0
+      Marks.Format = '%2:s'
+      Marks.Frame.Visible = False
+      Marks.LabelBrush.Style = bsClear
+      Marks.LinkPen.Visible = False
+      Marks.Style = smsLabel
+      Title = 'Labels Top'
+      ZPosition = 2
+      LineType = ltNone
+      MarkPositions = lmpPositive
+      Pointer.HorizSize = 2
+      Pointer.Pen.Color = clWhite
+      Pointer.VertSize = 2
+    end
+    object DurovLabelSeriesBot: TLineSeries
+      Tag = 9999
+      Legend.Visible = False
+      Marks.Distance = 0
+      Marks.Format = '%2:s'
+      Marks.Frame.Visible = False
+      Marks.LabelBrush.Style = bsClear
+      Marks.LinkPen.Visible = False
+      Marks.Style = smsLabel
+      Title = 'Labels Bottom'
+      ZPosition = 2
+      LinePen.Style = psClear
+      LineType = ltNone
+      MarkPositions = lmpNegative
+      Pointer.HorizSize = 2
+      Pointer.Pen.Style = psClear
+      Pointer.VertSize = 2
+    end
+    object DurovBorderlines: TLineSeries
+      Tag = 9999
+      Legend.Visible = False
+      Marks.Visible = False
+      Title = 'Durov Border lines'
+      ZPosition = 1
+      LinePen.Color = 4194368
+    end
+    object DurovGridlines: TLineSeries
+      Tag = 9999
+      Legend.Visible = False
+      Marks.Visible = False
+      Title = 'Durov Chart Gridlines'
+      ZPosition = 1
+      LinePen.Color = 4194368
+      LinePen.Style = psDot
+    end
+    object DurovLeftTriangle: TAreaSeries
+      Tag = 9999
+      Legend.Visible = False
+      Title = 'Durov left Triangle'
+      AreaLinesPen.Style = psClear
+      UseZeroLevel = True
+      ZeroLevel = 50
+    end
+    object DurovTopTriangle: TAreaSeries
+      Tag = 9999
+      Legend.Visible = False
+      Title = 'Durov top Triangle'
+      AreaLinesPen.Style = psClear
+      UseZeroLevel = True
+      ZeroLevel = 50
+    end
+    object DurovRectangles: TAreaSeries
+      Tag = 9999
+      Legend.Visible = False
+      Title = 'Durov rectangles'
+      AreaLinesPen.Style = psClear
+      UseZeroLevel = True
+    end
+  end
+  object SchoellerChart: TChart
+    Tag = 1
+    Left = 8
+    Height = 101
+    Hint = 'Ctrl-Drag or mouse wheel to zoom, left button drag to pan, dbl-click to full extent, right-click for menu'
+    Top = 3
+    Width = 225
+    AxisList = <    
+      item
+        Grid.Style = psSolid
+        Marks.Format = '%0:.3g'
+        Marks.LabelBrush.Style = bsClear
+        Marks.Source = ListChartSourceLeft
+        Marks.Style = smsCustom
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.Visible = True
+        Title.Caption = 'Concentration [meq/l]'
+        Title.LabelBrush.Style = bsClear
+        Transformations = SchoellerChartAxisTransformations
+      end    
+      item
+        Alignment = calBottom
+        Marks.Alignment = taCenter
+        Marks.Format = '%2:s'
+        Marks.LabelBrush.Style = bsClear
+        Marks.Source = ListChartSourceBottom
+        Marks.Style = smsLabel
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+      end>
+    BackColor = clWhite
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Legend.Alignment = laBottomCenter
+    Legend.Font.Height = -9
+    Legend.GroupFont.Height = -9
+    Title.Brush.Color = clSilver
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'Schoeller Diagram'
+    )
+    Toolset = ChartToolset1
+    ParentShowHint = False
+    PopupMenu = PopupMenu1
+    ShowHint = True
+    Visible = False
+    OnDblClick = ChartDblClick
+  end
+  object SaveDialog: TSaveDialog
+    Title = 'Save diagram as'
+    DefaultExt = '.jpg'
+    Filter = 'JPEG Image (*.jpg)|*.jpg|Bitmap (*.bmp)|*.bmp|Windows Metafile (*.wmf)|*.wmf|Portable Network Graphics (*.png)|*.png|Scalable Vector Graphics (*.svg)|*.svg'
+    FilterIndex = 2
+    InitialDir = 'WSpaceDir'
+    left = 264
+    top = 24
+  end
+  object PopupMenu1: TPopupMenu
+    OnPopup = PopupMenu1Popup
+    left = 336
+    top = 40
+    object MenuItem5: TMenuItem
+      Caption = '&Copy to Clipboard'
+      OnClick = MenuItem5Click
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Save &as...'
+      OnClick = Saveas1Click
+    end
+    object MenuItem2: TMenuItem
+      Caption = '&Print'
+      OnClick = MenuItem2Click
+    end
+    object MenuItemReport: TMenuItem
+      Caption = 'Update chart for report'
+      Visible = False
+      OnClick = MenuItemReportClick
+    end
+    object MenuItem4: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem8: TMenuItem
+      Caption = 'Show Series'
+      object MenuItem10: TMenuItem
+        Tag = 1000
+        AutoCheck = True
+        Caption = '&Normal'
+        Default = True
+        GroupIndex = 1
+        RadioItem = True
+        ShortCut = 49230
+        OnClick = AggrMenuItemClick
+      end
+      object MenuItem11: TMenuItem
+        Tag = 1001
+        AutoCheck = True
+        Caption = '&Average'
+        GroupIndex = 1
+        RadioItem = True
+        ShortCut = 49217
+        OnClick = AggrMenuItemClick
+      end
+      object MenuItem12: TMenuItem
+        Tag = 1002
+        AutoCheck = True
+        Caption = '&Minimum'
+        GroupIndex = 1
+        RadioItem = True
+        ShortCut = 49229
+        OnClick = AggrMenuItemClick
+      end
+      object MenuItem13: TMenuItem
+        Tag = 1003
+        AutoCheck = True
+        Caption = 'Ma&ximum'
+        GroupIndex = 1
+        RadioItem = True
+        ShortCut = 49240
+        OnClick = AggrMenuItemClick
+      end
+    end
+    object MenuItem9: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem6: TMenuItem
+      Caption = '&Monochrome'
+      GroupIndex = 1
+      OnClick = Monochrome1Click
+    end
+    object QuickFormat1: TMenuItem
+      Caption = '&Quick Format'
+      GroupIndex = 1
+      object MenuItemBackground: TMenuItem
+        Caption = '&Background white'
+        OnClick = MenuItemBackgroundClick
+      end
+      object MenuItemPanel: TMenuItem
+        Caption = 'Panel &colour white'
+        OnClick = MenuItemPanelClick
+      end
+      object MenuItemFrame: TMenuItem
+        Caption = '&Frame'
+        OnClick = MenuItemFrameClick
+      end
+      object HorizGrid1: TMenuItem
+        Caption = '&Horizontal Grid'
+        Checked = True
+        OnClick = HorizGrid1Click
+      end
+      object VertGrid1: TMenuItem
+        Caption = '&Vertical Grid'
+        Checked = True
+        OnClick = VertGrid1Click
+      end
+      object Legend1: TMenuItem
+        Caption = '&Legend'
+        object MenuItemLegendEnabled: TMenuItem
+          Caption = '&Enabled'
+          ShortCut = 49228
+          OnClick = MenuItemLegendEnabledClick
+        end
+        object MenuItemSideBar: TMenuItem
+          Caption = 'Use &Sidebar'
+          Checked = True
+          OnClick = MenuItemSideBarClick
+        end
+        object MenuItemAlignment: TMenuItem
+          Caption = '&Alignment'
+          object MenuItemTopRight: TMenuItem
+            Caption = '&Top Right'
+            Checked = True
+            RadioItem = True
+            OnClick = MenuItemTopRightClick
+          end
+          object MenuItemTopLeft: TMenuItem
+            Caption = 'Top &Left'
+            RadioItem = True
+            OnClick = MenuItemTopLeftClick
+          end
+          object MenuItemBotRight: TMenuItem
+            Caption = 'Bottom &Right'
+            RadioItem = True
+            OnClick = MenuItemBotRightClick
+          end
+          object MenuItemBotLeft: TMenuItem
+            Caption = '&Bottom Left'
+            RadioItem = True
+            OnClick = MenuItemBotLeftClick
+          end
+          object MenuItemBotCentre: TMenuItem
+            Caption = 'Bottom Center'
+            RadioItem = True
+            OnClick = MenuItemBotCentreClick
+          end
+        end
+        object MenuItemShowHazards: TMenuItem
+          AutoCheck = True
+          Caption = 'Show Ha&zards'
+          Checked = True
+          Hint = 'Show the hazard descriptions in the legend'
+          ShortCut = 49224
+          Visible = False
+          OnClick = MenuItemShowHazardsClick
+        end
+      end
+      object MenuItemFonts: TMenuItem
+        Caption = 'Fonts and &Points'
+        object MenuItemBigger: TMenuItem
+          Caption = '&Bigger'
+          ShortCut = 16450
+          OnClick = MenuItemBiggerClick
+        end
+        object MenuItemSmaller: TMenuItem
+          Caption = '&Smaller'
+          ShortCut = 16467
+          OnClick = MenuItemSmallerClick
+        end
+        object N1: TMenuItem
+          Caption = '-'
+        end
+        object MenuItem1: TMenuItem
+          Caption = 'Rotate &left axis title 90° anti-cw.'
+          ShortCut = 49228
+          OnClick = MenuItem1Click
+        end
+        object MenuItem7: TMenuItem
+          Caption = '&Rotate bottom axis title 45° anti-cw.'
+          ShortCut = 49218
+          OnClick = MenuItem7Click
+        end
+      end
+    end
+    object MenuItem14: TMenuItem
+      Caption = 'Chart Properties'
+      OnClick = MenuItem14Click
+    end
+  end
+  object SchoellerChartAxisTransformations: TChartAxisTransformations
+    left = 104
+    top = 24
+    object SchoellerLeftAxisTransform: TLogarithmAxisTransform
+      Base = 10
+    end
+  end
+  object SARChartAxisTransformations: TChartAxisTransformations
+    left = 176
+    top = 200
+    object SARBottomAxisTransform: TLogarithmAxisTransform
+      Base = 10
+    end
+  end
+  object GlobalQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = GlobalQueryBeforeOpen
+    Params = <>
+    left = 400
+    top = 136
+  end
+  object XMLPropStorage1: TXMLPropStorage
+    StoredValues = <>
+    left = 424
+    top = 24
+  end
+  object ListChartSourceLeft: TListChartSource
+    DataPoints.Strings = (
+      '0|0.002|?|'
+      '0|0.0050000000000000001|?|'
+      '0|0.01|?|'
+      '0|0.02|?|'
+      '0|0.050000000000000003|?|'
+      '0|0.10000000000000001|?|'
+      '0|0.20000000000000001|?|'
+      '0|0.5|?|'
+      '0|1|?|'
+      '0|1.2|?|'
+      '0|1.5|?|'
+      '0|2|?|'
+      '0|5|?|'
+      '0|10|?|'
+      '0|12|?|'
+      '0|15|?|'
+      '0|20|?|'
+      '0|30|?|'
+      '0|50|?|'
+      '0|100|?|'
+      '0|200|?|'
+      '0|500|?|'
+      '0|1000|?|'
+      '0|2000|?|'
+      '0|5000|?|'
+      '0|10000|?|'
+      '0|20000|?|'
+      '0|50000|?|'
+    )
+    left = 88
+    top = 72
+  end
+  object ListChartSourceBottom: TListChartSource
+    DataPoints.Strings = (
+      '1|0|?|Ca'
+      '2|0|?|Mg'
+      '3|0|?|Na'
+      '4|0|?|K'
+      '5|0|?|Cl'
+      '6|0|?|F'
+      '7|0|?|SO4'
+      '8|0|?|NO3'
+      '9|0|?|HCO3'
+    )
+    left = 224
+    top = 72
+  end
+  object ListChartSourceSARx: TListChartSource
+    DataPoints.Strings = (
+      '0.10000000000000001|0|?|0.1'
+      '0.25|0|?|0.25'
+      '0.75|0|?|0.75'
+      '1|0|?|1'
+      '2.25|0|?|2.25'
+      '2.5|0|?|2.5'
+      '7.5|0|?|7.5'
+      '10|0|?|10'
+      '25|0|?|25'
+      '75|0|?|75'
+      '225|0|?|225'
+      '1000|0|?|1000'
+      '2500|0|?|2500'
+      '7500|0|?|7500'
+      '22500|0|?|22500'
+    )
+    left = 56
+    top = 160
+  end
+  object ChartToolset1: TChartToolset
+    left = 344
+    top = 104
+    object ChartToolset1DataPointHintTool1: TDataPointHintTool
+      ActiveCursor = crHandPoint
+      OnHint = ChartToolset1DataPointHintTool1Hint
+    end
+    object ChartToolset1ZoomDragTool1: TZoomDragTool
+      Shift = [ssCtrl, ssLeft]
+      Brush.Style = bsClear
+      RestoreExtentOn = [zreDragTopLeft, zreDragTopRight, zreDragBottomLeft]
+    end
+    object ChartToolset1UserDefinedTool1: TUserDefinedTool
+      Shift = [ssRight]
+      OnAfterMouseUp = ChartToolset1UserDefinedTool1AfterMouseUp
+    end
+    object ChartToolset1ZoomMouseWheelTool1: TZoomMouseWheelTool
+      ZoomFactor = 1.1
+    end
+    object ChartToolset1PanDragTool1: TPanDragTool
+      Shift = [ssLeft]
+    end
+  end
+  object PrintDialog1: TPrintDialog
+    left = 296
+    top = 152
+  end
+  object AvgQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = AggrQueryBeforeOpen
+    Params = <>
+    left = 400
+    top = 200
+  end
+  object MaxQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = AggrQueryBeforeOpen
+    Params = <>
+    left = 400
+    top = 256
+  end
+  object MinQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = AggrQueryBeforeOpen
+    Params = <>
+    left = 304
+    top = 256
+  end
+  object ListChartSourceSARRight: TListChartSource
+    DataPoints.Strings = (
+      '10|1|$000000|S1'
+      '10|4|?|S2'
+      '10|8|?|S3'
+      '10|21|?|S4'
+    )
+    left = 176
+    top = 256
+  end
+  object ListChartSourceSARTop: TListChartSource
+    DataPoints.Strings = (
+      '15|5|?|C1'
+      '45|5|?|C2'
+      '125|5|?|C3'
+      '350|5|?|C4'
+    )
+    left = 176
+    top = 144
+  end
+end

@@ -1,0 +1,1021 @@
+inherited BHConstrForm: TBHConstrForm
+  Left = 668
+  Top = 153
+  Caption = 'Borehole Construction Form'
+  Icon.Data = {
+    FE0200000000010001002020100000000000E802000016000000280000002000
+    0000400000000100040000000000800200000000000000000000000000000000
+    0000000000000000BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0
+    C000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+    FF00000000000000000000000000000000000333333333333333333333333333
+    3330033333333333300000033333333333300333333333333000000333333333
+    3330033333333333300000033333333333300333333333333000000333333333
+    3330033333333333300000033333333333300333333333333000000333333333
+    3330033333333333300000033333333333300333333333333000000333333333
+    3330033333333333300000033333333333300333333333333000000333333333
+    3330033333333333300000033333333333300333333333333000000333333333
+    3330033333333333300000033333333333300333333333333000000333333333
+    3330033333333333300000033333333333300333333333333000000333333333
+    3330033333333333300000033333333333300333333333333000000333333333
+    3330033333333333300000033333333333300333333333333000000333333333
+    3330033333333333300000033333333333300000000000008000000800000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    000000000000000000000007E0000007E0000007E0000007E0000007E0000007
+    E0000007E0000003C0000003C0000003C0000003C0000003C0000003C0000003
+    C0000003C0000003C0000003C0000003C0000003C0000003C0000003C0007FF3
+    CFFE7FFFFFFE7FFFFFFE7FFFFFFE7FFFFFFE7FFFFFFE7FFFFFFE7FFFFFFE0000
+    0000
+  }
+  OnCreate = FormCreate
+  inherited Panel1: TPanel
+    inherited DBFilterNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited EditNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    object GraphSpeedButton: TSpeedButton[4]
+      Left = 352
+      Height = 25
+      Hint = 'Quick Borehole log'
+      Top = 8
+      Width = 25
+      Enabled = False
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00256929C4216425C9FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002D7533CF488F4DFF458C4AFF2265
+        26D1FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF003C8A430638833ED9519957FF79C07EFF76BF7CFF468D
+        4BFF236627DB20622306FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF0042924AB83D8C45F765AD6CFF7DC282FF7AC180FF4B92
+        50FF276D2CF7246828BBFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF0043944B384E9A55FF81C587FF7EC385FF317A
+        36FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0045954CFF85C78CFF82C689FF3682
+        3DFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF004A9E53FF8ACA91FF87C98EFF3C8A
+        43FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0050A659FF8ECC95FF8BCB93FF4292
+        4AFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0056AD5FFF93CF9AFF90CE98FF489A
+        50FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF005BB465FF96D29FFF94D09CFF4EA2
+        57FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF005FBB6AFF9AD4A3FF98D3A1FF53AA
+        5DFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0063C06FFF9ED6A7FF9CD4A5FF59B2
+        63FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0066C572FFA2D8ABFFA0D7A9FF5DB8
+        68FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0068C774FF67C673FF65C270FF62BE
+        6DFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      OnClick = GraphSpeedButtonClick
+      ShowHint = True
+      ParentShowHint = False
+    end
+  end
+  inherited Panel2: TPanel
+    inherited Panel3: TPanel
+      inherited LinkedLabel: TLabel
+        Width = 480
+        Caption = 'Borehole Construction'
+      end
+      inherited PageControl: TPageControl
+        inherited TabSheet1: TTabSheet
+          Hint = 'Diameter Information'
+          Caption = 'Hole Diameter'
+          ClientHeight = 170
+          inherited DBGrid1: TDBGrid
+            Hint = 'Diameter Information'
+            AutoFillColumns = True
+            OnKeyDown = DBGridKeyDown
+            OnMouseDown = DBGridMouseDown
+          end
+        end
+        inherited TabSheet2: TTabSheet
+          Hint = 'Casing Information'
+          Caption = 'Casing'
+          ClientHeight = 170
+          inherited DBGrid2: TDBGrid
+            Hint = 'Casing Information'
+            OnKeyDown = DBGridKeyDown
+            OnMouseDown = DBGridMouseDown
+          end
+        end
+        inherited TabSheet3: TTabSheet
+          Hint = 'Piezometer Information'
+          Caption = 'Piezometer'
+          ClientHeight = 170
+          inherited DBGrid3: TDBGrid
+            Hint = 'Piezometer Information'
+            OnKeyDown = DBGridKeyDown
+            OnMouseDown = DBGridMouseDown
+          end
+        end
+        inherited TabSheet4: TTabSheet
+          Hint = 'Fill Material'
+          Caption = 'Fill Material'
+          ClientHeight = 170
+          inherited DBGrid4: TDBGrid
+            Hint = 'Fill Material'
+            AutoFillColumns = True
+            Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
+            OnKeyDown = DBGridKeyDown
+            OnMouseDown = DBGridMouseDown
+          end
+        end
+      end
+      inherited Panel4: TPanel
+        inherited DetailNavigator: TDBNavigator
+          Hints.Strings = (          )
+        end
+      end
+      object AMSLCheckBox: TCheckBox[3]
+        Left = 495
+        Height = 24
+        Top = 2
+        Width = 66
+        Anchors = [akTop, akRight]
+        Caption = 'a.m.s.l.'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        OnClick = AMSLCheckBoxClick
+        ParentFont = False
+        TabOrder = 2
+        TabStop = False
+      end
+    end
+    inherited GroupBox1: TGroupBox
+      ClientHeight = 88
+      inherited EditSITE_NAME: TDBEdit
+        Width = 298
+      end
+      inherited EditDATE_UPDTD: TDBEdit
+        Width = 90
+      end
+    end
+  end
+  inherited BasicinfDataSource: TDataSource
+    OnDataChange = BasicinfDataSourceDataChange
+    left = 408
+    top = 48
+  end
+  inherited DataSource1: TDataSource
+    DataSet = ZQuery1
+  end
+  inherited DataSource2: TDataSource
+    DataSet = ZQuery2
+  end
+  inherited DataSource3: TDataSource
+    DataSet = ZQuery3
+  end
+  inherited DataSource4: TDataSource
+    DataSet = ZQuery4
+  end
+  inherited ZQuery1: TZQuery
+    SortedFields = 'DEPTH_TOP'
+    BeforeInsert = ZQuery1BeforeInsert
+    BeforePost = ZQueryBeforePost
+    AfterPost = ZQuery1AfterPost
+    AfterCancel = ZQueryAfterCancel
+    AfterDelete = ZQueryAfterDelete
+    OnNewRecord = ZQuery1NewRecord
+    SQL.Strings = (
+      'SELECT * FROM holediam WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    IndexFieldNames = 'DEPTH_TOP Asc'
+    left = 24
+    top = 242
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object ZQuery1SITE_ID_NR: TStringField[0]
+      DisplayWidth = 44
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Visible = False
+      Size = 44
+    end
+    object ZQuery1REP_INST: TStringField[1]
+      Tag = 1
+      Alignment = taCenter
+      DisplayLabel = 'Rep. Inst.'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 1
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = FieldUpperSetText
+      OnValidate = REP_INSTValidate
+      Size = 16
+    end
+    object ZQuery1DATE_CONST: TStringField[2]
+      Alignment = taCenter
+      DisplayLabel = 'Date constructed'
+      DisplayWidth = 32
+      FieldKind = fkData
+      FieldName = 'DATE_CONST'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = DATEValidate
+      Size = 32
+    end
+    object ZQuery1DEPTH_TOP: TFloatField[3]
+      DisplayLabel = 'Depth to top'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH_TOP'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DEPTHGetText
+      OnSetText = DEPTHSetText
+      OnValidate = DEPTH_TOPValidate
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery1DEPTH_BOT: TFloatField[4]
+      DisplayLabel = 'Depth to bot.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH_BOT'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DEPTHGetText
+      OnSetText = DEPTHSetText
+      OnValidate = DEPTH_BOTValidate
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery1DIAMETER: TFloatField[5]
+      DisplayLabel = 'Diameter'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DIAMETER'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DIAMGetText
+      OnSetText = DIAMSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery1COMMENT: TStringField[6]
+      DisplayLabel = 'Comment'
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = FieldUpperSetText
+      Size = 48
+    end
+  end
+  inherited ZQuery2: TZQuery
+    SortedFields = 'DIAMETER Desc,DEPTH_TOP Asc,DEPTH_BOT Asc'
+    SortType = stIgnored
+    BeforeInsert = ZQuery2BeforeInsert
+    BeforePost = ZQueryBeforePost
+    AfterPost = ZQuery2AfterPost
+    AfterCancel = ZQueryAfterCancel
+    AfterDelete = ZQueryAfterDelete
+    OnNewRecord = ZQuery2NewRecord
+    SQL.Strings = (
+      'SELECT * FROM casing__ WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    IndexFieldNames = 'DIAMETER Desc,DEPTH_TOP Asc,DEPTH_BOT Asc'
+    top = 248
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object ZQuery2SITE_ID_NR: TStringField[0]
+      DisplayWidth = 44
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Visible = False
+      Size = 44
+    end
+    object ZQuery2REP_INST: TStringField[1]
+      Tag = 1
+      Alignment = taCenter
+      DisplayLabel = 'Rep. Inst.'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 1
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = FieldUpperSetText
+      OnValidate = REP_INSTValidate
+      Size = 16
+    end
+    object ZQuery2DATE_INST: TStringField[2]
+      Alignment = taCenter
+      DisplayLabel = 'Date inst.'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'DATE_INST'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = DATEValidate
+      Size = 32
+    end
+    object ZQuery2DEPTH_TOP: TFloatField[3]
+      DisplayLabel = 'Depth to top'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH_TOP'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DEPTHGetText
+      OnSetText = DEPTHSetText
+      OnValidate = DEPTH_TOPValidate
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery2DEPTH_BOT: TFloatField[4]
+      DisplayLabel = 'Depth to bot.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH_BOT'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DEPTHGetText
+      OnSetText = DEPTHSetText
+      OnValidate = DEPTH_BOTValidate
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery2DIAMETER: TFloatField[5]
+      DisplayLabel = 'Diameter'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DIAMETER'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DIAMGetText
+      OnSetText = DIAMSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery2MATERIAL: TStringField[6]
+      Tag = 2
+      Alignment = taCenter
+      DisplayLabel = 'Material'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'MATERIAL'
+      Index = 6
+      LookupCache = False
+      LookupKeyFields = 'MATERIAL'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = FieldUpperSetText
+      OnValidate = MATERIALValidate
+      Size = 4
+    end
+    object ZQuery2THICKNESS: TFloatField[7]
+      DisplayLabel = 'Thickness'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'THICKNESS'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DIAMGetText
+      OnSetText = DIAMSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery2COMMENT: TStringField[8]
+      DisplayLabel = 'Comment'
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = FieldUpperSetText
+      Size = 48
+    end
+    object ZQuery2OPEN_TYPE: TStringField[9]
+      Tag = 3
+      Alignment = taCenter
+      DisplayLabel = 'Type of open.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'OPEN_TYPE'
+      Index = 9
+      LookupCache = False
+      LookupKeyFields = 'OPENTYPE'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = FieldUpperSetText
+      OnValidate = OPEN_TYPEValidate
+      Size = 4
+    end
+    object ZQuery2OPEN_MADE: TStringField[10]
+      Tag = 4
+      Alignment = taCenter
+      DisplayLabel = 'Open. made'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'OPEN_MADE'
+      Index = 10
+      LookupCache = False
+      LookupKeyFields = 'OPENMADE'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = FieldUpperSetText
+      OnValidate = OPEN_MADEValidate
+      Size = 4
+    end
+    object ZQuery2OPEN_LEN: TFloatField[11]
+      DisplayLabel = 'Length of open.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'OPEN_LEN'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DIAMGetText
+      OnSetText = DIAMSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery2OPEN_WIDTH: TFloatField[12]
+      DisplayLabel = 'Width of open.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'OPEN_WIDTH'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DIAMGetText
+      OnSetText = DIAMSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery2OP_HOR_DIS: TFloatField[13]
+      DisplayLabel = 'Hor. dist.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'OP_HOR_DIS'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DIAMGetText
+      OnSetText = DIAMSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery2OP_VER_DIS: TFloatField[14]
+      DisplayLabel = 'Vert. dist.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'OP_VER_DIS'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DIAMGetText
+      OnSetText = DIAMSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery2OP_COMMENT: TStringField[15]
+      DisplayLabel = 'Open. comments'
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'OP_COMMENT'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = FieldUpperSetText
+      Size = 48
+    end
+  end
+  inherited ZQuery3: TZQuery
+    SortedFields = 'PIEZO_NR,DEPTH_TOP,DEPTH_BOT'
+    BeforeInsert = ZQuery3BeforeInsert
+    BeforePost = ZQueryBeforePost
+    AfterPost = ZQueryAfterPost
+    AfterCancel = ZQueryAfterCancel
+    OnNewRecord = ZQuery3NewRecord
+    SQL.Strings = (
+      'SELECT * FROM piezomet WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    IndexFieldNames = 'PIEZO_NR Asc,DEPTH_TOP Asc,DEPTH_BOT Asc'
+    left = 256
+    top = 248
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object ZQuery3SITE_ID_NR: TStringField[0]
+      DisplayWidth = 44
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Visible = False
+      Size = 44
+    end
+    object ZQuery3PIEZO_NR: TLargeintField[1]
+      Alignment = taCenter
+      DisplayLabel = 'Piezom. Nr.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PIEZO_NR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = ZQuery3PIEZO_NRValidate
+    end
+    object ZQuery3DATE_CONST: TStringField[2]
+      Alignment = taCenter
+      DisplayLabel = 'Date constr.'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'DATE_CONST'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = DATEValidate
+      Size = 32
+    end
+    object ZQuery3DEPTH_TOP: TFloatField[3]
+      DisplayLabel = 'Depth to top'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH_TOP'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DEPTHGetText
+      OnSetText = DEPTHSetText
+      OnValidate = DEPTH_TOPValidate
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery3DEPTH_BOT: TFloatField[4]
+      DisplayLabel = 'Depth to bot.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH_BOT'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DEPTHGetText
+      OnSetText = DEPTHSetText
+      OnValidate = DEPTH_BOTValidate
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery3DIAMETER: TFloatField[5]
+      DisplayLabel = 'Diameter'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DIAMETER'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DIAMGetText
+      OnSetText = DIAMSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery3MATERIAL: TStringField[6]
+      Tag = 2
+      DisplayLabel = 'Material'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'MATERIAL'
+      Index = 6
+      LookupCache = False
+      LookupKeyFields = 'MATERIAL'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = FieldUpperSetText
+      OnValidate = MATERIALValidate
+      Size = 4
+    end
+    object ZQuery3THICKNESS: TFloatField[7]
+      DisplayLabel = 'Thickness'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'THICKNESS'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DIAMGetText
+      OnSetText = DIAMSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery3COMMENT: TStringField[8]
+      DisplayLabel = 'Comment'
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = FieldUpperSetText
+      Size = 48
+    end
+    object ZQuery3OPEN_TYPE: TStringField[9]
+      Tag = 3
+      DisplayLabel = 'Type of open.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'OPEN_TYPE'
+      Index = 9
+      LookupCache = False
+      LookupKeyFields = 'OPENTYPE'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = FieldUpperSetText
+      OnValidate = OPEN_TYPEValidate
+      Size = 4
+    end
+    object ZQuery3OPEN_MADE: TStringField[10]
+      Tag = 4
+      DisplayLabel = 'Open. made'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'OPEN_MADE'
+      Index = 10
+      LookupCache = False
+      LookupKeyFields = 'OPENMADE'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = FieldUpperSetText
+      OnValidate = OPEN_MADEValidate
+      Size = 4
+    end
+    object ZQuery3OPEN_LEN: TFloatField[11]
+      DisplayLabel = 'Length of open.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'OPEN_LEN'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery3OPEN_WIDTH: TFloatField[12]
+      DisplayLabel = 'Width of open.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'OPEN_WIDTH'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery3OP_HOR_DIS: TFloatField[13]
+      DisplayLabel = 'Hor. dist.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'OP_HOR_DIS'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery3OP_VER_DIS: TFloatField[14]
+      DisplayLabel = 'Vert. dist.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'OP_VER_DIS'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery3OP_COMMENT: TStringField[15]
+      DisplayLabel = 'Open. comments'
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'OP_COMMENT'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = FieldUpperSetText
+      Size = 48
+    end
+  end
+  inherited ZQuery4: TZQuery
+    SortedFields = 'DEPTH_TOP,DEPTH_BOT,OUTDIAM,INDIAM'
+    BeforeInsert = ZQuery4BeforeInsert
+    BeforePost = ZQueryBeforePost
+    AfterPost = ZQuery4AfterPost
+    AfterCancel = ZQueryAfterCancel
+    OnNewRecord = ZQuery4NewRecord
+    SQL.Strings = (
+      'SELECT * FROM holefill WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    IndexFieldNames = 'DEPTH_TOP Asc,DEPTH_BOT Asc,OUTDIAM Asc,INDIAM Asc'
+    top = 248
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object ZQuery4SITE_ID_NR: TStringField[0]
+      DisplayWidth = 44
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Visible = False
+      Size = 44
+    end
+    object ZQuery4DATE_CONST: TStringField[1]
+      Alignment = taCenter
+      DisplayLabel = 'Date constr.'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'DATE_CONST'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = DATEValidate
+      Size = 32
+    end
+    object ZQuery4DEPTH_TOP: TFloatField[2]
+      DisplayLabel = 'Depth to top'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH_TOP'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DEPTHGetText
+      OnSetText = DEPTHSetText
+      OnValidate = DEPTH_TOPValidate
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery4DEPTH_BOT: TFloatField[3]
+      DisplayLabel = 'Depth to bot.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH_BOT'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DEPTHGetText
+      OnSetText = DEPTHSetText
+      OnValidate = DEPTH_BOTValidate
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery4FILL_TYPE: TStringField[4]
+      Tag = 5
+      Alignment = taCenter
+      DisplayLabel = 'Type of fill'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'FILL_TYPE'
+      Index = 4
+      LookupCache = False
+      LookupKeyFields = 'FILLTYPE'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = FieldUpperSetText
+      OnValidate = ZQuery4FILL_TYPEValidate
+      Size = 4
+    end
+    object ZQuery4OUTDIAM: TFloatField[5]
+      DisplayLabel = 'Outer diam.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'OUTDIAM'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DIAMGetText
+      OnSetText = DIAMSetText
+      OnValidate = ZQuery4OUTDIAMValidate
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery4INDIAM: TFloatField[6]
+      DisplayLabel = 'Inner diam.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'INDIAM'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DIAMGetText
+      OnSetText = DIAMSetText
+      OnValidate = ZQuery4INDIAMValidate
+      MaxValue = 0
+      MinValue = 0
+      Precision = 30
+    end
+    object ZQuery4COMMENT: TStringField[7]
+      DisplayLabel = 'Comment'
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = FieldUpperSetText
+      Size = 48
+    end
+  end
+  inherited TypeDataSource: TDataSource
+    left = 416
+    top = 135
+  end
+end

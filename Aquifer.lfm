@@ -1,0 +1,291 @@
+inherited AquiferForm: TAquiferForm
+  Left = 542
+  Top = 263
+  Caption = 'Aquifer Form'
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  inherited Panel1: TPanel
+    inherited ViewNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited ChartSpeedButton: TSpeedButton
+      Hint = 'Aquifer yield'
+      OnClick = ChartSpeedButtonClick
+    end
+    inherited BasicDBNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    object GraphSpeedButton: TSpeedButton[5]
+      Left = 328
+      Height = 25
+      Hint = 'Lithological log & optional yield'
+      Top = 6
+      Width = 25
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000040000001D00000033000000330000
+        001D000000040000000000000000000000000000000000000000009451003C36
+        3400383B36000000000B0000002410100F4131332FA8383B36FF373B35FF3133
+        2FA810100F41000000240000000B383B36003C36340000945100009451000000
+        00120000002F21221F5F343732C5383B36FF393C37FF393C37FF454743FF383B
+        36FF383B36FF343732C521221F5F0000002F00000012009451000000001A2C28
+        267D373A35F1393C37FF3A3D38FF3D3D39FF403F38FF413E38FF5D5953FF3F3D
+        38FF3D3F39FF3B3D39FF393C37FF373A35F12B28267D0000001A007C439B3E38
+        36FF3C3E3AFF3F3F3AFF423F39FF3D4544FF1B596EFF006790FF3689A9FF1A57
+        6DFF3D4645FF434039FF3F3F3BFF3C3F3AFF3F3838FF007C439B009450FF443B
+        3AFF45413AFF344C52FF145F7AFF006A94FF00668EFF006085FF4B90A9FF0063
+        8BFF006A94FF135F7AFF354C52FF45413BFF453D3AFF009450FF00934EFF2F4E
+        5DFF04668AFF006890FF00648AFF005F83FF005B7DFF005474FF6095A7FF0057
+        78FF005E81FF006388FF00678FFF056689FF2F4E5DFF00934EFF00924CFF0062
+        8FFF006185FF005D7FFF005878FF005D7CFF00799CFF008DB4FF75C3D8FF0075
+        99FF005C7BFF005777FF005C7EFF006084FF00618EFF00924CFF00924CFF0058
+        7DFF005574FF006382FF007FA2FF008FB5FF0086ACFF007A9FFF86C1D2FF0082
+        A7FF008EB4FF007EA1FF006281FF005473FF00577CFF00924CFF00914BFF0066
+        8CFF0089ACFF0089AEFF007FA3FF07899FFF32C1B0FF65F3C7FFC9FDEBFF2ABF
+        ACFF06879DFF007EA1FF0088ACFF0088ABFF00658BFF00914BFF00904AFF0081
+        AAFF00799BFF10959FFF2FCAADFF75F6CEFFA2F7E1FF70EDCBFF6EEDCBFFA0F5
+        DFFF71F3CBFF29C7AAFF0F939DFF007799FF0080A8FF00904AFF008D49FF129E
+        A2FF42DDB6FF74EFCEFFA4F5E2FF54E9BFFF0DDD9FFF00DA95FF00DA95FF0DDD
+        9FFF55E9BFFFA3F4E1FF71EDCCFF3CDBB3FF109C9EFF008D49FF12965AFF7EF2
+        D7FF92F4DBFF3CE5B5FF00DA95FF00DA97FF00DB98FF00DB99FF00DB99FF00DB
+        98FF00DA97FF00D994FF39E4B3FF8EF4D9FF79F1D5FF119659FF008B4A3A32BE
+        8AA300B875FF00D692FF00DF9DFF00DE9CFF00DC9AFF00DB99FF00DB99FF00DC
+        9AFF00DD9AFF07E09FFF3CE2AEFF61D2A9FF4AB78AED13975E71008C4B0036C2
+        8F00008A4901008B4B6E009756DA00AF6EFF00C584FF00E09EFF00E09EFF0BCA
+        8BFF2FC18CFF3BAC7BEB2B9E68920088452550BC900014985E00008C4B0036C3
+        9000008C4B00008E4E00009C5B00008C4C24008C4CA4008B4BFF0A8F52FF1A96
+        5DA31093584B3AB17E002CA16C00008B4A0051BC910014985E00
+      }
+      OnClick = GraphSpeedButtonClick
+      ShowHint = True
+      ParentShowHint = False
+    end
+  end
+  inherited Panel2: TPanel
+    inherited Panel4: TPanel
+      inherited DetailNavigator: TDBNavigator
+        Hints.Strings = (        )
+      end
+    end
+    inherited DBGrid: TDBGrid
+      TabOrder = 2
+    end
+    object AMSLCheckBox: TCheckBox[3]
+      Left = 503
+      Height = 24
+      Top = 2
+      Width = 66
+      Anchors = [akTop, akRight]
+      Caption = 'a.m.s.l.'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      OnClick = AMSLCheckBoxClick
+      ParentFont = False
+      TabOrder = 1
+      TabStop = False
+    end
+  end
+  inherited GroupBox1: TGroupBox
+    ClientHeight = 88
+  end
+  inherited BasicinfDataSource: TDataSource
+    OnDataChange = BasicinfDataSourceDataChange
+    left = 360
+    top = 32
+  end
+  inherited LinkedQuery: TZQuery
+    BeforeOpen = LinkedQueryBeforeOpen
+    BeforeInsert = LinkedQueryBeforeInsert
+    OnNewRecord = LinkedQueryNewRecord
+    SQL.Strings = (
+      'SELECT * FROM aquifer_ WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    left = 32
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object LinkedQueryDATE_ENTRY: TStringField[1]
+      Alignment = taCenter
+      DisplayLabel = 'Date entered'
+      DisplayWidth = 32
+      FieldKind = fkData
+      FieldName = 'DATE_ENTRY'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 32
+    end
+    object LinkedQueryREP_INST: TStringField[2]
+      Tag = 1
+      Alignment = taCenter
+      DisplayLabel = 'Rep. inst.'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 16
+    end
+    object LinkedQueryINFO_SOURC: TStringField[3]
+      Tag = 4
+      Alignment = taCenter
+      DisplayLabel = 'Info. src.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 3
+      LookupCache = False
+      LookupKeyFields = 'IS_BASIC'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryMETH_MEAS: TStringField[4]
+      Tag = 3
+      Alignment = taCenter
+      DisplayLabel = 'Meth. meas.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'METH_MEAS'
+      Index = 4
+      LookupCache = False
+      LookupKeyFields = 'DISCMEAS'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryDEPTH_TOP: TFloatField[5]
+      DisplayLabel = 'Depth to top'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH_TOP'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryDEPTHGetText
+      OnSetText = LinkedQueryDEPTHSetText
+      OnValidate = LinkedQueryDEPTH_TOPValidate
+      MaxValue = 0
+      MinValue = 0
+      Precision = 22
+    end
+    object LinkedQueryDEPTH_BOT: TFloatField[6]
+      DisplayLabel = 'Depth to bot.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH_BOT'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryDEPTHGetText
+      OnSetText = LinkedQueryDEPTHSetText
+      OnValidate = LinkedQueryDEPTH_BOTValidate
+      MaxValue = 0
+      MinValue = 0
+      Precision = 22
+    end
+    object LinkedQueryYIELD: TFloatField[7]
+      DisplayLabel = 'Yield'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'YIELD'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryYIELDGetText
+      OnSetText = LinkedQueryYIELDSetText
+      OnValidate = LinkedQueryYIELDValidate
+      MaxValue = 0
+      MinValue = 0
+      Precision = 22
+    end
+    object LinkedQueryAQUI_TYPE: TStringField[8]
+      Tag = 6
+      Alignment = taCenter
+      DisplayLabel = 'Aquifer type'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'AQUI_TYPE'
+      Index = 8
+      LookupCache = False
+      LookupKeyFields = 'AQUITYPE'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryAQUI_CODE: TStringField[9]
+      Tag = 7
+      Alignment = taCenter
+      DisplayLabel = 'Aquifer code'
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'AQUI_CODE'
+      Index = 9
+      LookupCache = False
+      LookupKeyFields = 'AQUICODE'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 24
+    end
+    object LinkedQueryCOMMENT: TStringField[10]
+      DisplayLabel = 'Comment'
+      DisplayWidth = 180
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 180
+    end
+  end
+  object ValidateYieldQuery: TZReadOnlyQuery[12]
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    left = 336
+    top = 264
+  end
+end

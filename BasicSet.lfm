@@ -1,0 +1,171 @@
+inherited BasicReportSetForm: TBasicReportSetForm
+  Left = 866
+  Height = 341
+  Top = 149
+  Width = 490
+  Caption = 'Site Information Report Settings'
+  ClientHeight = 341
+  ClientWidth = 490
+  inherited RadioGroup1: TRadioGroup
+    Width = 156
+    ClientWidth = 154
+  end
+  inherited ViewComboBox: TComboBox
+    Width = 156
+  end
+  inherited GroupBox1: TGroupBox
+    Left = 172
+    Width = 160
+    ClientWidth = 158
+    inherited CheckBox1: TCheckBox
+      Left = 4
+    end
+    inherited CheckBox2: TCheckBox
+      Left = 4
+    end
+    inherited CheckBox3: TCheckBox
+      Left = 4
+    end
+    inherited cbPageBreak: TCheckBox
+      Left = 4
+    end
+  end
+  inherited TitleEdit: TEdit
+    Width = 324
+  end
+  inherited CommentMemo: TMemo
+    Height = 94
+    Width = 296
+  end
+  inherited ConstrGroupBox: TGroupBox
+    Left = 314
+    Height = 78
+    Top = 208
+    Width = 168
+    ClientHeight = 65
+    ClientWidth = 166
+    inherited RecordsButton: TButton
+      Left = 16
+      Top = 34
+    end
+    inherited ConstrCheckBox: TCheckBox
+      Left = 6
+      Top = 4
+    end
+  end
+  inherited ButtonPanel1: TButtonPanel
+    Top = 297
+    Width = 478
+    OKButton.OnClick = OKButtonClick
+  end
+  object GroupBox2: TGroupBox[11]
+    Left = 340
+    Height = 196
+    Top = 8
+    Width = 142
+    Caption = 'Show Information for: '
+    ClientHeight = 182
+    ClientWidth = 140
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    ParentFont = False
+    TabOrder = 9
+    object ConstructionCheckBox: TCheckBox
+      Left = 4
+      Height = 23
+      Top = 4
+      Width = 108
+      Caption = 'Site Construction'
+      Checked = True
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      State = cbChecked
+      TabOrder = 0
+    end
+    object AquiferCheckBox: TCheckBox
+      Left = 4
+      Height = 23
+      Top = 29
+      Width = 117
+      Caption = 'Aquifer Information'
+      Checked = True
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      State = cbChecked
+      TabOrder = 1
+    end
+    object DischargeCheckBox: TCheckBox
+      Left = 4
+      Height = 23
+      Top = 54
+      Width = 101
+      Caption = 'Discharge Rate'
+      Checked = True
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      State = cbChecked
+      TabOrder = 2
+    end
+    object WaterLevelCheckBox: TCheckBox
+      Left = 4
+      Height = 23
+      Top = 79
+      Width = 83
+      Caption = 'Water Level'
+      Checked = True
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      State = cbChecked
+      TabOrder = 3
+    end
+    object TestingCheckBox: TCheckBox
+      Left = 4
+      Height = 23
+      Top = 104
+      Width = 98
+      Caption = 'Aquifer Testing'
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      TabOrder = 4
+    end
+    object InstallationCheckBox: TCheckBox
+      Left = 4
+      Height = 23
+      Top = 129
+      Width = 81
+      Caption = 'Installations'
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      TabOrder = 5
+    end
+    object ManagementCheckBox: TCheckBox
+      Left = 4
+      Height = 23
+      Top = 154
+      Width = 110
+      Caption = 'Site Management'
+      Enabled = False
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      TabOrder = 6
+    end
+  end
+  inherited PopupMenu1: TPopupMenu[12]
+    left = 160
+  end
+end

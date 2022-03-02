@@ -1,0 +1,11 @@
+{"version":1,"strings":[
+{"hash":172215027,"name":"tbasicreportsetform.caption","sourcebytes":[83,105,116,101,32,73,110,102,111,114,109,97,116,105,111,110,32,82,101,112,111,114,116,32,83,101,116,116,105,110,103,115],"value":"Site Information Report Settings"},
+{"hash":35658144,"name":"tbasicreportsetform.groupbox2.caption","sourcebytes":[83,104,111,119,32,73,110,102,111,114,109,97,116,105,111,110,32,102,111,114,58,32],"value":"Show Information for: "},
+{"hash":224067742,"name":"tbasicreportsetform.constructioncheckbox.caption","sourcebytes":[83,105,116,101,32,67,111,110,115,116,114,117,99,116,105,111,110],"value":"Site Construction"},
+{"hash":100474814,"name":"tbasicreportsetform.aquifercheckbox.caption","sourcebytes":[65,113,117,105,102,101,114,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Aquifer Information"},
+{"hash":233596053,"name":"tbasicreportsetform.dischargecheckbox.caption","sourcebytes":[68,105,115,99,104,97,114,103,101,32,82,97,116,101],"value":"Discharge Rate"},
+{"hash":70207100,"name":"tbasicreportsetform.waterlevelcheckbox.caption","sourcebytes":[87,97,116,101,114,32,76,101,118,101,108],"value":"Water Level"},
+{"hash":20325527,"name":"tbasicreportsetform.testingcheckbox.caption","sourcebytes":[65,113,117,105,102,101,114,32,84,101,115,116,105,110,103],"value":"Aquifer Testing"},
+{"hash":47214291,"name":"tbasicreportsetform.installationcheckbox.caption","sourcebytes":[73,110,115,116,97,108,108,97,116,105,111,110,115],"value":"Installations"},
+{"hash":229594644,"name":"tbasicreportsetform.managementcheckbox.caption","sourcebytes":[83,105,116,101,32,77,97,110,97,103,101,109,101,110,116],"value":"Site Management"}
+]}

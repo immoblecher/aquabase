@@ -1,0 +1,2810 @@
+object BasicinfForm: TBasicinfForm
+  Tag = 127
+  Left = 645
+  Height = 452
+  Top = 157
+  Width = 541
+  ActiveControl = CloseBitBtn
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Basic Site Information'
+  ClientHeight = 452
+  ClientWidth = 541
+  Color = clBtnFace
+  Font.Color = clBlack
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = [fsBold]
+  KeyPreview = True
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  PopupMenu = PopupMenu1
+  Position = poDefaultSizeOnly
+  SessionProperties = 'Left;Top'
+  LCLVersion = '2.0.12.0'
+  Visible = True
+  object GroupBox1: TGroupBox
+    Left = 4
+    Height = 178
+    Top = 38
+    Width = 423
+    Align = alTop
+    BorderSpacing.Left = 4
+    BorderSpacing.Top = 2
+    BorderSpacing.Right = 114
+    Caption = 'Site Identification:'
+    ClientHeight = 164
+    ClientWidth = 421
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+    object Label1: TLabel
+      Left = 6
+      Height = 13
+      Hint = 'Unique database site identifier'
+      Top = 0
+      Width = 76
+      AutoSize = False
+      Caption = '&Site Identifier'
+      FocusControl = EditSITE_ID_NR
+      Font.Color = clBlack
+      Font.Height = -12
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label2: TLabel
+      Left = 96
+      Height = 13
+      Hint = 'Site number'
+      Top = 0
+      Width = 45
+      AutoSize = False
+      Caption = '&Number'
+      FocusControl = EditNR_ON_MAP
+      Font.Color = clBlack
+      Font.Height = -12
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label3: TLabel
+      Left = 192
+      Height = 13
+      Hint = 'Regional or boring branch number'
+      Top = 0
+      Width = 58
+      AutoSize = False
+      Caption = 'Re&g./BB Nr.'
+      FocusControl = EditREGION_BB
+      Font.Color = clBlack
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label4: TLabel
+      Left = 266
+      Height = 13
+      Hint = 'Government number or alternative number 1'
+      Top = 0
+      Width = 49
+      AutoSize = False
+      Caption = '&G-Number'
+      FocusControl = EditALT_NO_
+      Font.Color = clBlack
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label5: TLabel
+      Left = 332
+      Height = 13
+      Hint = 'Alternative number 2'
+      Top = 0
+      Width = 74
+      AutoSize = False
+      Caption = 'Alternati&ve No.'
+      FocusControl = EditALT_NO_2
+      Font.Color = clBlack
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label6: TLabel
+      Left = 6
+      Height = 13
+      Hint = 'District and farm number'
+      Top = 40
+      Width = 82
+      AutoSize = False
+      Caption = 'District/&Farm Nr.'
+      FocusControl = EditFARM_NR
+      Font.Color = clBlack
+      Font.Height = -11
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label7: TLabel
+      Left = 100
+      Height = 13
+      Hint = 'Site name and description'
+      Top = 40
+      Width = 125
+      AutoSize = False
+      Caption = 'Site Name/&Description'
+      FocusControl = EditSITE_NAME
+      Font.Color = clBlack
+      Font.Height = -12
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object X_CoordLabel: TLabel
+      Left = 6
+      Height = 13
+      Hint = 'Coordinate in X direction'
+      Top = 120
+      Width = 84
+      AutoSize = False
+      Caption = '&X Coordinate'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Default'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Y_CoordLabel: TLabel
+      Left = 98
+      Height = 13
+      Hint = 'Coordinate in Y direction'
+      Top = 120
+      Width = 84
+      AutoSize = False
+      Caption = '&Y Coordinate'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Default'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label12: TLabel
+      Left = 190
+      Height = 13
+      Hint = 'Coordinate accuracy'
+      Top = 120
+      Width = 62
+      AutoSize = False
+      Caption = '&Coor. Acc.'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Default'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object AltLabel: TLabel
+      Left = 298
+      Height = 13
+      Hint = 'Altitude (elevation) of site'
+      Top = 120
+      Width = 58
+      AutoSize = False
+      Caption = '&Altitude'
+      FocusControl = EditALTITUDE
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Default'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label15: TLabel
+      Left = 360
+      Height = 13
+      Hint = 'Method on how the altitude was surveyed'
+      Top = 120
+      Width = 62
+      AutoSize = False
+      Caption = 'Surv. &Meth.'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Default'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label11: TLabel
+      Left = 6
+      Height = 13
+      Hint = 'Region or authority type'
+      Top = 80
+      Width = 96
+      AutoSize = False
+      Caption = 'Regn./Auth. Type'
+      FocusControl = EditFARM_NR
+      Font.Color = clBlack
+      Font.Height = -12
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label14: TLabel
+      Left = 100
+      Height = 13
+      Hint = 'Description of the region or authority'
+      Top = 80
+      Width = 163
+      AutoSize = False
+      Caption = 'Region/Authority Description'
+      FocusControl = EditFARM_NR
+      Font.Color = clBlack
+      Font.Height = -12
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object EditSITE_ID_NR: TDBEdit
+      Left = 6
+      Height = 22
+      Top = 14
+      Width = 86
+      HelpContext = 31
+      DataField = 'SITE_ID_NR'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Enabled = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 0
+    end
+    object EditNR_ON_MAP: TDBEdit
+      Left = 96
+      Height = 22
+      Top = 14
+      Width = 92
+      HelpContext = 31
+      DataField = 'NR_ON_MAP'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 13
+      ParentFont = False
+      TabOrder = 1
+      OnClick = EditClick
+      OnEnter = EditEnter
+      OnExit = EditNR_ON_MAPExit
+      OnKeyDown = EditKeyDown
+      OnKeyUp = EditKeyUp
+    end
+    object EditREGION_BB: TDBEdit
+      Left = 192
+      Height = 22
+      Top = 14
+      Width = 70
+      HelpContext = 31
+      DataField = 'REGION_BB'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 8
+      ParentFont = False
+      TabOrder = 2
+      OnClick = EditClick
+      OnEnter = EditEnter
+      OnKeyDown = EditKeyDown
+      OnKeyUp = EditKeyUp
+    end
+    object EditALT_NO_: TDBEdit
+      Left = 266
+      Height = 22
+      Top = 14
+      Width = 62
+      HelpContext = 31
+      DataField = 'ALT_NO_1'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 7
+      ParentFont = False
+      TabOrder = 3
+      OnClick = EditClick
+      OnEnter = EditEnter
+      OnKeyDown = EditKeyDown
+      OnKeyUp = EditKeyUp
+    end
+    object EditALT_NO_2: TDBEdit
+      Left = 332
+      Height = 22
+      Top = 14
+      Width = 82
+      HelpContext = 31
+      DataField = 'ALT_NO_2'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 12
+      ParentFont = False
+      TabOrder = 4
+      OnClick = EditClick
+      OnEnter = EditEnter
+      OnKeyDown = EditKeyDown
+      OnKeyUp = EditKeyUp
+    end
+    object EditFARM_NR: TDBEdit
+      Left = 6
+      Height = 22
+      Top = 54
+      Width = 78
+      HelpContext = 31
+      DataField = 'FARM_NR'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 5
+      OnClick = EditClick
+      OnEnter = EditEnter
+      OnKeyDown = EditKeyDown
+      OnKeyUp = EditKeyUp
+    end
+    object EditSITE_NAME: TDBEdit
+      Left = 100
+      Height = 22
+      Top = 54
+      Width = 315
+      HelpContext = 31
+      DataField = 'SITE_NAME'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 6
+      OnClick = EditClick
+      OnEnter = EditEnter
+      OnKeyDown = EditKeyDown
+      OnKeyUp = EditKeyUp
+    end
+    object EditALTITUDE: TDBEdit
+      Left = 298
+      Height = 22
+      Top = 134
+      Width = 58
+      HelpContext = 31
+      DataField = 'ALTITUDE'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecNormal
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 13
+      OnClick = EditClick
+      OnEnter = EditEnter
+      OnKeyDown = EditKeyDown
+      OnKeyUp = EditKeyUp
+    end
+    object DBEditRegnDescr: TDBEdit
+      Left = 100
+      Height = 22
+      Top = 94
+      Width = 315
+      HelpContext = 31
+      DataField = 'REGN_DESCR'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 8
+      OnClick = EditClick
+      OnEnter = EditEnter
+      OnKeyDown = DBEditRegnDescrKeyDown
+      OnKeyUp = EditKeyUp
+    end
+    object Label18: TLabel
+      Left = 246
+      Height = 13
+      Hint = 'Method on how coordinate was obtained'
+      Top = 120
+      Width = 57
+      AutoSize = False
+      Caption = 'Met&h. obt.'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Default'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object RxDBLookupComboAcc: TRxDBLookupCombo
+      Left = 190
+      Height = 25
+      Top = 134
+      Width = 38
+      HelpKeyword = 'COORDACC'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'COORD_ACC'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 5
+      PopUpFormOptions.DropDownWidth = 220
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnEnter = EditEnter
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 11
+      TabStop = True
+      DropDownCount = 5
+      DropDownWidth = 220
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
+      LookupSource = AccuDataSource
+    end
+    object RxDBLookupComboRegn: TRxDBLookupCombo
+      Left = 6
+      Height = 26
+      Top = 94
+      Width = 66
+      HelpKeyword = 'REGNTYPE'
+      HelpContext = 31
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'REGN_TYPE'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 5
+      PopUpFormOptions.DropDownWidth = 220
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnChange = RxDBLookupComboRegnChange
+      OnKeyDown = RxDBLookupComboKeyDown
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 7
+      TabStop = True
+      DropDownCount = 5
+      DropDownWidth = 220
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
+      LookupSource = RegionDataSource
+    end
+    object RxDBLookupComboCoordMeth: TRxDBLookupCombo
+      Left = 246
+      Height = 26
+      Top = 134
+      Width = 36
+      HelpKeyword = 'COORMETH'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'COORD_METH'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 5
+      PopUpFormOptions.DropDownWidth = 220
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnEnter = EditEnter
+      OnKeyDown = RxDBLookupComboKeyDown
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 12
+      TabStop = True
+      DropDownCount = 5
+      DropDownWidth = 220
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
+      LookupSource = CMethDataSource
+    end
+    object RxDBLookupComboSurvMeth: TRxDBLookupCombo
+      Left = 360
+      Height = 26
+      Top = 134
+      Width = 36
+      HelpKeyword = 'SURVMETH'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'SURV_METH'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 5
+      PopUpFormOptions.DropDownWidth = 220
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnEnter = EditEnter
+      OnKeyDown = RxDBLookupComboKeyDown
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 14
+      TabStop = True
+      DropDownCount = 5
+      DropDownWidth = 220
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
+      LookupSource = MethDataSource
+    end
+    object DBEditX: TDBEdit
+      Left = 6
+      Height = 22
+      Top = 134
+      Width = 88
+      DataField = 'X_COORD'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 9
+      OnChange = EditXChange
+      OnClick = EditClick
+      OnEnter = EditEnter
+      OnKeyDown = EditKeyDown
+      OnKeyPress = EditKeyPress
+      OnKeyUp = EditKeyUp
+    end
+    object DBEditY: TDBEdit
+      Left = 98
+      Height = 22
+      Top = 134
+      Width = 88
+      DataField = 'Y_COORD'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 10
+      OnChange = EditYChange
+      OnClick = EditClick
+      OnEnter = EditEnter
+      OnKeyDown = EditKeyDown
+      OnKeyPress = EditKeyPress
+      OnKeyUp = EditKeyUp
+    end
+  end
+  object FilterLabel: TLabel
+    Left = 431
+    Height = 10
+    Top = 39
+    Width = 70
+    Caption = 'Sites in View:'
+    ParentColor = False
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 36
+    Top = 0
+    Width = 541
+    Align = alTop
+    ClientHeight = 36
+    ClientWidth = 541
+    TabOrder = 0
+    object ImageButton: TSpeedButton
+      Left = 320
+      Height = 25
+      Hint = 'Show site images'
+      Top = 5
+      Width = 25
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00AA74538AAB724FC3AA6D45F0AA6B43F0AA6B43F0AA6B43F0AA6B
+        43F0AA6B43F0AA704AF0AA745390FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00A86D48E1EEECEAFFF7F2F0FFF8F3F0FFF8F3EFFFF7F2EEFFF7F2
+        EEFFF8F2EEFFF1EEEAFFAB704AEFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00A6643AF0F6F0ECFFFDE8D7FFFEE8D7FFFEE8D7FFFEE8D7FFFEE8
+        D7FFFDE8D7FFF7ECE5FFAA6B43F0FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00A66439F0F7F0ECFF816242FFAC8258FFAC8258FFAC8258FFAC82
+        58FF816242FFF6ECE5FFAA6B43FEAA6B43F0AA704AF0AA745390FFFFFF00FFFF
+        FF00FFFFFF00A8663AF0F7F1ECFFAC8258FFE5AD75FFE5AD75FFE5AD75FFE5AD
+        75FFAC8258FFF6EDE5FFAF754FFFF8F2EEFFF1EEEAFFAB704AEFAA74538AAB72
+        4FC3AA6D45F0A8663CFEF7F2EDFFA67F56FFDEAA73FFDEAA73FFDCA772FFDCA7
+        72FFA47D55FFF6EDE6FFAF744EFFFDE8D7FFF7ECE5FFAA6B43F0A86D48E1EEEC
+        EAFFF7F2F0FFAD6E47FFF7F4F1FFBEAB88FFFEE5B5FFFDE4B5FFFDE4B5FFFDE4
+        B5FFBEAB88FFF6EFE7FFA66D4EFF585BB5FFF6ECE5FFAA6B43F0A6643AF0F6F0
+        ECFFFDE8D7FFAD6E45FFF7F4F3FFB6A481FFF2DCADFFF5DEB0FFFAE1B2FFFCE3
+        B4FFBEAB88FFF7EFE8FFA96F50FF6268DEFFF6EDE5FFAA6D45F0A66439F0F7F0
+        ECFF366C3AFFA26F46FFF3F2F1FF96815CFFBBA680FFBBA680FFBBA680FFBCA8
+        83FF8F8065FFF7F1EAFFA86E50FF6166D6FFF6EDE6FFAA6D45F0A8663AF0F7F1
+        ECFF47904CFFA47F59FFDEDEDCFFF3F3F2FFF7F4F3FFF7F4F2FFF8F2EDFFF8F2
+        EBFFF7F2EBFFF1EEE8FFAC7555FF9890E2FFF6EFE7FFAA6D45F0A8663CF0F7F2
+        EDFF458B4BFF88985FFFA47D59FFA47148FFA8663AFFAD6E45FFA76643FFA969
+        46FFAA6946FFAA704EFFB7979DFF9890E2FFF7EFE8FFAB6D45F0A8663CF0F7F4
+        F1FF709F7AFF94D4A2FF94D3A3FF94D3A3FFA7734BFFF3F2F1FF756EC4FF9088
+        E0FF9088E0FF9088E0FF958CE0FF807BB9FFF7F1EAFFAB6D45F0A8663CF0F7F4
+        F3FF6A9874FF8ECA9DFF90CD9EFF92D1A0FFA9815EFFDEDEDCFFF3F3F2FFF7F4
+        F3FFF7F4F2FFF8F2EDFFF8F2EBFFF7F2EBFFF1EEE8FFAA704AEFA86D46F0F3F2
+        F1FF4B7E55FF699C74FF699C74FF699C74FF8E8A68FFA37758FFAD7550FFA866
+        3BFEA8663AF0A8643AF0A8643AF0A8643AF0A86B43F0A874518FAB7958E9DEDE
+        DCFEF3F3F2FFF7F4F3FFF7F4F2FFF8F2EDFFF8F2EBFFF7F2EBFFF1EEE8FFAA70
+        4AEFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00AA7B5B8DAB77
+        58E8A86D46F0A8663AF0A8663AF0A8643AF0A8643AF0A8643AF0A86B43F0A874
+        518FFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      OnClick = ImageButtonClick
+      ShowHint = True
+      ParentShowHint = False
+    end
+    object DBNavigatorView: TDBNavigator
+      Left = 8
+      Height = 25
+      Top = 5
+      Width = 130
+      BevelOuter = bvNone
+      ChildSizing.EnlargeHorizontal = crsScaleChilds
+      ChildSizing.EnlargeVertical = crsScaleChilds
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 100
+      ClientHeight = 25
+      ClientWidth = 130
+      DataSource = DataModuleMain.DataSourceView
+      Options = []
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbRefresh]
+      Images = DataModuleMain.ImageListNavs
+    end
+    object CloseBitBtn: TBitBtn
+      Left = 360
+      Height = 27
+      Hint = 'Close entry form'
+      Top = 4
+      Width = 82
+      DefaultCaption = True
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Kind = bkClose
+      ModalResult = 11
+      OnClick = CloseBitBtnClick
+      ParentFont = False
+      TabOrder = 2
+    end
+    object BitBtnHelp: TBitBtn
+      Left = 446
+      Height = 27
+      Hint = 'Help'
+      Top = 4
+      Width = 82
+      HelpContext = 3
+      DefaultCaption = True
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Kind = bkHelp
+      OnClick = BitBtnHelpClick
+      ParentFont = False
+      TabOrder = 3
+    end
+    object DBNavigatorBasicinf: TDBNavigator
+      Left = 144
+      Height = 25
+      Top = 5
+      Width = 156
+      BevelOuter = bvNone
+      ChildSizing.EnlargeHorizontal = crsScaleChilds
+      ChildSizing.EnlargeVertical = crsScaleChilds
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 100
+      ClientHeight = 25
+      ClientWidth = 156
+      DataSource = BasicinfDataSource
+      OnClick = DBNavigatorBasicinfClick
+      Options = []
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+      VisibleButtons = [nbInsert, nbDelete, nbEdit, nbPost, nbCancel, nbRefresh]
+      Images = DataModuleMain.ImageListNavs
+    end
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 14
+    Hint = 'Coordinate system of shown coordinates, possibly converted with the awesome PROJ library (https://proj.org)'
+    Top = 438
+    Width = 541
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Georgia'
+    Panels = <>
+    ParentFont = False
+    ParentShowHint = False
+    SizeGrip = False
+    ShowHint = True
+    UseSystemFont = False
+  end
+  object DBSiteGrid: TDBGrid
+    Left = 431
+    Height = 284
+    Hint = 'Right-Click for menu'
+    Top = 54
+    Width = 105
+    HelpContext = 31
+    Color = clWindow
+    Columns = <>
+    DataSource = DataModuleMain.DataSourceView
+    FixedCols = 0
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Options = [dgTitles, dgColLines, dgRowLines, dgAlwaysShowSelection, dgConfirmDelete]
+    ParentFont = False
+    ReadOnly = True
+    Scrollbars = ssAutoVertical
+    ShowHint = True
+    TabOrder = 1
+    TabStop = False
+    OnCellClick = DBSiteGridCellClick
+  end
+  object GroupBox2: TGroupBox
+    Left = 4
+    Height = 60
+    Top = 217
+    Width = 423
+    Caption = 'Site Setting:'
+    ClientHeight = 46
+    ClientWidth = 421
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 4
+    object Label8: TLabel
+      Left = 6
+      Height = 13
+      Hint = 'Topographic setting'
+      Top = 0
+      Width = 53
+      AutoSize = False
+      Caption = '&Topo. Set.'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label13: TLabel
+      Left = 78
+      Height = 13
+      Hint = 'Drainage region / catchment number'
+      Top = 0
+      Width = 59
+      AutoSize = False
+      Caption = 'Drai&n. Reg.'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label17: TLabel
+      Left = 150
+      Height = 13
+      Hint = 'Site selector'
+      Top = 0
+      Width = 58
+      AutoSize = False
+      Caption = 'Site Sel&ect.'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label16: TLabel
+      Left = 223
+      Height = 13
+      Hint = 'Site type'
+      Top = 0
+      Width = 50
+      AutoSize = False
+      Caption = 'Site &Type'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label28: TLabel
+      Left = 290
+      Height = 13
+      Hint = 'Latest equipment installed'
+      Top = 0
+      Width = 56
+      AutoSize = False
+      Caption = 'Equ&ipment'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label29: TLabel
+      Left = 358
+      Height = 13
+      Hint = 'Indication of potability'
+      Top = 0
+      Width = 49
+      AutoSize = False
+      Caption = 'Pota&bility'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object RxDBLookupComboTopoSet: TRxDBLookupCombo
+      Left = 6
+      Height = 26
+      Top = 15
+      Width = 36
+      HelpKeyword = 'TOPOSETG'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'TOPO_SETTG'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 5
+      PopUpFormOptions.DropDownWidth = 220
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnEnter = EditEnter
+      OnKeyDown = RxDBLookupComboKeyDown
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 0
+      TabStop = True
+      DropDownCount = 5
+      DropDownWidth = 220
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
+      LookupSource = TopoDataSource
+    end
+    object RxDBLookupComboDrain: TRxDBLookupCombo
+      Left = 80
+      Height = 26
+      Top = 15
+      Width = 58
+      HelpKeyword = 'CATCHMNT'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'DRAINAGE_R'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownWidth = 58
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnEnter = EditEnter
+      OnKeyDown = RxDBLookupComboKeyDown
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 1
+      TabStop = True
+      DropDownWidth = 58
+      LookupDisplay = 'SEARCH'
+      LookupField = 'SEARCH'
+      LookupSource = DataSourceDrain
+    end
+    object RxDBLookupComboSelec: TRxDBLookupCombo
+      Left = 151
+      Height = 26
+      Top = 15
+      Width = 55
+      HelpKeyword = 'SELECTOR'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'SITE_SELEC'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 5
+      PopUpFormOptions.DropDownWidth = 220
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnEnter = EditEnter
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 2
+      TabStop = True
+      DropDownCount = 5
+      DropDownWidth = 220
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
+      LookupSource = SlctDataSource
+    end
+    object RxDBLookupComboType: TRxDBLookupCombo
+      Left = 223
+      Height = 26
+      Top = 15
+      Width = 36
+      HelpKeyword = 'SITETYPE'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'SITE_TYPE'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 5
+      PopUpFormOptions.DropDownWidth = 220
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnChange = RxDBLookupComboTypeChange
+      OnEnter = EditEnter
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 3
+      TabStop = True
+      DropDownCount = 5
+      DropDownWidth = 220
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
+      LookupSource = TypeDataSource
+    end
+    object RxDBLookupComboEquip: TRxDBLookupCombo
+      Left = 290
+      Height = 26
+      Top = 15
+      Width = 36
+      HelpKeyword = 'EQUIPMNT'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'EQUIPMENT'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 5
+      PopUpFormOptions.DropDownWidth = 220
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnEnter = EditEnter
+      OnKeyDown = RxDBLookupComboKeyDown
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 4
+      TabStop = True
+      DropDownCount = 5
+      DropDownWidth = 220
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
+      LookupSource = EqpmDataSource
+    end
+    object RxDBLookupComboTopoSet5: TRxDBLookupCombo
+      Left = 358
+      Height = 26
+      Top = 15
+      Width = 36
+      HelpKeyword = 'POTABILI'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'POTABILITY'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 5
+      PopUpFormOptions.DropDownWidth = 260
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnEnter = EditEnter
+      OnKeyDown = RxDBLookupComboKeyDown
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 5
+      TabStop = True
+      DropDownCount = 5
+      DropDownWidth = 260
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
+      LookupSource = PotbDataSource
+    end
+  end
+  object GroupBox3: TGroupBox
+    Left = 4
+    Height = 60
+    Top = 280
+    Width = 190
+    Caption = 'Site Use:'
+    ClientHeight = 46
+    ClientWidth = 188
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 5
+    OnEnter = EditEnter
+    object Label23: TLabel
+      Left = 6
+      Height = 13
+      Hint = 'Latest site status'
+      Top = 0
+      Width = 33
+      AutoSize = False
+      Caption = 'Stat&us'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label24: TLabel
+      Left = 46
+      Height = 13
+      Hint = 'Site purpose'
+      Top = 0
+      Width = 43
+      AutoSize = False
+      Caption = '&Purpose'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label25: TLabel
+      Left = 88
+      Height = 13
+      Hint = 'Consumer'
+      Top = 0
+      Width = 46
+      AutoSize = False
+      Caption = 'C&onsum.'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label26: TLabel
+      Left = 134
+      Height = 13
+      Hint = 'Site use application'
+      Top = 0
+      Width = 47
+      AutoSize = False
+      Caption = '&Applicat.'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object RxDBLookupComboStatus: TRxDBLookupCombo
+      Left = 6
+      Height = 26
+      Top = 14
+      Width = 36
+      HelpKeyword = 'SITESTAT'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'SITE_STATU'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 5
+      PopUpFormOptions.DropDownWidth = 220
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnEnter = EditEnter
+      OnKeyDown = RxDBLookupComboKeyDown
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 0
+      TabStop = True
+      DropDownCount = 5
+      DropDownWidth = 220
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
+      LookupSource = StatDataSource
+    end
+    object RxDBLookupComboPurps: TRxDBLookupCombo
+      Left = 46
+      Height = 26
+      Top = 14
+      Width = 36
+      HelpKeyword = 'SITEPURP'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'SITE_PURPS'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 5
+      PopUpFormOptions.DropDownWidth = 220
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnEnter = EditEnter
+      OnKeyDown = RxDBLookupComboKeyDown
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 1
+      TabStop = True
+      DropDownCount = 5
+      DropDownWidth = 220
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
+      LookupSource = PurpDataSource
+    end
+    object RxDBLookupComboConsum: TRxDBLookupCombo
+      Left = 88
+      Height = 26
+      Top = 14
+      Width = 36
+      HelpKeyword = 'WATRCONS'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'USE_CONSUM'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 5
+      PopUpFormOptions.DropDownWidth = 220
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnEnter = EditEnter
+      OnKeyDown = RxDBLookupComboKeyDown
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 2
+      TabStop = True
+      DropDownCount = 5
+      DropDownWidth = 220
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
+      LookupSource = ConsDataSource
+    end
+    object RxDBLookupComboApplic: TRxDBLookupCombo
+      Left = 134
+      Height = 26
+      Top = 14
+      Width = 46
+      HelpKeyword = 'APPLICAT'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'USE_APPLIC'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 5
+      PopUpFormOptions.DropDownWidth = 220
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnEnter = EditEnter
+      OnKeyDown = RxDBLookupComboKeyDown
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 3
+      TabStop = True
+      DropDownCount = 5
+      DropDownWidth = 220
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
+      LookupSource = ApplDataSource
+    end
+  end
+  object BHGroupBox: TGroupBox
+    Left = 198
+    Height = 60
+    Top = 280
+    Width = 158
+    Caption = 'Borehole/Well:'
+    ClientHeight = 46
+    ClientWidth = 156
+    Color = clBtnFace
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 6
+    object DiamLabel: TLabel
+      Left = 4
+      Height = 13
+      Hint = 'Hole diameter visible at surface'
+      Top = 0
+      Width = 48
+      AutoSize = False
+      Caption = '&Diam.'
+      FocusControl = EditBH_DIAM
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ColLabel: TLabel
+      Left = 54
+      Height = 13
+      Hint = 'Latest collar or measuring reference'
+      Top = 0
+      Width = 48
+      AutoSize = False
+      Caption = 'Co&llar'
+      FocusControl = EditCOLLAR_HI
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object DepLabel: TLabel
+      Left = 102
+      Height = 13
+      Hint = 'Latest measured depth of hole'
+      Top = 0
+      Width = 48
+      AutoSize = False
+      Caption = 'Dept&h'
+      FocusControl = EditDEPTH
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object EditBH_DIAM: TDBEdit
+      Left = 4
+      Height = 24
+      Top = 14
+      Width = 40
+      HelpContext = 31
+      DataField = 'BH_DIAM'
+      DataSource = BasicinfDataSource
+      CharCase = ecNormal
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 0
+      OnClick = EditClick
+      OnEnter = EditEnter
+      OnKeyDown = EditKeyDown
+      OnKeyUp = EditKeyUp
+    end
+    object EditCOLLAR_HI: TDBEdit
+      Left = 54
+      Height = 24
+      Top = 14
+      Width = 36
+      HelpContext = 31
+      DataField = 'COLLAR_HI'
+      DataSource = BasicinfDataSource
+      CharCase = ecNormal
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 1
+      OnClick = EditClick
+      OnEnter = EditEnter
+      OnKeyDown = EditKeyDown
+      OnKeyUp = EditKeyUp
+    end
+    object EditDEPTH: TDBEdit
+      Left = 102
+      Height = 24
+      Top = 14
+      Width = 50
+      HelpContext = 31
+      DataField = 'DEPTH'
+      DataSource = BasicinfDataSource
+      CharCase = ecNormal
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 2
+      OnClick = EditClick
+      OnEnter = EditEnter
+      OnKeyDown = EditKeyDown
+      OnKeyUp = EditKeyUp
+    end
+  end
+  object GroupBox5: TGroupBox
+    Left = 4
+    Height = 88
+    Top = 348
+    Width = 533
+    Align = alBottom
+    BorderSpacing.Left = 4
+    BorderSpacing.Right = 4
+    BorderSpacing.Bottom = 2
+    Caption = 'Information:'
+    ClientHeight = 74
+    ClientWidth = 531
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 8
+    object Label27: TLabel
+      Left = 8
+      Height = 13
+      Hint = 'Reporting institution or company/consultant'
+      Top = 0
+      Width = 102
+      AutoSize = False
+      Caption = '&Reporting Institution'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label22: TLabel
+      Left = 12
+      Height = 11
+      Hint = 'Information source'
+      Top = 50
+      Width = 39
+      Alignment = taRightJustify
+      Caption = 'Source:'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label30: TLabel
+      Left = 288
+      Height = 13
+      Top = 0
+      Width = 65
+      AutoSize = False
+      Caption = 'Date entered'
+      FocusControl = EditDATE_ENTRY
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label31: TLabel
+      Left = 358
+      Height = 13
+      Top = 0
+      Width = 70
+      AutoSize = False
+      Caption = 'Date updated'
+      FocusControl = EditDATE_UPDTD
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object RecCountLabel: TLabel
+      Left = 434
+      Height = 13
+      Top = 18
+      Width = 80
+      Alignment = taCenter
+      AutoSize = False
+      Caption = '1 000 000 000'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      WordWrap = True
+    end
+    object Label32: TLabel
+      Left = 112
+      Height = 11
+      Hint = 'Additional notes on the site'
+      Top = 50
+      Width = 37
+      Alignment = taRightJustify
+      Caption = 'Notes?'
+      FocusControl = EditNOTES_YN
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object Label9: TLabel
+      Left = 434
+      Height = 13
+      Hint = 'Number of records in current view'
+      Top = 0
+      Width = 96
+      AutoSize = False
+      Caption = 'Number of records'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object EditDATE_ENTRY: TDBEdit
+      Left = 288
+      Height = 22
+      Top = 15
+      Width = 66
+      HelpContext = 31
+      DataField = 'DATE_ENTRY'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecNormal
+      Enabled = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 3
+    end
+    object EditDATE_UPDTD: TDBEdit
+      Left = 358
+      Height = 22
+      Top = 15
+      Width = 66
+      HelpContext = 31
+      DataField = 'DATE_UPDTD'
+      DataSource = BasicinfDataSource
+      ReadOnly = True
+      AutoSize = False
+      CharCase = ecNormal
+      Enabled = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 4
+      TabStop = False
+    end
+    object EditNOTES_YN: TDBEdit
+      Left = 154
+      Height = 22
+      Hint = 'Double-click to view or enter notes'
+      Top = 44
+      Width = 24
+      HelpContext = 31
+      DataField = 'NOTES_YN'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+      OnClick = EditClick
+      OnDblClick = EditNOTES_YNDblClick
+      OnEnter = EditEnter
+      OnKeyUp = EditKeyUp
+    end
+    object RxDBLookupComboRep: TRxDBLookupCombo
+      Left = 6
+      Height = 26
+      Top = 15
+      Width = 274
+      HelpKeyword = 'IS_BASIC'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'REP_INST'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownWidth = 280
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnEnter = EditEnter
+      OnKeyDown = RxDBLookupComboKeyDown
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      TabOrder = 0
+      TabStop = True
+      DropDownWidth = 280
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupDisplayIndex = 1
+      LookupField = 'SEARCH'
+      LookupSource = RepInstDataSource
+    end
+    object RxDBLookupComboInfo: TRxDBLookupCombo
+      Left = 56
+      Height = 26
+      Top = 44
+      Width = 36
+      HelpKeyword = 'IS_BASIC'
+      HelpContext = 31
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'INFO_SOURC'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 5
+      PopUpFormOptions.DropDownWidth = 240
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnEnter = EditEnter
+      OnKeyDown = RxDBLookupComboKeyDown
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 1
+      TabStop = True
+      DropDownCount = 5
+      DropDownWidth = 240
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
+      LookupSource = InfsDataSource
+    end
+    object Label10: TLabel
+      Left = 198
+      Height = 11
+      Hint = 'Member of the lastest group site belongs to'
+      Top = 50
+      Width = 64
+      Alignment = taRightJustify
+      Caption = ' Member of: '
+      Color = clBtnFace
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      Transparent = False
+    end
+    object DBTextMember: TDBText
+      Left = 266
+      Height = 13
+      Top = 50
+      Width = 100
+      AutoSize = False
+      Color = clBtnFace
+      DataField = 'MEMBER_ID'
+      DataSource = MemberDataSource
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+    end
+    object DBTextMapRef: TDBText
+      Left = 460
+      Height = 13
+      Top = 50
+      Width = 81
+      AutoSize = False
+      DataField = 'sheet50'
+      DataSource = DataSourceMap
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      Visible = False
+    end
+    object LabelMapRef: TLabel
+      Left = 400
+      Height = 13
+      Hint = 'South African 1 : 50 000 map reference'
+      Top = 50
+      Width = 46
+      AutoSize = False
+      Caption = 'Map ref.:'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+  end
+  object LabelCompleted: TLabel
+    Left = 360
+    Height = 26
+    Hint = 'Date construction completed or site commissioned'
+    Top = 282
+    Width = 72
+    AutoSize = False
+    Caption = 'Date compl. / commiss.'
+    FocusControl = EditDATE_COMPL
+    Font.Color = clBlack
+    Font.Height = -12
+    ParentColor = False
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    WordWrap = True
+  end
+  object EditDATE_COMPL: TDBEdit
+    Left = 360
+    Height = 24
+    Hint = 'Date site completed or commissioned'
+    Top = 308
+    Width = 64
+    HelpContext = 31
+    DataField = 'DATE_COMPL'
+    DataSource = BasicinfDataSource
+    CharCase = ecNormal
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    MaxLength = 0
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 7
+    OnClick = EditClick
+    OnEnter = EditEnter
+    OnKeyDown = EditKeyDown
+    OnKeyUp = EditKeyUp
+  end
+  object BasicinfDataSource: TDataSource
+    AutoEdit = False
+    DataSet = DataModuleMain.BasicinfQuery
+    OnDataChange = BasicinfDataSourceDataChange
+    Left = 160
+    Top = 32
+  end
+  object PopupMenu1: TPopupMenu
+    OnPopup = PopupMenu1Popup
+    Left = 473
+    Top = 256
+    object MenuItemSetBookmarks: TMenuItem
+      Caption = '&Set Bookmarks'
+      object MenuItemBookmark1: TMenuItem
+        Tag = 1
+        Caption = 'Bookmark &1'
+        ShortCut = 117
+        OnClick = SetBookmark1Click
+      end
+      object MenuItemBookMark2: TMenuItem
+        Tag = 2
+        Caption = 'BookMark &2'
+        ShortCut = 118
+        OnClick = MenuItemBookMark2Click
+      end
+    end
+    object GotoBookmark: TMenuItem
+      Caption = '&Goto Bookmarks'
+      object MenuItemGotoBookmark1: TMenuItem
+        Caption = 'Goto Bookmark &1'
+        ShortCut = 16501
+        OnClick = GotoBookmark1Click
+      end
+      object MenuItemGotoBookmark2: TMenuItem
+        Caption = 'Goto Bookmark &2'
+        ShortCut = 16502
+        OnClick = MenuItemGotoBookmark2Click
+      end
+    end
+    object MenuItem1: TMenuItem
+      Caption = '-'
+    end
+    object MenuItemCopy: TMenuItem
+      Caption = 'Copy Site Identifier'
+      OnClick = MenuItemCopyClick
+    end
+  end
+  object AccuDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQueryCoordAcc
+    Left = 200
+    Top = 128
+  end
+  object MethDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQuerySurvMeth
+    Left = 368
+    Top = 128
+  end
+  object TopoDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQueryTopoSet
+    Left = 96
+    Top = 280
+  end
+  object SlctDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQuerySiteSelec
+    Left = 184
+    Top = 248
+  end
+  object EqpmDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQueryEquip
+    Left = 326
+    Top = 248
+  end
+  object PotbDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQueryPotabl
+    Left = 392
+    Top = 248
+  end
+  object TypeDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQuerySiteType
+    Left = 262
+    Top = 248
+  end
+  object StatDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQueryStatus
+    Left = 48
+    Top = 352
+  end
+  object PurpDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQueryPurps
+    Left = 88
+    Top = 352
+  end
+  object ConsDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQueryCons
+    Left = 137
+    Top = 352
+  end
+  object ApplDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQueryApplic
+    Left = 224
+    Top = 352
+  end
+  object InfsDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQueryInfo
+    Left = 376
+    Top = 352
+  end
+  object MemberDataSource: TDataSource
+    AutoEdit = False
+    DataSet = MemberQuery
+    Left = 472
+    Top = 136
+  end
+  object RegionDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQueryRegn
+    Left = 88
+    Top = 104
+  end
+  object RepInstDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQueryRep
+    Left = 280
+    Top = 352
+  end
+  object CMethDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQueryCoordMeth
+    Left = 264
+    Top = 128
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    Left = 473
+    Top = 192
+  end
+  object NRQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    Left = 398
+    Top = 34
+  end
+  object ZReadOnlyQueryTopoSet: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''TOPOSETG'''
+      'ORDER BY SEARCH'
+    )
+    Params = <>
+    Left = 56
+    Top = 208
+    object ZReadOnlyQueryTopoSetSEARCH: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryTopoSetDESCRIBE: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object ZReadOnlyQueryRegn: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''REGNTYPE'''
+      'ORDER BY SEARCH'
+    )
+    Params = <>
+    Left = 30
+    Top = 64
+    object ZReadOnlyQueryRegnSEARCH: TStringField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryRegnDESCRIBE: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object ZReadOnlyQueryCoordAcc: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''COORDACC'''
+      'ORDER BY SEARCH'
+    )
+    Params = <>
+    Left = 137
+    Top = 81
+    object ZReadOnlyQueryCoordAccSEARCH: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryCoordAccDESCRIBE: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object ZReadOnlyQueryCoordMeth: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''COORMETH'''
+      'ORDER BY SEARCH'
+    )
+    Params = <>
+    Left = 264
+    Top = 80
+    object ZReadOnlyQueryCoordMethSEARCH: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryCoordMethDESCRIBE: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object ZReadOnlyQuerySurvMeth: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''SURVMETH'''
+      'ORDER BY SEARCH'
+    )
+    Params = <>
+    Left = 366
+    Top = 80
+    object ZReadOnlyQueryCoordMethSEARCH1: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryCoordMethDESCRIBE1: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object ZReadOnlyQueryDrain: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''CATCHMNT'''
+      'ORDER BY SEARCH'
+    )
+    Params = <>
+    Left = 104
+    Top = 208
+    object ZReadOnlyQueryTopoSetSEARCH1: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryTopoSetDESCRIBE1: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object DataSourceDrain: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQueryDrain
+    Left = 105
+    Top = 253
+  end
+  object ZReadOnlyQuerySiteSelec: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''SELECTOR'''
+      'ORDER BY SEARCH'
+    )
+    Params = <>
+    Left = 184
+    Top = 208
+    object ZReadOnlyQueryTopoSetSEARCH2: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryTopoSetDESCRIBE2: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object ZReadOnlyQuerySiteType: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''SITETYPE'''
+      'ORDER BY SEARCH'
+    )
+    Params = <>
+    Left = 262
+    Top = 208
+    object ZReadOnlyQueryTopoSetSEARCH3: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryTopoSetDESCRIBE3: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object ZReadOnlyQueryEquip: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''TYPEINST'''
+      'ORDER BY SEARCH'
+    )
+    Params = <>
+    Left = 326
+    Top = 208
+    object ZReadOnlyQueryTopoSetSEARCH4: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryTopoSetDESCRIBE4: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object ZReadOnlyQueryPotabl: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''POTABILI'''
+      'ORDER BY SEARCH'
+    )
+    Params = <>
+    Left = 392
+    Top = 208
+    object ZReadOnlyQueryTopoSetSEARCH5: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryTopoSetDESCRIBE5: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object ZReadOnlyQueryStatus: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''SITESTAT'''
+      'ORDER BY SEARCH'
+    )
+    Params = <>
+    Left = 49
+    Top = 288
+    object ZReadOnlyQueryTopoSetSEARCH6: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryTopoSetDESCRIBE6: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object ZReadOnlyQueryPurps: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''SITEPURP'''
+      'ORDER BY SEARCH'
+    )
+    Params = <>
+    Left = 48
+    Top = 248
+    object ZReadOnlyQueryTopoSetSEARCH7: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryTopoSetDESCRIBE7: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object ZReadOnlyQueryCons: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''WATRCONS'''
+      'ORDER BY SEARCH'
+    )
+    Params = <>
+    Left = 137
+    Top = 288
+    object ZReadOnlyQueryTopoSetSEARCH8: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryTopoSetDESCRIBE8: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object ZReadOnlyQueryApplic: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''APPLICAT'''
+      'ORDER BY SEARCH'
+    )
+    Params = <>
+    Left = 224
+    Top = 304
+    object ZReadOnlyQueryTopoSetSEARCH9: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryTopoSetDESCRIBE9: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object ZReadOnlyQueryRep: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''REP_INST'''
+      'ORDER BY SEARCH'
+    )
+    Params = <>
+    Left = 280
+    Top = 304
+    object ZReadOnlyQueryTopoSetSEARCH10: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryTopoSetDESCRIBE10: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object ZReadOnlyQueryInfo: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''IS_BASIC'''
+      'ORDER BY SEARCH'
+    )
+    Params = <>
+    Left = 376
+    Top = 312
+    object ZReadOnlyQueryTopoSetSEARCH11: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryTopoSetDESCRIBE11: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object MemberQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'DATE_TO'
+    SortType = stDescending
+    BeforeOpen = MemberQueryBeforeOpen
+    Params = <>
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = BasicinfDataSource
+    LinkedFields = 'SITE_ID_NR'
+    IndexFieldNames = 'DATE_TO Desc'
+    Left = 473
+    Top = 81
+    object MemberQuerySITE_ID_NR: TStringField
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 11
+    end
+    object MemberQueryMEMBER_ID: TStringField
+      FieldKind = fkData
+      FieldName = 'MEMBER_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = MemberQueryMEMBER_IDGetText
+      Size = 24
+    end
+    object MemberQueryDATE_TO: TStringField
+      FieldKind = fkData
+      FieldName = 'DATE_TO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+  end
+  object ZReadOnlyQueryMapRef: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    BeforeOpen = ZReadOnlyQueryMapRefBeforeOpen
+    SQL.Strings = (
+      'SELECT sheet50 FROM maps50'
+    )
+    Params = <>
+    Left = 480
+    Top = 312
+    object ZReadOnlyQueryMapRefsheet50: TStringField
+      FieldKind = fkData
+      FieldName = 'sheet50'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ZReadOnlyQueryMapRefsheet50GetText
+      Size = 6
+    end
+  end
+  object DataSourceMap: TDataSource
+    DataSet = ZReadOnlyQueryMapRef
+    Left = 480
+    Top = 360
+  end
+end

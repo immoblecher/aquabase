@@ -1,0 +1,154 @@
+object BorderDlg: TBorderDlg
+  Left = 1089
+  Height = 196
+  Top = 224
+  Width = 245
+  BorderStyle = bsSingle
+  Caption = 'Border Editor'
+  ClientHeight = 196
+  ClientWidth = 245
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Icon.Data = {
+    FE0200000000010001002020100000000000E802000016000000280000002000
+    0000400000000100040000000000800200000000000000000000000000000000
+    0000000000000000800000800000008080008000000080008000808000008080
+    8000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+    FF000000000000077777777777777888008700000000000F7777771177778880
+    087F00000000000F777777917778880087F000000000000F7777777777888008
+    7F0000000000000F7777779178880087F00000000000000F777777918880087F
+    000700000000000777777798880087F000770000000000088888888880087F00
+    0777000000008808888888880000F00077770000008888088888888000800007
+    77770000088800087F780000087F007777770008880000000800000087F00177
+    7777008880000777799100000F00917777770880000777777991770000009177
+    7777080000777777799917700009917777778800077777777799917700099777
+    777780000F7777777779991770007777777780000F7777777777999170807777
+    777700000F777711177779917700077777770800077777D917777991770807FF
+    FFF70800088877D99177999177080000000008000888877D9911999177080000
+    0000080000000007D99999D7770800000000000000887F077DDDDD7777000000
+    0000008000087707777777777080000000000000000087077777777770000000
+    000000000000070777777777000000000000000000000007FFFFF77000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000087F78000000000000000000000000000008000000000000000
+    0000FFC00000FFC00000FFC00000FFC00000FFC00000FFC00000FFC00000FFC0
+    0000FF000000FC000000F8000000E0000000C000000080000000800000000000
+    000000000000000000001000000010000000100000001000007F1000007F1800
+    007F8C0000FF8E0000FFC70001FFE38003FFF1C007FFF87F0FFFFC001FFFFF00
+    7FFF
+  }
+  Position = poScreenCenter
+  LCLVersion = '2.0.8.0'
+  object Label1: TLabel
+    Left = 16
+    Height = 10
+    Top = 76
+    Width = 30
+    Caption = '&Width:'
+    FocusControl = SpinEditBorderWidth
+    ParentColor = False
+  end
+  object RadioGroupBorderStyle: TRadioGroup
+    Left = 120
+    Height = 134
+    Top = 4
+    Width = 113
+    AutoFill = True
+    Caption = '&Style'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 120
+    ClientWidth = 109
+    ItemIndex = 0
+    Items.Strings = (
+      'Solid'
+      'Dash'
+      'Dot'
+      'DashDot'
+      'DashDotDot'
+    )
+    TabOrder = 0
+  end
+  object CheckBoxBorderVisible: TCheckBox
+    Left = 16
+    Height = 24
+    Top = 4
+    Width = 56
+    Caption = '&Visible'
+    Checked = True
+    State = cbChecked
+    TabOrder = 1
+  end
+  object SpinEditBorderWidth: TSpinEdit
+    Left = 53
+    Height = 21
+    Top = 72
+    Width = 49
+    Alignment = taRightJustify
+    MaxValue = 99
+    MinValue = 1
+    TabOrder = 2
+    Value = 1
+  end
+  object ColorButtonBorder: TColorButton
+    Left = 16
+    Height = 26
+    Top = 112
+    Width = 86
+    BorderWidth = 2
+    ButtonColorSize = 16
+    ButtonColor = clBlack
+    ColorDialog = ColorDialogBorder
+    Caption = 'Colour:'
+    Layout = blGlyphRight
+    OnColorChanged = ColorButtonBorderColorChanged
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 36
+    Top = 154
+    Width = 233
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 3
+    ShowButtons = [pbOK, pbCancel]
+  end
+  object ColorDialogBorder: TColorDialog
+    Color = clBlack
+    CustomColors.Strings = (
+      'ColorA=000000'
+      'ColorB=000080'
+      'ColorC=008000'
+      'ColorD=008080'
+      'ColorE=800000'
+      'ColorF=800080'
+      'ColorG=808000'
+      'ColorH=808080'
+      'ColorI=C0C0C0'
+      'ColorJ=0000FF'
+      'ColorK=00FF00'
+      'ColorL=00FFFF'
+      'ColorM=FF0000'
+      'ColorN=FF00FF'
+      'ColorO=FFFF00'
+      'ColorP=FFFFFF'
+      'ColorQ=C0DCC0'
+      'ColorR=F0CAA6'
+      'ColorS=F0FBFF'
+      'ColorT=A4A0A0'
+    )
+    left = 24
+    top = 144
+  end
+end
