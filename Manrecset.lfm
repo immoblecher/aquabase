@@ -1,0 +1,112 @@
+inherited ManRecSetForm: TManRecSetForm
+  Left = 642
+  Height = 430
+  Top = 217
+  Width = 418
+  Caption = 'Report Settings for Man. Recommendations'
+  ClientHeight = 430
+  ClientWidth = 418
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  SessionProperties = 'CheckBoxLab.Checked;CheckBoxParam.Checked'
+  inherited RadioGroup1: TRadioGroup
+    ClientHeight = 52
+  end
+  inherited GroupBox1: TGroupBox
+    ClientHeight = 107
+    inherited CheckBox2: TCheckBox
+      Checked = False
+      Enabled = False
+      State = cbUnchecked
+    end
+  end
+  inherited CommentMemo: TMemo
+    Height = 75
+    Top = 302
+    Anchors = [akLeft, akBottom]
+  end
+  inherited ConstrGroupBox: TGroupBox
+    Top = 285
+    Anchors = [akLeft, akBottom]
+    ClientHeight = 79
+  end
+  inherited CheckBox4: TCheckBox
+    Top = 275
+    Anchors = [akLeft, akBottom]
+  end
+  inherited ButtonPanel1: TButtonPanel
+    Top = 386
+    Width = 406
+    OKButton.OnClick = OKButtonClick
+  end
+  object GroupBox2: TGroupBox[11]
+    Left = 8
+    Height = 72
+    Top = 168
+    Width = 400
+    Caption = 'With chemistry also show:'
+    ClientHeight = 59
+    ClientWidth = 398
+    TabOrder = 9
+    object CheckBoxLab: TCheckBox
+      Left = 240
+      Height = 23
+      Top = 5
+      Width = 135
+      Caption = 'Laboratory Information'
+      TabOrder = 2
+    end
+    object ComboBoxParam: TComboBox
+      Left = 92
+      Height = 25
+      Top = 2
+      Width = 114
+      Enabled = False
+      ItemHeight = 0
+      Sorted = True
+      Style = csDropDownList
+      TabOrder = 1
+    end
+    object CheckBoxParam: TCheckBox
+      Left = 6
+      Height = 23
+      Top = 5
+      Width = 80
+      Caption = 'Parameter:'
+      OnChange = CheckBoxParamChange
+      TabOrder = 0
+    end
+    object CheckBoxStandard: TCheckBox
+      Left = 6
+      Height = 23
+      Top = 33
+      Width = 189
+      Caption = 'Chemistry Standard (with colours)'
+      TabOrder = 3
+    end
+  end
+  object CheckBoxResDD: TCheckBox[12]
+    Left = 16
+    Height = 23
+    Top = 247
+    Width = 283
+    Caption = 'Show residual drawdown instead of recovery distance'
+    TabOrder = 10
+  end
+  inherited PopupMenu1: TPopupMenu[13]
+    Left = 344
+    Top = 200
+    inherited Wordwrap1: TMenuItem
+      OnClick = nil
+    end
+  end
+  object ChemQuery: TZReadOnlyQuery[14]
+    Connection = DataModuleMain.ZConnectionDB
+    Filter = 'CHM_REF_NR=0'
+    Filtered = True
+    Params = <>
+    FetchRow = 1
+    Left = 120
+    Top = 288
+  end
+end

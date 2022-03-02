@@ -1,0 +1,509 @@
+object frmFCdata: TfrmFCdata
+  Left = 927
+  Height = 202
+  Top = 235
+  Width = 355
+  BorderStyle = bsSingle
+  Caption = 'Export current site data for FC'
+  ClientHeight = 202
+  ClientWidth = 355
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  OnActivate = FormActivate
+  OnClose = FormClose
+  Position = poScreenCenter
+  LCLVersion = '2.0.8.0'
+  object Label1: TLabel
+    Left = 218
+    Height = 11
+    Top = 70
+    Width = 58
+    Caption = 'Static WL:'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 17
+    Height = 11
+    Top = 70
+    Width = 88
+    Caption = 'Static WL Date:'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object lbTime: TLabel
+    Left = 312
+    Height = 10
+    Top = 76
+    Width = 32
+    Caption = 'lbTime'
+    ParentColor = False
+    Visible = False
+  end
+  object GroupBox2: TGroupBox
+    Left = 8
+    Height = 47
+    Top = 92
+    Width = 341
+    Caption = 'Export File:'
+    ClientHeight = 32
+    ClientWidth = 337
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    object Edit1: TEdit
+      Left = 8
+      Height = 22
+      Top = 2
+      Width = 290
+      Enabled = False
+      TabOrder = 0
+    end
+    object Button1: TButton
+      Left = 310
+      Height = 25
+      Top = 1
+      Width = 26
+      Caption = '...'
+      OnClick = Button1Click
+      TabOrder = 1
+    end
+  end
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 61
+    Top = 3
+    Width = 337
+    Caption = 'Date/time Settings:'
+    ClientHeight = 46
+    ClientWidth = 333
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    object Label7: TLabel
+      Left = 8
+      Height = 11
+      Top = 0
+      Width = 68
+      Caption = 'Starting Date'
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label8: TLabel
+      Left = 104
+      Height = 11
+      Top = 0
+      Width = 27
+      Caption = 'Time'
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label9: TLabel
+      Left = 180
+      Height = 11
+      Top = 0
+      Width = 64
+      Caption = 'Ending Date'
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label10: TLabel
+      Left = 272
+      Height = 11
+      Top = 0
+      Width = 27
+      Caption = 'Time'
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object StartDateComboBox: TComboBox
+      Left = 8
+      Height = 27
+      Top = 16
+      Width = 90
+      AutoSize = False
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ItemHeight = 0
+      ParentFont = False
+      Style = csDropDownList
+      TabOrder = 0
+    end
+    object StartTimeComboBox: TComboBox
+      Left = 104
+      Height = 27
+      Top = 16
+      Width = 58
+      AutoSize = False
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ItemHeight = 0
+      ParentFont = False
+      Style = csDropDownList
+      TabOrder = 1
+    end
+    object EndDateComboBox: TComboBox
+      Left = 180
+      Height = 27
+      Top = 16
+      Width = 90
+      AutoSize = False
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ItemHeight = 0
+      ParentFont = False
+      Style = csDropDownList
+      TabOrder = 2
+    end
+    object EndTimeComboBox: TComboBox
+      Left = 272
+      Height = 27
+      Top = 16
+      Width = 58
+      AutoSize = False
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ItemHeight = 0
+      ParentFont = False
+      Style = csDropDownList
+      TabOrder = 3
+    end
+  end
+  object cdStatic: TComboBox
+    Left = 112
+    Height = 29
+    Top = 66
+    Width = 90
+    AutoSize = False
+    ItemHeight = 0
+    OnChange = cdStaticChange
+    Style = csDropDownList
+    TabOrder = 2
+  end
+  object Edit2: TEdit
+    Left = 280
+    Height = 21
+    Top = 66
+    Width = 56
+    Alignment = taRightJustify
+    Enabled = False
+    TabOrder = 3
+    Text = '0'
+  end
+  object ProgressBar1: TProgressBar
+    Left = 8
+    Height = 10
+    Top = 144
+    Width = 341
+    Smooth = True
+    TabOrder = 4
+    Visible = False
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 36
+    Top = 160
+    Width = 343
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.Enabled = False
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    CancelButton.OnClick = CancelButtonClick
+    TabOrder = 5
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object SaveDialog: TSaveDialog
+    Title = 'Save File As'
+    Filter = 'Excel CSV file (*.csv)|*.csv'
+    left = 328
+  end
+  object tblBasicinf: TZTable
+    SortedFields = 'SITE_ID_NR'
+    TableName = 'basicinf'
+    IndexFieldNames = 'SITE_ID_NR Asc'
+    left = 128
+    top = 88
+  end
+  object tblWLev: TZTable
+    SortedFields = 'SITE_ID_NR'
+    TableName = 'waterlev'
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = dtsBasic
+    IndexFieldNames = 'SITE_ID_NR Asc'
+    left = 200
+    top = 88
+  end
+  object tblDisch: TZTable
+    SortedFields = 'SITE_ID_NR'
+    TableName = 'discharg'
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = dtsBasic
+    IndexFieldNames = 'SITE_ID_NR Asc'
+    left = 264
+    top = 88
+  end
+  object tblAquifer: TZTable
+    SortedFields = 'SITE_ID_NR'
+    TableName = 'aquifer_'
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = dtsBasic
+    IndexFieldNames = 'SITE_ID_NR Asc'
+    left = 320
+    top = 88
+  end
+  object tblPumpt: TZTable
+    SortedFields = 'SITE_ID_NR'
+    TableName = 'pumptest'
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = dtsBasic
+    IndexFieldNames = 'SITE_ID_NR Asc'
+    left = 72
+    top = 96
+  end
+  object tblRecommend: TZTable
+    SortedFields = 'SITE_ID_NR'
+    TableName = 'recommnd'
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = dtsBasic
+    IndexFieldNames = 'SITE_ID_NR Asc'
+    left = 16
+    top = 96
+  end
+  object dtsBasic: TDataSource
+    DataSet = tblBasicinf
+    left = 24
+  end
+  object FCDataSet: TSdfDataSet
+    FileMustExist = False
+    ReadOnly = False
+    Schema.Strings = (
+      'SITE_ID_NR'
+      'DATE_MEAS'
+      'TIME_MEAS'
+      'WATER_LEV'
+      'LEVEL_STAT'
+      'STATICWL'
+      'PUMPTIME'
+      'PUMP_LEV'
+      'REC_TIME'
+      'REC_LEV'
+      'COMMENTS'
+    )
+    FieldDefs = <    
+      item
+        Name = 'SITE_ID_NR'
+        DataType = ftString
+        Size = 11
+      end    
+      item
+        Name = 'DATE_MEAS'
+        DataType = ftString
+        Size = 8
+      end    
+      item
+        Name = 'TIME_MEAS'
+        DataType = ftString
+        Size = 4
+      end    
+      item
+        Name = 'WATER_LEV'
+        DataType = ftFloat
+        Precision = 15
+      end    
+      item
+        Name = 'LEVEL_STAT'
+        DataType = ftString
+        Size = 1
+      end    
+      item
+        Name = 'STATICWL'
+        DataType = ftFloat
+        Precision = 15
+      end    
+      item
+        Name = 'PUMPTIME'
+        DataType = ftFloat
+        Precision = 15
+      end    
+      item
+        Name = 'PUMP_LEV'
+        DataType = ftFloat
+        Precision = 15
+      end    
+      item
+        Name = 'REC_TIME'
+        DataType = ftFloat
+        Precision = 15
+      end    
+      item
+        Name = 'REC_LEV'
+        DataType = ftFloat
+        Precision = 15
+      end    
+      item
+        Name = 'COMMENTS'
+        DataType = ftString
+        Size = 24
+      end>
+    AllowMultiLine = False
+    Delimiter = ','
+    FirstLineAsSchema = True
+    StripTrailingDelimiters = False
+    left = 160
+    top = 5
+    object FCDataSetSITE_ID_NR: TStringField
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 11
+    end
+    object FCDataSetDATE_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object FCDataSetTIME_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'TIME_MEAS'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 4
+    end
+    object FCDataSetWATER_LEV: TFloatField
+      FieldKind = fkData
+      FieldName = 'WATER_LEV'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object FCDataSetLEVEL_STAT: TStringField
+      FieldKind = fkData
+      FieldName = 'LEVEL_STAT'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+    object FCDataSetSTATICWL: TFloatField
+      FieldKind = fkData
+      FieldName = 'STATICWL'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object FCDataSetPUMPTIME: TFloatField
+      FieldKind = fkData
+      FieldName = 'PUMPTIME'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object FCDataSetPUMP_LEV: TFloatField
+      FieldKind = fkData
+      FieldName = 'PUMP_LEV'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object FCDataSetREC_TIME: TFloatField
+      FieldKind = fkData
+      FieldName = 'REC_TIME'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object FCDataSetREC_LEV: TFloatField
+      FieldKind = fkData
+      FieldName = 'REC_LEV'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object FCDataSetCOMMENTS: TStringField
+      FieldKind = fkData
+      FieldName = 'COMMENTS'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+  end
+end

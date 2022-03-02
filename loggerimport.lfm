@@ -1,0 +1,402 @@
+object LoggerImportForm: TLoggerImportForm
+  Left = 880
+  Height = 370
+  Top = 224
+  Width = 400
+  HelpContext = 56
+  ActiveControl = EditDepth
+  BorderStyle = bsDialog
+  Caption = 'Import Logger Data to current Site'
+  ClientHeight = 370
+  ClientWidth = 400
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 38
+    Top = 326
+    Width = 388
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.Enabled = False
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.HelpContext = 56
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    CancelButton.OnClick = CancelButtonClick
+    TabOrder = 0
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object ComboBox1: TComboBox
+    Left = 10
+    Height = 25
+    Top = 24
+    Width = 278
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      'Solinst LT_EDGE'
+    )
+    Style = csDropDownList
+    TabOrder = 1
+    Text = 'Solinst LT_EDGE'
+  end
+  object Label1: TLabel
+    Left = 9
+    Height = 11
+    Top = 6
+    Width = 128
+    Caption = 'Logger Name and &Type:'
+    FocusControl = ComboBox1
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 10
+    Height = 11
+    Top = 112
+    Width = 67
+    Caption = 'Date &Format:'
+    FocusControl = ComboBoxDate
+    ParentColor = False
+  end
+  object ComboBoxDate: TComboBox
+    Left = 10
+    Height = 25
+    Top = 128
+    Width = 112
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      'YYYY/MM/DD'
+      'YYYYMMDD'
+      'DD/MM/YYYY'
+      'DDMMYYYY'
+    )
+    Style = csDropDownList
+    TabOrder = 2
+    Text = 'YYYY/MM/DD'
+  end
+  object Label4: TLabel
+    Left = 130
+    Height = 11
+    Top = 112
+    Width = 70
+    Caption = '&Time Format:'
+    FocusControl = ComboBoxTime
+    ParentColor = False
+  end
+  object ComboBoxTime: TComboBox
+    Left = 130
+    Height = 25
+    Top = 128
+    Width = 96
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      'hh:nn:ss'
+      'hh:nn'
+      'hhnn'
+    )
+    Style = csDropDownList
+    TabOrder = 3
+    Text = 'hh:nn:ss'
+  end
+  object Label5: TLabel
+    Left = 290
+    Height = 11
+    Top = 112
+    Width = 45
+    Caption = '&Piezom.:'
+    FocusControl = ComboBox4
+    ParentColor = False
+  end
+  object ComboBox4: TComboBox
+    Left = 290
+    Height = 25
+    Top = 128
+    Width = 48
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      '0'
+      '1'
+      '2'
+      '3'
+      '4'
+      '5'
+      '6'
+      '7'
+      '8'
+      '9'
+    )
+    Style = csDropDownList
+    TabOrder = 4
+    Text = '0'
+  end
+  object Label6: TLabel
+    Left = 342
+    Height = 11
+    Top = 112
+    Width = 43
+    Caption = '&Info src.:'
+    FocusControl = ComboBox5
+    ParentColor = False
+  end
+  object ComboBox5: TComboBox
+    Left = 342
+    Height = 26
+    Top = 128
+    Width = 50
+    ItemHeight = 0
+    Sorted = True
+    Style = csDropDownList
+    TabOrder = 5
+  end
+  object Label7: TLabel
+    Left = 10
+    Height = 11
+    Top = 168
+    Width = 52
+    Caption = '&Rep. Inst.:'
+    FocusControl = ComboBox6
+    ParentColor = False
+  end
+  object ComboBox6: TComboBox
+    Left = 10
+    Height = 26
+    Top = 184
+    Width = 382
+    ItemHeight = 0
+    OnChange = ComboBox6Change
+    Sorted = True
+    Style = csDropDownList
+    TabOrder = 6
+  end
+  object Label8: TLabel
+    Left = 10
+    Height = 11
+    Top = 224
+    Width = 99
+    Caption = '&Channel/Column 1:'
+    FocusControl = ComboBoxCh1
+    ParentColor = False
+  end
+  object ComboBoxCh1: TComboBox
+    Left = 10
+    Height = 23
+    Top = 240
+    Width = 140
+    AutoSize = False
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      '<do not import>'
+    )
+    OnChange = ComboBoxCh1Change
+    Style = csDropDownList
+    TabOrder = 7
+    Text = '<do not import>'
+  end
+  object Label9: TLabel
+    Left = 160
+    Height = 11
+    Top = 224
+    Width = 99
+    Caption = 'C&hannel/Column 2:'
+    FocusControl = ComboBoxCh2
+    ParentColor = False
+  end
+  object ComboBoxCh2: TComboBox
+    Left = 160
+    Height = 23
+    Top = 240
+    Width = 140
+    AutoSize = False
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      '<do not import>'
+    )
+    OnChange = ComboBoxCh2Change
+    Style = csDropDownList
+    TabOrder = 8
+    Text = '<do not import>'
+  end
+  object Label10: TLabel
+    Left = 234
+    Height = 11
+    Top = 112
+    Width = 46
+    Caption = '&WL stat.:'
+    FocusControl = ComboBox9
+    ParentColor = False
+  end
+  object ComboBox9: TComboBox
+    Left = 234
+    Height = 26
+    Top = 128
+    Width = 50
+    ItemHeight = 0
+    Sorted = True
+    Style = csDropDownList
+    TabOrder = 9
+  end
+  object EditDepth: TEdit
+    Left = 294
+    Height = 24
+    Top = 24
+    Width = 100
+    Alignment = taRightJustify
+    NumbersOnly = True
+    TabOrder = 10
+    Text = '0.00'
+  end
+  object Label2: TLabel
+    Left = 294
+    Height = 11
+    Top = 6
+    Width = 77
+    Caption = '&Depth installed'
+    ParentColor = False
+  end
+  object FileNameEdit1: TFileNameEdit
+    Left = 10
+    Height = 24
+    Top = 77
+    Width = 382
+    OnAcceptFileName = FileNameEdit1AcceptFileName
+    DialogTitle = 'Open Logger File'
+    Filter = 'Compatible level files (*.xle, *.lev)|*.xle;*.XLE;*.Xle;*.lev;*.LEV;*.Lev|XML level file (*.xle)|*.xle;*.XLE;*.Xle|Text level file (*.lev)|*.lev;*.LEV;*.Lev|All files (*.*)|*.*'
+    FilterIndex = 0
+    DefaultExt = 'lev'
+    HideDirectories = False
+    ButtonHint = 'Open logger file'
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
+    TabOrder = 11
+    OnButtonClick = FileNameEdit1ButtonClick
+  end
+  object Label11: TLabel
+    Left = 10
+    Height = 11
+    Top = 62
+    Width = 106
+    Caption = 'Logger file to import:'
+    ParentColor = False
+  end
+  object Memo1: TMemo
+    Left = 305
+    Height = 33
+    Top = 224
+    Width = 80
+    Lines.Strings = (
+      'Memo1'
+    )
+    TabOrder = 12
+    Visible = False
+    WordWrap = False
+  end
+  object Label12: TLabel
+    Left = 10
+    Height = 11
+    Top = 280
+    Width = 86
+    Caption = 'Import only from:'
+    ParentColor = False
+  end
+  object DateTimePicker1: TDateTimePicker
+    Left = 10
+    Height = 23
+    Top = 296
+    Width = 140
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoYMD
+    MaxDate = 2958465
+    MinDate = -53780
+    AutoSize = False
+    TabOrder = 13
+    Enabled = False
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDateTime
+    TimeFormat = tf24
+    TimeDisplay = tdHM
+    DateMode = dmComboBox
+    Date = 44447
+    Time = 0.456211168981099
+    UseDefaultSeparators = True
+    HideDateTimeParts = []
+    MonthNames = 'Long'
+    OnChange = DateTimePicker1Change
+  end
+  object Label13: TLabel
+    Left = 160
+    Height = 11
+    Top = 280
+    Width = 123
+    Caption = 'Import Time Frequency:'
+    ParentColor = False
+  end
+  object ComboBoxFreq: TComboBox
+    Left = 160
+    Height = 23
+    Top = 296
+    Width = 192
+    AutoSize = False
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      'All'
+      'On the hour only'
+      'Hourly from start time only'
+      'Half-hourly from start time only'
+    )
+    OnChange = ComboBoxFreqChange
+    Style = csDropDownList
+    TabOrder = 14
+    Text = 'All'
+  end
+  object CodesQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    Params = <>
+    Left = 207
+    Top = 160
+  end
+  object DepthQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'SITE_ID_NR, DATE_INST'
+    BeforeOpen = DepthQueryBeforeOpen
+    AfterOpen = DepthQueryAfterOpen
+    SQL.Strings = (
+      'SELECT site_id_nr, date_inst, depth_inst FROM genequip WHERE site_id_nr = :SiteID and type_inst = ''L'''
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'SiteID'
+        ParamType = ptInput
+        Size = 11
+      end>
+    IndexFieldNames = 'SITE_ID_NR Asc, DATE_INST Asc'
+    Left = 310
+    Top = 36
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'SiteID'
+        ParamType = ptInput
+        Size = 11
+      end>
+  end
+end

@@ -1,0 +1,443 @@
+object ImportChemForm: TImportChemForm
+  Left = 699
+  Height = 300
+  Top = 239
+  Width = 450
+  HelpContext = 551
+  Caption = 'Import Chemistry'
+  ClientHeight = 300
+  ClientWidth = 450
+  Constraints.MinHeight = 260
+  Constraints.MinWidth = 360
+  KeyPreview = True
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poScreenCenter
+  SessionProperties = 'Left;Top;Width;Height'
+  LCLVersion = '2.0.12.0'
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 38
+    Top = 256
+    Width = 438
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.Enabled = False
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.HelpContext = 551
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CloseButton.OnClick = CloseButtonClick
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 0
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object Label1: TLabel
+    Left = 6
+    Height = 11
+    Top = 8
+    Width = 70
+    Caption = 'Import Table:'
+    ParentColor = False
+  end
+  object Edit1: TEdit
+    Left = 6
+    Height = 22
+    Top = 24
+    Width = 407
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    Enabled = False
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    ParentFont = False
+    TabOrder = 1
+  end
+  object ButtonBrowse: TButton
+    Left = 419
+    Height = 25
+    Hint = 'Browse'
+    Top = 24
+    Width = 25
+    Anchors = [akTop, akRight]
+    Caption = '...'
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    OnClick = ButtonBrowseClick
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+  end
+  object StringGrid1: TStringGrid
+    Left = 4
+    Height = 178
+    Hint = 'Select "Into Field" by clicking dropdown on right side of column'
+    Top = 72
+    Width = 442
+    Align = alBottom
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoFillColumns = True
+    BorderSpacing.Left = 4
+    BorderSpacing.Right = 4
+    ColCount = 4
+    Columns = <    
+      item
+        ReadOnly = True
+        Title.Caption = 'Import Table Field'
+        Width = 183
+      end    
+      item
+        ButtonStyle = cbsPickList
+        MaxSize = 140
+        PickList.Strings = (
+          '<DO NOT IMPORT>'
+        )
+        SizePriority = 0
+        Title.Caption = 'Into Field'
+        Width = 140
+      end    
+      item
+        Alignment = taRightJustify
+        ButtonStyle = cbsPickList
+        MaxSize = 80
+        PickList.Strings = (
+          '1'
+          '0.1'
+          '0.001'
+          '0.2259'
+          '3.2844'
+          '0.7765'
+          '3.0656'
+        )
+        SizePriority = 0
+        Title.Alignment = taRightJustify
+        Title.Caption = 'Factor'
+        Width = 70
+      end>
+    MouseWheelOption = mwGrid
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll, goRowHighlight]
+    ParentShowHint = False
+    RowCount = 2
+    ScrollBars = ssAutoVertical
+    ShowHint = True
+    TabOrder = 3
+    OnEditingDone = StringGrid1EditingDone
+    OnValidateEntry = StringGrid1ValidateEntry
+    ColWidths = (
+      47
+      183
+      140
+      70
+    )
+  end
+  object Label2: TLabel
+    Left = 6
+    Height = 11
+    Top = 54
+    Width = 85
+    Caption = 'Field Mappings:'
+    ParentColor = False
+  end
+  object OpenDialog: TOpenDialog
+    DefaultExt = '.csv'
+    Filter = 'dBase File (*.dbf)|*.dbf;*.DBF|CSV File (*.csv)|*.csv;*.CSV'
+    FilterIndex = 2
+    Left = 288
+    Top = 8
+  end
+  object DbaseDataSet: TDbf
+    IndexDefs = <>
+    ReadOnly = True
+    TableLevel = 4
+    FilterOptions = []
+    Left = 152
+    Top = 112
+  end
+  object SdfDataSet: TSdfDataSet
+    FileMustExist = True
+    ReadOnly = True
+    Schema.Strings = (
+      'siteid'
+      'sitenr'
+      'long'
+      'lat'
+      'elevation'
+      'sitetype'
+      'repinst'
+      'depth'
+      'datedrilled'
+      'COORDACC'
+      'datemeas'
+      'timemeas'
+      'timesecs'
+      'status'
+      'wl'
+      'piez'
+      'SAMPLNR'
+      'DATSAMPL'
+      'TIMESAMPL'
+      'LAB'
+      'DEPTH_SAMPL'
+      'DATEANALYSED'
+      'METHSAMPL'
+      'EC'
+      'CA'
+      'NA'
+      'CL'
+      'SO4'
+      'CHMREF'
+      'LIMIT'
+      'LIMITCL'
+      'LIMITNA'
+      'LIMITCA'
+    )
+    FieldDefs = <    
+      item
+        Name = 'siteid'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'sitenr'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'long'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'lat'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'elevation'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'sitetype'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'repinst'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'depth'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'datedrilled'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'COORDACC'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'datemeas'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'timemeas'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'timesecs'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'status'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'wl'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'piez'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'SAMPLNR'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'DATSAMPL'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'TIMESAMPL'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'LAB'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'DEPTH_SAMPL'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'DATEANALYSED'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'METHSAMPL'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'EC'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'CA'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'NA'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'CL'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'SO4'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'CHMREF'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'LIMIT'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'LIMITCL'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'LIMITNA'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end    
+      item
+        Name = 'LIMITCA'
+        DataType = ftString
+        Precision = -1
+        Size = 237
+      end>
+    AllowMultiLine = False
+    Delimiter = ','
+    FirstLineAsSchema = True
+    StripTrailingDelimiters = False
+    Left = 152
+    Top = 184
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    Left = 40
+    Top = 184
+  end
+  object ChemQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    FetchRow = 1
+    Left = 281
+    Top = 140
+  end
+  object ChemTable: TZTable
+    Connection = DataModuleMain.ZConnectionDB
+    OnPostError = ChemTablePostError
+    Left = 374
+    Top = 149
+  end
+  object RefNrQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SQL.Strings = (
+      'SELECT MAX(CHM_REF_NR) FROM chem_000'
+    )
+    Params = <>
+    Left = 56
+    Top = 128
+  end
+  object ZSQLProcessor1: TZSQLProcessor
+    Params = <>
+    Connection = DataModuleMain.ZConnectionDB
+    Delimiter = ';'
+    Left = 248
+    Top = 192
+  end
+end

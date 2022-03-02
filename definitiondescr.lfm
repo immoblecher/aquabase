@@ -1,0 +1,54 @@
+object DescrForm: TDescrForm
+  Left = 388
+  Height = 106
+  Top = 275
+  Width = 355
+  Caption = 'Description'
+  ClientHeight = 106
+  ClientWidth = 355
+  Constraints.MaxHeight = 106
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '2.0.8.0'
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 36
+    Top = 64
+    Width = 343
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 0
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object LabeledEdit1: TLabeledEdit
+    Left = 9
+    Height = 25
+    Top = 24
+    Width = 336
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    EditLabel.Height = 13
+    EditLabel.Width = 336
+    EditLabel.Caption = 'Provide a description for this definition'
+    EditLabel.ParentColor = False
+    TabOrder = 1
+  end
+  object ZReadOnlyQuery1: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionSettings
+    SQL.Strings = (
+      'SELECT DISTINCT DESCRIPTION FROM userentr'
+    )
+    Params = <>
+    left = 135
+    top = 53
+  end
+end

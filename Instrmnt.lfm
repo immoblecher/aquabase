@@ -1,0 +1,279 @@
+inherited InstrumentForm: TInstrumentForm
+  Left = 713
+  Height = 395
+  Top = 264
+  Caption = 'Instrumentation Form'
+  ClientHeight = 395
+  Icon.Data = {
+    FE0200000000010001002020100000000000E802000016000000280000002000
+    0000400000000100040000000000800200000000000000000000000000000000
+    0000000000000000800000800000008080008000000080008000808000008080
+    8000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+    FF00333333333333333333333333333333333333333333333333333333333333
+    3333333333333333333333333333333333333333333333333333333333333333
+    3333333333333333333333333333333333333333333333333333333333333333
+    3333333333333333333333333333333333333333333333333333333333333333
+    3333333333333333333333333333333333333333333333333333333333333333
+    333300000000000000000000000000000000000000000000000000CCCCCCCCCC
+    C000000000000000000000CCCCCCCCCCC000000000000000000000CCCCCCCCCC
+    C000000000000000000000CCCCCCCCCCC000000000000000000000CCCCCCCCCC
+    C00000000000000000000000C0000000000000000000000000000000C0000000
+    000000000000000000000000C0000000000000000000000000000000C0000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    00000000000000000000DFEF8003DFEF8003E01F8003ECDF8003EB5F8003F03F
+    8003F7BFB7FBF7BFB7FBFB7FF7FFFB0007FFFB7FFFFFECDFFFFFCCCFFFFF8487
+    FFFFF33FFFFFFCFFFFFFFCFFFFFFF33FFFFFC30FFFFFE7CFFFFFF7DFFFFFFFFF
+    FFFF
+  }
+  OnCreate = FormCreate
+  OnMouseDown = DBGridMouseDown
+  SessionProperties = 'Height;Left;Top;Width;DBMemo1.Height'
+  inherited Panel1: TPanel
+    inherited ViewNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited BasicDBNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited Panel2: TPanel
+    Height = 251
+    ClientHeight = 251
+    inherited Panel4: TPanel
+      Top = 221
+      inherited DetailNavigator: TDBNavigator
+        Hints.Strings = (        )
+      end
+    end
+    inherited DBGrid: TDBGrid
+      Height = 157
+      AutoFillColumns = True
+    end
+    object DBMemo1: TDBMemo[3]
+      Left = 5
+      Height = 34
+      Top = 185
+      Width = 566
+      Align = alBottom
+      BorderSpacing.Left = 4
+      BorderSpacing.Right = 4
+      DataField = 'NOTE_PAD'
+      DataSource = LinkedDataSource
+      OnEnter = DBMemo1Enter
+      OnExit = DBMemo1Exit
+      TabOrder = 2
+    end
+    object Splitter1: TSplitter[4]
+      Cursor = crVSplit
+      Left = 1
+      Height = 5
+      Top = 180
+      Width = 574
+      Align = alBottom
+      ResizeAnchor = akBottom
+    end
+  end
+  inherited LinkedDataSource: TDataSource
+    OnDataChange = LinkedDataSourceDataChange
+    Top = 248
+  end
+  inherited XMLPropStorage: TXMLPropStorage
+    Left = 456
+    Top = 264
+  end
+  inherited LinkedQuery: TZQuery
+    SortedFields = 'SITE_ID_NR,DATE_INST'
+    BeforeOpen = LinkedQueryBeforeOpen
+    BeforeInsert = LinkedQueryBeforeInsert
+    BeforePost = LinkedQueryBeforePost
+    AfterPost = LinkedQueryAfterPost
+    OnNewRecord = LinkedQueryNewRecord
+    SQL.Strings = (
+      'SELECT * FROM genequip WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    IndexFieldNames = 'SITE_ID_NR Asc,DATE_INST Asc'
+    Top = 248
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object LinkedQueryDATE_ENTRY: TStringField[1]
+      Alignment = taCenter
+      DisplayLabel = 'Date entered'
+      DisplayWidth = 32
+      FieldKind = fkData
+      FieldName = 'DATE_ENTRY'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 32
+    end
+    object LinkedQueryREP_INST: TStringField[2]
+      Tag = 1
+      Alignment = taCenter
+      DisplayLabel = 'Rep. Inst.'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQuerySetText
+      OnValidate = LinkedQueryValidate
+      Size = 16
+    end
+    object LinkedQueryINFO_SOURC: TStringField[3]
+      Tag = 44
+      Alignment = taCenter
+      DisplayLabel = 'Info src.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 3
+      LookupCache = False
+      LookupKeyFields = 'IS_GENEQ'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQuerySetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryDATE_INST: TStringField[4]
+      Alignment = taCenter
+      DisplayLabel = 'Date inst.'
+      DisplayWidth = 32
+      FieldKind = fkData
+      FieldName = 'DATE_INST'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryDATE_INSTSetText
+      OnValidate = LinkedQueryDATE_INSTValidate
+      Size = 32
+    end
+    object LinkedQueryTYPE_INST: TStringField[5]
+      Tag = 36
+      Alignment = taCenter
+      DisplayLabel = 'Type inst.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'TYPE_INST'
+      Index = 5
+      LookupCache = False
+      LookupKeyFields = 'GENEQINS'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQuerySetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryDEPTH_INST: TFloatField[6]
+      DisplayLabel = 'Depth inst.'
+      FieldKind = fkData
+      FieldName = 'DEPTH_INST'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryDEPTH_INSTGetText
+      OnSetText = LinkedQueryDEPTH_INSTSetText
+    end
+    object LinkedQueryPARAM_MEAS: TStringField[7]
+      Tag = 37
+      Alignment = taCenter
+      DisplayLabel = 'Param. meas.'
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'PARAM_MEAS'
+      Index = 7
+      LookupCache = False
+      LookupKeyFields = 'PARAMEAS'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQuerySetText
+      OnValidate = LinkedQueryValidate
+      Size = 200
+    end
+    object LinkedQueryMANUFACTUR: TStringField[8]
+      Tag = 41
+      Alignment = taCenter
+      DisplayLabel = 'Manufacturer'
+      DisplayWidth = 72
+      FieldKind = fkData
+      FieldName = 'MANUFACTUR'
+      Index = 8
+      LookupCache = False
+      LookupKeyFields = 'GENEMANU'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQuerySetText
+      OnValidate = LinkedQueryValidate
+      Size = 72
+    end
+    object LinkedQuerySERIAL_NR: TStringField[9]
+      DisplayLabel = 'Serial Nr.'
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'SERIAL_NR'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQuerySetText
+      Size = 48
+    end
+    object LinkedQueryNOTES_YN: TStringField[10]
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'NOTES_YN'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 4
+    end
+    object LinkedQueryNOTE_PAD: TBlobField[11]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NOTE_PAD'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      BlobType = ftMemo
+    end
+  end
+end

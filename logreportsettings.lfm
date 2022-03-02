@@ -1,0 +1,195 @@
+inherited LogReportSetForm: TLogReportSetForm
+  Left = 685
+  Height = 338
+  Top = 166
+  Width = 544
+  HelpContext = 83
+  Caption = 'Construction and Lithology Report Settings'
+  ClientHeight = 338
+  ClientWidth = 544
+  KeyPreview = True
+  OnClose = FormClose
+  OnKeyDown = FormKeyDown
+  inherited Label1: TLabel
+    Left = 16
+    Top = 216
+    Visible = False
+  end
+  inherited Label2: TLabel
+    Height = 10
+    Width = 59
+    Font.Height = -11
+  end
+  inherited RadioGroup1: TRadioGroup
+    Left = 144
+    Top = 200
+    Width = 160
+    ClientHeight = 52
+    ClientWidth = 158
+    Enabled = False
+    Visible = False
+  end
+  inherited ViewComboBox: TComboBox
+    Left = 16
+    Top = 232
+    Width = 160
+    Visible = False
+  end
+  inherited GroupBox1: TGroupBox
+    Left = 172
+    Width = 176
+    ClientHeight = 107
+    ClientWidth = 174
+    inherited CheckBox2: TCheckBox
+      Checked = False
+      Enabled = False
+      State = cbUnchecked
+    end
+  end
+  inherited TitleEdit: TEdit
+    Width = 324
+    Text = 'LITHOLOGY, CONSTRUCTION AND DEPTH DATA REPORT'
+  end
+  inherited CommentMemo: TMemo
+    Height = 89
+    Width = 340
+  end
+  inherited ConstrGroupBox: TGroupBox
+    Left = 352
+    Height = 73
+    Top = 208
+    Width = 184
+    ClientHeight = 60
+    ClientWidth = 182
+    inherited RecordsButton: TButton
+      Left = 16
+      Top = 28
+    end
+    inherited ConstrCheckBox: TCheckBox
+      Top = 2
+    end
+  end
+  inherited ButtonPanel1: TButtonPanel
+    Top = 294
+    Width = 532
+    OKButton.OnClick = OKButtonClick
+    HelpButton.HelpContext = 83
+    HelpButton.OnClick = HelpButtonClick
+    CancelButton.OnClick = CancelButtonClick
+  end
+  object GroupBox2: TGroupBox[11]
+    Left = 352
+    Height = 194
+    Top = 8
+    Width = 184
+    Caption = 'Show Information for: '
+    ClientHeight = 181
+    ClientWidth = 182
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    ParentFont = False
+    TabOrder = 9
+    object ConstructionCheckBox: TCheckBox
+      Left = 8
+      Height = 23
+      Top = 4
+      Width = 108
+      Caption = 'Site Construction'
+      Checked = True
+      State = cbChecked
+      TabOrder = 0
+    end
+    object AquiferCheckBox: TCheckBox
+      Left = 8
+      Height = 23
+      Top = 29
+      Width = 117
+      Caption = 'Aquifer Information'
+      Checked = True
+      State = cbChecked
+      TabOrder = 1
+    end
+    object Geology1CheckBox: TCheckBox
+      Left = 8
+      Height = 23
+      Top = 54
+      Width = 148
+      Caption = 'Lithology, colours, texture'
+      Checked = True
+      State = cbChecked
+      TabOrder = 2
+    end
+    object SortingCheckBox: TCheckBox
+      Left = 8
+      Height = 23
+      Top = 79
+      Width = 134
+      Caption = 'Sorting and roundness'
+      TabOrder = 3
+    end
+    object GrainCheckBox: TCheckBox
+      Left = 8
+      Height = 23
+      Top = 104
+      Width = 106
+      Caption = 'Grain distribution'
+      TabOrder = 4
+    end
+    object FillCheckBox: TCheckBox
+      Left = 8
+      Height = 23
+      Top = 129
+      Width = 80
+      Caption = 'Fill material'
+      TabOrder = 5
+    end
+    object PiezomCheckBox: TCheckBox
+      Left = 8
+      Height = 23
+      Top = 154
+      Width = 85
+      Caption = 'Piezometers'
+      TabOrder = 6
+    end
+  end
+  object CheckBoxSplitCharts: TCheckBox[12]
+    Left = 8
+    Height = 23
+    Hint = 'This will split the charts over the first two pages of the report. This may be necessary for logs with a lot of detail'
+    Top = 8
+    Width = 152
+    Caption = 'Split chart(s) over 2 pages'
+    Enabled = False
+    OnClick = CheckBoxSplitChartsClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 10
+  end
+  object CheckBoxBasicInfo: TCheckBox[13]
+    Left = 8
+    Height = 23
+    Top = 40
+    Width = 136
+    Caption = 'Basic Info. on all pages'
+    Checked = True
+    State = cbChecked
+    TabOrder = 11
+  end
+  object CheckBoxSave: TCheckBox[14]
+    Left = 8
+    Height = 23
+    Hint = 'Saves the chart(s) as bitmaps in the workspace (Chart*.bmp)'
+    Top = 72
+    Width = 158
+    Caption = 'Save chart(s) in workspace'
+    OnClick = CheckBoxSaveClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 12
+  end
+  inherited PopupMenu1: TPopupMenu[15]
+    Left = 208
+    Top = 224
+  end
+end

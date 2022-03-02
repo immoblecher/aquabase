@@ -1,0 +1,107 @@
+object InsCharForm: TInsCharForm
+  Left = 956
+  Height = 150
+  Top = 279
+  Width = 260
+  HelpContext = 73
+  BorderStyle = bsSingle
+  Caption = 'Insert Character'
+  ClientHeight = 150
+  ClientWidth = 260
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -9
+  Font.Name = 'MS Sans Serif'
+  KeyPreview = True
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poScreenCenter
+  LCLVersion = '2.0.8.0'
+  object GroupBox1: TGroupBox
+    Left = 6
+    Height = 97
+    Top = 7
+    Width = 246
+    Caption = 'Insert Character in Site Identifier:'
+    ClientHeight = 83
+    ClientWidth = 242
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    ParentFont = False
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 8
+      Height = 10
+      Top = 2
+      Width = 23
+      Caption = 'View'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 8
+      Height = 10
+      Top = 58
+      Width = 93
+      Caption = 'Character to insert:'
+      ParentColor = False
+    end
+    object EditChar: TEdit
+      Left = 120
+      Height = 21
+      Top = 52
+      Width = 22
+      Alignment = taCenter
+      CharCase = ecUppercase
+      MaxLength = 1
+      TabOrder = 0
+      Text = '0'
+    end
+    object ComboBoxView: TComboBox
+      Left = 8
+      Height = 25
+      Top = 19
+      Width = 228
+      ItemHeight = 0
+      Style = csDropDownList
+      TabOrder = 1
+    end
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 36
+    Top = 108
+    Width = 248
+    HelpContext = 73
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.Font.Color = clWindowText
+    OKButton.Font.Height = -11
+    OKButton.Font.Name = 'MS Sans Serif'
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.HelpContext = 73
+    HelpButton.DefaultCaption = True
+    HelpButton.Font.Color = clWindowText
+    HelpButton.Font.Height = -11
+    HelpButton.Font.Name = 'MS Sans Serif'
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    CancelButton.Font.Color = clWindowText
+    CancelButton.Font.Height = -11
+    CancelButton.Font.Name = 'MS Sans Serif'
+    TabOrder = 1
+    DefaultButton = pbCancel
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object ViewQuery: TZReadOnlyQuery
+    BeforeOpen = ViewQueryBeforeOpen
+    Params = <>
+    left = 181
+    top = 56
+  end
+end

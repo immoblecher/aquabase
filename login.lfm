@@ -1,0 +1,82 @@
+object LoginForm: TLoginForm
+  Left = 937
+  Height = 146
+  Top = 175
+  Width = 271
+  ActiveControl = EditUserName
+  BorderStyle = bsSingle
+  Caption = 'Login'
+  ClientHeight = 146
+  ClientWidth = 271
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poScreenCenter
+  SessionProperties = 'EditUserName.Text'
+  LCLVersion = '1.8.4.0'
+  object Label3: TLabel
+    Left = 8
+    Height = 15
+    Top = 36
+    Width = 63
+    Caption = 'User Name:'
+    ParentColor = False
+  end
+  object EditUserName: TEdit
+    Left = 88
+    Height = 24
+    Top = 32
+    Width = 174
+    AutoSize = False
+    TabOrder = 0
+  end
+  object Label4: TLabel
+    Left = 8
+    Height = 15
+    Top = 68
+    Width = 54
+    Caption = 'Password:'
+    ParentColor = False
+  end
+  object EditPassword: TEdit
+    Left = 88
+    Height = 24
+    Top = 64
+    Width = 174
+    AutoSize = False
+    EchoMode = emPassword
+    ParentShowHint = False
+    PasswordChar = '*'
+    TabOrder = 1
+  end
+  object Label1: TLabel
+    Left = 8
+    Height = 15
+    Top = 10
+    Width = 262
+    Caption = 'Please provide user name and password to login'
+    ParentColor = False
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 36
+    Top = 104
+    Width = 259
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 2
+    ShowButtons = [pbOK, pbCancel]
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    left = 120
+    top = 48
+  end
+end

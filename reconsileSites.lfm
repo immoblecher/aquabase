@@ -1,0 +1,80 @@
+object FormReconcile: TFormReconcile
+  Left = 819
+  Height = 97
+  Top = 231
+  Width = 321
+  HelpContext = 75
+  BorderStyle = bsSingle
+  Caption = 'Reconcile sites'
+  ClientHeight = 97
+  ClientWidth = 321
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = [fsBold]
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poScreenCenter
+  LCLVersion = '2.0.8.0'
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 36
+    Top = 55
+    Width = 309
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.Enabled = False
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.HelpContext = 75
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 0
+    DefaultButton = pbCancel
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object LabeledEdit1: TLabeledEdit
+    Left = 8
+    Height = 21
+    Top = 24
+    Width = 216
+    EditLabel.Height = 10
+    EditLabel.Width = 216
+    EditLabel.Caption = 'Reconcile current site with data from'
+    EditLabel.ParentColor = False
+    EditLabel.ParentFont = False
+    EditLabel.Font.Color = clWindowText
+    EditLabel.Font.Height = -11
+    EditLabel.Font.Name = 'MS Sans Serif'
+    ReadOnly = True
+    TabOrder = 1
+    Text = '<no site selected>'
+  end
+  object Button1: TButton
+    Left = 232
+    Height = 25
+    Top = 22
+    Width = 80
+    Caption = 'Select Site'
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    OnClick = Button1Click
+    ParentFont = False
+    TabOrder = 2
+  end
+  object ZSQLProcessor1: TZSQLProcessor
+    Params = <>
+    Delimiter = ';'
+    OnError = ZSQLProcessor1Error
+    left = 104
+    top = 48
+  end
+end

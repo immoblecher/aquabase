@@ -1,0 +1,5342 @@
+inherited ChemReportForm: TChemReportForm
+  Left = 569
+  Caption = 'Chemistry Report'
+  inherited TheReport: TRLReport
+    Title = 'CHEMISTRY REPORT'
+    AfterPrint = TheReportAfterPrint
+    BeforePrint = TheReportBeforePrint
+    inherited RLBand1: TRLBand
+      inherited RLDBText1: TRLDBText
+        Left = 278
+      end
+      inherited RLDBText2: TRLDBText
+        Left = 414
+        Width = 70
+      end
+      inherited RLDBText3: TRLDBText
+        Left = 558
+        Width = 152
+      end
+      inherited RLLabel13: TRLLabel
+        Width = 121
+        Caption = 'Reporting Institution:'
+      end
+      inherited RLDBText6: TRLDBText
+        Left = 84
+        Width = 154
+      end
+      inherited RLDBText7: TRLDBText
+        Left = 330
+        Width = 380
+      end
+    end
+    inherited FooterBand: TRLBand
+      Top = 1223
+    end
+    inherited SubDetail1: TRLSubDetail
+      Top = 551
+      DataSource = Chem0DataSource
+      inherited SubHeaderBand: TRLBand
+        inherited RLLabel78: TRLLabel
+          Width = 276
+          Caption = 'Chemistry Samples - Sampling Information'
+        end
+        object RLLabel10: TRLLabel[1]
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 73
+          Caption = 'Chm. Ref. Nr.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel14: TRLLabel[2]
+          Left = 80
+          Height = 13
+          Top = 24
+          Width = 63
+          Caption = 'Sample Nr.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel16: TRLLabel[3]
+          Left = 162
+          Height = 13
+          Top = 24
+          Width = 73
+          Caption = 'Sample Type'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel18: TRLLabel[4]
+          Left = 272
+          Height = 13
+          Top = 24
+          Width = 73
+          Caption = 'Meth. sampl.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel19: TRLLabel[5]
+          Left = 402
+          Height = 13
+          Top = 24
+          Width = 108
+          Caption = 'Date & Time sampl.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel20: TRLLabel[6]
+          Left = 516
+          Height = 13
+          Top = 24
+          Width = 70
+          Caption = 'Depth samp.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel31: TRLLabel[7]
+          Left = 612
+          Height = 13
+          Top = 24
+          Width = 99
+          Caption = 'Time pump. [min]'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      inherited RLBand: TRLBand
+        object RLDBText16: TRLDBText[0]
+          Left = 8
+          Height = 13
+          Top = 2
+          Width = 66
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CHM_REF_NR'
+          DataSource = Chem0DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText17: TRLDBText[1]
+          Left = 80
+          Height = 13
+          Top = 2
+          Width = 76
+          AutoSize = False
+          DataField = 'SAMPLE_NR'
+          DataSource = Chem0DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText28: TRLDBText[2]
+          Left = 162
+          Height = 13
+          Top = 2
+          Width = 106
+          AutoSize = False
+          DataField = 'SAMPL_TYPE'
+          DataSource = Chem0DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText29: TRLDBText[3]
+          Left = 272
+          Height = 13
+          Top = 2
+          Width = 126
+          AutoSize = False
+          DataField = 'METH_SAMPL'
+          DataSource = Chem0DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText30: TRLDBText[4]
+          Left = 402
+          Height = 13
+          Top = 2
+          Width = 60
+          AutoSize = False
+          DataField = 'DATE_SAMPL'
+          DataSource = Chem0DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText31: TRLDBText[5]
+          Left = 470
+          Height = 13
+          Top = 2
+          Width = 30
+          AutoSize = False
+          DataField = 'TIME_SAMPL'
+          DataSource = Chem0DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText32: TRLDBText[6]
+          Left = 520
+          Height = 13
+          Top = 2
+          Width = 66
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'DEPTH_SAMP'
+          DataSource = Chem0DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText33: TRLDBText[7]
+          Left = 620
+          Height = 13
+          Top = 2
+          Width = 66
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TIME_PUMP'
+          DataSource = Chem0DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail1_1: TRLSubDetail[4]
+      Left = 39
+      Height = 56
+      Top = 607
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = Chem0DataSource
+      object SubHeaderBand1: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabel79: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 16
+          Top = 4
+          Width = 366
+          Caption = 'Chemistry Samples - Laboratory and alternative numbers'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel21: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 73
+          Caption = 'Chm. Ref. Nr.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel32: TRLLabel
+          Left = 90
+          Height = 13
+          Top = 24
+          Width = 59
+          Caption = 'Date anal.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel33: TRLLabel
+          Left = 300
+          Height = 13
+          Top = 24
+          Width = 68
+          Caption = 'Altern. Nr. 1'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel34: TRLLabel
+          Left = 160
+          Height = 13
+          Top = 24
+          Width = 65
+          Caption = 'Laboratory'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel35: TRLLabel
+          Left = 375
+          Height = 13
+          Top = 24
+          Width = 68
+          Caption = 'Altern. Nr. 2'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel36: TRLLabel
+          Left = 450
+          Height = 13
+          Top = 24
+          Width = 68
+          Caption = 'Altern. Nr. 3'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel37: TRLLabel
+          Left = 528
+          Height = 13
+          Top = 24
+          Width = 68
+          Caption = 'Altern. Nr. 4'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel38: TRLLabel
+          Left = 600
+          Height = 13
+          Top = 24
+          Width = 55
+          Caption = 'Comment'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand2: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText34: TRLDBText
+          Left = 8
+          Height = 13
+          Top = 2
+          Width = 66
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CHM_REF_NR'
+          DataSource = Chem0DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText35: TRLDBText
+          Left = 90
+          Height = 13
+          Top = 2
+          Width = 66
+          AutoSize = False
+          DataField = 'DATE_ANAL'
+          DataSource = Chem0DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText36: TRLDBText
+          Left = 300
+          Height = 13
+          Top = 2
+          Width = 66
+          AutoSize = False
+          DataField = 'ALT_NR_1'
+          DataSource = Chem0DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText37: TRLDBText
+          Left = 160
+          Height = 13
+          Top = 2
+          Width = 136
+          AutoSize = False
+          DataField = 'LAB'
+          DataSource = Chem0DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText38: TRLDBText
+          Left = 375
+          Height = 13
+          Top = 2
+          Width = 66
+          AutoSize = False
+          DataField = 'ALT_NR_2'
+          DataSource = Chem0DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText39: TRLDBText
+          Left = 450
+          Height = 13
+          Top = 2
+          Width = 66
+          AutoSize = False
+          DataField = 'ALT_NR_3'
+          DataSource = Chem0DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText40: TRLDBText
+          Left = 528
+          Height = 13
+          Top = 2
+          Width = 66
+          AutoSize = False
+          DataField = 'ALT_NR_4'
+          DataSource = Chem0DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText41: TRLDBText
+          Left = 600
+          Height = 13
+          Top = 2
+          Width = 112
+          AutoSize = False
+          DataField = 'COMMENT'
+          DataSource = Chem0DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail2a: TRLSubDetail[5]
+      Left = 39
+      Height = 56
+      Top = 663
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = Chem1DataSource
+      object SubHeaderBand2: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabelStandParam: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 16
+          Top = 4
+          Width = 221
+          Caption = 'Standard Parameters incl. Cations'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel15: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 73
+          Caption = 'Chm. Ref. Nr.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel39: TRLLabel
+          Left = 90
+          Height = 13
+          Top = 24
+          Width = 63
+          Caption = 'pH (@25°C)'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel40: TRLLabel
+          Left = 162
+          Height = 13
+          Top = 24
+          Width = 18
+          Caption = 'EC'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel41: TRLLabel
+          Left = 230
+          Height = 13
+          Top = 24
+          Width = 25
+          Caption = 'TDS'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel42: TRLLabel
+          Left = 288
+          Height = 13
+          Top = 24
+          Width = 18
+          Caption = 'Ca'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel43: TRLLabel
+          Left = 336
+          Height = 13
+          Top = 24
+          Width = 21
+          Caption = 'Mg'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel44: TRLLabel
+          Left = 388
+          Height = 13
+          Top = 24
+          Width = 18
+          Caption = 'Na'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel45: TRLLabel
+          Left = 442
+          Height = 13
+          Top = 24
+          Width = 11
+          Caption = 'K'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel46: TRLLabel
+          Left = 488
+          Height = 13
+          Top = 24
+          Width = 16
+          Caption = 'Fe'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel47: TRLLabel
+          Left = 530
+          Height = 13
+          Top = 24
+          Width = 21
+          Caption = 'Mn'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel48: TRLLabel
+          Left = 582
+          Height = 13
+          Top = 24
+          Width = 15
+          Caption = 'Al'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel49: TRLLabel
+          Left = 610
+          Height = 13
+          Top = 24
+          Width = 105
+          Caption = 'Tot. Alk. as CaCO3'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand3: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText27: TRLDBText
+          Left = 8
+          Height = 13
+          Top = 2
+          Width = 66
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CHM_REF_NR'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextPH: TRLDBText
+          Left = 100
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'PH'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextEC: TRLDBText
+          Left = 162
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'EC'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextTDS: TRLDBText
+          Left = 220
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TDS'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextCA: TRLDBText
+          Left = 270
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CA'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMG: TRLDBText
+          Left = 320
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'MG'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextNA: TRLDBText
+          Left = 370
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'NA'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextK: TRLDBText
+          Left = 420
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'K'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextFE: TRLDBText
+          Left = 470
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'FE'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMN: TRLDBText
+          Left = 516
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'MN'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAL: TRLDBText
+          Left = 562
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'AL'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMALK: TRLDBText
+          Left = 620
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'MALK'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail2b: TRLSubDetail[6]
+      Left = 39
+      Height = 56
+      Top = 719
+      Width = 716
+      DataSource = Chem1DataSource
+      object SubHeaderBand2_1: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabelStandParam1: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 16
+          Top = 4
+          Width = 217
+          Caption = 'Standard Parameters incl. Anions'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel50: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 73
+          Caption = 'Chm. Ref. Nr.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel51: TRLLabel
+          Left = 120
+          Height = 13
+          Top = 24
+          Width = 15
+          Caption = 'Cl'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel52: TRLLabel
+          Left = 172
+          Height = 13
+          Top = 24
+          Width = 25
+          Caption = 'SO4'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelN: TRLLabel
+          Left = 242
+          Height = 13
+          Top = 24
+          Width = 11
+          Alignment = taRightJustify
+          Caption = 'N'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel54: TRLLabel
+          Left = 334
+          Height = 13
+          Top = 24
+          Width = 26
+          Caption = 'CO3'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel55: TRLLabel
+          Left = 380
+          Height = 13
+          Top = 24
+          Width = 34
+          Caption = 'HCO3'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel56: TRLLabel
+          Left = 437
+          Height = 13
+          Top = 24
+          Width = 46
+          Caption = 'Ph. Alk.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel57: TRLLabel
+          Left = 496
+          Height = 13
+          Top = 24
+          Width = 52
+          Caption = 'Ph. Acid.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel58: TRLLabel
+          Left = 560
+          Height = 13
+          Top = 24
+          Width = 65
+          Caption = 'Meth. Acid.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel59: TRLLabel
+          Left = 295
+          Height = 13
+          Top = 24
+          Width = 10
+          Caption = 'F'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel60: TRLLabel
+          Left = 670
+          Height = 13
+          Top = 24
+          Width = 14
+          Caption = 'Si'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand4: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        Borders.Sides = sdCustom
+        Borders.DrawLeft = False
+        Borders.DrawTop = False
+        Borders.DrawRight = False
+        Borders.DrawBottom = True
+        object RLDBText42: TRLDBText
+          Left = 8
+          Height = 13
+          Top = 2
+          Width = 66
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CHM_REF_NR'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextCL: TRLDBText
+          Left = 100
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CL'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextSO4: TRLDBText
+          Left = 162
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'SO4'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextN: TRLDBText
+          Left = 218
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'N'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextCO3: TRLDBText
+          Left = 325
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CO3'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextHCO3: TRLDBText
+          Left = 375
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'HCO3'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextPALK: TRLDBText
+          Left = 440
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'PALK'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextPACID: TRLDBText
+          Left = 506
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'PACID'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMACID: TRLDBText
+          Left = 584
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'MACID'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextF: TRLDBText
+          Left = 270
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'F'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextSI: TRLDBText
+          Left = 648
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'SI'
+          DataSource = Chem1DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail3a: TRLSubDetail[7]
+      Left = 39
+      Height = 56
+      Top = 775
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = Chem2DataSource
+      object SubHeaderBand3: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabelAddParam: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 16
+          Top = 4
+          Width = 146
+          Caption = 'Additional Parameters'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel61: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 73
+          Caption = 'Chm. Ref. Nr.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelNH4: TRLLabel
+          Left = 110
+          Height = 13
+          Top = 24
+          Width = 25
+          Alignment = taRightJustify
+          Caption = 'NH4'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelNO2: TRLLabel
+          Left = 170
+          Height = 13
+          Top = 24
+          Width = 26
+          Alignment = taRightJustify
+          Caption = 'NO2'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelPO4: TRLLabel
+          Left = 229
+          Height = 13
+          Top = 24
+          Width = 26
+          Alignment = taRightJustify
+          Caption = 'PO4'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel65: TRLLabel
+          Left = 286
+          Height = 13
+          Top = 24
+          Width = 22
+          Caption = 'Cn-'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel66: TRLLabel
+          Left = 336
+          Height = 13
+          Top = 24
+          Width = 14
+          Caption = 'S-'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel67: TRLLabel
+          Left = 388
+          Height = 13
+          Top = 24
+          Width = 16
+          Caption = 'As'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel68: TRLLabel
+          Left = 440
+          Height = 13
+          Top = 24
+          Width = 18
+          Caption = 'Ba'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel69: TRLLabel
+          Left = 488
+          Height = 13
+          Top = 24
+          Width = 16
+          Caption = 'Cr'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel70: TRLLabel
+          Left = 536
+          Height = 13
+          Top = 24
+          Width = 18
+          Caption = 'Hg'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel71: TRLLabel
+          Left = 586
+          Height = 13
+          Top = 24
+          Width = 18
+          Caption = 'Pb'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel72: TRLLabel
+          Left = 636
+          Height = 13
+          Top = 24
+          Width = 18
+          Caption = 'Cd'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand5: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText43: TRLDBText
+          Left = 8
+          Height = 13
+          Top = 2
+          Width = 66
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CHM_REF_NR'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextN_AMONIA: TRLDBText
+          Left = 100
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'N_AMONIA'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextNO2: TRLDBText
+          Left = 162
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'NO2'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextPO4: TRLDBText
+          Left = 220
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'PO4'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextCN: TRLDBText
+          Left = 270
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CN'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextSULF: TRLDBText
+          Left = 320
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'SULF'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextARSENIC: TRLDBText
+          Left = 370
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'ARSENIC'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextBA: TRLDBText
+          Left = 420
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'BA'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextCR: TRLDBText
+          Left = 470
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CR'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextHG: TRLDBText
+          Left = 520
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'HG'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextPB: TRLDBText
+          Left = 570
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'PB'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextCD: TRLDBText
+          Left = 620
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CD'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail3b: TRLSubDetail[8]
+      Left = 39
+      Height = 56
+      Top = 831
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = Chem2DataSource
+      object SubHeaderBand4: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabelAddParam1: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 16
+          Top = 4
+          Width = 146
+          Caption = 'Additional Parameters'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel62: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 73
+          Caption = 'Chm. Ref. Nr.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelNH5: TRLLabel
+          Left = 124
+          Height = 13
+          Top = 24
+          Width = 11
+          Alignment = taRightJustify
+          Caption = 'B'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelNO3: TRLLabel
+          Left = 181
+          Height = 13
+          Top = 24
+          Width = 15
+          Alignment = taRightJustify
+          Caption = 'Bi'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelPO5: TRLLabel
+          Left = 237
+          Height = 13
+          Top = 24
+          Width = 18
+          Alignment = taRightJustify
+          Caption = 'Co'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel73: TRLLabel
+          Left = 286
+          Height = 13
+          Top = 24
+          Width = 18
+          Caption = 'Cu'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel74: TRLLabel
+          Left = 344
+          Height = 13
+          Top = 24
+          Width = 15
+          Caption = 'Ni'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel75: TRLLabel
+          Left = 396
+          Height = 13
+          Top = 24
+          Width = 15
+          Caption = 'Sr'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel76: TRLLabel
+          Left = 460
+          Height = 13
+          Top = 24
+          Width = 14
+          Caption = 'Ti'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel77: TRLLabel
+          Left = 520
+          Height = 13
+          Top = 24
+          Width = 21
+          Caption = 'Mo'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel80: TRLLabel
+          Left = 600
+          Height = 13
+          Top = 24
+          Width = 17
+          Caption = 'Sb'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel83: TRLLabel
+          Left = 662
+          Height = 13
+          Top = 24
+          Width = 17
+          Caption = 'Zn'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand6: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText44: TRLDBText
+          Left = 8
+          Height = 13
+          Top = 2
+          Width = 66
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CHM_REF_NR'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextB: TRLDBText
+          Left = 100
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'B'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextBI: TRLDBText
+          Left = 162
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'BI'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextCO: TRLDBText
+          Left = 220
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CO'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextCU: TRLDBText
+          Left = 270
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CU'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextNI: TRLDBText
+          Left = 325
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'NI'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextSR: TRLDBText
+          Left = 375
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'SR'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextTI: TRLDBText
+          Left = 440
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TI'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMO: TRLDBText
+          Left = 506
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'MO'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextSB: TRLDBText
+          Left = 584
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'SB'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextZN: TRLDBText
+          Left = 648
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'ZN'
+          DataSource = Chem2DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail4a: TRLSubDetail[9]
+      Left = 39
+      Height = 56
+      Top = 887
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = Chem3DataSource
+      object SubHeaderBand5: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabelMicroParam: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 16
+          Top = 4
+          Width = 179
+          Caption = 'Microbiological Parameters'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel63: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 73
+          Caption = 'Chm. Ref. Nr.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelBOD: TRLLabel
+          Left = 120
+          Height = 13
+          Top = 24
+          Width = 28
+          Alignment = taRightJustify
+          Caption = 'BOD'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelECOL: TRLLabel
+          Left = 152
+          Height = 13
+          Top = 24
+          Width = 39
+          Alignment = taRightJustify
+          Caption = 'E. Coli'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelTOTAL_COL: TRLLabel
+          Left = 196
+          Height = 13
+          Top = 24
+          Width = 49
+          Alignment = taRightJustify
+          Caption = 'Tot. Col.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelFAEC_ECOL: TRLLabel
+          Left = 250
+          Height = 13
+          Top = 24
+          Width = 57
+          Alignment = taRightJustify
+          Caption = 'Faec. Col.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelSPC: TRLLabel
+          Left = 312
+          Height = 13
+          Top = 24
+          Width = 47
+          Alignment = taRightJustify
+          Caption = 'HPC /ml'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelFAEC_STREP: TRLLabel
+          Left = 364
+          Height = 13
+          Top = 24
+          Width = 67
+          Caption = 'Faec. Strep.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelENT_VIRUS: TRLLabel
+          Left = 436
+          Height = 13
+          Top = 24
+          Width = 46
+          Caption = 'Ent. Vir.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelTVO: TRLLabel
+          Left = 488
+          Height = 13
+          Top = 24
+          Width = 83
+          Caption = 'Tot. v. Org. /ml'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelPROTO_PARA: TRLLabel
+          Left = 576
+          Height = 13
+          Top = 24
+          Width = 56
+          Caption = 'Prot. Par.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelSOM_COLI: TRLLabel
+          Left = 638
+          Height = 13
+          Top = 24
+          Width = 75
+          Caption = 'Coliph. /10ml'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand7: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText45: TRLDBText
+          Left = 8
+          Height = 13
+          Top = 2
+          Width = 66
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CHM_REF_NR'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextBOD: TRLDBText
+          Left = 104
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'BOD'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextECOL: TRLDBText
+          Left = 150
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'ECOL'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextTOTAL_COL: TRLDBText
+          Left = 200
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TOTAL_COL'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextFAEC_ECOL: TRLDBText
+          Left = 260
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'FAEC_ECOL'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextSPC: TRLDBText
+          Left = 316
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'SPC'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextFAEC_STREP: TRLDBText
+          Left = 380
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'FAEC_STREP'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextENT_VIRUS: TRLDBText
+          Left = 438
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'ENT_VIRUS'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextTVO: TRLDBText
+          Left = 518
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TVO'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextPROTO_PARA: TRLDBText
+          Left = 590
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'PROTO_PARA'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextSOM_COLI: TRLDBText
+          Left = 666
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'SOM_COLI'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail4b: TRLSubDetail[10]
+      Left = 39
+      Height = 56
+      Top = 943
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = Chem3DataSource
+      object SubHeaderBand6: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabelOrgParam: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 16
+          Top = 4
+          Width = 131
+          Caption = 'Organic Parameters'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel64: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 73
+          Caption = 'Chm. Ref. Nr.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelCOD: TRLLabel
+          Left = 107
+          Height = 13
+          Top = 24
+          Width = 28
+          Alignment = taRightJustify
+          Caption = 'COD'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelDOC: TRLLabel
+          Left = 165
+          Height = 13
+          Top = 24
+          Width = 28
+          Alignment = taRightJustify
+          Caption = 'DOC'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelDOX: TRLLabel
+          Left = 206
+          Height = 13
+          Top = 24
+          Width = 43
+          Alignment = taRightJustify
+          Caption = 'Dis. Ox.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelTOC: TRLLabel
+          Left = 272
+          Height = 13
+          Top = 24
+          Width = 27
+          Alignment = taRightJustify
+          Caption = 'TOC'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelOIL: TRLLabel
+          Left = 320
+          Height = 13
+          Top = 24
+          Width = 20
+          Caption = 'Oil'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelSOAP: TRLLabel
+          Left = 360
+          Height = 13
+          Top = 24
+          Width = 31
+          Caption = 'Soap'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelKJED: TRLLabel
+          Left = 404
+          Height = 13
+          Top = 24
+          Width = 46
+          Caption = 'Kjeld. N'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelH2S: TRLLabel
+          Left = 470
+          Height = 13
+          Top = 24
+          Width = 24
+          Caption = 'H2S'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelCFR: TRLLabel
+          Left = 500
+          Height = 13
+          Top = 24
+          Width = 74
+          Caption = 'Free res. Chl.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelSOM_COLI1: TRLLabel
+          Left = 578
+          Height = 13
+          Top = 24
+          Width = 47
+          Caption = 'Phenols'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelTOT_THM: TRLLabel
+          Left = 630
+          Height = 13
+          Top = 24
+          Width = 80
+          Caption = 'Tot. Tri. Meth.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand8: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText46: TRLDBText
+          Left = 8
+          Height = 13
+          Top = 2
+          Width = 66
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CHM_REF_NR'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextCOD: TRLDBText
+          Left = 100
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'COD'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextDOC: TRLDBText
+          Left = 156
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'DOC'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextDOX: TRLDBText
+          Left = 208
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'DOX'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextTOC: TRLDBText
+          Left = 260
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TOC'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextOIL: TRLDBText
+          Left = 306
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'OIL'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextSOAP: TRLDBText
+          Left = 356
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'SOAP'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextKJED: TRLDBText
+          Left = 408
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'KJED'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextH2S: TRLDBText
+          Left = 460
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'H2S'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextCFR: TRLDBText
+          Left = 520
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CFR'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextPHEN: TRLDBText
+          Left = 582
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'PHEN'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextTOT_THM: TRLDBText
+          Left = 648
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TOT_THM'
+          DataSource = Chem3DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail5a: TRLSubDetail[11]
+      Left = 39
+      Height = 56
+      Top = 999
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = Chem4DataSource
+      object SubHeaderBand7: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabelMicroParam1: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 16
+          Top = 4
+          Width = 126
+          Caption = 'Physical Properties'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel81: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 73
+          Caption = 'Chm. Ref. Nr.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelTEMP: TRLLabel
+          Left = 90
+          Height = 13
+          Top = 24
+          Width = 59
+          Alignment = taRightJustify
+          Caption = 'Temp. [°C]'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelTUR: TRLLabel
+          Left = 164
+          Height = 13
+          Top = 24
+          Width = 66
+          Alignment = taRightJustify
+          Caption = 'Turb. [NTU]'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelCOLR: TRLLabel
+          Left = 250
+          Height = 13
+          Top = 24
+          Width = 41
+          Alignment = taRightJustify
+          Caption = 'Colour'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelODR: TRLLabel
+          Left = 310
+          Height = 13
+          Top = 24
+          Width = 38
+          Caption = 'Odour'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelTST: TRLLabel
+          Left = 370
+          Height = 13
+          Top = 24
+          Width = 32
+          Caption = 'Taste'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelSUSP_SOLID: TRLLabel
+          Left = 426
+          Height = 13
+          Top = 24
+          Width = 56
+          Caption = 'Susp. Sol.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelSPECGRAV: TRLLabel
+          Left = 518
+          Height = 13
+          Top = 24
+          Width = 65
+          Caption = 'Spec. Grav.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelMBAS: TRLLabel
+          Left = 610
+          Height = 13
+          Top = 24
+          Width = 43
+          Caption = 'M. Bas.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand9: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText47: TRLDBText
+          Left = 8
+          Height = 13
+          Top = 2
+          Width = 66
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CHM_REF_NR'
+          DataSource = Chem4DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextTEMP: TRLDBText
+          Left = 100
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TEMP'
+          DataSource = Chem4DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextTUR: TRLDBText
+          Left = 180
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TUR'
+          DataSource = Chem4DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextCOLR: TRLDBText
+          Left = 250
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'COLR'
+          DataSource = Chem4DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextODR: TRLDBText
+          Left = 310
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'ODR'
+          DataSource = Chem4DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextTST: TRLDBText
+          Left = 364
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TST'
+          DataSource = Chem4DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextSUSP_SOLID: TRLDBText
+          Left = 440
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'SUSP_SOLID'
+          DataSource = Chem4DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextSPECGRAV: TRLDBText
+          Left = 536
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'SPECGRAV'
+          DataSource = Chem4DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMBAS: TRLDBText
+          Left = 610
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'MBAS'
+          DataSource = Chem4DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail5b: TRLSubDetail[12]
+      Left = 39
+      Height = 56
+      Top = 1055
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = Chem4DataSource
+      object SubHeaderBand8: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabelMicroParam2: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 16
+          Top = 4
+          Width = 56
+          Caption = 'Isotopes'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel82: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 73
+          Caption = 'Chm. Ref. Nr.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelDEUTERIUM: TRLLabel
+          Left = 94
+          Height = 13
+          Top = 24
+          Width = 60
+          Alignment = taRightJustify
+          Caption = 'Deuterium'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelTRITIUM: TRLLabel
+          Left = 190
+          Height = 13
+          Top = 24
+          Width = 44
+          Alignment = taRightJustify
+          Caption = 'Tritium'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelOXYGEN18: TRLLabel
+          Left = 270
+          Height = 13
+          Top = 24
+          Width = 55
+          Alignment = taRightJustify
+          Caption = 'Oxygen18'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelRCARBON: TRLLabel
+          Left = 360
+          Height = 13
+          Top = 24
+          Width = 72
+          Caption = 'Rad. Carbon'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand10: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText48: TRLDBText
+          Left = 8
+          Height = 13
+          Top = 2
+          Width = 66
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CHM_REF_NR'
+          DataSource = Chem4DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextDEUTERIUM: TRLDBText
+          Left = 106
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'DEUTERIUM'
+          DataSource = Chem4DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextTRITIUM: TRLDBText
+          Left = 190
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TRITIUM'
+          DataSource = Chem4DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextOXYGEN18: TRLDBText
+          Left = 280
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'OXYGEN18'
+          DataSource = Chem4DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextRCARBON: TRLDBText
+          Left = 380
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'RCARBON'
+          DataSource = Chem4DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail6a: TRLSubDetail[13]
+      Left = 39
+      Height = 56
+      Top = 1111
+      Width = 716
+      DataSource = Chem5DataSource
+      object SubHeaderBand2_2: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabelStandParam2: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 16
+          Top = 4
+          Width = 111
+          Caption = 'Rare Parameters'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel53: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 64
+          Caption = 'Ch. Ref. Nr.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelAG: TRLLabel
+          Left = 120
+          Height = 13
+          Top = 24
+          Width = 18
+          Caption = 'Ag'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelAU: TRLLabel
+          Left = 176
+          Height = 13
+          Top = 24
+          Width = 18
+          Caption = 'Au'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelBE: TRLLabel
+          Left = 236
+          Height = 13
+          Top = 24
+          Width = 17
+          Alignment = taRightJustify
+          Caption = 'Be'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelCE: TRLLabel
+          Left = 342
+          Height = 13
+          Top = 24
+          Width = 17
+          Caption = 'Ce'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelI: TRLLabel
+          Left = 400
+          Height = 13
+          Top = 24
+          Width = 6
+          Caption = 'I'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelLA: TRLLabel
+          Left = 458
+          Height = 13
+          Top = 24
+          Width = 17
+          Caption = 'La'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelLI: TRLLabel
+          Left = 524
+          Height = 13
+          Top = 24
+          Width = 14
+          Caption = 'Li'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelNB: TRLLabel
+          Left = 598
+          Height = 13
+          Top = 24
+          Width = 18
+          Caption = 'Nb'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelBR: TRLLabel
+          Left = 290
+          Height = 13
+          Top = 24
+          Width = 16
+          Caption = 'Br'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelND: TRLLabel
+          Left = 666
+          Height = 13
+          Top = 24
+          Width = 18
+          Caption = 'Nd'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand11: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        Borders.Sides = sdCustom
+        Borders.DrawLeft = False
+        Borders.DrawTop = False
+        Borders.DrawRight = False
+        Borders.DrawBottom = True
+        object RLDBText49: TRLDBText
+          Left = 8
+          Height = 13
+          Top = 2
+          Width = 66
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CHM_REF_NR'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAG: TRLDBText
+          Left = 100
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'AG'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAU: TRLDBText
+          Left = 162
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'AU'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextBE: TRLDBText
+          Left = 218
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'BE'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextCE: TRLDBText
+          Left = 325
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CE'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextI: TRLDBText
+          Left = 375
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'I'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextLA: TRLDBText
+          Left = 440
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'LA'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextLI: TRLDBText
+          Left = 506
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'LI'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextNB: TRLDBText
+          Left = 584
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'NB'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextBR: TRLDBText
+          Left = 270
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'BR'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextND: TRLDBText
+          Left = 648
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'ND'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail6b: TRLSubDetail[14]
+      Left = 39
+      Height = 56
+      Top = 1167
+      Width = 716
+      DataSource = Chem5DataSource
+      object SubHeaderBand2_3: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabelStandParam3: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 16
+          Top = 4
+          Width = 111
+          Caption = 'Rare Parameters'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel84: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 64
+          Caption = 'Ch. Ref. Nr.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelPD: TRLLabel
+          Left = 120
+          Height = 13
+          Top = 24
+          Width = 18
+          Caption = 'Pd'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelPT: TRLLabel
+          Left = 178
+          Height = 13
+          Top = 24
+          Width = 15
+          Caption = 'Pt'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelSE: TRLLabel
+          Left = 237
+          Height = 13
+          Top = 24
+          Width = 16
+          Alignment = taRightJustify
+          Caption = 'Se'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelTA: TRLLabel
+          Left = 342
+          Height = 13
+          Top = 24
+          Width = 17
+          Caption = 'Ta'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelTE: TRLLabel
+          Left = 394
+          Height = 13
+          Top = 24
+          Width = 16
+          Caption = 'Te'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelTL: TRLLabel
+          Left = 450
+          Height = 13
+          Top = 24
+          Width = 14
+          Caption = 'Tl'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelU: TRLLabel
+          Left = 510
+          Height = 13
+          Top = 24
+          Width = 11
+          Caption = 'U'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelV: TRLLabel
+          Left = 572
+          Height = 13
+          Top = 24
+          Width = 10
+          Caption = 'V'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelSN: TRLLabel
+          Left = 290
+          Height = 13
+          Top = 24
+          Width = 17
+          Caption = 'Sn'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelW: TRLLabel
+          Left = 630
+          Height = 13
+          Top = 24
+          Width = 14
+          Caption = 'W'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelZR: TRLLabel
+          Left = 690
+          Height = 13
+          Top = 24
+          Width = 15
+          Caption = 'Zr'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand12: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        Borders.Sides = sdCustom
+        Borders.DrawLeft = False
+        Borders.DrawTop = False
+        Borders.DrawRight = False
+        Borders.DrawBottom = True
+        object RLDBText50: TRLDBText
+          Left = 8
+          Height = 13
+          Top = 2
+          Width = 66
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'CHM_REF_NR'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextPD: TRLDBText
+          Left = 100
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'PD'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextPT: TRLDBText
+          Left = 162
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'PT'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextSE: TRLDBText
+          Left = 218
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'SE'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextTA: TRLDBText
+          Left = 325
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TA'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextTE: TRLDBText
+          Left = 375
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TE'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextTL: TRLDBText
+          Left = 430
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TL'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextU: TRLDBText
+          Left = 490
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'U'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextV: TRLDBText
+          Left = 550
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'V'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextSN: TRLDBText
+          Left = 270
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'SN'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextW: TRLDBText
+          Left = 610
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'W'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextZR: TRLDBText
+          Left = 670
+          Height = 13
+          Top = 2
+          Width = 40
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'ZR'
+          DataSource = Chem5DataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object RLBandCharts: TRLBand[15]
+      Left = 39
+      Height = 300
+      Top = 251
+      Width = 716
+      object RLImage1: TRLImage
+        Left = 0
+        Height = 300
+        Top = 0
+        Width = 354
+        Align = faLeft
+        Borders.Sides = sdCustom
+        Borders.DrawLeft = True
+        Borders.DrawTop = True
+        Borders.DrawRight = False
+        Borders.DrawBottom = True
+        Borders.Width = 6
+        Borders.Color = clWhite
+        Borders.FixedLeft = True
+        Borders.FixedTop = True
+        Borders.FixedBottom = True
+        Center = True
+        Scaled = True
+      end
+      object RLImage2: TRLImage
+        Left = 362
+        Height = 300
+        Top = 0
+        Width = 354
+        Align = faRight
+        Borders.Sides = sdCustom
+        Borders.DrawLeft = False
+        Borders.DrawTop = True
+        Borders.DrawRight = True
+        Borders.DrawBottom = True
+        Borders.Width = 6
+        Borders.Color = clWhite
+        Borders.FixedTop = True
+        Borders.FixedRight = True
+        Borders.FixedBottom = True
+        Center = True
+        Scaled = True
+      end
+    end
+  end
+  inherited ViewDataSource: TDataSource
+    OnDataChange = ViewDataSourceDataChange
+  end
+  inherited BasicinfQuery: TZReadOnlyQuery
+    AfterOpen = BasicinfQueryAfterOpen
+  end
+  object Chem0Query: TZReadOnlyQuery[5]
+    BeforeOpen = Chem0QueryBeforeOpen
+    Params = <>
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = ViewDataSource
+    LinkedFields = 'SITE_ID_NR'
+    Left = 24
+    Top = 248
+    object Chem0QuerySITE_ID_NR: TStringField
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 44
+    end
+    object Chem0QuerySAMPLE_NR: TStringField
+      FieldKind = fkData
+      FieldName = 'SAMPLE_NR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object Chem0QuerySAMPL_TYPE: TStringField
+      Tag = 7
+      FieldKind = fkData
+      FieldName = 'SAMPL_TYPE'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'SAMPTYPE'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 4
+    end
+    object Chem0QueryDATE_SAMPL: TStringField
+      FieldKind = fkData
+      FieldName = 'DATE_SAMPL'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DateGetText
+      Size = 32
+    end
+    object Chem0QueryTIME_SAMPL: TStringField
+      FieldKind = fkData
+      FieldName = 'TIME_SAMPL'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = TimeGetText
+      Size = 16
+    end
+    object Chem0QueryMETH_SAMPL: TStringField
+      Tag = 8
+      FieldKind = fkData
+      FieldName = 'METH_SAMPL'
+      Index = 5
+      LookupCache = False
+      LookupKeyFields = 'METHSAMP'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 4
+    end
+    object Chem0QueryALT_NR_1: TStringField
+      FieldKind = fkData
+      FieldName = 'ALT_NR_1'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 32
+    end
+    object Chem0QueryTIME_PUMP: TLargeintField
+      FieldKind = fkData
+      FieldName = 'TIME_PUMP'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Chem0QueryDEPTH_SAMP: TFloatField
+      FieldKind = fkData
+      FieldName = 'DEPTH_SAMP'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 2
+    end
+    object Chem0QueryDATE_ANAL: TStringField
+      FieldKind = fkData
+      FieldName = 'DATE_ANAL'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DateGetText
+      Size = 32
+    end
+    object Chem0QueryLAB: TStringField
+      FieldKind = fkData
+      FieldName = 'LAB'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 56
+    end
+    object Chem0QueryCOMMENT: TStringField
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 252
+    end
+    object Chem0QueryCHM_REF_NR: TLargeintField
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Chem0QueryALT_NR_2: TStringField
+      FieldKind = fkData
+      FieldName = 'ALT_NR_2'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 32
+    end
+    object Chem0QueryALT_NR_3: TStringField
+      FieldKind = fkData
+      FieldName = 'ALT_NR_3'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 32
+    end
+    object Chem0QueryALT_NR_4: TStringField
+      FieldKind = fkData
+      FieldName = 'ALT_NR_4'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 32
+    end
+  end
+  object Chem0DataSource: TDataSource[6]
+    DataSet = Chem0Query
+    OnDataChange = Chem0DataSourceDataChange
+    Left = 758
+    Top = 241
+  end
+  object Chem1Query: TZReadOnlyQuery[7]
+    BeforeOpen = ChemQueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM chem_001 WHERE chm_ref_nr = :ChmRef'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ChmRef'
+        ParamType = ptInput
+      end>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = Chem0DataSource
+    LinkedFields = 'CHM_REF_NR'
+    Left = 25
+    Top = 320
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'ChmRef'
+        ParamType = ptInput
+      end>
+    object Chem1QueryCHM_REF_NR: TLargeintField
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Chem1QueryPH: TFloatField
+      FieldKind = fkData
+      FieldName = 'PH'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      Precision = 2
+    end
+    object Chem1QueryEC: TFloatField
+      FieldKind = fkData
+      FieldName = 'EC'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = Chem1QueryECGetText
+      Precision = 2
+    end
+    object Chem1QueryTDS: TFloatField
+      FieldKind = fkData
+      FieldName = 'TDS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QueryCA: TFloatField
+      FieldKind = fkData
+      FieldName = 'CA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QueryMG: TFloatField
+      FieldKind = fkData
+      FieldName = 'MG'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QueryNA: TFloatField
+      FieldKind = fkData
+      FieldName = 'NA'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QueryK: TFloatField
+      FieldKind = fkData
+      FieldName = 'K'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QuerySI: TFloatField
+      FieldKind = fkData
+      FieldName = 'SI'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QueryPALK: TFloatField
+      FieldKind = fkData
+      FieldName = 'PALK'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QueryMALK: TFloatField
+      FieldKind = fkData
+      FieldName = 'MALK'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QueryMACID: TFloatField
+      FieldKind = fkData
+      FieldName = 'MACID'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QueryPACID: TFloatField
+      FieldKind = fkData
+      FieldName = 'PACID'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QueryCL: TFloatField
+      FieldKind = fkData
+      FieldName = 'CL'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QuerySO4: TFloatField
+      FieldKind = fkData
+      FieldName = 'SO4'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QueryN: TFloatField
+      FieldKind = fkData
+      FieldName = 'N'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryAsNGetText
+      Precision = 2
+    end
+    object Chem1QueryF: TFloatField
+      FieldKind = fkData
+      FieldName = 'F'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QueryCO3: TFloatField
+      FieldKind = fkData
+      FieldName = 'CO3'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QueryHCO3: TFloatField
+      FieldKind = fkData
+      FieldName = 'HCO3'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QueryAL: TFloatField
+      FieldKind = fkData
+      FieldName = 'AL'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QueryFE: TFloatField
+      FieldKind = fkData
+      FieldName = 'FE'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem1QueryMN: TFloatField
+      FieldKind = fkData
+      FieldName = 'MN'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+  end
+  object Chem1DataSource: TDataSource[8]
+    DataSet = Chem1Query
+    Left = 760
+    Top = 312
+  end
+  object LimitsQuery: TZReadOnlyQuery[9]
+    BeforeOpen = LimitsQueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM deteclim'
+    )
+    Params = <>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = Chem0DataSource
+    LinkedFields = 'CHM_REF_NR'
+    Left = 456
+    Top = 8
+    object LimitsQueryCHM_REF_NR: TLargeintField
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object LimitsQueryCPARAMETER: TStringField
+      FieldKind = fkData
+      FieldName = 'CPARAMETER'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object LimitsQueryLIMITS: TStringField
+      FieldKind = fkData
+      FieldName = 'LIMITS'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 4
+    end
+  end
+  object Chem2Query: TZReadOnlyQuery[10]
+    BeforeOpen = ChemQueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM chem_002 WHERE chm_ref_nr = :ChmRef'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ChmRef'
+        ParamType = ptInput
+      end>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = Chem0DataSource
+    LinkedFields = 'CHM_REF_NR'
+    Left = 25
+    Top = 384
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'ChmRef'
+        ParamType = ptInput
+      end>
+    object Chem2QueryCHM_REF_NR: TLargeintField
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Chem2QueryN_AMONIA: TFloatField
+      Tag = 2
+      FieldKind = fkData
+      FieldName = 'N_AMONIA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryAsNGetText
+      Precision = 2
+    end
+    object Chem2QuerySB: TFloatField
+      FieldKind = fkData
+      FieldName = 'SB'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QueryARSENIC: TFloatField
+      FieldKind = fkData
+      FieldName = 'ARSENIC'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QueryBA: TFloatField
+      FieldKind = fkData
+      FieldName = 'BA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QueryBI: TFloatField
+      FieldKind = fkData
+      FieldName = 'BI'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QueryB: TFloatField
+      FieldKind = fkData
+      FieldName = 'B'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QueryCD: TFloatField
+      FieldKind = fkData
+      FieldName = 'CD'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QueryCR: TFloatField
+      FieldKind = fkData
+      FieldName = 'CR'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QueryCO: TFloatField
+      FieldKind = fkData
+      FieldName = 'CO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QueryCU: TFloatField
+      FieldKind = fkData
+      FieldName = 'CU'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QueryCN: TFloatField
+      FieldKind = fkData
+      FieldName = 'CN'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QueryPB: TFloatField
+      FieldKind = fkData
+      FieldName = 'PB'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QueryHG: TFloatField
+      FieldKind = fkData
+      FieldName = 'HG'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QueryMO: TFloatField
+      FieldKind = fkData
+      FieldName = 'MO'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QueryNI: TFloatField
+      FieldKind = fkData
+      FieldName = 'NI'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QueryNO2: TFloatField
+      Tag = 1
+      FieldKind = fkData
+      FieldName = 'NO2'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryAsNGetText
+      Precision = 2
+    end
+    object Chem2QueryPO4: TFloatField
+      Tag = 3
+      FieldKind = fkData
+      FieldName = 'PO4'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryAsNGetText
+      Precision = 2
+    end
+    object Chem2QuerySR: TFloatField
+      FieldKind = fkData
+      FieldName = 'SR'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QuerySULF: TFloatField
+      FieldKind = fkData
+      FieldName = 'SULF'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QueryTI: TFloatField
+      FieldKind = fkData
+      FieldName = 'TI'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object Chem2QueryZN: TFloatField
+      FieldKind = fkData
+      FieldName = 'ZN'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+  end
+  object Chem2DataSource: TDataSource[11]
+    DataSet = Chem2Query
+    Left = 760
+    Top = 384
+  end
+  object Chem3Query: TZReadOnlyQuery[12]
+    BeforeOpen = ChemQueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM chem_003 WHERE chm_ref_nr = :ChmRef'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ChmRef'
+        ParamType = ptInput
+      end>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = Chem0DataSource
+    LinkedFields = 'CHM_REF_NR'
+    Left = 16
+    Top = 299
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'ChmRef'
+        ParamType = ptInput
+      end>
+    object Chem3QueryCHM_REF_NR: TLargeintField
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Chem3QueryCOD: TFloatField
+      FieldKind = fkData
+      FieldName = 'COD'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem3QueryCFR: TFloatField
+      FieldKind = fkData
+      FieldName = 'CFR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem3QueryDOC: TFloatField
+      FieldKind = fkData
+      FieldName = 'DOC'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem3QueryDOX: TFloatField
+      FieldKind = fkData
+      FieldName = 'DOX'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem3QueryECOL: TLargeintField
+      FieldKind = fkData
+      FieldName = 'ECOL'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+    end
+    object Chem3QueryFAEC_ECOL: TLargeintField
+      FieldKind = fkData
+      FieldName = 'FAEC_ECOL'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+    end
+    object Chem3QueryTOTAL_COL: TLargeintField
+      FieldKind = fkData
+      FieldName = 'TOTAL_COL'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+    end
+    object Chem3QuerySPC: TLargeintField
+      FieldKind = fkData
+      FieldName = 'SPC'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+    end
+    object Chem3QueryFAEC_STREP: TLargeintField
+      FieldKind = fkData
+      FieldName = 'FAEC_STREP'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+    end
+    object Chem3QueryTVO: TLargeintField
+      FieldKind = fkData
+      FieldName = 'TVO'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+    end
+    object Chem3QueryH2S: TFloatField
+      FieldKind = fkData
+      FieldName = 'H2S'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem3QueryKJED: TFloatField
+      FieldKind = fkData
+      FieldName = 'KJED'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem3QueryOIL: TFloatField
+      FieldKind = fkData
+      FieldName = 'OIL'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem3QueryPHEN: TFloatField
+      FieldKind = fkData
+      FieldName = 'PHEN'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem3QuerySOAP: TFloatField
+      FieldKind = fkData
+      FieldName = 'SOAP'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem3QueryBOD: TFloatField
+      FieldKind = fkData
+      FieldName = 'BOD'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem3QueryTOC: TFloatField
+      FieldKind = fkData
+      FieldName = 'TOC'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem3QuerySOM_COLI: TLargeintField
+      FieldKind = fkData
+      FieldName = 'SOM_COLI'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+    end
+    object Chem3QueryENT_VIRUS: TLargeintField
+      FieldKind = fkData
+      FieldName = 'ENT_VIRUS'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+    end
+    object Chem3QueryPROTO_PARA: TLargeintField
+      FieldKind = fkData
+      FieldName = 'PROTO_PARA'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+    end
+    object Chem3QueryTOT_THM: TFloatField
+      FieldKind = fkData
+      FieldName = 'TOT_THM'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+  end
+  object Chem3DataSource: TDataSource[13]
+    DataSet = Chem3Query
+    Left = 758
+    Top = 464
+  end
+  object Chem4Query: TZReadOnlyQuery[14]
+    BeforeOpen = ChemQueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM chem_004 WHERE chm_ref_nr = :ChmRef'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ChmRef'
+        ParamType = ptInput
+      end>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = Chem0DataSource
+    LinkedFields = 'CHM_REF_NR'
+    Left = 16
+    Top = 363
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'ChmRef'
+        ParamType = ptInput
+      end>
+    object Chem4QueryCHM_REF_NR: TLargeintField
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Chem4QueryCOLR: TFloatField
+      FieldKind = fkData
+      FieldName = 'COLR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      Precision = 30
+    end
+    object Chem4QueryMBAS: TFloatField
+      FieldKind = fkData
+      FieldName = 'MBAS'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      Precision = 30
+    end
+    object Chem4QueryODR: TFloatField
+      FieldKind = fkData
+      FieldName = 'ODR'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      Precision = 30
+    end
+    object Chem4QuerySPECGRAV: TFloatField
+      FieldKind = fkData
+      FieldName = 'SPECGRAV'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      Precision = 30
+    end
+    object Chem4QueryTST: TFloatField
+      FieldKind = fkData
+      FieldName = 'TST'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      Precision = 30
+    end
+    object Chem4QueryTEMP: TFloatField
+      FieldKind = fkData
+      FieldName = 'TEMP'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      Precision = 30
+    end
+    object Chem4QueryTUR: TFloatField
+      FieldKind = fkData
+      FieldName = 'TUR'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      Precision = 30
+    end
+    object Chem4QuerySUSP_SOLID: TFloatField
+      FieldKind = fkData
+      FieldName = 'SUSP_SOLID'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem4QueryRCARBON: TFloatField
+      FieldKind = fkData
+      FieldName = 'RCARBON'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      Precision = 30
+    end
+    object Chem4QueryDEUTERIUM: TFloatField
+      FieldKind = fkData
+      FieldName = 'DEUTERIUM'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      Precision = 30
+    end
+    object Chem4QueryTRITIUM: TFloatField
+      FieldKind = fkData
+      FieldName = 'TRITIUM'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      Precision = 30
+    end
+    object Chem4QueryOXYGEN18: TFloatField
+      FieldKind = fkData
+      FieldName = 'OXYGEN18'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      Precision = 30
+    end
+  end
+  object Chem4DataSource: TDataSource[15]
+    DataSet = Chem4Query
+    Left = 760
+    Top = 528
+  end
+  object Chem5Query: TZReadOnlyQuery[16]
+    BeforeOpen = ChemQueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM chem_005 WHERE chm_ref_nr = :ChmRef'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'ChmRef'
+        ParamType = ptInput
+      end>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = Chem0DataSource
+    LinkedFields = 'CHM_REF_NR'
+    Left = 17
+    Top = 419
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'ChmRef'
+        ParamType = ptInput
+      end>
+    object Chem5QueryCHM_REF_NR: TLargeintField
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Chem5QueryBE: TFloatField
+      FieldKind = fkData
+      FieldName = 'BE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryCE: TFloatField
+      FieldKind = fkData
+      FieldName = 'CE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryAU: TFloatField
+      FieldKind = fkData
+      FieldName = 'AU'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryBR: TFloatField
+      FieldKind = fkData
+      FieldName = 'BR'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryI: TFloatField
+      FieldKind = fkData
+      FieldName = 'I'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryLI: TFloatField
+      FieldKind = fkData
+      FieldName = 'LI'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryPT: TFloatField
+      FieldKind = fkData
+      FieldName = 'PT'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QuerySE: TFloatField
+      FieldKind = fkData
+      FieldName = 'SE'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryAG: TFloatField
+      FieldKind = fkData
+      FieldName = 'AG'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryTE: TFloatField
+      FieldKind = fkData
+      FieldName = 'TE'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryTL: TFloatField
+      FieldKind = fkData
+      FieldName = 'TL'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryW: TFloatField
+      FieldKind = fkData
+      FieldName = 'W'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryU: TFloatField
+      FieldKind = fkData
+      FieldName = 'U'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryV: TFloatField
+      FieldKind = fkData
+      FieldName = 'V'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QuerySN: TFloatField
+      FieldKind = fkData
+      FieldName = 'SN'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryPD: TFloatField
+      FieldKind = fkData
+      FieldName = 'PD'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryZR: TFloatField
+      FieldKind = fkData
+      FieldName = 'ZR'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryLA: TFloatField
+      FieldKind = fkData
+      FieldName = 'LA'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryNB: TFloatField
+      FieldKind = fkData
+      FieldName = 'NB'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryTA: TFloatField
+      FieldKind = fkData
+      FieldName = 'TA'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+    object Chem5QueryND: TFloatField
+      FieldKind = fkData
+      FieldName = 'ND'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 30
+    end
+  end
+  object Chem5DataSource: TDataSource[17]
+    DataSet = Chem5Query
+    Left = 758
+    Top = 584
+  end
+end

@@ -1,0 +1,1022 @@
+object MasterDetailForm: TMasterDetailForm
+  Tag = 127
+  Left = 766
+  Height = 368
+  Top = 139
+  Width = 576
+  ActiveControl = CloseBitBtn
+  Caption = 'Master Detail Form'
+  ClientHeight = 368
+  ClientWidth = 576
+  Color = clBtnFace
+  Constraints.MinHeight = 310
+  Constraints.MinWidth = 576
+  Font.Color = clBlack
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = [fsBold]
+  Icon.Data = {
+    FE0200000000010001002020100000000000E802000016000000280000002000
+    0000400000000100040000000000800200000000000000000000000000000000
+    0000000000000000800000800000008080008000000080008000808000008080
+    8000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+    FF00000000000000000000000000000000000000000000880000000888808000
+    0000000000008000686666600088080000000000008006688686666033008080
+    0000000008068686666666E0333308080000000080666666866E6E0333333080
+    800000080868686666E6E033333333080000008066866666666E0B3333333300
+    800000066686866666E0B3333333330400000806866666666E603B3B33333306
+    080000666666666666E0B3B33333306E40000066666666666E600B3B333308E8
+    6080066866666666E6EC03B333306E86860006686666666E6E640BBB3006E868
+    680006666C66E6E6E600B000006E666686000666CB3E6E6E40B34ECEC6E66668
+    6600066CB3E6E6E00B30EC030E6E668866000686CC6E60033330C40306E66666
+    660006666CE6E0B3B33000300E6E668666000668666E00333333333306E66666
+    6600806663E603B3B3333333306E666866000066C36E0B3B3333333330E6E666
+    608000666CE603B3B333333333006E6660800806666E003B3B3333333330E666
+    0800000666E6E0B3B33333333330066608000084666E603B3B33333033330660
+    800000080464E603B3B3330E0303060800000000844660633B33333044E4C080
+    00000000080433B333333300E4EC08000000000000800333333B3330CE008000
+    00000000000080004BB433300080000000000000000000080000000800000000
+    0000FFFFFFFFFFC0017FFF0000BFFC00005FF800002FF0000017E000000FC000
+    0007C00000078000000380000003800000010000000100000001000000010000
+    0001000000010000000100000001000000010000000180000001800000018000
+    0003C0000003C0000007E000000FF000001FF800003FFC00007FFF0001FFFFE0
+    0FFF
+  }
+  KeyPreview = True
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  Position = poDefaultSizeOnly
+  SessionProperties = 'Height;Left;Top;Width;EditResults.Text'
+  LCLVersion = '2.0.12.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 36
+    Top = 0
+    Width = 576
+    Align = alTop
+    ClientHeight = 36
+    ClientWidth = 576
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    object ViewNavigator: TDBNavigator
+      Left = 8
+      Height = 25
+      Top = 5
+      Width = 130
+      BevelOuter = bvNone
+      ChildSizing.EnlargeHorizontal = crsScaleChilds
+      ChildSizing.EnlargeVertical = crsScaleChilds
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 100
+      ClientHeight = 25
+      ClientWidth = 130
+      DataSource = DataModuleMain.DataSourceView
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      Options = []
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+      VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbRefresh]
+      Images = DataModuleMain.ImageListNavs
+    end
+    object CloseBitBtn: TBitBtn
+      Left = 400
+      Height = 27
+      Hint = 'Close entry form'
+      Top = 4
+      Width = 82
+      Anchors = [akTop, akRight]
+      DefaultCaption = True
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Kind = bkClose
+      ModalResult = 11
+      OnClick = CloseBitBtnClick
+      ParentFont = False
+      TabOrder = 0
+    end
+    object BitBtnHelp: TBitBtn
+      Left = 488
+      Height = 27
+      Hint = 'Help on Master/Detail'
+      Top = 4
+      Width = 82
+      HelpContext = 3
+      Anchors = [akTop, akRight]
+      DefaultCaption = True
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Kind = bkHelp
+      OnClick = BitBtnHelpClick
+      ParentFont = False
+      TabOrder = 2
+    end
+    object ChartSpeedButton: TSpeedButton
+      Left = 360
+      Height = 25
+      Top = 5
+      Width = 25
+      Anchors = [akTop, akRight]
+      Enabled = False
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00000000001717
+        17231B1B1B2620202025242424271D1D1DFF2B2B2B212E2E2E21313131221D1D
+        1DFF3636362137373721383838331D1D1DFF3737375139393941000000001D1D
+        1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D
+        1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF000000001D1D
+        1DFF117CE7FF117DE8FF117EE8FF0C5AA5FF117FE8FF117FE8FF117FE8FF0C5A
+        A6FF117DE8FF107BE7FF107AE6FF0B54A2FF0F76E5FF0F73E4FF1C1C1C401D1D
+        1DFF1078D7FF1179D8FF117AD9FF0C5A9EFF117BD9FF117BDAFF117BD9FF0C5A
+        9FFF1079D8FF1078D8FF1076D7FF0B539AFF0F71D5FF489AC1FF1D1D1DFF1D1D
+        1DFF0E69B6FF0F6BB8FF0F6CB8FF0B518AFF0F6DBAFF0F6DBAFF0F6DBAFF0B51
+        8BFF146EB3FF146DB2FF0E68B7FF0A4B86FF2A75B1FF52A781FF000000001D1D
+        1DFF138DEEFF148FEEFF1490EFFF0F6EB6FF1490EFFF1490EFFF1490EFFF1472
+        B4FF389571FF7CC0C0FF188DE7FF126BAFFF419C7BFF2C8E63FF383838401D1D
+        1DFF127FD1FF1380D2FF1481D3FF1065A4FF1582D3FF1582D4FF1986D1FF5EAA
+        96FF2E8F64FF2C8E63FF56A996FF5CA5A8FF2B8E62FF2B8E62FF1D1D1DFF1D1D
+        1DFF3289B1FF177AC5FF24859CFF33906BFF23849AFF1E7EC0FF5CA895FF3595
+        6BFF319166FF36946AFF2B8E62FF2B8E62FF2B8E62FF61A484FF000000001D1D
+        1DFF469E78FF4BA9D7FF49A083FF2B8E62FF319168FF479F82FF349469FF2F91
+        66FF9FC7B4FFF7E9E9FF439972FF2C8E63FF67AB8BFFF6E6E4FF505050401D1D
+        1DFF349469FF3A976EFF2C8E63FF349268FF2C8E63FF2C8E63FF2F9065FF82AC
+        99FFE2D6D8FFE1D6D7FFE0D5D6FF8EA699FFDFD2D2FFDDD0CFFF1D1D1DFF1D1D
+        1DFF2F9065FF2E9065FF309065FFB7B5B3FFBDCFC5FF3A966EFF97C2AFFFC5BD
+        C2FFE3D8DCFFE2D8DBFFE2D7D9FFC2B9BDFFDFD3D4FFDED1D1FF000000001D1D
+        1DFF2E8F64FF2A8D61FF298D60FF73AF95FFECE6E6FFD6DED9FFF9EDF2FFD0C8
+        CFFFF9EEF4FFF9EEF3FFF8EDF2FFCEC7CCFFF8EBEDFFF7EAEBFF646464401D1D
+        1DFF2B8E62FF2B8E62FF2B8E62FF2E8E63FF529F7DFFF2E7ECFFF2E8EEFFCEC7
+        CEFFF2E9F0FFF2E8EFFFF1E7ECFFCEC5CBFFEFE3E6FFEEE1E3FF1D1D1DFF1D1D
+        1DFFDCCECDFFD3CACFFFD4CBD0FFCBC3C9FFD5CDD3FFD5CED4FFD6CED5FFCDC6
+        CDFFD5CED5FFD5CED5FFD5CDD4FFCCC5CBFFD3CBD0FFD2C9CFFF000000001D1D
+        1DFFF6E7E6BFF7E9E9BFF7EAECBFDFD4D7BFF9EEF3BFF9EFF6BFFAF1F9BFD8D1
+        D9D9FBF3FDBFFAF2FBBFFAF0F8BFDCD3D8BFF8EDF1BFF8EBEEBF
+      }
+      ShowHint = True
+      ParentFont = False
+      ParentShowHint = False
+    end
+    object BasicDBNavigator: TDBNavigator
+      Left = 146
+      Height = 25
+      Top = 6
+      Width = 108
+      BevelOuter = bvNone
+      ChildSizing.EnlargeHorizontal = crsScaleChilds
+      ChildSizing.EnlargeVertical = crsScaleChilds
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 100
+      ClientHeight = 25
+      ClientWidth = 108
+      DataSource = BasicinfDataSource
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      OnClick = BasicDBNavigatorClick
+      Options = []
+      ParentFont = False
+      TabOrder = 3
+      VisibleButtons = [nbEdit, nbPost, nbCancel, nbRefresh]
+      Images = DataModuleMain.ImageListNavs
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 224
+    Top = 144
+    Width = 576
+    Align = alClient
+    Caption = 'PanelGrid'
+    ClientHeight = 224
+    ClientWidth = 576
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    ParentFont = False
+    TabOrder = 1
+    object Panel4: TPanel
+      Left = 1
+      Height = 29
+      Top = 194
+      Width = 574
+      Align = alBottom
+      AutoSize = True
+      BorderSpacing.Top = 2
+      BevelOuter = bvNone
+      ClientHeight = 29
+      ClientWidth = 574
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      TabOrder = 0
+      object DetailNavigator: TDBNavigator
+        Left = 170
+        Height = 25
+        Top = 0
+        Width = 262
+        BeforeAction = DetailNavigatorBeforeAction
+        BevelOuter = bvNone
+        BorderSpacing.Left = 170
+        ChildSizing.EnlargeHorizontal = crsScaleChilds
+        ChildSizing.EnlargeVertical = crsScaleChilds
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclLeftToRightThenTopToBottom
+        ChildSizing.ControlsPerLine = 100
+        ClientHeight = 25
+        ClientWidth = 262
+        DataSource = LinkedDataSource
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        OnClick = DetailNavigatorClick
+        Options = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        Images = DataModuleMain.ImageListNavs
+      end
+      object RecordText: TStaticText
+        Left = 4
+        Height = 23
+        Top = 6
+        Width = 164
+        Align = alLeft
+        BorderSpacing.Left = 4
+        BorderSpacing.Top = 6
+        Caption = 'Record'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        ParentFont = False
+        TabOrder = 1
+      end
+      object EditResults: TEdit
+        Left = 506
+        Height = 23
+        Top = 3
+        Width = 62
+        HelpContext = 32
+        Align = alRight
+        Alignment = taRightJustify
+        AutoSize = False
+        BorderSpacing.Right = 3
+        BorderSpacing.Around = 3
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        NumbersOnly = True
+        OnEditingDone = EditResultsEditingDone
+        ParentFont = False
+        TabOrder = 2
+        Text = '500'
+      end
+      object StaticText1: TStaticText
+        Left = 463
+        Height = 23
+        Top = 6
+        Width = 40
+        Align = alRight
+        Alignment = taRightJustify
+        AutoSize = True
+        BorderSpacing.Top = 6
+        Caption = 'Results:'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        ParentFont = False
+        TabOrder = 3
+      end
+    end
+    object DBGrid: TDBGrid
+      Left = 5
+      Height = 169
+      Hint = 'Detail Information'
+      Top = 23
+      Width = 566
+      HelpContext = 31
+      Align = alClient
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Left = 4
+      BorderSpacing.Top = 22
+      BorderSpacing.Right = 4
+      Color = clWindow
+      Columns = <>
+      DataSource = LinkedDataSource
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgCellHints, dgCellEllipsis]
+      ParentFont = False
+      Scrollbars = ssAutoBoth
+      ShowHint = True
+      TabOrder = 1
+      OnCellClick = DBGridCellClick
+      OnColExit = DBGridColExit
+      OnEnter = DBGridEnter
+      OnGetCellHint = DBGridGetCellHint
+      OnKeyDown = DBGridKeyDown
+      OnMouseDown = DBGridMouseDown
+      OnMouseMove = DBGridMouseMove
+      OnTitleClick = DBGridTitleClick
+    end
+    object LinkedLabel: TLabel
+      Left = 6
+      Height = 13
+      Top = 5
+      Width = 320
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = False
+      Caption = 'LinkedLabel'
+      FocusControl = DBGrid
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object GroupBox1: TGroupBox
+    Left = 4
+    Height = 100
+    Top = 40
+    Width = 568
+    Align = alTop
+    AutoSize = True
+    BorderSpacing.Around = 4
+    BorderSpacing.InnerBorder = 1
+    Caption = 'Basic Site Information:'
+    ClientHeight = 86
+    ClientWidth = 566
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 2
+      Height = 13
+      Top = 0
+      Width = 82
+      AutoSize = False
+      BorderSpacing.Left = 2
+      Caption = '&Site Identifier'
+      FocusControl = EditSITE_ID_NR
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 88
+      Height = 13
+      Top = 0
+      Width = 42
+      AutoSize = False
+      Caption = '&Number'
+      FocusControl = EditNR_ON_MAP
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 180
+      Height = 13
+      Top = 0
+      Width = 77
+      AutoSize = False
+      Caption = 'Distr./&Farm Nr.'
+      FocusControl = EditFARM_NR
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = 258
+      Height = 13
+      Top = 0
+      Width = 300
+      AutoSize = False
+      Caption = 'Site Name/&Description'
+      FocusControl = EditSITE_NAME
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Y_CoordLabel: TLabel
+      Left = 96
+      Height = 13
+      Top = 44
+      Width = 84
+      AutoSize = False
+      Caption = '&Y Coordinate'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object X_CoordLabel: TLabel
+      Left = 4
+      Height = 13
+      Top = 44
+      Width = 84
+      AutoSize = False
+      BorderSpacing.Left = 2
+      Caption = '&X Coordinate'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 190
+      Height = 13
+      Top = 44
+      Width = 61
+      AutoSize = False
+      Caption = '&Coor. Acc.'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object AltLabel: TLabel
+      Left = 250
+      Height = 13
+      Top = 44
+      Width = 54
+      AutoSize = False
+      Caption = '&Altitude'
+      FocusControl = EditALTITUDE
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object ColLabel: TLabel
+      Left = 306
+      Height = 13
+      Top = 44
+      Width = 54
+      AutoSize = False
+      Caption = 'Co&llar'
+      FocusControl = EditCOLLAR_HI
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object DepLabel: TLabel
+      Left = 360
+      Height = 13
+      Top = 44
+      Width = 54
+      AutoSize = False
+      Caption = 'Dept&h'
+      FocusControl = EditDEPTH
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 416
+      Height = 13
+      Top = 44
+      Width = 50
+      AutoSize = False
+      Caption = 'Site &Type'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label7: TLabel
+      Left = 470
+      Height = 13
+      Top = 44
+      Width = 90
+      AutoSize = False
+      Caption = 'Date Info updated'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object EditSITE_ID_NR: TDBEdit
+      Cursor = crArrow
+      Left = 2
+      Height = 22
+      Top = 15
+      Width = 82
+      DataField = 'SITE_ID_NR'
+      DataSource = BasicinfDataSource
+      ReadOnly = True
+      AutoSize = False
+      BorderSpacing.Left = 2
+      CharCase = ecUppercase
+      Enabled = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 0
+      OnEnter = EditBasicinfEnter
+    end
+    object EditNR_ON_MAP: TDBEdit
+      Left = 88
+      Height = 22
+      Top = 15
+      Width = 88
+      HelpContext = 31
+      DataField = 'NR_ON_MAP'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 1
+      OnClick = EditClick
+      OnEnter = EditBasicinfEnter
+      OnKeyDown = EditKeyDown
+      OnKeyUp = EditKeyUp
+    end
+    object EditFARM_NR: TDBEdit
+      Left = 180
+      Height = 22
+      Top = 15
+      Width = 74
+      HelpContext = 31
+      DataField = 'FARM_NR'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 2
+      OnClick = EditClick
+      OnEnter = EditBasicinfEnter
+      OnKeyDown = EditKeyDown
+      OnKeyUp = EditKeyUp
+    end
+    object EditSITE_NAME: TDBEdit
+      Left = 258
+      Height = 22
+      Top = 15
+      Width = 304
+      HelpContext = 31
+      DataField = 'SITE_NAME'
+      DataSource = BasicinfDataSource
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 3
+      OnClick = EditClick
+      OnEnter = EditBasicinfEnter
+      OnKeyDown = EditKeyDown
+      OnKeyUp = EditKeyUp
+    end
+    object EditALTITUDE: TDBEdit
+      Left = 250
+      Height = 22
+      Top = 58
+      Width = 50
+      HelpContext = 31
+      DataField = 'ALTITUDE'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecNormal
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 7
+      OnClick = EditClick
+      OnEnter = EditBasicinfEnter
+      OnKeyDown = EditKeyDown
+      OnKeyUp = EditKeyUp
+    end
+    object EditCOLLAR_HI: TDBEdit
+      Left = 306
+      Height = 22
+      Top = 58
+      Width = 50
+      HelpContext = 31
+      DataField = 'COLLAR_HI'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecNormal
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 11
+      OnClick = EditClick
+      OnEnter = EditBasicinfEnter
+      OnKeyDown = EditKeyDown
+      OnKeyUp = EditKeyUp
+    end
+    object EditDEPTH: TDBEdit
+      Left = 360
+      Height = 22
+      Top = 58
+      Width = 50
+      HelpContext = 31
+      DataField = 'DEPTH'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecNormal
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 9
+      OnClick = EditClick
+      OnEnter = EditBasicinfEnter
+      OnKeyDown = EditKeyDown
+      OnKeyUp = EditKeyUp
+    end
+    object EditDATE_UPDTD: TDBEdit
+      Cursor = crArrow
+      Left = 470
+      Height = 22
+      Top = 58
+      Width = 90
+      HelpContext = 31
+      DataField = 'DATE_UPDTD'
+      DataSource = BasicinfDataSource
+      ReadOnly = True
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = False
+      CharCase = ecNormal
+      Enabled = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 8
+      TabStop = False
+      OnEnter = EditBasicinfEnter
+    end
+    object RxDBLookupComboAcc: TRxDBLookupCombo
+      Left = 190
+      Height = 25
+      Top = 58
+      Width = 36
+      HelpKeyword = 'COORDACC'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'COORD_ACC'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 5
+      PopUpFormOptions.DropDownWidth = 220
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnClick = RxDBLookupComboClick
+      OnEnter = EditBasicinfEnter
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 6
+      TabStop = True
+      DropDownCount = 5
+      DropDownWidth = 220
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
+      LookupSource = AccuDataSource
+    end
+    object RxDBLookupComboType: TRxDBLookupCombo
+      Left = 416
+      Height = 26
+      Top = 58
+      Width = 36
+      HelpKeyword = 'SITETYPE'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'SITE_TYPE'
+      DataSource = BasicinfDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 5
+      PopUpFormOptions.DropDownWidth = 220
+      Flat = False
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnClick = RxDBLookupComboClick
+      OnEnter = EditBasicinfEnter
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 10
+      TabStop = True
+      DropDownCount = 5
+      DropDownWidth = 220
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
+      LookupSource = TypeDataSource
+    end
+    object DBEditX: TDBEdit
+      Left = 4
+      Height = 22
+      Top = 58
+      Width = 88
+      DataField = 'X_COORD'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 4
+      OnChange = EditXChange
+      OnClick = EditClick
+      OnEnter = EditBasicinfEnter
+      OnKeyDown = EditKeyDown
+      OnKeyPress = EditKeyPress
+      OnKeyUp = EditKeyUp
+    end
+    object DBEditY: TDBEdit
+      Left = 96
+      Height = 22
+      Top = 58
+      Width = 88
+      DataField = 'Y_COORD'
+      DataSource = BasicinfDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 5
+      OnChange = EditYChange
+      OnClick = EditClick
+      OnKeyDown = EditKeyDown
+      OnKeyPress = EditKeyPress
+      OnKeyUp = EditKeyUp
+    end
+  end
+  object BasicinfDataSource: TDataSource
+    AutoEdit = False
+    DataSet = DataModuleMain.BasicinfQuery
+    OnDataChange = BasicinfDataSourceDataChange
+    Left = 288
+    Top = 8
+  end
+  object LinkedDataSource: TDataSource
+    AutoEdit = False
+    DataSet = LinkedQuery
+    OnStateChange = LinkedDataSourceStateChange
+    OnDataChange = LinkedDataSourceDataChange
+    Left = 152
+    Top = 264
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    Left = 480
+    Top = 273
+  end
+  object LinkedQuery: TZQuery
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = LinkedQueryBeforeOpen
+    AfterOpen = LinkedQueryAfterOpen
+    BeforeRefresh = LinkedQueryBeforeRefresh
+    AfterRefresh = LinkedQueryAfterRefresh
+    BeforePost = LinkedQueryBeforePost
+    AfterPost = LinkedQueryAfterPost
+    AfterCancel = LinkedQueryAfterCancel
+    AfterDelete = LinkedQueryAfterDelete
+    OnPostError = LinkedQueryPostError
+    OnNewRecord = LinkedQueryNewRecord
+    Params = <>
+    FetchRow = 500
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = BasicinfDataSource
+    LinkedFields = 'SITE_ID_NR'
+    Left = 48
+    Top = 264
+    object LinkedQuerySITE_ID_NR: TStringField
+      DisplayWidth = 11
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 11
+    end
+  end
+  object ZReadOnlyQueryCoordAcc: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SortedFields = 'SEARCH'
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''COORDACC'''
+    )
+    Params = <>
+    IndexFieldNames = 'SEARCH Asc'
+    Left = 176
+    Top = 136
+    object ZReadOnlyQueryCoordAccSEARCH: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryCoordAccDESCRIBE: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object AccuDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQueryCoordAcc
+    Left = 256
+    Top = 136
+  end
+  object ZReadOnlyQuerySiteType: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SortedFields = 'SEARCH'
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''SITETYPE'''
+    )
+    Params = <>
+    IndexFieldNames = 'SEARCH Asc'
+    Left = 408
+    Top = 136
+    object ZReadOnlyQueryTopoSetSEARCH3: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryTopoSetDESCRIBE3: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object TypeDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQuerySiteType
+    Left = 408
+    Top = 200
+  end
+  object PopupMenu1: TPopupMenu
+    OnPopup = PopupMenu1Popup
+    Left = 464
+    Top = 48
+    object MenuItemSetBookmarks: TMenuItem
+      Caption = '&Set Bookmarks'
+      object MenuItemSetBookmark1: TMenuItem
+        Tag = 1
+        Caption = 'Bookmark &1'
+        ShortCut = 117
+        OnClick = MenuItemSetBookmark1Click
+      end
+      object MenuItemSetBookMark2: TMenuItem
+        Tag = 2
+        Caption = 'BookMark &2'
+        ShortCut = 118
+        OnClick = MenuItemSetBookMark2Click
+      end
+    end
+    object GotoBookmark: TMenuItem
+      Caption = '&Goto Bookmarks'
+      object MenuItemGotoBookmark1: TMenuItem
+        Caption = 'Goto Bookmark &1'
+        ShortCut = 16501
+        OnClick = MenuItemGotoBookmark1Click
+      end
+      object MenuItemGotoBookmark2: TMenuItem
+        Caption = 'Goto Bookmark &2'
+        ShortCut = 16502
+        OnClick = MenuItemGotoBookmark2Click
+      end
+    end
+  end
+end

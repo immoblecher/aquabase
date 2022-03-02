@@ -1,0 +1,594 @@
+object LogForm: TLogForm
+  Left = 670
+  Height = 642
+  Top = 89
+  Width = 582
+  HelpContext = 951
+  BorderIcons = [biSystemMenu, biMinimize]
+  Caption = 'Construction, lithology and depth dependent data'
+  ClientHeight = 642
+  ClientWidth = 582
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  PopupMenu = PopupMenu1
+  SessionProperties = 'DTHChart.MarginsExternal;Height;Left;LogChart.MarginsExternal;Top;Width;DTHChart.Width'
+  LCLVersion = '2.0.12.0'
+  object ButtonPanel1: TButtonPanel
+    Left = 10
+    Height = 38
+    Top = 598
+    Width = 562
+    BorderSpacing.Left = 4
+    BorderSpacing.Right = 4
+    OKButton.Name = 'OKButton'
+    OKButton.Caption = '&Show report'
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.HelpContext = 951
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CloseButton.OnClick = CloseButtonClick
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    CancelButton.OnClick = CancelButtonClick
+    TabOrder = 0
+    DefaultButton = pbClose
+    ShowButtons = [pbClose, pbHelp]
+  end
+  object LogChart: TChart
+    Left = 0
+    Height = 592
+    Top = 0
+    Width = 409
+    AxisList = <    
+      item
+        Grid.Color = clSilver
+        Arrow.Inverted = True
+        Inverted = True
+        Marks.Margins.Left = 2
+        Marks.Margins.Top = 1
+        Marks.Margins.Right = 2
+        Marks.Margins.Bottom = 1
+        Marks.Distance = 2
+        Marks.LabelFont.Height = 9
+        Marks.LabelFont.Name = 'Arial'
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Range.UseMin = True
+        Title.LabelFont.Height = 9
+        Title.LabelFont.Name = 'Arial'
+        Title.LabelFont.Orientation = 900
+        Title.Visible = True
+        Title.Caption = 'Depth [m]'
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Grid.Visible = False
+        TickLength = 3
+        Alignment = calBottom
+        MarginsForMarks = False
+        Marks.LabelFont.Color = clBlack
+        Marks.LabelFont.Height = 9
+        Marks.LabelBrush.Style = bsClear
+        Marks.Range.Max = 1000
+        Marks.Range.Min = -300
+        Marks.Range.UseMax = True
+        Marks.Range.UseMin = True
+        Marks.Source = ListChartSourceTopBot
+        Minors = <>
+        Range.Max = 1000
+        Range.Min = -500
+        Range.UseMax = True
+        Range.UseMin = True
+        Title.Distance = 2
+        Title.LabelFont.Height = 9
+        Title.Visible = True
+        Title.Caption = 'LEGEND:'
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Grid.Visible = False
+        TickLength = 3
+        Alignment = calTop
+        MarginsForMarks = False
+        Marks.LabelFont.Color = clBlack
+        Marks.LabelFont.Height = 9
+        Marks.LabelBrush.Style = bsClear
+        Marks.Source = ListChartSourceTopBot
+        Minors = <>
+        Title.Distance = 2
+        Title.LabelFont.Height = -9
+        Title.Visible = True
+        Title.Caption = 'Hole Construction and Lithology'
+        Title.LabelBrush.Style = bsClear
+      end>
+    BackColor = clWhite
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Legend.Alignment = laBottomCenter
+    Legend.BackgroundBrush.Style = bsClear
+    Legend.ColumnCount = 3
+    Legend.FixedItemHeight = 12
+    Legend.Font.Height = 9
+    Legend.Frame.Visible = False
+    Legend.ItemFillOrder = lfoRowCol
+    Legend.MarginX = 2
+    Legend.Spacing = 2
+    Legend.SymbolWidth = 26
+    Legend.Visible = True
+    MarginsExternal.Bottom = 0
+    Title.Brush.Color = clBtnFace
+    Title.Brush.Style = bsClear
+    Title.Font.Color = clBlack
+    Title.Font.Height = 9
+    Title.Font.Name = 'Arial'
+    Title.Text.Strings = (
+      ''
+    )
+    Toolset = ChartToolset1
+    Align = alClient
+    OnDblClick = LogChartDblClick
+    OnMouseMove = LogChartMouseMove
+    object HoleLabels: TLineSeries
+      Active = False
+      Marks.Margins.Left = 2
+      Marks.Margins.Top = 1
+      Marks.Margins.Right = 2
+      Marks.Margins.Bottom = 1
+      Marks.Clipped = False
+      Marks.Distance = 6
+      Marks.LabelFont.Height = 9
+      Marks.LabelFont.Style = [fsItalic]
+      Marks.AutoMargins = False
+      Marks.Format = '%2:s'
+      Marks.LabelBrush.Color = 9554175
+      Marks.LinkPen.Color = clBlack
+      Marks.OverlapPolicy = opHideNeighbour
+      Marks.Style = smsLegend
+      Title = 'Hole Diameter [mm]'
+      ZPosition = 999
+      LinePen.Style = psClear
+      MarkPositions = lmpNegative
+      Pointer.Brush.Color = 9554175
+      Pointer.HorizSize = 2
+      Pointer.Style = psCircle
+      Pointer.VertSize = 2
+      Pointer.Visible = True
+      ShowPoints = True
+    end
+    object CasingLabels: TLineSeries
+      Active = False
+      Marks.Margins.Left = 2
+      Marks.Margins.Top = 1
+      Marks.Margins.Right = 2
+      Marks.Margins.Bottom = 1
+      Marks.Clipped = False
+      Marks.Distance = 6
+      Marks.LabelFont.Height = 9
+      Marks.AutoMargins = False
+      Marks.Format = '%2:s'
+      Marks.LabelBrush.Color = 11599871
+      Marks.LinkPen.Color = clBlack
+      Marks.OverlapPolicy = opHideNeighbour
+      Marks.Style = smsLabel
+      Title = 'Casing Diameter [mm]'
+      ZPosition = 998
+      LinePen.Style = psClear
+      MarkPositions = lmpNegative
+      Pointer.Brush.Color = 11599871
+      Pointer.HorizSize = 2
+      Pointer.VertSize = 2
+      Pointer.Visible = True
+      ShowPoints = True
+    end
+    object CapSeries: TLineSeries
+      Legend.Order = 0
+      Active = False
+      Marks.Visible = False
+      Title = 'Cap'
+      ZPosition = 996
+      LinePen.Width = 3
+    end
+    object WaterlevelLine: TLineSeries
+      Active = False
+      Marks.Alignment = taCenter
+      Marks.Margins.Left = 2
+      Marks.Margins.Top = 1
+      Marks.Margins.Right = 2
+      Marks.Margins.Bottom = 1
+      Marks.Distance = 8
+      Marks.LabelFont.Color = clBlue
+      Marks.LabelFont.Height = 9
+      Marks.Visible = False
+      Marks.Arrow.BaseLength = 7
+      Marks.Arrow.Length = 7
+      Marks.Arrow.Visible = True
+      Marks.AutoMargins = False
+      Marks.Format = '%2:s'
+      Marks.LabelBrush.Color = clCream
+      Marks.LinkPen.Color = clBlack
+      Marks.LinkPen.EndCap = pecFlat
+      Marks.Style = smsLabel
+      Title = 'Water level [m]'
+      ZPosition = 997
+      LinePen.Color = clBlue
+      LinePen.EndCap = pecFlat
+      LinePen.Width = 2
+      MarkPositions = lmpPositive
+      Pointer.Brush.Color = clBlue
+      Pointer.HorizSize = 10
+      Pointer.Style = psDiamond
+      Pointer.VertSize = 10
+    end
+    object StrikeLabels: TLineSeries
+      Active = False
+      Marks.Alignment = taCenter
+      Marks.Distance = 2
+      Marks.LabelFont.Color = clGreen
+      Marks.LabelFont.Height = 9
+      Marks.AutoMargins = False
+      Marks.Format = '%2:s'
+      Marks.Frame.Style = psClear
+      Marks.Frame.Visible = False
+      Marks.LabelBrush.Color = clWhite
+      Marks.LabelBrush.Style = bsClear
+      Marks.LinkPen.Visible = False
+      Marks.Style = smsLabel
+      Title = 'Water strike'
+      ZPosition = 995
+      LinePen.Color = clGreen
+      LinePen.Style = psClear
+      MarkPositions = lmpPositive
+      Pointer.Brush.Color = clGreen
+      Pointer.Style = psLeftTriangle
+      Pointer.Visible = True
+      ShowPoints = True
+    end
+    object LogLabelLines: TLineSeries
+      Legend.Visible = False
+      Active = False
+      Marks.Alignment = taCenter
+      Marks.Margins.Left = 2
+      Marks.Margins.Top = 1
+      Marks.Margins.Right = 2
+      Marks.Margins.Bottom = 1
+      Marks.Attachment = maCenter
+      Marks.Distance = 0
+      Marks.LabelFont.Height = -9
+      Marks.Visible = False
+      Marks.AutoMargins = False
+      Marks.Format = '%2:s'
+      Marks.Frame.Style = psClear
+      Marks.Frame.Visible = False
+      Marks.LabelBrush.Color = clWhite
+      Marks.LabelBrush.Style = bsClear
+      Marks.LinkPen.Color = clBlack
+      Marks.LinkPen.Visible = False
+      Marks.Style = smsLabel
+      ZPosition = 900
+      LinePen.Style = psClear
+      MarkPositions = lmpInside
+      Pointer.Brush.Color = clBlack
+      Pointer.HorizSize = 1
+      Pointer.VertSize = 1
+    end
+    object LithLabels: TBarSeries
+      Legend.Visible = False
+      Active = False
+      Marks.Attachment = maEdge
+      Marks.Distance = 0
+      Marks.LabelFont.Height = 9
+      Marks.AutoMargins = False
+      Marks.Format = '%2:s'
+      Marks.Frame.Style = psClear
+      Marks.LabelBrush.Style = bsClear
+      Marks.LinkPen.Color = clNone
+      Marks.Style = smsLabel
+      AxisIndexX = 0
+      AxisIndexY = 1
+      BarBrush.Color = clNone
+      BarPen.Color = clNone
+      BarPen.Style = psClear
+      BarWidthPercent = 1
+    end
+  end
+  object DTHChart: TChart
+    Left = 414
+    Height = 592
+    Top = 0
+    Width = 168
+    AxisList = <    
+      item
+        Grid.Color = clSilver
+        Grid.Visible = False
+        Visible = False
+        Arrow.Inverted = True
+        Inverted = True
+        MarginsForMarks = False
+        Marks.Clipped = False
+        Marks.LabelFont.Height = -9
+        Marks.Visible = False
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Range.UseMin = True
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Grid.Color = clSilver
+        TickLength = 3
+        Alignment = calBottom
+        Marks.LabelFont.Height = 9
+        Marks.LabelFont.Name = 'Arial'
+        Marks.Frame.Visible = False
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Range.UseMin = True
+        Title.Distance = 2
+        Title.LabelFont.Height = 9
+        Title.LabelFont.Name = 'Arial'
+        Title.Visible = True
+        Title.Caption = 'Whatever'
+        Title.LabelBrush.Style = bsClear
+        Transformations = BottomAxisTransformations
+      end    
+      item
+        Grid.Color = clSilver
+        Alignment = calRight
+        Arrow.Inverted = True
+        Inverted = True
+        Marks.Distance = 2
+        Marks.LabelFont.Height = -9
+        Marks.LabelFont.Name = 'Arial'
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Range.Min = -2
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Grid.Color = clSilver
+        TickLength = 3
+        Alignment = calTop
+        Marks.LabelFont.Height = 9
+        Marks.LabelFont.Name = 'Arial'
+        Marks.Frame.Visible = False
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Range.UseMin = True
+        Title.Distance = 2
+        Title.LabelFont.Height = 9
+        Title.LabelFont.Name = 'Arial'
+        Title.Visible = True
+        Title.Caption = 'Whatever'
+        Title.LabelBrush.Style = bsClear
+        Transformations = TopAxisTransformations
+      end>
+    BackColor = clWhite
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Legend.Alignment = laBottomCenter
+    Legend.BackgroundBrush.Style = bsClear
+    Legend.FixedItemHeight = 12
+    Legend.Font.Height = 9
+    Legend.Frame.Visible = False
+    Legend.Spacing = 2
+    Legend.Visible = True
+    MarginsExternal.Left = 2
+    MarginsExternal.Bottom = 0
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Font.Height = -9
+    Title.Font.Name = 'Arial'
+    Title.Text.Strings = (
+      'Progr. Yield'
+    )
+    Toolset = ChartToolset1
+    Align = alRight
+    Visible = False
+    OnDblClick = DTHChartDblClick
+    OnMouseMove = DTHChartMouseMove
+    object TopSeries: TLineSeries
+      Active = False
+      Marks.Visible = False
+      AxisIndexX = 3
+      AxisIndexY = 2
+      LinePen.Color = clRed
+    end
+    object BottomSeries: TLineSeries
+      Active = False
+      Marks.Visible = False
+      AxisIndexX = 1
+      AxisIndexY = 2
+      LinePen.Color = clBlue
+    end
+  end
+  object Splitter1: TSplitter
+    Left = 409
+    Height = 592
+    Top = 0
+    Width = 5
+    Align = alRight
+    ResizeAnchor = akRight
+  end
+  object ChartExtentLink1: TChartExtentLink
+    LinkedCharts = <    
+      item
+        Chart = LogChart
+      end    
+      item
+        Chart = DTHChart
+      end>
+    Mode = elmOnlyY
+    Left = 256
+    Top = 80
+  end
+  object GetDataQuery: TZReadOnlyQuery
+    Params = <>
+    Left = 280
+    Top = 16
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    Left = 72
+    Top = 16
+  end
+  object TopAxisTransformations: TChartAxisTransformations
+    Left = 258
+    Top = 156
+    object TopAutoScaleTransform: TAutoScaleAxisTransform
+    end
+  end
+  object BottomAxisTransformations: TChartAxisTransformations
+    Left = 184
+    Top = 416
+    object BottomAutoScaleTransform: TAutoScaleAxisTransform
+    end
+  end
+  object ListChartSourceDepth: TListChartSource
+    Left = 112
+    Top = 136
+  end
+  object ChartToolset1: TChartToolset
+    Left = 136
+    Top = 240
+    object ChartToolset1ZoomMouseWheelTool1: TZoomMouseWheelTool
+      ZoomFactor = 1.1
+    end
+    object ChartToolset1PanDragTool1: TPanDragTool
+      Shift = [ssCtrl]
+      LimitToExtent = [pdLeft, pdUp, pdRight, pdDown]
+      EscapeCancels = True
+    end
+    object ChartToolset1DataPointClickTool1: TDataPointClickTool
+      Shift = [ssLeft]
+      GrabRadius = 5
+      ActiveCursor = crHandPoint
+    end
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 237
+    Top = 264
+    object MenuItemCopyClip: TMenuItem
+      Caption = '&Copy to clipboard as Bitmap'
+      ShortCut = 16451
+      OnClick = MenuItemCopyClipClick
+    end
+    object MenuItemSave: TMenuItem
+      Caption = '&Save chart as'
+      object MenuItemBitmap: TMenuItem
+        Caption = '&Bitmap Image'
+        ShortCut = 49218
+        OnClick = MenuItemBitmapClick
+      end
+      object MenuItemJpeg: TMenuItem
+        Caption = '&Jpeg Image'
+        ShortCut = 49226
+        OnClick = MenuItemJpegClick
+      end
+    end
+    object MenuItem6: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem2: TMenuItem
+      Caption = '&View extents'
+      object MenuItemFullExtent: TMenuItem
+        AutoCheck = True
+        Caption = 'View &full extent'
+        RadioItem = True
+        ShortCut = 16454
+        OnClick = MenuItemFullExtentClick
+      end
+      object MenuItemTopExtent: TMenuItem
+        AutoCheck = True
+        Caption = 'View &top extent'
+        RadioItem = True
+        ShortCut = 16468
+        OnClick = MenuItemTopExtentClick
+      end
+      object MenuItemBotExtent: TMenuItem
+        AutoCheck = True
+        Caption = 'View &bottom extent'
+        RadioItem = True
+        ShortCut = 16450
+        OnClick = MenuItemBotExtentClick
+      end
+    end
+    object MenuItem7: TMenuItem
+      Caption = 'Lithology font'
+      object MenuItemFontSmaller: TMenuItem
+        Caption = '&Smaller'
+        ShortCut = 16467
+        OnClick = MenuItemFontSmallerClick
+      end
+      object MenuItemFontLarger: TMenuItem
+        Caption = '&Larger'
+        ShortCut = 16460
+        OnClick = MenuItemFontLargerClick
+      end
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Axis title font'
+      object MenuItem4: TMenuItem
+        Caption = 'Rotate &left axis title 90° anti-cw.'
+        ShortCut = 49228
+        OnClick = MenuItem4Click
+      end
+    end
+    object MenuItem1: TMenuItem
+      Caption = '-'
+    end
+    object MenuItemTopAxis: TMenuItem
+      Caption = 'Move Top Axis...'
+      object MenuItemTopUp: TMenuItem
+        Caption = '1 Pixel &up'
+        ShortCut = 49237
+        OnClick = MenuItemTopUpClick
+      end
+      object MenuItemTopDown: TMenuItem
+        Caption = '1 Pixel &down'
+        ShortCut = 49220
+        OnClick = MenuItemTopDownClick
+      end
+    end
+    object MenuItemBotAxis: TMenuItem
+      Caption = 'Move Bottom Axis...'
+      object MenuItemBotUp: TMenuItem
+        Caption = '1 Pixel &up'
+        ShortCut = 16469
+        OnClick = MenuItemBotUpClick
+      end
+      object MenuItemBotDown: TMenuItem
+        Caption = '1 Pixel &down'
+        ShortCut = 16452
+        OnClick = MenuItemBotDownClick
+      end
+    end
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '.bmp'
+    Filter = 'Bitmap File (*.bmp)|*.bmp; *.BMP; *.Bmp|All Files (*.*)|*'
+    Left = 102
+    Top = 342
+  end
+  object ListChartSourceTopBot: TListChartSource
+    DataPoints.Strings = (
+      '2000|0|?|Outside Range'
+    )
+    Left = 323
+    Top = 376
+  end
+  object LookupQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT * FROM Lookup'
+    )
+    Params = <>
+    Left = 308
+    Top = 501
+  end
+end

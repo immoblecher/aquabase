@@ -1,0 +1,120 @@
+object LegendForm: TLegendForm
+  Left = 1003
+  Height = 154
+  Top = 165
+  Width = 184
+  AutoSize = True
+  BorderStyle = bsSingle
+  Caption = 'Legend'
+  ClientHeight = 154
+  ClientWidth = 184
+  Constraints.MinHeight = 154
+  Constraints.MinWidth = 184
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '2.0.4.0'
+  object BitBtn1: TBitBtn
+    Left = 56
+    Height = 30
+    Top = 117
+    Width = 75
+    Anchors = [akRight, akBottom]
+    DefaultCaption = True
+    Kind = bkClose
+    ModalResult = 11
+    TabOrder = 0
+  end
+  object ShapeTop: TShape
+    Left = 14
+    Height = 8
+    Top = 34
+    Width = 8
+    BorderSpacing.Left = 14
+    Brush.Color = clNavy
+    Shape = stCircle
+  end
+  object LabelTop: TLabel
+    Left = 34
+    Height = 15
+    Top = 30
+    Width = 49
+    BorderSpacing.Left = 32
+    BorderSpacing.Top = 30
+    Caption = 'LabelTop'
+    ParentColor = False
+  end
+  object LabelTheme: TLabel
+    Left = 14
+    Height = 15
+    Top = 8
+    Width = 62
+    BorderSpacing.Left = 14
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 14
+    Caption = 'The Theme'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object ShapeMid: TShape
+    Left = 14
+    Height = 8
+    Top = 64
+    Width = 8
+    BorderSpacing.Left = 14
+    Brush.Color = clBlue
+    Shape = stCircle
+  end
+  object LabelMid: TLabel
+    Left = 34
+    Height = 15
+    Top = 60
+    Width = 49
+    BorderSpacing.Left = 32
+    BorderSpacing.Top = 30
+    Caption = 'LabelMid'
+    ParentColor = False
+  end
+  object ShapeBot: TShape
+    Left = 14
+    Height = 8
+    Top = 94
+    Width = 8
+    BorderSpacing.Left = 14
+    Brush.Color = clSkyBlue
+    Shape = stCircle
+  end
+  object LabelBot: TLabel
+    Left = 34
+    Height = 15
+    Top = 90
+    Width = 49
+    BorderSpacing.Left = 32
+    BorderSpacing.Top = 30
+    Caption = 'LabelBot'
+    ParentColor = False
+  end
+  object ShapeOther: TShape
+    Left = 14
+    Height = 8
+    Top = 124
+    Width = 8
+    BorderSpacing.Left = 14
+    Brush.Color = clGreen
+    Shape = stCircle
+    Visible = False
+  end
+  object LabelOther: TLabel
+    Left = 34
+    Height = 15
+    Top = 120
+    Width = 62
+    BorderSpacing.Left = 32
+    BorderSpacing.Top = 30
+    BorderSpacing.Bottom = 50
+    Caption = 'LabelOther'
+    ParentColor = False
+    Visible = False
+  end
+end

@@ -1,0 +1,131 @@
+object ChemRadialForm: TChemRadialForm
+  Left = 846
+  Height = 385
+  Top = 208
+  Width = 377
+  Caption = 'Radial Chart'
+  ClientHeight = 385
+  ClientWidth = 377
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  FormStyle = fsMDIChild
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  PopupMenu = PopupMenu1
+  SessionProperties = 'Left;Top'
+  LCLVersion = '2.0.8.0'
+  object PolarChart: TChart
+    Left = 0
+    Height = 385
+    Top = 0
+    Width = 377
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+      end>
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TChart'
+    )
+    Align = alClient
+    DragCursor = crHandPoint
+    OnClick = PolarChartClick
+  end
+  object aChemRadialQuery: TZQuery
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    left = 120
+    top = 200
+  end
+  object SaveDialog: TSaveDialog
+    DefaultExt = '.tee'
+    Filter = 'Aquabase Chart (*.tee)|*.tee'
+    InitialDir = 'WSpaceDir'
+    left = 120
+    top = 6
+  end
+  object PopupMenu1: TPopupMenu
+    OnPopup = PopupMenu1Popup
+    left = 216
+    top = 9
+    object MenuItem1: TMenuItem
+      Caption = '&Copy'
+      object MenuItem2: TMenuItem
+        Caption = '&Copy as bitmap'
+        OnClick = Copyasbitmap1Click
+      end
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Save &as...'
+      OnClick = Saveas1Click
+    end
+    object MenuItem5: TMenuItem
+      Caption = '&Print'
+      OnClick = MenuItem5Click
+    end
+    object MenuItemReport: TMenuItem
+      Caption = '&Update chart for report'
+      OnClick = MenuItemReportClick
+    end
+    object MenuItem4: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem6: TMenuItem
+      Caption = '&Monochrome'
+      GroupIndex = 1
+      OnClick = Monochrome1Click
+    end
+    object QuickFormat1: TMenuItem
+      Caption = '&Quick Format'
+      GroupIndex = 1
+      object MenuItemBackground: TMenuItem
+        Caption = '&Background white'
+        OnClick = MenuItemBackgroundClick
+      end
+      object MenuItemPanel: TMenuItem
+        Caption = 'Panel &colour while'
+        OnClick = MenuItemPanelClick
+      end
+      object MenuItemFrame: TMenuItem
+        Caption = '&Frame'
+        OnClick = MenuItemFrameClick
+      end
+      object Grid1: TMenuItem
+        Caption = '&Grid'
+        OnClick = Grid1Click
+      end
+      object N3D1: TMenuItem
+        Caption = '&3D'
+        OnClick = N3D1Click
+      end
+      object Legend1: TMenuItem
+        Caption = '&Legend'
+        OnClick = Legend1Click
+      end
+    end
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    left = 169
+    top = 99
+  end
+  object PrintDialog1: TPrintDialog
+    left = 216
+    top = 176
+  end
+end

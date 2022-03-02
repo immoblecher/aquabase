@@ -1,0 +1,258 @@
+inherited PenetrationForm: TPenetrationForm
+  Left = 564
+  Top = 231
+  Caption = 'Penetration Form'
+  OnActivate = FormActivate
+  inherited Panel1: TPanel
+    inherited ViewNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited ChartSpeedButton: TSpeedButton
+      OnClick = ChartSpeedButtonClick
+    end
+    inherited BasicDBNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited Panel2: TPanel
+    Height = 217
+    Top = 151
+    ClientHeight = 217
+    inherited Panel4: TPanel
+      Top = 189
+      inherited DetailNavigator: TDBNavigator
+        Hints.Strings = (        )
+      end
+      inherited StaticText1: TStaticText
+        Left = 465
+        Width = 38
+      end
+    end
+    inherited DBGrid: TDBGrid
+      Height = 164
+      TabOrder = 2
+    end
+    inherited LinkedLabel: TLabel
+      Top = 4
+      Width = 274
+    end
+    object AMSLCheckBox: TCheckBox[3]
+      Left = 508
+      Height = 17
+      Top = 2
+      Width = 61
+      Anchors = [akTop, akRight]
+      Caption = 'a.m.s.l.'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      OnClick = AMSLCheckBoxClick
+      ParentFont = False
+      TabOrder = 1
+      TabStop = False
+    end
+    object lblRate: TLabel[4]
+      Left = 292
+      Height = 13
+      Top = 4
+      Width = 144
+      Alignment = taRightJustify
+      Caption = 'Default depth interval [m]'
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object FloatSpinEdit1: TFloatSpinEdit[5]
+      Left = 440
+      Height = 21
+      Top = 1
+      Width = 50
+      Alignment = taRightJustify
+      DecimalPlaces = 1
+      Increment = 0.5
+      MinValue = 0
+      TabOrder = 3
+      Value = 1
+    end
+  end
+  inherited GroupBox1: TGroupBox
+    Height = 107
+    ClientHeight = 89
+    inherited RxDBLookupComboType: TRxDBLookupCombo
+      Height = 27
+    end
+  end
+  inherited BasicinfDataSource: TDataSource
+    OnDataChange = BasicinfDataSourceDataChange
+    left = 280
+  end
+  inherited LinkedDataSource: TDataSource
+    left = 160
+    top = 288
+  end
+  inherited LinkedQuery: TZQuery
+    BeforeOpen = LinkedQueryBeforeOpen
+    BeforeInsert = LinkedQueryBeforeInsert
+    OnNewRecord = LinkedQueryNewRecord
+    SQL.Strings = (
+      'SELECT * FROM penetrat WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    left = 56
+    top = 288
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object LinkedQueryDATE_ENTRY: TStringField[1]
+      Alignment = taCenter
+      DisplayLabel = 'Date entered'
+      DisplayWidth = 32
+      FieldKind = fkData
+      FieldName = 'DATE_ENTRY'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 32
+    end
+    object LinkedQueryREP_INST: TStringField[2]
+      Tag = 1
+      Alignment = taCenter
+      DisplayLabel = 'Rep. inst.'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryREP_INSTSetText
+      OnValidate = LinkedQueryValidate
+      Size = 16
+    end
+    object LinkedQueryINFO_SOURC: TStringField[3]
+      Tag = 4
+      Alignment = taCenter
+      DisplayLabel = 'Info. src.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 3
+      LookupCache = False
+      LookupKeyFields = 'IS_BASIC'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryINFO_SOURCSetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryDEPTH_TOP: TFloatField[4]
+      DisplayLabel = 'Depth to top'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH_TOP'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryDEPTH_TOPGetText
+      OnSetText = LinkedQueryDEPTH_TOPSetText
+      OnValidate = LinkedQueryDEPTH_TOPValidate
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object LinkedQueryDEPTH_BOT: TFloatField[5]
+      DisplayLabel = 'Depth to bot.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH_BOT'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryDEPTH_BOTGetText
+      OnSetText = LinkedQueryDEPTH_BOTSetText
+      OnValidate = LinkedQueryDEPTH_BOTValidate
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object LinkedQueryDIAMETER: TFloatField[6]
+      DisplayLabel = 'Diameter'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DIAMETER'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryDIAMETERGetText
+      OnSetText = LinkedQueryDIAMETERSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object LinkedQueryPENET_RATE: TFloatField[7]
+      DisplayLabel = 'Penetr. rate'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PENET_RATE'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryPENET_RATEGetText
+      OnSetText = LinkedQueryPENET_RATESetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object LinkedQueryCOMMENT: TStringField[8]
+      DisplayLabel = 'Comment'
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryCOMMENTSetText
+      Size = 48
+    end
+  end
+  inherited AccuDataSource: TDataSource
+    top = 200
+  end
+  inherited ZReadOnlyQuerySiteType: TZReadOnlyQuery
+    left = 392
+    top = 96
+  end
+  inherited TypeDataSource: TDataSource
+    top = 248
+  end
+end

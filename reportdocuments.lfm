@@ -1,0 +1,561 @@
+object ReportDocsForm: TReportDocsForm
+  Left = 536
+  Height = 368
+  Top = 235
+  Width = 636
+  HelpContext = 314
+  Caption = 'Report Documents'
+  ClientHeight = 368
+  ClientWidth = 636
+  Constraints.MinWidth = 590
+  KeyPreview = True
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  Position = poDefaultPosOnly
+  SessionProperties = 'Height;Left;Top;Width'
+  LCLVersion = '2.0.8.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 36
+    Top = 0
+    Width = 636
+    Align = alTop
+    ClientHeight = 36
+    ClientWidth = 636
+    TabOrder = 0
+    object BitBtn1: TBitBtn
+      Left = 456
+      Height = 27
+      Top = 4
+      Width = 82
+      Anchors = [akTop, akRight]
+      Default = True
+      DefaultCaption = True
+      Kind = bkClose
+      ModalResult = 11
+      TabOrder = 0
+    end
+    object HelpButton: TBitBtn
+      Left = 546
+      Height = 27
+      Top = 4
+      Width = 82
+      HelpContext = 314
+      Anchors = [akTop, akRight]
+      DefaultCaption = True
+      Kind = bkHelp
+      OnClick = HelpButtonClick
+      TabOrder = 1
+    end
+    object DBNavigator1: TDBNavigator
+      Left = 12
+      Height = 25
+      Top = 6
+      Width = 241
+      BevelOuter = bvNone
+      ChildSizing.EnlargeHorizontal = crsScaleChilds
+      ChildSizing.EnlargeVertical = crsScaleChilds
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 100
+      ClientHeight = 25
+      ClientWidth = 241
+      DataSource = DataSource1
+      Options = []
+      TabOrder = 2
+      Images = DataModuleMain.ImageListNavs
+    end
+    object BitBtnSave: TBitBtn
+      Left = 344
+      Height = 27
+      Hint = 'Save a document from the database to computer'
+      Top = 4
+      Width = 75
+      Caption = '&Save'
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF001225603F18317E811326636400000036AF6230D1C38458FFD38B68FFE18F
+        70FFDC8D6CFFDA8B6DFFD78A6EFFCD8B6CFFAB6D44FFA65F2EFF787878067474
+        74212C4BA5FF355DAFFF2142ABFFDCDCDCFFC68355FFEFCEBAFFDDFFFFFF87EE
+        C7FFA2F4D7FFA2F6D7FF8CEEC7FFE0FFFFFFDDA285FFAB6A3EFFCFCFCF2ECCCC
+        CCF4C4C6CAFFC0C6CCFF2143ACFFFDFDFDFFC37F51FFEFB69AFFEAF3E8FF51BF
+        84FF6FC998FF71C999FF54BF84FFE4F4E9FFDD9C7BFFAA693AFF78787806B1B1
+        B1606379B3FF618FBFFF2246AEFFFAFAFAFFC48154FFEAB697FFF3F3EAFFEDF1
+        E6FFEFF1E6FFEFF0E6FFEDF1E5FFF3F5EDFFD59C79FFB07044FFCFCFCF2ECCCC
+        CCF4C4C6CAFFC0C6CCFF2249AEFFFAFAFAFFC98B61FFE6B592FFE2A781FFE1A7
+        81FFDEA37DFFDCA17BFFDB9F79FFD99E77FFD49A73FFBB7E57FF78787806B1B1
+        B160647CB3FF6392C1FF234BAFFFF9F9F9FFCA8D65FFEAB899FFDDA57EFFDDA6
+        80FFDBA37CFFD9A07AFFD9A079FFD89F78FFD89E78FFBF845DFFCFCFCF2ECCCC
+        CCF4C4C6CAFFC0C6CDFF234EB1FFFAFAFAFFC8885DFFEFBFA1FFFDFCFAFFFEFC
+        FBFFFEFDFDFFFEFDFCFFFDFBFAFFFDFCFBFFDDA885FFC17F53FF78787806B1B1
+        B160657FB5FF6494C2FF2451B2FFFAFAFAFFC7865BFFEFC09EFFFFFFFFFFCC93
+        6EFFFFFFFFFFFFFFFFFFFFFBF7FFFFF8F1FFE4AF8CFFC78A61FFCFCFCF2ECCCC
+        CCF4C4C6CAFFC0C7CDFF2552B2FFFBFBFBFFCC8D65FFF3CDB0FFFFFFFFFFE3C7
+        B3FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEABFA1FFC98960FF78787806B1B1
+        B1606682B5FF6596C3FF2555B4FFFAFAFAFFD4976EFFD49E7BFFD09871FFD6A4
+        82FFCD8E68FFCD9069FFD09A75FFD19973FFC88B62FF60321261CFCFCF2ECCCC
+        CCF4C4C6CAFFC0C7CDFF2656B5FFF9F9F9FFF9F9F9FFE1A378FFEAC0A3FFEAC0
+        A2FFEABFA1FFEABEA0FFDF9E71FFF4F4F4FFF7F7F7FF0000003678787806B1B1
+        B1606783B7FF6699C4FF2659B7FFF8F8F8FFF8F8F8FFE1A57AFFE1A378FFE1A3
+        77FFE0A276FFE0A076FFE0A074FFF4F4F4FFFAFAFAFF00000036CFCFCF2ECCCC
+        CCF4C4C7CAFFC0C7CDFF265BB7FFF7F7F7FFF7F7F7FFF7F7F7FFF7F7F7FFF7F7
+        F7FFF5F5F5FFF5F5F5FFF5F5F5FFF3F3F3FFFAFAFAFF0000003678787806B1B1
+        B1606787B9FF679AC5FF275EB8FFF7F7F7FFF7F7F7FFF7F7F7FFF7F7F7FFF5F5
+        F5FFF4F4F4FFF4F4F4FFF4F4F4FFF2F2F2FFFBFBFBFF00000036CFCFCF2ECCCC
+        CCF4C4C7CAFFC1C7CDFF275FB8FFFCFCFCFFFCFCFCFFFCFCFCFFFCFCFCFFFCFC
+        FCFFFCFCFCFFFCFCFCFFFCFCFCFFFCFCFCFFFCFCFCFF00000036FFFFFF00CFCF
+        CF48648BC2FF4978BEFF2861BAFF000000360000003600000036000000360000
+        0036000000360000003600000036000000360000003600000020
+      }
+      OnClick = BitBtnSaveClick
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 3
+    end
+    object BitBtnLoad: TBitBtn
+      Left = 264
+      Height = 27
+      Hint = 'Load a document into the database'
+      Top = 4
+      Width = 75
+      Caption = '&Load'
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF001225603F18317E8113266364000000360000003600000036000000360000
+        0036155A2EA1196A36F5196B37FF196A36F5155A2EA100000020787878067474
+        74212C4BA5FF355DAFFF2142ABFFDCDCDCFFD8D8D8FFD4D4D4FFD2D2D2FF729C
+        81FF288C53FF64BA8DFF95D2B2FF64BA8DFF288C53FF155B2FA4CFCFCF2ECCCC
+        CCF4C4C6CAFFC0C6CCFF2143ACFFFDFDFDFFFBFBFBFFF8F8F8FFF4F4F4FF2270
+        3FFF62BA8BFF60BA87FFFFFFFFFF60B987FF67BC8FFF196A37F978787806B1B1
+        B1606379B3FF618FBFFF2246AEFFFAFAFAFFFAFAFAFFF6F6F6FFF3F3F3FF317B
+        4CFF9CD4B6FFFFFFFFFFFFFFFFFFFFFFFFFF95D2B2FF196B37FFCFCFCF2ECCCC
+        CCF4C4C6CAFFC0C6CCFF2249AEFFFAFAFAFFFAFAFAFFF8F8F8FFF4F4F4FF498A
+        62FF90D3B1FF92D6B1FFFFFFFFFF65BC8CFF67BC8FFF196A37F978787806B1B1
+        B160647CB3FF6392C1FF234BAFFFF9F9F9FFF9F9F9FFF9F9F9FFF6F6F6FFA2C1
+        ADFF61AB81FF95D4B4FFBAE6D0FF6ABB8FFF2D8F57FF155B2FA4CFCFCF2ECCCC
+        CCF4C4C6CAFFC0C6CDFF234EB1FFFAFAFAFFF9F9F9FFF8F8F8FFF7F7F7FFF6F6
+        F6FFACC8B6FF609975FF4F8E66FF498A61FF82A68FFF0303033878787806B1B1
+        B160657FB5FF6494C2FF2451B2FFFAFAFAFFF8F8F8FFE09F73FFDD9D71FFDC9A
+        6EFFDA996BFFD9986AFFD4936AFFEAEAEAFFECECECFF00000036CFCFCF2ECCCC
+        CCF4C4C6CAFFC0C7CDFF2552B2FFFBFBFBFFFAFAFAFFF8F8F8FFF8F8F8FFF8F8
+        F8FFF7F7F7FFF3F3F3FFF2F2F2FFF0F0F0FFEEEEEEF40000003378787806B1B1
+        B1606682B5FF6596C3FF2555B4FFFAFAFAFFFAFAFAFFE0A276FFE0A076FFE0A0
+        74FFDF9E73FFDC9C72FFDC9B6FFFF2F2F2FFF6F6F6FD00000036CFCFCF2ECCCC
+        CCF4C4C6CAFFC0C7CDFF2656B5FFF9F9F9FFF9F9F9FFE1A378FFEAC0A3FFEAC0
+        A2FFEABFA1FFEABEA0FFDF9E71FFF4F4F4FFF7F7F7FF0000003678787806B1B1
+        B1606783B7FF6699C4FF2659B7FFF8F8F8FFF8F8F8FFE1A57AFFE1A378FFE1A3
+        77FFE0A276FFE0A076FFE0A074FFF4F4F4FFFAFAFAFF00000036CFCFCF2ECCCC
+        CCF4C4C7CAFFC0C7CDFF265BB7FFF7F7F7FFF7F7F7FFF7F7F7FFF7F7F7FFF7F7
+        F7FFF5F5F5FFF5F5F5FFF5F5F5FFF3F3F3FFFAFAFAFF0000003678787806B1B1
+        B1606787B9FF679AC5FF275EB8FFF7F7F7FFF7F7F7FFF7F7F7FFF7F7F7FFF5F5
+        F5FFF4F4F4FFF4F4F4FFF4F4F4FFF2F2F2FFFBFBFBFF00000036CFCFCF2ECCCC
+        CCF4C4C7CAFFC1C7CDFF275FB8FFFCFCFCFFFCFCFCFFFCFCFCFFFCFCFCFFFCFC
+        FCFFFCFCFCFFFCFCFCFFFCFCFCFFFCFCFCFFFCFCFCFF00000036FFFFFF00CFCF
+        CF48648BC2FF4978BEFF2861BAFF000000360000003600000036000000360000
+        0036000000360000003600000036000000360000003600000020
+      }
+      OnClick = BitBtnLoadClick
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 4
+    end
+  end
+  object RxDBGrid: TRxDBGrid
+    Left = 0
+    Height = 332
+    Hint = 'Click up/down arrow for menu'
+    Top = 36
+    Width = 636
+    ColumnDefValues.BlobText = '(blob)'
+    TitleButtons = True
+    AutoSort = True
+    Columns = <    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Orientation = toHorizontal
+        Title.Caption = 'Report Number'
+        Width = 132
+        FieldName = 'REPORT_NR'
+        EditButtons = <>
+        Filter.DropDownRows = 0
+        Filter.EmptyValue = '(Empty)'
+        Filter.NotEmptyValue = '(Not empty)'
+        Filter.AllValue = '(All values)'
+        Filter.EmptyFont.Style = [fsItalic]
+        Filter.ItemIndex = -1
+        Footers = <>
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Orientation = toHorizontal
+        Title.Caption = 'Report Title'
+        Width = 122
+        FieldName = 'REP_TITLE'
+        EditButtons = <>
+        Filter.DropDownRows = 0
+        Filter.EmptyValue = '(Empty)'
+        Filter.NotEmptyValue = '(Not empty)'
+        Filter.AllValue = '(All values)'
+        Filter.EmptyFont.Style = [fsItalic]
+        Filter.ItemIndex = -1
+        Footers = <>
+        WordWrap = True
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Orientation = toHorizontal
+        Title.Caption = 'Primary Author'
+        Width = 112
+        FieldName = 'PRIM_AUTH'
+        EditButtons = <>
+        Filter.DropDownRows = 0
+        Filter.EmptyValue = '(Empty)'
+        Filter.NotEmptyValue = '(Not empty)'
+        Filter.AllValue = '(All values)'
+        Filter.EmptyFont.Style = [fsItalic]
+        Filter.ItemIndex = -1
+        Footers = <>
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Orientation = toHorizontal
+        Title.Caption = 'Co. Author'
+        Width = 112
+        FieldName = 'SEC_AUTH'
+        EditButtons = <>
+        Filter.DropDownRows = 0
+        Filter.EmptyValue = '(Empty)'
+        Filter.NotEmptyValue = '(Not empty)'
+        Filter.AllValue = '(All values)'
+        Filter.EmptyFont.Style = [fsItalic]
+        Filter.ItemIndex = -1
+        Footers = <>
+      end    
+      item
+        Alignment = taCenter
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Orientation = toHorizontal
+        Title.Caption = 'Rep. Inst.'
+        Width = 64
+        FieldName = 'REP_INST'
+        EditButtons = <>
+        Filter.DropDownRows = 0
+        Filter.EmptyValue = '(Empty)'
+        Filter.NotEmptyValue = '(Not empty)'
+        Filter.AllValue = '(All values)'
+        Filter.EmptyFont.Style = [fsItalic]
+        Filter.ItemIndex = -1
+        Footers = <>
+      end    
+      item
+        Alignment = taCenter
+        MaxSize = 100
+        ReadOnly = True
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Orientation = toHorizontal
+        Title.Caption = 'Rep. loaded'
+        Width = 80
+        FieldName = 'REPORT_LOADED'
+        EditButtons = <>
+        Filter.DropDownRows = 0
+        Filter.EmptyValue = '(Empty)'
+        Filter.NotEmptyValue = '(Not empty)'
+        Filter.AllValue = '(All values)'
+        Filter.EmptyFont.Style = [fsItalic]
+        Filter.ItemIndex = -1
+        Footers = <>
+      end>
+    KeyStrokes = <    
+      item
+        Command = rxgcShowFindDlg
+        ShortCut = 16454
+        Enabled = True
+      end    
+      item
+        Command = rxgcShowColumnsDlg
+        ShortCut = 16471
+        Enabled = True
+      end    
+      item
+        Command = rxgcShowFilterDlg
+        ShortCut = 16468
+        Enabled = True
+      end    
+      item
+        Command = rxgcShowSortDlg
+        ShortCut = 16467
+        Enabled = True
+      end    
+      item
+        Command = rxgcShowQuickFilter
+        ShortCut = 16465
+        Enabled = True
+      end    
+      item
+        Command = rxgcHideQuickFilter
+        ShortCut = 16456
+        Enabled = True
+      end    
+      item
+        Command = rxgcSelectAll
+        ShortCut = 16449
+        Enabled = True
+      end    
+      item
+        Command = rxgcDeSelectAll
+        ShortCut = 16429
+        Enabled = True
+      end    
+      item
+        Command = rxgcInvertSelection
+        ShortCut = 16426
+        Enabled = True
+      end    
+      item
+        Command = rxgcOptimizeColumnsWidth
+        ShortCut = 16427
+        Enabled = True
+      end    
+      item
+        Command = rxgcCopyCellValue
+        ShortCut = 16451
+        Enabled = True
+      end>
+    FooterOptions.DrawFullLine = False
+    SearchOptions.QuickSearchOptions = [loCaseInsensitive, loPartialKey]
+    SearchOptions.FromStart = False
+    OptionsRx = [rdgAllowColumnsForm, rdgAllowDialogFind, rdgDblClickOptimizeColWidth, rdgFilter, rdgAllowQuickSearch, rdgAllowQuickFilter, rdgAllowFilterForm, rdgAllowSortForm, rdgAllowToolMenu, rdgWordWrap]
+    Align = alClient
+    AutoFillColumns = True
+    Color = clWindow
+    DrawFullLine = False
+    FocusColor = clRed
+    SelectedColor = clHighlight
+    GridLineStyle = psSolid
+    DataSource = DataSource1
+    DefaultRowHeight = 19
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgHeaderPushedLook, dgDisableInsert, dgRowHighlight]
+    ParentShowHint = False
+    Scrollbars = ssAutoBoth
+    ShowHint = True
+    TabOrder = 1
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    OnColEnter = RxDBGridColEnter
+    OnColExit = RxDBGridColExit
+    OnKeyDown = RxDBGridKeyDown
+    OnMouseDown = RxDBGridMouseDown
+  end
+  object DataSource1: TDataSource
+    DataSet = ReportQuery
+    OnDataChange = DataSource1DataChange
+    left = 377
+    top = 112
+  end
+  object ReportQuery: TZQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'REP_INST, REPORT_NR'
+    BeforeOpen = ReportQueryBeforeOpen
+    OnCalcFields = ReportQueryCalcFields
+    BeforeEdit = ReportQueryBeforeEdit
+    BeforePost = ReportQueryBeforePost
+    AfterPost = ReportQueryAfterPost
+    AfterCancel = ReportQueryAfterCancel
+    OnNewRecord = ReportQueryNewRecord
+    SQL.Strings = (
+      'SELECT ID, REPORT_NR, REP_TITLE, PRIM_AUTH,'
+      'SEC_AUTH, REP_INST, FILENAME FROM rprtdocs'
+      'ORDER BY REP_INST, REPORT_NR'
+    )
+    Params = <>
+    IndexFieldNames = 'REP_INST Asc, REPORT_NR Asc'
+    left = 248
+    top = 112
+    object ReportQueryID: TLargeintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object ReportQueryREPORT_NR: TStringField
+      DisplayLabel = 'Report Number'
+      FieldKind = fkData
+      FieldName = 'REPORT_NR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = ReportQueryREPORT_NRSetText
+      Size = 96
+    end
+    object ReportQueryREP_TITLE: TStringField
+      DisplayLabel = 'Report Title'
+      FieldKind = fkData
+      FieldName = 'REP_TITLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = ReportQueryUpperSetText
+      Size = 512
+    end
+    object ReportQueryPRIM_AUTH: TStringField
+      DisplayLabel = 'Primary Author'
+      FieldKind = fkData
+      FieldName = 'PRIM_AUTH'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = ReportQueryUpperSetText
+      Size = 96
+    end
+    object ReportQuerySEC_AUTH: TStringField
+      DisplayLabel = 'Co. Author'
+      FieldKind = fkData
+      FieldName = 'SEC_AUTH'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = ReportQueryUpperSetText
+      Size = 96
+    end
+    object ReportQueryREP_INST: TStringField
+      Tag = 1
+      DisplayLabel = 'Rep. Inst.'
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 5
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = ReportQueryUpperSetText
+      OnValidate = ReportQueryREP_INSTValidate
+      Size = 16
+    end
+    object ReportQueryFILENAME: TStringField
+      FieldKind = fkData
+      FieldName = 'FILENAME'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 256
+    end
+    object ReportQueryREPORT_LOADED: TBooleanField
+      DisplayWidth = 5
+      FieldKind = fkCalculated
+      FieldName = 'REPORT_LOADED'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayValues = 'True;False'
+    end
+  end
+  object RxSortZeos1: TRxSortZeos
+    left = 495
+    top = 114
+  end
+  object OpenDialog1: TOpenDialog
+    left = 75
+    top = 144
+  end
+  object SaveDialog1: TSaveDialog
+    left = 75
+    top = 197
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    left = 305
+    top = 193
+  end
+  object SaveQuery: TZQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SQL.Strings = (
+      'SELECT ID, FILENAME, REP_DOC FROM rprtdocs'
+      'WHERE ID = :TheID'
+    )
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'TheID'
+        ParamType = ptUnknown
+      end>
+    left = 456
+    top = 248
+    ParamData = <    
+      item
+        DataType = ftInteger
+        Name = 'TheID'
+        ParamType = ptUnknown
+      end>
+  end
+  object LoadQuery: TZQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SQL.Strings = (
+      'UPDATE rprtdocs SET FILENAME = :FName, REP_DOC = :Doc'
+      'WHERE ID = :TheID'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'FName'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftBlob
+        Name = 'Doc'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftInteger
+        Name = 'TheID'
+        ParamType = ptUnknown
+      end>
+    left = 213
+    top = 277
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'FName'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftBlob
+        Name = 'Doc'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftInteger
+        Name = 'TheID'
+        ParamType = ptUnknown
+      end>
+  end
+end

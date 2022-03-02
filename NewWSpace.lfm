@@ -1,0 +1,828 @@
+object NewWSpaceForm: TNewWSpaceForm
+  Left = 878
+  Height = 386
+  Top = 195
+  Width = 400
+  HelpContext = 11
+  BorderStyle = bsSingle
+  Caption = 'New Workspace Settings'
+  ClientHeight = 386
+  ClientWidth = 400
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poScreenCenter
+  LCLVersion = '2.0.8.0'
+  object Label2: TLabel
+    Left = 6
+    Height = 10
+    Top = 8
+    Width = 92
+    Caption = '&Workspace Folder:'
+    ParentColor = False
+  end
+  object GroupBox1: TGroupBox
+    Left = 6
+    Height = 108
+    Top = 56
+    Width = 386
+    Caption = 'Geographic Setting: '
+    ClientHeight = 94
+    ClientWidth = 382
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    object Label15: TLabel
+      Left = 6
+      Height = 10
+      Top = 0
+      Width = 41
+      Caption = '&Country:'
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object CoordLabel: TLabel
+      Left = 7
+      Height = 10
+      Top = 44
+      Width = 195
+      Caption = '&Store Coordinates in Coordinate System:'
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object ComboBoxCountry: TComboBox
+      Left = 7
+      Height = 25
+      Top = 14
+      Width = 370
+      ItemHeight = 0
+      OnChange = ComboBoxCountryChange
+      Style = csDropDownList
+      TabOrder = 0
+    end
+    object ComboBoxCoordSys: TComboBox
+      Left = 6
+      Height = 25
+      Top = 58
+      Width = 370
+      DropDownCount = 12
+      ItemHeight = 0
+      Sorted = True
+      Style = csDropDownList
+      TabOrder = 1
+    end
+  end
+  object PageControl1: TPageControl
+    Left = 6
+    Height = 166
+    Top = 172
+    Width = 388
+    ActivePage = TabSheetSQLite
+    Align = alBottom
+    BorderSpacing.Left = 6
+    BorderSpacing.Right = 6
+    TabIndex = 0
+    TabOrder = 1
+    OnChange = PageControl1Change
+    object TabSheetSQLite: TTabSheet
+      Tag = 1
+      Caption = 'SQLite/Spatialite'
+      ClientHeight = 140
+      ClientWidth = 384
+      object Label1: TLabel
+        Left = 6
+        Height = 10
+        Top = 8
+        Width = 207
+        Caption = 'New or existing SQLite/Spatialite Database:'
+        ParentColor = False
+      end
+      object PWCheckBox: TCheckBox
+        Left = 6
+        Height = 24
+        Top = 65
+        Width = 79
+        Caption = 'Password?'
+        OnClick = PWCheckBoxClick
+        TabOrder = 0
+      end
+      object EditPasswdSQLite: TEdit
+        Left = 90
+        Height = 21
+        Hint = 'Enter password'
+        Top = 64
+        Width = 144
+        EchoMode = emPassword
+        Enabled = False
+        ParentShowHint = False
+        PasswordChar = '*'
+        ShowHint = True
+        TabOrder = 1
+      end
+      object Edit1: TEdit
+        Left = 6
+        Height = 21
+        Top = 24
+        Width = 346
+        TabOrder = 2
+        TextHint = '<select SQLite/Spatialite database>'
+      end
+      object SpeedButton1: TSpeedButton
+        Left = 356
+        Height = 22
+        Top = 24
+        Width = 23
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+          FF00FFFFFF00262626033F3F3F304A4A4ADF646464F56B6B6BF96B6B6BFA5959
+          5962575757436B6B6BF26B6B6BF7646464F44A4A4ADF3F3F3F30FFFFFF00FFFF
+          FF00FFFFFF005A5A5A45565656F08E8E8EFEA9A9A9FFAEAEAEFF979797FF7171
+          71FF787878FF979797FFAEAEAEFFAAAAAAED8D8D8DEF4D4D4DD7FFFFFF00FFFF
+          FF00A7A7A74A727272F96D6D6DFFD3D3CEFF7E7E7EFF454545FF464646FF5151
+          51FF515151FF464646FF424242FF565656C8C4C4C4FF676767EFFFFFFF00FFFF
+          FF00A9A9A9EA818181FF868686FFD3D3CEFFCDCDCDFF464646FFBDBDBDFFCECE
+          CEFFC2C2C2FFADADADFF454545FF888888EBC4C4C4FF828282F7FFFFFF00FFFF
+          FF00ACACACEAB6B6B6FF797979FFD3D3CEFF7B7B7BFF4D4D4DFF656565FF9292
+          92FF797979FF656565FF4D4D4DFF676767F9C4C4C4FF737373F0FFFFFF00FFFF
+          FF00AEAEAEEAEDEDEDFF919191FF919191FFE8E8E8FFDDDDDDFFC1C1C1FF8989
+          89FF888888FFD8D8D8FFDDDDDDFFC4C4C4FF919191FF4C4C4C8AFFFFFF00FFFF
+          FF00B0B0B0EAF3F3F3FFE0E0E0FFA8A8A8FF8B8B8BFF9E9E9EFF878787FFB1B1
+          B1FFB1B1B1FF848484FF9E9E9EFF868686FE6A6A6A753E3E3E0BFFFFFF00FFFF
+          FF00B2B2B2EAF4F4F4FFEAEAEAFFE1E1E1FFDDDDDDFFE3E3E3FFDEDEDEFFC9C9
+          C9FFBDBDBDFFBFBFBFFFE2E2E2FF9E9E9EEAFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00B4B4B4EAF5F5F5FFEEEEEEFFE6E6E6FFE2E2E2FFE6E6E6FFE1E1E1FFCDCD
+          CDFFC2C2C2FFC2C2C2FFE3E3E3FFA0A0A0EAFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00B5B5B5EAF6F6F6FFEBEBEBFFDEDEDEFFD6D6D6FFD5D5D5FFD1D1D1FFC3C3
+          C3FFBCBCBCFFC0C0C0FFE5E5E5FFA3A3A3EAFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00B7B7B7EAF7F7F7FFE7E7E7FFEFEFEFFFF6F6F6FFFBFBFBFFFAFAFAFFF0F0
+          F0FFDEDEDEFFC3C3C3FFE6E6E6FFA5A5A5EAFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00B9B9B9EAF8F8F8FFFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFBFBFBFFEAEAEAFFA7A7A7EAFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00BABABABFE1E1E1FFFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFBFBFBFFCFCFCFFFA9A9A9A1FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00BCBCBC2ABBBBBBD1D0D0D0FFE8E8E8FFF3F3F3FFFDFDFDFFFCFCFCFFEDED
+          EDFFE0E0E0FFC2C2C2FFADADADC3ACACAC1BFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00BCBCBC07BBBBBB55BABABAAEB8B8B8D6B7B7B7FBB6B6B6F9B4B4
+          B4CDB3B3B3A9B1B1B146AFAFAF03FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+        }
+        OnClick = SpeedButton1Click
+      end
+    end
+    object TabSheetMySQL: TTabSheet
+      Tag = 2
+      Caption = 'MySQL'
+      ClientHeight = 140
+      ClientWidth = 384
+      object EditHostMySQL: TEdit
+        Left = 72
+        Height = 23
+        Top = 9
+        Width = 300
+        TabOrder = 0
+        Text = '127.0.0.1'
+      end
+      object Label5: TLabel
+        Left = 8
+        Height = 13
+        Top = 16
+        Width = 25
+        Caption = 'Host:'
+        FocusControl = EditHostMySQL
+        ParentColor = False
+      end
+      object Label3: TLabel
+        Left = 8
+        Height = 13
+        Top = 78
+        Width = 58
+        Caption = 'User Name:'
+        ParentColor = False
+      end
+      object Label4: TLabel
+        Left = 192
+        Height = 13
+        Top = 78
+        Width = 50
+        Caption = 'Password:'
+        ParentColor = False
+      end
+      object EditUserNameMySQL: TEdit
+        Left = 72
+        Height = 23
+        Top = 72
+        Width = 96
+        TabOrder = 3
+        Text = 'root'
+      end
+      object EditPasswordmySQL: TEdit
+        Left = 248
+        Height = 23
+        Top = 72
+        Width = 124
+        EchoMode = emPassword
+        PasswordChar = '*'
+        TabOrder = 4
+      end
+      object Label6: TLabel
+        Left = 8
+        Height = 13
+        Top = 46
+        Width = 23
+        Caption = 'Port:'
+        ParentColor = False
+      end
+      object EditPortMySQL: TEdit
+        Left = 72
+        Height = 23
+        Top = 41
+        Width = 63
+        TabOrder = 1
+        Text = '3306'
+      end
+      object ComboBoxDBMySQL: TComboBox
+        Left = 72
+        Height = 27
+        Top = 106
+        Width = 216
+        ItemHeight = 0
+        TabOrder = 5
+      end
+      object Label7: TLabel
+        Left = 8
+        Height = 13
+        Top = 112
+        Width = 49
+        Caption = 'Database:'
+        ParentColor = False
+      end
+      object ButtonRetrieveMySQL: TButton
+        Left = 297
+        Height = 25
+        Top = 104
+        Width = 75
+        Caption = 'Retrieve'
+        OnClick = ButtonRetrieveMySQLClick
+        TabOrder = 6
+      end
+      object Label13: TLabel
+        Left = 160
+        Height = 13
+        Top = 46
+        Width = 43
+        Caption = 'Protocol:'
+        FocusControl = ComboBoxProtocolMySQL
+        ParentColor = False
+      end
+      object ComboBoxProtocolMySQL: TComboBox
+        Left = 208
+        Height = 27
+        Top = 41
+        Width = 164
+        ItemHeight = 0
+        Style = csDropDownList
+        TabOrder = 2
+      end
+    end
+    object TabSheetMariaDB: TTabSheet
+      Tag = 3
+      Caption = 'MariaDB'
+      ClientHeight = 140
+      ClientWidth = 384
+      object Label16: TLabel
+        Left = 8
+        Height = 13
+        Top = 16
+        Width = 25
+        Caption = 'Host:'
+        FocusControl = EditHostMaria
+        ParentColor = False
+      end
+      object EditHostMaria: TEdit
+        Left = 72
+        Height = 23
+        Top = 9
+        Width = 300
+        TabOrder = 0
+        Text = '127.0.0.1'
+      end
+      object Label17: TLabel
+        Left = 8
+        Height = 13
+        Top = 46
+        Width = 23
+        Caption = 'Port:'
+        ParentColor = False
+      end
+      object EditPortMaria: TEdit
+        Left = 72
+        Height = 23
+        Top = 41
+        Width = 63
+        TabOrder = 1
+        Text = '3306'
+      end
+      object Label18: TLabel
+        Left = 160
+        Height = 13
+        Top = 46
+        Width = 43
+        Caption = 'Protocol:'
+        FocusControl = ComboBoxProtocolMaria
+        ParentColor = False
+      end
+      object ComboBoxProtocolMaria: TComboBox
+        Left = 208
+        Height = 21
+        Top = 41
+        Width = 164
+        ItemHeight = 0
+        ItemIndex = 0
+        Items.Strings = (
+          'MariaDB-10'
+          'MariaDB-5'
+        )
+        Style = csDropDownList
+        TabOrder = 2
+        Text = 'MariaDB-10'
+      end
+      object Label19: TLabel
+        Left = 8
+        Height = 13
+        Top = 78
+        Width = 58
+        Caption = 'User Name:'
+        ParentColor = False
+      end
+      object EditUserNameMaria: TEdit
+        Left = 72
+        Height = 23
+        Top = 72
+        Width = 96
+        TabOrder = 3
+        Text = 'root'
+      end
+      object Label20: TLabel
+        Left = 192
+        Height = 13
+        Top = 78
+        Width = 50
+        Caption = 'Password:'
+        ParentColor = False
+      end
+      object EditPasswordMaria: TEdit
+        Left = 248
+        Height = 23
+        Top = 72
+        Width = 124
+        EchoMode = emPassword
+        PasswordChar = '*'
+        TabOrder = 4
+      end
+      object Label21: TLabel
+        Left = 8
+        Height = 13
+        Top = 112
+        Width = 49
+        Caption = 'Database:'
+        ParentColor = False
+      end
+      object ComboBoxDBMaria: TComboBox
+        Left = 72
+        Height = 21
+        Top = 106
+        Width = 216
+        ItemHeight = 0
+        TabOrder = 5
+      end
+      object ButtonRetrieveMaria: TButton
+        Left = 297
+        Height = 25
+        Top = 104
+        Width = 75
+        Caption = 'Retrieve'
+        OnClick = ButtonRetrieveMariaClick
+        TabOrder = 6
+      end
+    end
+    object TabSheetPostgre: TTabSheet
+      Tag = 4
+      Caption = 'PostgreSQL'
+      ClientHeight = 140
+      ClientWidth = 384
+      object Label8: TLabel
+        Left = 8
+        Height = 13
+        Top = 16
+        Width = 25
+        Caption = 'Host:'
+        FocusControl = EditHostPostgre
+        ParentColor = False
+      end
+      object EditHostPostgre: TEdit
+        Left = 72
+        Height = 23
+        Top = 9
+        Width = 300
+        TabOrder = 0
+        Text = '127.0.0.1'
+      end
+      object Label9: TLabel
+        Left = 8
+        Height = 13
+        Top = 45
+        Width = 23
+        Caption = 'Port:'
+        ParentColor = False
+      end
+      object EditPortPostgre: TEdit
+        Left = 72
+        Height = 23
+        Top = 40
+        Width = 63
+        TabOrder = 1
+        Text = '5432'
+      end
+      object Label10: TLabel
+        Left = 8
+        Height = 13
+        Top = 76
+        Width = 58
+        Caption = 'User Name:'
+        ParentColor = False
+      end
+      object EditUserNamePostgre: TEdit
+        Left = 72
+        Height = 23
+        Top = 72
+        Width = 96
+        TabOrder = 3
+        Text = 'postgres'
+      end
+      object Label11: TLabel
+        Left = 192
+        Height = 13
+        Top = 76
+        Width = 50
+        Caption = 'Password:'
+        ParentColor = False
+      end
+      object EditPasswordPostgre: TEdit
+        Left = 248
+        Height = 23
+        Top = 72
+        Width = 124
+        EchoMode = emPassword
+        PasswordChar = '*'
+        TabOrder = 4
+      end
+      object Label12: TLabel
+        Left = 8
+        Height = 13
+        Top = 112
+        Width = 49
+        Caption = 'Database:'
+        ParentColor = False
+      end
+      object ButtonRetrievePostgre: TButton
+        Left = 297
+        Height = 25
+        Top = 104
+        Width = 75
+        Caption = 'Retrieve'
+        OnClick = ButtonRetrievePostgreClick
+        TabOrder = 5
+      end
+      object Label14: TLabel
+        Left = 160
+        Height = 13
+        Top = 45
+        Width = 43
+        Caption = 'Protocol:'
+        FocusControl = ComboBoxProtocolPostgre
+        ParentColor = False
+      end
+      object ComboBoxProtocolPostgre: TComboBox
+        Left = 208
+        Height = 27
+        Top = 41
+        Width = 164
+        ItemHeight = 0
+        Style = csDropDownList
+        TabOrder = 2
+      end
+      object ComboBoxDBPostgre: TComboBox
+        Left = 72
+        Height = 27
+        Top = 106
+        Width = 216
+        ItemHeight = 0
+        TabOrder = 6
+      end
+    end
+    object TabSheetMSsql: TTabSheet
+      Tag = 5
+      Caption = 'MS SQLServer'
+      ClientHeight = 140
+      ClientWidth = 384
+      object Label22: TLabel
+        Left = 8
+        Height = 14
+        Top = 16
+        Width = 29
+        Caption = 'Host:'
+        FocusControl = EditHostMSsql
+        ParentColor = False
+      end
+      object EditHostMSsql: TEdit
+        Left = 72
+        Height = 24
+        Top = 9
+        Width = 300
+        TabOrder = 0
+        Text = '127.0.0.1'
+      end
+      object Label23: TLabel
+        Left = 8
+        Height = 14
+        Top = 45
+        Width = 27
+        Caption = 'Port:'
+        ParentColor = False
+      end
+      object EditPortMSsql: TEdit
+        Left = 72
+        Height = 24
+        Top = 40
+        Width = 63
+        TabOrder = 1
+        Text = '1433'
+      end
+      object Label24: TLabel
+        Left = 150
+        Height = 14
+        Top = 45
+        Width = 50
+        Caption = 'Protocol:'
+        FocusControl = ComboBoxProtocolMSsql
+        ParentColor = False
+      end
+      object ComboBoxProtocolMSsql: TComboBox
+        Left = 196
+        Height = 21
+        Top = 41
+        Width = 176
+        ItemHeight = 0
+        ItemIndex = 1
+        Items.Strings = (
+          'FreeTDS_MsSQL<=6.5'
+          'FreeTDS_MsSQL>=2005'
+          'FreeTDS_MsSQL-2000'
+          'FreeTDS_MsSQL-7.0'
+          'sybase'
+        )
+        Style = csDropDownList
+        TabOrder = 2
+        Text = 'FreeTDS_MsSQL>=2005'
+      end
+      object Label25: TLabel
+        Left = 8
+        Height = 14
+        Top = 76
+        Width = 67
+        Caption = 'User Name:'
+        ParentColor = False
+      end
+      object EditUserNameMSsql: TEdit
+        Left = 72
+        Height = 24
+        Top = 72
+        Width = 96
+        TabOrder = 3
+        Text = 'sa'
+      end
+      object Label26: TLabel
+        Left = 192
+        Height = 14
+        Top = 76
+        Width = 58
+        Caption = 'Password:'
+        ParentColor = False
+      end
+      object EditPasswordMSsql: TEdit
+        Left = 248
+        Height = 24
+        Top = 72
+        Width = 124
+        EchoMode = emPassword
+        PasswordChar = '*'
+        TabOrder = 4
+      end
+      object Label27: TLabel
+        Left = 8
+        Height = 14
+        Top = 112
+        Width = 57
+        Caption = 'Database:'
+        ParentColor = False
+      end
+      object ButtonRetrieveMSsql: TButton
+        Left = 297
+        Height = 25
+        Top = 104
+        Width = 75
+        Caption = 'Retrieve'
+        OnClick = ButtonRetrieveMSsqlClick
+        TabOrder = 5
+      end
+      object ComboBoxDBMSsql: TComboBox
+        Left = 72
+        Height = 21
+        Top = 106
+        Width = 216
+        ItemHeight = 0
+        TabOrder = 6
+      end
+    end
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 8
+    Height = 36
+    Top = 344
+    Width = 384
+    BorderSpacing.Left = 2
+    BorderSpacing.Right = 2
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.Enabled = False
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.HelpContext = 11
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'TestButton'
+    CloseButton.Caption = 'Close'
+    CloseButton.DefaultCaption = False
+    CloseButton.Enabled = False
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 2
+    DefaultButton = pbCancel
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+    object BitBtnTest: TBitBtn
+      Left = 90
+      Height = 26
+      Top = 8
+      Width = 1
+      BorderSpacing.Left = 90
+      BorderSpacing.Top = 8
+      Caption = 'Test Connection'
+      Enabled = False
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000B06F4009AB66
+        3CB7A45D38FA9E543406FFFFFF00FFFFFF00FFFFFF00FFFFFF009999990D9595
+        95319191912F8C8C8C07FFFFFF00FFFFFF00FFFFFF00FFFFFF00BA7C4AB7BF87
+        5CFFB97E56FFA7623AFA9F5735749D644C659D857DB39D9390F2A19F9FFFABAB
+        ABFFA7A7A7FF959595FF8D8D8DE78989898A86868616FFFFFF00C4885AFAC692
+        68FFCDA280FFC59670FFB67B53FFAB6A46FFA35E3DFF9C5235FFA76B59FFF1EF
+        EEFFF4F4F4FFEFEFEFFFE2E2E2FFBABABAFF8A8A8AE786868635CD956A06C68C
+        60FAD1A683FFCC9F7BFFCB9E7BFFC79974FFC3926CFFBE8D65FFA86945FFBA97
+        8BFFD6D6D6FFC0C0C0FFC9C9C9FFE6E6E6FFC4C4C4FF8B8B8BEAFFFFFF00CE98
+        7074D0A17CFFD7AE8FFFC9976FFFC38F66FFBD885CFFC08C64FFBC8861FF8554
+        3FFFD3D1D0FFBFBFBFFFB0B0B0FFB3B3B3FFDEDEDEFF909090EAFFFFFF00D7A5
+        7F4ED7A682FFDCB699FFD0A17DFFCB9A73FFCFA482FFC79974FF896C58FF8787
+        87FF828282FFC0C0C0FFB3B3B3FFB7B7B7FFE0E0E0FF969696EAFFFFFF00E0AE
+        8C39DDAE8CFFE2BEA4FFD8AB89FFD9B394FFCF9F7AFFA47A5BFF939393FFA9A9
+        A9FF696969FFC3C3C3FFB8B8B8FFBBBBBBFFE1E1E1FF9B9B9BEAFFFFFF00E6B8
+        981EE3B493FFE8C6ADFFE3C0A6FFDBB08FFFB58F74FFD9CBC1FF9A9A9AFF7A7A
+        7AFFDCDCDCFFC9C9C9FFBDBDBDFFBFBFBFFFE2E2E2FF9E9E9EEAFFFFFF00ECC0
+        A104E7BB9CDAE8C0A3FFE5BFA3FFB69E8CFFAEAEAEFFA8A8A8FFE1E1E1FFE5E5
+        E5FFE1E1E1FFCDCDCDFFC2C2C2FFC2C2C2FFE3E3E3FFA0A0A0EAFFFFFF00FFFF
+        FF00EDC3A509EABE9FAFCDAF9BFEB7B7B7FFBCBCBCFFABABABFFD6D6D6FFD5D5
+        D5FFD1D1D1FFC3C3C3FFBCBCBCFFC0C0C0FFE5E5E5FFA3A3A3EAFFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00BEB8B4ECC1C1C1FFB6B6B6FFEFEFEFFFF6F6F6FFFBFB
+        FBFFFAFAFAFFF0F0F0FFDEDEDEFFC3C3C3FFE6E6E6FFA5A5A5EAFFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00B9B9B9EAF8F8F8FFFEFEFEFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFBFBFBFFEAEAEAFFA7A7A7EAFFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00BABABABFE1E1E1FFFEFEFEFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFBFBFBFFCFCFCFFFA9A9A9A1FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00BCBCBC2ABBBBBBD1D0D0D0FFE8E8E8FFF3F3F3FFFDFD
+        FDFFFCFCFCFFEDEDEDFFE0E0E0FFC2C2C2FFADADADC3ACACAC1BFFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00BCBCBC07BBBBBB55BABABAAEB8B8B8D6B7B7
+        B7FBB6B6B6F9B4B4B4CDB3B3B3A9B1B1B146AFAFAF03FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      OnClick = TestButtonClick
+      TabOrder = 4
+    end
+  end
+  object DirectoryEdit1: TDirectoryEdit
+    Left = 6
+    Height = 21
+    Hint = 'Select a directory where the settings for the workspace will be stored'
+    Top = 25
+    Width = 386
+    OnAcceptDirectory = DirectoryEdit1AcceptDirectory
+    DialogTitle = 'Select directory for new workspace'
+    ShowHidden = False
+    ButtonWidth = 23
+    DirectInput = False
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000005DCF4B0261
+      D1E10A63D0FB0A63D0FB0A63D0FB0962CFFB0960CDFB085FCAFB085EC8FB075C
+      C5FB075AC3FB0759C0FB0657BEFB0555BBFB0155BCD5004FB434015FD1E43A99
+      ECFF3597EFFF3396EFFF3195EFFF2F94EFFF2D93EEFF2B92EEFF2A92EEFF2891
+      EEFF2690EEFF248FEEFF238EEEFF228FEFFF1B83E0FF0155BBC3065FCFFF50A9
+      F2FF2288ECFF2288ECFF2188ECFF2187ECFF2087ECFF1F86ECFF1E86ECFF1F86
+      ECFF1E85ECFF1E85ECFF1D85ECFF1E85ECFF329BF1FF0053BBF1045FCFFE66B6
+      F4FF4EA5F3FF4DA5F3FF4EA5F3FF4DA4F3FF4DA4F2FF4CA4F2FF4CA4F2FF4BA4
+      F2FF4BA3F2FF4AA3F2FF4AA3F2FF4AA2F2FF4BA8F3FF0054BCF1025DCEFE74C0
+      F6FF69B8F8FF69B8F8FF69B9F8FF68B8F8FF68B8F8FF68B7F8FF68B7F8FF68B8
+      F8FF68B7F8FF67B7F7FF67B7F7FF68B6F7FF5AB2F4FF0155BEF2005CCEFD7AC4
+      F7FF74C3FBFF74C3FBFF74C3FBFF73C3FBFF74C3FBFF74C2FBFF73C2FBFF74C3
+      FBFF73C2FBFF73C2FBFF74C2FBFF73C2FBFF63B7F5FF0056BFF1005CCEFD76C3
+      F7FF67C1FDFF65C0FDFF66C0FDFF67C0FDFF67C0FDFF67C0FDFF67C0FDFF69C1
+      FDFF69C1FDFF69C1FDFF69C1FDFF6AC2FDFF63B9F6FF0057C0F1005DCEFC6DC0
+      F6FF4EB6FCFF4BB5FCFF4DB6FCFF4EB6FCFF4EB6FCFF4AB5FCFF4BB5FCFF4BB5
+      FCFF4CB5FCFF4CB6FCFF4CB6FCFF4DB6FCFF5DB7F5FF0058C2F1005DCEFDA6D7
+      F9FFE9F5FDFFE8F5FEFFE8F5FEFFD7EDFCFF68BEF6FF43B2FBFF34ACFCFF34AC
+      FCFF34ACFCFF2EB0FAFF23B9F7FF20BCF6FF42BEF3FF045CC3F9065ECAFF055F
+      CEFF045FCEFF055FCEFF0660CEFF0560CFFF247FDCFF5BB9F8FF25A5FCFF23A5
+      FCFF1DABFAFF11BBF5FF0BC5F1FF09C9F0FF1ACBEFFF0396D6FF707573F8D6DA
+      D8FFD1D6D4FFD1D6D4FFD1D6D4FFCAD2D4FF0F66CFFF9DD0F6FFF6FBFFFFF6FB
+      FFFFA1EDF9FF72E4F2FFA7E7EEFFABE7EEFF54DCEEFF02B0E0FF717674F8D8DC
+      DAFFB7BEBBFFB7BEBBFFB7BEBBFFB7BEBBFF739AC3FF045FCFFF0560CFFF0560
+      CFFF048FDBFF9DDBEBFFBDE7EDFFBDE9EEFFB1E6EDFF0AB8E2FF6A6D6CF8D7DA
+      D9FFD0D4D3FFCFD4D2FFCFD3D2FFCFD3D2FFDBDEDDFFE1E4E3FFE0E4E3FFE0E3
+      E3FF94DEE7FFB2E6EDFFC3E9EEFFC0E9EEFFB5E7EDFF25B5C8FE5A5B5BF8A6AA
+      A8FF858A88FF7B807DFF717673FF6B6F6DFF6E716FFF5E6161FA626564F26568
+      67F25A797BF35AADB6F89FD8DEFDA8DDE3FD59C4D0FB2FABB9D5555555FAA7AB
+      A9FFA1A5A3FF939795FF858987FF7A7D7CFF5D5D5DF751515146FFFFFF00FFFF
+      FF00FFFFFF0000D4ED1F00D4ED5200D4ED6400D4ED5500D4ED215757578D5353
+      53F9525252FB525252FB525252FB525252FB53535363FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    NumGlyphs = 1
+    MaxLength = 0
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+    OnButtonClick = DirectoryEdit1ButtonClick
+    TextHint = '<select a directory>'
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings='
+      'codepage='
+    )
+    Port = 0
+    left = 80
+    top = 296
+  end
+  object PostgreDBQuery: TZReadOnlyQuery
+    Connection = ZConnection1
+    SQL.Strings = (
+      'SELECT datname FROM pg_database;'
+    )
+    Params = <>
+    left = 208
+    top = 296
+  end
+  object ZQueryCountries: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'select c_name from Countries'
+    )
+    Params = <>
+    left = 200
+    top = 54
+  end
+  object OpenDialog1: TOpenDialog
+    Title = 'Open existing SQLite/Spatialite database file'
+    DefaultExt = '.sqlite'
+    Filter = 'SQLite Database (*.sqlite)|*.sqlite'
+    left = 333
+    top = 285
+  end
+end

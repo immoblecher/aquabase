@@ -1,0 +1,1915 @@
+inherited MeteorologyReportForm: TMeteorologyReportForm
+  Left = 544
+  Height = 707
+  Caption = 'Meteorology Report'
+  ClientHeight = 707
+  inherited TheReport: TRLReport
+    Title = 'METEOROLOGY REPORT'
+    AfterPrint = TheReportAfterPrint
+    BeforePrint = TheReportBeforePrint
+    inherited RLBandHeader: TRLBand
+      inherited RLSystemInfoReportTitle: TRLSystemInfo
+        Height = 15
+      end
+    end
+    inherited FooterBand: TRLBand
+      Top = 633
+    end
+    inherited SubDetail1: TRLSubDetail
+      DataSource = RainfallDataSource
+      inherited SubHeaderBand: TRLBand
+        inherited RLLabel78: TRLLabel
+          Height = 15
+          Width = 67
+          Caption = 'RAINFALL'
+        end
+        object RLLabel209: TRLLabel[1]
+          Left = 300
+          Height = 13
+          Top = 24
+          Width = 104
+          Caption = 'Information source'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel92: TRLLabel[2]
+          Left = 490
+          Height = 13
+          Top = 24
+          Width = 61
+          Caption = 'Date meas.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel197: TRLLabel[3]
+          Left = 560
+          Height = 13
+          Top = 24
+          Width = 63
+          Caption = 'Time meas.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel84: TRLLabel[4]
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 114
+          Caption = 'Reporting institution'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelRain: TRLLabel[5]
+          Left = 630
+          Height = 13
+          Top = 24
+          Width = 43
+          Caption = 'Rainfall'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      inherited RLBand: TRLBand
+        object RLDBText80: TRLDBText[0]
+          Left = 300
+          Height = 14
+          Top = 0
+          Width = 170
+          AutoSize = False
+          DataField = 'INFO_SOURC'
+          DataSource = RainfallDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText131: TRLDBText[1]
+          Left = 496
+          Height = 14
+          Top = 0
+          Width = 59
+          AutoSize = False
+          DataField = 'DATE_MEAS'
+          DataSource = RainfallDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText132: TRLDBText[2]
+          Left = 580
+          Height = 14
+          Top = 0
+          Width = 28
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TIME_MEAS'
+          DataSource = RainfallDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText67: TRLDBText[3]
+          Left = 8
+          Height = 14
+          Top = 0
+          Width = 280
+          AutoSize = False
+          DataField = 'REP_INST'
+          DataSource = RainfallDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText141: TRLDBText[4]
+          Left = 653
+          Height = 13
+          Top = 1
+          Width = 53
+          Alignment = taRightJustify
+          DataField = 'READING'
+          DataSource = RainfallDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail4: TRLSubDetail[4]
+      Left = 39
+      Height = 56
+      Top = 409
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = TempDataSource
+      object SubHeaderBand1: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabel79: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 15
+          Top = 4
+          Width = 128
+          Caption = 'AIR TEMPERATURE'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel210: TRLLabel
+          Left = 300
+          Height = 13
+          Top = 24
+          Width = 104
+          Caption = 'Information source'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel93: TRLLabel
+          Left = 478
+          Height = 13
+          Top = 24
+          Width = 90
+          Caption = 'Date/Time meas.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel85: TRLLabel
+          Left = 640
+          Height = 13
+          Top = 24
+          Width = 73
+          Caption = 'Reading type'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelTemp: TRLLabel
+          Left = 576
+          Height = 13
+          Top = 24
+          Width = 59
+          Caption = 'Temp. [°C]'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel214: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 114
+          Caption = 'Reporting institution'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand2: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText81: TRLDBText
+          Left = 300
+          Height = 14
+          Top = 0
+          Width = 170
+          AutoSize = False
+          DataField = 'INFO_SOURC'
+          DataSource = TempDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText133: TRLDBText
+          Left = 478
+          Height = 14
+          Top = 0
+          Width = 59
+          AutoSize = False
+          DataField = 'DATE_MEAS'
+          DataSource = TempDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText134: TRLDBText
+          Left = 540
+          Height = 14
+          Top = 0
+          Width = 28
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TIME_MEAS'
+          DataSource = TempDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText68: TRLDBText
+          Left = 646
+          Height = 14
+          Top = 0
+          Width = 60
+          Alignment = taCenter
+          AutoSize = False
+          DataField = 'READ_TYPE'
+          DataSource = TempDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText142: TRLDBText
+          Left = 580
+          Height = 13
+          Top = 0
+          Width = 46
+          Alignment = taRightJustify
+          DataField = 'READING'
+          DataSource = TempDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText85: TRLDBText
+          Left = 8
+          Height = 14
+          Top = 0
+          Width = 280
+          AutoSize = False
+          DataField = 'REP_INST'
+          DataSource = TempDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail3: TRLSubDetail[5]
+      Left = 39
+      Height = 56
+      Top = 353
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = HumidityDataSource
+      object SubHeaderBand2: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabel80: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 15
+          Top = 4
+          Width = 66
+          Caption = 'HUMIDITY'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel211: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 114
+          Caption = 'Reporting institution'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel94: TRLLabel
+          Left = 490
+          Height = 13
+          Top = 24
+          Width = 61
+          Caption = 'Date meas.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel199: TRLLabel
+          Left = 560
+          Height = 13
+          Top = 24
+          Width = 63
+          Caption = 'Time meas.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelHum: TRLLabel
+          Left = 630
+          Height = 13
+          Top = 24
+          Width = 72
+          Caption = 'Humidity [%]'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel213: TRLLabel
+          Left = 300
+          Height = 13
+          Top = 24
+          Width = 104
+          Caption = 'Information source'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand3: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText82: TRLDBText
+          Left = 8
+          Height = 14
+          Top = 0
+          Width = 280
+          AutoSize = False
+          DataField = 'REP_INST'
+          DataSource = HumidityDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText135: TRLDBText
+          Left = 496
+          Height = 14
+          Top = 0
+          Width = 59
+          AutoSize = False
+          DataField = 'DATE_MEAS'
+          DataSource = HumidityDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText136: TRLDBText
+          Left = 580
+          Height = 14
+          Top = 0
+          Width = 28
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TIME_MEAS'
+          DataSource = HumidityDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText143: TRLDBText
+          Left = 653
+          Height = 13
+          Top = 1
+          Width = 53
+          Alignment = taRightJustify
+          DataField = 'READING'
+          DataSource = HumidityDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText84: TRLDBText
+          Left = 300
+          Height = 14
+          Top = 0
+          Width = 170
+          AutoSize = False
+          DataField = 'INFO_SOURC'
+          DataSource = PanEvapDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail2: TRLSubDetail[6]
+      Left = 39
+      Height = 56
+      Top = 297
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = PanEvapDataSource
+      object SubHeaderBand3: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabel81: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 15
+          Top = 4
+          Width = 127
+          Caption = 'PAN EVAPORATION'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel212: TRLLabel
+          Left = 300
+          Height = 13
+          Top = 24
+          Width = 104
+          Caption = 'Information source'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel95: TRLLabel
+          Left = 490
+          Height = 13
+          Top = 24
+          Width = 61
+          Caption = 'Date meas.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel200: TRLLabel
+          Left = 560
+          Height = 13
+          Top = 24
+          Width = 63
+          Caption = 'Time meas.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel87: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 114
+          Caption = 'Reporting institution'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelEvap: TRLLabel
+          Left = 630
+          Height = 13
+          Top = 24
+          Width = 67
+          Caption = 'Evaporation'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand4: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText83: TRLDBText
+          Left = 300
+          Height = 14
+          Top = 0
+          Width = 170
+          AutoSize = False
+          DataField = 'INFO_SOURC'
+          DataSource = PanEvapDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText137: TRLDBText
+          Left = 496
+          Height = 14
+          Top = 0
+          Width = 59
+          AutoSize = False
+          DataField = 'DATE_MEAS'
+          DataSource = PanEvapDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText138: TRLDBText
+          Left = 580
+          Height = 14
+          Top = 0
+          Width = 28
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TIME_MEAS'
+          DataSource = PanEvapDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText70: TRLDBText
+          Left = 8
+          Height = 14
+          Top = 0
+          Width = 280
+          AutoSize = False
+          DataField = 'REP_INST'
+          DataSource = PanEvapDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText144: TRLDBText
+          Left = 653
+          Height = 13
+          Top = 1
+          Width = 53
+          Alignment = taRightJustify
+          DataField = 'READING'
+          DataSource = PanEvapDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail5: TRLSubDetail[7]
+      Left = 39
+      Height = 56
+      Top = 521
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = SolarDataSource
+      object SubHeaderBand4: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabel82: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 15
+          Top = 4
+          Width = 123
+          Caption = 'SOLAR RADIATION'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel215: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 114
+          Caption = 'Reporting institution'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel96: TRLLabel
+          Left = 490
+          Height = 13
+          Top = 24
+          Width = 61
+          Caption = 'Date meas.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel201: TRLLabel
+          Left = 560
+          Height = 13
+          Top = 24
+          Width = 63
+          Caption = 'Time meas.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelRad: TRLLabel
+          Left = 630
+          Height = 13
+          Top = 24
+          Width = 81
+          Caption = 'Radiat.  [W/m²]'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel216: TRLLabel
+          Left = 300
+          Height = 13
+          Top = 24
+          Width = 104
+          Caption = 'Information source'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand5: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText86: TRLDBText
+          Left = 8
+          Height = 14
+          Top = 0
+          Width = 280
+          AutoSize = False
+          DataField = 'REP_INST'
+          DataSource = SolarDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText139: TRLDBText
+          Left = 496
+          Height = 14
+          Top = 0
+          Width = 59
+          AutoSize = False
+          DataField = 'DATE_MEAS'
+          DataSource = SolarDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText140: TRLDBText
+          Left = 580
+          Height = 14
+          Top = 0
+          Width = 28
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TIME_MEAS'
+          DataSource = SolarDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText145: TRLDBText
+          Left = 653
+          Height = 13
+          Top = 1
+          Width = 53
+          Alignment = taRightJustify
+          DataField = 'READING'
+          DataSource = SolarDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText87: TRLDBText
+          Left = 300
+          Height = 14
+          Top = 0
+          Width = 170
+          AutoSize = False
+          DataField = 'INFO_SOURC'
+          DataSource = SolarDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail6: TRLSubDetail[8]
+      Left = 39
+      Height = 56
+      Top = 465
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = PressureDataSource
+      object SubHeaderBand5: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabel83: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 15
+          Top = 4
+          Width = 167
+          Caption = 'BAROMETRIC PRESSURE'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel217: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 114
+          Caption = 'Reporting institution'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel97: TRLLabel
+          Left = 490
+          Height = 13
+          Top = 24
+          Width = 61
+          Caption = 'Date meas.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel202: TRLLabel
+          Left = 560
+          Height = 13
+          Top = 24
+          Width = 63
+          Caption = 'Time meas.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelPres: TRLLabel
+          Left = 630
+          Height = 13
+          Top = 24
+          Width = 49
+          Caption = 'Pressure'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel218: TRLLabel
+          Left = 300
+          Height = 13
+          Top = 24
+          Width = 104
+          Caption = 'Information source'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand6: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText88: TRLDBText
+          Left = 8
+          Height = 14
+          Top = 0
+          Width = 280
+          AutoSize = False
+          DataField = 'REP_INST'
+          DataSource = PressureDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText146: TRLDBText
+          Left = 496
+          Height = 14
+          Top = 0
+          Width = 59
+          AutoSize = False
+          DataField = 'DATE_MEAS'
+          DataSource = PressureDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText147: TRLDBText
+          Left = 580
+          Height = 14
+          Top = 0
+          Width = 28
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TIME_MEAS'
+          DataSource = PressureDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText148: TRLDBText
+          Left = 653
+          Height = 13
+          Top = 1
+          Width = 53
+          Alignment = taRightJustify
+          DataField = 'READING'
+          DataSource = PressureDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText89: TRLDBText
+          Left = 300
+          Height = 14
+          Top = 0
+          Width = 170
+          AutoSize = False
+          DataField = 'INFO_SOURC'
+          DataSource = PressureDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail7: TRLSubDetail[9]
+      Left = 39
+      Height = 56
+      Top = 577
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = WindDataSource
+      object SubHeaderBand6: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabel86: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 15
+          Top = 4
+          Width = 192
+          Caption = 'WIND SPEED AND DIRECTION'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel219: TRLLabel
+          Left = 300
+          Height = 13
+          Top = 24
+          Width = 104
+          Caption = 'Information source'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel98: TRLLabel
+          Left = 478
+          Height = 13
+          Top = 24
+          Width = 90
+          Caption = 'Date/Time meas.'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelDir: TRLLabel
+          Left = 640
+          Height = 13
+          Top = 24
+          Width = 66
+          Caption = 'Direction [°]'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelSpeed: TRLLabel
+          Left = 576
+          Height = 13
+          Top = 24
+          Width = 36
+          Caption = 'Speed'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel220: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 114
+          Caption = 'Reporting institution'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand7: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText90: TRLDBText
+          Left = 300
+          Height = 14
+          Top = 0
+          Width = 170
+          AutoSize = False
+          DataField = 'INFO_SOURC'
+          DataSource = WindDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText149: TRLDBText
+          Left = 478
+          Height = 14
+          Top = 0
+          Width = 59
+          AutoSize = False
+          DataField = 'DATE_MEAS'
+          DataSource = WindDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText150: TRLDBText
+          Left = 540
+          Height = 14
+          Top = 0
+          Width = 28
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TIME_MEAS'
+          DataSource = WindDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText69: TRLDBText
+          Left = 646
+          Height = 14
+          Top = 0
+          Width = 60
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'DIRECTION'
+          DataSource = WindDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText151: TRLDBText
+          Left = 573
+          Height = 13
+          Top = 0
+          Width = 53
+          Alignment = taRightJustify
+          DataField = 'READING'
+          DataSource = WindDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText91: TRLDBText
+          Left = 8
+          Height = 14
+          Top = 0
+          Width = 280
+          AutoSize = False
+          DataField = 'REP_INST'
+          DataSource = WindDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+  end
+  inherited ViewDataSource: TDataSource
+    OnDataChange = ViewDataSourceDataChange
+  end
+  inherited BasicinfQuery: TZReadOnlyQuery
+    AfterOpen = BasicinfQueryAfterOpen
+  end
+  object rainfall: TZReadOnlyQuery[5]
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = QueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM rainfall'
+    )
+    Params = <>
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = ViewDataSource
+    LinkedFields = 'SITE_ID_NR'
+    Left = 88
+    Top = 592
+    object rainfallSITE_ID_NR: TStringField
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 44
+    end
+    object rainfallREP_INST: TStringField
+      Tag = 1
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 1
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 16
+    end
+    object rainfallINFO_SOURC: TStringField
+      Tag = 2
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'IS_METEO'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 4
+    end
+    object rainfallDATE_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DateGetText
+      Size = 32
+    end
+    object rainfallTIME_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'TIME_MEAS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = TimeGetText
+      Size = 16
+    end
+    object rainfallREADING: TFloatField
+      FieldKind = fkData
+      FieldName = 'READING'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = RainEvapQueryREADINGGetText
+      Precision = 2
+    end
+  end
+  object RainfallDataSource: TDataSource[6]
+    DataSet = rainfall
+    Left = 72
+    Top = 648
+  end
+  object pan_evap: TZReadOnlyQuery[7]
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = QueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM pan_evap'
+    )
+    Params = <>
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = ViewDataSource
+    LinkedFields = 'SITE_ID_NR'
+    Left = 184
+    Top = 592
+    object pan_evapSITE_ID_NR: TStringField
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 44
+    end
+    object pan_evapREP_INST: TStringField
+      Tag = 1
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 1
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 16
+    end
+    object pan_evapINFO_SOURC: TStringField
+      Tag = 2
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'IS_SURHY'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 4
+    end
+    object pan_evapDATE_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DateGetText
+      Size = 32
+    end
+    object pan_evapTIME_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'TIME_MEAS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = TimeGetText
+      Size = 16
+    end
+    object pan_evapREADING: TFloatField
+      FieldKind = fkData
+      FieldName = 'READING'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = RainEvapQueryREADINGGetText
+      Precision = 2
+    end
+  end
+  object PanEvapDataSource: TDataSource[8]
+    DataSet = pan_evap
+    Left = 184
+    Top = 648
+  end
+  object humidity: TZReadOnlyQuery[9]
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = QueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM humidity'
+    )
+    Params = <>
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = ViewDataSource
+    LinkedFields = 'SITE_ID_NR'
+    Left = 296
+    Top = 592
+    object humiditySITE_ID_NR: TStringField
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 44
+    end
+    object humidityREP_INST: TStringField
+      Tag = 1
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 1
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 4
+    end
+    object humidityINFO_SOURC: TStringField
+      Tag = 2
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'IS_METEO'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 4
+    end
+    object humidityDATE_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DateGetText
+      Size = 32
+    end
+    object humidityTIME_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'TIME_MEAS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = TimeGetText
+      Size = 16
+    end
+    object humidityREADING: TFloatField
+      FieldKind = fkData
+      FieldName = 'READING'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Precision = 2
+    end
+  end
+  object HumidityDataSource: TDataSource[10]
+    DataSet = humidity
+    Left = 296
+    Top = 648
+  end
+  object air_temp: TZReadOnlyQuery[11]
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = QueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM air_temp'
+    )
+    Params = <>
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = ViewDataSource
+    LinkedFields = 'SITE_ID_NR'
+    Left = 400
+    Top = 592
+    object StageHeightQuerySITE_ID_NR3: TStringField
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 44
+    end
+    object air_tempREP_INST: TStringField
+      Tag = 1
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 1
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 16
+    end
+    object air_tempINFO_SOURC: TStringField
+      Tag = 2
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'IS_METEO'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 4
+    end
+    object air_tempDATE_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DateGetText
+      Size = 32
+    end
+    object air_tempTIME_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'TIME_MEAS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = TimeGetText
+      Size = 16
+    end
+    object air_tempREADING: TFloatField
+      FieldKind = fkData
+      FieldName = 'READING'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Precision = 2
+    end
+    object air_tempREAD_TYPE: TStringField
+      Tag = 3
+      FieldKind = fkData
+      FieldName = 'READ_TYPE'
+      Index = 6
+      LookupCache = False
+      LookupKeyFields = 'READTYPE'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 4
+    end
+  end
+  object TempDataSource: TDataSource[12]
+    DataSet = air_temp
+    Left = 400
+    Top = 648
+  end
+  object pressure: TZReadOnlyQuery[13]
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = QueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM pressure'
+    )
+    Params = <>
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = ViewDataSource
+    LinkedFields = 'SITE_ID_NR'
+    Left = 504
+    Top = 592
+    object pressureSITE_ID_NR: TStringField
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 44
+    end
+    object pressureREP_INST: TStringField
+      Tag = 1
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 1
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 16
+    end
+    object pressureINFO_SOURC: TStringField
+      Tag = 2
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'IS_METEO'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 4
+    end
+    object pressureDATE_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DateGetText
+      Size = 32
+    end
+    object pressureTIME_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'TIME_MEAS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = TimeGetText
+      Size = 16
+    end
+    object pressureREADING: TFloatField
+      FieldKind = fkData
+      FieldName = 'READING'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = pressureREADINGGetText
+      Precision = 2
+    end
+  end
+  object PressureDataSource: TDataSource[14]
+    DataSet = pressure
+    Left = 504
+    Top = 648
+  end
+  object solaradi: TZReadOnlyQuery[15]
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = QueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM solaradi'
+    )
+    Params = <>
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = ViewDataSource
+    LinkedFields = 'SITE_ID_NR'
+    Left = 600
+    Top = 592
+    object solaradiSITE_ID_NR: TStringField
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 44
+    end
+    object solaradiREP_INST: TStringField
+      Tag = 1
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 1
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 16
+    end
+    object solaradiINFO_SOURC: TStringField
+      Tag = 2
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'IS_METEO'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 4
+    end
+    object solaradiDATE_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DateGetText
+      Size = 32
+    end
+    object solaradiTIME_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'TIME_MEAS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = TimeGetText
+      Size = 16
+    end
+    object solaradiREADING: TFloatField
+      FieldKind = fkData
+      FieldName = 'READING'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Precision = 2
+    end
+  end
+  object SolarDataSource: TDataSource[16]
+    DataSet = solaradi
+    Left = 600
+    Top = 648
+  end
+  object windvdir: TZReadOnlyQuery[17]
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = QueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM windvdir'
+    )
+    Params = <>
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = ViewDataSource
+    LinkedFields = 'SITE_ID_NR'
+    Left = 696
+    Top = 592
+    object windvdirSITE_ID_NR: TStringField
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 44
+    end
+    object windvdirREP_INST: TStringField
+      Tag = 1
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 1
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 16
+    end
+    object windvdirINFO_SOURC: TStringField
+      Tag = 2
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'IS_METEO'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 4
+    end
+    object windvdirDATE_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DateGetText
+      Size = 32
+    end
+    object windvdirTIME_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'TIME_MEAS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = TimeGetText
+      Size = 16
+    end
+    object windvdirREADING: TFloatField
+      FieldKind = fkData
+      FieldName = 'READING'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = windvdirREADINGGetText
+      Precision = 2
+    end
+    object windvdirDIRECTION: TFloatField
+      FieldKind = fkData
+      FieldName = 'DIRECTION'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object WindDataSource: TDataSource[18]
+    DataSet = windvdir
+    Left = 696
+    Top = 648
+  end
+end

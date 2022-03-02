@@ -1,0 +1,127 @@
+object PieForm: TPieForm
+  Left = 796
+  Height = 352
+  Top = 162
+  Width = 355
+  ActiveControl = PieChart
+  Caption = 'Pie Chart'
+  ClientHeight = 352
+  ClientWidth = 355
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  FormStyle = fsMDIChild
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  PopupMenu = PopupMenu1
+  SessionProperties = 'Left;Top;Width;Height'
+  LCLVersion = '2.0.8.0'
+  object PieChart: TChart
+    Left = 0
+    Height = 352
+    Top = 0
+    Width = 355
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+      end>
+    AxisVisible = False
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Frame.Visible = False
+    Legend.UseSidebar = False
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'Pie Diagram'
+      'Parameters in mg/l (where applicable)'
+    )
+    Align = alClient
+    DragCursor = crHandPoint
+    object PieSeries: TPieSeries
+      Marks.Distance = 10
+      Marks.LabelFont.Height = -11
+      Marks.LabelFont.Name = 'Arial'
+      Marks.Format = '%2:s'
+      Marks.LabelBrush.Color = clWhite
+      Marks.LinkPen.Color = clBlack
+      Marks.Style = smsLabel
+    end
+  end
+  object ChemPieQuery: TZQuery
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = ChemPieQueryBeforeOpen
+    Params = <>
+    left = 48
+    top = 80
+  end
+  object SaveDialog: TSaveDialog
+    DefaultExt = '.tee'
+    Filter = 'Aquabase Chart (*.tee)|*.tee'
+    InitialDir = 'WSpaceDir'
+    left = 120
+    top = 16
+  end
+  object PopupMenu1: TPopupMenu
+    OnPopup = PopupMenu1Popup
+    left = 216
+    top = 16
+    object MenuItem2: TMenuItem
+      Caption = '&Copy as bitmap'
+      OnClick = Copyasbitmap1Click
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Save &as...'
+      OnClick = Saveas1Click
+    end
+    object MenuItemPrint: TMenuItem
+      Caption = '&Print'
+      OnClick = MenuItemPrintClick
+    end
+    object MenuItemReport: TMenuItem
+      Caption = '&Update chart for report'
+    end
+    object MenuItem5: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem1: TMenuItem
+      Caption = '&Quick Format'
+      object MenuItemBackground: TMenuItem
+        Caption = '&Background white'
+        OnClick = MenuItemBackgroundClick
+      end
+      object MenuItemPanel: TMenuItem
+        Caption = 'Panel &colour'
+        OnClick = MenuItemPanelClick
+      end
+      object MenuItemFrame: TMenuItem
+        Caption = '&Frame'
+        OnClick = MenuItemFrameClick
+      end
+      object MenuItem3D: TMenuItem
+        Caption = '3&D'
+        OnClick = MenuItem3DClick
+      end
+    end
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    left = 80
+    top = 184
+  end
+  object PrintDialog1: TPrintDialog
+    left = 176
+    top = 88
+  end
+end

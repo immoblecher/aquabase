@@ -1,0 +1,333 @@
+object LithProfileSettingsForm: TLithProfileSettingsForm
+  Left = 824
+  Height = 353
+  Top = 145
+  Width = 330
+  HelpContext = 94
+  BorderStyle = bsSingle
+  Caption = 'Initial Settings for Lithology Profile'
+  ClientHeight = 353
+  ClientWidth = 330
+  Constraints.MinWidth = 330
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poScreenCenter
+  SessionProperties = 'CheckBoxMarks.Checked;ColorButtonMarks.ButtonColor;ComboBoxLegAlignm.ItemIndex;SpinEditLegFSize.Value;SpinEditMarksFSize.Value;SpinEditNumberAngle.Value;ComboBoxBotAxis.ItemIndex'
+  LCLVersion = '2.0.8.0'
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 36
+    Top = 311
+    Width = 318
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.HelpContext = 94
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    CancelButton.OnClick = CancelButtonClick
+    TabOrder = 0
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object Label1: TLabel
+    Left = 8
+    Height = 13
+    Top = 10
+    Width = 53
+    Caption = 'Use View:'
+    ParentColor = False
+  end
+  object ComboBoxViews: TComboBox
+    Left = 70
+    Height = 28
+    Hint = 'Select a View containing the sites for the profile'
+    Top = 5
+    Width = 252
+    Anchors = [akTop, akLeft, akRight]
+    ItemHeight = 0
+    ParentShowHint = False
+    ShowHint = True
+    Sorted = True
+    Style = csDropDownList
+    TabOrder = 1
+  end
+  object Label2: TLabel
+    Left = 8
+    Height = 13
+    Top = 40
+    Width = 194
+    Caption = 'Use colour in lithology classification'
+    ParentColor = False
+  end
+  object ComboBoxColour: TComboBox
+    Left = 8
+    Height = 25
+    Top = 56
+    Width = 196
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      'No'
+      'Primary colour'
+      'Secondary colour'
+      'Primary and secondary colours'
+    )
+    OnChange = ComboBoxColourChange
+    Style = csDropDownList
+    TabOrder = 2
+    Text = 'No'
+  end
+  object CheckBox1: TCheckBox
+    Left = 166
+    Height = 24
+    Top = 91
+    Width = 156
+    Caption = 'Default lithology colour'
+    TabOrder = 3
+  end
+  object Label3: TLabel
+    Left = 8
+    Height = 13
+    Top = 96
+    Width = 88
+    Caption = 'Lithology width:'
+    ParentColor = False
+  end
+  object SpinEdit1: TSpinEdit
+    Left = 100
+    Height = 23
+    Top = 91
+    Width = 60
+    Alignment = taRightJustify
+    MaxValue = 254
+    MinValue = 1
+    TabOrder = 4
+    Value = 10
+  end
+  object GroupBox1: TGroupBox
+    Left = 9
+    Height = 80
+    Top = 122
+    Width = 200
+    Caption = 'Lithology Labels:'
+    ClientHeight = 63
+    ClientWidth = 196
+    TabOrder = 5
+    object CheckBoxMarks: TCheckBox
+      Left = 6
+      Height = 24
+      Top = 4
+      Width = 55
+      Caption = 'Show'
+      Checked = True
+      State = cbChecked
+      TabOrder = 0
+    end
+    object Label4: TLabel
+      Left = 72
+      Height = 13
+      Top = 8
+      Width = 51
+      Caption = 'Font size:'
+      ParentColor = False
+    end
+    object SpinEditMarksFSize: TSpinEdit
+      Left = 128
+      Height = 23
+      Top = 2
+      Width = 60
+      Alignment = taRightJustify
+      MaxValue = 14
+      MinValue = 4
+      TabOrder = 1
+      Value = 8
+    end
+    object ColorButtonMarks: TColorButton
+      Left = 6
+      Height = 25
+      Top = 32
+      Width = 183
+      BorderWidth = 2
+      ButtonColorSize = 16
+      ButtonColor = clSilver
+      ColorDialog = ColorDialog1
+      Caption = 'Label background colour:'
+      Layout = blGlyphRight
+    end
+  end
+  object Label5: TLabel
+    Left = 216
+    Height = 13
+    Top = 121
+    Width = 76
+    Caption = 'Distance Axis:'
+    ParentColor = False
+  end
+  object ComboBoxBotAxis: TComboBox
+    Left = 216
+    Height = 25
+    Top = 136
+    Width = 106
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      'Longitude'
+      'Latitude'
+    )
+    Style = csDropDownList
+    TabOrder = 6
+    Text = 'Longitude'
+  end
+  object GroupBox2: TGroupBox
+    Left = 9
+    Height = 68
+    Top = 208
+    Width = 313
+    Caption = 'Legend:'
+    ClientHeight = 51
+    ClientWidth = 309
+    TabOrder = 7
+    object CheckBoxLegend: TCheckBox
+      Left = 6
+      Height = 24
+      Top = 4
+      Width = 55
+      Caption = 'Show'
+      Checked = True
+      State = cbChecked
+      TabOrder = 0
+    end
+    object Label6: TLabel
+      Left = 72
+      Height = 13
+      Top = 8
+      Width = 51
+      Caption = 'Font size:'
+      ParentColor = False
+    end
+    object SpinEditLegFSize: TSpinEdit
+      Left = 128
+      Height = 23
+      Top = 2
+      Width = 60
+      Alignment = taRightJustify
+      MaxValue = 14
+      MinValue = 4
+      TabOrder = 1
+      Value = 8
+    end
+    object Label7: TLabel
+      Left = 206
+      Height = 13
+      Top = 4
+      Width = 60
+      Caption = 'Alignment:'
+      ParentColor = False
+    end
+    object ComboBoxLegAlignm: TComboBox
+      Left = 206
+      Height = 25
+      Top = 20
+      Width = 96
+      ItemHeight = 0
+      ItemIndex = 5
+      Items.Strings = (
+        'Top Left'
+        'Center Left'
+        'Bottom Left'
+        'Top Center'
+        'BottomCenter'
+        'Top Right'
+        'Center Right'
+        'BottomRight'
+      )
+      Style = csDropDownList
+      TabOrder = 2
+      Text = 'Top Right'
+    end
+  end
+  object Label8: TLabel
+    Left = 9
+    Height = 13
+    Top = 285
+    Width = 61
+    Caption = 'Chart Title:'
+    ParentColor = False
+  end
+  object EditTitle: TEdit
+    Left = 74
+    Height = 23
+    Top = 280
+    Width = 248
+    TabOrder = 8
+    Text = 'Lithological Profile'
+  end
+  object Label9: TLabel
+    Left = 216
+    Height = 13
+    Top = 166
+    Width = 102
+    Caption = 'Rotate Number by'
+    ParentColor = False
+  end
+  object SpinEditNumberAngle: TSpinEdit
+    Left = 216
+    Height = 23
+    Hint = 'Rotation angle of site numbers on top axis'
+    Top = 180
+    Width = 50
+    Alignment = taRightJustify
+    Increment = 5
+    MaxValue = 90
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 9
+  end
+  object Label10: TLabel
+    Left = 272
+    Height = 13
+    Top = 186
+    Width = 45
+    Caption = 'degrees'
+    ParentColor = False
+  end
+  object ColorDialog1: TColorDialog
+    Color = clBlack
+    CustomColors.Strings = (
+      'ColorA=000000'
+      'ColorB=000080'
+      'ColorC=008000'
+      'ColorD=008080'
+      'ColorE=800000'
+      'ColorF=800080'
+      'ColorG=808000'
+      'ColorH=808080'
+      'ColorI=C0C0C0'
+      'ColorJ=0000FF'
+      'ColorK=00FF00'
+      'ColorL=00FFFF'
+      'ColorM=FF0000'
+      'ColorN=FF00FF'
+      'ColorO=FFFF00'
+      'ColorP=FFFFFF'
+      'ColorQ=C0DCC0'
+      'ColorR=F0CAA6'
+      'ColorS=F0FBFF'
+      'ColorT=A4A0A0'
+    )
+    left = 104
+    top = 296
+  end
+  object XMLPropStorage1: TXMLPropStorage
+    StoredValues = <>
+    left = 257
+    top = 55
+  end
+end

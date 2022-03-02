@@ -1,0 +1,259 @@
+object HydResForm: THydResForm
+  Left = 767
+  Height = 396
+  Top = 162
+  Width = 434
+  ActiveControl = DateTimePicker1
+  Caption = 'Download SA DWS Hydrology Data'
+  ClientHeight = 396
+  ClientWidth = 434
+  Constraints.MinWidth = 434
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  SessionProperties = 'Left;Top;Width;Height'
+  LCLVersion = '2.0.8.0'
+  object GroupBox1: TGroupBox
+    Left = 9
+    Height = 105
+    Top = 4
+    Width = 419
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Search data for current site:'
+    ClientHeight = 88
+    ClientWidth = 415
+    TabOrder = 0
+    object LabeledEdit1: TLabeledEdit
+      Left = 4
+      Height = 23
+      Hint = 'This number must be the same as on DWS database!'
+      Top = 24
+      Width = 136
+      AutoSize = False
+      EditLabel.Height = 13
+      EditLabel.Width = 136
+      EditLabel.Caption = 'Site Nr. (NR_ON_MAP)'
+      EditLabel.ParentColor = False
+      ParentShowHint = False
+      ReadOnly = True
+      ShowHint = True
+      TabOrder = 0
+    end
+    object DateTimePicker1: TDateTimePicker
+      Left = 170
+      Height = 25
+      Top = 24
+      Width = 110
+      CenturyFrom = 1941
+      DateDisplayOrder = ddoYMD
+      MaxDate = 2958465
+      MinDate = -53780
+      AutoSize = False
+      TabOrder = 1
+      DateSeparator = '-'
+      TrailingSeparator = False
+      TextForNullDate = 'NULL'
+      LeadingZeros = True
+      Kind = dtkDate
+      TimeSeparator = ':'
+      TimeFormat = tf24
+      TimeDisplay = tdHMS
+      DateMode = dmComboBox
+      Date = 36526
+      Time = 0
+      UseDefaultSeparators = False
+      HideDateTimeParts = [dtpSecond]
+      MonthNames = 'Long'
+    end
+    object Label1: TLabel
+      Left = 170
+      Height = 13
+      Top = 6
+      Width = 59
+      Caption = 'Start Date:'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 294
+      Height = 13
+      Top = 6
+      Width = 53
+      Caption = 'End Date:'
+      ParentColor = False
+    end
+    object DateTimePicker2: TDateTimePicker
+      Left = 294
+      Height = 25
+      Top = 24
+      Width = 110
+      CenturyFrom = 1941
+      DateDisplayOrder = ddoYMD
+      MaxDate = 2958465
+      MinDate = -53780
+      AutoSize = False
+      TabOrder = 2
+      DateSeparator = '-'
+      TrailingSeparator = False
+      TextForNullDate = 'NULL'
+      LeadingZeros = True
+      Kind = dtkDate
+      TimeSeparator = ':'
+      TimeFormat = tf24
+      TimeDisplay = tdHMS
+      DateMode = dmComboBox
+      Date = 36526
+      Time = 0
+      UseDefaultSeparators = False
+      HideDateTimeParts = [dtpSecond]
+      MonthNames = 'Long'
+    end
+    object ComboBox1: TComboBox
+      Left = 128
+      Height = 28
+      Top = 56
+      Width = 276
+      Anchors = [akTop, akLeft, akRight]
+      DropDownCount = 5
+      ItemHeight = 0
+      OnChange = ComboBox1Change
+      Style = csDropDownList
+      TabOrder = 3
+    end
+    object Label4: TLabel
+      Left = 38
+      Height = 13
+      Top = 65
+      Width = 76
+      Caption = 'Data Variable:'
+      ParentColor = False
+    end
+  end
+  object RadioGroup1: TRadioGroup
+    Left = 8
+    Height = 44
+    Hint = 'Limits per query are 7000 records (or 1 year of data) for primary data and 20 years of data for daily data'
+    Top = 118
+    Width = 418
+    Anchors = [akTop, akLeft, akRight]
+    AutoFill = True
+    Caption = 'Data Type'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 3
+    ClientHeight = 27
+    ClientWidth = 414
+    Columns = 3
+    Enabled = False
+    ItemIndex = 0
+    Items.Strings = (
+      'Primary data'
+      'Daily average'
+      'Monthly'
+    )
+    OnSelectionChanged = RadioGroup1SelectionChanged
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 36
+    Top = 354
+    Width = 422
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.Enabled = False
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 2
+    ShowButtons = [pbOK, pbClose, pbHelp]
+  end
+  object Memo1: TMemo
+    Left = 8
+    Height = 118
+    Top = 220
+    Width = 419
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Font.Height = -12
+    Font.Name = 'Courier New'
+    Lines.Strings = (
+      'Nothing found yet. Retrieve data with button above'
+    )
+    ParentFont = False
+    ReadOnly = True
+    ScrollBars = ssAutoBoth
+    TabOrder = 3
+    WordWrap = False
+  end
+  object Label3: TLabel
+    Left = 8
+    Height = 13
+    Top = 202
+    Width = 38
+    Caption = '&Result:'
+    FocusControl = Memo1
+    ParentColor = False
+  end
+  object BitBtn1: TBitBtn
+    Left = 160
+    Height = 30
+    Hint = 'Retrieve online data into the result box below'
+    Top = 175
+    Width = 115
+    Caption = 'Retrieve data'
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00256929C4216425C9FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002D7533CF488F4DFF458C4AFF2265
+      26D1FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF003C8A430638833ED9519957FF79C07EFF76BF7CFF468D
+      4BFF236627DB20622306FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF0042924AB83D8C45F765AD6CFF7DC282FF7AC180FF4B92
+      50FF276D2CF7246828BBFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF0043944B384E9A55FF81C587FF7EC385FF317A
+      36FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0045954CFF85C78CFF82C689FF3682
+      3DFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF004A9E53FF8ACA91FF87C98EFF3C8A
+      43FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0050A659FF8ECC95FF8BCB93FF4292
+      4AFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0056AD5FFF93CF9AFF90CE98FF489A
+      50FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF005BB465FF96D29FFF94D09CFF4EA2
+      57FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF005FBB6AFF9AD4A3FF98D3A1FF53AA
+      5DFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0063C06FFF9ED6A7FF9CD4A5FF59B2
+      63FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0066C572FFA2D8ABFFA0D7A9FF5DB8
+      68FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0068C774FF67C673FF65C270FF62BE
+      6DFFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    OnClick = BitBtn1Click
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    left = 352
+    top = 168
+  end
+end

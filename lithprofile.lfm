@@ -1,0 +1,212 @@
+object LithProfileForm: TLithProfileForm
+  Left = 546
+  Height = 395
+  Top = 240
+  Width = 730
+  ActiveControl = Chart1
+  Caption = 'Lithological Profile'
+  ClientHeight = 395
+  ClientWidth = 730
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  SessionProperties = 'Height;Left;Top;Width'
+  LCLVersion = '2.0.4.0'
+  object Chart1: TChart
+    Left = 0
+    Height = 395
+    Top = 0
+    Width = 730
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.Visible = True
+        Title.Caption = 'Altitude [mamsl]'
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.Visible = True
+        Title.Caption = 'Longitude'
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Grid.Visible = False
+        Alignment = calTop
+        Marks.AtDataOnly = True
+        Marks.Format = '%2:s'
+        Marks.LabelBrush.Style = bsClear
+        Marks.Source = ListChartSource1
+        Marks.Style = smsLabel
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+      end>
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Legend.Visible = True
+    Margins.Left = 20
+    Margins.Top = 5
+    Margins.Right = 20
+    Margins.Bottom = 5
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlack
+    Title.Font.Height = -13
+    Title.Text.Strings = (
+      'Lithological Profile'
+    )
+    Title.Visible = True
+    Toolset = ChartToolset1
+    Align = alClient
+    PopupMenu = PopupMenu1
+  end
+  object LithQuery: TZReadOnlyQuery
+    BeforeOpen = LithQueryBeforeOpen
+    AfterOpen = LithQueryAfterOpen
+    SQL.Strings = (
+      'SELECT v.SITE_ID_NR, b.NR_ON_MAP, b.LONGITUDE, b.LATITUDE, b.ALTITUDE - g.DEPTH_TOP FROM_ALT, b.ALTITUDE - g.DEPTH_BOT TO_ALT, g.DEPTH_TOP, g.LITH_CODE, g.PRIM_COLOR, g.SECO_COLOR'
+      'JOIN basicinf b ON (b.SITE_ID_NR = v.SITE_ID_NR)'
+      'JOIN geology_ g ON (g.SITE_ID_NR = v.SITE_ID_NR)'
+      'ORDER BY v.SITE_ID_NR, from_alt'
+    )
+    Params = <>
+    left = 432
+    top = 40
+  end
+  object XMLPropStorage1: TXMLPropStorage
+    StoredValues = <>
+    left = 336
+    top = 40
+  end
+  object LookupQuery: TZReadOnlyQuery
+    BeforeOpen = LookupQueryBeforeOpen
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE, DEFAULT_CO FROM Lookup'
+      'WHERE USED_FOR IN (''LITHCODE'', ''PRIMCOLR'', ''SECOCOLR'')'
+    )
+    Params = <>
+    left = 512
+    top = 40
+  end
+  object ListChartSource1: TListChartSource
+    left = 128
+    top = 92
+  end
+  object PopupMenu1: TPopupMenu
+    OnPopup = PopupMenu1Popup
+    left = 328
+    top = 144
+    object MenuItem5: TMenuItem
+      Caption = '&Copy to Clipboard'
+      OnClick = MenuItem5Click
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Save &as...'
+      OnClick = MenuItem3Click
+    end
+    object MenuItem2: TMenuItem
+      Caption = '&Print'
+      OnClick = MenuItem2Click
+    end
+    object MenuItem8: TMenuItem
+      Caption = '-'
+      GroupIndex = 1
+    end
+    object QuickFormat1: TMenuItem
+      Caption = '&Quick Format'
+      GroupIndex = 1
+      object HorizGrid1: TMenuItem
+        Caption = '&Horizontal Grid'
+        Checked = True
+        OnClick = HorizGrid1Click
+      end
+      object VertGrid1: TMenuItem
+        Caption = '&Vertical Grid'
+        Checked = True
+        OnClick = VertGrid1Click
+      end
+      object Legend1: TMenuItem
+        Caption = '&Legend'
+        object MenuItemLegendEnabled: TMenuItem
+          Caption = '&Enabled'
+          OnClick = MenuItemLegendEnabledClick
+        end
+        object MenuItemSideBar: TMenuItem
+          Caption = 'Use &Sidebar'
+          Checked = True
+          OnClick = MenuItemSideBarClick
+        end
+        object MenuItemAlignment: TMenuItem
+          Caption = '&Alignment'
+          object MenuItemTopRight: TMenuItem
+            Caption = '&Top Right'
+            Checked = True
+            RadioItem = True
+            OnClick = MenuItemTopRightClick
+          end
+          object MenuItemTopLeft: TMenuItem
+            Caption = 'Top &Left'
+            RadioItem = True
+            OnClick = MenuItemTopLeftClick
+          end
+          object MenuItemBotRight: TMenuItem
+            Caption = 'Bottom &Right'
+            RadioItem = True
+            OnClick = MenuItemBotRightClick
+          end
+          object MenuItemBotLeft: TMenuItem
+            Caption = '&Bottom Left'
+            RadioItem = True
+            OnClick = MenuItemBotLeftClick
+          end
+          object MenuItemBotCentre: TMenuItem
+            Caption = 'Bottom Center'
+            RadioItem = True
+            OnClick = MenuItemBotCentreClick
+          end
+        end
+      end
+      object MenuItemFonts: TMenuItem
+        Caption = '&Fonts'
+        object MenuItemBigger: TMenuItem
+          Caption = '&Bigger'
+          ShortCut = 16450
+          OnClick = MenuItemBiggerClick
+        end
+        object MenuItemSmaller: TMenuItem
+          Caption = '&Smaller'
+          ShortCut = 16467
+          OnClick = MenuItemSmallerClick
+        end
+      end
+    end
+  end
+  object SaveDialog: TSaveDialog
+    Title = 'Save diagram as'
+    DefaultExt = '.jpg'
+    Filter = 'JPEG Image (*.jpg)|*.jpg|Bitmap (*.bmp)|*.bmp|Windows Metafile (*.wmf)|*.wmf|Portable Network Graphics (*.png)|*.png|Scalable Vector Graphics (*.svg)|*.svg'
+    FilterIndex = 2
+    InitialDir = 'WSpaceDir'
+    left = 424
+    top = 144
+  end
+  object PrintDialog1: TPrintDialog
+    left = 384
+    top = 232
+  end
+  object ChartToolset1: TChartToolset
+    left = 224
+    top = 92
+    object ChartToolset1ZoomMouseWheelTool1: TZoomMouseWheelTool
+      ZoomFactor = 1.1
+    end
+    object ChartToolset1PanDragTool1: TPanDragTool
+      Shift = [ssCtrl]
+      LimitToExtent = [pdLeft, pdUp, pdRight, pdDown]
+      EscapeCancels = True
+    end
+  end
+end

@@ -1,0 +1,24 @@
+object LoadReportForm: TLoadReportForm
+  Left = 531
+  Height = 229
+  Top = 214
+  Width = 795
+  Caption = 'LoadReportForm'
+  ClientHeight = 229
+  ClientWidth = 795
+  OnClose = FormClose
+  LCLVersion = '1.6.0.4'
+  object RLReport1: TRLReport
+    Left = 0
+    Height = 1123
+    Top = 0
+    Width = 794
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Arial'
+    RealBounds.Left = 0
+    RealBounds.Top = 0
+    RealBounds.Width = 0
+    RealBounds.Height = 0
+  end
+end

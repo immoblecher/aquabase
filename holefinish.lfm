@@ -1,0 +1,343 @@
+inherited HoleConstForm: THoleConstForm
+  Left = 573
+  Top = 256
+  Caption = 'Hole Finish'
+  Icon.Data = {
+    FE0200000000010001002020100000000000E802000016000000280000002000
+    0000400000000100040000000000800200000000000000000000000000000000
+    0000000000000000800000800000008080008000000080008000808000008080
+    8000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+    FF00000000000000000000000000000000000008FFF000000000000000000000
+    000000887777000000000000000000000000008800770F000000000000000000
+    0000088088F70FFF0000000000000000000008808880FFFFF000000000000000
+    00000888000FFF8FFFF0000000000000000007888800F8088FFF000000000000
+    00000078888800F0088F8800000000000000000077700FFFF008888800000000
+    00000000000FFFFFFFF088800000000000000000000000FFF8880008BBBBBB88
+    00000000000000000800BBBBBBBBBBBBB80000000000000000BBBBBBBBBBBBBB
+    BBB0000000000000BBBBBBBBB0000BBBBBB00000000000BB87000000000BB0BB
+    BB800000000000008B8BBBBBBBBBB00BB80000000000BBBBBBBBBBBBBBBBBBB0
+    0000000000BBBBBB0000000000BBB0BB0F000000BBBBB0008888888870BB0B0B
+    0FF0000BBBB00888BBBBBBB070BB0BB00FF0000BB0088BBBBBBBBBB070BB0B70
+    0000000B088BBBBBBBBBBB070BB0BB00000000008BBBBBBBBBBBBB070BB0BB00
+    000000000BBBBBBBBBBBB070BB0BB7000000000008BBBBBBBBBBB070BB0BB000
+    00000000008BBBBBBBBB070BB0BB0000000000000000BBBBBBB070BB0BB00000
+    000000000000088888070BB0B0000000000000000000000000BBBB0000000000
+    0000000000000000BBBB00000000000000000000000000000000000000000000
+    0000E07FFFFFC01FFFFF8007FFFF8003FFFF0000FFFF00007FFF00001FFF0000
+    07FF800003FFC0000007F0000001FC000000FFC00000FFE00000FFC00000FF80
+    0000FE000001F8000000F0000000E0000000C0000000C0000009C000000FC000
+    000FF000001FF000003FF800007FFC0000FFFF0001FFFF8007FFFFC03FFFFFF0
+    FFFF
+  }
+  OnActivate = FormActivate
+  inherited Panel1: TPanel
+    inherited ViewNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited BasicDBNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    object GraphSpeedButton: TSpeedButton[5]
+      Left = 296
+      Height = 25
+      Hint = 'Quick Borehole log'
+      Top = 6
+      Width = 25
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        0400000000000001000000000000000000001000000010000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00337333733373
+        3373337F3F7F3F7F3F7F33737373737373733F7F7F7F7F7F7F7F770000000000
+        000077777777777777773303333333333333337FF333333F33333709333333C3
+        333337773F3FF373F333330393993C3C33333F7F7F77F7F7FFFF77079797977C
+        77777777777777777777330339339333C333337FF73373F37F33370C333C3933
+        933337773F3737F37FF33303C3C33939C9333F7F7F7FF7F777FF7707C7C77797
+        7C97777777777777777733033C3333333C33337F37F33333373F37033C333333
+        33C3377F37333333337333033333333333333F7FFFFFFFFFFFFF770777777777
+        7777777777777777777733333333333333333333333333333333
+      }
+      NumGlyphs = 2
+      Visible = False
+      ShowHint = True
+      ParentShowHint = False
+    end
+  end
+  inherited Panel2: TPanel
+    Height = 224
+    Top = 144
+    ClientHeight = 224
+    inherited Panel4: TPanel
+      Height = 29
+      Top = 194
+      ClientHeight = 29
+      inherited DetailNavigator: TDBNavigator
+        Hints.Strings = (        )
+      end
+      inherited RecordText: TStaticText
+        Height = 23
+      end
+      inherited EditResults: TEdit
+        Height = 23
+      end
+      inherited StaticText1: TStaticText
+        Left = 463
+        Height = 23
+        Width = 40
+      end
+    end
+    inherited DBGrid: TDBGrid
+      Height = 169
+    end
+  end
+  inherited GroupBox1: TGroupBox
+    Height = 100
+    ClientHeight = 86
+  end
+  inherited BasicinfDataSource: TDataSource
+    left = 328
+  end
+  inherited LinkedQuery: TZQuery
+    SortedFields = 'SITE_ID_NR,DATE_CONST,DEPTH'
+    BeforeOpen = LinkedQueryBeforeOpen
+    BeforeInsert = LinkedQueryBeforeInsert
+    BeforeEdit = LinkedQueryBeforeEdit
+    AfterPost = LinkedQueryAfterPost
+    OnNewRecord = LinkedQueryNewRecord
+    SQL.Strings = (
+      'SELECT * FROM constrct WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    IndexFieldNames = 'SITE_ID_NR Asc,DATE_CONST Asc,DEPTH Asc'
+    left = 40
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object LinkedQueryDATE_ENTRY: TStringField[1]
+      Alignment = taCenter
+      DisplayLabel = 'Date entered'
+      DisplayWidth = 32
+      FieldKind = fkData
+      FieldName = 'DATE_ENTRY'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 32
+    end
+    object LinkedQueryREP_INST: TStringField[2]
+      Tag = 1
+      Alignment = taCenter
+      DisplayLabel = 'Rep. inst'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 16
+    end
+    object LinkedQueryINFO_SOURC: TStringField[3]
+      Tag = 8
+      Alignment = taCenter
+      DisplayLabel = 'Info.src.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 3
+      LookupCache = False
+      LookupKeyFields = 'IS_CONST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryDATE_CONST: TStringField[4]
+      Alignment = taCenter
+      DisplayLabel = 'Date constr./meas.'
+      DisplayWidth = 32
+      FieldKind = fkData
+      FieldName = 'DATE_CONST'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = LinkedQueryDATE_CONSTValidate
+      Size = 32
+    end
+    object LinkedQueryCONTRACTOR: TStringField[5]
+      Tag = 45
+      Alignment = taCenter
+      DisplayLabel = 'Contractor'
+      DisplayWidth = 96
+      FieldKind = fkData
+      FieldName = 'CONTRACTOR'
+      Index = 5
+      LookupCache = False
+      LookupKeyFields = 'CONTRACT'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 96
+    end
+    object LinkedQueryCONST_METH: TStringField[6]
+      Tag = 9
+      Alignment = taCenter
+      DisplayLabel = 'Const. meth'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'CONST_METH'
+      Index = 6
+      LookupCache = False
+      LookupKeyFields = 'CONSMETH'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryDEPTH: TFloatField[7]
+      DisplayLabel = 'Depth'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryDEPTHGetText
+      OnSetText = LinkedQueryDEPTHSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 22
+    end
+    object LinkedQueryCOLLAR_HI: TFloatField[8]
+      DisplayLabel = 'Collar hgt.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'COLLAR_HI'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryCOLLAR_HIGetText
+      OnSetText = LinkedQueryCOLLAR_HISetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 22
+    end
+    object LinkedQueryTYPE_FINIS: TStringField[9]
+      Tag = 10
+      Alignment = taCenter
+      DisplayLabel = 'Type finish'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'TYPE_FINIS'
+      Index = 9
+      LookupCache = False
+      LookupKeyFields = 'TYPEFINI'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryMETH_DEVEL: TStringField[10]
+      Tag = 11
+      Alignment = taCenter
+      DisplayLabel = 'Meth. devel.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'METH_DEVEL'
+      Index = 10
+      LookupCache = False
+      LookupKeyFields = 'METHDEVL'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryDURA_DEVEL: TLongintField[11]
+      DisplayLabel = 'Dura. devel.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DURA_DEVEL'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object LinkedQuerySPEC_TREAT: TStringField[12]
+      Tag = 12
+      Alignment = taCenter
+      DisplayLabel = 'Spec. treatm.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'SPEC_TREAT'
+      Index = 12
+      LookupCache = False
+      LookupKeyFields = 'SPECTREA'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryCOST_CONST: TFloatField[13]
+      DisplayLabel = 'Const. cost'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'COST_CONST'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 22
+    end
+    object LinkedQueryCOMMENT: TStringField[14]
+      DisplayLabel = 'Comment'
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 48
+    end
+  end
+end

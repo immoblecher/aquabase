@@ -1,0 +1,98 @@
+object EditChartDataForm: TEditChartDataForm
+  Left = 846
+  Height = 247
+  Top = 173
+  Width = 342
+  HelpContext = 991
+  Caption = 'Edit Chart Data'
+  ClientHeight = 247
+  ClientWidth = 342
+  Constraints.MinWidth = 342
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnKeyUp = FormKeyUp
+  SessionProperties = 'Height;Left;Top;Width'
+  LCLVersion = '2.0.8.0'
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 36
+    Top = 205
+    Width = 330
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.HelpContext = 991
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 0
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object StringGrid1: TStringGrid
+    Left = 0
+    Height = 199
+    Hint = '<F2> or Dbl-click to start editing'
+    Top = 0
+    Width = 342
+    Align = alClient
+    AutoAdvance = aaRightDown
+    AutoFillColumns = True
+    ColCount = 4
+    Columns = <    
+      item
+        Alignment = taRightJustify
+        SizePriority = 0
+        Title.Caption = 'X'
+        Width = 92
+      end    
+      item
+        Alignment = taRightJustify
+        SizePriority = 0
+        Title.Caption = 'Y'
+        Width = 86
+      end    
+      item
+        Title.Caption = 'Text'
+        Width = 113
+      end>
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected, goColSizing, goTabs, goDblClickAutoSize, goSmoothScroll, goFixedRowNumbering, goFixedColSizing]
+    ParentShowHint = False
+    PopupMenu = PopupMenu1
+    RowCount = 2
+    ShowHint = True
+    TabOrder = 1
+    OnBeforeSelection = StringGrid1BeforeSelection
+    OnDblClick = StringGrid1DblClick
+    ColWidths = (
+      49
+      92
+      86
+      113
+    )
+  end
+  object XMLPropStorage1: TXMLPropStorage
+    StoredValues = <>
+    left = 104
+    top = 64
+  end
+  object PopupMenu1: TPopupMenu
+    left = 200
+    top = 64
+    object MenuItem1: TMenuItem
+      Caption = '&Delete Row'
+      ShortCut = 16430
+      OnClick = MenuItem1Click
+    end
+    object MenuItem2: TMenuItem
+      Caption = '&Help'
+      HelpContext = 991
+      ShortCut = 112
+      OnClick = MenuItem2Click
+    end
+  end
+end

@@ -1,0 +1,200 @@
+inherited MemberForm: TMemberForm
+  Left = 603
+  Top = 218
+  Caption = 'Member Form'
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnShow = FormShow
+  inherited Panel1: TPanel
+    inherited ViewNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited ChartSpeedButton: TSpeedButton
+      Visible = False
+    end
+    inherited BasicDBNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited Panel2: TPanel
+    inherited Panel4: TPanel
+      inherited DetailNavigator: TDBNavigator
+        Hints.Strings = (        )
+      end
+    end
+    inherited DBGrid: TDBGrid
+      AutoFillColumns = True
+      Columns = <      
+        item
+          MinSize = 80
+          PickList.Strings = (          )
+          SizePriority = 0
+          Title.Caption = 'Date from'
+          Width = 90
+          FieldName = 'DATE_FROM'
+        end      
+        item
+          MinSize = 80
+          PickList.Strings = (          )
+          SizePriority = 0
+          Title.Caption = 'Date to'
+          Width = 90
+          FieldName = 'DATE_TO'
+        end      
+        item
+          MinSize = 80
+          PickList.Strings = (          )
+          SizePriority = 0
+          Title.Caption = 'Member identifier'
+          Width = 90
+          FieldName = 'MEMBER_ID'
+        end      
+        item
+          PickList.Strings = (          )
+          SizePriority = 1
+          Title.Caption = 'Description or URL'
+          Width = 192
+          FieldName = 'DESCRIPTN'
+        end      
+        item
+          PickList.Strings = (          )
+          SizePriority = 0
+          Title.Caption = 'Comment'
+          Width = 90
+          FieldName = 'COMMENT'
+        end>
+    end
+  end
+  inherited GroupBox1: TGroupBox
+    ClientHeight = 86
+  end
+  inherited BasicinfDataSource: TDataSource
+    left = 328
+  end
+  inherited LinkedDataSource: TDataSource
+    left = 136
+    top = 272
+  end
+  inherited LinkedQuery: TZQuery
+    BeforeOpen = LinkedQueryBeforeOpen
+    BeforeEdit = LinkedQueryBeforeEdit
+    AfterPost = LinkedQueryAfterPost
+    OnNewRecord = LinkedQueryNewRecord
+    SQL.Strings = (
+      'SELECT * FROM member__ WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    left = 40
+    top = 272
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object LinkedQueryDATE_FROM: TStringField[1]
+      Alignment = taCenter
+      DisplayLabel = 'Date from'
+      DisplayWidth = 32
+      FieldKind = fkData
+      FieldName = 'DATE_FROM'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = LinkedQueryDATEValidate
+      Size = 32
+    end
+    object LinkedQueryDATE_TO: TStringField[2]
+      Alignment = taCenter
+      DisplayLabel = 'Date to'
+      DisplayWidth = 32
+      FieldKind = fkData
+      FieldName = 'DATE_TO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = LinkedQueryDATEValidate
+      Size = 32
+    end
+    object LinkedQueryMEMBER_ID: TStringField[3]
+      DisplayLabel = 'Member identifier'
+      DisplayWidth = 40
+      FieldKind = fkData
+      FieldName = 'MEMBER_ID'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 40
+    end
+    object LinkedQueryDESCRIPTN: TStringField[4]
+      DisplayLabel = 'Description'
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'DESCRIPTN'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 80
+    end
+    object LinkedQueryCOMMENT: TStringField[5]
+      DisplayLabel = 'Comment'
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 48
+    end
+  end
+  object MemberListQuery: TZReadOnlyQuery[12]
+    Connection = DataModuleMain.ZConnectionDB
+    SQL.Strings = (
+      'SELECT MEMBER_ID, DESCRIPTN FROM member__'
+    )
+    Params = <>
+    left = 317
+    top = 167
+    object MemberListQueryMEMBER_ID: TStringField
+      DisplayWidth = 40
+      FieldKind = fkData
+      FieldName = 'MEMBER_ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+    object MemberListQueryDESCRIPTN: TStringField
+      FieldKind = fkData
+      FieldName = 'DESCRIPTN'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+  end
+end

@@ -1,0 +1,242 @@
+object ImportRainForm: TImportRainForm
+  Left = 857
+  Height = 221
+  Top = 234
+  Width = 476
+  BorderStyle = bsDialog
+  Caption = 'Import Daily Rainfall'
+  ClientHeight = 221
+  ClientWidth = 476
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
+  object RadioGroup1: TRadioGroup
+    Left = 8
+    Height = 65
+    Top = 8
+    Width = 208
+    AutoFill = True
+    Caption = 'Sites from:'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 51
+    ClientWidth = 206
+    ItemIndex = 0
+    Items.Strings = (
+      'Current Site only'
+      'View'
+    )
+    OnClick = RadioGroup1Click
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    Left = 8
+    Height = 11
+    Top = 78
+    Width = 29
+    Caption = 'View:'
+    Enabled = False
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    ParentColor = False
+    ParentFont = False
+  end
+  object ViewComboBox: TComboBox
+    Left = 8
+    Height = 25
+    Top = 94
+    Width = 208
+    Enabled = False
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      '<No View>'
+    )
+    OnChange = ViewComboBoxChange
+    Sorted = True
+    Style = csDropDownList
+    TabOrder = 1
+    Text = '<No View>'
+  end
+  object Label2: TLabel
+    Left = 232
+    Height = 11
+    Top = 8
+    Width = 55
+    Caption = 'Start Date:'
+    ParentColor = False
+  end
+  object DateTimePicker1: TDateTimePicker
+    Left = 232
+    Height = 25
+    Hint = 'Earliest possible date for this tool is 2018-06-25'
+    Top = 26
+    Width = 110
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoYMD
+    MaxDate = 2958465
+    MinDate = 43276
+    AutoSize = False
+    TabOrder = 2
+    DateSeparator = '-'
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    ShowHint = True
+    ParentShowHint = False
+    Kind = dtkDate
+    TimeSeparator = ':'
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 43276
+    Time = 0.701788969905465
+    UseDefaultSeparators = False
+    HideDateTimeParts = [dtpSecond]
+    MonthNames = 'Long'
+  end
+  object Label3: TLabel
+    Left = 356
+    Height = 11
+    Top = 8
+    Width = 51
+    Caption = 'End Date:'
+    ParentColor = False
+  end
+  object DateTimePicker2: TDateTimePicker
+    Left = 356
+    Height = 25
+    Top = 26
+    Width = 110
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoYMD
+    MaxDate = 2958465
+    MinDate = 43276
+    AutoSize = False
+    TabOrder = 3
+    DateSeparator = '-'
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDate
+    TimeSeparator = ':'
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 43276
+    Time = 0.636030127316189
+    UseDefaultSeparators = False
+    HideDateTimeParts = [dtpSecond]
+    MonthNames = 'Long'
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 38
+    Top = 177
+    Width = 464
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.Enabled = False
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 4
+    ShowButtons = [pbOK, pbClose, pbHelp]
+  end
+  object CheckBoxDelete: TCheckBox
+    Left = 232
+    Height = 23
+    Hint = 'If e.g. monthly data has been stored before'
+    Top = 60
+    Width = 221
+    Caption = 'Delete other stored data for this period'
+    Checked = True
+    ParentShowHint = False
+    ShowHint = True
+    State = cbChecked
+    TabOrder = 5
+  end
+  object CheckBox2: TCheckBox
+    Left = 232
+    Height = 23
+    Hint = 'Keep them to speed up future downloads'
+    Top = 88
+    Width = 192
+    Caption = 'Delete temporary download files'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 6
+  end
+  object Memo1: TMemo
+    Left = 376
+    Height = 33
+    Top = 80
+    Width = 72
+    Lines.Strings = (
+      'Memo1'
+    )
+    TabOrder = 7
+    Visible = False
+    WordWrap = False
+  end
+  object CheckBox3: TCheckBox
+    Left = 8
+    Height = 23
+    Top = 128
+    Width = 350
+    Caption = 'Store monthly cumulative (total) instead of daily rainfall on day:'
+    OnChange = CheckBox3Change
+    TabOrder = 8
+  end
+  object SpinEdit1: TSpinEdit
+    Left = 360
+    Height = 24
+    Hint = '31 will store rainfall on last day of the month'
+    Top = 124
+    Width = 56
+    Alignment = taRightJustify
+    Enabled = False
+    MaxValue = 31
+    MinValue = 1
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 9
+    Value = 15
+  end
+  object CheckBox4: TCheckBox
+    Left = 8
+    Height = 23
+    Top = 150
+    Width = 272
+    Caption = 'Add "0" (zero) rainfall for months with no rainfall'
+    Enabled = False
+    ParentShowHint = False
+    TabOrder = 10
+  end
+  object SiteNameQuery: TZReadOnlyQuery
+    BeforeOpen = SiteNameQueryBeforeOpen
+    AfterOpen = SiteNameQueryAfterOpen
+    Params = <>
+    Left = 160
+    Top = 29
+  end
+  object ZTable1: TZTable
+    SortedFields = 'site_id_nr, date_meas, time_meas'
+    BeforeOpen = ZTable1BeforeOpen
+    TableName = 'rainfall'
+    IndexFieldNames = 'site_id_nr Asc, date_meas Asc, time_meas Asc'
+    Left = 144
+    Top = 176
+  end
+end

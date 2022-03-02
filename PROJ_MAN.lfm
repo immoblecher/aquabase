@@ -1,0 +1,1177 @@
+object ProjManForm: TProjManForm
+  Tag = 128
+  Left = 557
+  Height = 404
+  Top = 207
+  Width = 576
+  ActiveControl = CloseBitBtn
+  Caption = 'Project Information'
+  ClientHeight = 404
+  ClientWidth = 576
+  Color = clBtnFace
+  Constraints.MinHeight = 310
+  Constraints.MinWidth = 576
+  Font.Color = clBlack
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = [fsBold]
+  Icon.Data = {
+    FE0200000000010001002020100000000000E802000016000000280000002000
+    0000400000000100040000000000800200000000000000000000000000000000
+    0000000000000000800000800000008080008000000080008000808000008080
+    8000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+    FF00000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000003300000000000000000000000333033033033000000
+    0000000000033033303330030033000000000000000330033303300023330000
+    0000000000300000330030333330000000000000333333300000033300033300
+    0000080333333333333333300233330000000F033333333333333302333BB030
+    00004F8333333333333333333BB003BB00004FF3333333333333B33BB0033BBB
+    00004FF333333333B3BB3BB0033BBBB000004FF83B333B3B3B3BBBB03BBBBB03
+    00F04FFF33B3B3B3BBBBBBBBBBBB00330FF04FFF8B3B3333BBBBBBBBBB003333
+    0FF044FFF8BBB03033BBBBB330333330FFF444FFF8BB0BB3003B330003333330
+    FF44444FF88B3BBB300000033333B33FFF44444FFF3BB0BBB3000333B33BB38F
+    F4444444FF003B0BB333333BBBBBB3FFF44444444FF00030BBBBBBBBBBBBBBFF
+    444444440000000303BBB3300000BFF444444400000000000000000000000FF4
+    4444000000000000000000000000004444440000000000000000000000000000
+    4444000000000000000000000000000004440000000000000000000000000000
+    0004000000000000000000000000000000000000000000000000000000000000
+    0000FFFFFFFFFFFFFFFFFFFF1FFFFF8003FFFC0000FFF800007FF800007FE000
+    003F0000001F0000001F0000000F000000070000000700000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    000000C000000FE01F003FFFFF80FFFFFFC0FFFFFFF0FFFFFFF8FFFFFFFEFFFF
+    FFFF
+  }
+  KeyPreview = True
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  SessionProperties = 'Left;Top;Width;Height'
+  LCLVersion = '2.0.8.0'
+  Visible = True
+  object Panel1: TPanel
+    Left = 0
+    Height = 41
+    Top = 0
+    Width = 576
+    Align = alTop
+    ClientHeight = 41
+    ClientWidth = 576
+    TabOrder = 0
+    object CloseBitBtn: TBitBtn
+      Left = 402
+      Height = 27
+      Hint = 'Close entry form'
+      Top = 7
+      Width = 82
+      Anchors = [akTop, akRight]
+      DefaultCaption = True
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        333333333333333333333333000033338833333333333333333F333333333333
+        0000333911833333983333333388F333333F3333000033391118333911833333
+        38F38F333F88F33300003339111183911118333338F338F3F8338F3300003333
+        911118111118333338F3338F833338F3000033333911111111833333338F3338
+        3333F8330000333333911111183333333338F333333F83330000333333311111
+        8333333333338F3333383333000033333339111183333333333338F333833333
+        00003333339111118333333333333833338F3333000033333911181118333333
+        33338333338F333300003333911183911183333333383338F338F33300003333
+        9118333911183333338F33838F338F33000033333913333391113333338FF833
+        38F338F300003333333333333919333333388333338FFF830000333333333333
+        3333333333333333333888330000333333333333333333333333333333333333
+        0000
+      }
+      NumGlyphs = 2
+      OnClick = CloseBitBtnClick
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+    end
+    object HelpBitBtn: TBitBtn
+      Left = 488
+      Height = 27
+      Hint = 'Help on Project Management'
+      Top = 7
+      Width = 82
+      Anchors = [akTop, akRight]
+      DefaultCaption = True
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Kind = bkHelp
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+    end
+    object EditNavigator: TDBNavigator
+      Left = 120
+      Height = 25
+      Top = 8
+      Width = 156
+      BevelOuter = bvNone
+      ChildSizing.EnlargeHorizontal = crsScaleChilds
+      ChildSizing.EnlargeVertical = crsScaleChilds
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 100
+      ClientHeight = 25
+      ClientWidth = 156
+      DataSource = ProjManDataSource
+      Options = []
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+      VisibleButtons = [nbInsert, nbDelete, nbEdit, nbPost, nbCancel, nbRefresh]
+      Images = DataModuleMain.ImageListNavs
+    end
+    object ProjNavigator: TDBNavigator
+      Left = 8
+      Height = 25
+      Top = 8
+      Width = 104
+      BevelOuter = bvNone
+      ChildSizing.EnlargeHorizontal = crsScaleChilds
+      ChildSizing.EnlargeVertical = crsScaleChilds
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 100
+      ClientHeight = 25
+      ClientWidth = 104
+      DataSource = ProjManDataSource
+      Options = []
+      TabOrder = 3
+      VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
+      Images = DataModuleMain.ImageListNavs
+    end
+    object CurrentComboBox: TComboBox
+      Left = 284
+      Height = 25
+      Top = 10
+      Width = 108
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ItemHeight = 0
+      Items.Strings = (
+        'Current Site'
+        'Current Traverse'
+        'Current Project'
+      )
+      OnChange = CurrentComboBoxChange
+      ParentFont = False
+      Style = csDropDownList
+      TabOrder = 4
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Height = 363
+    Top = 41
+    Width = 576
+    Align = alClient
+    Alignment = taLeftJustify
+    BevelInner = bvLowered
+    BorderWidth = 4
+    ClientHeight = 363
+    ClientWidth = 576
+    TabOrder = 1
+    object PageControl1: TPageControl
+      Left = 6
+      Height = 245
+      Top = 112
+      Width = 564
+      ActivePage = SitingTabSheet
+      Align = alBottom
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      TabIndex = 0
+      TabOrder = 0
+      object SitingTabSheet: TTabSheet
+        Caption = 'Siting - Depth [m]'
+        ClientHeight = 218
+        ClientWidth = 560
+        object DBGrid: TDBGrid
+          Left = 0
+          Height = 218
+          Hint = 'Siting Information'
+          Top = 0
+          Width = 560
+          Align = alClient
+          Color = clWindow
+          Columns = <>
+          DataSource = LinkedDataSource
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'MS Sans Serif'
+          ParentFont = False
+          TabOrder = 0
+          OnColEnter = DBGridColEnter
+          OnEnter = DBGridEnter
+          OnKeyDown = DBGridKeyDown
+          OnMouseDown = DBGridMouseDown
+        end
+      end
+      object TaskTabSheet: TTabSheet
+        Caption = 'Tasks'
+        ClientHeight = 218
+        ClientWidth = 560
+        object Label4: TLabel
+          Left = 32
+          Height = 14
+          Top = 32
+          Width = 390
+          Caption = 'Watch this and other tabs in forthcoming Aquabase updates for:'
+          ParentColor = False
+        end
+        object Label5: TLabel
+          Left = 32
+          Height = 14
+          Top = 56
+          Width = 134
+          Caption = '- Tasks to be comleted'
+          ParentColor = False
+        end
+        object Label6: TLabel
+          Left = 32
+          Height = 14
+          Top = 72
+          Width = 126
+          Caption = '- Scheduling of tasks'
+          ParentColor = False
+        end
+        object Label7: TLabel
+          Left = 32
+          Height = 14
+          Top = 88
+          Width = 136
+          Caption = '- Expenditure on tasks'
+          ParentColor = False
+        end
+      end
+    end
+    object GroupBox1: TGroupBox
+      Left = 10
+      Height = 105
+      Top = 7
+      Width = 556
+      Anchors = [akTop, akLeft, akRight]
+      Caption = 'Project Information:'
+      ClientHeight = 90
+      ClientWidth = 552
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      PopupMenu = PopupMenu1
+      TabOrder = 1
+      OnClick = GroupBox1Click
+      object Label16: TLabel
+        Left = 6
+        Height = 11
+        Top = 4
+        Width = 81
+        Caption = '&Project Number'
+        FocusControl = EditPROJ_NR
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label17: TLabel
+        Left = 88
+        Height = 11
+        Top = 4
+        Width = 71
+        Caption = 'Project &Name'
+        FocusControl = EditPROJ_NAME
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label3: TLabel
+        Left = 234
+        Height = 11
+        Top = 4
+        Width = 30
+        Caption = '&Client'
+        FocusControl = EditDATE_END
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label18: TLabel
+        Left = 356
+        Height = 11
+        Top = 4
+        Width = 105
+        Caption = '&Geohydr. Consultant'
+        FocusControl = EditGEOHYD_CON
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object LongitudeLabel: TLabel
+        Left = 470
+        Height = 11
+        Top = 4
+        Width = 38
+        Caption = '&Job Nr.'
+        FocusControl = EditJOB_NR
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object LatitudeLabel: TLabel
+        Left = 6
+        Height = 11
+        Top = 46
+        Width = 82
+        Caption = '&Eng. Consultant'
+        FocusControl = EditENG_CON
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object AltitudeLabel: TLabel
+        Left = 118
+        Height = 11
+        Top = 46
+        Width = 91
+        Caption = '&Social Consultant'
+        FocusControl = EditSOC_CON
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object CollarLabel: TLabel
+        Left = 234
+        Height = 11
+        Top = 46
+        Width = 63
+        Caption = 'Date &started'
+        FocusControl = EditDATE_START
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object DepthLabel: TLabel
+        Left = 298
+        Height = 11
+        Top = 46
+        Width = 59
+        Caption = 'Date &ended'
+        FocusControl = EditDATE_END
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label1: TLabel
+        Left = 362
+        Height = 11
+        Top = 46
+        Width = 52
+        Caption = 'Date &verif.'
+        FocusControl = EditDATE_END
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label2: TLabel
+        Left = 424
+        Height = 11
+        Top = 46
+        Width = 55
+        Caption = 'Date enter.'
+        FocusControl = EditDATE_END
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label26: TLabel
+        Left = 486
+        Height = 11
+        Top = 46
+        Width = 60
+        Caption = 'Date updtd.'
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object EditPROJ_NR: TDBEdit
+        Left = 6
+        Height = 22
+        Top = 19
+        Width = 76
+        DataField = 'PROJ_NR'
+        DataSource = ProjManDataSource
+        CharCase = ecUppercase
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 0
+        OnClick = EditPROJ_NRClick
+      end
+      object EditPROJ_NAME: TDBEdit
+        Left = 88
+        Height = 22
+        Top = 19
+        Width = 140
+        DataField = 'PROJ_NAME'
+        DataSource = ProjManDataSource
+        CharCase = ecUppercase
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 1
+        OnClick = EditPROJ_NRClick
+      end
+      object EditCLIENT: TDBEdit
+        Left = 234
+        Height = 22
+        Top = 19
+        Width = 116
+        DataField = 'CLIENT'
+        DataSource = ProjManDataSource
+        CharCase = ecUppercase
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 2
+        OnClick = EditPROJ_NRClick
+      end
+      object EditGEOHYD_CON: TDBEdit
+        Left = 356
+        Height = 22
+        Top = 19
+        Width = 108
+        DataField = 'GEOHYD_CON'
+        DataSource = ProjManDataSource
+        CharCase = ecUppercase
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 3
+        OnClick = EditPROJ_NRClick
+      end
+      object EditJOB_NR: TDBEdit
+        Left = 470
+        Height = 22
+        Top = 19
+        Width = 77
+        DataField = 'JOB_NR'
+        DataSource = ProjManDataSource
+        Anchors = [akTop, akLeft, akRight]
+        CharCase = ecUppercase
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 4
+        OnClick = EditPROJ_NRClick
+      end
+      object EditENG_CON: TDBEdit
+        Left = 6
+        Height = 22
+        Top = 61
+        Width = 108
+        DataField = 'ENG_CON'
+        DataSource = ProjManDataSource
+        CharCase = ecUppercase
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 5
+        OnClick = EditPROJ_NRClick
+      end
+      object EditSOC_CON: TDBEdit
+        Left = 118
+        Height = 22
+        Top = 61
+        Width = 108
+        DataField = 'SOC_CON'
+        DataSource = ProjManDataSource
+        CharCase = ecUppercase
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 6
+        OnClick = EditPROJ_NRClick
+      end
+      object EditDATE_START: TDBEdit
+        Left = 234
+        Height = 22
+        Top = 61
+        Width = 57
+        DataField = 'DATE_START'
+        DataSource = ProjManDataSource
+        CharCase = ecUppercase
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 7
+        OnClick = EditPROJ_NRClick
+      end
+      object EditDATE_END: TDBEdit
+        Left = 298
+        Height = 22
+        Top = 61
+        Width = 57
+        DataField = 'DATE_END'
+        DataSource = ProjManDataSource
+        CharCase = ecUppercase
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 8
+        OnClick = EditPROJ_NRClick
+      end
+      object EditDATE_VERIF: TDBEdit
+        Left = 362
+        Height = 22
+        Top = 61
+        Width = 57
+        DataField = 'DATE_VERIF'
+        DataSource = ProjManDataSource
+        CharCase = ecUppercase
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 9
+        OnClick = EditPROJ_NRClick
+      end
+      object EditDATE_ENTRY: TDBEdit
+        Left = 424
+        Height = 22
+        Top = 61
+        Width = 57
+        DataField = 'DATE_ENTRY'
+        DataSource = ProjManDataSource
+        CharCase = ecUppercase
+        Enabled = False
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 10
+        OnClick = EditPROJ_NRClick
+      end
+      object EditDATE_UPDTD: TDBEdit
+        Cursor = crArrow
+        Left = 486
+        Height = 22
+        Top = 61
+        Width = 59
+        DataField = 'DATE_UPDTD'
+        DataSource = ProjManDataSource
+        ReadOnly = True
+        Anchors = [akTop, akLeft, akRight]
+        CharCase = ecUppercase
+        Enabled = False
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 11
+        TabStop = False
+        OnClick = EditPROJ_NRClick
+      end
+    end
+  end
+  object ProjManDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ProjManTable
+    OnDataChange = ProjManDataSourceDataChange
+    left = 48
+    top = 288
+  end
+  object LinkedDataSource: TDataSource
+    AutoEdit = False
+    DataSet = LinkedTable
+    OnDataChange = LinkedDataSourceDataChange
+    left = 496
+    top = 272
+  end
+  object ProjManTable: TZTable
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'PRO_REF_NR'
+    BeforePost = ProjManTableBeforePost
+    OnNewRecord = ProjManTableNewRecord
+    TableName = 'proj_man'
+    IndexFieldNames = 'PRO_REF_NR Asc'
+    left = 288
+    top = 32
+    object ProjManTablePRO_REF_NR: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'PRO_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object ProjManTablePROJ_NR: TStringField
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'PROJ_NR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 12
+    end
+    object ProjManTablePROJ_NAME: TStringField
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'PROJ_NAME'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object ProjManTableCLIENT: TStringField
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'CLIENT'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object ProjManTableGEOHYD_CON: TStringField
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'GEOHYD_CON'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object ProjManTableJOB_NR: TStringField
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'JOB_NR'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 12
+    end
+    object ProjManTableENG_CON: TStringField
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'ENG_CON'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object ProjManTableSOC_CON: TStringField
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'SOC_CON'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object ProjManTableDATE_START: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'DATE_START'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = ProjManTableDATE_STARTValidate
+      Size = 8
+    end
+    object ProjManTableDATE_END: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'DATE_END'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = ProjManTableDATE_ENDValidate
+      Size = 8
+    end
+    object ProjManTableDATE_VERIF: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'DATE_VERIF'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = ProjManTableDATE_VERIFValidate
+      Size = 8
+    end
+    object ProjManTableDATE_ENTRY: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'DATE_ENTRY'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object ProjManTableDATE_UPDTD: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'DATE_UPDTD'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+  end
+  object LinkedTable: TZTable
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'PRO_REF_NR, TRAV_NR, SITE_ID_NR'
+    AfterOpen = LinkedTableAfterOpen
+    OnNewRecord = LinkedTableNewRecord
+    TableName = 'bhsiting'
+    MasterFields = 'PRO_REF_NR'
+    MasterSource = ProjManDataSource
+    LinkedFields = 'PRO_REF_NR'
+    IndexFieldNames = 'PRO_REF_NR Asc, TRAV_NR Asc, SITE_ID_NR Asc'
+    left = 496
+    top = 184
+    object LinkedTablePRO_REF_NR: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'PRO_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 8
+    end
+    object LinkedTableSITE_NAME: TStringField
+      DisplayLabel = 'Site name'
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'SITE_NAME'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedTableSetText
+      Size = 24
+    end
+    object LinkedTableSITE_REFER: TStringField
+      DisplayLabel = 'Site ref. nr.'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'SITE_REFER'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedTableSetText
+      Size = 16
+    end
+    object LinkedTableTRAV_NR: TStringField
+      DisplayLabel = 'Traverse nr.'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'TRAV_NR'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedTableSetText
+      Size = 16
+    end
+    object LinkedTablePEG_NR: TStringField
+      DisplayLabel = 'Peg nr.'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'PEG_NR'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedTableSetText
+      Size = 16
+    end
+    object LinkedTableALT_PEG_NR: TStringField
+      DisplayLabel = 'Alt. peg nr.'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'ALT_PEG_NR'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedTableSetText
+      Size = 16
+    end
+    object LinkedTablePRIORITY: TSmallintField
+      DisplayLabel = 'Priority'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PRIORITY'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 99
+      MinValue = 1
+    end
+    object LinkedTableDATE_PLAN: TStringField
+      Alignment = taCenter
+      DisplayLabel = 'Date planned'
+      DisplayWidth = 11
+      FieldKind = fkData
+      FieldName = 'DATE_PLAN'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object LinkedTableDATE_SITED: TStringField
+      Alignment = taCenter
+      DisplayLabel = 'Date sited'
+      DisplayWidth = 11
+      FieldKind = fkData
+      FieldName = 'DATE_SITED'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object LinkedTableSITE_ID_NR: TStringField
+      Tag = 100
+      Alignment = taCenter
+      DisplayLabel = 'Site identifier'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedTableSetText
+      OnValidate = LinkedTableSITE_ID_NRValidate
+      Size = 11
+    end
+    object LinkedTableMETH_SITE1: TStringField
+      Alignment = taCenter
+      DisplayLabel = '1. Meth. sited'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'METH_SITE1'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedTableSetText
+      Size = 4
+    end
+    object LinkedTableMETH_SITE2: TStringField
+      Alignment = taCenter
+      DisplayLabel = '2. Meth. sited'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'METH_SITE2'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedTableSetText
+      Size = 4
+    end
+    object LinkedTableMETH_SITE3: TStringField
+      Alignment = taCenter
+      DisplayLabel = '3. Meth. sited'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'METH_SITE3'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedTableSetText
+      Size = 4
+    end
+    object LinkedTableMETH_SITE4: TStringField
+      Alignment = taCenter
+      DisplayLabel = '4. Meth. sited'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'METH_SITE4'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedTableSetText
+      Size = 4
+    end
+    object LinkedTableMETH_SITE5: TStringField
+      Alignment = taCenter
+      DisplayLabel = '5. Meth. sited'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'METH_SITE5'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedTableSetText
+      Size = 4
+    end
+    object LinkedTableREC_DEPTH: TFloatField
+      DisplayLabel = 'Rec. depth'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'REC_DEPTH'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedTableREC_DEPTHGetText
+      OnSetText = LinkedTableREC_DEPTHSetText
+      MaxValue = 0
+      MinValue = 0
+    end
+    object LinkedTableTARGET: TStringField
+      Alignment = taCenter
+      DisplayLabel = 'Target'
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'TARGET'
+      Index = 16
+      LookupCache = False
+      LookupDataSet = LookupTable
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedTableSetText
+      Size = 2
+    end
+    object LinkedTableMARKED: TBooleanField
+      Alignment = taCenter
+      DisplayLabel = 'Marked?'
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'MARKED'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayValues = 'YES;NO'
+    end
+    object LinkedTableCOMMENT: TStringField
+      DisplayLabel = 'Comment'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedTableSetText
+      Size = 12
+    end
+  end
+  object PopupMenu1: TPopupMenu
+    OnPopup = PopupMenu1Popup
+    left = 312
+    top = 240
+    object GotoBookmark: TMenuItem
+      Caption = '&Goto Bookmark'
+      ShortCut = 117
+      OnClick = GotoBookmarkClick
+    end
+    object SetBookmark: TMenuItem
+      Caption = 'Set &Bookmark'
+      ShortCut = 16501
+      OnClick = SetBookmarkClick
+    end
+    object N16: TMenuItem
+      Caption = '-'
+    end
+    object CutMenu: TMenuItem
+      Caption = 'Cu&t'
+      ShortCut = 16472
+      OnClick = CutMenuClick
+    end
+    object CopyMenu: TMenuItem
+      Caption = '&Copy'
+      ShortCut = 16451
+      OnClick = CopyMenuClick
+    end
+    object PasteMenu: TMenuItem
+      Caption = '&Paste'
+      ShortCut = 16470
+      OnClick = PasteMenuClick
+    end
+  end
+  object LookupTable: TZTable
+    Connection = DataModuleMain.ZConnectionLanguage
+    SortedFields = 'used_for;search'
+    TableName = 'Lookup'
+    IndexFieldNames = 'used_for Asc;search Asc'
+    left = 496
+    top = 336
+  end
+  object FindTable: TZTable
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'SITE_ID_NR'
+    TableName = 'bhsiting'
+    IndexFieldNames = 'SITE_ID_NR Asc'
+    left = 408
+    top = 240
+    object FindTablePRO_REF_NR: TStringField
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'PRO_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object FindTableSITE_ID_NR: TStringField
+      DisplayWidth = 11
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 11
+    end
+    object FindTableTRAV_NR: TStringField
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'TRAV_NR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 16
+    end
+  end
+  object SiteTable: TZTable
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'SITE_ID_NR'
+    BeforeOpen = SiteTableBeforeOpen
+    TableName = 'basicinf'
+    MasterSource = ProjManDataSource
+    IndexFieldNames = 'SITE_ID_NR Asc'
+    left = 408
+    top = 168
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    left = 360
+    top = 32
+  end
+end

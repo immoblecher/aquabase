@@ -1,0 +1,108 @@
+inherited OtherDataForm: TOtherDataForm
+  Left = 761
+  Top = 154
+  Caption = 'Other Data'
+  inherited Panel1: TPanel
+    inherited ViewNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited BasicDBNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited Panel2: TPanel
+    inherited Panel4: TPanel
+      inherited DetailNavigator: TDBNavigator
+        Hints.Strings = (        )
+      end
+    end
+    inherited DBGrid: TDBGrid
+      AutoFillColumns = True
+    end
+  end
+  inherited BasicinfDataSource: TDataSource
+    left = 336
+  end
+  inherited LinkedDataSource: TDataSource
+    left = 168
+    top = 280
+  end
+  inherited XMLPropStorage: TXMLPropStorage
+    left = 472
+    top = 272
+  end
+  inherited LinkedQuery: TZQuery
+    BeforeOpen = LinkedQueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM otherdat WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    left = 72
+    top = 280
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object LinkedQueryDATA_TYPE: TStringField[1]
+      DisplayLabel = 'Data type'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'DATA_TYPE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryDATA_TYPESetText
+      Size = 4
+    end
+    object LinkedQueryLOGG_TYPE: TStringField[2]
+      DisplayLabel = 'Logger type'
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'LOGG_TYPE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryLOGG_TYPESetText
+      Size = 48
+    end
+    object LinkedQueryLOCATION: TStringField[3]
+      DisplayLabel = 'Location'
+      DisplayWidth = 184
+      FieldKind = fkData
+      FieldName = 'LOCATION'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryLOCATIONSetText
+      Size = 184
+    end
+    object LinkedQueryFORMAT: TStringField[4]
+      DisplayLabel = 'Format'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'FORMAT'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryFORMATSetText
+      Size = 4
+    end
+  end
+end

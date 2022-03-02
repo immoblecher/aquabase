@@ -1,0 +1,279 @@
+object FormGraduatedPnts: TFormGraduatedPnts
+  Left = 881
+  Height = 297
+  Top = 162
+  Width = 330
+  BorderStyle = bsSingle
+  Caption = 'Graduated Points Map Settings'
+  ClientHeight = 297
+  ClientWidth = 330
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poScreenCenter
+  SessionProperties = 'ComboBoxPntInfo.ItemIndex;ColorButtonHiValue.ButtonColor;ColorButtonNoValue.ButtonColor;CheckBox1.Checked'
+  LCLVersion = '2.0.8.0'
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 36
+    Top = 255
+    Width = 318
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    CancelButton.OnClick = CancelButtonClick
+    TabOrder = 0
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object Label1: TLabel
+    Left = 8
+    Height = 11
+    Top = 8
+    Width = 29
+    Caption = '&View:'
+    FocusControl = ComboBoxAllViews
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    ParentColor = False
+    ParentFont = False
+  end
+  object ComboBoxAllViews: TComboBox
+    Left = 8
+    Height = 28
+    Top = 24
+    Width = 220
+    AutoSize = False
+    ItemHeight = 0
+    Sorted = True
+    Style = csDropDownList
+    TabOrder = 1
+  end
+  object Label2: TLabel
+    Left = 8
+    Height = 13
+    Top = 64
+    Width = 137
+    Caption = 'Point &Information to use:'
+    FocusControl = ComboBoxPntInfo
+    ParentColor = False
+  end
+  object ComboBoxPntInfo: TComboBox
+    Left = 8
+    Height = 28
+    Top = 80
+    Width = 220
+    AutoSize = False
+    ItemHeight = 0
+    ItemIndex = 1
+    Items.Strings = (
+      'Aquifer: Highest Yield'
+      'Basic Information: Depth of Hole'
+      'Chemistry: Parameter'
+      'Field Measurement: Parameter'
+      'Water Level: Static Water Level'
+      ''
+    )
+    OnChange = ComboBoxPntInfoChange
+    Style = csDropDownList
+    TabOrder = 2
+    Text = 'Basic Information: Depth of Hole'
+  end
+  object Label3: TLabel
+    Left = 238
+    Height = 13
+    Top = 64
+    Width = 61
+    Caption = '&Parameter:'
+    FocusControl = ComboBoxParam
+    ParentColor = False
+  end
+  object ComboBoxParam: TComboBox
+    Left = 232
+    Height = 28
+    Top = 80
+    Width = 90
+    Anchors = [akTop, akRight]
+    AutoSize = False
+    Enabled = False
+    ItemHeight = 0
+    OnChange = ComboBoxParamChange
+    Sorted = True
+    Style = csDropDownList
+    TabOrder = 3
+  end
+  object ColorButtonHiValue: TColorButton
+    Left = 8
+    Height = 28
+    Hint = 'All other will be a lighter shade of this colour'
+    Top = 176
+    Width = 180
+    BorderWidth = 2
+    ButtonColorAutoSize = False
+    ButtonColorSize = 18
+    ButtonColor = clNavy
+    ColorDialog = ColorDialog1
+    Caption = 'Colour for &highest value'
+    ShowHint = True
+    ParentShowHint = False
+  end
+  object ColorButtonNoValue: TColorButton
+    Left = 8
+    Height = 28
+    Hint = 'Colour for the points that have got no value'
+    Top = 218
+    Width = 180
+    BorderWidth = 2
+    ButtonColorAutoSize = False
+    ButtonColorSize = 18
+    ButtonColor = clGreen
+    ColorDialog = ColorDialog1
+    Caption = 'Colour for "&no value"'
+    ShowHint = True
+    ParentShowHint = False
+  end
+  object CheckBox1: TCheckBox
+    Left = 200
+    Height = 24
+    Hint = 'Show points, even where there are no values'
+    Top = 222
+    Width = 104
+    Caption = 'Show no value'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 6
+  end
+  object DateTimePicker1: TDateTimePicker
+    Left = 8
+    Height = 21
+    Top = 137
+    Width = 134
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoYMD
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 4
+    Enabled = False
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDateTime
+    TimeFormat = tf24
+    TimeDisplay = tdHM
+    DateMode = dmComboBox
+    Date = 2
+    Time = 0
+    UseDefaultSeparators = True
+    HideDateTimeParts = [dtpSecond]
+    MonthNames = 'Long'
+  end
+  object DateTimePicker2: TDateTimePicker
+    Left = 170
+    Height = 21
+    Top = 137
+    Width = 134
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoYMD
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 5
+    Enabled = False
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDateTime
+    TimeFormat = tf24
+    TimeDisplay = tdHM
+    DateMode = dmComboBox
+    Date = 43956
+    Time = 0.645143171299424
+    UseDefaultSeparators = True
+    HideDateTimeParts = [dtpSecond]
+    MonthNames = 'Long'
+  end
+  object Label4: TLabel
+    Left = 8
+    Height = 13
+    Top = 122
+    Width = 92
+    Caption = '&From Date/Time:'
+    FocusControl = DateTimePicker1
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 170
+    Height = 13
+    Top = 122
+    Width = 77
+    Caption = '&To Date/Time:'
+    FocusControl = DateTimePicker2
+    ParentColor = False
+  end
+  object SpinEditMaxLum: TSpinEdit
+    Left = 272
+    Height = 23
+    Hint = 'Maximum lightness (luminance) of the lowest value point'
+    Top = 178
+    Width = 50
+    Alignment = taRightJustify
+    MaxValue = 255
+    MinValue = 30
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 7
+    Value = 230
+  end
+  object Label6: TLabel
+    Left = 210
+    Height = 30
+    Top = 176
+    Width = 60
+    AutoSize = False
+    Caption = 'Maximum Lightness:'
+    ParentColor = False
+    WordWrap = True
+  end
+  object FieldsQuery: TZReadOnlyQuery
+    Params = <>
+    left = 272
+    top = 8
+  end
+  object ColorDialog1: TColorDialog
+    Color = clBlack
+    CustomColors.Strings = (
+      'ColorA=000000'
+      'ColorB=000080'
+      'ColorC=008000'
+      'ColorD=008080'
+      'ColorE=800000'
+      'ColorF=800080'
+      'ColorG=808000'
+      'ColorH=808080'
+      'ColorI=C0C0C0'
+      'ColorJ=0000FF'
+      'ColorK=00FF00'
+      'ColorL=00FFFF'
+      'ColorM=FF0000'
+      'ColorN=FF00FF'
+      'ColorO=FFFF00'
+      'ColorP=FFFFFF'
+      'ColorQ=C0DCC0'
+      'ColorR=F0CAA6'
+      'ColorS=F0FBFF'
+      'ColorT=A4A0A0'
+    )
+    left = 80
+    top = 184
+  end
+  object XMLPropStorage1: TXMLPropStorage
+    StoredValues = <>
+    left = 97
+    top = 9
+  end
+end

@@ -1,0 +1,493 @@
+inherited RadioActiveForm: TRadioActiveForm
+  Left = 610
+  Top = 250
+  Caption = 'Down-the-hole Radio-Active Methods'
+  Icon.Data = {
+    FE0200000000010001002020100000000000E802000016000000280000002000
+    0000400000000100040000000000800200000000000000000000000000000000
+    0000000000000000800000800000008080008000000080008000808000008080
+    8000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+    FF00000000000000000000000000000600000000000600000000000000000000
+    6000000000000000000000000000000006000000000000000000000000000000
+    0060000000000000000000000000000000060000000000000000000000000000
+    0000000000000000000000000000000000000600000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000FDFFFFCFF8FFFFC7F0FFFF83E0FFFF01C07FFF00807FFE00007FFE01803F
+    FC07F03FFC1FFE1FF8FFFF9FF9FFFFEFF7FFFFFC7FFFFFF83FFFFFF01FFFFFF0
+    1FFFFFF01FFFFFF01FFFFFF83FFFFFFC7FFFFFFFFFFFFFFFFFFFFFFEFFFFFFFE
+    FFFFFFFC7FFFFFFC7FFFFFF83FFFFFF83FFFFFF83FFFFFF01FFFFFF01FFFFFE0
+    0FFF
+  }
+  OnCreate = FormCreate
+  inherited Panel1: TPanel
+    inherited DBFilterNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited EditNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    object GraphSpeedButton: TSpeedButton[4]
+      Left = 360
+      Height = 25
+      Hint = 'Depth dependent chart of Total Gamma'
+      Top = 8
+      Width = 25
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00000000001717
+        17231B1B1B2620202025242424271D1D1DFF2B2B2B212E2E2E21313131221D1D
+        1DFF3636362137373721383838331D1D1DFF3737375139393941000000001D1D
+        1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D
+        1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF000000001D1D
+        1DFF117CE7FF117DE8FF117EE8FF0C5AA5FF117FE8FF117FE8FF117FE8FF0C5A
+        A6FF117DE8FF107BE7FF107AE6FF0B54A2FF0F76E5FF0F73E4FF1C1C1C401D1D
+        1DFF1078D7FF1179D8FF117AD9FF0C5A9EFF117BD9FF117BDAFF117BD9FF0C5A
+        9FFF1079D8FF1078D8FF1076D7FF0B539AFF0F71D5FF489AC1FF1D1D1DFF1D1D
+        1DFF0E69B6FF0F6BB8FF0F6CB8FF0B518AFF0F6DBAFF0F6DBAFF0F6DBAFF0B51
+        8BFF146EB3FF146DB2FF0E68B7FF0A4B86FF2A75B1FF52A781FF000000001D1D
+        1DFF138DEEFF148FEEFF1490EFFF0F6EB6FF1490EFFF1490EFFF1490EFFF1472
+        B4FF389571FF7CC0C0FF188DE7FF126BAFFF419C7BFF2C8E63FF383838401D1D
+        1DFF127FD1FF1380D2FF1481D3FF1065A4FF1582D3FF1582D4FF1986D1FF5EAA
+        96FF2E8F64FF2C8E63FF56A996FF5CA5A8FF2B8E62FF2B8E62FF1D1D1DFF1D1D
+        1DFF3289B1FF177AC5FF24859CFF33906BFF23849AFF1E7EC0FF5CA895FF3595
+        6BFF319166FF36946AFF2B8E62FF2B8E62FF2B8E62FF61A484FF000000001D1D
+        1DFF469E78FF4BA9D7FF49A083FF2B8E62FF319168FF479F82FF349469FF2F91
+        66FF9FC7B4FFF7E9E9FF439972FF2C8E63FF67AB8BFFF6E6E4FF505050401D1D
+        1DFF349469FF3A976EFF2C8E63FF349268FF2C8E63FF2C8E63FF2F9065FF82AC
+        99FFE2D6D8FFE1D6D7FFE0D5D6FF8EA699FFDFD2D2FFDDD0CFFF1D1D1DFF1D1D
+        1DFF2F9065FF2E9065FF309065FFB7B5B3FFBDCFC5FF3A966EFF97C2AFFFC5BD
+        C2FFE3D8DCFFE2D8DBFFE2D7D9FFC2B9BDFFDFD3D4FFDED1D1FF000000001D1D
+        1DFF2E8F64FF2A8D61FF298D60FF73AF95FFECE6E6FFD6DED9FFF9EDF2FFD0C8
+        CFFFF9EEF4FFF9EEF3FFF8EDF2FFCEC7CCFFF8EBEDFFF7EAEBFF646464401D1D
+        1DFF2B8E62FF2B8E62FF2B8E62FF2E8E63FF529F7DFFF2E7ECFFF2E8EEFFCEC7
+        CEFFF2E9F0FFF2E8EFFFF1E7ECFFCEC5CBFFEFE3E6FFEEE1E3FF1D1D1DFF1D1D
+        1DFFDCCECDFFD3CACFFFD4CBD0FFCBC3C9FFD5CDD3FFD5CED4FFD6CED5FFCDC6
+        CDFFD5CED5FFD5CED5FFD5CDD4FFCCC5CBFFD3CBD0FFD2C9CFFF000000001D1D
+        1DFFF6E7E6BFF7E9E9BFF7EAECBFDFD4D7BFF9EEF3BFF9EFF6BFFAF1F9BFD8D1
+        D9D9FBF3FDBFFAF2FBBFFAF0F8BFDCD3D8BFF8EDF1BFF8EBEEBF
+      }
+      OnClick = GraphSpeedButtonClick
+      ShowHint = True
+      ParentShowHint = False
+    end
+  end
+  inherited Panel2: TPanel
+    inherited Panel3: TPanel
+      Height = 244
+      Top = 116
+      ClientHeight = 244
+      inherited PageControl: TPageControl
+        Height = 191
+        OnChange = PageControlChange
+        inherited TabSheet1: TTabSheet
+          Hint = 'Total Gamma'
+          Caption = 'Gamma-Ray'
+          ClientHeight = 165
+          ClientWidth = 558
+          inherited DBGrid1: TDBGrid
+            Height = 165
+            Width = 558
+            AutoFillColumns = True
+            Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
+          end
+        end
+        inherited TabSheet2: TTabSheet
+          Hint = 'Gamma-Gamma'
+          Caption = 'Gamma-Gamma'
+          inherited DBGrid2: TDBGrid
+            AutoFillColumns = True
+            Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
+          end
+        end
+        inherited TabSheet3: TTabSheet
+          Hint = 'Neutron-Gamma'
+          Caption = 'Neutron-Gamma'
+          inherited DBGrid3: TDBGrid
+            AutoFillColumns = True
+            Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
+          end
+        end
+        inherited TabSheet4: TTabSheet
+          TabVisible = False
+        end
+      end
+      inherited Panel4: TPanel
+        Top = 215
+        inherited DetailNavigator: TDBNavigator
+          Hints.Strings = (          )
+        end
+        inherited StaticText1: TStaticText
+          Left = 456
+          Width = 38
+        end
+      end
+      object AMSLCheckBox: TCheckBox[3]
+        Left = 476
+        Height = 17
+        Top = 2
+        Width = 61
+        Anchors = [akTop, akRight]
+        Caption = 'a.m.s.l.'
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        OnClick = AMSLCheckBoxClick
+        ParentFont = False
+        TabOrder = 2
+        TabStop = False
+      end
+    end
+    inherited GroupBox1: TGroupBox
+      Height = 107
+      ClientHeight = 89
+      inherited RxDBLookupComboType: TRxDBLookupCombo
+        Height = 27
+      end
+    end
+  end
+  inherited BasicinfDataSource: TDataSource
+    OnDataChange = BasicinfDataSourceDataChange
+    left = 432
+    top = 48
+  end
+  inherited DataSource1: TDataSource
+    DataSet = ZQuery1
+    left = 25
+  end
+  inherited DataSource2: TDataSource
+    DataSet = ZQuery2
+  end
+  inherited DataSource3: TDataSource
+    DataSet = ZQuery3
+  end
+  inherited ZQuery1: TZQuery
+    BeforeOpen = ZQueryBeforeOpen
+    BeforeInsert = ZQueryBeforeInsert
+    OnNewRecord = ZQueryRadioNewRecord
+    SQL.Strings = (
+      'SELECT * FROM gammatot'
+      'WHERE SITE_ID_NR = :SiteID'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'SiteID'
+        ParamType = ptInput
+        Size = 11
+      end>
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'SiteID'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object ZQuery1SITE_ID_NR: TStringField[0]
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Visible = False
+      Size = 44
+    end
+    object ZQuery1REP_INST: TStringField[1]
+      Tag = 1
+      Alignment = taCenter
+      DisplayLabel = 'Rep. institution'
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 1
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = TableUpperSetText
+      OnValidate = TableREP_INSTValidate
+      Size = 16
+    end
+    object ZQuery1INFO_SOURC: TStringField[2]
+      Tag = 12
+      Alignment = taCenter
+      DisplayLabel = 'Info source'
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'IS_GEOPH'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = TableUpperSetText
+      OnValidate = TableINFO_SOURCValidate
+      Size = 4
+    end
+    object ZQuery1DATE_MEAS: TStringField[3]
+      Alignment = taCenter
+      DisplayLabel = 'Date measured'
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = TableDATE_MEASValidate
+      Size = 32
+    end
+    object ZQuery1DEPTH: TFloatField[4]
+      DisplayLabel = 'Depth measured'
+      FieldKind = fkData
+      FieldName = 'DEPTH'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = TableDEPTHGetText
+      OnSetText = TableUpperSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object ZQuery1READING: TLargeintField[5]
+      DisplayLabel = 'Reading'
+      FieldKind = fkData
+      FieldName = 'READING'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  inherited ZQuery2: TZQuery
+    BeforeOpen = ZQueryBeforeOpen
+    BeforeInsert = ZQueryBeforeInsert
+    OnNewRecord = ZQueryRadioNewRecord
+    SQL.Strings = (
+      'SELECT * FROM gammagam'
+      'WHERE SITE_ID_NR = :SiteID'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'SiteID'
+        ParamType = ptInput
+        Size = 11
+      end>
+    top = 200
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'SiteID'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object ZQuery2SITE_ID_NR: TStringField[0]
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Visible = False
+      Size = 44
+    end
+    object ZQuery2REP_INST: TStringField[1]
+      Tag = 1
+      Alignment = taCenter
+      DisplayLabel = 'Rep. institution'
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 1
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = TableUpperSetText
+      OnValidate = TableREP_INSTValidate
+      Size = 16
+    end
+    object ZQuery2INFO_SOURC: TStringField[2]
+      Tag = 12
+      Alignment = taCenter
+      DisplayLabel = 'Info source'
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'IS_GEOPH'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = TableUpperSetText
+      OnValidate = TableINFO_SOURCValidate
+      Size = 4
+    end
+    object ZQuery2DATE_MEAS: TStringField[3]
+      Alignment = taCenter
+      DisplayLabel = 'Date measured'
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = TableDATE_MEASValidate
+      Size = 32
+    end
+    object ZQuery2DEPTH: TFloatField[4]
+      DisplayLabel = 'Depth measured'
+      FieldKind = fkData
+      FieldName = 'DEPTH'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = TableDEPTHGetText
+      OnSetText = TableDEPTHSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object ZQuery2READING: TLargeintField[5]
+      DisplayLabel = 'Reading'
+      FieldKind = fkData
+      FieldName = 'READING'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  inherited ZQuery3: TZQuery
+    BeforeOpen = ZQueryBeforeOpen
+    BeforeInsert = ZQueryBeforeInsert
+    OnNewRecord = ZQueryRadioNewRecord
+    SQL.Strings = (
+      'SELECT * FROM neutron_'
+      'WHERE SITE_ID_NR = :SiteID'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'SiteID'
+        ParamType = ptInput
+        Size = 11
+      end>
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'SiteID'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object ZQuery3SITE_ID_NR: TStringField[0]
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Visible = False
+      Size = 44
+    end
+    object ZQuery3REP_INST: TStringField[1]
+      Tag = 1
+      Alignment = taCenter
+      DisplayLabel = 'Rep. institution'
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 1
+      LookupCache = False
+      LookupKeyFields = 'REP_NST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = TableUpperSetText
+      OnValidate = TableREP_INSTValidate
+      Size = 16
+    end
+    object ZQuery3INFO_SOURC: TStringField[2]
+      Tag = 12
+      Alignment = taCenter
+      DisplayLabel = 'Info source'
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'IS_GEOPH'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = TableUpperSetText
+      OnValidate = TableINFO_SOURCValidate
+      Size = 4
+    end
+    object ZQuery3DATE_MEAS: TStringField[3]
+      Alignment = taCenter
+      DisplayLabel = 'Date measured'
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = TableDATE_MEASValidate
+      Size = 32
+    end
+    object ZQuery3DEPTH: TFloatField[4]
+      DisplayLabel = 'Depth measured'
+      FieldKind = fkData
+      FieldName = 'DEPTH'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = TableDEPTHGetText
+      OnSetText = TableDEPTHSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object ZQuery3READING: TLargeintField[5]
+      DisplayLabel = 'Reading'
+      FieldKind = fkData
+      FieldName = 'READING'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  inherited ZQuery4: TZQuery
+    Tag = 0
+  end
+end

@@ -1,0 +1,204 @@
+object QuickDTHChartForm: TQuickDTHChartForm
+  Left = 881
+  Height = 527
+  Top = 140
+  Width = 355
+  Caption = 'QuickDTHChartForm'
+  ClientHeight = 527
+  ClientWidth = 355
+  FormStyle = fsMDIChild
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  SessionProperties = 'Left;Top;Width;Height'
+  LCLVersion = '1.8.0.6'
+  object DTHChart: TChart
+    Left = 0
+    Height = 458
+    Top = 0
+    Width = 355
+    AxisList = <    
+      item
+        Arrow.Inverted = True
+        Inverted = True
+        Marks.LabelFont.Height = -11
+        Minors = <>
+        Range.UseMin = True
+        Title.LabelFont.Orientation = 900
+        Title.Visible = True
+        Title.Caption = 'Depth'
+      end    
+      item
+        Visible = False
+        Alignment = calBottom
+        Marks.LabelFont.Height = -11
+        Marks.Source = ListChartSourceBottom
+        Minors = <>
+      end    
+      item
+        Visible = False
+        Alignment = calRight
+        Minors = <>
+      end    
+      item
+        Alignment = calTop
+        Marks.LabelFont.Height = -11
+        Minors = <>
+        Title.Visible = True
+      end>
+    BackColor = clWhite
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    MarginsExternal.Right = 8
+    MarginsExternal.Bottom = 6
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      ''
+    )
+    Toolset = ChartToolset1
+    Align = alClient
+    PopupMenu = PopupMenuCharts
+    OnClick = DTHChartClick
+    OnDblClick = DTHChartDblClick
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 42
+    Top = 479
+    Width = 343
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CloseButton.OnClick = CloseButtonClick
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 1
+    DefaultButton = pbClose
+    ShowButtons = [pbClose, pbHelp]
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 15
+    Top = 458
+    Width = 355
+    Panels = <>
+    ParentShowHint = False
+    SimpleText = 'Mouse wheel zooms, Ctrl pans, ESC cancels pan, points click shows values, double-click zooms to full'
+  end
+  object GetDataQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    left = 168
+    top = 144
+  end
+  object ListChartSourceDepth: TListChartSource
+    left = 88
+    top = 224
+  end
+  object ListChartSourceBottom: TListChartSource
+    left = 160
+    top = 392
+  end
+  object ListChartSourceTop: TListChartSource
+    left = 160
+    top = 48
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    left = 184
+    top = 312
+  end
+  object PopupMenuCharts: TPopupMenu
+    left = 216
+    top = 208
+    object Copyasbitmap1: TMenuItem
+      Caption = '&Copy as bitmap'
+      OnClick = Copyasbitmap1Click
+    end
+    object Saveas1: TMenuItem
+      Caption = 'Save &as...'
+      OnClick = Saveas1Click
+    end
+    object N2: TMenuItem
+      Caption = '-'
+      GroupIndex = 1
+    end
+    object QuickFormat1: TMenuItem
+      Caption = '&Quick Format'
+      GroupIndex = 1
+      object MenuItemPoints: TMenuItem
+        AutoCheck = True
+        Caption = 'Show Points'
+        OnClick = MenuItemPointsClick
+      end
+      object HorizGrid1: TMenuItem
+        Caption = '&Horiz. Grid'
+        Checked = True
+        OnClick = HorizGrid1Click
+      end
+      object VertGrid1: TMenuItem
+        Caption = '&Vert. Grid'
+        Checked = True
+        OnClick = VertGrid1Click
+      end
+      object Legend1: TMenuItem
+        Caption = '&Legend'
+        object MenuItem4: TMenuItem
+          Caption = 'Legend Off'
+          RadioItem = True
+          OnClick = MenuItem4Click
+        end
+        object MenuItem1: TMenuItem
+          Caption = 'Legend &Right'
+          RadioItem = True
+          OnClick = MenuItem1Click
+        end
+        object MenuItem2: TMenuItem
+          Caption = 'Legend &Left'
+          RadioItem = True
+          OnClick = MenuItem2Click
+        end
+        object MenuItem3: TMenuItem
+          Caption = 'Legend &Bottom'
+          RadioItem = True
+          OnClick = MenuItem3Click
+        end
+      end
+    end
+    object Properties1: TMenuItem
+      Caption = '&Properties...'
+      GroupIndex = 1
+      OnClick = Properties1Click
+    end
+  end
+  object SaveDialog: TSaveDialog
+    Title = 'Save chart as'
+    DefaultExt = '.jpg'
+    Filter = 'JPEG image file (*.jpg)|*.jpg|Bitmap image file (*.bmp)|*.bmp|Portable Network Graphics (*.png)|*.png'
+    InitialDir = 'WSpaceDir'
+    left = 56
+    top = 312
+  end
+  object ChartToolset1: TChartToolset
+    left = 264
+    top = 104
+    object ChartToolset1ZoomMouseWheelTool1: TZoomMouseWheelTool
+      ZoomFactor = 1.1
+    end
+    object ChartToolset1PanDragTool1: TPanDragTool
+      Shift = [ssCtrl]
+      LimitToExtent = [pdLeft, pdUp, pdRight, pdDown]
+      EscapeCancels = True
+    end
+    object ChartToolset1DataPointClickTool1: TDataPointClickTool
+      Shift = [ssLeft]
+      GrabRadius = 5
+      ActiveCursor = crHandPoint
+      OnPointClick = ChartToolset1DataPointClickTool1PointClick
+    end
+  end
+end

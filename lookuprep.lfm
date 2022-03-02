@@ -1,0 +1,323 @@
+object LookupReportForm: TLookupReportForm
+  Left = 537
+  Height = 368
+  Top = 187
+  Width = 799
+  Caption = 'LookupReportForm'
+  ClientHeight = 368
+  ClientWidth = 799
+  OnClose = FormClose
+  LCLVersion = '1.6.0.4'
+  object RLReport1: TRLReport
+    Left = 0
+    Height = 1123
+    Top = 0
+    Width = 794
+    Borders.Sides = sdCustom
+    Borders.DrawLeft = True
+    Borders.DrawTop = True
+    Borders.DrawRight = True
+    Borders.DrawBottom = True
+    DataSource = DataSource1
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Arial'
+    RealBounds.Left = 0
+    RealBounds.Top = 0
+    RealBounds.Width = 0
+    RealBounds.Height = 0
+    AfterPrint = RLReport1AfterPrint
+    BeforePrint = RLReport1BeforePrint
+    object RLBandHeader: TRLBand
+      Left = 39
+      Height = 40
+      Top = 39
+      Width = 716
+      BandType = btHeader
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      Color = clBtnFace
+      ParentColor = False
+      RealBounds.Left = 0
+      RealBounds.Top = 0
+      RealBounds.Width = 0
+      RealBounds.Height = 0
+      Transparent = False
+      object RLSystemInfo1: TRLSystemInfo
+        Tag = 1
+        Left = 570
+        Height = 15
+        Top = 12
+        Width = 132
+        Alignment = taRightJustify
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+        Text = 'Date Compiled: '
+        Transparent = False
+      end
+      object RLSystemInfo3: TRLSystemInfo
+        Tag = 1
+        Left = 10
+        Height = 15
+        Top = 12
+        Width = 193
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        Info = itTitle
+        ParentFont = False
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+        Text = 'LOOKUP CODE REPORT'
+        Transparent = False
+      end
+    end
+    object SubDetail: TRLSubDetail
+      Left = 39
+      Height = 38
+      Top = 79
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = False
+      DataSource = DataSource1
+      RealBounds.Left = 0
+      RealBounds.Top = 0
+      RealBounds.Width = 0
+      RealBounds.Height = 0
+      object LookupCodesBand: TRLBand
+        Left = 0
+        Height = 22
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        GroupIndex = 5
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+        object RLLabel1: TRLLabel
+          Left = 8
+          Height = 12
+          Top = 6
+          Width = 134
+          Caption = 'Category/applicable field'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+          Transparent = False
+        end
+        object RLLabel2: TRLLabel
+          Left = 200
+          Height = 12
+          Top = 6
+          Width = 31
+          Caption = 'Code'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+          Transparent = False
+        end
+        object RLLabel3: TRLLabel
+          Left = 320
+          Height = 12
+          Top = 6
+          Width = 64
+          Caption = 'Description'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+          Transparent = False
+        end
+      end
+      object RLBand5: TRLBand
+        Left = 0
+        Height = 16
+        Top = 22
+        Width = 716
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+        object RLDBText1: TRLDBText
+          Left = 8
+          Height = 14
+          Top = 0
+          Width = 170
+          AutoSize = False
+          DataField = 'USED_FOR'
+          DataSource = DataSource1
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLDBText3: TRLDBText
+          Left = 320
+          Height = 14
+          Top = 0
+          Width = 380
+          AutoSize = False
+          DataField = 'DESCRIBE'
+          DataSource = DataSource1
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+        object RLDBText2: TRLDBText
+          Left = 200
+          Height = 14
+          Top = 0
+          Width = 60
+          AutoSize = False
+          DataField = 'SEARCH'
+          DataSource = DataSource1
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          RealBounds.Left = 0
+          RealBounds.Top = 0
+          RealBounds.Width = 0
+          RealBounds.Height = 0
+        end
+      end
+    end
+    object FooterBand: TRLBand
+      Left = 39
+      Height = 119
+      Top = 117
+      Width = 716
+      BandType = btFooter
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = True
+      Borders.DrawRight = False
+      Borders.DrawBottom = False
+      RealBounds.Left = 0
+      RealBounds.Top = 0
+      RealBounds.Width = 0
+      RealBounds.Height = 0
+      object RLSystemInfo2: TRLSystemInfo
+        Left = 8
+        Height = 12
+        Top = 100
+        Width = 103
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Info = itPageNumber
+        ParentFont = False
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+        Text = 'Page '
+      end
+      object RLMemoUserDetails: TRLMemo
+        Left = 456
+        Height = 102
+        Top = 8
+        Width = 249
+        AutoSize = False
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Lines.Strings = (
+          'Reporting Institution Details:'
+        )
+        ParentFont = False
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+      end
+      object CommentMemo: TRLMemo
+        Left = 10
+        Height = 88
+        Top = 8
+        Width = 238
+        AutoSize = False
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Lines.Strings = (
+          'Comments:'
+        )
+        ParentFont = False
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+      end
+      object RLImageLogo: TRLImage
+        Left = 256
+        Height = 102
+        Top = 8
+        Width = 193
+        Center = True
+        RealBounds.Left = 0
+        RealBounds.Top = 0
+        RealBounds.Width = 0
+        RealBounds.Height = 0
+        Scaled = True
+      end
+    end
+  end
+  object ZReadOnlyQuery1: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    BeforeOpen = ZReadOnlyQuery1BeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM Lookup'
+    )
+    Params = <>
+    left = 80
+    top = 288
+  end
+  object DataSource1: TDataSource
+    DataSet = ZReadOnlyQuery1
+    left = 216
+    top = 288
+  end
+end

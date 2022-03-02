@@ -1,0 +1,673 @@
+object EditLookupForm: TEditLookupForm
+  Left = 706
+  Height = 283
+  Hint = 'Click Up-Down arrow in top left corner of grid for menu'
+  Top = 282
+  Width = 450
+  ActiveControl = CloseBitBtn
+  Caption = 'Edit Lookup Codes'
+  ClientHeight = 283
+  ClientWidth = 450
+  Color = clBtnFace
+  Constraints.MinHeight = 110
+  Constraints.MinWidth = 450
+  Icon.Data = {
+    FE0200000000010001002020100000000000E802000016000000280000002000
+    0000400000000100040000000000800200000000000000000000000000000000
+    0000000000000000800000800000008080008000000080008000808000008080
+    8000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+    FF00000000000000000808080808080808000000000000000080808080808080
+    808000000000000000000000000000000800007F7F7F7F7F7F7F7F7F7F7F7F7F
+    008000F7F7F7F7F7F7F7F7F7F7F7F7F70800007F7F7F7F7F7F7F70007F7F000F
+    008000F7F7F7F7F7F7F7F7F0000007F70800007F7F7F7F7F7F7F7F7F00007F7F
+    000000FEEEEEEEEEEEEEEEEEE00EEEF70000007444444444444444444004447F
+    000000F700007F7600000007F007F7F70000007F6067F7F7F606067F700F7F7F
+    000000F7F06F7F7F700607F7F007F7F70000007F7607F7F760606F7F700F7F7F
+    000000F7F70666660060F7F7F007F7F70000007F7F60000006067F7F700F7F7F
+    000000F7F7F07F760607F7F7F007F7F70000007F7F7067F0060F7F7F700F7F7F
+    000000F7F7F60F606067F7F7F007F7F70000007F7F7F0600607F7F7F700F7F7F
+    000000F7F7F7600606F7F7F7F007F7F70000007F7F7F70060F7F7F7F700F7F7F
+    000000F7F7F7F60067F7F7F7F007F7F70000007F7F7F7F007F7F7F7F00007F7F
+    000000F7F7F7F766F7F7F7F0000007F70000000000000F7F7F7F70007F7F000F
+    0000000FFFFF07F7F7F7F7F7F7F7F7F700000000FFFF0F7F7F7F7F7F7F7F7F7F
+    000000000FFF07F7F7F7F7F7F7F7F7F70000000000FF0F7F7F7F7F7F7F7F7F7F
+    00000000000F07F7F7F7F7F7F7F7F7F700000000000000000000000000000000
+    0000FFFEAAABFFFD555580000003800000058000000380000005800000038000
+    0007800000078000000780000007800000078000000780000007800000078000
+    0007800000078000000780000007800000078000000780000007800000078000
+    00078000000780000007C0000007E0000007F0000007F8000007FC000007FE00
+    0007
+  }
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  ParentFont = True
+  SessionProperties = 'Left;Top;Width;Height'
+  ShowHint = True
+  LCLVersion = '2.0.8.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 36
+    Top = 0
+    Width = 450
+    Align = alTop
+    ClientHeight = 36
+    ClientWidth = 450
+    TabOrder = 0
+    object DBNavigator: TDBNavigator
+      Left = 8
+      Height = 25
+      Top = 6
+      Width = 260
+      BevelOuter = bvNone
+      ChildSizing.EnlargeHorizontal = crsScaleChilds
+      ChildSizing.EnlargeVertical = crsScaleChilds
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 100
+      ClientHeight = 25
+      ClientWidth = 260
+      DataSource = EditDataSource
+      Options = []
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Images = DataModuleMain.ImageListNavs
+    end
+    object CloseBitBtn: TBitBtn
+      Left = 274
+      Height = 27
+      Top = 4
+      Width = 82
+      Anchors = [akTop, akRight]
+      DefaultCaption = True
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      Kind = bkClose
+      ModalResult = 11
+      OnClick = CloseBitBtnClick
+      ParentFont = False
+      TabOrder = 1
+    end
+    object HelpBitBtn: TBitBtn
+      Left = 362
+      Height = 27
+      Top = 4
+      Width = 82
+      Anchors = [akTop, akRight]
+      DefaultCaption = True
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      Kind = bkHelp
+      OnClick = HelpBitBtnClick
+      ParentFont = False
+      TabOrder = 2
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 247
+    Top = 36
+    Width = 450
+    Align = alClient
+    BevelInner = bvLowered
+    BorderWidth = 4
+    Caption = 'Panel2'
+    ClientHeight = 247
+    ClientWidth = 450
+    TabOrder = 1
+    object RxDBGrid: TRxDBGrid
+      Left = 6
+      Height = 235
+      Hint = 'Click up/down arrow for menu'
+      Top = 6
+      Width = 438
+      ColumnDefValues.BlobText = '(blob)'
+      TitleButtons = True
+      AutoSort = True
+      KeyStrokes = <      
+        item
+          Command = rxgcShowFindDlg
+          ShortCut = 16454
+          Enabled = True
+        end      
+        item
+          Command = rxgcShowColumnsDlg
+          ShortCut = 16471
+          Enabled = True
+        end      
+        item
+          Command = rxgcShowFilterDlg
+          ShortCut = 16468
+          Enabled = True
+        end      
+        item
+          Command = rxgcShowSortDlg
+          ShortCut = 16467
+          Enabled = True
+        end      
+        item
+          Command = rxgcShowQuickFilter
+          ShortCut = 16465
+          Enabled = True
+        end      
+        item
+          Command = rxgcHideQuickFilter
+          ShortCut = 16456
+          Enabled = True
+        end      
+        item
+          Command = rxgcSelectAll
+          ShortCut = 16449
+          Enabled = True
+        end      
+        item
+          Command = rxgcDeSelectAll
+          ShortCut = 16429
+          Enabled = True
+        end      
+        item
+          Command = rxgcInvertSelection
+          ShortCut = 16426
+          Enabled = True
+        end      
+        item
+          Command = rxgcOptimizeColumnsWidth
+          ShortCut = 16427
+          Enabled = True
+        end      
+        item
+          Command = rxgcCopyCellValue
+          ShortCut = 16451
+          Enabled = True
+        end>
+      FooterOptions.DrawFullLine = False
+      SearchOptions.QuickSearchOptions = [loCaseInsensitive, loPartialKey]
+      SearchOptions.FromStart = False
+      OptionsRx = [rdgAllowDialogFind, rdgDblClickOptimizeColWidth, rdgFilter, rdgAllowQuickSearch, rdgAllowQuickFilter, rdgAllowFilterForm, rdgAllowSortForm, rdgAllowToolMenu]
+      Align = alClient
+      Color = clWindow
+      DrawFullLine = False
+      FocusColor = clRed
+      SelectedColor = clHighlight
+      GridLineStyle = psSolid
+      DataSource = EditDataSource
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgHeaderPushedLook, dgDisableDelete, dgRowHighlight]
+      ParentShowHint = False
+      Scrollbars = ssAutoBoth
+      ShowHint = True
+      TabOrder = 0
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      OnKeyDown = RxDBGridKeyDown
+    end
+  end
+  object EditDataSource: TDataSource
+    OnDataChange = EditDataSourceDataChange
+    left = 200
+    top = 144
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    left = 360
+    top = 56
+  end
+  object LookupQuery: TZQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    BeforeDelete = LookupQueryBeforeDelete
+    OnPostError = QueryPostError
+    OnNewRecord = LookupQueryNewRecord
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE, ADJECTIVE, LEN_CODE, LEN_DESC FROM Lookup'
+      'WHERE USED_FOR <> ''EQUIPMNT'''
+      'ORDER BY USED_FOR, SEARCH'
+    )
+    Params = <>
+    left = 64
+    top = 120
+    object LookupQueryUSED_FOR: TStringField
+      DisplayLabel = 'Used For'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'USED_FOR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LookupQuerySetText
+      Size = 8
+    end
+    object LookupQuerySEARCH: TStringField
+      DisplayLabel = 'Search'
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LookupQuerySetText
+      Size = 4
+    end
+    object LookupQueryDESCRIBE: TStringField
+      DisplayLabel = 'Description'
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 54
+    end
+    object LookupQueryADJECTIVE: TFloatField
+      DisplayLabel = 'Adjective'
+      FieldKind = fkData
+      FieldName = 'ADJECTIVE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+    object LookupQueryLEN_CODE: TLongintField
+      FieldKind = fkData
+      FieldName = 'LEN_CODE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object LookupQueryLEN_DESC: TLongintField
+      FieldKind = fkData
+      FieldName = 'LEN_DESC'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+  end
+  object UnitQuery: TZQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    OnPostError = QueryPostError
+    Params = <>
+    left = 69
+    top = 184
+    object UnitQueryUNIT: TStringField
+      DisplayLabel = 'Unit'
+      DisplayWidth = 6
+      FieldKind = fkData
+      FieldName = 'UNIT'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 6
+    end
+    object UnitQueryDESCRIPTIO: TStringField
+      DisplayLabel = 'Description'
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'DESCRIPTIO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object UnitQueryFACTOR: TFloatField
+      DisplayLabel = 'Factor'
+      FieldKind = fkData
+      FieldName = 'FACTOR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+    end
+  end
+  object StandardQuery: TZQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    OnPostError = QueryPostError
+    SQL.Strings = (
+      'select * from SABS'
+    )
+    Params = <>
+    left = 64
+    top = 62
+    object StandardQueryPARAMETER: TStringField
+      DisplayLabel = 'Parameter'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'PARAMETER'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = StandardQueryPARAMETERSetText
+      Size = 40
+    end
+    object StandardQueryPARA_DESCR: TStringField
+      DisplayLabel = 'Description'
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'PARA_DESCR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object StandardQueryPARA_SHORT: TStringField
+      DisplayLabel = 'Param. Short'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'PARA_SHORT'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 32
+    end
+    object StandardQueryUNIT: TStringField
+      DisplayLabel = 'Unit'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'UNIT'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 28
+    end
+    object StandardQuerySTDRECLO: TStringField
+      DisplayLabel = 'Rec. Low'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'STDRECLO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object StandardQuerySTDRECHI: TStringField
+      DisplayLabel = 'Rec. High'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'STDRECHI'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+    object StandardQuerySTDMAXLO: TStringField
+      DisplayLabel = 'Max. Low'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'STDMAXLO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object StandardQuerySTDMAXHI: TStringField
+      DisplayLabel = 'Max. High'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'STDMAXHI'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 44
+    end
+  end
+  object ClassQuery: TZQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    OnPostError = QueryPostError
+    SQL.Strings = (
+      'SELECT * FROM chmclass'
+      'ORDER BY PARAMETER'
+    )
+    Params = <>
+    left = 214
+    top = 74
+    object ClassQueryPARAMETER: TStringField
+      DisplayLabel = 'Parameter'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'PARAMETER'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+    object ClassQueryPARA_DESCR: TStringField
+      DisplayLabel = 'Parameter Description'
+      DisplayWidth = 36
+      FieldKind = fkData
+      FieldName = 'PARA_DESCR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object ClassQueryUNIT: TStringField
+      DisplayLabel = 'Unit'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'UNIT'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 36
+    end
+    object ClassQueryCLASS0: TFloatField
+      DisplayLabel = 'Class 0'
+      FieldKind = fkData
+      FieldName = 'CLASS0'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '0.000'
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object ClassQueryCLASS1: TFloatField
+      DisplayLabel = 'Class 1'
+      FieldKind = fkData
+      FieldName = 'CLASS1'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '0.000'
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object ClassQueryCLASS2: TFloatField
+      DisplayLabel = 'Class 2'
+      FieldKind = fkData
+      FieldName = 'CLASS2'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '0.000'
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object ClassQueryCLASS3: TFloatField
+      DisplayLabel = 'Class 3'
+      FieldKind = fkData
+      FieldName = 'CLASS3'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '0.000'
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object Chem6DefQuery: TZQuery
+    Connection = DataModuleMain.ZConnectionSettings
+    BeforeInsert = Chem6DefQueryBeforeInsert
+    BeforeDelete = Chem6DefQueryBeforeDelete
+    OnPostError = QueryPostError
+    SQL.Strings = (
+      'SELECT * FROM Chem6Def'
+    )
+    Params = <>
+    left = 313
+    top = 156
+    object Chem6DefQueryPARAM_FLD: TStringField
+      DisplayLabel = 'Parameter Field'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'PARAM_FLD'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 28
+    end
+    object Chem6DefQueryPARAMETER: TStringField
+      DisplayLabel = 'Parameter'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PARAMETER'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 32
+    end
+    object Chem6DefQueryPARAM_DESCR: TStringField
+      DisplayLabel = 'Parameter Description'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'PARAM_DESCR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+    object Chem6DefQueryPARAM_UNIT: TStringField
+      DisplayLabel = 'Parameter Unit'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'PARAM_UNIT'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object Chem6DefQuerySHOW: TBooleanField
+      DisplayLabel = 'Show?'
+      DisplayWidth = 6
+      FieldKind = fkData
+      FieldName = 'SHOW'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayValues = 'True;False'
+    end
+  end
+  object RxSortZeos1: TRxSortZeos
+    left = 174
+    top = 212
+  end
+  object RxDBGridExportSpreadSheet1: TRxDBGridExportSpreadSheet
+    RxDBGrid = RxDBGrid
+    Caption = 'Export to spreadsheet'
+    ShowSetupForm = True
+    FileName = 'export.xls'
+    PageName = 'Lookup Code Export'
+    Options = []
+    left = 313
+    top = 216
+  end
+  object RxDBGridExportPDF1: TRxDBGridExportPDF
+    RxDBGrid = RxDBGrid
+    Caption = 'Export to PDF file'
+    ShowSetupForm = True
+    FileName = 'export.pdf'
+    Options = []
+    PdfOptions.Options = []
+    OpenAfterExport = True
+    ProducerPdf = 'Aquabase RXNEW'
+    left = 288
+    top = 96
+  end
+  object RxDBGridPrint1: TRxDBGridPrint
+    RxDBGrid = RxDBGrid
+    Caption = 'Print grid'
+    ShowSetupForm = True
+    Options = [rxpoShowTitle, rxpoShowFooter, rxpoShowGridColor, rxpoShowFooterColor, rxpoShowReportTitle]
+    ShowProgress = True
+    ReportTitle = 'Lookup Code Report'
+    left = 144
+    top = 104
+  end
+  object ChemParamsQuery: TZQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    OnPostError = QueryPostError
+    SQL.Strings = (
+      'SELECT * FROM chemparams'
+    )
+    Params = <>
+    left = 144
+    top = 48
+  end
+end

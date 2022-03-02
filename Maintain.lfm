@@ -1,0 +1,280 @@
+inherited MaintainForm: TMaintainForm
+  Left = 431
+  Top = 277
+  Caption = 'Maintenance Form'
+  Icon.Data = {
+    FE0200000000010001002020100000000000E802000016000000280000002000
+    0000400000000100040000000000800200000000000000000000000000000000
+    0000000000000000800000800000008080008000000080008000808000008080
+    8000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+    FF00000000044444444440000000000000000000000040444444400000000000
+    0000000000040404444440000000000000000000000000030303880000000000
+    0000000000030030303030000000000000000000003030830383000000000000
+    0000000333000838333030000000000000000003333300833333011100000000
+    0000000333333330330011113333000000000003083333330011111119F90000
+    0000000030803333330111111F9F900000000003038333303310111111111000
+    000000003333333339F90111111110000000000380833333339F901111111100
+    00000000083033333333F9011111111000000000808303333300333011111100
+    0000000008083333300333330111000000000000008083330033333000100000
+    00000000008003333933000000000000000000000000033F9F30000000000000
+    00000000000000F9F100000000000000000000000000001F9F90000000000000
+    00000000000000F1F9F000000000000000000000000000009F90000000000000
+    0000000000003300F90000000000000000000000000033BBBBBBB00000000000
+    00000000000033BBBBB3000000000000000000000000B3BBBBB0000000000000
+    0000000000000BBBBB0000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000FC003FFFFC003FFFFC003FFFFC003FFFFC003FFFE0003FFFC0001FFFC000
+    00FFC000007FC000007FC000003FC000003FC000003FC000001FE000000FE000
+    000FF000001FF800007FFC001DFFFE00FFFFFF81FFFFFF00FFFFFF00FFFFFE00
+    FFFFFE007FFFFE003FFFFE007FFFFF00FFFFFF01FFFFFF83FFFFFFFFFFFFFFFF
+    FFFF
+  }
+  inherited Panel1: TPanel
+    inherited ViewNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited ChartSpeedButton: TSpeedButton
+      Visible = False
+    end
+    inherited BasicDBNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited Panel2: TPanel
+    inherited Panel4: TPanel
+      inherited DetailNavigator: TDBNavigator
+        Hints.Strings = (        )
+      end
+    end
+  end
+  inherited BasicinfDataSource: TDataSource
+    left = 328
+  end
+  inherited LinkedDataSource: TDataSource
+    left = 128
+  end
+  inherited LinkedQuery: TZQuery
+    BeforeOpen = LinkedQueryBeforeOpen
+    OnNewRecord = LinkedQueryNewRecord
+    SQL.Strings = (
+      'SELECT * FROM maintnce WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    left = 32
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object LinkedQueryDATE_ENTRY: TStringField[1]
+      Alignment = taCenter
+      DisplayLabel = 'Date entered'
+      DisplayWidth = 32
+      FieldKind = fkData
+      FieldName = 'DATE_ENTRY'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 32
+    end
+    object LinkedQueryREP_INST: TStringField[2]
+      Tag = 1
+      Alignment = taCenter
+      DisplayLabel = 'Rep. inst.'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 16
+    end
+    object LinkedQueryINFO_SOURC: TStringField[3]
+      Tag = 4
+      Alignment = taCenter
+      DisplayLabel = 'Info src.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 3
+      LookupCache = False
+      LookupKeyFields = 'IS_BASIC'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryDATE_VISIT: TStringField[4]
+      Alignment = taCenter
+      DisplayLabel = 'Date visited'
+      DisplayWidth = 32
+      FieldKind = fkData
+      FieldName = 'DATE_VISIT'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = LinkedQueryDATE_VISITValidate
+      Size = 32
+    end
+    object LinkedQueryCOND_PUMP: TStringField[5]
+      Tag = 33
+      Alignment = taCenter
+      DisplayLabel = 'Pump cond.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'COND_PUMP'
+      Index = 5
+      LookupCache = False
+      LookupKeyFields = 'CONDITN'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryCOND_RISER: TStringField[6]
+      Tag = 33
+      Alignment = taCenter
+      DisplayLabel = 'Riser cond.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'COND_RISER'
+      Index = 6
+      LookupCache = False
+      LookupKeyFields = 'CONDITN'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryCOND_ENGIN: TStringField[7]
+      Tag = 33
+      Alignment = taCenter
+      DisplayLabel = 'Engine cond.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'COND_ENGIN'
+      Index = 7
+      LookupCache = False
+      LookupKeyFields = 'CONDITN'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryCOND_ENCL: TStringField[8]
+      Tag = 33
+      Alignment = taCenter
+      DisplayLabel = 'Enclosure cond.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'COND_ENCL'
+      Index = 8
+      LookupCache = False
+      LookupKeyFields = 'CONDITN'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryCOND_RESVR: TStringField[9]
+      Tag = 33
+      Alignment = taCenter
+      DisplayLabel = 'Reservoir cond.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'COND_RESVR'
+      Index = 9
+      LookupCache = False
+      LookupKeyFields = 'CONDITN'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryValidate
+      Size = 4
+    end
+    object LinkedQueryMAINTAINED: TStringField[10]
+      Alignment = taCenter
+      DisplayLabel = 'Maintained?'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'MAINTAINED'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryMAINTAINEDValidate
+      Size = 4
+    end
+    object LinkedQueryC_CURRENCY: TStringField[11]
+      Alignment = taCenter
+      DisplayLabel = 'Currency'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'C_CURRENCY'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 12
+    end
+    object LinkedQueryCOST_MAINT: TFloatField[12]
+      DisplayLabel = 'Maint. cost.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'COST_MAINT'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 22
+    end
+    object LinkedQueryCOMMENT: TStringField[13]
+      DisplayLabel = 'Comment'
+      DisplayWidth = 48
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 48
+    end
+  end
+end

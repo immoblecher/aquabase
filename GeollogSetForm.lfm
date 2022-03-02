@@ -1,0 +1,1456 @@
+object GeollogSettingsForm: TGeollogSettingsForm
+  Left = 862
+  Height = 300
+  Top = 272
+  Width = 390
+  HelpContext = 95
+  BorderStyle = bsSingle
+  Caption = 'Construction and Lithology Settings'
+  ClientHeight = 300
+  ClientWidth = 390
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Icon.Data = {
+    FE0200000000010001002020100000000000E802000016000000280000002000
+    0000400000000100040000000000800200000000000000000000000000000000
+    0000000000000000800000800000008080008000000080008000808000008080
+    8000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+    FF00000000000000000000000000000000000000000000000000000000000000
+    0000000000000000333333330000000000000000000000003333333300000000
+    0000000000000000333333330000000000000000000000003333333300000000
+    0000000000000000333333330000000000000000000000003333333300000000
+    0000000000000000333333330000000000000000000000000333333000000000
+    0000000000000000033333300000000000000000000000000333333000000000
+    0000000000000000033333300000000000000000000000000333333000000000
+    0000000000000000033333300000000000000000000000000333333000000000
+    0000000000000000033333300000000000000000000000000333333000000000
+    0000000000000000033333300000000000000000000000000033330000000000
+    0000000000000000003333000000000000000000000000000033330000000000
+    0000000000000000003333000000000000000000000000000033330000000000
+    0000000000000000003333000000000000000000000000000033330000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000FFFFFFFFFFE007FFFFE007FFFFE007FFFFE007FFFFE007FFFFE007FFFFE0
+    07FFFFE007FFFFE007FFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0
+    0FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF81FFFFFF81FFFFFF81FFFFFF8
+    1FFFFFF81FF183F81FC380000003800000078000000F8000003F87C001FFFFFF
+    FFFF
+  }
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  Position = poScreenCenter
+  SessionProperties = 'BottomLineComboBox.ItemIndex;BottomSeriesColorButton.ButtonColor;CapColorButton.ButtonColor;CasingMarkerLabelColorButton.ButtonColor;CheckBoxAlternate.Checked;CheckBoxMemo.Checked;CheckBoxOverlap.Checked;CheckBoxShowStrikes.Checked;CheckBoxUsePrim.Checked;ComboBoxStrikes.ItemIndex;EditFontGeneral1.Font;EditFontGeneral2.Font;HoleColorButton.ButtonColor;HoleMarkerLabelColorButton.ButtonColor;LabelUnderLineCheckBox.Checked;LegendFrameCheckBox.Checked;LithologyFontColorButton.ButtonColor;LithologyFontSizeSpinEdit.Value;PiezometerColorButton.ButtonColor;ScreenColorButton.ButtonColor;ShowMemoCheckBox.Checked;SpinEdit1.Value;SpinEditLblWidth.Value;SpinEditLith.Value;SpinEditResFactor.Value;SpinEditTtlMargin.Value;TopLineComboBox.ItemIndex;TopSeriesColorButton.ButtonColor;TrackBar1.Position;TrackBar2.Position;TrackBar3.Position;WaterColorButton.ButtonColor;WLColorButton.ButtonColor;CasingCopperColorButton.ButtonColor;CasingPVCColorButton.ButtonColor;CasingSteelColorButton.ButtonColor'
+  LCLVersion = '2.0.8.0'
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 252
+    Top = 0
+    Width = 390
+    ActivePage = LogTab
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 0
+    object LogTab: TTabSheet
+      Caption = 'Log Components'
+      ClientHeight = 226
+      ClientWidth = 386
+      object PageControl2: TPageControl
+        Left = 0
+        Height = 226
+        Top = 0
+        Width = 386
+        ActivePage = CstrcLithTabSheet
+        Align = alClient
+        TabIndex = 0
+        TabOrder = 0
+        object CstrcLithTabSheet: TTabSheet
+          Caption = 'Construction and Lithology'
+          ClientHeight = 200
+          ClientWidth = 382
+          object PageControl4: TPageControl
+            Left = 0
+            Height = 200
+            Top = 0
+            Width = 382
+            ActivePage = TabSheetGeneral
+            Align = alClient
+            TabIndex = 0
+            TabOrder = 0
+            object TabSheetGeneral: TTabSheet
+              Caption = 'General'
+              ClientHeight = 174
+              ClientWidth = 378
+              ImageIndex = 3
+              object StaticText2: TStaticText
+                Left = 8
+                Height = 17
+                Top = 6
+                Width = 236
+                Caption = 'Font for chart axis, labels and titles:'
+                TabOrder = 7
+              end
+              object Label1: TLabel
+                Left = 8
+                Height = 10
+                Top = 84
+                Width = 157
+                Caption = 'Space in length units above hole:'
+                Color = clBtnFace
+                ParentColor = False
+                Transparent = False
+              end
+              object FloatSpinEditTop: TFloatSpinEdit
+                Left = 192
+                Height = 21
+                Top = 78
+                Width = 56
+                Alignment = taRightJustify
+                DecimalPlaces = 1
+                Increment = 0.5
+                MaxValue = 10
+                MinValue = 0
+                TabOrder = 3
+                Value = 0
+              end
+              object Label10: TLabel
+                Left = 8
+                Height = 10
+                Top = 110
+                Width = 156
+                Caption = 'Space in length units below hole:'
+                Color = clBtnFace
+                ParentColor = False
+                Transparent = False
+              end
+              object FloatSpinEditBot: TFloatSpinEdit
+                Left = 192
+                Height = 21
+                Top = 104
+                Width = 56
+                Alignment = taRightJustify
+                DecimalPlaces = 1
+                Increment = 0.5
+                MaxValue = 10
+                MinValue = 0
+                TabOrder = 4
+                Value = 0
+              end
+              object Label16: TLabel
+                Left = 8
+                Height = 10
+                Top = 56
+                Width = 70
+                Caption = 'Lithology width'
+                Color = clBtnFace
+                ParentColor = False
+                Transparent = False
+              end
+              object SpinEditLith: TSpinEdit
+                Left = 114
+                Height = 21
+                Hint = 'Width of lithology in mm on the left and right of the hole'
+                Top = 50
+                Width = 66
+                Alignment = taRightJustify
+                Increment = 5
+                MaxValue = 200
+                MinValue = 10
+                ParentShowHint = False
+                ShowHint = True
+                TabOrder = 2
+                Value = 100
+              end
+              object CheckBoxShowStrikes: TCheckBox
+                Left = 8
+                Height = 24
+                Top = 132
+                Width = 176
+                Caption = 'Show water strikes on lithology:'
+                TabOrder = 5
+              end
+              object ComboBoxStrikes: TComboBox
+                Left = 192
+                Height = 25
+                Top = 130
+                Width = 172
+                ItemHeight = 0
+                ItemIndex = 0
+                Items.Strings = (
+                  'Cumulative'
+                  'Individual'
+                )
+                Style = csDropDownList
+                TabOrder = 6
+                Text = 'Cumulative'
+              end
+              object EditFontGeneral1: TEdit
+                Tag = 1
+                Left = 8
+                Height = 23
+                Top = 22
+                Width = 130
+                AutoSize = False
+                AutoSelect = False
+                HideSelection = False
+                ReadOnly = True
+                TabOrder = 9
+                Text = 'MS Sans Serif'
+              end
+              object ButtonFont1: TButton
+                Tag = 1
+                Left = 146
+                Height = 23
+                Top = 22
+                Width = 24
+                Caption = '...'
+                OnClick = ButtonFont1Click
+                TabOrder = 0
+              end
+              object StaticText3: TStaticText
+                Left = 192
+                Height = 17
+                Top = 6
+                Width = 236
+                Caption = 'Font for hole and casing labels:'
+                TabOrder = 8
+              end
+              object EditFontGeneral2: TEdit
+                Tag = 2
+                Left = 192
+                Height = 23
+                Top = 22
+                Width = 130
+                AutoSize = False
+                AutoSelect = False
+                HideSelection = False
+                ReadOnly = True
+                TabOrder = 10
+                Text = 'MS Sans Serif'
+              end
+              object ButtonFont2: TButton
+                Tag = 2
+                Left = 330
+                Height = 23
+                Top = 22
+                Width = 24
+                Caption = '...'
+                OnClick = ButtonFont1Click
+                TabOrder = 1
+              end
+              object Label18: TLabel
+                Left = 185
+                Height = 10
+                Top = 56
+                Width = 10
+                Caption = '%'
+                ParentColor = False
+              end
+            end
+            object TabSheetLith: TTabSheet
+              Caption = 'Lithology'
+              ClientHeight = 174
+              ClientWidth = 378
+              object GroupBox7: TGroupBox
+                Left = 184
+                Height = 103
+                Top = 20
+                Width = 184
+                Caption = '                                                          '
+                ClientHeight = 86
+                ClientWidth = 180
+                TabOrder = 5
+                object Label7: TLabel
+                  Left = 31
+                  Height = 10
+                  Hint = 'Weathered, loose, soft, unconsolidated'
+                  Top = 8
+                  Width = 81
+                  Alignment = taRightJustify
+                  Caption = 'WT, LS, SF, UC:'
+                  ParentColor = False
+                  ParentShowHint = False
+                  ShowHint = True
+                end
+                object Label8: TLabel
+                  Left = 59
+                  Height = 10
+                  Hint = 'Broken, fractured, light'
+                  Top = 36
+                  Width = 58
+                  Alignment = taRightJustify
+                  Caption = 'BR, FC, LT:'
+                  ParentColor = False
+                  ParentShowHint = False
+                  ShowHint = True
+                end
+                object Label9: TLabel
+                  Left = 8
+                  Height = 10
+                  Hint = 'Solid, consolidated, dark, fresh, hard'
+                  Top = 66
+                  Width = 103
+                  Alignment = taRightJustify
+                  Caption = 'SD, CS, DK, FR, HD:'
+                  ParentColor = False
+                  ParentShowHint = False
+                  ShowHint = True
+                end
+                object SpinEditVLight: TSpinEdit
+                  Left = 118
+                  Height = 21
+                  Top = 4
+                  Width = 56
+                  Alignment = taRightJustify
+                  Increment = 5
+                  MaxValue = 255
+                  MinValue = 175
+                  TabOrder = 0
+                  Value = 215
+                end
+                object SpinEditLighter: TSpinEdit
+                  Left = 118
+                  Height = 21
+                  Top = 32
+                  Width = 56
+                  Alignment = taRightJustify
+                  Increment = 5
+                  MaxValue = 215
+                  MinValue = 135
+                  TabOrder = 1
+                  Value = 175
+                end
+                object SpinEditDarker: TSpinEdit
+                  Left = 118
+                  Height = 21
+                  Top = 60
+                  Width = 56
+                  Alignment = taRightJustify
+                  Increment = 5
+                  MaxValue = 135
+                  TabOrder = 2
+                  Value = 50
+                end
+                object CheckBoxUsePrim: TCheckBox
+                  Left = 0
+                  Height = 24
+                  Hint = 'Higher value is lighter'
+                  Top = -16
+                  Width = 156
+                  Caption = 'Use prim. feat. for lightness'
+                  ParentShowHint = False
+                  ShowHint = True
+                  TabOrder = 3
+                end
+              end
+              object CheckBox3: TCheckBox
+                Left = 4
+                Height = 24
+                Top = 0
+                Width = 98
+                Caption = 'Show &Lithology'
+                Checked = True
+                State = cbChecked
+                TabOrder = 0
+              end
+              object LithologyFontColorButton: TColorButton
+                Left = 4
+                Height = 25
+                Top = 26
+                Width = 110
+                BorderWidth = 2
+                ButtonColorSize = 16
+                ButtonColor = clBlack
+                ColorDialog = ColorDialog1
+                Caption = 'Font Colour'
+                Layout = blGlyphRight
+              end
+              object CheckBoxDefaultColor: TCheckBox
+                Left = 130
+                Height = 24
+                Top = 0
+                Width = 209
+                Caption = 'Use default instead of observed colour'
+                TabOrder = 1
+              end
+              object LithologyFontSizeSpinEdit: TSpinEdit
+                Left = 74
+                Height = 21
+                Top = 54
+                Width = 40
+                Alignment = taRightJustify
+                MaxValue = 12
+                MinValue = 5
+                TabOrder = 2
+                Value = 7
+              end
+              object StaggerCheckBox: TCheckBox
+                Left = 4
+                Height = 24
+                Top = 102
+                Width = 135
+                Caption = 'Stagger labels left/right'
+                TabOrder = 3
+              end
+              object LabelUnderLineCheckBox: TCheckBox
+                Left = 4
+                Height = 24
+                Top = 128
+                Width = 175
+                Caption = 'Label under top-of-lithology line'
+                TabOrder = 4
+              end
+              object ShowMemoCheckBox: TCheckBox
+                Left = 208
+                Height = 24
+                Top = 128
+                Width = 151
+                Caption = 'Show notepad information'
+                TabOrder = 6
+              end
+              object Label15: TLabel
+                Left = 4
+                Height = 10
+                Hint = 'Maximum width of the lithology label'
+                Top = 83
+                Width = 99
+                Caption = 'Lith. label max width:'
+                FocusControl = SpinEditLblWidth
+                ParentColor = False
+                ParentShowHint = False
+                ShowHint = True
+              end
+              object SpinEditLblWidth: TSpinEdit
+                Left = 130
+                Height = 21
+                Top = 78
+                Width = 48
+                Alignment = taRightJustify
+                Increment = 10
+                MaxValue = 600
+                MinValue = 300
+                TabOrder = 7
+                Value = 500
+              end
+              object Label17: TLabel
+                Left = 4
+                Height = 10
+                Hint = 'Maximum width of the lithology label'
+                Top = 60
+                Width = 46
+                Caption = 'Font size:'
+                FocusControl = SpinEditLblWidth
+                ParentColor = False
+                ParentShowHint = False
+                ShowHint = True
+              end
+            end
+            object TabSheetHole: TTabSheet
+              Caption = 'Hole'
+              ClientHeight = 174
+              ClientWidth = 378
+              object CheckBox4: TCheckBox
+                Left = 8
+                Height = 24
+                Top = 10
+                Width = 78
+                Caption = 'Show &Hole'
+                Checked = True
+                State = cbChecked
+                TabOrder = 0
+              end
+              object HoleColorButton: TColorButton
+                Left = 8
+                Height = 25
+                Top = 40
+                Width = 112
+                BorderWidth = 2
+                ButtonColorSize = 16
+                ButtonColor = clBlack
+                ColorDialog = ColorDialog1
+                Caption = 'Hole Colour'
+                Layout = blGlyphRight
+              end
+              object HoleMarkerLabelColorButton: TColorButton
+                Left = 8
+                Height = 25
+                Top = 74
+                Width = 176
+                BorderWidth = 2
+                ButtonColorSize = 16
+                ButtonColor = 9554175
+                ColorDialog = ColorDialog1
+                Caption = 'Marker and Label Colour'
+                Layout = blGlyphRight
+              end
+            end
+            object TabSheet6: TTabSheet
+              Caption = 'Casing'
+              ClientHeight = 174
+              ClientWidth = 378
+              ImageIndex = 1
+              object CheckBox2: TCheckBox
+                Left = 8
+                Height = 24
+                Top = 6
+                Width = 89
+                Caption = 'Show &Casing'
+                Checked = True
+                State = cbChecked
+                TabOrder = 0
+              end
+              object GroupBox4: TGroupBox
+                Left = 200
+                Height = 110
+                Hint = 'Colours for materials, allother are black'
+                Top = 6
+                Width = 164
+                Caption = 'Casing/Screen material colours'
+                ClientHeight = 93
+                ClientWidth = 160
+                ParentShowHint = False
+                ShowHint = True
+                TabOrder = 4
+                object CasingCopperColorButton: TColorButton
+                  Left = 6
+                  Height = 25
+                  Top = 2
+                  Width = 142
+                  BorderWidth = 2
+                  ButtonColorSize = 16
+                  ButtonColor = clHighlight
+                  ColorDialog = ColorDialog1
+                  Caption = 'Brass, copper'
+                  Layout = blGlyphRight
+                  Spacing = 20
+                end
+                object CasingSteelColorButton: TColorButton
+                  Left = 6
+                  Height = 25
+                  Top = 34
+                  Width = 142
+                  BorderWidth = 2
+                  ButtonColorSize = 16
+                  ButtonColor = clGray
+                  ColorDialog = ColorDialog1
+                  Caption = 'Galv. iron, steel'
+                  Layout = blGlyphRight
+                  Spacing = 14
+                end
+                object CasingPVCColorButton: TColorButton
+                  Left = 6
+                  Height = 25
+                  Top = 66
+                  Width = 142
+                  BorderWidth = 2
+                  ButtonColorSize = 16
+                  ButtonColor = clBlue
+                  Caption = 'Plastic, PVC'
+                  Layout = blGlyphRight
+                  Spacing = 28
+                end
+              end
+              object ThicknCheckBox: TCheckBox
+                Left = 8
+                Height = 24
+                Hint = 'All casing thicknesses the same width'
+                Top = 30
+                Width = 128
+                Caption = 'Override thickn. with '
+                ParentShowHint = False
+                ShowHint = True
+                TabOrder = 1
+              end
+              object ThicknSpinEdit: TSpinEdit
+                Left = 148
+                Height = 21
+                Top = 28
+                Width = 42
+                Alignment = taRightJustify
+                MaxValue = 10
+                MinValue = 1
+                TabOrder = 2
+                Value = 1
+              end
+              object CapCheckBox: TCheckBox
+                Left = 8
+                Height = 24
+                Top = 130
+                Width = 184
+                Caption = 'Show cap on casing/screen with:'
+                TabOrder = 3
+              end
+              object CapColorButton: TColorButton
+                Left = 208
+                Height = 25
+                Top = 128
+                Width = 142
+                BorderWidth = 2
+                ButtonColorSize = 16
+                ButtonColor = clBlack
+                ColorDialog = ColorDialog1
+                Caption = 'Cap Colour'
+                Layout = blGlyphRight
+                Spacing = 32
+              end
+              object CheckBoxOverlap: TCheckBox
+                Left = 8
+                Height = 24
+                Top = 54
+                Width = 139
+                Caption = 'Allow overlapping labels'
+                TabOrder = 5
+              end
+              object CheckBoxAbove: TCheckBox
+                Left = 8
+                Height = 24
+                Hint = 'Default is label above marker'
+                Top = 78
+                Width = 126
+                Caption = 'Labels below marker'
+                ParentShowHint = False
+                ShowHint = True
+                TabOrder = 6
+              end
+              object CasingMarkerLabelColorButton: TColorButton
+                Left = 8
+                Height = 25
+                Top = 104
+                Width = 176
+                BorderWidth = 2
+                ButtonColorSize = 16
+                ButtonColor = 11599871
+                ColorDialog = ColorDialog1
+                Caption = 'Marker and Label Colour'
+                Layout = blGlyphRight
+              end
+            end
+            object TabSheet1: TTabSheet
+              Caption = 'Piezometer'
+              ClientHeight = 174
+              ClientWidth = 378
+              ImageIndex = 4
+              object CheckBox16: TCheckBox
+                Left = 8
+                Height = 24
+                Top = 10
+                Width = 110
+                Caption = 'Show &Piezometer'
+                TabOrder = 0
+              end
+              object PiezomColorButton: TColorButton
+                Left = 8
+                Height = 25
+                Top = 40
+                Width = 144
+                BorderWidth = 2
+                ButtonColorSize = 16
+                ButtonColor = clPurple
+                ColorDialog = ColorDialog1
+                Caption = 'Piezometer Colour'
+                Layout = blGlyphRight
+              end
+              object PThicknCheckBox: TCheckBox
+                Left = 8
+                Height = 24
+                Top = 82
+                Width = 141
+                Caption = 'Override thickness with '
+                TabOrder = 1
+              end
+              object PThicknSpinEdit: TSpinEdit
+                Left = 170
+                Height = 21
+                Top = 80
+                Width = 42
+                Alignment = taRightJustify
+                MaxValue = 10
+                MinValue = 1
+                TabOrder = 2
+                Value = 1
+              end
+              object CheckBoxLabelPiez: TCheckBox
+                Left = 217
+                Height = 24
+                Top = 10
+                Width = 114
+                Caption = 'Label Piezometers'
+                Checked = True
+                OnClick = CheckBoxLabelPiezClick
+                State = cbChecked
+                TabOrder = 3
+              end
+              object ComboBoxLabelPiez: TComboBox
+                Left = 220
+                Height = 25
+                Top = 32
+                Width = 124
+                ItemHeight = 0
+                ItemIndex = 0
+                Items.Strings = (
+                  'Below'
+                  'Above'
+                )
+                Style = csDropDownList
+                TabOrder = 4
+                Text = 'Below'
+              end
+            end
+            object TabSheet7: TTabSheet
+              Caption = 'Fill Material'
+              ClientHeight = 174
+              ClientWidth = 378
+              ImageIndex = 2
+              object Label2: TLabel
+                Left = 8
+                Height = 10
+                Top = 72
+                Width = 317
+                Caption = '(If Default Colour is not selected then random colours will be used)'
+                ParentColor = False
+              end
+              object CheckBox7: TCheckBox
+                Left = 8
+                Height = 24
+                Top = 10
+                Width = 110
+                Caption = 'Show Fill Material'
+                TabOrder = 0
+              end
+              object DefaultFillColourCheckBox: TCheckBox
+                Left = 8
+                Height = 24
+                Top = 48
+                Width = 95
+                Caption = 'Default Colour'
+                Checked = True
+                State = cbChecked
+                TabOrder = 1
+              end
+              object Label11: TLabel
+                Left = 8
+                Height = 10
+                Hint = 'Drill cuttings, gravel, sand'
+                Top = 110
+                Width = 156
+                Caption = 'Transparency for codes D, G, S:'
+                ParentColor = False
+                ParentShowHint = False
+                ShowHint = True
+              end
+              object SpinEditTransparency: TSpinEdit
+                Left = 173
+                Height = 21
+                Top = 104
+                Width = 50
+                Alignment = taRightJustify
+                Increment = 5
+                MaxValue = 150
+                TabOrder = 2
+              end
+              object Label12: TLabel
+                Left = 8
+                Height = 10
+                Top = 130
+                Width = 178
+                Caption = '(Will increase time for creation of log)'
+                ParentColor = False
+              end
+            end
+          end
+        end
+        object Penetration: TTabSheet
+          Caption = 'Depth dependent '
+          ClientHeight = 200
+          ClientWidth = 382
+          object GroupBox3: TGroupBox
+            Left = 6
+            Height = 70
+            Top = 28
+            Width = 370
+            Caption = 'Top Axis'
+            ClientHeight = 56
+            ClientWidth = 366
+            TabOrder = 0
+            object Label33: TLabel
+              Left = 112
+              Height = 10
+              Top = 8
+              Width = 51
+              Caption = 'Data from:'
+              ParentColor = False
+            end
+            object TopComboBox: TComboBox
+              Left = 164
+              Height = 25
+              Top = 2
+              Width = 198
+              ItemHeight = 0
+              ItemIndex = 0
+              Items.Strings = (
+                '<none>'
+              )
+              OnChange = TopComboBoxChange
+              Style = csDropDownList
+              TabOrder = 0
+              Text = '<none>'
+            end
+            object TopSeriesColorButton: TColorButton
+              Left = 4
+              Height = 25
+              Top = 0
+              Width = 100
+              BorderWidth = 2
+              ButtonColorSize = 16
+              ButtonColor = clBlue
+              ColorDialog = ColorDialog1
+              Caption = 'Line Colour'
+              Layout = blGlyphRight
+            end
+            object TopLabeledEdit: TLabeledEdit
+              Left = 190
+              Height = 21
+              Top = 29
+              Width = 90
+              EditLabel.Height = 10
+              EditLabel.Width = 45
+              EditLabel.Caption = 'Axis Title:'
+              EditLabel.ParentColor = False
+              LabelPosition = lpLeft
+              TabOrder = 1
+            end
+            object TopLineComboBox: TComboBox
+              Left = 54
+              Height = 25
+              Top = 29
+              Width = 82
+              ItemHeight = 0
+              ItemIndex = 4
+              Items.Strings = (
+                'Dash'
+                'DashDot'
+                'DashDotDot'
+                'Dot'
+                'Solid'
+              )
+              Style = csDropDownList
+              TabOrder = 2
+              Text = 'Solid'
+            end
+            object Label4: TLabel
+              Left = 4
+              Height = 10
+              Top = 34
+              Width = 47
+              Caption = 'Line style:'
+              ParentColor = False
+            end
+            object MaxTopLabeledEdit: TLabeledEdit
+              Left = 314
+              Height = 21
+              Top = 29
+              Width = 38
+              Alignment = taRightJustify
+              EditLabel.Height = 10
+              EditLabel.Width = 26
+              EditLabel.Caption = 'Max.:'
+              EditLabel.ParentColor = False
+              LabelPosition = lpLeft
+              TabOrder = 3
+              Text = '0'
+              OnKeyPress = MaxLabeledEditKeyPress
+            end
+          end
+          object GroupBox6: TGroupBox
+            Left = 6
+            Height = 70
+            Top = 100
+            Width = 370
+            Caption = 'Bottom Axis'
+            ClientHeight = 56
+            ClientWidth = 366
+            TabOrder = 1
+            object Label13: TLabel
+              Left = 112
+              Height = 10
+              Top = 8
+              Width = 51
+              Caption = 'Data from:'
+              ParentColor = False
+            end
+            object BottomComboBox: TComboBox
+              Left = 164
+              Height = 25
+              Top = 2
+              Width = 198
+              ItemHeight = 0
+              ItemIndex = 0
+              Items.Strings = (
+                '<none>'
+              )
+              OnChange = BottomComboBoxChange
+              Style = csDropDownList
+              TabOrder = 0
+              Text = '<none>'
+            end
+            object BottomSeriesColorButton: TColorButton
+              Left = 4
+              Height = 25
+              Top = 0
+              Width = 100
+              BorderWidth = 2
+              ButtonColorSize = 16
+              ButtonColor = clRed
+              ColorDialog = ColorDialog1
+              Caption = 'Line Colour'
+              Layout = blGlyphRight
+            end
+            object BottomLabeledEdit: TLabeledEdit
+              Left = 190
+              Height = 21
+              Top = 29
+              Width = 90
+              EditLabel.Height = 10
+              EditLabel.Width = 45
+              EditLabel.Caption = 'Axis Title:'
+              EditLabel.ParentColor = False
+              LabelPosition = lpLeft
+              TabOrder = 1
+            end
+            object Label5: TLabel
+              Left = 4
+              Height = 10
+              Top = 34
+              Width = 47
+              Caption = 'Line style:'
+              ParentColor = False
+            end
+            object BottomLineComboBox: TComboBox
+              Left = 54
+              Height = 25
+              Top = 29
+              Width = 82
+              ItemHeight = 0
+              ItemIndex = 4
+              Items.Strings = (
+                'Dash'
+                'DashDot'
+                'DashDotDot'
+                'Dot'
+                'Solid'
+              )
+              Style = csDropDownList
+              TabOrder = 2
+              Text = 'Solid'
+            end
+            object MaxBotLabeledEdit: TLabeledEdit
+              Left = 314
+              Height = 21
+              Top = 29
+              Width = 38
+              Alignment = taRightJustify
+              EditLabel.Height = 10
+              EditLabel.Width = 26
+              EditLabel.Caption = 'Max.:'
+              EditLabel.ParentColor = False
+              LabelPosition = lpLeft
+              TabOrder = 3
+              Text = '0'
+              OnKeyPress = MaxLabeledEditKeyPress
+            end
+          end
+          object ShowDepthCheckBox: TCheckBox
+            Left = 6
+            Height = 24
+            Top = 4
+            Width = 165
+            Caption = '&Show depth dependent chart'
+            OnChange = ShowDepthCheckBoxChange
+            TabOrder = 2
+          end
+          object LabelTopParamOpt: TLabel
+            Left = 180
+            Height = 10
+            Top = 10
+            Width = 91
+            Alignment = taRightJustify
+            Caption = 'Parameter options:'
+            Enabled = False
+            ParentColor = False
+          end
+          object ComboBoxTopParamOpt: TComboBox
+            Left = 276
+            Height = 25
+            Top = 3
+            Width = 100
+            Enabled = False
+            ItemHeight = 0
+            ItemIndex = 0
+            Items.Strings = (
+              'default'
+            )
+            OnChange = ComboBoxTopParamOptChange
+            Style = csDropDownList
+            TabOrder = 3
+            Text = 'default'
+          end
+          object LabelBotParamOpt: TLabel
+            Left = 179
+            Height = 10
+            Top = 180
+            Width = 91
+            Alignment = taRightJustify
+            Caption = 'Parameter options:'
+            Enabled = False
+            ParentColor = False
+          end
+          object ComboBoxBotParamOpt: TComboBox
+            Left = 276
+            Height = 25
+            Top = 172
+            Width = 100
+            Enabled = False
+            ItemHeight = 0
+            ItemIndex = 0
+            Items.Strings = (
+              'default'
+            )
+            OnChange = ComboBoxBotParamOptChange
+            Style = csDropDownList
+            TabOrder = 4
+            Text = 'default'
+          end
+        end
+        object Waterlevel: TTabSheet
+          Caption = 'Water level'
+          ClientHeight = 200
+          ClientWidth = 382
+          object WLLabelRadioGroup: TRadioGroup
+            Left = 248
+            Height = 78
+            Top = 10
+            Width = 114
+            AutoFill = True
+            Caption = 'Label water level'
+            ChildSizing.LeftRightSpacing = 6
+            ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+            ChildSizing.EnlargeVertical = crsHomogenousChildResize
+            ChildSizing.ShrinkHorizontal = crsScaleChilds
+            ChildSizing.ShrinkVertical = crsScaleChilds
+            ChildSizing.Layout = cclLeftToRightThenTopToBottom
+            ChildSizing.ControlsPerLine = 1
+            ClientHeight = 61
+            ClientWidth = 110
+            ItemIndex = 0
+            Items.Strings = (
+              'No'
+              'Above'
+              'Below'
+            )
+            TabOrder = 5
+          end
+          object WLCheckBox: TCheckBox
+            Left = 8
+            Height = 23
+            Top = 0
+            Width = 70
+            Caption = '&Enabled'
+            Enabled = False
+            TabOrder = 0
+          end
+          object WLColorButton: TColorButton
+            Left = 8
+            Height = 25
+            Top = 22
+            Width = 128
+            BorderWidth = 2
+            ButtonColorSize = 16
+            ButtonColor = clBlue
+            ColorDialog = ColorDialog1
+            Caption = 'Line Colour'
+            Layout = blGlyphRight
+            Spacing = 8
+          end
+          object WLSpinEdit: TSpinEdit
+            Left = 152
+            Height = 25
+            Top = 24
+            Width = 47
+            Alignment = taRightJustify
+            MaxValue = 5
+            MinValue = 1
+            TabOrder = 1
+            Value = 2
+          end
+          object Label6: TLabel
+            Left = 152
+            Height = 13
+            Top = 10
+            Width = 82
+            Caption = 'Line Thickness'
+            ParentColor = False
+          end
+          object WLRadioGroup: TRadioGroup
+            Left = 8
+            Height = 122
+            Top = 52
+            Width = 226
+            AutoFill = True
+            Caption = 'Date of water level'
+            ChildSizing.LeftRightSpacing = 6
+            ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+            ChildSizing.EnlargeVertical = crsHomogenousChildResize
+            ChildSizing.ShrinkHorizontal = crsScaleChilds
+            ChildSizing.ShrinkVertical = crsScaleChilds
+            ChildSizing.Layout = cclLeftToRightThenTopToBottom
+            ChildSizing.ControlsPerLine = 1
+            ClientHeight = 105
+            ClientWidth = 222
+            ItemIndex = 1
+            Items.Strings = (
+              'First'
+              'First static'
+              'Last'
+              'Last static'
+              'Specific date:'
+            )
+            TabOrder = 2
+          end
+          object cbWLDate: TComboBox
+            Left = 116
+            Height = 21
+            Top = 148
+            Width = 104
+            Enabled = False
+            ItemHeight = 0
+            TabOrder = 3
+          end
+          object ShowWaterCheckBox: TCheckBox
+            Left = 248
+            Height = 23
+            Top = 112
+            Width = 130
+            Caption = 'Show water in hole'
+            TabOrder = 4
+          end
+          object WaterColorButton: TColorButton
+            Left = 248
+            Height = 25
+            Top = 136
+            Width = 114
+            BorderWidth = 2
+            ButtonColorSize = 16
+            ButtonColor = clSkyBlue
+            ColorDialog = ColorDialog1
+            Caption = 'with Colour'
+            Layout = blGlyphRight
+            Spacing = 6
+          end
+        end
+      end
+    end
+    object ChartTab: TTabSheet
+      Caption = 'Chart Settings'
+      ClientHeight = 226
+      ClientWidth = 386
+      object GroupBox2: TGroupBox
+        Left = 0
+        Height = 213
+        Top = 8
+        Width = 377
+        Caption = 'Chart settings:'
+        ClientHeight = 196
+        ClientWidth = 373
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        ParentFont = False
+        TabOrder = 0
+        object GroupBox5: TGroupBox
+          Left = 8
+          Height = 73
+          Top = 8
+          Width = 168
+          Caption = 'Depth axis intervals'
+          ClientHeight = 56
+          ClientWidth = 164
+          TabOrder = 0
+          object Label3: TLabel
+            Left = 4
+            Height = 13
+            Top = 29
+            Width = 27
+            Caption = 'Every'
+            ParentColor = False
+          end
+          object AutoIntervalCheckBox: TCheckBox
+            Left = 4
+            Height = 24
+            Top = 0
+            Width = 74
+            Caption = 'Automatic'
+            Checked = True
+            OnClick = AutoIntervalCheckBoxClick
+            State = cbChecked
+            TabOrder = 0
+          end
+          object IntervalSpinEdit: TSpinEdit
+            Left = 42
+            Height = 23
+            Top = 24
+            Width = 41
+            MinValue = 1
+            TabOrder = 1
+            Value = 10
+          end
+          object UnitLabel: TLabel
+            Left = 90
+            Height = 13
+            Top = 29
+            Width = 54
+            Caption = 'length units'
+            ParentColor = False
+          end
+        end
+        object BackColorButton: TColorButton
+          Left = 200
+          Height = 25
+          Top = 16
+          Width = 144
+          BorderWidth = 2
+          ButtonColorSize = 16
+          ButtonColor = clBtnFace
+          ColorDialog = ColorDialog1
+          Caption = 'Background Colour'
+          Layout = blGlyphRight
+        end
+        object Label14: TLabel
+          Left = 200
+          Height = 13
+          Top = 60
+          Width = 88
+          Caption = 'Resolution Factor:'
+          ParentColor = False
+        end
+        object SpinEditResFactor: TSpinEdit
+          Left = 310
+          Height = 23
+          Top = 54
+          Width = 44
+          Alignment = taRightJustify
+          MaxValue = 10
+          MinValue = 1
+          TabOrder = 1
+          Value = 3
+        end
+        object LegendFrameCheckBox: TCheckBox
+          Left = 8
+          Height = 24
+          Top = 96
+          Width = 119
+          Caption = 'Show legend frame'
+          TabOrder = 2
+        end
+        object CheckBox2Pages: TCheckBox
+          Left = 8
+          Height = 24
+          Top = 126
+          Width = 330
+          Caption = 'Prepare for display on 2 pages on report, with Page 1 displaying'
+          Enabled = False
+          OnChange = CheckBox2PagesChange
+          TabOrder = 3
+        end
+        object LabelTopExt: TLabel
+          Left = 58
+          Height = 13
+          Top = 160
+          Width = 306
+          Caption = '% of the log (top) and Page 2 displaying 50% of the log (bottom)'
+          ParentColor = False
+        end
+        object SpinEditTopExt: TSpinEdit
+          Left = 10
+          Height = 23
+          Hint = 'A smaller %age displays more detail'
+          Top = 154
+          Width = 44
+          Alignment = taRightJustify
+          Enabled = False
+          Increment = 5
+          MaxValue = 90
+          MinValue = 10
+          OnChange = SpinEditTopExtChange
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          Value = 50
+        end
+      end
+    end
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 36
+    Top = 258
+    Width = 378
+    HelpContext = 95
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.HelpContext = 95
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 1
+    DefaultButton = pbCancel
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object ColorDialog1: TColorDialog
+    Color = clBlack
+    CustomColors.Strings = (
+      'ColorA=000000'
+      'ColorB=000080'
+      'ColorC=008000'
+      'ColorD=008080'
+      'ColorE=800000'
+      'ColorF=800080'
+      'ColorG=808000'
+      'ColorH=808080'
+      'ColorI=C0C0C0'
+      'ColorJ=0000FF'
+      'ColorK=00FF00'
+      'ColorL=00FFFF'
+      'ColorM=FF0000'
+      'ColorN=FF00FF'
+      'ColorO=FFFF00'
+      'ColorP=FFFFFF'
+      'ColorQ=C0DCC0'
+      'ColorR=F0CAA6'
+      'ColorS=F0FBFF'
+      'ColorT=A4A0A0'
+    )
+    left = 248
+  end
+  object wlQuery: TZReadOnlyQuery
+    SQL.Strings = (
+      'SELECT DISTINCT SITE_ID_NR, DATE_MEAS FROM waterlev'
+      'where SITE_ID_NR = :CurrentSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurrentSite'
+        ParamType = ptInput
+      end>
+    left = 184
+    top = 224
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurrentSite'
+        ParamType = ptInput
+      end>
+  end
+  object FontDialog1: TFontDialog
+    Title = 'Select a font for the charts'
+    Font.Name = 'Arial'
+    MinFontSize = 5
+    MaxFontSize = 12
+    Options = [fdEffects, fdNoSizeSel]
+    PreviewText = 'GRANITE: Reddish brown, medium'
+    left = 328
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    left = 104
+    top = 224
+  end
+  object DepthQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionSettings
+    SQL.Strings = (
+      'SELECT FILE_NAME, DESCRIPTION, XVAL, YVAL, UNITXVAL, X_AXISTITLE_BOT FROM Aquasort'
+      'WHERE XVAL > '''''
+      'ORDER BY DESCRIPTION'
+    )
+    Params = <>
+    left = 288
+    top = 224
+    object DepthQueryFILE_NAME: TMemoField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'FILE_NAME'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftMemo
+      Transliterate = False
+    end
+    object DepthQueryDESCRIPTION: TMemoField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DESCRIPTION'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftMemo
+      Transliterate = False
+    end
+    object DepthQueryXVAL: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'XVAL'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object DepthQueryYVAL: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'YVAL'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object DepthQueryUNITXVAL: TStringField
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'UNITXVAL'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object DepthQueryX_AXISTITLE_BOT: TStringField
+      FieldKind = fkData
+      FieldName = 'X_AXISTITLE_BOT'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+  end
+end

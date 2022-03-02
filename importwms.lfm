@@ -1,0 +1,225 @@
+object ImportWMSForm: TImportWMSForm
+  Left = 879
+  Height = 230
+  Top = 123
+  Width = 450
+  HelpContext = 552
+  BorderStyle = bsSingle
+  Caption = 'Import WMS Chemistry'
+  ClientHeight = 230
+  ClientWidth = 450
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 38
+    Top = 186
+    Width = 438
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.Enabled = False
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.HelpContext = 552
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 0
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object LabeledEdit1: TLabeledEdit
+    Left = 8
+    Height = 24
+    Top = 24
+    Width = 402
+    Anchors = [akTop, akLeft, akRight]
+    EditLabel.Height = 11
+    EditLabel.Width = 402
+    EditLabel.Caption = 'WMS Chemistry File in CSV format:'
+    EditLabel.ParentColor = False
+    TabOrder = 1
+  end
+  object Button1: TButton
+    Left = 416
+    Height = 25
+    Hint = 'Browse'
+    Top = 24
+    Width = 25
+    Anchors = [akTop, akRight]
+    Caption = '...'
+    OnClick = Button1Click
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+  end
+  object Label1: TLabel
+    Left = 8
+    Height = 11
+    Top = 72
+    Width = 303
+    Caption = 'Start Chemistry Reference Number (CHM_REF_NR) with:'
+    ParentColor = False
+    ParentFont = False
+    OnResize = Label1Resize
+  end
+  object SpinEdit1: TSpinEdit
+    Left = 350
+    Height = 24
+    Top = 66
+    Width = 91
+    Alignment = taRightJustify
+    Anchors = [akTop, akRight]
+    Increment = 10
+    MaxValue = 1000000000
+    MinValue = 1
+    OnChange = SpinEdit1Change
+    TabOrder = 3
+    Value = 1
+  end
+  object CheckBox1: TCheckBox
+    Left = 8
+    Height = 23
+    Top = 102
+    Width = 303
+    Caption = 'Match not found Site Identifiers spatially within radius:'
+    TabOrder = 4
+  end
+  object SpinEdit2: TSpinEdit
+    Left = 371
+    Height = 24
+    Top = 99
+    Width = 70
+    Alignment = taRightJustify
+    Anchors = [akTop, akRight]
+    MaxValue = 1000
+    MinValue = 1
+    OnChange = SpinEdit2Change
+    TabOrder = 5
+    Value = 100
+  end
+  object CheckBox2: TCheckBox
+    Left = 8
+    Height = 23
+    Hint = 'Only the CSV files with information about records not imported will be created'
+    Top = 158
+    Width = 325
+    Anchors = [akLeft, akBottom]
+    Caption = 'Test only, no chemistry records will be written to database'
+    Checked = True
+    ParentShowHint = False
+    ShowHint = True
+    State = cbChecked
+    TabOrder = 6
+  end
+  object CheckBoxSampleNr: TCheckBox
+    Left = 8
+    Height = 23
+    Top = 128
+    Width = 347
+    Caption = 'Try matching Monitoring Point ID with existing Sample Nr. first'
+    Checked = True
+    State = cbChecked
+    TabOrder = 7
+  end
+  object SdfDataSet: TSdfDataSet
+    FileMustExist = True
+    ReadOnly = True
+    FieldDefs = <>
+    AllowMultiLine = False
+    Delimiter = ','
+    FirstLineAsSchema = True
+    StripTrailingDelimiters = False
+    Left = 328
+    Top = 56
+  end
+  object OpenDialog: TOpenDialog
+    DefaultExt = '.csv'
+    Filter = 'CSV File (*.csv)|*.csv;*.CSV'
+    FilterIndex = 2
+    Left = 224
+    Top = 56
+  end
+  object MaxQuery: TZReadOnlyQuery
+    BeforeOpen = MaxQueryBeforeOpen
+    AfterOpen = MaxQueryAfterOpen
+    SQL.Strings = (
+      'SELECT MAX(CHM_REF_NR) as MAX_CHM_REF FROM chem_000'
+    )
+    Params = <>
+    Left = 24
+    Top = 56
+    object MaxQueryMAX_CHM_REF: TLongintField
+      FieldKind = fkData
+      FieldName = 'MAX_CHM_REF'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object BasicinfQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'SITE_ID_NR,NR_ON_MAP,ALT_NO_1'
+    SQL.Strings = (
+      'SELECT SITE_ID_NR, NR_ON_MAP, ALT_NO_1 FROM basicinf'
+    )
+    Params = <>
+    IndexFieldNames = 'SITE_ID_NR Asc,NR_ON_MAP Asc,ALT_NO_1 Asc'
+    Left = 112
+    Top = 56
+  end
+  object ZTable0: TZTable
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = ZTable0BeforeOpen
+    OnPostError = ZTable0PostError
+    TableName = 'chem_000'
+    Left = 104
+    Top = 128
+  end
+  object ZTable1: TZTable
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = ZTable1BeforeOpen
+    OnPostError = ZTable1PostError
+    TableName = 'chem_001'
+    Left = 161
+    Top = 128
+  end
+  object ZTable2: TZTable
+    Connection = DataModuleMain.ZConnectionDB
+    OnPostError = ZTable2PostError
+    TableName = 'chem_002'
+    Left = 216
+    Top = 128
+  end
+  object SpatialQuery: TZReadOnlyQuery
+    BeforeOpen = SpatialQueryBeforeOpen
+    SQL.Strings = (
+      ''
+    )
+    Params = <>
+    Left = 280
+    Top = 96
+  end
+  object ZTable5: TZTable
+    Connection = DataModuleMain.ZConnectionDB
+    OnPostError = ZTable5PostError
+    TableName = 'chem_005'
+    Left = 352
+    Top = 128
+  end
+  object QuerySampleNr: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    Left = 262
+    Top = 6
+  end
+end

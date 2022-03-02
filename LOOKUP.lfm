@@ -1,0 +1,282 @@
+object LookupForm: TLookupForm
+  Left = 928
+  Height = 213
+  Top = 164
+  Width = 321
+  Caption = 'Select Code'
+  ClientHeight = 213
+  ClientWidth = 321
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'System'
+  Icon.Data = {
+    BE0800000000010001002020000001000800A808000016000000280000002000
+    0000400000000100080000000000000000000000000000000000000000000000
+    0000FFF0FF00FCD2FC00F9B4F900F696F600F378F300F05AF000ED3CED00EA1E
+    EA00E700E700CF00CF00B700B7009F009F00870087006F006F00570057004000
+    4000F4EBFF00E8CEFC00DCB1F900D094F600C477F300B85AF000AC3DED00A020
+    EA009100E7008200CF007300B70064009F005500870046006F00370057002800
+    4000E0E0FF00C4C4FC00A8A8F9008C8CF6007070F3005454F0003838ED001C1C
+    EA000000E7000000CF000000B70000009F000000870000006F00000057000000
+    4000E0F5FF00C4E8FC00A8DCF9008CD0F60070C4F30054B8F00038ACED001CA0
+    EA000091E7000082CF000073B70000649F000055870000466F00003757000028
+    4000E0FFFF00C4FCFC00A8F9F9008CF6F60070F3F30054F0F00038EDED001CEA
+    EA0000E7E70000CFCF0000B7B700009F9F0000878700006F6F00005757000040
+    4000E0FFF000C4FCEB00A8F9E6008CF6E10070F3DC0054F0D70038EDD2001CEA
+    CD0000E7C90000CFB20000B79B00009F840000876D00006F560000573F000040
+    2800E0FFE000C4FCC400A8F9A8008CF68C0070F3700054F0540038ED38001CEA
+    1C0000E7000000CF000000B70000009F000000870000006F0000005700000040
+    0000F0FFE000EBFCC400E6F9A800E1F68C00DCF37000D7F05400D2ED3800CDEA
+    1C00C9E70000B2CF00009BB70000849F00006D870000566F00003F5700002840
+    0000FFFFE000FCFCC400F9F9A800F6F68C00F3F37000F0F05400EDED3800EAEA
+    1C00E7E70000CFCF0000B7B700009F9F0000878700006F6F0000575700004040
+    0000FFF8E000FCF2C400F9ECA800F6E68C00F3E07000F0DA5400EDD43800EACE
+    1C00E7CB0000CFB60000B7A100009F8C0000877700006F620000574D00004037
+    0000FFF0E000FCE8C400F9E0A800F6D88C00F3D07000F0C85400EDC03800EAB8
+    1C00E7AE0000CF9C0000B78A00009F780000876600006F540000574200004030
+    0000FFE8E000FCDAC400F9CCA800F6BE8C00F3B07000F0A25400ED943800EA86
+    1C00E7740000CF680000B75C00009F500000874400006F380000572C0000401C
+    0000FFE0E000FCC4C400F9A8A800F68C8C00F3707000F0545400ED383800EA1C
+    1C00E7000000CF000000B70000009F000000870000006F000000570000004000
+    0000FFE8F000FCCBE400F9AED800F691CC00F374C000F057B400ED3AA800EA1D
+    9C00E7009100CF008200B70073009F006400870055006F004600570037004000
+    2800FFFFFF00F0F0F000E8E8E800E0E0E000D8D8D800D0D0D000C8C8C800C0C0
+    C000B8B8B800B0B0B000A8A8A800A0A0A0009898980090909000888888008080
+    8000808080007070700068686800606060005858580050505000484848004040
+    4000383838003030300028282800202020001818180010101000080808000000
+    0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+    FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+    FFFFFFFFFFFFFFFFFFFF707070707070707070707070707070707070707070FF
+    FFFFFFFFFFFFFFFFFFFF707272727272727272727270727271717171717070FF
+    FFFFFFFFFFFFFFFFFFFF7072FFFFFFFFFFFF70727070727071717171717170FF
+    FFFFFFFFFFFFFFFFFFFF707270727072727272727272727171717070707170FF
+    FFFFFFFFFFFFFFFFFFFF707272727272727270707071717171717171717170FF
+    FFFFFFFFFFFFFFFFFFFF707272727272727071717171717171717171717070FF
+    FFFFFFFFFFFFFFFFFFFF7072FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7070FF
+    FFFFFFFFFFFFFFFFFFFF707272707071717170717171717171717070707070FF
+    FFFFFFFFFFFFFFFFFFFF707072707171717171717171717170707070707070FF
+    FFFFFFFFFFFFFFFFFFFF707270717071717171717170707070707070707070FF
+    FFFFFFFFFFFFFFFFFFFF707071707171717171717170707070707070707070FF
+    FFFFFFFFFFFFFFFFFF29FF70FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7070FF
+    FFFFFFFFFFFFFFFFFF2929FF71707070717170707070707070707070707070FF
+    FFFFFFFFFFFFFFFFFF292927FF717171717070707070707070707070707070FF
+    FFFFFFFF292929292929292925FF7070707070707070707070707070707070FF
+    FFFFFFFF28282727272525252528FFFFFFFFFFFFFFFFFFFFFFFFFFFF8C7070FF
+    FFFFFFFF252525252525252525FF7070707070707070707070707070707070FF
+    FFFFFFFFFFFFFFFFFF242424FF707070707070707070707070707070707070FF
+    FFFFFFFFFFFFFFFFFF2424FFFFFFFFFFFFFFFFFF707070FFFFFFFFFFFFFFFFFF
+    FFFFFFFFFFFFFFFFFF24FF707070707070707070707070FFFFFFFFFFFFFFFFFF
+    FFFFFFFFFFFFFFFFFFFF70707070707070707070707070FFFFFFFFFFFFFFFFFF
+    FFFFFFFFFFFFFFFFFFFF70707070707070707070707070FFFFFFFFFFFFFFFFFF
+    FFFFFFFFFFFFFFFFFFFF7070FFFFFFFF70707070707070FFFFFFFFFFFFFFFFFF
+    FFFFFFFFFFFFFFFFFFFF70707070707070707070707070FFFFFFFFFFFFFFFFFF
+    FFFFFFFFFFFFFFFFFFFF70707070707070707070707070FFFFFFFFFFFFFFFFFF
+    FFFFFFFFFFFFFFFFFFFF70707070707070707070707070FFFFFFFFFFFFFFFFFF
+    FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+    FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+    FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+    FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+    FFFFFFFFFFFFFE000003FE000003FE000003FE000003FE000003FE000003FE00
+    0003FE000003FE000003FE000003FE000003FC000003FC000003FC0000038000
+    000380000003800000038000000380000003FC000003FC0003F7FC0003EFFE00
+    03DFFE0003BFFE00037FFE0002FFFE0001FFFE0003FFFFFFFFFFFFFFFFFFFFFF
+    FFFF
+  }
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  SessionProperties = 'Height;Width'
+  LCLVersion = '2.0.12.0'
+  object Label1: TLabel
+    Left = 8
+    Height = 12
+    Top = 6
+    Width = 92
+    Caption = 'Available codes:'
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'System'
+    ParentColor = False
+    ParentFont = False
+  end
+  object RxDBGrid: TRxDBGrid
+    Left = 0
+    Height = 189
+    Hint = 'Click up/down arrow for menu'
+    Top = 24
+    Width = 321
+    ColumnDefValues.BlobText = '(blob)'
+    TitleButtons = True
+    AutoSort = True
+    Columns = <    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Orientation = toHorizontal
+        Title.Caption = 'Code'
+        Width = 72
+        FieldName = 'SEARCH'
+        EditButtons = <>
+        Filter.DropDownRows = 0
+        Filter.EmptyValue = '(Empty)'
+        Filter.NotEmptyValue = '(Not empty)'
+        Filter.AllValue = '(All values)'
+        Filter.EmptyFont.Style = [fsItalic]
+        Filter.ItemIndex = -1
+        Footers = <>
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Orientation = toHorizontal
+        Title.Caption = 'Description'
+        Width = 235
+        FieldName = 'DESCRIBE'
+        EditButtons = <>
+        Filter.DropDownRows = 0
+        Filter.EmptyValue = '(Empty)'
+        Filter.NotEmptyValue = '(Not empty)'
+        Filter.AllValue = '(All values)'
+        Filter.EmptyFont.Style = [fsItalic]
+        Filter.ItemIndex = -1
+        Footers = <>
+      end>
+    KeyStrokes = <    
+      item
+        Command = rxgcShowFindDlg
+        ShortCut = 16454
+        Enabled = True
+      end    
+      item
+        Command = rxgcShowColumnsDlg
+        ShortCut = 16471
+        Enabled = True
+      end    
+      item
+        Command = rxgcShowFilterDlg
+        ShortCut = 16468
+        Enabled = True
+      end    
+      item
+        Command = rxgcShowSortDlg
+        ShortCut = 16467
+        Enabled = True
+      end    
+      item
+        Command = rxgcShowQuickFilter
+        ShortCut = 16465
+        Enabled = True
+      end    
+      item
+        Command = rxgcHideQuickFilter
+        ShortCut = 16456
+        Enabled = True
+      end    
+      item
+        Command = rxgcSelectAll
+        ShortCut = 16449
+        Enabled = True
+      end    
+      item
+        Command = rxgcDeSelectAll
+        ShortCut = 16429
+        Enabled = True
+      end    
+      item
+        Command = rxgcInvertSelection
+        ShortCut = 16426
+        Enabled = True
+      end    
+      item
+        Command = rxgcOptimizeColumnsWidth
+        ShortCut = 16427
+        Enabled = True
+      end    
+      item
+        Command = rxgcCopyCellValue
+        ShortCut = 16451
+        Enabled = True
+      end>
+    FooterOptions.DrawFullLine = False
+    SearchOptions.QuickSearchOptions = [loCaseInsensitive, loPartialKey]
+    SearchOptions.FromStart = False
+    OptionsRx = [rdgAllowColumnsForm, rdgAllowDialogFind, rdgMrOkOnDblClik, rdgAllowQuickSearch, rdgAllowQuickFilter, rdgAllowFilterForm, rdgAllowSortForm, rdgAllowToolMenu]
+    Align = alBottom
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoFillColumns = True
+    AutoEdit = False
+    Color = clWindow
+    DrawFullLine = False
+    FocusColor = clRed
+    SelectedColor = clHighlight
+    GridLineStyle = psSolid
+    DataSource = DataSourceLookup
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'System'
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgHeaderPushedLook, dgDisableInsert, dgRowHighlight]
+    ParentFont = False
+    ParentShowHint = False
+    ReadOnly = True
+    Scrollbars = ssAutoBoth
+    ShowHint = True
+    TabOrder = 0
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    OnDblClick = RxDBGridDblClick
+    OnKeyDown = RxDBGridKeyDown
+  end
+  object DataSourceLookup: TDataSource
+    AutoEdit = False
+    DataSet = LookupQuery
+    Left = 72
+    Top = 96
+  end
+  object LookupQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM Lookup'
+      'ORDER BY USED_FOR, SEARCH'
+    )
+    Params = <>
+    Left = 205
+    Top = 96
+    object LookupQueryUSED_FOR: TStringField
+      FieldKind = fkData
+      FieldName = 'USED_FOR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object LookupQuerySEARCH: TStringField
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 6
+    end
+    object LookupQueryDESCRIBE: TStringField
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 48
+    end
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    Left = 218
+    Top = 12
+  end
+end

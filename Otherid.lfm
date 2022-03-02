@@ -1,0 +1,75 @@
+inherited OtherIdForm: TOtherIdForm
+  Left = 350
+  Top = 286
+  Caption = 'Other Identifier Form'
+  OnActivate = FormActivate
+  inherited Panel1: TPanel
+    inherited ViewNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited BasicDBNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited Panel2: TPanel
+    inherited Panel4: TPanel
+      inherited DetailNavigator: TDBNavigator
+        Hints.Strings = (        )
+      end
+    end
+    inherited DBGrid: TDBGrid
+      AutoFillColumns = True
+    end
+  end
+  inherited LinkedDataSource: TDataSource
+    left = 144
+    top = 273
+  end
+  inherited LinkedQuery: TZQuery
+    BeforeOpen = LinkedQueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM otherid_ WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    top = 273
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object LinkedQueryOTHER_ID: TStringField[1]
+      DisplayLabel = 'Other Identifier'
+      FieldKind = fkData
+      FieldName = 'OTHER_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryOTHER_IDSetText
+      Size = 48
+    end
+    object LinkedQueryASSIGNOR: TStringField[2]
+      DisplayLabel = 'Assignor'
+      FieldKind = fkData
+      FieldName = 'ASSIGNOR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 168
+    end
+  end
+  inherited ZReadOnlyQueryCoordAcc: TZReadOnlyQuery
+    top = 184
+  end
+end
