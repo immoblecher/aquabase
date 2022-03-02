@@ -20,4 +20,4 @@ What is needed to compile?
 * For spreadsheet functionalities the FPSpreadsheet components https://sourceforge.net/projects/lazarus-ccr/files/FPSpreadsheet/OPM/update_FPSpreadsheet.json/download
 * Synapse for online functions http://www.ararat.cz/synapse/doku.php/start
 
-The additional requirements on top of Lazarus/FreePascal should be installed/updated through the Online Package Manager in Lazarus. If you want to cross-com
+The additional requirements on top of Lazarus/FreePascal should be installed/updated through the Online Package Manager in Lazarus. If you want to cross-compile under Windows you need to install the cross-compile packages for Lazarus as well.
