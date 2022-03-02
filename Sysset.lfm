@@ -1,0 +1,1124 @@
+object SysSetDlgForm: TSysSetDlgForm
+  Left = 899
+  Height = 287
+  Top = 122
+  Width = 338
+  ActiveControl = PageControl1
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Preferences'
+  ClientHeight = 287
+  ClientWidth = 338
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  FormStyle = fsMDIChild
+  Icon.Data = {
+    7E04000000000100010010100000010020006804000016000000280000001000
+    0000200000000100200000000000000400006400000064000000000000000000
+    000005296FFF094187FF0A458AFF0A488DFF0A4B90FF0B5193FF0C5497FF0D58
+    9BFF0F5C9EFF105FA1FF1363A4FF1467A7FF176AA9FF176BABFFFFFFFF00FFFF
+    FF00155CA2FF1892C3FF1A94C4FF1E96C6FF2198C7FF259AC9FF299DCBFF2E9F
+    CDFF31A2CFFF35A5D0FF9C3C08FF451B02FF42AED8FF46B0DAFFFFFFFF00FFFF
+    FF00155CA2FF2198C7FF259AC9FF299DCBFF2E9FCDFF31A2CFFF35A5D0FF39A8
+    D3FF3DABD6FF42AED8FFFD8216FFAD460AFF461B02FF51B8DFFFFFFFFF00FFFF
+    FF00155CA2FF2E9FCDFF31A2CFFF35A5D0FF39A8D3FF3DABD6FF42AED8FF46B0
+    DAFF49B3DCFF4EB6DEFF51B8DFFFFED32AFFB94E0CFF461B02FFFFFFFF00FFFF
+    FF00155CA2FF39A8D3FF3DABD6FF42AED8FF46B0DAFF49B3DCFF4EB6DEFF51B8
+    DFFF54BAE1FF56BCE3FF58BEE4FF5ABFE5FFFDC026FFA6420AFFFFFFFF00FFFF
+    FF001259A1FE6CCCEFFF6CCCEFFF6CCCEFFF6CCCEFFF6CCCEFFF6CCCEFFF6CCC
+    EFFF6CCCEFFF6CCCEFFF6CCCEFFF6CCCEFFFFDC526FFAA440AFFFFFFFF00FFFF
+    FF001259A1F96CCFF6FA0B4F91FF202020FF353535FF0B4E8FFFFD9017FFA541
+    0AFF461B02FF083D70FF073662FF062F57FFFD9818FFA14009FF451B02FFFFFF
+    FF00125AA0F16DCFF5EFFFFFFF002D2D2DFF5E5E5EFFFFFFFF00FFFFFF00FDB8
+    24FFBA4D0CFF4B1D02FF461B02FF4F1F02FFA1BCD7F9303030FFFFFFFF00FFFF
+    FF0010599FE26ECFF6DAFFFFFF00343434FF7B7B7CFFFFFFFF00FFFFFF00064F
+    1FFFFED82CFFFDB824FFFD9C19FFCF590FFF303030FF303030FF303030FF2B2B
+    2B6B11589FC46DCFF4BE398AACFF4C4C4DFF848485FF4F9FC2FF38ABDBFF1293
+    3BFF12933BFF38ABDBFF38ABDBFFFED42BFFB6D5E8F5303030FF2B2B2B543030
+    30FF1159A0A16AD0F5973F474AFF7E7E7FFF868687FF848E92FF83D8F8FF5252
+    52FFC0C0C0FF83D8F8FF83D8F8FF83D8F8FF7AB9DDD8567E8AC7303030FF2B2B
+    2B3C1256A0736AD0F367343434E75555550900000006353535E7FFFFFF005C5C
+    5DFFCDCDCDFFFFFFFF00FFFFFF00FFFFFF0011579D756FD1F56AFFFFFF00FFFF
+    FF00FFFFFF00FFFFFF002D2D2D3FFFFFFF00FFFFFF002D2D2D3FFFFFFF006969
+    6AFFD7D7D7FFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF003939398A1515150CFFFFFF003C3C
+    3CFF3C3C3CFF55555A333C3C3CFF363636FFFFFFFF00FFFFFF00FFFFFF00FFFF
+    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00777777B4424242FF3C3C3CFF9B9B
+    9BFFADADADFF5D5D63FFADADADFF9B9B9BFFFFFFFF00FFFFFF00FFFFFF00FFFF
+    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0000000003AAAAAA7BAAAAAAC6ADAD
+    ADFFADADADFF55555A33ADADADFF9B9B9BFFFFFFFF00FFFFFF00FFFFFF00FFFF
+    FF00000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000
+  }
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '2.0.8.0'
+  Visible = True
+  object PageControl1: TPageControl
+    Left = 4
+    Height = 235
+    Top = 4
+    Width = 330
+    ActivePage = WorkspaceTabSheet
+    Align = alClient
+    BorderSpacing.Left = 4
+    BorderSpacing.Top = 4
+    BorderSpacing.Right = 4
+    TabIndex = 0
+    TabOrder = 0
+    OnChange = PageControl1Change
+    object WorkspaceTabSheet: TTabSheet
+      Caption = 'Workspace'
+      ClientHeight = 209
+      ClientWidth = 326
+      ImageIndex = 1
+      object Label15: TLabel
+        Left = 8
+        Height = 10
+        Top = 64
+        Width = 41
+        Caption = '&Country:'
+        ParentColor = False
+      end
+      object Label17: TLabel
+        Left = 8
+        Height = 13
+        Top = 16
+        Width = 297
+        AutoSize = False
+        Caption = 'Start Site &Identifier automatic numbering >'
+        ParentColor = False
+        WordWrap = True
+      end
+      object NewNrSpinEdit: TSpinEdit
+        Left = 8
+        Height = 21
+        Top = 31
+        Width = 113
+        Alignment = taRightJustify
+        Increment = 100
+        MaxValue = 9000
+        MinValue = 1
+        TabOrder = 0
+        Value = 1
+      end
+      object CoordLabel: TLabel
+        Left = 8
+        Height = 10
+        Top = 112
+        Width = 196
+        Caption = '&Show Coordinates in Coordinate System:'
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object ComboBoxCountry: TComboBox
+        Left = 8
+        Height = 25
+        Top = 81
+        Width = 296
+        ItemHeight = 0
+        OnChange = ComboBoxCountryChange
+        OnSelect = ComboBoxCountrySelect
+        Sorted = True
+        Style = csDropDownList
+        TabOrder = 1
+      end
+      object ComboBoxCoordSys: TComboBox
+        Left = 8
+        Height = 25
+        Top = 127
+        Width = 296
+        DropDownCount = 12
+        ItemHeight = 0
+        OnChange = ComboBoxCoordSysChange
+        Sorted = True
+        Style = csDropDownList
+        TabOrder = 2
+      end
+      object CheckBoxDMS: TCheckBox
+        Left = 9
+        Height = 24
+        Top = 168
+        Width = 230
+        Caption = 'Coordinates in Degrees, Minutes, Seconds'
+        Enabled = False
+        TabOrder = 3
+      end
+    end
+    object UnitsTabSheet: TTabSheet
+      Caption = 'Units'
+      ClientHeight = 209
+      ClientWidth = 326
+      object Label2: TLabel
+        Left = 8
+        Height = 13
+        Top = 8
+        Width = 33
+        Caption = '&Length'
+        FocusControl = LengthCombo
+        ParentColor = False
+      end
+      object Label3: TLabel
+        Left = 8
+        Height = 13
+        Top = 56
+        Width = 35
+        Caption = '&Volume'
+        FocusControl = VolumeCombo
+        ParentColor = False
+      end
+      object Label4: TLabel
+        Left = 8
+        Height = 13
+        Top = 104
+        Width = 23
+        Caption = '&Time'
+        FocusControl = TimeCombo
+        ParentColor = False
+      end
+      object DiamLabel: TLabel
+        Left = 8
+        Height = 13
+        Top = 152
+        Width = 105
+        Caption = '&Diameter/Meteorology'
+        FocusControl = DiamCombo
+        ParentColor = False
+      end
+      object Label8: TLabel
+        Left = 160
+        Height = 13
+        Top = 8
+        Width = 101
+        Caption = '&Chemistry Parameters'
+        FocusControl = ChemCombo
+        ParentColor = False
+      end
+      object Label7: TLabel
+        Left = 160
+        Height = 13
+        Top = 56
+        Width = 104
+        Caption = '&Electrical Conductivity'
+        FocusControl = ECCombo
+        ParentColor = False
+      end
+      object Label18: TLabel
+        Left = 160
+        Height = 13
+        Top = 104
+        Width = 102
+        Caption = '&NO3/NO2/NH4/PO4'
+        FocusControl = NComboBox
+        ParentColor = False
+      end
+      object Label25: TLabel
+        Left = 160
+        Height = 13
+        Top = 152
+        Width = 41
+        Caption = '&Pressure'
+        FocusControl = PressureComboBox
+        ParentColor = False
+      end
+      object LengthCombo: TComboBox
+        Left = 8
+        Height = 21
+        Top = 24
+        Width = 145
+        ItemHeight = 0
+        Style = csDropDownList
+        TabOrder = 0
+      end
+      object VolumeCombo: TComboBox
+        Left = 8
+        Height = 21
+        Top = 72
+        Width = 145
+        ItemHeight = 0
+        Style = csDropDownList
+        TabOrder = 1
+      end
+      object TimeCombo: TComboBox
+        Left = 8
+        Height = 21
+        Top = 120
+        Width = 145
+        ItemHeight = 0
+        Style = csDropDownList
+        TabOrder = 2
+      end
+      object DiamCombo: TComboBox
+        Left = 8
+        Height = 21
+        Top = 168
+        Width = 145
+        ItemHeight = 0
+        Style = csDropDownList
+        TabOrder = 3
+      end
+      object ChemCombo: TComboBox
+        Left = 160
+        Height = 21
+        Top = 24
+        Width = 145
+        ItemHeight = 0
+        Style = csDropDownList
+        TabOrder = 4
+      end
+      object ECCombo: TComboBox
+        Left = 160
+        Height = 21
+        Top = 72
+        Width = 145
+        ItemHeight = 0
+        Style = csDropDownList
+        TabOrder = 5
+      end
+      object NComboBox: TComboBox
+        Left = 160
+        Height = 21
+        Top = 120
+        Width = 145
+        ItemHeight = 0
+        Items.Strings = (
+          'as N (Nitrogen) & P (Phos.)'
+          'as NO3/NH4 & PO4'
+        )
+        Style = csDropDownList
+        TabOrder = 6
+      end
+      object PressureComboBox: TComboBox
+        Left = 160
+        Height = 21
+        Top = 168
+        Width = 145
+        ItemHeight = 0
+        Items.Strings = (
+          'Pascal [Pa]'
+        )
+        Style = csDropDownList
+        TabOrder = 7
+      end
+    end
+    object ChemTabSheet: TTabSheet
+      Caption = 'Chemistry'
+      ClientHeight = 209
+      ClientWidth = 326
+      object Label10: TLabel
+        Left = 8
+        Height = 10
+        Top = 8
+        Width = 84
+        Caption = 'Default Standard:'
+        ParentColor = False
+      end
+      object StandardComboBox: TComboBox
+        Left = 9
+        Height = 25
+        Hint = 'Change default chemistry standard'
+        Top = 24
+        Width = 281
+        DropDownCount = 5
+        ItemHeight = 0
+        OnChange = StandardComboBoxChange
+        Style = csDropDownList
+        TabOrder = 0
+      end
+      object LimitBox: TGroupBox
+        Left = 16
+        Height = 142
+        Top = 50
+        Width = 281
+        Caption = 'Display of Limits:'
+        ClientHeight = 128
+        ClientWidth = 277
+        TabOrder = 1
+        object Label11: TLabel
+          Left = 8
+          Height = 10
+          Top = 12
+          Width = 99
+          Caption = 'Max. recommended:'
+          ParentColor = False
+        end
+        object Label12: TLabel
+          Left = 8
+          Height = 10
+          Top = 36
+          Width = 73
+          Caption = 'Max. allowable:'
+          ParentColor = False
+        end
+        object Label13: TLabel
+          Left = 8
+          Height = 10
+          Top = 76
+          Width = 96
+          Caption = 'Min. recommended:'
+          ParentColor = False
+        end
+        object Label14: TLabel
+          Left = 8
+          Height = 10
+          Top = 100
+          Width = 70
+          Caption = 'Min. allowable:'
+          ParentColor = False
+        end
+        object Edit1: TEdit
+          Cursor = crArrow
+          Left = 144
+          Height = 20
+          Top = 8
+          Width = 49
+          Alignment = taRightJustify
+          AutoSize = False
+          AutoSelect = False
+          Font.Color = clRed
+          Font.Height = -12
+          Font.Name = 'Default'
+          OnClick = Edit1Click
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 0
+          Text = '140.0'
+        end
+        object Edit2: TEdit
+          Cursor = crArrow
+          Left = 144
+          Height = 20
+          Top = 32
+          Width = 49
+          Alignment = taRightJustify
+          AutoSize = False
+          AutoSelect = False
+          Font.Color = clMaroon
+          Font.Height = -12
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          OnClick = Edit2Click
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 1
+          Text = '300.0'
+        end
+        object Edit3: TEdit
+          Cursor = crArrow
+          Left = 144
+          Height = 20
+          Top = 72
+          Width = 49
+          Alignment = taRightJustify
+          AutoSize = False
+          AutoSelect = False
+          Font.Color = clTeal
+          Font.Height = -12
+          Font.Name = 'MS Sans Serif'
+          OnClick = Edit3Click
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 2
+          Text = '0.5'
+        end
+        object Edit4: TEdit
+          Cursor = crArrow
+          Left = 144
+          Height = 20
+          Top = 96
+          Width = 49
+          Alignment = taRightJustify
+          AutoSize = False
+          AutoSelect = False
+          Font.Color = clBlue
+          Font.Height = -12
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          OnClick = Edit4Click
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 3
+          Text = '0.001'
+        end
+        object Button1: TButton
+          Left = 204
+          Height = 20
+          Hint = 'Change font size and colour'
+          Top = 8
+          Width = 70
+          Caption = 'Change...'
+          OnClick = Button1Click
+          TabOrder = 4
+        end
+        object Button2: TButton
+          Left = 204
+          Height = 20
+          Hint = 'Change font size and colour'
+          Top = 32
+          Width = 70
+          Caption = 'Change...'
+          OnClick = Button2Click
+          TabOrder = 5
+        end
+        object Button3: TButton
+          Left = 204
+          Height = 20
+          Hint = 'Change font size and colour'
+          Top = 72
+          Width = 70
+          Caption = 'Change...'
+          OnClick = Button3Click
+          TabOrder = 6
+        end
+        object Button4: TButton
+          Left = 204
+          Height = 20
+          Hint = 'Change font size and colour'
+          Top = 96
+          Width = 70
+          Caption = 'Change...'
+          OnClick = Button4Click
+          TabOrder = 7
+        end
+      end
+    end
+    object ReportsTabSheet: TTabSheet
+      Caption = 'Reports'
+      ClientHeight = 209
+      ClientWidth = 326
+      object PageControl2: TPageControl
+        Left = 0
+        Height = 128
+        Top = 77
+        Width = 317
+        ActivePage = TabSheet2
+        Align = alBottom
+        TabIndex = 0
+        TabOrder = 0
+        object TabSheet2: TTabSheet
+          Caption = 'Portrait'
+          ClientHeight = 124
+          ClientWidth = 313
+          object GroupBox2: TGroupBox
+            Left = 4
+            Height = 130
+            Top = 0
+            Width = 294
+            Caption = 'Margins:'
+            ClientHeight = 113
+            ClientWidth = 290
+            TabOrder = 0
+            object Label19: TLabel
+              Left = 8
+              Height = 14
+              Top = 4
+              Width = 101
+              Caption = 'Left Margin [mm]:'
+              ParentColor = False
+            end
+            object Label20: TLabel
+              Left = 8
+              Height = 14
+              Top = 34
+              Width = 99
+              Caption = 'Top Margin [mm]:'
+              ParentColor = False
+            end
+            object Label22: TLabel
+              Left = 8
+              Height = 14
+              Top = 64
+              Width = 121
+              Caption = 'Bottom Margin [mm]:'
+              ParentColor = False
+            end
+            object SpinEdit1: TSpinEdit
+              Left = 130
+              Height = 24
+              Top = 0
+              Width = 60
+              Alignment = taRightJustify
+              MaxValue = 20
+              MinValue = 10
+              TabOrder = 0
+              Value = 20
+            end
+            object SpinEdit2: TSpinEdit
+              Left = 130
+              Height = 24
+              Top = 30
+              Width = 60
+              Alignment = taRightJustify
+              MaxValue = 20
+              MinValue = 5
+              TabOrder = 1
+              Value = 12
+            end
+            object SpinEdit3: TSpinEdit
+              Left = 130
+              Height = 24
+              Top = 60
+              Width = 60
+              Alignment = taRightJustify
+              MaxValue = 40
+              MinValue = 5
+              TabOrder = 2
+              Value = 13
+            end
+          end
+        end
+        object TabSheet3: TTabSheet
+          Caption = 'Landscape'
+          ClientHeight = 124
+          ClientWidth = 313
+          ImageIndex = 1
+          object GroupBox3: TGroupBox
+            Left = 4
+            Height = 130
+            Top = 0
+            Width = 294
+            Caption = 'Margins:'
+            ClientHeight = 113
+            ClientWidth = 290
+            TabOrder = 0
+            object Label23: TLabel
+              Left = 8
+              Height = 14
+              Top = 4
+              Width = 101
+              Caption = 'Left Margin [mm]:'
+              ParentColor = False
+            end
+            object Label24: TLabel
+              Left = 8
+              Height = 14
+              Top = 34
+              Width = 99
+              Caption = 'Top Margin [mm]:'
+              ParentColor = False
+            end
+            object Label27: TLabel
+              Left = 8
+              Height = 14
+              Top = 64
+              Width = 109
+              Caption = 'Right Margin [mm]:'
+              ParentColor = False
+            end
+            object SpinEdit4: TSpinEdit
+              Left = 130
+              Height = 24
+              Top = 0
+              Width = 60
+              Alignment = taRightJustify
+              MaxValue = 40
+              MinValue = 10
+              TabOrder = 0
+              Value = 13
+            end
+            object SpinEdit5: TSpinEdit
+              Left = 130
+              Height = 24
+              Top = 30
+              Width = 60
+              Alignment = taRightJustify
+              MaxValue = 30
+              MinValue = 10
+              TabOrder = 1
+              Value = 20
+            end
+            object SpinEdit6: TSpinEdit
+              Left = 130
+              Height = 24
+              Top = 60
+              Width = 60
+              Alignment = taRightJustify
+              MaxValue = 20
+              MinValue = 10
+              TabOrder = 2
+              Value = 12
+            end
+          end
+        end
+      end
+      object CheckBoxShowNoInfo: TCheckBox
+        Left = 4
+        Height = 24
+        Hint = 'Otherwise field will be empty'
+        Top = 20
+        Width = 261
+        Caption = 'Show "No Information" when field is NULL'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 1
+      end
+      object ColorButtonPReportHeader: TColorButton
+        Left = 4
+        Height = 28
+        Top = 44
+        Width = 112
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clSilver
+        ColorDialog = ColorDialog1
+        Caption = 'Report header'
+      end
+      object ColorButtonPColumnHeader: TColorButton
+        Left = 120
+        Height = 28
+        Top = 44
+        Width = 114
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clMoneyGreen
+        ColorDialog = ColorDialog1
+        Caption = 'Column header'
+      end
+      object FontBtn: TBitBtn
+        Left = 238
+        Height = 28
+        Hint = 'Choose font for report (default: Arial)'
+        Top = 44
+        Width = 70
+        Caption = 'Font'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00CE68
+          38AEDA8F5DFEDB9060FFD78350EDC4502B8DBD422310BC3F222AC34D2BA2D071
+          42EAD67E51FFD57C4DFFC65531BDB6391D31FFFFFF00FFFFFF00FFFFFF00CA5C
+          2F0ACB5F3044E1A475FFDA8C58ECC6522C3DFFFFFF00FFFFFF00BF452413C348
+          277FDC966BFFDB8F60FFBD3F2154B6381E02FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00CB5D3001D3743F9BE2A97CFFCC663799FFFFFF00FFFFFF00FFFFFF00CC63
+          37B1DFA077FFDA895AFFBB3E2222FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00CC633215DB935EEAE2A779FFD8834AD3CF6A3AB2CE6839B5D57A
+          45D8E3A881FFD98656F9BE41231BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00CF6A365CDF9D68F6DA8B52D1CB5F314EC7592E2ACD67
+          37A0E1A67AFFD88653F2BF46250DFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00D06A3503D78042AADF9F6AF7CD663466C95D2F0ACC61
+          3388E1A679FFD57A44D2C24A2706FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00D1713822DE9B63E2DC965EDFCF693554CF69
+          3580E2A97CFFD16C3AA5FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D4793C77E2A670F7DA8847ADD67E
+          43A0E4AE82FFCF6D3A99FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D67D3B1CDD9656BAE3A973F2E1A8
+          73F5E1A471F7D3773E98CB5F3008FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D7833E53E2A76CDEE9BC91FFE7BA
+          8FFFE7B78BFFE2A471FBD67E42B6CB5C2F0AFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D8874040D88B4385DA8E4994D989
+          438FD8844090D884419AD3733A8ACC62320DC95B2E01FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+        }
+        OnClick = FontBtnClick
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+      end
+      object CheckBoxWSpace: TCheckBox
+        Left = 4
+        Height = 24
+        Top = 0
+        Width = 183
+        Caption = 'Use for this workspace only'
+        TabOrder = 3
+      end
+    end
+    object SystemTabSheet: TTabSheet
+      Caption = 'System'
+      ClientHeight = 209
+      ClientWidth = 326
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      OnEnter = SystemTabSheetEnter
+      OnExit = SystemTabSheetExit
+      ParentFont = False
+      object Label28: TLabel
+        Left = 16
+        Height = 13
+        Top = 140
+        Width = 88
+        Caption = '&System Language:'
+        FocusControl = LangComboBox
+        ParentColor = False
+      end
+      object LangComboBox: TComboBox
+        Left = 112
+        Height = 21
+        Top = 136
+        Width = 169
+        DropDownCount = 5
+        ItemHeight = 0
+        ItemIndex = 0
+        Items.Strings = (
+          'English'
+        )
+        Style = csDropDownList
+        TabOrder = 0
+        Text = 'English'
+      end
+      object GroupBox4: TGroupBox
+        Left = 8
+        Height = 112
+        Top = 16
+        Width = 297
+        Caption = '&Directories:'
+        ClientHeight = 95
+        ClientWidth = 293
+        TabOrder = 1
+        object EditQGISExe: TEdit
+          Left = 8
+          Height = 21
+          Hint = 'Full Path to your QGIS Executable'
+          Top = 16
+          Width = 248
+          Enabled = False
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          Text = 'qgis'
+        end
+        object Label6: TLabel
+          Left = 8
+          Height = 13
+          Top = 1
+          Width = 122
+          Caption = '&Path to QGIS Executable:'
+          FocusControl = EditQGISExe
+          ParentColor = False
+        end
+        object Label16: TLabel
+          Left = 8
+          Height = 13
+          Top = 48
+          Width = 137
+          Caption = 'Settings and &Language Files:'
+          FocusControl = EditSettingsDir
+          ParentColor = False
+        end
+        object EditSettingsDir: TEdit
+          Left = 8
+          Height = 21
+          Top = 65
+          Width = 248
+          TabOrder = 1
+        end
+        object SpeedButton3: TSpeedButton
+          Left = 264
+          Height = 22
+          Hint = 'Browse...'
+          Top = 64
+          Width = 23
+          Glyph.Data = {
+            36040000424D3604000000000000360000002800000010000000100000000100
+            2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00276AA358548CBCF6508ABAFFFFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF004A7FB1656298C9EF92B9DEFF4983B6F5FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00E0B69321E0BA9A7FE6C6
+            ABFFE6C5A9FFDFBA9BFDB6A397FE9CB8D3FF5E95C8F22B6CA6582C86D8702D88
+            D8A62D87D8EA2D88D8F72D88D8F72D88D8F72D88D8F7A8AFB5FCF2DCC9FFF8E3
+            CEFFF7E0C7FFF8E2CBFFF3D1B3FFB2A399FE447EB85FFFFFFF00338ED9E6DCF0
+            FAF0A7DDF4FD9EDBF4FF96DAF3FF8ED8F3FF86D7F3FFE5C4A8FFF5E5D6FFF4DA
+            C1FFF3D8BDFFF3D8BDFFF8E3CCFFD9B69AFFFFFFFF00FFFFFF003594DAF7EFFA
+            FEFFA1E9F9FF91E5F8FF81E1F7FF72DEF6FF63DAF5FFE0BD9EFFF8EADCFFF4DD
+            C6FFF4DCC4FFF3D8BDFFF8E2CDFFE4C1A4FFFFFFFF00FFFFFF00369ADAF8F2FA
+            FDFFB3EDFAFFA4E9F9FF95E6F8FF85E2F7FF76DEF6FFE6C6AAFFF3E4D6FFF6E0
+            CAFFF5DEC6FFF5DEC5FFF8E6D3FFE0C2A8FFFFFFFF00FFFFFF0036A1DAF9F6FC
+            FEFFC8F2FCFFB9EFFBFFACECFAFF9CE8F9FF8BE3F7FFA3D2D3FFE9CDB4FFF5E7
+            DBFFF8ECDFFFF2DDC9FFEBD0B8FFA7B3B2FCFFFFFF00FFFFFF0037A6DAFAFEFF
+            FFFFF8FDFFFFF6FDFFFFF5FCFFFFF3FCFEFFD8F6FCFF95E6F8FFA9D4D4FFC8C6
+            B3FFE0BD9EFFE5C4A7FFE2CFBAFF47A7D4F8FFFFFF00FFFFFF0035ABDAFAE8F6
+            FBFF94D4EFFF88CEEEFF73C1E9FFC9E9F6FFF2FCFEFFF3FCFEFFF2FCFEFFF0FC
+            FEFFEFFBFEFFEEFBFEFFFEFFFFFF36ABDAF7FFFFFF00FFFFFF0036AADAF2F1FA
+            FDFF94DEF5FF93DCF4FF81D5F2FF6ACAEDFF6CCBEAFF85D3EFFF80D2EFFF7AD0
+            EFFF76CFEEFF72CFEEFFE9F7FBFF34AEDAF3FFFFFF00FFFFFF0035AFDAF0F7FC
+            FEFF8EE4F8FF91DEF5FF9FE0F5FFACE1F6FFEFFBFEFFF4FDFEFFF3FCFEFFF1FC
+            FEFFEFFBFEFFEEFBFEFFFAFDFFF936AFDAD4FFFFFF00FFFFFF0036B3DAF8FDFE
+            FEFFFEFFFFFFFEFEFFFFFDFEFFFFFEFFFFFFEAF7FBFF6BC7E4F96BC7E3F86BC7
+            E3F86BC7E3F879CDE6F774CAE5E132B1D956FFFFFF00FFFFFF0034B4D9D05EC2
+            E1FA60C3E2FA60C3E2FA60C3E2FA5FC3E2FA3CB6DBDD2CB2D8162CB2D80F2CB2
+            D80F2CB2D80F2CB2D80F2CB3D80F2CB3D804FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+          }
+          OnClick = SpeedButton3Click
+          ShowHint = True
+          ParentShowHint = False
+        end
+        object SpeedButton4: TSpeedButton
+          Left = 264
+          Height = 22
+          Hint = 'Browse...'
+          Top = 16
+          Width = 23
+          Glyph.Data = {
+            36040000424D3604000000000000360000002800000010000000100000000100
+            2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00276AA358548CBCF6508ABAFFFFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF004A7FB1656298C9EF92B9DEFF4983B6F5FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00E0B69321E0BA9A7FE6C6
+            ABFFE6C5A9FFDFBA9BFDB6A397FE9CB8D3FF5E95C8F22B6CA6582C86D8702D88
+            D8A62D87D8EA2D88D8F72D88D8F72D88D8F72D88D8F7A8AFB5FCF2DCC9FFF8E3
+            CEFFF7E0C7FFF8E2CBFFF3D1B3FFB2A399FE447EB85FFFFFFF00338ED9E6DCF0
+            FAF0A7DDF4FD9EDBF4FF96DAF3FF8ED8F3FF86D7F3FFE5C4A8FFF5E5D6FFF4DA
+            C1FFF3D8BDFFF3D8BDFFF8E3CCFFD9B69AFFFFFFFF00FFFFFF003594DAF7EFFA
+            FEFFA1E9F9FF91E5F8FF81E1F7FF72DEF6FF63DAF5FFE0BD9EFFF8EADCFFF4DD
+            C6FFF4DCC4FFF3D8BDFFF8E2CDFFE4C1A4FFFFFFFF00FFFFFF00369ADAF8F2FA
+            FDFFB3EDFAFFA4E9F9FF95E6F8FF85E2F7FF76DEF6FFE6C6AAFFF3E4D6FFF6E0
+            CAFFF5DEC6FFF5DEC5FFF8E6D3FFE0C2A8FFFFFFFF00FFFFFF0036A1DAF9F6FC
+            FEFFC8F2FCFFB9EFFBFFACECFAFF9CE8F9FF8BE3F7FFA3D2D3FFE9CDB4FFF5E7
+            DBFFF8ECDFFFF2DDC9FFEBD0B8FFA7B3B2FCFFFFFF00FFFFFF0037A6DAFAFEFF
+            FFFFF8FDFFFFF6FDFFFFF5FCFFFFF3FCFEFFD8F6FCFF95E6F8FFA9D4D4FFC8C6
+            B3FFE0BD9EFFE5C4A7FFE2CFBAFF47A7D4F8FFFFFF00FFFFFF0035ABDAFAE8F6
+            FBFF94D4EFFF88CEEEFF73C1E9FFC9E9F6FFF2FCFEFFF3FCFEFFF2FCFEFFF0FC
+            FEFFEFFBFEFFEEFBFEFFFEFFFFFF36ABDAF7FFFFFF00FFFFFF0036AADAF2F1FA
+            FDFF94DEF5FF93DCF4FF81D5F2FF6ACAEDFF6CCBEAFF85D3EFFF80D2EFFF7AD0
+            EFFF76CFEEFF72CFEEFFE9F7FBFF34AEDAF3FFFFFF00FFFFFF0035AFDAF0F7FC
+            FEFF8EE4F8FF91DEF5FF9FE0F5FFACE1F6FFEFFBFEFFF4FDFEFFF3FCFEFFF1FC
+            FEFFEFFBFEFFEEFBFEFFFAFDFFF936AFDAD4FFFFFF00FFFFFF0036B3DAF8FDFE
+            FEFFFEFFFFFFFEFEFFFFFDFEFFFFFEFFFFFFEAF7FBFF6BC7E4F96BC7E3F86BC7
+            E3F86BC7E3F879CDE6F774CAE5E132B1D956FFFFFF00FFFFFF0034B4D9D05EC2
+            E1FA60C3E2FA60C3E2FA60C3E2FA5FC3E2FA3CB6DBDD2CB2D8162CB2D80F2CB2
+            D80F2CB2D80F2CB2D80F2CB3D80F2CB3D804FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+          }
+          OnClick = SpeedButton4Click
+          ShowHint = True
+          ParentShowHint = False
+        end
+      end
+      object CheckBoxAutoEdit: TCheckBox
+        Left = 16
+        Height = 17
+        Top = 184
+        Width = 246
+        Caption = 'Auto-edit data (may cause editing without intent)'
+        TabOrder = 2
+      end
+      object CheckBoxUpdates: TCheckBox
+        Left = 16
+        Height = 17
+        Hint = 'Un-checking this will prevent Aquabase automatically looking for updates, which may speed up the startup process'
+        Top = 163
+        Width = 203
+        Caption = 'Look for Aquabase Updates on startup'
+        Checked = True
+        OnChange = CheckBoxUpdatesChange
+        ParentShowHint = False
+        ShowHint = True
+        State = cbChecked
+        TabOrder = 3
+      end
+    end
+    object UserTabSheet: TTabSheet
+      Caption = 'User'
+      ClientHeight = 209
+      ClientWidth = 326
+      object Bevel3: TBevel
+        Left = 8
+        Height = 43
+        Top = 158
+        Width = 297
+      end
+      object Label1: TLabel
+        Left = 8
+        Height = 13
+        Top = 8
+        Width = 93
+        Caption = 'Name and Address:'
+        ParentColor = False
+      end
+      object Label5: TLabel
+        Left = 128
+        Height = 28
+        Top = 168
+        Width = 160
+        AutoSize = False
+        Caption = '(Note that "userlogo.jpg|bmp" in workspace provides user logo)'
+        Font.Color = clWindowText
+        Font.Height = -9
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+        WordWrap = True
+      end
+      object Image2: TImage
+        Left = 24
+        Height = 33
+        Top = 163
+        Width = 50
+        Stretch = True
+      end
+      object SpeedButton2: TSpeedButton
+        Left = 88
+        Height = 30
+        Hint = 'Load Userlogo.bmp'
+        Top = 164
+        Width = 30
+        Glyph.Data = {
+          26010000424D26010000000000004600000028000000100000000E0000000100
+          080000000000E0000000C30E0000C30E0000040000000000000000000000FFFF
+          FF000086840000FFFF0001000000000000000000000001010101010000020202
+          0202020202020001010101000300020202020202020202000101010001030002
+          0202020202020202000101000301030002020202020202020200010001030103
+          0000000000000000000001000301030103010301030001010101010001030103
+          0103010301000101010101000301030000000000000001010101010100000001
+          0101010101010100000001010101010101010101010101010000010101010101
+          0101010001010100010001010101010101010101000000010101010101010101
+          01010101010101010101
+        }
+        OnClick = SpeedButton2Click
+      end
+      object Memo1: TMemo
+        Left = 8
+        Height = 99
+        Top = 24
+        Width = 297
+        Lines.Strings = (
+          'User Name and Address'
+        )
+        TabOrder = 0
+      end
+      object Button8: TButton
+        Left = 208
+        Height = 25
+        Top = 128
+        Width = 75
+        Caption = '&Save'
+        OnClick = Button8Click
+        TabOrder = 1
+      end
+      object Button9: TButton
+        Left = 120
+        Height = 25
+        Top = 128
+        Width = 75
+        Caption = '&Clear'
+        OnClick = Button9Click
+        TabOrder = 2
+      end
+      object Button7: TButton
+        Left = 32
+        Height = 25
+        Top = 128
+        Width = 75
+        Caption = '&Browse'
+        OnClick = Button7Click
+        TabOrder = 3
+      end
+    end
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 36
+    Hint = 'Apply preferences without closing'
+    Top = 245
+    Width = 326
+    OKButton.Name = 'OKButton'
+    OKButton.Caption = '&Apply'
+    OKButton.DefaultCaption = False
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'ApplyButton'
+    CancelButton.Hint = 'Apply settings without closing'
+    CancelButton.Caption = 'Apply'
+    CancelButton.DefaultCaption = False
+    CancelButton.ShowHint = True
+    TabOrder = 1
+    ShowButtons = [pbOK, pbClose, pbHelp]
+  end
+  object UnitTable: TZTable
+    Connection = DataModuleMain.ZConnectionLanguage
+    ReadOnly = True
+    left = 88
+    top = 216
+  end
+  object FontDialog: TFontDialog
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'System'
+    MinFontSize = 6
+    MaxFontSize = 12
+    left = 232
+    top = 80
+  end
+  object OpenDialog: TOpenDialog
+    Filter = 'JPEG File (*.jpg)|*.jpg|Bitmap File (*.bmp)|*.bmp'
+    Options = [ofEnableSizing]
+    left = 32
+    top = 208
+  end
+  object CountryTable: TZTable
+    Connection = DataModuleMain.ZConnectionLanguage
+    SortedFields = 'C_NAME'
+    ReadOnly = True
+    TableName = 'Countries'
+    IndexFieldNames = 'C_NAME Asc'
+    left = 256
+    top = 216
+  end
+  object SelectDirectoryDialog: TSelectDirectoryDialog
+    left = 152
+    top = 40
+  end
+  object ColorDialog1: TColorDialog
+    Color = clBlack
+    CustomColors.Strings = (
+      'ColorA=000000'
+      'ColorB=000080'
+      'ColorC=008000'
+      'ColorD=008080'
+      'ColorE=800000'
+      'ColorF=800080'
+      'ColorG=808000'
+      'ColorH=808080'
+      'ColorI=C0C0C0'
+      'ColorJ=0000FF'
+      'ColorK=00FF00'
+      'ColorL=00FFFF'
+      'ColorM=FF0000'
+      'ColorN=FF00FF'
+      'ColorO=FFFF00'
+      'ColorP=FFFFFF'
+      'ColorQ=C0DCC0'
+      'ColorR=F0CAA6'
+      'ColorS=F0FBFF'
+      'ColorT=A4A0A0'
+    )
+    left = 280
+    top = 160
+  end
+end

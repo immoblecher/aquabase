@@ -1,0 +1,250 @@
+inherited SpecCasesForm: TSpecCasesForm
+  Left = 591
+  Caption = 'Special Cases'
+  OnActivate = FormActivate
+  inherited Panel1: TPanel
+    inherited ViewNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited BasicDBNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited Panel2: TPanel
+    Height = 217
+    Top = 151
+    ClientHeight = 217
+    inherited Panel4: TPanel
+      Top = 187
+      inherited DetailNavigator: TDBNavigator
+        Hints.Strings = (        )
+      end
+      inherited StaticText1: TStaticText
+        Left = 461
+        Width = 38
+      end
+    end
+    inherited DBGrid: TDBGrid
+      Height = 162
+      TabOrder = 2
+    end
+    inherited LinkedLabel: TLabel
+      Top = 4
+    end
+    object AMSLCheckBox: TCheckBox[3]
+      Left = 508
+      Height = 17
+      Top = 2
+      Width = 61
+      Anchors = [akTop, akRight]
+      Caption = 'a.m.s.l.'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      OnClick = AMSLCheckBoxClick
+      ParentFont = False
+      TabOrder = 1
+      TabStop = False
+    end
+  end
+  inherited GroupBox1: TGroupBox
+    Height = 107
+    ClientHeight = 89
+    inherited RxDBLookupComboType: TRxDBLookupCombo
+      Height = 27
+    end
+  end
+  inherited BasicinfDataSource: TDataSource
+    left = 328
+  end
+  inherited LinkedDataSource: TDataSource
+    left = 168
+    top = 273
+  end
+  inherited LinkedQuery: TZQuery
+    BeforeOpen = LinkedQueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM specases WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    left = 72
+    top = 273
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object LinkedQueryNR_HOLES: TLongintField[1]
+      DisplayLabel = 'Nr. of holes'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NR_HOLES'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object LinkedQueryDEPTH_DEEP: TFloatField[2]
+      DisplayLabel = 'Depth deepest'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH_DEEP'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryDEPTHGetText
+      OnSetText = LinkedQueryDEPTHSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 22
+    end
+    object LinkedQueryDEPTH_SHAL: TFloatField[3]
+      DisplayLabel = 'Depth shall.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH_SHAL'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryDEPTHGetText
+      OnSetText = LinkedQueryDEPTHSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 22
+    end
+    object LinkedQueryMETH_CONST: TStringField[4]
+      Tag = 9
+      Alignment = taCenter
+      DisplayLabel = 'Meth. constr.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'METH_CONST'
+      Index = 4
+      LookupCache = False
+      LookupKeyFields = 'CONSMETH'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryMETH_CONSTSetText
+      OnValidate = LinkedQueryMETH_CONSTValidate
+      Size = 4
+    end
+    object LinkedQueryDIAMETER: TFloatField[5]
+      DisplayLabel = 'Diameter'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DIAMETER'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryDIAMETERGetText
+      OnSetText = LinkedQueryDIAMETERSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 22
+    end
+    object LinkedQueryLENGTH_PTD: TFloatField[6]
+      DisplayLabel = 'Length Pond/Tunnel/Drain'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LENGTH_PTD'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryLENGTHGetText
+      OnSetText = LinkedQueryLENGTHSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 22
+    end
+    object LinkedQuerySTRIKE_PTD: TLongintField[7]
+      DisplayLabel = 'Strike Pond/Tunnel/Drain'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'STRIKE_PTD'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object LinkedQueryDIP_TUN_DR: TLongintField[8]
+      DisplayLabel = 'Dip Tunnel/Drain'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DIP_TUN_DR'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object LinkedQueryDEPTH_LATE: TFloatField[9]
+      DisplayLabel = 'Depth of lat. coll.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH_LATE'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryDEPTHGetText
+      OnSetText = LinkedQueryDEPTHSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 22
+    end
+    object LinkedQueryLEN_LATERL: TFloatField[10]
+      DisplayLabel = 'Length of lat. coll.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LEN_LATERL'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryLENGTHGetText
+      OnSetText = LinkedQueryLENGTHSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 22
+    end
+    object LinkedQueryMESH_SCRN: TFloatField[11]
+      DisplayLabel = 'Mesh of screen'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'MESH_SCRN'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryDIAMETERGetText
+      OnSetText = LinkedQueryDIAMETERSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 22
+    end
+  end
+end

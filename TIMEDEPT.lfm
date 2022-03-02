@@ -1,0 +1,1756 @@
+object TimeDeptForm: TTimeDeptForm
+  Left = 732
+  Height = 354
+  Top = 129
+  Width = 606
+  HelpContext = 931
+  BorderStyle = bsSingle
+  Caption = 'Time dependent Chart Settings'
+  ClientHeight = 354
+  ClientWidth = 606
+  Color = clBtnFace
+  Font.Color = clBlack
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = [fsBold]
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 38
+    Top = 310
+    Width = 594
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.Enabled = False
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.HelpContext = 931
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 0
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 304
+    Top = 0
+    Width = 606
+    ActivePage = TabSheetTopChart
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 1
+    object TabSheetTopChart: TTabSheet
+      Caption = 'Top Chart'
+      ClientHeight = 278
+      ClientWidth = 596
+      object PageControl2: TPageControl
+        Left = 0
+        Height = 278
+        Top = 0
+        Width = 596
+        ActivePage = TabSheetTopLeftAxis
+        Align = alClient
+        TabIndex = 0
+        TabOrder = 0
+        object TabSheetTopLeftAxis: TTabSheet
+          Caption = 'Left Axis'
+          ClientHeight = 252
+          ClientWidth = 586
+          object GroupBox1: TGroupBox
+            Left = 304
+            Height = 204
+            Top = 38
+            Width = 276
+            Caption = 'Time step, sites and chart type:'
+            ClientHeight = 191
+            ClientWidth = 274
+            TabOrder = 0
+            object AggregateRadioGroup1: TRadioGroup
+              Tag = 1
+              Left = 170
+              Height = 100
+              Hint = 'Choose aggregate function'
+              Top = 79
+              Width = 96
+              AutoFill = True
+              Caption = 'Aggregate'
+              ChildSizing.LeftRightSpacing = 6
+              ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+              ChildSizing.EnlargeVertical = crsHomogenousChildResize
+              ChildSizing.ShrinkHorizontal = crsScaleChilds
+              ChildSizing.ShrinkVertical = crsScaleChilds
+              ChildSizing.Layout = cclLeftToRightThenTopToBottom
+              ChildSizing.ControlsPerLine = 1
+              ClientHeight = 87
+              ClientWidth = 94
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemIndex = 0
+              Items.Strings = (
+                'Average'
+                'Minimum'
+                'Maximum'
+                'Sum'
+              )
+              ParentFont = False
+              TabOrder = 2
+            end
+            object TypeRadioGroup1: TRadioGroup
+              Tag = 1
+              Left = 170
+              Height = 56
+              Top = 4
+              Width = 96
+              AutoFill = True
+              Caption = 'Chart Type'
+              ChildSizing.LeftRightSpacing = 6
+              ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+              ChildSizing.EnlargeVertical = crsHomogenousChildResize
+              ChildSizing.ShrinkHorizontal = crsScaleChilds
+              ChildSizing.ShrinkVertical = crsScaleChilds
+              ChildSizing.Layout = cclLeftToRightThenTopToBottom
+              ChildSizing.ControlsPerLine = 1
+              ClientHeight = 43
+              ClientWidth = 94
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemIndex = 0
+              Items.Strings = (
+                'Line'
+                'Bar'
+              )
+              ParentFont = False
+              TabOrder = 1
+            end
+            object TimeStepRadioGroup1: TRadioGroup
+              Tag = 1
+              Left = 8
+              Height = 100
+              Hint = 'Choose a time step'
+              Top = 4
+              Width = 156
+              AutoFill = True
+              Caption = 'Time Step'
+              ChildSizing.LeftRightSpacing = 6
+              ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+              ChildSizing.EnlargeVertical = crsHomogenousChildResize
+              ChildSizing.ShrinkHorizontal = crsScaleChilds
+              ChildSizing.ShrinkVertical = crsScaleChilds
+              ChildSizing.Layout = cclLeftToRightThenTopToBottom
+              ChildSizing.ControlsPerLine = 1
+              ClientHeight = 87
+              ClientWidth = 154
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemIndex = 0
+              Items.Strings = (
+                'Exact (every point)'
+                'Daily'
+                'Monthly'
+                'Annually'
+              )
+              OnClick = TimeStepRadioGroupClick
+              ParentFont = False
+              TabOrder = 0
+            end
+            object ComboBoxView1: TComboBox
+              Left = 8
+              Height = 25
+              Top = 158
+              Width = 156
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemHeight = 0
+              ItemIndex = 0
+              Items.Strings = (
+                '<Current Site>'
+              )
+              OnDropDown = ComboBoxViewDropDown
+              ParentFont = False
+              Style = csDropDownList
+              TabOrder = 3
+              Text = '<Current Site>'
+            end
+            object Label8: TLabel
+              Left = 8
+              Height = 10
+              Top = 142
+              Width = 70
+              Caption = 'Sites in View:'
+              ParentColor = False
+            end
+            object CheckBoxLimits1: TCheckBox
+              Left = 8
+              Height = 23
+              Top = 112
+              Width = 132
+              Caption = 'Show parameter limits'
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 4
+            end
+          end
+          object GroupBox2: TGroupBox
+            Left = 8
+            Height = 64
+            Top = 178
+            Width = 290
+            Caption = 'Time Settings:'
+            ClientHeight = 51
+            ClientWidth = 288
+            TabOrder = 1
+            object Label1: TLabel
+              Left = 6
+              Height = 10
+              Top = 4
+              Width = 100
+              Caption = 'Start Date and Time:'
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentColor = False
+              ParentFont = False
+            end
+            object Label2: TLabel
+              Left = 148
+              Height = 10
+              Top = 4
+              Width = 96
+              Caption = 'End Date and Time:'
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentColor = False
+              ParentFont = False
+            end
+            object StartDateTimePicker1: TDateTimePicker
+              Left = 6
+              Height = 25
+              Top = 18
+              Width = 132
+              CenturyFrom = 1941
+              DateDisplayOrder = ddoYMD
+              MaxDate = 2958465
+              MinDate = -53780
+              AutoSize = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 0
+              DateSeparator = '/'
+              TrailingSeparator = False
+              TextForNullDate = 'NULL'
+              LeadingZeros = True
+              NullInputAllowed = False
+              Kind = dtkDateTime
+              TimeSeparator = ':'
+              TimeFormat = tf24
+              TimeDisplay = tdHM
+              DateMode = dmComboBox
+              Date = 36526
+              Time = 0.566347893516649
+              UseDefaultSeparators = False
+              HideDateTimeParts = []
+              MonthNames = 'Long'
+            end
+            object EndDateTimePicker1: TDateTimePicker
+              Left = 148
+              Height = 25
+              Top = 18
+              Width = 132
+              CenturyFrom = 1941
+              DateDisplayOrder = ddoYMD
+              MaxDate = 2958465
+              MinDate = -53780
+              AutoSize = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 1
+              DateSeparator = '/'
+              TrailingSeparator = False
+              TextForNullDate = 'NULL'
+              LeadingZeros = True
+              NullInputAllowed = False
+              Kind = dtkDateTime
+              TimeSeparator = ':'
+              TimeFormat = tf24
+              TimeDisplay = tdHM
+              DateMode = dmComboBox
+              Date = 43101
+              Time = 0.566347905092698
+              UseDefaultSeparators = False
+              HideDateTimeParts = []
+              MonthNames = 'Long'
+            end
+          end
+          object GroupBox3: TGroupBox
+            Left = 8
+            Height = 134
+            Top = 38
+            Width = 290
+            Caption = 'Time dependent parameters:'
+            ClientHeight = 121
+            ClientWidth = 288
+            TabOrder = 2
+            object Label6: TLabel
+              Left = 10
+              Height = 10
+              Top = 44
+              Width = 59
+              Caption = 'Filter Field:'
+              ParentColor = False
+            end
+            object Label5: TLabel
+              Left = 10
+              Height = 10
+              Top = 12
+              Width = 56
+              Caption = 'Parameter:'
+              ParentColor = False
+            end
+            object Label7: TLabel
+              Left = 10
+              Height = 10
+              Top = 72
+              Width = 62
+              Caption = 'Filter Value:'
+              ParentColor = False
+            end
+            object YComboBox1: TComboBox
+              Tag = 1
+              Left = 90
+              Height = 25
+              Top = 6
+              Width = 188
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemHeight = 0
+              OnChange = YComboBoxChange
+              ParentFont = False
+              Style = csDropDownList
+              TabOrder = 0
+            end
+            object FilterValueComboBox1: TComboBox
+              Tag = 1
+              Left = 90
+              Height = 25
+              Top = 68
+              Width = 70
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemHeight = 0
+              OnChange = FilterValueComboBoxChange
+              ParentFont = False
+              Style = csDropDownList
+              TabOrder = 2
+            end
+            object FilterFieldComboBox1: TComboBox
+              Tag = 1
+              Left = 90
+              Height = 25
+              Top = 38
+              Width = 188
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemHeight = 0
+              OnChange = FilterFieldComboBoxChange
+              ParentFont = False
+              Style = csDropDownList
+              TabOrder = 1
+            end
+            object CheckBoxCum1: TCheckBox
+              Tag = 1
+              Left = 10
+              Height = 23
+              Top = 94
+              Width = 79
+              Caption = 'Cumulative'
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 4
+            end
+            object CheckBoxReset1: TCheckBox
+              Tag = 1
+              Left = 176
+              Height = 23
+              Top = 94
+              Width = 84
+              Caption = 'Ignore reset'
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 5
+            end
+            object Label29: TLabel
+              Left = 168
+              Height = 10
+              Top = 72
+              Width = 25
+              Caption = 'Unit:'
+              ParentColor = False
+            end
+            object EditUnit1: TEdit
+              Left = 206
+              Height = 23
+              Top = 68
+              Width = 72
+              TabOrder = 3
+            end
+          end
+          object ComboBoxData1: TComboBox
+            Tag = 1
+            Left = 152
+            Height = 25
+            Top = 8
+            Width = 300
+            Enabled = False
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            ItemHeight = 0
+            ItemIndex = 0
+            Items.Strings = (
+              '<none>'
+            )
+            OnChange = ComboBoxDataChange
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 3
+            Text = '<none>'
+          end
+          object Label9: TLabel
+            Left = 9
+            Height = 10
+            Top = 14
+            Width = 115
+            Caption = 'Time dependent data:'
+            ParentColor = False
+          end
+          object CheckBoxUseElev1: TCheckBox
+            Tag = 1
+            Left = 466
+            Height = 23
+            Top = 8
+            Width = 90
+            Caption = 'Use elevation'
+            Enabled = False
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            ParentFont = False
+            TabOrder = 4
+          end
+        end
+        object TabSheetTopRightAxis: TTabSheet
+          Caption = 'Right Axis'
+          ClientHeight = 252
+          ClientWidth = 586
+          TabVisible = False
+          object Label10: TLabel
+            Left = 9
+            Height = 10
+            Top = 14
+            Width = 115
+            Caption = 'Time dependent data:'
+            ParentColor = False
+          end
+          object ComboBoxData2: TComboBox
+            Tag = 2
+            Left = 152
+            Height = 25
+            Top = 8
+            Width = 300
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            ItemHeight = 0
+            ItemIndex = 0
+            Items.Strings = (
+              '<none>'
+            )
+            OnChange = ComboBoxDataChange
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 0
+            Text = '<none>'
+          end
+          object GroupBox4: TGroupBox
+            Left = 8
+            Height = 134
+            Top = 38
+            Width = 290
+            Caption = 'Time dependent parameters:'
+            ClientHeight = 121
+            ClientWidth = 288
+            TabOrder = 1
+            object Label11: TLabel
+              Left = 10
+              Height = 10
+              Top = 44
+              Width = 59
+              Caption = 'Filter Field:'
+              ParentColor = False
+            end
+            object Label12: TLabel
+              Left = 10
+              Height = 10
+              Top = 12
+              Width = 56
+              Caption = 'Parameter:'
+              ParentColor = False
+            end
+            object Label13: TLabel
+              Left = 10
+              Height = 10
+              Top = 72
+              Width = 62
+              Caption = 'Filter Value:'
+              ParentColor = False
+            end
+            object YComboBox2: TComboBox
+              Tag = 2
+              Left = 90
+              Height = 25
+              Top = 6
+              Width = 188
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemHeight = 0
+              OnChange = YComboBoxChange
+              ParentFont = False
+              Style = csDropDownList
+              TabOrder = 0
+            end
+            object FilterValueComboBox2: TComboBox
+              Tag = 2
+              Left = 90
+              Height = 27
+              Top = 68
+              Width = 70
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemHeight = 0
+              OnChange = FilterValueComboBoxChange
+              ParentFont = False
+              Sorted = True
+              TabOrder = 2
+            end
+            object FilterFieldComboBox2: TComboBox
+              Tag = 2
+              Left = 90
+              Height = 25
+              Top = 38
+              Width = 188
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemHeight = 0
+              OnChange = FilterFieldComboBoxChange
+              ParentFont = False
+              Style = csDropDownList
+              TabOrder = 1
+            end
+            object CheckBoxCum2: TCheckBox
+              Tag = 2
+              Left = 10
+              Height = 23
+              Top = 94
+              Width = 79
+              Caption = 'Cumulative'
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 4
+            end
+            object CheckBoxReset2: TCheckBox
+              Tag = 2
+              Left = 176
+              Height = 23
+              Top = 94
+              Width = 84
+              Caption = 'Ignore reset'
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 5
+            end
+            object Label30: TLabel
+              Left = 168
+              Height = 10
+              Top = 72
+              Width = 25
+              Caption = 'Unit:'
+              ParentColor = False
+            end
+            object EditUnit2: TEdit
+              Left = 206
+              Height = 23
+              Top = 68
+              Width = 72
+              TabOrder = 3
+            end
+          end
+          object GroupBox5: TGroupBox
+            Left = 304
+            Height = 204
+            Top = 38
+            Width = 276
+            Caption = 'Time step, sites and chart type:'
+            ClientHeight = 191
+            ClientWidth = 274
+            TabOrder = 2
+            object AggregateRadioGroup2: TRadioGroup
+              Tag = 2
+              Left = 170
+              Height = 100
+              Hint = 'Choose aggregate function'
+              Top = 79
+              Width = 96
+              AutoFill = True
+              Caption = 'Aggregate'
+              ChildSizing.LeftRightSpacing = 6
+              ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+              ChildSizing.EnlargeVertical = crsHomogenousChildResize
+              ChildSizing.ShrinkHorizontal = crsScaleChilds
+              ChildSizing.ShrinkVertical = crsScaleChilds
+              ChildSizing.Layout = cclLeftToRightThenTopToBottom
+              ChildSizing.ControlsPerLine = 1
+              ClientHeight = 87
+              ClientWidth = 94
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemIndex = 0
+              Items.Strings = (
+                'Average'
+                'Minimum'
+                'Maximum'
+                'Sum'
+              )
+              ParentFont = False
+              TabOrder = 2
+            end
+            object TypeRadioGroup2: TRadioGroup
+              Tag = 2
+              Left = 170
+              Height = 56
+              Top = 4
+              Width = 96
+              AutoFill = True
+              Caption = 'Chart Type'
+              ChildSizing.LeftRightSpacing = 6
+              ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+              ChildSizing.EnlargeVertical = crsHomogenousChildResize
+              ChildSizing.ShrinkHorizontal = crsScaleChilds
+              ChildSizing.ShrinkVertical = crsScaleChilds
+              ChildSizing.Layout = cclLeftToRightThenTopToBottom
+              ChildSizing.ControlsPerLine = 1
+              ClientHeight = 43
+              ClientWidth = 94
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemIndex = 0
+              Items.Strings = (
+                'Line'
+                'Bar'
+              )
+              ParentFont = False
+              TabOrder = 1
+            end
+            object TimeStepRadioGroup2: TRadioGroup
+              Tag = 2
+              Left = 8
+              Height = 100
+              Hint = 'Choose a time step'
+              Top = 4
+              Width = 156
+              AutoFill = True
+              Caption = 'Time Step'
+              ChildSizing.LeftRightSpacing = 6
+              ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+              ChildSizing.EnlargeVertical = crsHomogenousChildResize
+              ChildSizing.ShrinkHorizontal = crsScaleChilds
+              ChildSizing.ShrinkVertical = crsScaleChilds
+              ChildSizing.Layout = cclLeftToRightThenTopToBottom
+              ChildSizing.ControlsPerLine = 1
+              ClientHeight = 87
+              ClientWidth = 154
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemIndex = 0
+              Items.Strings = (
+                'Exact (every point)'
+                'Daily'
+                'Monthly'
+                'Annually'
+              )
+              OnClick = TimeStepRadioGroupClick
+              ParentFont = False
+              TabOrder = 0
+            end
+            object ComboBoxView2: TComboBox
+              Left = 8
+              Height = 25
+              Top = 158
+              Width = 156
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemHeight = 0
+              ItemIndex = 0
+              Items.Strings = (
+                '<Current Site>'
+              )
+              OnDropDown = ComboBoxViewDropDown
+              ParentFont = False
+              Style = csDropDownList
+              TabOrder = 3
+              Text = '<Current Site>'
+            end
+            object Label14: TLabel
+              Left = 8
+              Height = 10
+              Top = 142
+              Width = 70
+              Caption = 'Sites in View:'
+              ParentColor = False
+            end
+            object CheckBoxLimits2: TCheckBox
+              Left = 8
+              Height = 23
+              Top = 112
+              Width = 132
+              Caption = 'Show parameter limits'
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 4
+            end
+          end
+          object GroupBox6: TGroupBox
+            Left = 8
+            Height = 64
+            Top = 178
+            Width = 290
+            Caption = 'Time Settings:'
+            ClientHeight = 51
+            ClientWidth = 288
+            TabOrder = 3
+            object Label3: TLabel
+              Left = 6
+              Height = 10
+              Top = 4
+              Width = 100
+              Caption = 'Start Date and Time:'
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentColor = False
+              ParentFont = False
+            end
+            object Label4: TLabel
+              Left = 148
+              Height = 10
+              Top = 4
+              Width = 96
+              Caption = 'End Date and Time:'
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentColor = False
+              ParentFont = False
+            end
+            object StartDateTimePicker2: TDateTimePicker
+              Left = 6
+              Height = 25
+              Top = 18
+              Width = 132
+              CenturyFrom = 1941
+              DateDisplayOrder = ddoYMD
+              MaxDate = 2958465
+              MinDate = -53780
+              AutoSize = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 0
+              DateSeparator = '/'
+              TrailingSeparator = False
+              TextForNullDate = 'NULL'
+              LeadingZeros = True
+              NullInputAllowed = False
+              Kind = dtkDateTime
+              TimeSeparator = ':'
+              TimeFormat = tf24
+              TimeDisplay = tdHM
+              DateMode = dmComboBox
+              Date = 36526
+              Time = 0.566347939813568
+              UseDefaultSeparators = False
+              HideDateTimeParts = []
+              MonthNames = 'Long'
+            end
+            object EndDateTimePicker2: TDateTimePicker
+              Left = 148
+              Height = 25
+              Top = 18
+              Width = 132
+              CenturyFrom = 1941
+              DateDisplayOrder = ddoYMD
+              MaxDate = 2958465
+              MinDate = -53780
+              AutoSize = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 1
+              DateSeparator = '/'
+              TrailingSeparator = False
+              TextForNullDate = 'NULL'
+              LeadingZeros = True
+              NullInputAllowed = False
+              Kind = dtkDateTime
+              TimeSeparator = ':'
+              TimeFormat = tf24
+              TimeDisplay = tdHM
+              DateMode = dmComboBox
+              Date = 43101
+              Time = 0.566347939813568
+              UseDefaultSeparators = False
+              HideDateTimeParts = []
+              MonthNames = 'Long'
+            end
+          end
+          object CheckBoxUseElev2: TCheckBox
+            Tag = 2
+            Left = 466
+            Height = 23
+            Top = 8
+            Width = 90
+            Caption = 'Use elevation'
+            Enabled = False
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            ParentFont = False
+            TabOrder = 4
+          end
+        end
+      end
+    end
+    object TabSheetBotChart: TTabSheet
+      Caption = 'Bottom Chart'
+      ClientHeight = 278
+      ClientWidth = 596
+      TabVisible = False
+      object PageControl3: TPageControl
+        Left = 0
+        Height = 278
+        Top = 0
+        Width = 596
+        ActivePage = TabSheetBotLeft
+        Align = alClient
+        TabIndex = 0
+        TabOrder = 0
+        object TabSheetBotLeft: TTabSheet
+          Caption = 'Left Axis'
+          ClientHeight = 252
+          ClientWidth = 586
+          object Label15: TLabel
+            Left = 9
+            Height = 10
+            Top = 14
+            Width = 115
+            Caption = 'Time dependent data:'
+            ParentColor = False
+          end
+          object ComboBoxData3: TComboBox
+            Tag = 3
+            Left = 152
+            Height = 25
+            Top = 8
+            Width = 300
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            ItemHeight = 0
+            ItemIndex = 0
+            Items.Strings = (
+              '<none>'
+            )
+            OnChange = ComboBoxDataChange
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 0
+            Text = '<none>'
+          end
+          object GroupBox7: TGroupBox
+            Left = 8
+            Height = 134
+            Top = 38
+            Width = 290
+            Caption = 'Time dependent parameters:'
+            ClientHeight = 121
+            ClientWidth = 288
+            TabOrder = 1
+            object Label16: TLabel
+              Left = 10
+              Height = 10
+              Top = 44
+              Width = 59
+              Caption = 'Filter Field:'
+              ParentColor = False
+            end
+            object Label17: TLabel
+              Left = 10
+              Height = 10
+              Top = 12
+              Width = 56
+              Caption = 'Parameter:'
+              ParentColor = False
+            end
+            object Label18: TLabel
+              Left = 10
+              Height = 10
+              Top = 72
+              Width = 62
+              Caption = 'Filter Value:'
+              ParentColor = False
+            end
+            object YComboBox3: TComboBox
+              Tag = 3
+              Left = 90
+              Height = 25
+              Top = 6
+              Width = 188
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemHeight = 0
+              OnChange = YComboBoxChange
+              ParentFont = False
+              Style = csDropDownList
+              TabOrder = 0
+            end
+            object FilterValueComboBox3: TComboBox
+              Tag = 3
+              Left = 90
+              Height = 27
+              Top = 68
+              Width = 70
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemHeight = 0
+              OnChange = FilterValueComboBoxChange
+              ParentFont = False
+              Sorted = True
+              TabOrder = 2
+            end
+            object FilterFieldComboBox3: TComboBox
+              Tag = 3
+              Left = 90
+              Height = 25
+              Top = 38
+              Width = 188
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemHeight = 0
+              OnChange = FilterFieldComboBoxChange
+              ParentFont = False
+              Style = csDropDownList
+              TabOrder = 1
+            end
+            object CheckBoxCum3: TCheckBox
+              Tag = 3
+              Left = 10
+              Height = 23
+              Top = 94
+              Width = 79
+              Caption = 'Cumulative'
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 4
+            end
+            object CheckBoxReset3: TCheckBox
+              Tag = 3
+              Left = 176
+              Height = 23
+              Top = 94
+              Width = 84
+              Caption = 'Ignore reset'
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 5
+            end
+            object Label31: TLabel
+              Left = 168
+              Height = 10
+              Top = 72
+              Width = 25
+              Caption = 'Unit:'
+              ParentColor = False
+            end
+            object EditUnit3: TEdit
+              Left = 206
+              Height = 23
+              Top = 68
+              Width = 72
+              TabOrder = 3
+            end
+          end
+          object GroupBox8: TGroupBox
+            Left = 304
+            Height = 204
+            Top = 38
+            Width = 276
+            Caption = 'Time step, sites and chart type:'
+            ClientHeight = 191
+            ClientWidth = 274
+            TabOrder = 2
+            object AggregateRadioGroup3: TRadioGroup
+              Tag = 3
+              Left = 170
+              Height = 100
+              Hint = 'Choose aggregate function'
+              Top = 79
+              Width = 96
+              AutoFill = True
+              Caption = 'Aggregate'
+              ChildSizing.LeftRightSpacing = 6
+              ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+              ChildSizing.EnlargeVertical = crsHomogenousChildResize
+              ChildSizing.ShrinkHorizontal = crsScaleChilds
+              ChildSizing.ShrinkVertical = crsScaleChilds
+              ChildSizing.Layout = cclLeftToRightThenTopToBottom
+              ChildSizing.ControlsPerLine = 1
+              ClientHeight = 87
+              ClientWidth = 94
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemIndex = 0
+              Items.Strings = (
+                'Average'
+                'Minimum'
+                'Maximum'
+                'Sum'
+              )
+              ParentFont = False
+              TabOrder = 2
+            end
+            object TypeRadioGroup3: TRadioGroup
+              Tag = 3
+              Left = 170
+              Height = 56
+              Top = 4
+              Width = 96
+              AutoFill = True
+              Caption = 'Chart Type'
+              ChildSizing.LeftRightSpacing = 6
+              ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+              ChildSizing.EnlargeVertical = crsHomogenousChildResize
+              ChildSizing.ShrinkHorizontal = crsScaleChilds
+              ChildSizing.ShrinkVertical = crsScaleChilds
+              ChildSizing.Layout = cclLeftToRightThenTopToBottom
+              ChildSizing.ControlsPerLine = 1
+              ClientHeight = 43
+              ClientWidth = 94
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemIndex = 0
+              Items.Strings = (
+                'Line'
+                'Bar'
+              )
+              ParentFont = False
+              TabOrder = 1
+            end
+            object TimeStepRadioGroup3: TRadioGroup
+              Tag = 3
+              Left = 8
+              Height = 100
+              Hint = 'Choose a time step'
+              Top = 4
+              Width = 156
+              AutoFill = True
+              Caption = 'Time Step'
+              ChildSizing.LeftRightSpacing = 6
+              ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+              ChildSizing.EnlargeVertical = crsHomogenousChildResize
+              ChildSizing.ShrinkHorizontal = crsScaleChilds
+              ChildSizing.ShrinkVertical = crsScaleChilds
+              ChildSizing.Layout = cclLeftToRightThenTopToBottom
+              ChildSizing.ControlsPerLine = 1
+              ClientHeight = 87
+              ClientWidth = 154
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemIndex = 0
+              Items.Strings = (
+                'Exact (every point)'
+                'Daily'
+                'Monthly'
+                'Annually'
+              )
+              OnClick = TimeStepRadioGroupClick
+              ParentFont = False
+              TabOrder = 0
+            end
+            object ComboBoxView3: TComboBox
+              Left = 8
+              Height = 25
+              Top = 158
+              Width = 156
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemHeight = 0
+              ItemIndex = 0
+              Items.Strings = (
+                '<Current Site>'
+              )
+              OnDropDown = ComboBoxViewDropDown
+              ParentFont = False
+              Style = csDropDownList
+              TabOrder = 3
+              Text = '<Current Site>'
+            end
+            object Label19: TLabel
+              Left = 8
+              Height = 10
+              Top = 142
+              Width = 70
+              Caption = 'Sites in View:'
+              ParentColor = False
+            end
+            object CheckBoxLimits3: TCheckBox
+              Left = 8
+              Height = 23
+              Top = 112
+              Width = 132
+              Caption = 'Show parameter limits'
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 4
+            end
+          end
+          object GroupBox9: TGroupBox
+            Left = 8
+            Height = 64
+            Top = 178
+            Width = 290
+            Caption = 'Time Settings:'
+            ClientHeight = 51
+            ClientWidth = 288
+            TabOrder = 3
+            object Label20: TLabel
+              Left = 6
+              Height = 10
+              Top = 4
+              Width = 100
+              Caption = 'Start Date and Time:'
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentColor = False
+              ParentFont = False
+            end
+            object Label21: TLabel
+              Left = 148
+              Height = 10
+              Top = 4
+              Width = 96
+              Caption = 'End Date and Time:'
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentColor = False
+              ParentFont = False
+            end
+            object StartDateTimePicker3: TDateTimePicker
+              Left = 6
+              Height = 25
+              Top = 18
+              Width = 132
+              CenturyFrom = 1941
+              DateDisplayOrder = ddoYMD
+              MaxDate = 2958465
+              MinDate = -53780
+              AutoSize = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 0
+              DateSeparator = '/'
+              TrailingSeparator = False
+              TextForNullDate = 'NULL'
+              LeadingZeros = True
+              NullInputAllowed = False
+              Kind = dtkDateTime
+              TimeSeparator = ':'
+              TimeFormat = tf24
+              TimeDisplay = tdHM
+              DateMode = dmComboBox
+              Date = 36526
+              Time = 0.566347962965665
+              UseDefaultSeparators = False
+              HideDateTimeParts = []
+              MonthNames = 'Long'
+            end
+            object EndDateTimePicker3: TDateTimePicker
+              Left = 148
+              Height = 25
+              Top = 18
+              Width = 132
+              CenturyFrom = 1941
+              DateDisplayOrder = ddoYMD
+              MaxDate = 2958465
+              MinDate = -53780
+              AutoSize = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 1
+              DateSeparator = '/'
+              TrailingSeparator = False
+              TextForNullDate = 'NULL'
+              LeadingZeros = True
+              NullInputAllowed = False
+              Kind = dtkDateTime
+              TimeSeparator = ':'
+              TimeFormat = tf24
+              TimeDisplay = tdHM
+              DateMode = dmComboBox
+              Date = 43101
+              Time = 0.566347962965665
+              UseDefaultSeparators = False
+              HideDateTimeParts = []
+              MonthNames = 'Long'
+            end
+          end
+          object CheckBoxUseElev3: TCheckBox
+            Tag = 3
+            Left = 466
+            Height = 23
+            Top = 8
+            Width = 90
+            Caption = 'Use elevation'
+            Enabled = False
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            ParentFont = False
+            TabOrder = 4
+          end
+        end
+        object TabSheetBotRight: TTabSheet
+          Caption = 'Right Axis'
+          ClientHeight = 252
+          ClientWidth = 586
+          object Label22: TLabel
+            Left = 9
+            Height = 10
+            Top = 14
+            Width = 115
+            Caption = 'Time dependent data:'
+            ParentColor = False
+          end
+          object ComboBoxData4: TComboBox
+            Tag = 4
+            Left = 152
+            Height = 25
+            Top = 8
+            Width = 300
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            ItemHeight = 0
+            ItemIndex = 0
+            Items.Strings = (
+              '<none>'
+            )
+            OnChange = ComboBoxDataChange
+            ParentFont = False
+            Style = csDropDownList
+            TabOrder = 0
+            Text = '<none>'
+          end
+          object GroupBox10: TGroupBox
+            Left = 8
+            Height = 134
+            Top = 38
+            Width = 290
+            Caption = 'Time dependent parameters:'
+            ClientHeight = 121
+            ClientWidth = 288
+            TabOrder = 1
+            object Label23: TLabel
+              Left = 10
+              Height = 10
+              Top = 44
+              Width = 59
+              Caption = 'Filter Field:'
+              ParentColor = False
+            end
+            object Label24: TLabel
+              Left = 10
+              Height = 10
+              Top = 12
+              Width = 56
+              Caption = 'Parameter:'
+              ParentColor = False
+            end
+            object Label25: TLabel
+              Left = 10
+              Height = 10
+              Top = 72
+              Width = 62
+              Caption = 'Filter Value:'
+              ParentColor = False
+            end
+            object YComboBox4: TComboBox
+              Tag = 4
+              Left = 90
+              Height = 25
+              Top = 6
+              Width = 188
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemHeight = 0
+              OnChange = YComboBoxChange
+              ParentFont = False
+              Style = csDropDownList
+              TabOrder = 0
+            end
+            object FilterValueComboBox4: TComboBox
+              Tag = 4
+              Left = 90
+              Height = 27
+              Top = 68
+              Width = 70
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemHeight = 0
+              OnChange = FilterValueComboBoxChange
+              ParentFont = False
+              Sorted = True
+              TabOrder = 2
+            end
+            object FilterFieldComboBox4: TComboBox
+              Tag = 4
+              Left = 90
+              Height = 25
+              Top = 38
+              Width = 188
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemHeight = 0
+              OnChange = FilterFieldComboBoxChange
+              ParentFont = False
+              Style = csDropDownList
+              TabOrder = 1
+            end
+            object CheckBoxCum4: TCheckBox
+              Tag = 4
+              Left = 10
+              Height = 23
+              Top = 94
+              Width = 79
+              Caption = 'Cumulative'
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 4
+            end
+            object CheckBoxReset4: TCheckBox
+              Tag = 4
+              Left = 176
+              Height = 23
+              Top = 94
+              Width = 84
+              Caption = 'Ignore reset'
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 5
+            end
+            object Label32: TLabel
+              Left = 168
+              Height = 10
+              Top = 72
+              Width = 25
+              Caption = 'Unit:'
+              ParentColor = False
+            end
+            object EditUnit4: TEdit
+              Left = 206
+              Height = 23
+              Top = 68
+              Width = 72
+              TabOrder = 3
+            end
+          end
+          object GroupBox11: TGroupBox
+            Left = 304
+            Height = 204
+            Top = 38
+            Width = 276
+            Caption = 'Time step, sites and chart type:'
+            ClientHeight = 191
+            ClientWidth = 274
+            TabOrder = 2
+            object AggregateRadioGroup4: TRadioGroup
+              Tag = 4
+              Left = 170
+              Height = 100
+              Hint = 'Choose aggregate function'
+              Top = 79
+              Width = 96
+              AutoFill = True
+              Caption = 'Aggregate'
+              ChildSizing.LeftRightSpacing = 6
+              ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+              ChildSizing.EnlargeVertical = crsHomogenousChildResize
+              ChildSizing.ShrinkHorizontal = crsScaleChilds
+              ChildSizing.ShrinkVertical = crsScaleChilds
+              ChildSizing.Layout = cclLeftToRightThenTopToBottom
+              ChildSizing.ControlsPerLine = 1
+              ClientHeight = 87
+              ClientWidth = 94
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemIndex = 0
+              Items.Strings = (
+                'Average'
+                'Minimum'
+                'Maximum'
+                'Sum'
+              )
+              ParentFont = False
+              TabOrder = 2
+            end
+            object TypeRadioGroup4: TRadioGroup
+              Tag = 4
+              Left = 170
+              Height = 56
+              Top = 4
+              Width = 96
+              AutoFill = True
+              Caption = 'Chart Type'
+              ChildSizing.LeftRightSpacing = 6
+              ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+              ChildSizing.EnlargeVertical = crsHomogenousChildResize
+              ChildSizing.ShrinkHorizontal = crsScaleChilds
+              ChildSizing.ShrinkVertical = crsScaleChilds
+              ChildSizing.Layout = cclLeftToRightThenTopToBottom
+              ChildSizing.ControlsPerLine = 1
+              ClientHeight = 43
+              ClientWidth = 94
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemIndex = 0
+              Items.Strings = (
+                'Line'
+                'Bar'
+              )
+              ParentFont = False
+              TabOrder = 1
+            end
+            object TimeStepRadioGroup4: TRadioGroup
+              Tag = 4
+              Left = 8
+              Height = 100
+              Hint = 'Choose a time step'
+              Top = 4
+              Width = 156
+              AutoFill = True
+              Caption = 'Time Step'
+              ChildSizing.LeftRightSpacing = 6
+              ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+              ChildSizing.EnlargeVertical = crsHomogenousChildResize
+              ChildSizing.ShrinkHorizontal = crsScaleChilds
+              ChildSizing.ShrinkVertical = crsScaleChilds
+              ChildSizing.Layout = cclLeftToRightThenTopToBottom
+              ChildSizing.ControlsPerLine = 1
+              ClientHeight = 87
+              ClientWidth = 154
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemIndex = 0
+              Items.Strings = (
+                'Exact (every point)'
+                'Daily'
+                'Monthly'
+                'Annually'
+              )
+              OnClick = TimeStepRadioGroupClick
+              ParentFont = False
+              TabOrder = 0
+            end
+            object ComboBoxView4: TComboBox
+              Left = 8
+              Height = 25
+              Top = 158
+              Width = 156
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ItemHeight = 0
+              ItemIndex = 0
+              Items.Strings = (
+                '<Current Site>'
+              )
+              OnDropDown = ComboBoxViewDropDown
+              ParentFont = False
+              Style = csDropDownList
+              TabOrder = 3
+              Text = '<Current Site>'
+            end
+            object Label26: TLabel
+              Left = 8
+              Height = 10
+              Top = 142
+              Width = 70
+              Caption = 'Sites in View:'
+              ParentColor = False
+            end
+            object CheckBoxLimits4: TCheckBox
+              Left = 8
+              Height = 23
+              Top = 112
+              Width = 132
+              Caption = 'Show parameter limits'
+              Enabled = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 4
+            end
+          end
+          object GroupBox12: TGroupBox
+            Left = 8
+            Height = 64
+            Top = 178
+            Width = 290
+            Caption = 'Time Settings:'
+            ClientHeight = 51
+            ClientWidth = 288
+            TabOrder = 3
+            object Label27: TLabel
+              Left = 6
+              Height = 10
+              Top = 4
+              Width = 100
+              Caption = 'Start Date and Time:'
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentColor = False
+              ParentFont = False
+            end
+            object Label28: TLabel
+              Left = 148
+              Height = 10
+              Top = 4
+              Width = 96
+              Caption = 'End Date and Time:'
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentColor = False
+              ParentFont = False
+            end
+            object StartDateTimePicker4: TDateTimePicker
+              Left = 6
+              Height = 25
+              Top = 18
+              Width = 132
+              CenturyFrom = 1941
+              DateDisplayOrder = ddoYMD
+              MaxDate = 2958465
+              MinDate = -53780
+              AutoSize = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 0
+              DateSeparator = '/'
+              TrailingSeparator = False
+              TextForNullDate = 'NULL'
+              LeadingZeros = True
+              NullInputAllowed = False
+              Kind = dtkDateTime
+              TimeSeparator = ':'
+              TimeFormat = tf24
+              TimeDisplay = tdHM
+              DateMode = dmComboBox
+              Date = 36526
+              Time = 0.566347986110486
+              UseDefaultSeparators = False
+              HideDateTimeParts = []
+              MonthNames = 'Long'
+            end
+            object EndDateTimePicker4: TDateTimePicker
+              Left = 148
+              Height = 25
+              Top = 18
+              Width = 132
+              CenturyFrom = 1941
+              DateDisplayOrder = ddoYMD
+              MaxDate = 2958465
+              MinDate = -53780
+              AutoSize = False
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'MS Sans Serif'
+              ParentFont = False
+              TabOrder = 1
+              DateSeparator = '/'
+              TrailingSeparator = False
+              TextForNullDate = 'NULL'
+              LeadingZeros = True
+              NullInputAllowed = False
+              Kind = dtkDateTime
+              TimeSeparator = ':'
+              TimeFormat = tf24
+              TimeDisplay = tdHM
+              DateMode = dmComboBox
+              Date = 43101
+              Time = 0.566347997686535
+              UseDefaultSeparators = False
+              HideDateTimeParts = []
+              MonthNames = 'Long'
+            end
+          end
+          object CheckBoxUseElev4: TCheckBox
+            Tag = 4
+            Left = 466
+            Height = 23
+            Top = 8
+            Width = 90
+            Caption = 'Use elevation'
+            Enabled = False
+            Font.Color = clBlack
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            ParentFont = False
+            TabOrder = 4
+          end
+        end
+      end
+    end
+  end
+  object ViewQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    Left = 192
+    Top = 304
+  end
+  object DefinitionQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SQL.Strings = (
+      'SELECT name FROM sqlite_master WHERE type = ''view'''
+    )
+    Params = <>
+    Left = 344
+    Top = 304
+  end
+  object LookupQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT * FROM Lookup ORDER BY USED_FOR, SEARCH'
+    )
+    Params = <>
+    Left = 481
+    Top = 17
+  end
+  object AquasortQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionSettings
+    SQL.Strings = (
+      'SELECT * FROM aquasort'
+    )
+    Params = <>
+    Left = 234
+    Top = 16
+  end
+end

@@ -1,0 +1,137 @@
+inherited TargetsForm: TTargetsForm
+  Left = 575
+  Height = 381
+  Top = 174
+  Caption = 'Site Targets'
+  ClientHeight = 381
+  Icon.Data = {
+    FE0200000000010001002020100001000400E802000016000000280000002000
+    0000400000000100040000000000000000000000000000000000000000000000
+    000000000000800000000080000080800000000080008000800000808000C0C0
+    C00080808000FF00000000FF0000FFFF00000000FF00FF00FF0000FFFF00FFFF
+    FF000000000000000011110000000000000000000000001111BBBB1111000000
+    00000000000011BBBBBBBBBBBB1100000000000000010B0BBB9999BBB0B01000
+    00000000011BBBB9999999999BBBB1100000000010BBB99999999999999B0B01
+    000000001B0B9999990000999999B0B1000000010BB9999900AAAA0099999BB0
+    10000010BB999900AA0000AA009999BB01000010BB9990AAA0EEEE0AAA0999BB
+    0100010BB99990AA0EEEEEE0AA09999BB010010BB9990AA0EEEEEEEE0AA0999B
+    B010010BB9990AA0EEEEEEEE0AA0999BB01010BB9990AAA0EEE00EEE0AAA0999
+    BB0110BB9990AA0EEE0CC0EEE0AA0999BB0110BB9990AA0EEE0CC0EEE0AA0999
+    BB0110BB9990AA0EEE0CC0EEE0AA0999BB0110BB9990AA0EEE0CC0EEE0AA0999
+    BB0110BB9990AAA0EEE00EEE0AAA0999BBB1010BB9990AA0EEEEEEEE0AA0999B
+    B010010BB9990AA0EEEEEEEE0AA0999BB010010BB99990AA0EEEEEE0AA09999B
+    B0100010BB9990AAA0EEEE0AAA0999BB01000010BB999900AA0000AA009999BB
+    010000010BB9999900AAAA0099999BB0100000001BBB9999990000999999B0B1
+    000000001BBBB99999999999999B0B0100000000011BBBB9999999999BBBB110
+    0000000000010B0BBB9999BBB0B0100000000000000011BBBBBBBBBBBB110000
+    000000000000001111BBBB111100000000000000000000000011110000000000
+    0000FFFC3FFFFFC003FFFF0000FFFEA0057FF800001FF40000AFF200004FE800
+    0017D000000BD000000BA0000005A0000005A000000540000002400000024000
+    0002400000024000000240000000A0000005A0000005A0000005D000000BD000
+    000BE8000017F000004FF00000AFF800001FFEA0057FFF0000FFFFC003FFFFFC
+    3FFF
+  }
+  OnActivate = FormActivate
+  inherited Panel1: TPanel
+    inherited ViewNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited CloseBitBtn: TBitBtn
+      Left = 390
+    end
+    inherited BasicDBNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited Panel2: TPanel
+    Height = 234
+    ClientHeight = 234
+    inherited Panel4: TPanel
+      Top = 204
+      inherited DetailNavigator: TDBNavigator
+        Hints.Strings = (        )
+      end
+    end
+    inherited DBGrid: TDBGrid
+      Height = 179
+      AutoFillColumns = True
+    end
+  end
+  inherited GroupBox1: TGroupBox
+    ClientHeight = 88
+  end
+  inherited BasicinfDataSource: TDataSource
+    left = 320
+  end
+  inherited LinkedDataSource: TDataSource
+    left = 168
+  end
+  inherited LinkedQuery: TZQuery
+    BeforeOpen = LinkedQueryBeforeOpen
+    OnNewRecord = LinkedQueryNewRecord
+    SQL.Strings = (
+      'SELECT * FROM targets_ WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object LinkedQueryTARG_TYPE: TStringField[1]
+      Tag = 47
+      Alignment = taCenter
+      DisplayLabel = 'Target type'
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'TARG_TYPE'
+      Index = 1
+      LookupCache = False
+      LookupKeyFields = 'TARG_TYP'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryTARG_TYPESetText
+      OnValidate = LinkedQueryTARG_TYPEValidate
+      Size = 8
+    end
+    object LinkedQueryV_DATE_F: TStringField[2]
+      Alignment = taCenter
+      DisplayLabel = 'Date valid from'
+      DisplayWidth = 32
+      FieldKind = fkData
+      FieldName = 'V_DATE_F'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = LinkedQueryV_DATE_FValidate
+      Size = 32
+    end
+    object LinkedQueryREADING: TFloatField[3]
+      DisplayLabel = 'Reading'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'READING'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryREADINGGetText
+      OnSetText = LinkedQueryREADINGSetText
+      MaxValue = 0
+      MinValue = 0
+      Precision = 22
+    end
+  end
+end

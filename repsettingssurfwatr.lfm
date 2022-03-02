@@ -1,0 +1,152 @@
+inherited SurfWatrRepSettingsForm: TSurfWatrRepSettingsForm
+  Left = 608
+  Height = 318
+  Top = 207
+  Width = 576
+  Caption = 'Surface Water Report Settings'
+  ClientHeight = 318
+  ClientWidth = 576
+  OnShow = FormShow
+  inherited Label2: TLabel
+    Height = 10
+    Width = 59
+    Font.Height = -11
+  end
+  inherited RadioGroup1: TRadioGroup
+    ClientHeight = 52
+  end
+  inherited GroupBox1: TGroupBox
+    Left = 224
+    Width = 170
+    ClientHeight = 107
+    ClientWidth = 168
+    inherited CheckBox2: TCheckBox
+      Checked = False
+      Enabled = False
+      State = cbUnchecked
+    end
+  end
+  inherited TitleEdit: TEdit
+    Width = 386
+    Text = 'SURFACE HYDROLOGY REPORT'
+  end
+  inherited CommentMemo: TMemo
+    Width = 210
+  end
+  inherited ConstrGroupBox: TGroupBox
+    Left = 234
+    Top = 176
+    Width = 160
+    ClientHeight = 79
+    ClientWidth = 158
+  end
+  inherited ButtonPanel1: TButtonPanel
+    Top = 274
+    Width = 564
+    OKButton.Enabled = False
+    OKButton.OnClick = OKButtonClick
+  end
+  object CheckBoxAMSL: TCheckBox[11]
+    Left = 400
+    Height = 23
+    Top = 142
+    Width = 163
+    Caption = 'Height above mean sea level'
+    Enabled = False
+    TabOrder = 9
+  end
+  object CheckGroup1: TCheckGroup[12]
+    Left = 400
+    Height = 120
+    Top = 8
+    Width = 170
+    AutoFill = True
+    Caption = 'Show hydrology for:'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.TopBottomSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 107
+    ClientWidth = 168
+    Items.Strings = (
+      'Stage height'
+      'Flow discharge'
+      'Flow velocity'
+      'Intake'
+    )
+    OnItemClick = CheckGroup1ItemClick
+    TabOrder = 10
+    Data = {
+      0400000002020202
+    }
+  end
+  object Label3: TLabel[13]
+    Left = 420
+    Height = 10
+    Top = 176
+    Width = 82
+    Caption = 'From Date/Time:'
+    ParentColor = False
+  end
+  object DateTimePicker1: TDateTimePicker[14]
+    Left = 420
+    Height = 18
+    Top = 192
+    Width = 116
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoYMD
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 11
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDateTime
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 36526
+    UseDefaultSeparators = True
+    HideDateTimeParts = [dtpSecond, dtpMiliSec]
+    MonthNames = 'Long'
+  end
+  object Label4: TLabel[15]
+    Left = 420
+    Height = 10
+    Top = 224
+    Width = 69
+    Caption = 'To Date/Time:'
+    ParentColor = False
+  end
+  object DateTimePicker2: TDateTimePicker[16]
+    Left = 420
+    Height = 18
+    Top = 240
+    Width = 116
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoYMD
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 12
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDateTime
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 43351
+    Time = 0.431706736111664
+    UseDefaultSeparators = True
+    HideDateTimeParts = [dtpSecond, dtpMiliSec]
+    MonthNames = 'Long'
+  end
+  inherited PopupMenu1: TPopupMenu[17]
+    Left = 112
+    Top = 200
+  end
+end

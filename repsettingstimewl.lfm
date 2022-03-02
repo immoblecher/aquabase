@@ -1,0 +1,94 @@
+inherited TimeWLReportSettingsForm: TTimeWLReportSettingsForm
+  Left = 861
+  Height = 359
+  Caption = 'Water Level Report Settings'
+  ClientHeight = 359
+  OnCreate = FormCreate
+  inherited RadioGroup1: TRadioGroup
+    ClientHeight = 52
+  end
+  inherited GroupBox1: TGroupBox
+    ClientHeight = 107
+    inherited CheckBox2: TCheckBox
+      Checked = False
+      State = cbUnchecked
+    end
+    inherited cbPageBreak: TCheckBox
+      Checked = False
+      State = cbUnchecked
+    end
+  end
+  inherited TitleEdit: TEdit
+    Text = 'TIME-DEPENDENT WATER LEVEL REPORT'
+  end
+  inherited ConstrGroupBox: TGroupBox
+    ClientHeight = 79
+  end
+  inherited ButtonPanel1: TButtonPanel
+    Top = 315
+    OKButton.OnClick = OKButtonClick
+  end
+  object Label3: TLabel[11]
+    Left = 8
+    Height = 10
+    Top = 276
+    Width = 82
+    Caption = 'From Date/Time:'
+    ParentColor = False
+  end
+  object Label4: TLabel[12]
+    Left = 140
+    Height = 10
+    Top = 276
+    Width = 69
+    Caption = 'To Date/Time:'
+    ParentColor = False
+  end
+  object DateTimePicker1: TDateTimePicker[13]
+    Left = 8
+    Height = 18
+    Top = 290
+    Width = 116
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoYMD
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 9
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDateTime
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 36526
+    UseDefaultSeparators = True
+    HideDateTimeParts = [dtpSecond, dtpMiliSec]
+    MonthNames = 'Long'
+  end
+  object DateTimePicker2: TDateTimePicker[14]
+    Left = 140
+    Height = 18
+    Top = 290
+    Width = 116
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoYMD
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 10
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDateTime
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 43351
+    Time = 0.431706736111664
+    UseDefaultSeparators = True
+    HideDateTimeParts = [dtpSecond, dtpMiliSec]
+    MonthNames = 'Long'
+  end
+  inherited PopupMenu1: TPopupMenu[15]
+  end
+end

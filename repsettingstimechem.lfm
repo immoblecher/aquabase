@@ -1,0 +1,193 @@
+inherited TimeChemReportSettingsForm: TTimeChemReportSettingsForm
+  Left = 737
+  Height = 359
+  Top = 169
+  Width = 502
+  Caption = 'Chemistry Report Settings'
+  ClientHeight = 359
+  ClientWidth = 502
+  OnCreate = FormCreate
+  OnShow = FormShow
+  SessionProperties = 'ListBoxParams.Items;DateTimePicker1.Date;DateTimePicker1.Time'
+  inherited Label2: TLabel
+    Height = 10
+    Width = 59
+    Font.Height = -11
+  end
+  inherited RadioGroup1: TRadioGroup
+    ClientHeight = 52
+  end
+  inherited GroupBox1: TGroupBox
+    ClientHeight = 107
+    inherited CheckBox2: TCheckBox
+      Checked = False
+      State = cbUnchecked
+    end
+    inherited cbPageBreak: TCheckBox
+      Checked = False
+      State = cbUnchecked
+    end
+  end
+  inherited TitleEdit: TEdit
+    Text = 'TIME-DEPENDENT CHEMISTRY REPORT'
+  end
+  inherited CommentMemo: TMemo
+    Height = 74
+  end
+  inherited ConstrGroupBox: TGroupBox
+    Height = 96
+    ClientHeight = 83
+    inherited ConstrCheckBox: TCheckBox
+      ParentFont = False
+    end
+  end
+  inherited ButtonPanel1: TButtonPanel
+    Top = 315
+    Width = 490
+    OKButton.OnClick = OKButtonClick
+  end
+  object ButtonSelParam: TButton[11]
+    Left = 270
+    Height = 25
+    Hint = 'Select parameters for the list (max. 14)'
+    Top = 286
+    Width = 120
+    Caption = 'Select Parameters'
+    OnClick = ButtonSelParamClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 9
+  end
+  object Label3: TLabel[12]
+    Left = 8
+    Height = 10
+    Top = 276
+    Width = 82
+    Caption = 'From Date/Time:'
+    ParentColor = False
+  end
+  object DateTimePicker1: TDateTimePicker[13]
+    Left = 8
+    Height = 18
+    Top = 290
+    Width = 116
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoYMD
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 10
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDateTime
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 36526
+    UseDefaultSeparators = True
+    HideDateTimeParts = [dtpSecond, dtpMiliSec]
+    MonthNames = 'Long'
+  end
+  object Label4: TLabel[14]
+    Left = 140
+    Height = 10
+    Top = 276
+    Width = 69
+    Caption = 'To Date/Time:'
+    ParentColor = False
+  end
+  object DateTimePicker2: TDateTimePicker[15]
+    Left = 140
+    Height = 18
+    Top = 290
+    Width = 116
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoYMD
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 11
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDateTime
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 43351
+    Time = 0.431706736111664
+    UseDefaultSeparators = True
+    HideDateTimeParts = [dtpSecond, dtpMiliSec]
+    MonthNames = 'Long'
+  end
+  object ListBoxParams: TListBox[16]
+    Left = 414
+    Height = 230
+    Hint = 'Paremeters used on report. Drag-Drop to reorder.'
+    Top = 20
+    Width = 80
+    DragMode = dmAutomatic
+    ItemHeight = 0
+    OnDragDrop = ListBoxParamsDragDrop
+    OnDragOver = ListBoxParamsDragOver
+    OnMouseDown = ListBoxParamsMouseDown
+    ParentShowHint = False
+    ScrollWidth = 78
+    ShowHint = True
+    TabOrder = 12
+    TopIndex = -1
+  end
+  object Label5: TLabel[17]
+    Left = 416
+    Height = 10
+    Top = 8
+    Width = 59
+    Caption = '&Parameters:'
+    FocusControl = ListBoxParams
+    ParentColor = False
+  end
+  object Button1: TButton[18]
+    Left = 417
+    Height = 25
+    Hint = 'Save parameter list above to a file'
+    Top = 256
+    Width = 75
+    Caption = 'Save'
+    OnClick = Button1Click
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 13
+  end
+  object Button2: TButton[19]
+    Left = 417
+    Height = 25
+    Hint = 'Load a parameter file into the list above'
+    Top = 286
+    Width = 75
+    Caption = 'Load'
+    OnClick = Button2Click
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 14
+  end
+  inherited PopupMenu1: TPopupMenu[20]
+  end
+  object XMLPropStorage1: TXMLPropStorage[21]
+    StoredValues = <>
+    Left = 359
+    Top = 47
+  end
+  object OpenDialog1: TOpenDialog[22]
+    Title = 'Open existing parameter file'
+    DefaultExt = '.lst'
+    Filter = 'Parameter List (*.lst)|*.lst|All Files (*.*)|*.*'
+    Left = 164
+    Top = 312
+  end
+  object SaveDialog1: TSaveDialog[23]
+    Title = 'Save parameter list as'
+    DefaultExt = '.lst'
+    Filter = 'Parameter List (*.lst)|*.lst|All Files (*.*)|*.*'
+    Left = 254
+    Top = 311
+  end
+end

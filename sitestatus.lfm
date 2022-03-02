@@ -1,0 +1,102 @@
+inherited SiteStatusForm: TSiteStatusForm
+  Top = 216
+  Caption = 'Site Status'
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  inherited Panel1: TPanel
+    inherited ViewNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited BasicDBNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited Panel2: TPanel
+    inherited Panel4: TPanel
+      inherited DetailNavigator: TDBNavigator
+        Hints.Strings = (        )
+      end
+    end
+    inherited DBGrid: TDBGrid
+      AutoFillColumns = True
+    end
+  end
+  inherited XMLPropStorage: TXMLPropStorage
+    left = 464
+    top = 272
+  end
+  inherited LinkedQuery: TZQuery
+    SortedFields = 'DATE_UPDTD'
+    BeforeOpen = LinkedQueryBeforeOpen
+    OnNewRecord = LinkedQueryNewRecord
+    SQL.Strings = (
+      'SELECT * FROM sitestat WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    IndexFieldNames = 'DATE_UPDTD Asc'
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object LinkedQueryDATE_ENTRY: TStringField[1]
+      Alignment = taCenter
+      DisplayLabel = 'Date entered'
+      FieldKind = fkData
+      FieldName = 'DATE_ENTRY'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 8
+    end
+    object LinkedQueryDATE_UPDTD: TStringField[2]
+      Alignment = taCenter
+      DisplayLabel = 'Date status updated'
+      FieldKind = fkData
+      FieldName = 'DATE_UPDTD'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 8
+    end
+    object LinkedQuerySITE_STATU: TStringField[3]
+      Tag = 48
+      Alignment = taCenter
+      DisplayLabel = 'Site Status'
+      FieldKind = fkData
+      FieldName = 'SITE_STATU'
+      Index = 3
+      LookupCache = False
+      LookupKeyFields = 'SITESTAT'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQuerySITE_STATUSetText
+      OnValidate = LinkedQuerySITE_STATUValidate
+      Size = 1
+    end
+    object LinkedQueryCOMMENTS: TStringField[4]
+      DisplayLabel = 'Comment'
+      FieldKind = fkData
+      FieldName = 'COMMENTS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+  end
+end

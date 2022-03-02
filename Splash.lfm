@@ -1,0 +1,36 @@
+object SplashForm: TSplashForm
+  Left = 400
+  Height = 300
+  Top = 139
+  Width = 450
+  BorderIcons = []
+  BorderStyle = bsNone
+  Caption = 'Aquabase'
+  ClientHeight = 300
+  ClientWidth = 450
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  FormStyle = fsSplash
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '2.0.4.0'
+  object Image1: TImage
+    Left = 0
+    Height = 300
+    Top = 0
+    Width = 450
+    Align = alClient
+    Stretch = True
+    Transparent = True
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 3000
+    OnTimer = Timer1Timer
+    left = 46
+    top = 37
+  end
+end

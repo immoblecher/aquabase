@@ -1,0 +1,346 @@
+object SelConstrForm: TSelConstrForm
+  Left = 695
+  Height = 342
+  Top = 198
+  Width = 500
+  BorderStyle = bsSingle
+  Caption = 'Define Constraints'
+  ClientHeight = 342
+  ClientWidth = 500
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  OnActivate = FormActivate
+  Position = poScreenCenter
+  LCLVersion = '2.0.8.0'
+  object Label4: TLabel
+    Left = 8
+    Height = 10
+    Top = 8
+    Width = 81
+    Caption = 'Aquabase Table:'
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 144
+    Height = 10
+    Top = 8
+    Width = 26
+    Caption = 'Field:'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 272
+    Height = 10
+    Top = 8
+    Width = 47
+    Caption = 'Operator:'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 8
+    Height = 10
+    Top = 112
+    Width = 97
+    Caption = 'Defined Constraints:'
+    ParentColor = False
+  end
+  object FieldListBox: TListBox
+    Left = 144
+    Height = 81
+    Hint = 'DblClick to select'
+    Top = 24
+    Width = 121
+    ItemHeight = 0
+    OnDblClick = FieldListBoxDblClick
+    ScrollWidth = 119
+    TabOrder = 0
+    TopIndex = -1
+  end
+  object StringGrid: TStringGrid
+    Left = 8
+    Height = 122
+    Top = 128
+    Width = 481
+    AutoFillColumns = True
+    ColCount = 2
+    Columns = <    
+      item
+        SizePriority = 0
+        Title.Caption = 'Table'
+        Width = 100
+      end    
+      item
+        Title.Caption = 'Condition'
+        Width = 366
+      end>
+    DefaultColWidth = 80
+    DefaultRowHeight = 20
+    FixedCols = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goRowMoving, goEditing, goTabs, goThumbTracking]
+    RowCount = 11
+    TabOrder = 1
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    ColWidths = (
+      100
+      366
+    )
+  end
+  object OperatorListBox: TListBox
+    Left = 272
+    Height = 81
+    Hint = 'DblClick to select'
+    Top = 24
+    Width = 57
+    Items.Strings = (
+      '='
+      '<>'
+      '>'
+      '<'
+      '>='
+      '<='
+      '+'
+      '-'
+      '*'
+      '/'
+      '('
+      ')'
+      'IN'
+      'LIKE'
+      'AND'
+      'OR'
+      'NOT'
+    )
+    ItemHeight = 18
+    OnDblClick = OperatorListBoxDblClick
+    ScrollWidth = 42
+    TabOrder = 2
+  end
+  object GroupBox1: TGroupBox
+    Left = 336
+    Height = 113
+    Top = 8
+    Width = 153
+    Caption = 'Grid:'
+    ClientHeight = 99
+    ClientWidth = 149
+    TabOrder = 3
+    object BitBtn2: TBitBtn
+      Left = 6
+      Height = 28
+      Top = 2
+      Width = 140
+      Caption = 'Clear current row'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        0400000000000001000000000000000000001000000010000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        333333333333333333FF33333333333330003333333333333777333333333333
+        300033FFFFFF3333377739999993333333333777777F3333333F399999933333
+        3300377777733333337733333333333333003333333333333377333333333333
+        3333333333333333333F333333333333330033333F33333333773333C3333333
+        330033337F3333333377333CC3333333333333F77FFFFFFF3FF33CCCCCCCCCC3
+        993337777777777F77F33CCCCCCCCCC399333777777777737733333CC3333333
+        333333377F33333333FF3333C333333330003333733333333777333333333333
+        3000333333333333377733333333333333333333333333333333
+      }
+      NumGlyphs = 2
+      OnClick = BitBtn2Click
+      TabOrder = 0
+    end
+    object ClearButton: TBitBtn
+      Left = 6
+      Height = 28
+      Top = 34
+      Width = 140
+      Caption = 'Clear entire grid'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        0400000000000001000000000000000000001000000010000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00555555555555
+        55555FFFFFFF5F55FFF5777777757559995777777775755777F7555555555550
+        305555555555FF57F7F555555550055BB0555555555775F777F55555550FB000
+        005555555575577777F5555550FB0BF0F05555555755755757F555550FBFBF0F
+        B05555557F55557557F555550BFBF0FB005555557F55575577F555500FBFBFB0
+        B05555577F555557F7F5550E0BFBFB00B055557575F55577F7F550EEE0BFB0B0
+        B05557FF575F5757F7F5000EEE0BFBF0B055777FF575FFF7F7F50000EEE00000
+        B0557777FF577777F7F500000E055550805577777F7555575755500000555555
+        05555777775555557F5555000555555505555577755555557555
+      }
+      NumGlyphs = 2
+      OnClick = ClearButtonClick
+      TabOrder = 1
+    end
+    object TestBitBtn: TBitBtn
+      Left = 6
+      Height = 28
+      Top = 66
+      Width = 140
+      Caption = 'Test constraints'
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        0400000000000001000000000000000000001000000010000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00555555555555
+        555555555555555555555555555555555555555555FF55555555555559055555
+        55555555577FF5555555555599905555555555557777F5555555555599905555
+        555555557777FF5555555559999905555555555777777F555555559999990555
+        5555557777777FF5555557990599905555555777757777F55555790555599055
+        55557775555777FF5555555555599905555555555557777F5555555555559905
+        555555555555777FF5555555555559905555555555555777FF55555555555579
+        05555555555555777FF5555555555557905555555555555777FF555555555555
+        5990555555555555577755555555555555555555555555555555
+      }
+      NumGlyphs = 2
+      OnClick = TestBitBtnClick
+      TabOrder = 2
+    end
+  end
+  object TableListBox: TListBox
+    Left = 8
+    Height = 81
+    Top = 24
+    Width = 129
+    ItemHeight = 0
+    OnClick = TableListBoxClick
+    ScrollWidth = 127
+    Sorted = True
+    TabOrder = 4
+    TopIndex = -1
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 36
+    Top = 300
+    Width = 488
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.Enabled = False
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    CancelButton.OnClick = CancelButtonClick
+    TabOrder = 5
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object SaveBitBtn: TBitBtn
+    Left = 104
+    Height = 28
+    Hint = 'Save constraints'
+    Top = 256
+    Width = 86
+    Caption = 'Save...'
+    Enabled = False
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      0400000000000001000000000000000000001000000010000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333330070
+      7700333333337777777733333333008088003333333377F73377333333330088
+      88003333333377FFFF7733333333000000003FFFFFFF77777777000000000000
+      000077777777777777770FFFFFFF0FFFFFF07F3333337F3333370FFFFFFF0FFF
+      FFF07F3FF3FF7FFFFFF70F00F0080CCC9CC07F773773777777770FFFFFFFF039
+      99337F3FFFF3F7F777F30F0000F0F09999937F7777373777777F0FFFFFFFF999
+      99997F3FF3FFF77777770F00F000003999337F773777773777F30FFFF0FF0339
+      99337F3FF7F3733777F30F08F0F0337999337F7737F73F7777330FFFF0039999
+      93337FFFF7737777733300000033333333337777773333333333
+    }
+    NumGlyphs = 2
+    OnClick = SaveBitBtnClick
+    ParentFont = False
+    TabOrder = 6
+  end
+  object LoadBitBtn: TBitBtn
+    Left = 8
+    Height = 28
+    Hint = 'Load constraints'
+    Top = 256
+    Width = 86
+    Caption = 'Load...'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Glyph.Data = {
+      76010000424D7601000000000000760000002800000020000000100000000100
+      0400000000000001000000000000000000001000000010000000000000000000
+      800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF0033333333B333
+      333B33FF33337F3333F73BB3777BB7777BB3377FFFF77FFFF77333B000000000
+      0B3333777777777777333330FFFFFFFF07333337F33333337F333330FFFFFFFF
+      07333337F3FF3FFF7F333330F00F000F07333337F77377737F333330FFFFFFFF
+      07333FF7F3FFFF3F7FFFBBB0F0000F0F0BB37777F7777373777F3BB0FFFFFFFF
+      0BBB3777F3FF3FFF77773330F00F000003333337F773777773333330FFFF0FF0
+      33333337F3FF7F37F3333330F08F0F0B33333337F7737F77FF333330FFFF003B
+      B3333337FFFF77377FF333B000000333BB33337777777F3377FF3BB3333BB333
+      3BB33773333773333773B333333B3333333B7333333733333337
+    }
+    NumGlyphs = 2
+    OnClick = LoadBitBtnClick
+    ParentFont = False
+    TabOrder = 7
+  end
+  object SearchTable: TZTable
+    ReadOnly = True
+    left = 56
+    top = 32
+  end
+  object SaveDialog: TSaveDialog
+    DefaultExt = '.con'
+    Filter = 'Constraint File (*.con)|*.con'
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
+    left = 40
+    top = 160
+  end
+  object OpenDialog: TOpenDialog
+    DefaultExt = '.con'
+    Filter = 'Constraint File (*.con)|*.con'
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
+    left = 128
+    top = 160
+  end
+  object DefinitionTable: TDbf
+    IndexDefs = <>
+    TableLevel = 4
+    FilterOptions = []
+    left = 192
+    top = 104
+    object DefinitionTableTABLE: TStringField
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'TABLE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object DefinitionTableCONSTRAINT: TStringField
+      DisplayWidth = 256
+      FieldKind = fkData
+      FieldName = 'CONSTRAINT'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 256
+    end
+  end
+  object TestQuery: TZReadOnlyQuery
+    Params = <>
+    left = 257
+    top = 260
+  end
+end

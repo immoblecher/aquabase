@@ -1,0 +1,68 @@
+object SelectSamplesForm: TSelectSamplesForm
+  Left = 547
+  Height = 221
+  Top = 264
+  Width = 218
+  BorderStyle = bsSingle
+  Caption = 'Select Samples'
+  ClientHeight = 221
+  ClientWidth = 218
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '2.0.8.0'
+  object ButtonPanel1: TButtonPanel
+    Left = 137
+    Height = 192
+    Top = 6
+    Width = 75
+    Align = alRight
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 0
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+    ShowBevel = False
+  end
+  object Label1: TLabel
+    Left = 8
+    Height = 13
+    Top = 6
+    Width = 96
+    Caption = 'Available Samples'
+    ParentColor = False
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 17
+    Top = 204
+    Width = 218
+    Panels = <>
+  end
+  object ListBox1: TListBox
+    Left = 8
+    Height = 175
+    Top = 23
+    Width = 110
+    Anchors = [akTop, akLeft, akBottom]
+    ItemHeight = 0
+    MultiSelect = True
+    OnClick = ListBox1Click
+    ScrollWidth = 108
+    TabOrder = 2
+    TopIndex = -1
+  end
+  object SampleQuery: TZReadOnlyQuery
+    BeforeOpen = SampleQueryBeforeOpen
+    AfterOpen = SampleQueryAfterOpen
+    Params = <>
+    left = 56
+    top = 104
+  end
+end

@@ -1,0 +1,151 @@
+object FormSelSiteID: TFormSelSiteID
+  Left = 941
+  Height = 214
+  Top = 255
+  Width = 222
+  Caption = 'Select'
+  ClientHeight = 214
+  ClientWidth = 222
+  KeyPreview = True
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  SessionProperties = 'Height;Width'
+  LCLVersion = '2.0.4.0'
+  object RxDBGrid: TRxDBGrid
+    Left = 0
+    Height = 214
+    Hint = 'Click up/down arrow for menu'
+    Top = 0
+    Width = 222
+    ColumnDefValues.BlobText = '(blob)'
+    TitleButtons = True
+    AutoSort = True
+    KeyStrokes = <    
+      item
+        Command = rxgcShowFindDlg
+        ShortCut = 16454
+        Enabled = True
+      end    
+      item
+        Command = rxgcShowColumnsDlg
+        ShortCut = 16471
+        Enabled = True
+      end    
+      item
+        Command = rxgcShowFilterDlg
+        ShortCut = 16468
+        Enabled = True
+      end    
+      item
+        Command = rxgcShowSortDlg
+        ShortCut = 16467
+        Enabled = True
+      end    
+      item
+        Command = rxgcShowQuickFilter
+        ShortCut = 16465
+        Enabled = True
+      end    
+      item
+        Command = rxgcHideQuickFilter
+        ShortCut = 16456
+        Enabled = True
+      end    
+      item
+        Command = rxgcSelectAll
+        ShortCut = 16449
+        Enabled = True
+      end    
+      item
+        Command = rxgcDeSelectAll
+        ShortCut = 16429
+        Enabled = True
+      end    
+      item
+        Command = rxgcInvertSelection
+        ShortCut = 16426
+        Enabled = True
+      end    
+      item
+        Command = rxgcOptimizeColumnsWidth
+        ShortCut = 16427
+        Enabled = True
+      end    
+      item
+        Command = rxgcCopyCellValue
+        ShortCut = 16451
+        Enabled = True
+      end>
+    FooterOptions.DrawFullLine = False
+    SearchOptions.QuickSearchOptions = [loCaseInsensitive, loPartialKey]
+    SearchOptions.FromStart = False
+    OptionsRx = [rdgAllowColumnsForm, rdgAllowDialogFind, rdgMrOkOnDblClik, rdgAllowQuickSearch, rdgAllowQuickFilter, rdgAllowFilterForm, rdgAllowSortForm, rdgAllowToolMenu]
+    Align = alClient
+    AutoFillColumns = True
+    AutoEdit = False
+    Color = clWindow
+    DrawFullLine = False
+    FocusColor = clRed
+    SelectedColor = clHighlight
+    GridLineStyle = psSolid
+    DataSource = DataSource1
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgHeaderPushedLook, dgDisableInsert, dgRowHighlight]
+    ParentShowHint = False
+    ReadOnly = True
+    Scrollbars = ssAutoBoth
+    ShowHint = True
+    TabOrder = 0
+    OnDblClick = RxDBGridDblClick
+    OnKeyDown = RxDBGridKeyDown
+  end
+  object SiteIDQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'SITE_ID_NR'
+    SQL.Strings = (
+      'SELECT SITE_ID_NR, NR_ON_MAP FROM basicinf'
+    )
+    Params = <>
+    IndexFieldNames = 'SITE_ID_NR Asc'
+    left = 120
+    top = 72
+    object SiteIDQuerySITE_ID_NR: TStringField
+      DisplayLabel = 'Site Identifier'
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 11
+    end
+    object SiteIDQueryNR_ON_MAP: TStringField
+      DisplayLabel = 'Site Number'
+      FieldKind = fkData
+      FieldName = 'NR_ON_MAP'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 13
+    end
+  end
+  object DataSource1: TDataSource
+    AutoEdit = False
+    DataSet = SiteIDQuery
+    left = 88
+    top = 8
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    left = 40
+    top = 96
+  end
+  object RxSortZeos1: TRxSortZeos
+    left = 32
+    top = 40
+  end
+end

@@ -1,0 +1,274 @@
+object StiffForm: TStiffForm
+  Left = 758
+  Height = 304
+  Top = 344
+  Width = 472
+  Caption = 'Stiff Diagram'
+  ClientHeight = 304
+  ClientWidth = 472
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  SessionProperties = 'Left;Top;Height;Width'
+  LCLVersion = '2.0.4.0'
+  object StiffChart: TChart
+    Left = 0
+    Height = 304
+    Hint = 'Ctrl-Drag or mouse wheel to zoom, left button drag to pan, right-click for menu'
+    Top = 0
+    Width = 472
+    AxisList = <    
+      item
+        Margin = 2
+        Marks.AtDataOnly = True
+        Marks.Format = '%2:s'
+        Marks.LabelBrush.Style = bsClear
+        Marks.Source = ListChartSourceLeft
+        Marks.Style = smsLabel
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.Format = '%2:s'
+        Marks.LabelBrush.Style = bsClear
+        Marks.Source = ListChartSourceTopBot
+        Marks.Style = smsLabel
+        Minors = <>
+        Title.Visible = True
+        Title.Caption = 'Cations               [meq/l]               Anions'
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calTop
+        Marks.Format = '%2:s'
+        Marks.LabelBrush.Style = bsClear
+        Marks.Source = ListChartSourceTopBot
+        Marks.Style = smsLabel
+        Minors = <>
+        Title.Visible = True
+        Title.Caption = 'Cations               [meq/l]               Anions'
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calRight
+        Margin = 2
+        Marks.AtDataOnly = True
+        Marks.Format = '%2:s'
+        Marks.LabelBrush.Style = bsClear
+        Marks.Source = ListChartSourceRight
+        Marks.Style = smsLabel
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+      end>
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Margins.Left = 8
+    Margins.Top = 8
+    Margins.Right = 8
+    Margins.Bottom = 8
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    Toolset = ChartToolset1
+    Align = alClient
+    ParentShowHint = False
+    PopupMenu = PopupMenu1
+    ShowHint = True
+    object StiffSeries1: TAreaSeries
+      Marks.Visible = False
+      Marks.Format = '%2:s'
+      Marks.LabelBrush.Color = clSilver
+      Marks.LinkPen.Color = clBlack
+      Marks.Style = smsLabel
+      AreaBrush.Color = clSkyBlue
+      AreaLinesPen.Style = psClear
+      UseZeroLevel = True
+      ZeroLevel = 3
+    end
+  end
+  object ListChartSourceLeft: TListChartSource
+    DataPoints.Strings = (
+      '0|3|?|Na+K'
+      '0|2|?|Ca'
+      '0|1|?|Mg'
+    )
+    left = 104
+    top = 80
+  end
+  object ListChartSourceRight: TListChartSource
+    DataPoints.Strings = (
+      '0|3|?|Cl'
+      '0|2|?|HCO3'
+      '0|1|?|SO4'
+    )
+    left = 264
+    top = 80
+  end
+  object ListChartSourceTopBot: TListChartSource
+    left = 224
+    top = 184
+  end
+  object StiffQuery: TZReadOnlyQuery
+    BeforeOpen = StiffQueryBeforeOpen
+    AfterOpen = StiffQueryAfterOpen
+    Params = <>
+    left = 296
+    top = 136
+  end
+  object PrintDialog1: TPrintDialog
+    left = 336
+    top = 192
+  end
+  object SaveDialog: TSaveDialog
+    Title = 'Save diagram as'
+    DefaultExt = '.jpg'
+    Filter = 'JPEG Image (*.jpg)|*.jpg|Bitmap (*.bmp)|*.bmp|Windows Metafile (*.wmf)|*.wmf|Portable Network Graphics (*.png)|*.png|Scalable Vector Graphics (*.svg)|*.svg'
+    FilterIndex = 2
+    InitialDir = 'WSpaceDir'
+    left = 168
+    top = 48
+  end
+  object PopupMenu1: TPopupMenu
+    OnPopup = PopupMenu1Popup
+    left = 372
+    top = 52
+    object MenuItem5: TMenuItem
+      Caption = '&Copy to Clipboard'
+      OnClick = MenuItem5Click
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Save &as...'
+      OnClick = MenuItem3Click
+    end
+    object MenuItem2: TMenuItem
+      Caption = '&Print'
+      OnClick = MenuItem2Click
+    end
+    object MenuItemReport: TMenuItem
+      Caption = '&Update chart for report'
+    end
+    object MenuItem4: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem6: TMenuItem
+      Caption = '&Monochrome'
+      GroupIndex = 1
+      OnClick = MenuItem6Click
+    end
+    object QuickFormat1: TMenuItem
+      Caption = '&Quick Format'
+      GroupIndex = 1
+      object MenuItemShowParam: TMenuItem
+        Caption = 'Show &Parameters'
+        Hint = 'Parameter labels within the diagram at the corners'
+        OnClick = MenuItemShowParamClick
+      end
+      object MenuItemBackground: TMenuItem
+        Caption = '&Background white'
+        OnClick = MenuItemBackgroundClick
+      end
+      object MenuItemPanel: TMenuItem
+        Caption = 'Panel &colour'
+        OnClick = MenuItemPanelClick
+      end
+      object MenuItemFrame: TMenuItem
+        Caption = '&Frame'
+        OnClick = MenuItemFrameClick
+      end
+      object HorizGrid1: TMenuItem
+        Caption = '&Horizontal Grid'
+        Checked = True
+        OnClick = HorizGrid1Click
+      end
+      object VertGrid1: TMenuItem
+        Caption = '&Vertical Grid'
+        Checked = True
+        OnClick = VertGrid1Click
+      end
+      object Legend1: TMenuItem
+        Caption = '&Legend'
+        object MenuItemLegendEnabled: TMenuItem
+          Caption = '&Enabled'
+          OnClick = MenuItemLegendEnabledClick
+        end
+        object MenuItemSideBar: TMenuItem
+          Caption = 'Use &Sidebar'
+          Checked = True
+          OnClick = MenuItemSideBarClick
+        end
+        object MenuItemAlignment: TMenuItem
+          Caption = '&Alignment'
+          object MenuItemTopRight: TMenuItem
+            Caption = '&Top Right'
+            Checked = True
+            RadioItem = True
+            OnClick = MenuItemTopRightClick
+          end
+          object MenuItemTopLeft: TMenuItem
+            Caption = 'Top &Left'
+            RadioItem = True
+            OnClick = MenuItemTopLeftClick
+          end
+          object MenuItemBotRight: TMenuItem
+            Caption = 'Bottom &Right'
+            RadioItem = True
+            OnClick = MenuItemBotRightClick
+          end
+          object MenuItemBotLeft: TMenuItem
+            Caption = '&Bottom Left'
+            RadioItem = True
+            OnClick = MenuItemBotLeftClick
+          end
+          object MenuItemBotCentre: TMenuItem
+            Caption = 'Bottom Center'
+            RadioItem = True
+            OnClick = MenuItemBotCentreClick
+          end
+        end
+      end
+      object MenuItemFonts: TMenuItem
+        Caption = '&Fonts'
+        object MenuItemBigger: TMenuItem
+          Caption = '&Bigger'
+          ShortCut = 16450
+          OnClick = MenuItemBiggerClick
+        end
+        object MenuItemSmaller: TMenuItem
+          Caption = '&Smaller'
+          ShortCut = 16467
+          OnClick = MenuItemSmallerClick
+        end
+      end
+    end
+  end
+  object XMLPropStorage1: TXMLPropStorage
+    StoredValues = <>
+    left = 48
+    top = 168
+  end
+  object ChartToolset1: TChartToolset
+    left = 136
+    top = 136
+    object ChartToolset1DataPointHintTool1: TDataPointHintTool
+      ActiveCursor = crHandPoint
+    end
+    object ChartToolset1ZoomDragTool1: TZoomDragTool
+      Shift = [ssCtrl, ssLeft]
+      Brush.Style = bsClear
+      RestoreExtentOn = [zreDragTopLeft, zreDragTopRight, zreDragBottomLeft]
+    end
+    object ChartToolset1UserDefinedTool1: TUserDefinedTool
+      Shift = [ssRight]
+    end
+    object ChartToolset1ZoomMouseWheelTool1: TZoomMouseWheelTool
+      ZoomFactor = 1.1
+    end
+    object ChartToolset1PanDragTool1: TPanDragTool
+      Shift = [ssLeft]
+    end
+  end
+end

@@ -1,0 +1,431 @@
+inherited PortraitReportFormDis: TPortraitReportFormDis
+  Left = 378
+  Caption = 'Discharge Rate Portrait Report'
+  OnClose = FormClose
+  inherited RLReportPortrait: TRLReport
+    AfterPrint = RLReportPortraitAfterPrint
+    BeforePrint = RLReportPortraitBeforePrint
+    inherited RLBandHeader: TRLBand
+      InsideMargins.BottomMargin = 3
+    end
+    inherited SubDetail1: TRLSubDetail
+      inherited DetailBand1: TRLBand
+        inherited RLDBText2: TRLDBText
+          Left = 282
+          Width = 166
+          DataField = 'METH_MEAS'
+        end
+        inherited RLDBText1: TRLDBText
+          Left = 70
+          Width = 24
+          Alignment = taCenter
+          DataField = 'INFO_SOURC'
+          AfterPrint = RLDBText1AfterPrint
+        end
+        inherited RLDBText4: TRLDBText
+          Left = 114
+          Width = 166
+          DataField = 'DISCH_TYPE'
+        end
+        object RLDBText7: TRLDBText[3]
+          Left = 14
+          Height = 13
+          Top = 3
+          Width = 40
+          Alignment = taCenter
+          AutoSize = False
+          DataField = 'REP_INST'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Layout = tlBottom
+          ParentFont = False
+          AfterPrint = RLDBText7AfterPrint
+        end
+        object RLDBText8: TRLDBText[4]
+          Left = 450
+          Height = 14
+          Top = 2
+          Width = 52
+          AutoSize = False
+          DataField = 'DATE_MEAS'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Layout = tlBottom
+          ParentFont = False
+        end
+        object RLDBText9: TRLDBText[5]
+          Left = 506
+          Height = 14
+          Top = 2
+          Width = 34
+          AutoSize = False
+          DataField = 'TIME_MEAS'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Layout = tlBottom
+          ParentFont = False
+        end
+        object RLDBText11: TRLDBText[6]
+          Left = 551
+          Height = 13
+          Top = 3
+          Width = 71
+          Alignment = taRightJustify
+          DataField = 'DISCH_RATE'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Layout = tlBottom
+          ParentFont = False
+        end
+        object RLDBText12: TRLDBText[7]
+          Left = 626
+          Height = 14
+          Top = 2
+          Width = 86
+          AutoSize = False
+          DataField = 'COMMENT'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Layout = tlBottom
+          ParentFont = False
+        end
+      end
+      inherited RLBandSummary: TRLBand
+        Visible = False
+        inherited RLLabel4: TRLLabel
+          Left = 484
+        end
+        inherited RLLabel5: TRLLabel
+          Left = 484
+        end
+        inherited RLLabel6: TRLLabel
+          Left = 484
+        end
+        object RLDBText42: TRLDBText[3]
+          Left = 552
+          Height = 13
+          Top = 2
+          Width = 70
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'MinDISCH'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText43: TRLDBText[4]
+          Left = 552
+          Height = 13
+          Top = 18
+          Width = 70
+          Alignment = taRightJustify
+          DataField = 'MaxDISCH'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText44: TRLDBText[5]
+          Left = 552
+          Height = 13
+          Top = 34
+          Width = 70
+          Alignment = taRightJustify
+          DataField = 'AvgDISCH'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    inherited FooterBand: TRLBand
+      AfterPrint = FooterBandAfterPrint
+      BeforePrint = FooterBandBeforePrint
+      inherited CommentRLMemo: TRLMemo
+        Width = 160
+      end
+      inherited RLMemoLookups: TRLMemo
+        Left = 170
+        Top = 8
+        Width = 136
+        Lines.Strings = (
+          'Information Source:'
+        )
+      end
+    end
+    inherited HeaderBand1: TRLBand
+      inherited RLLabelHeader2: TRLLabel
+        Left = 282
+        Width = 87
+        Caption = 'Meth. measured'
+      end
+      inherited RLLabelHeader1: TRLLabel
+        Left = 62
+        Width = 49
+        Caption = 'Info. src.'
+      end
+      inherited RLDBText3: TRLDBText
+        Left = 100
+      end
+      inherited RLLabelHeader3: TRLLabel
+        Left = 114
+        Width = 85
+        Caption = 'Discharge Type'
+      end
+      inherited RLDBText5: TRLDBText
+        Left = 254
+      end
+      inherited RLLabel3: TRLLabel
+        Left = 346
+      end
+      inherited RLDBText6: TRLDBText
+        Left = 460
+        Width = 252
+      end
+      object RLLabelHeader4: TRLLabel[9]
+        Left = 6
+        Height = 13
+        Top = 24
+        Width = 53
+        Caption = 'Rep. Inst.'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        Layout = tlBottom
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabelHeader5: TRLLabel[10]
+        Left = 450
+        Height = 13
+        Top = 24
+        Width = 90
+        Caption = 'Date/Time meas.'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        Layout = tlBottom
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabelHeader7: TRLLabel[11]
+        Left = 550
+        Height = 13
+        Top = 24
+        Width = 73
+        Alignment = taRightJustify
+        Caption = 'Dis. Rate [l/s]'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        Layout = tlBottom
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabelHeader8: TRLLabel[12]
+        Left = 626
+        Height = 13
+        Top = 24
+        Width = 55
+        Caption = 'Comment'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        Layout = tlBottom
+        ParentFont = False
+        Transparent = False
+      end
+    end
+  end
+  inherited DetailQuery: TZReadOnlyQuery
+    SQL.Strings = (
+      'SELECT * FROM discharg'
+    )
+    MasterFields = 'SITE_ID_NR'
+    LinkedFields = 'SITE_ID_NR'
+    object DetailQuerySITE_ID_NR: TStringField[0]
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 44
+    end
+    object DetailQueryREP_INST: TStringField[1]
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 16
+    end
+    object DetailQueryINFO_SOURC: TStringField[2]
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 4
+    end
+    object DetailQueryDISCH_TYPE: TStringField[3]
+      FieldKind = fkData
+      FieldName = 'DISCH_TYPE'
+      Index = 3
+      LookupCache = False
+      LookupKeyFields = 'DISCTYPE'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DetailQueryDISCH_TYPEGetText
+      Size = 4
+    end
+    object DetailQueryMETH_MEAS: TStringField[4]
+      FieldKind = fkData
+      FieldName = 'METH_MEAS'
+      Index = 4
+      LookupCache = False
+      LookupKeyFields = 'DISCMEAS'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DetailQueryMETH_MEASGetText
+      Size = 4
+    end
+    object DetailQueryDATE_MEAS: TStringField[5]
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 32
+    end
+    object DetailQueryTIME_MEAS: TStringField[6]
+      FieldKind = fkData
+      FieldName = 'TIME_MEAS'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 16
+    end
+    object DetailQueryDISCH_RATE: TFloatField[7]
+      FieldKind = fkData
+      FieldName = 'DISCH_RATE'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DetailQueryDISCH_RATEGetText
+      Precision = 2
+    end
+    object DetailQueryCOMMENT: TStringField[8]
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 80
+    end
+  end
+  inherited SummaryQuery: TZReadOnlyQuery
+    Top = 360
+    object SummaryQuerySITE_ID_NR: TStringField[0]
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 11
+    end
+    object SummaryQueryMinDISCH: TFloatField[1]
+      FieldKind = fkData
+      FieldName = 'MinDISCH'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DetailQueryDISCH_RATEGetText
+    end
+    object SummaryQueryMaxDISCH: TFloatField[2]
+      FieldKind = fkData
+      FieldName = 'MaxDISCH'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DetailQueryDISCH_RATEGetText
+    end
+    object SummaryQueryAvgDISCH: TFloatField[3]
+      FieldKind = fkData
+      FieldName = 'AvgDISCH'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DetailQueryDISCH_RATEGetText
+    end
+  end
+  inherited SummaryDataSource: TDataSource
+    Top = 360
+  end
+  object QueryLookupInfoSrc: TZReadOnlyQuery[9]
+    BeforeOpen = QueryLookupInfoSrcBeforeOpen
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM Lookup'
+      'WHERE USED_FOR = ''IS_BASIC'''
+    )
+    Params = <>
+    Left = 272
+    Top = 288
+  end
+  object QueryLookupRepInst: TZReadOnlyQuery[10]
+    BeforeOpen = QueryLookupRepInstBeforeOpen
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM Lookup'
+      'WHERE USED_FOR = ''REP_INST'''
+    )
+    Params = <>
+    Left = 392
+    Top = 288
+  end
+end

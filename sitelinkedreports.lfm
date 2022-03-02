@@ -1,0 +1,217 @@
+inherited SiteReportDetailForm: TSiteReportDetailForm
+  Left = 561
+  Top = 237
+  Caption = 'Site-Linked Reports'
+  OnActivate = FormActivate
+  OnShow = FormShow
+  inherited Panel1: TPanel
+    inherited ViewNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited ChartSpeedButton: TSpeedButton
+      Visible = False
+    end
+    inherited BasicDBNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited Panel2: TPanel
+    inherited Panel4: TPanel
+      inherited DetailNavigator: TDBNavigator
+        Hints.Strings = (        )
+      end
+    end
+    inherited DBGrid: TDBGrid
+      AutoFillColumns = True
+      Columns = <      
+        item
+          Alignment = taCenter
+          MinSize = 100
+          PickList.Strings = (          )
+          SizePriority = 0
+          Title.Caption = 'Date entered'
+          Width = 100
+          FieldName = 'DATE_ENTRY'
+        end      
+        item
+          Alignment = taCenter
+          MinSize = 80
+          PickList.Strings = (          )
+          SizePriority = 0
+          Title.Caption = 'Rep. Institution'
+          Width = 80
+          FieldName = 'REP_INST'
+        end      
+        item
+          MinSize = 100
+          PickList.Strings = (          )
+          Title.Caption = 'Report Number'
+          Width = 186
+          FieldName = 'REPORT_NR'
+        end      
+        item
+          MinSize = 100
+          PickList.Strings = (          )
+          SizePriority = 1
+          Title.Caption = 'Comment'
+          Width = 186
+          FieldName = 'COMMENTS'
+        end>
+    end
+    inherited LinkedLabel: TLabel
+      Caption = 'Reports linked to this site'
+    end
+  end
+  inherited GroupBox1: TGroupBox
+    ClientHeight = 86
+    inherited Label3: TLabel
+      Left = 179
+    end
+    inherited Label4: TLabel
+      Left = 256
+    end
+    inherited Y_CoordLabel: TLabel
+      Left = 90
+    end
+    inherited X_CoordLabel: TLabel
+      Left = 2
+    end
+    inherited Label5: TLabel
+      Left = 179
+    end
+    inherited AltLabel: TLabel
+      Left = 240
+    end
+    inherited DepLabel: TLabel
+      Left = 356
+    end
+    inherited Label6: TLabel
+      Left = 412
+    end
+    inherited Label7: TLabel
+      Left = 464
+    end
+    inherited EditFARM_NR: TDBEdit
+      Left = 179
+    end
+    inherited EditSITE_NAME: TDBEdit
+      Left = 256
+      Width = 304
+    end
+    inherited EditDATE_UPDTD: TDBEdit
+      Left = 464
+      Width = 96
+    end
+    inherited RxDBLookupComboType: TRxDBLookupCombo
+      Left = 412
+    end
+  end
+  inherited LinkedDataSource: TDataSource
+    OnDataChange = LinkedDataSourceDataChange
+    left = 144
+    top = 280
+  end
+  inherited LinkedQuery: TZQuery
+    BeforeOpen = LinkedQueryBeforeOpen
+    OnNewRecord = LinkedQueryNewRecord
+    SQL.Strings = (
+      'SELECT * FROM siterpts WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    top = 280
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object LinkedQueryDATE_ENTRY: TStringField[1]
+      DisplayLabel = 'Date entered'
+      FieldKind = fkData
+      FieldName = 'DATE_ENTRY'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 8
+    end
+    object LinkedQueryREP_INST: TStringField[2]
+      Tag = 1
+      DisplayLabel = 'Rep. Institution'
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 4
+    end
+    object LinkedQueryREPORT_NR: TStringField[3]
+      DisplayLabel = 'Report Number'
+      FieldKind = fkData
+      FieldName = 'REPORT_NR'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryREPORT_NRValidate
+      Size = 96
+    end
+    object LinkedQueryCOMMENTS: TStringField[4]
+      DisplayLabel = 'Comment'
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'COMMENTS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 24
+    end
+  end
+  inherited ZReadOnlyQueryCoordAcc: TZReadOnlyQuery
+    top = 120
+  end
+  inherited AccuDataSource: TDataSource
+    top = 208
+  end
+  object PickListQuery: TZReadOnlyQuery[12]
+    Connection = DataModuleMain.ZConnectionDB
+    SQL.Strings = (
+      'SELECT REPORT_NR FROM rprtdocs'
+      'WHERE REP_INST = :TheInst'
+      'ORDER BY REP_INST, REPORT_NR'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'TheInst'
+        ParamType = ptInput
+        Size = 4
+      end>
+    left = 304
+    top = 240
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'TheInst'
+        ParamType = ptInput
+        Size = 4
+      end>
+  end
+end

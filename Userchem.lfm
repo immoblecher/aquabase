@@ -1,0 +1,4287 @@
+object UserChemistryForm: TUserChemistryForm
+  Tag = 127
+  Left = 632
+  Height = 500
+  Top = 162
+  Width = 576
+  Caption = 'User-defined Chemistry'
+  ClientHeight = 500
+  ClientWidth = 576
+  Color = clBtnFace
+  Constraints.MinHeight = 500
+  Constraints.MinWidth = 576
+  Font.Color = clBlack
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = [fsBold]
+  KeyPreview = True
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  SessionProperties = 'Height;Left;PageControl.ActivePage;ParameterTabSheet.Hint;Top;Width;EditResults.Text'
+  LCLVersion = '2.0.12.0'
+  Visible = True
+  object Panel3: TPanel
+    Left = 0
+    Height = 464
+    Top = 36
+    Width = 576
+    Align = alClient
+    Alignment = taLeftJustify
+    BevelOuter = bvNone
+    BorderWidth = 4
+    ClientHeight = 464
+    ClientWidth = 576
+    FullRepaint = False
+    TabOrder = 1
+    object StandardLabel: TLabel
+      Left = 288
+      Height = 11
+      Top = 229
+      Width = 55
+      Anchors = [akLeft, akBottom]
+      Caption = 'Standard:'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object ChemStandardLabel: TLabel
+      Left = 348
+      Height = 11
+      Top = 229
+      Width = 110
+      Anchors = [akLeft, akBottom]
+      Caption = 'ChemStandardLabel'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object SamplesLabel: TLabel
+      Left = 8
+      Height = 11
+      Top = 118
+      Width = 50
+      Caption = 'Samples'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object Image1: TImage
+      Left = 552
+      Height = 16
+      Hint = 'Drop parameters here to remove'
+      Top = 223
+      Width = 15
+      Anchors = [akRight, akBottom]
+      OnDragDrop = Image1DragDrop
+      OnDragOver = Image1DragOver
+      ParentShowHint = False
+      Picture.Data = {
+        07544269746D617076010000424D760100000000000076000000280000002000
+        0000100000000100040000000000000100000000000000000000100000001000
+        0000000000000000800000800000008080008000000080008000808000007F7F
+        7F00BFBFBF000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+        FF003330000000003333333777777777F3333330F777777033333337F3F3F3F7
+        F3333330F080807033333337F7F7F7F7F3333330F080707033333337F7F7F7F7
+        F3333330F080807033333337F7F7F7F7F3333330F080707033333337F7F7F7F7
+        F3333330F0808070333333F7F7F7F7F7F3F33030F080707030333737F7F7F7F7
+        F7333300F080807003333377F7F7F7F773333330F080707033333337F7F7F7F7
+        F33333307070707033333337F7F7F7F7FF333300000000000333337777777777
+        7F33330F888777770333337FFFFFFFFF7F333300000000000333337777777777
+        73333333307770333333333337FFF7F333333333300000333333333337777733
+        3333
+      }
+      ShowHint = True
+      Transparent = True
+    end
+    object ChemLabel: TLabel
+      Left = 16
+      Height = 11
+      Top = 229
+      Width = 61
+      Anchors = [akLeft, akBottom]
+      Caption = 'Parameters'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object DBGrid: TDBGrid
+      Left = 8
+      Height = 85
+      Hint = 'Sample Information'
+      Top = 134
+      Width = 560
+      HelpContext = 31
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Color = clWindow
+      Columns = <>
+      DataSource = LinkedDataSource
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgCellHints]
+      ParentFont = False
+      Scrollbars = ssAutoBoth
+      TabOrder = 0
+      OnColExit = DBGridColExit
+      OnEnter = DBGridEnter
+      OnGetCellHint = DBGridGetCellHint
+      OnKeyDown = DBGridKeyDown
+      OnMouseDown = DBGridMouseDown
+      OnMouseMove = DBGridMouseMove
+      OnTitleClick = DBGridTitleClick
+    end
+    object AMSLCheckBox: TCheckBox
+      Left = 495
+      Height = 23
+      Top = 115
+      Width = 66
+      Anchors = [akTop, akRight]
+      Caption = 'a.m.s.l.'
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      OnClick = AMSLCheckBoxClick
+      ParentFont = False
+      TabOrder = 1
+      TabStop = False
+    end
+    object GroupBox1: TGroupBox
+      Left = 8
+      Height = 102
+      Top = 8
+      Width = 560
+      Align = alTop
+      AutoSize = True
+      BorderSpacing.Around = 4
+      BorderSpacing.InnerBorder = 2
+      Caption = 'Basic Site Information:'
+      ClientHeight = 88
+      ClientWidth = 558
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 2
+      object SiteIDLabel: TLabel
+        Left = 2
+        Height = 13
+        Top = 0
+        Width = 67
+        AutoSize = False
+        BorderSpacing.Left = 2
+        Caption = '&Site Identifier'
+        FocusControl = EditSITE_ID_NR
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object NumberLabel: TLabel
+        Left = 88
+        Height = 13
+        Top = 0
+        Width = 42
+        AutoSize = False
+        Caption = '&Number'
+        FocusControl = EditNR_ON_MAP
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object FarmLabel: TLabel
+        Left = 180
+        Height = 13
+        Top = 0
+        Width = 77
+        AutoSize = False
+        Caption = 'Distr./&Farm Nr.'
+        FocusControl = EditFARM_NR
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object SiteLabel: TLabel
+        Left = 258
+        Height = 13
+        Top = 0
+        Width = 292
+        AutoSize = False
+        Caption = 'Site Name/&Description'
+        FocusControl = EditSITE_NAME
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object Y_CoordLabel: TLabel
+        Left = 2
+        Height = 13
+        Top = 44
+        Width = 84
+        AutoSize = False
+        BorderSpacing.Left = 2
+        Caption = '&X Coordinate'
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object X_CoordLabel: TLabel
+        Left = 92
+        Height = 13
+        Top = 44
+        Width = 84
+        AutoSize = False
+        Caption = '&Y Coordinate'
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object AccLabel: TLabel
+        Left = 190
+        Height = 13
+        Top = 44
+        Width = 61
+        AutoSize = False
+        Caption = '&Coor. Acc.'
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object AltitudeLabel: TLabel
+        Left = 250
+        Height = 13
+        Top = 44
+        Width = 54
+        AutoSize = False
+        Caption = '&Altitude'
+        FocusControl = EditALTITUDE
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object CollarLabel: TLabel
+        Left = 306
+        Height = 13
+        Top = 44
+        Width = 54
+        AutoSize = False
+        Caption = 'Co&llar'
+        FocusControl = EditCOLLAR_HI
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object DepthLabel: TLabel
+        Left = 360
+        Height = 13
+        Top = 44
+        Width = 54
+        AutoSize = False
+        Caption = 'Dept&h'
+        FocusControl = EditDEPTH
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object TypeLabel: TLabel
+        Left = 416
+        Height = 13
+        Top = 44
+        Width = 50
+        AutoSize = False
+        Caption = 'Site &Type'
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object DateLabel: TLabel
+        Left = 470
+        Height = 13
+        Top = 44
+        Width = 78
+        AutoSize = False
+        Caption = 'Date Info updtd'
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        ParentColor = False
+        ParentFont = False
+      end
+      object EditSITE_ID_NR: TDBEdit
+        Cursor = crArrow
+        Left = 2
+        Height = 22
+        Top = 15
+        Width = 82
+        DataField = 'SITE_ID_NR'
+        DataSource = BasicinfDataSource
+        ReadOnly = True
+        AutoSize = False
+        BorderSpacing.Left = 2
+        CharCase = ecUppercase
+        Enabled = False
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 0
+        OnEnter = EditBasicinfEnter
+      end
+      object EditNR_ON_MAP: TDBEdit
+        Left = 88
+        Height = 22
+        Top = 15
+        Width = 88
+        HelpContext = 31
+        DataField = 'NR_ON_MAP'
+        DataSource = BasicinfDataSource
+        AutoSize = False
+        CharCase = ecUppercase
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 1
+        OnClick = EditClick
+        OnEnter = EditBasicinfEnter
+        OnKeyDown = EditKeyDown
+        OnKeyUp = EditKeyUp
+      end
+      object EditFARM_NR: TDBEdit
+        Left = 180
+        Height = 22
+        Top = 15
+        Width = 74
+        HelpContext = 31
+        DataField = 'FARM_NR'
+        DataSource = BasicinfDataSource
+        AutoSize = False
+        CharCase = ecUppercase
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 2
+        OnClick = EditClick
+        OnEnter = EditBasicinfEnter
+        OnKeyDown = EditKeyDown
+        OnKeyUp = EditKeyUp
+      end
+      object EditSITE_NAME: TDBEdit
+        Left = 258
+        Height = 22
+        Top = 15
+        Width = 294
+        HelpContext = 31
+        DataField = 'SITE_NAME'
+        DataSource = BasicinfDataSource
+        Anchors = [akTop, akLeft, akRight]
+        AutoSize = False
+        CharCase = ecUppercase
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 3
+        OnClick = EditClick
+        OnEnter = EditBasicinfEnter
+        OnKeyDown = EditKeyDown
+        OnKeyUp = EditKeyUp
+      end
+      object EditALTITUDE: TDBEdit
+        Left = 250
+        Height = 22
+        Top = 58
+        Width = 50
+        HelpContext = 31
+        DataField = 'ALTITUDE'
+        DataSource = BasicinfDataSource
+        AutoSize = False
+        CharCase = ecNormal
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 7
+        OnClick = EditClick
+        OnEnter = EditBasicinfEnter
+        OnKeyDown = EditKeyDown
+        OnKeyUp = EditKeyUp
+      end
+      object EditCOLLAR_HI: TDBEdit
+        Left = 306
+        Height = 22
+        Top = 58
+        Width = 50
+        HelpContext = 31
+        DataField = 'COLLAR_HI'
+        DataSource = BasicinfDataSource
+        AutoSize = False
+        CharCase = ecNormal
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 11
+        OnClick = EditClick
+        OnEnter = EditBasicinfEnter
+        OnKeyDown = EditKeyDown
+        OnKeyUp = EditKeyUp
+      end
+      object EditDEPTH: TDBEdit
+        Left = 360
+        Height = 22
+        Top = 58
+        Width = 50
+        HelpContext = 31
+        DataField = 'DEPTH'
+        DataSource = BasicinfDataSource
+        AutoSize = False
+        CharCase = ecNormal
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 9
+        OnClick = EditClick
+        OnEnter = EditBasicinfEnter
+        OnKeyDown = EditKeyDown
+        OnKeyUp = EditKeyUp
+      end
+      object EditDATE_UPDTD: TDBEdit
+        Cursor = crArrow
+        Left = 470
+        Height = 22
+        Top = 58
+        Width = 82
+        HelpContext = 31
+        DataField = 'DATE_UPDTD'
+        DataSource = BasicinfDataSource
+        ReadOnly = True
+        Anchors = [akTop, akLeft, akRight]
+        AutoSize = False
+        CharCase = ecNormal
+        Enabled = False
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 8
+        TabStop = False
+        OnEnter = EditBasicinfEnter
+      end
+      object RxDBLookupComboAcc: TRxDBLookupCombo
+        Left = 190
+        Height = 25
+        Top = 58
+        Width = 36
+        HelpKeyword = 'COORDACC'
+        HelpContext = 4
+        AutoSize = True
+        ButtonOnlyWhenFocused = False
+        ButtonWidth = 15
+        Color = clWindow
+        DataField = 'COORD_ACC'
+        DataSource = BasicinfDataSource
+        PopUpFormOptions.Columns = <>
+        PopUpFormOptions.DropDownCount = 5
+        PopUpFormOptions.DropDownWidth = 220
+        Flat = False
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        Glyph.Data = {
+          C2000000424DC200000000000000360000002800000007000000050000000100
+          2000000000008C00000064000000640000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000FF0000000000000000000000000000000000000000000000FF0000
+          00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+          00FF000000FF0000000000000000000000000000000000000000000000000000
+          000000000000
+        }
+        NumGlyphs = 1
+        OnClick = RxDBLookupComboClick
+        OnEnter = EditBasicinfEnter
+        OnMouseMove = RxDBLookupComboMouseMove
+        OnSelect = RxDBLookupComboSelect
+        ParentColor = False
+        ParentFont = False
+        ParentShowHint = False
+        ReadOnly = False
+        ShowHint = True
+        TabOrder = 6
+        TabStop = True
+        DropDownCount = 5
+        DropDownWidth = 220
+        LookupDisplay = 'SEARCH;DESCRIBE'
+        LookupField = 'SEARCH'
+        LookupSource = AccuDataSource
+      end
+      object RxDBLookupComboType: TRxDBLookupCombo
+        Left = 416
+        Height = 26
+        Top = 58
+        Width = 36
+        HelpKeyword = 'SITETYPE'
+        HelpContext = 4
+        AutoSize = True
+        ButtonOnlyWhenFocused = False
+        ButtonWidth = 15
+        Color = clWindow
+        DataField = 'SITE_TYPE'
+        DataSource = BasicinfDataSource
+        PopUpFormOptions.Columns = <>
+        PopUpFormOptions.DropDownCount = 5
+        PopUpFormOptions.DropDownWidth = 220
+        Flat = False
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Glyph.Data = {
+          C2000000424DC200000000000000360000002800000007000000050000000100
+          2000000000008C00000064000000640000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000FF0000000000000000000000000000000000000000000000FF0000
+          00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+          00FF000000FF0000000000000000000000000000000000000000000000000000
+          000000000000
+        }
+        NumGlyphs = 1
+        OnClick = RxDBLookupComboClick
+        OnEnter = EditBasicinfEnter
+        OnMouseMove = RxDBLookupComboMouseMove
+        OnSelect = RxDBLookupComboSelect
+        ParentColor = False
+        ParentFont = False
+        ParentShowHint = False
+        ReadOnly = False
+        ShowHint = True
+        TabOrder = 10
+        TabStop = True
+        DropDownCount = 5
+        DropDownWidth = 220
+        LookupDisplay = 'SEARCH;DESCRIBE'
+        LookupField = 'SEARCH'
+        LookupSource = TypeDataSource
+      end
+      object DBEditX: TDBEdit
+        Left = 4
+        Height = 22
+        Top = 58
+        Width = 88
+        DataField = 'X_COORD'
+        DataSource = BasicinfDataSource
+        AutoSize = False
+        CharCase = ecUppercase
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 4
+        OnChange = EditXChange
+        OnClick = EditClick
+        OnEnter = EditBasicinfEnter
+        OnKeyDown = EditKeyDown
+        OnKeyPress = EditKeyPress
+        OnKeyUp = EditKeyUp
+      end
+      object DBEditY: TDBEdit
+        Left = 96
+        Height = 22
+        Top = 58
+        Width = 88
+        DataField = 'Y_COORD'
+        DataSource = BasicinfDataSource
+        AutoSize = False
+        CharCase = ecUppercase
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'MS Sans Serif'
+        MaxLength = 0
+        ParentFont = False
+        TabOrder = 5
+        OnChange = EditYChange
+        OnClick = EditClick
+        OnEnter = EditBasicinfEnter
+        OnKeyDown = EditKeyDown
+        OnKeyPress = EditKeyPress
+        OnKeyUp = EditKeyUp
+      end
+    end
+    object PageControl: TPageControl
+      Left = 8
+      Height = 182
+      Top = 247
+      Width = 560
+      ActivePage = TabSheet1
+      Align = alBottom
+      BorderSpacing.Left = 4
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 2
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      TabIndex = 0
+      TabOrder = 3
+      OnChange = PageControlChange
+      OnEnter = PageControlChange
+      object TabSheet1: TTabSheet
+        Caption = 'User-defined Parameters'
+        ClientHeight = 155
+        ClientWidth = 550
+        object DBGrid2: TDBGrid
+          Left = 0
+          Height = 155
+          Top = 0
+          Width = 550
+          HelpContext = 31
+          Align = alClient
+          Color = clWindow
+          Columns = <          
+            item
+              Title.Caption = 'Parameter'
+              Width = 170
+              FieldName = 'CPARAMETER'
+            end          
+            item
+              Title.Caption = 'Reading'
+              Width = 70
+              FieldName = 'READING'
+            end          
+            item
+              Title.Caption = 'Unit'
+              Width = 66
+              FieldName = 'UNIT'
+            end          
+            item
+              Title.Caption = 'Limit Symbol'
+              Width = 90
+              FieldName = 'SYMBOL'
+            end          
+            item
+              Title.Caption = 'Reference'
+              Width = 88
+              FieldName = 'PARAM_REF'
+            end          
+            item
+              Title.Caption = 'Comment'
+              Width = 80
+              FieldName = 'COMMENT'
+            end>
+          DataSource = DataSource6
+          Scrollbars = ssAutoBoth
+          TabOrder = 0
+          TitleFont.Color = clBlack
+          TitleFont.Height = -12
+          TitleFont.Name = 'MS Sans Serif'
+          OnEnter = DBGrid2Enter
+          OnKeyDown = DBGrid2KeyDown
+        end
+      end
+      object ParameterTabSheet: TTabSheet
+        Caption = 'User-defined Entry'
+        ClientHeight = 155
+        ClientWidth = 550
+        ImageIndex = 1
+        ParentShowHint = False
+        PopupMenu = EntryPopupMenu
+        ShowHint = True
+        object Label1: TLabel
+          Tag = 1
+          Left = 6
+          Height = 13
+          Top = 2
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter1'
+          Color = clBtnFace
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit1
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          Transparent = False
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label2: TLabel
+          Tag = 2
+          Left = 84
+          Height = 13
+          Top = 2
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter2'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit2
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label3: TLabel
+          Tag = 3
+          Left = 163
+          Height = 13
+          Top = 2
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter3'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit3
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label4: TLabel
+          Tag = 4
+          Left = 241
+          Height = 13
+          Top = 2
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter4'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit4
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label5: TLabel
+          Tag = 5
+          Left = 319
+          Height = 13
+          Top = 2
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter5'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit5
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label6: TLabel
+          Tag = 6
+          Left = 398
+          Height = 13
+          Top = 2
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter6'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit6
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label7: TLabel
+          Tag = 7
+          Left = 476
+          Height = 13
+          Top = 2
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter7'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit7
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label8: TLabel
+          Tag = 8
+          Left = 6
+          Height = 13
+          Top = 40
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter8'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit8
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label9: TLabel
+          Tag = 9
+          Left = 84
+          Height = 13
+          Top = 40
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter9'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit9
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label10: TLabel
+          Tag = 10
+          Left = 163
+          Height = 13
+          Top = 40
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter10'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit10
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label11: TLabel
+          Tag = 11
+          Left = 241
+          Height = 13
+          Top = 40
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter11'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit11
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label12: TLabel
+          Tag = 12
+          Left = 319
+          Height = 13
+          Top = 40
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter12'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit12
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label13: TLabel
+          Tag = 13
+          Left = 398
+          Height = 13
+          Top = 40
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter13'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit13
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label14: TLabel
+          Tag = 14
+          Left = 476
+          Height = 13
+          Top = 40
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter14'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit14
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label15: TLabel
+          Tag = 15
+          Left = 6
+          Height = 13
+          Top = 78
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter15'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit15
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label16: TLabel
+          Tag = 16
+          Left = 84
+          Height = 13
+          Top = 78
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter16'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit16
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label17: TLabel
+          Tag = 17
+          Left = 163
+          Height = 13
+          Top = 78
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter17'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit17
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label18: TLabel
+          Tag = 18
+          Left = 241
+          Height = 13
+          Top = 78
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter18'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit18
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label19: TLabel
+          Tag = 19
+          Left = 319
+          Height = 13
+          Top = 78
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter19'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit19
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label20: TLabel
+          Tag = 20
+          Left = 398
+          Height = 13
+          Top = 78
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter20'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit20
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label21: TLabel
+          Tag = 21
+          Left = 476
+          Height = 13
+          Top = 78
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter21'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit21
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label22: TLabel
+          Tag = 22
+          Left = 6
+          Height = 13
+          Top = 116
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter22'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit22
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label23: TLabel
+          Tag = 23
+          Left = 84
+          Height = 13
+          Top = 116
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter23'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit23
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label24: TLabel
+          Tag = 24
+          Left = 163
+          Height = 13
+          Top = 116
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter24'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit24
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label25: TLabel
+          Tag = 25
+          Left = 241
+          Height = 13
+          Top = 116
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter25'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit25
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label26: TLabel
+          Tag = 26
+          Left = 319
+          Height = 13
+          Top = 116
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter26'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit26
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label27: TLabel
+          Tag = 27
+          Left = 398
+          Height = 13
+          Top = 116
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter27'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit27
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object Label28: TLabel
+          Tag = 28
+          Left = 476
+          Height = 13
+          Top = 116
+          Width = 70
+          AutoSize = False
+          Caption = 'Parameter28'
+          Constraints.MaxWidth = 70
+          FocusControl = DBEdit28
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clGray
+          Font.Height = -12
+          Font.Name = 'Arial'
+          ParentColor = False
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+          OnDragDrop = LabelDragDrop
+          OnDragOver = LabelDragOver
+          OnMouseMove = LabelMouseMove
+        end
+        object DBEdit1: TDBEdit
+          Tag = 1
+          Left = 6
+          Height = 21
+          Top = 16
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit2: TDBEdit
+          Tag = 2
+          Left = 84
+          Height = 21
+          Top = 16
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit3: TDBEdit
+          Tag = 3
+          Left = 163
+          Height = 21
+          Top = 16
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 2
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit4: TDBEdit
+          Tag = 4
+          Left = 241
+          Height = 21
+          Top = 16
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit5: TDBEdit
+          Tag = 5
+          Left = 319
+          Height = 21
+          Top = 16
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 4
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit6: TDBEdit
+          Tag = 6
+          Left = 398
+          Height = 21
+          Top = 16
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 5
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit7: TDBEdit
+          Tag = 7
+          Left = 476
+          Height = 21
+          Top = 16
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 6
+          OnClick = DBEditChemEnter
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit8: TDBEdit
+          Tag = 8
+          Left = 6
+          Height = 21
+          Top = 54
+          Width = 70
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 7
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit9: TDBEdit
+          Tag = 9
+          Left = 84
+          Height = 21
+          Top = 54
+          Width = 70
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 8
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit10: TDBEdit
+          Tag = 10
+          Left = 163
+          Height = 21
+          Top = 54
+          Width = 70
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 9
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit11: TDBEdit
+          Tag = 11
+          Left = 241
+          Height = 21
+          Top = 54
+          Width = 70
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 10
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit12: TDBEdit
+          Tag = 12
+          Left = 319
+          Height = 21
+          Top = 54
+          Width = 70
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 11
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit13: TDBEdit
+          Tag = 13
+          Left = 398
+          Height = 21
+          Top = 54
+          Width = 70
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 12
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit14: TDBEdit
+          Tag = 14
+          Left = 476
+          Height = 21
+          Top = 54
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 13
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit15: TDBEdit
+          Tag = 15
+          Left = 6
+          Height = 21
+          Top = 92
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 14
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit16: TDBEdit
+          Tag = 16
+          Left = 84
+          Height = 21
+          Top = 92
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 15
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit17: TDBEdit
+          Tag = 17
+          Left = 163
+          Height = 21
+          Top = 92
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 16
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit18: TDBEdit
+          Tag = 18
+          Left = 241
+          Height = 21
+          Top = 92
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 17
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit19: TDBEdit
+          Tag = 19
+          Left = 319
+          Height = 21
+          Top = 92
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 18
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit20: TDBEdit
+          Tag = 20
+          Left = 398
+          Height = 21
+          Top = 92
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 19
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit21: TDBEdit
+          Tag = 21
+          Left = 476
+          Height = 21
+          Top = 92
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 20
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit22: TDBEdit
+          Tag = 22
+          Left = 6
+          Height = 21
+          Top = 130
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 21
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit23: TDBEdit
+          Tag = 23
+          Left = 84
+          Height = 21
+          Top = 130
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 22
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit24: TDBEdit
+          Tag = 24
+          Left = 163
+          Height = 21
+          Top = 130
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 23
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit25: TDBEdit
+          Tag = 25
+          Left = 241
+          Height = 21
+          Top = 130
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 24
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit26: TDBEdit
+          Tag = 26
+          Left = 319
+          Height = 21
+          Top = 130
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 25
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit27: TDBEdit
+          Tag = 27
+          Left = 398
+          Height = 21
+          Top = 130
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 26
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+        object DBEdit28: TDBEdit
+          Tag = 28
+          Left = 476
+          Height = 21
+          Top = 130
+          Width = 70
+          HelpContext = 312
+          AutoSize = False
+          CharCase = ecNormal
+          Enabled = False
+          MaxLength = 0
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 27
+          OnEnter = DBEditChemEnter
+          OnKeyDown = DBEditKeyDown
+        end
+      end
+      object TabSheet3: TTabSheet
+        Caption = 'Detection Limits'
+        ClientHeight = 155
+        ClientWidth = 550
+        ImageIndex = 2
+        object DBGridDet: TDBGrid
+          Left = 0
+          Height = 155
+          Top = 0
+          Width = 556
+          HelpContext = 31
+          Align = alClient
+          AutoFillColumns = True
+          Color = clWindow
+          Columns = <>
+          DataSource = DataSource7
+          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
+          Scrollbars = ssAutoBoth
+          TabOrder = 0
+          TitleFont.Color = clBlack
+          TitleFont.Height = -12
+          TitleFont.Name = 'MS Sans Serif'
+          OnColExit = DBGridDetColExit
+          OnEnter = DBGridDetEnter
+          OnGetCellHint = DBGridDetGetCellHint
+          OnKeyDown = DBGridDetKeyDown
+          OnMouseDown = DBGridDetMouseDown
+          OnMouseMove = DBGridDetMouseMove
+          OnTitleClick = DBGridDetTitleClick
+        end
+      end
+    end
+    object Panel2: TPanel
+      Left = 4
+      Height = 29
+      Top = 431
+      Width = 568
+      Align = alBottom
+      BorderSpacing.Top = 2
+      BevelOuter = bvNone
+      ClientHeight = 29
+      ClientWidth = 568
+      TabOrder = 4
+      object DetailNavigator: TDBNavigator
+        Left = 172
+        Height = 25
+        Top = 2
+        Width = 262
+        BevelOuter = bvNone
+        ChildSizing.EnlargeHorizontal = crsScaleChilds
+        ChildSizing.EnlargeVertical = crsScaleChilds
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclLeftToRightThenTopToBottom
+        ChildSizing.ControlsPerLine = 100
+        ClientHeight = 25
+        ClientWidth = 262
+        DataSource = LinkedDataSource
+        OnClick = DetailNavigatorClick
+        Options = []
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        Images = DataModuleMain.ImageListNavs
+      end
+      object RecordText: TStaticText
+        Left = 4
+        Height = 16
+        Top = 8
+        Width = 160
+        BorderSpacing.Around = 4
+        Caption = 'Record'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        ParentFont = False
+        TabOrder = 1
+      end
+      object EditResults: TEdit
+        Left = 502
+        Height = 21
+        Top = 4
+        Width = 62
+        Align = alRight
+        Alignment = taRightJustify
+        Anchors = [akTop, akRight]
+        BorderSpacing.Around = 4
+        NumbersOnly = True
+        OnEditingDone = EditResultsEditingDone
+        TabOrder = 2
+        Text = '500'
+      end
+      object StaticText1: TStaticText
+        Left = 443
+        Height = 17
+        Top = 6
+        Width = 53
+        Align = alRight
+        Alignment = taRightJustify
+        Anchors = [akTop, akRight]
+        BorderSpacing.Around = 6
+        Caption = 'Results:'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        ParentFont = False
+        TabOrder = 3
+      end
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 36
+    Top = 0
+    Width = 576
+    Align = alTop
+    ClientHeight = 36
+    ClientWidth = 576
+    TabOrder = 0
+    object GraphSpeedButton: TSpeedButton
+      Left = 352
+      Height = 25
+      Hint = 'Time dependent chemistry graph of current site'
+      Top = 6
+      Width = 25
+      Anchors = [akTop, akRight]
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00000000001717
+        17231B1B1B2620202025242424271D1D1DFF2B2B2B212E2E2E21313131221D1D
+        1DFF3636362137373721383838331D1D1DFF3737375139393941000000001D1D
+        1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D
+        1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF1D1D1DFF000000001D1D
+        1DFF117CE7FF117DE8FF117EE8FF0C5AA5FF117FE8FF117FE8FF117FE8FF0C5A
+        A6FF117DE8FF107BE7FF107AE6FF0B54A2FF0F76E5FF0F73E4FF1C1C1C401D1D
+        1DFF1078D7FF1179D8FF117AD9FF0C5A9EFF117BD9FF117BDAFF117BD9FF0C5A
+        9FFF1079D8FF1078D8FF1076D7FF0B539AFF0F71D5FF489AC1FF1D1D1DFF1D1D
+        1DFF0E69B6FF0F6BB8FF0F6CB8FF0B518AFF0F6DBAFF0F6DBAFF0F6DBAFF0B51
+        8BFF146EB3FF146DB2FF0E68B7FF0A4B86FF2A75B1FF52A781FF000000001D1D
+        1DFF138DEEFF148FEEFF1490EFFF0F6EB6FF1490EFFF1490EFFF1490EFFF1472
+        B4FF389571FF7CC0C0FF188DE7FF126BAFFF419C7BFF2C8E63FF383838401D1D
+        1DFF127FD1FF1380D2FF1481D3FF1065A4FF1582D3FF1582D4FF1986D1FF5EAA
+        96FF2E8F64FF2C8E63FF56A996FF5CA5A8FF2B8E62FF2B8E62FF1D1D1DFF1D1D
+        1DFF3289B1FF177AC5FF24859CFF33906BFF23849AFF1E7EC0FF5CA895FF3595
+        6BFF319166FF36946AFF2B8E62FF2B8E62FF2B8E62FF61A484FF000000001D1D
+        1DFF469E78FF4BA9D7FF49A083FF2B8E62FF319168FF479F82FF349469FF2F91
+        66FF9FC7B4FFF7E9E9FF439972FF2C8E63FF67AB8BFFF6E6E4FF505050401D1D
+        1DFF349469FF3A976EFF2C8E63FF349268FF2C8E63FF2C8E63FF2F9065FF82AC
+        99FFE2D6D8FFE1D6D7FFE0D5D6FF8EA699FFDFD2D2FFDDD0CFFF1D1D1DFF1D1D
+        1DFF2F9065FF2E9065FF309065FFB7B5B3FFBDCFC5FF3A966EFF97C2AFFFC5BD
+        C2FFE3D8DCFFE2D8DBFFE2D7D9FFC2B9BDFFDFD3D4FFDED1D1FF000000001D1D
+        1DFF2E8F64FF2A8D61FF298D60FF73AF95FFECE6E6FFD6DED9FFF9EDF2FFD0C8
+        CFFFF9EEF4FFF9EEF3FFF8EDF2FFCEC7CCFFF8EBEDFFF7EAEBFF646464401D1D
+        1DFF2B8E62FF2B8E62FF2B8E62FF2E8E63FF529F7DFFF2E7ECFFF2E8EEFFCEC7
+        CEFFF2E9F0FFF2E8EFFFF1E7ECFFCEC5CBFFEFE3E6FFEEE1E3FF1D1D1DFF1D1D
+        1DFFDCCECDFFD3CACFFFD4CBD0FFCBC3C9FFD5CDD3FFD5CED4FFD6CED5FFCDC6
+        CDFFD5CED5FFD5CED5FFD5CDD4FFCCC5CBFFD3CBD0FFD2C9CFFF000000001D1D
+        1DFFF6E7E6BFF7E9E9BFF7EAECBFDFD4D7BFF9EEF3BFF9EFF6BFFAF1F9BFD8D1
+        D9D9FBF3FDBFFAF2FBBFFAF0F8BFDCD3D8BFF8EDF1BFF8EBEEBF
+      }
+      OnClick = GraphSpeedButtonClick
+    end
+    object DBNavigatorView: TDBNavigator
+      Left = 8
+      Height = 25
+      Top = 6
+      Width = 130
+      BevelOuter = bvNone
+      ChildSizing.EnlargeHorizontal = crsScaleChilds
+      ChildSizing.EnlargeVertical = crsScaleChilds
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 100
+      ClientHeight = 25
+      ClientWidth = 130
+      DataSource = DataModuleMain.DataSourceView
+      Options = []
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+      VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbRefresh]
+      Images = DataModuleMain.ImageListNavs
+    end
+    object CloseBitBtn: TBitBtn
+      Left = 400
+      Height = 27
+      Hint = 'Close entry form'
+      Top = 4
+      Width = 82
+      Anchors = [akTop, akRight]
+      DefaultCaption = True
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Kind = bkClose
+      ModalResult = 11
+      OnClick = CloseBitBtnClick
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+    end
+    object BitBtnHelp: TBitBtn
+      Left = 488
+      Height = 27
+      Hint = 'Help on User-defined Parameters'
+      Top = 4
+      Width = 82
+      Anchors = [akTop, akRight]
+      Default = True
+      DefaultCaption = True
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Kind = bkHelp
+      OnClick = BitBtnHelpClick
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+    end
+    object EditNavigator: TDBNavigator
+      Left = 144
+      Height = 25
+      Top = 6
+      Width = 104
+      BevelOuter = bvNone
+      ChildSizing.EnlargeHorizontal = crsScaleChilds
+      ChildSizing.EnlargeVertical = crsScaleChilds
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 100
+      ClientHeight = 25
+      ClientWidth = 104
+      DataSource = BasicinfDataSource
+      OnClick = EditNavigatorClick
+      Options = []
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 3
+      VisibleButtons = [nbEdit, nbPost, nbCancel, nbRefresh]
+      Images = DataModuleMain.ImageListNavs
+    end
+  end
+  object BasicinfDataSource: TDataSource
+    AutoEdit = False
+    DataSet = DataModuleMain.BasicinfQuery
+    OnDataChange = BasicinfDataSourceDataChange
+    Left = 424
+    Top = 48
+  end
+  object LinkedDataSource: TDataSource
+    Tag = 8
+    AutoEdit = False
+    DataSet = LinkedQuery
+    OnDataChange = LinkedDataSourceDataChange
+    Left = 472
+    Top = 240
+  end
+  object LinkedQuery: TZQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'DATE_SAMPL,TIME_SAMPL,DEPTH_SAMP'
+    BeforeOpen = LinkedQueryBeforeOpen
+    AfterOpen = LinkedQueryAfterOpen
+    OnPostError = LinkedQueryPostError
+    OnNewRecord = LinkedQueryNewRecord
+    SQL.Strings = (
+      'SELECT * FROM chem_000 WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = BasicinfDataSource
+    LinkedFields = 'SITE_ID_NR'
+    IndexFieldNames = 'DATE_SAMPL Asc,TIME_SAMPL Asc,DEPTH_SAMP Asc'
+    Left = 400
+    Top = 224
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object LinkedQuerySITE_ID_NR: TStringField
+      DisplayWidth = 11
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+      Size = 11
+    end
+    object LinkedQueryCHM_REF_NR: TFloatField
+      DisplayLabel = 'Chem. Ref. Nr.'
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object LinkedQuerySAMPLE_NR: TStringField
+      DisplayLabel = 'Sample Nr.'
+      DisplayWidth = 64
+      FieldKind = fkData
+      FieldName = 'SAMPLE_NR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 12
+    end
+    object LinkedQuerySAMPL_TYPE: TStringField
+      Tag = 1
+      Alignment = taCenter
+      DisplayLabel = 'Sample type'
+      DisplayWidth = 1
+      FieldKind = fkData
+      FieldName = 'SAMPL_TYPE'
+      Index = 3
+      LookupCache = False
+      LookupKeyFields = 'SAMPTYPE'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQuerySAMPL_TYPEValidate
+      Size = 1
+    end
+    object LinkedQueryDATE_SAMPL: TStringField
+      Alignment = taCenter
+      DisplayLabel = 'Date sampl.'
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'DATE_SAMPL'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      OnValidate = LinkedQueryDATEValidate
+      Size = 8
+    end
+    object LinkedQueryTIME_SAMPL: TStringField
+      Alignment = taCenter
+      DisplayLabel = 'Time sampl.'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'TIME_SAMPL'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      OnValidate = LinkedQueryTIME_SAMPLValidate
+      Size = 4
+    end
+    object LinkedQueryMETH_SAMPL: TStringField
+      Tag = 2
+      Alignment = taCenter
+      DisplayLabel = 'Meth. sampl.'
+      DisplayWidth = 1
+      FieldKind = fkData
+      FieldName = 'METH_SAMPL'
+      Index = 6
+      LookupCache = False
+      LookupKeyFields = 'METHSAMP'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      OnValidate = LinkedQueryMETH_SAMPLValidate
+      Size = 1
+    end
+    object LinkedQueryTIME_PUMP: TSmallintField
+      Alignment = taCenter
+      DisplayLabel = 'Time pumped'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TIME_PUMP'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object LinkedQueryDEPTH_SAMP: TFloatField
+      DefaultExpression = '0.00'
+      DisplayLabel = 'Depth sampl.'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DEPTH_SAMP'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LinkedQueryDEPTH_SAMPGetText
+      OnSetText = LinkedQueryDEPTH_SAMPSetText
+    end
+    object LinkedQueryDATE_ANAL: TStringField
+      Alignment = taCenter
+      DisplayLabel = 'Date analysed'
+      DisplayWidth = 8
+      FieldKind = fkData
+      FieldName = 'DATE_ANAL'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnValidate = LinkedQueryDATEValidate
+      Size = 8
+    end
+    object LinkedQueryLAB: TStringField
+      DisplayLabel = 'Laboratory'
+      DisplayWidth = 14
+      FieldKind = fkData
+      FieldName = 'LAB'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 14
+    end
+    object LinkedQueryALT_NR_1: TStringField
+      DisplayLabel = 'Altern. Nr. 1'
+      DisplayWidth = 64
+      FieldKind = fkData
+      FieldName = 'ALT_NR_1'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 8
+    end
+    object LinkedQueryALT_NR_2: TStringField
+      DisplayLabel = 'Altern. Nr. 2'
+      DisplayWidth = 64
+      FieldKind = fkData
+      FieldName = 'ALT_NR_2'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 8
+    end
+    object LinkedQueryALT_NR_3: TStringField
+      DisplayLabel = 'Altern. Nr. 3'
+      DisplayWidth = 64
+      FieldKind = fkData
+      FieldName = 'ALT_NR_3'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 8
+    end
+    object LinkedQueryALT_NR_4: TStringField
+      DisplayLabel = 'Altern. Nr. 4'
+      DisplayWidth = 64
+      FieldKind = fkData
+      FieldName = 'ALT_NR_4'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 8
+    end
+    object LinkedQueryCOMMENT: TStringField
+      DisplayLabel = 'Comment'
+      DisplayWidth = 63
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 63
+    end
+  end
+  object ZQuery1: TZQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'CHM_REF_NR'
+    BeforeOpen = ZQuery1BeforeOpen
+    Params = <>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = LinkedDataSource
+    LinkedFields = 'CHM_REF_NR'
+    IndexFieldNames = 'CHM_REF_NR Asc'
+    Left = 16
+    Top = 373
+    object ZQuery1CHM_REF_NR: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ZQuery1PH: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'PH'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      MaxValue = 14
+    end
+    object ZQuery1EC: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'EC'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ZQuery1ECGetText
+      OnSetText = ZQuery1ECSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1TDS: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'TDS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1CA: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1MG: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'MG'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1NA: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'NA'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1K: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'K'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1SI: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'SI'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1PALK: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'PALK'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1MALK: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'MALK'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1MACID: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'MACID'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1PACID: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'PACID'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1CL: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CL'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1SO4: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'SO4'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1N: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'N'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ZQuery1NGetText
+      OnSetText = ZQuery1NSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1F: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'F'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1CO3: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CO3'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1HCO3: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'HCO3'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1AL: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'AL'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1FE: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'FE'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery1MN: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'MN'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+  end
+  object DataSource1: TDataSource
+    Tag = 1
+    AutoEdit = False
+    DataSet = ZQuery1
+    Left = 49
+    Top = 370
+  end
+  object ZQuery2: TZQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'CHM_REF_NR'
+    BeforeOpen = ZQuery2BeforeOpen
+    Params = <>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = LinkedDataSource
+    LinkedFields = 'CHM_REF_NR'
+    IndexFieldNames = 'CHM_REF_NR Asc'
+    Left = 89
+    Top = 370
+    object ZQuery2CHM_REF_NR: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ZQuery2N_AMONIA: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'N_AMONIA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ZQuery2N_AMONIAGetText
+      OnSetText = ZQuery2N_AMONIASetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2NO2: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'NO2'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ZQuery2NO2GetText
+      OnSetText = ZQuery2NO2SetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2PO4: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'PO4'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ZQuery2PO4GetText
+      OnSetText = ZQuery2PO4SetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2SULF: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'SULF'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2CN: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CN'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2B: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'B'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2ARSENIC: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ARSENIC'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+    end
+    object ZQuery2SB: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'SB'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2BI: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'BI'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2CU: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CU'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2PB: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'PB'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2ZN: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'ZN'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2CR: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CR'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2NI: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'NI'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2TI: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'TI'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2HG: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'HG'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2MO: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'MO'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2CO: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CO'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2BA: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'BA'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2SR: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'SR'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery2CD: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CD'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+  end
+  object DataSource2: TDataSource
+    Tag = 2
+    AutoEdit = False
+    DataSet = ZQuery2
+    Left = 121
+    Top = 370
+  end
+  object ZQuery3: TZQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'CHM_REF_NR'
+    BeforeOpen = ZQuery3BeforeOpen
+    Params = <>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = LinkedDataSource
+    LinkedFields = 'CHM_REF_NR'
+    IndexFieldNames = 'CHM_REF_NR Asc'
+    Left = 161
+    Top = 373
+    object ZQuery3CHM_REF_NR: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ZQuery3COD: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'COD'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3CFR: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CFR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3DOC: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'DOC'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3DOX: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DOX'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+    end
+    object ZQuery3BOD: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'BOD'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3H2S: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'H2S'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3PHEN: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'PHEN'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3OIL: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'OIL'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3SOAP: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'SOAP'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3KJED: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'KJED'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3ECOL: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'ECOL'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      DisplayFormat = '0'
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3FAEC_ECOL: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'FAEC_ECOL'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      DisplayFormat = '0'
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3SPC: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'SPC'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      DisplayFormat = '0'
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3FAEC_STREP: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'FAEC_STREP'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      DisplayFormat = '0'
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3TOTAL_COL: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'TOTAL_COL'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3TVO: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'TVO'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3TOC: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'TOC'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3SOM_COLI: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'SOM_COLI'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3ENT_VIRUS: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'ENT_VIRUS'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3PROTO_PARA: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'PROTO_PARA'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery3TOT_THM: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'TOT_THM'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+  end
+  object DataSource3: TDataSource
+    Tag = 3
+    AutoEdit = False
+    DataSet = ZQuery3
+    Left = 193
+    Top = 370
+  end
+  object ZQuery4: TZQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'CHM_REF_NR'
+    BeforeOpen = ZQuery4BeforeOpen
+    Params = <>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = LinkedDataSource
+    LinkedFields = 'CHM_REF_NR'
+    IndexFieldNames = 'CHM_REF_NR Asc'
+    Left = 233
+    Top = 373
+    object ZQuery4CHM_REF_NR: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ZQuery4COLR: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'COLR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery4ODR: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'ODR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery4TST: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'TST'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery4SPECGRAV: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'SPECGRAV'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery4MBAS: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'MBAS'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery4TEMP: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'TEMP'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery4TUR: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'TUR'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery4SUSP_SOLID: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'SUSP_SOLID'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery4DEUTERIUM: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'DEUTERIUM'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+    end
+    object ZQuery4TRITIUM: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'TRITIUM'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+    end
+    object ZQuery4OXYGEN18: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'OXYGEN18'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+    end
+    object ZQuery4RCARBON: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'RCARBON'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemNoFactorGetText
+    end
+  end
+  object DataSource4: TDataSource
+    Tag = 4
+    AutoEdit = False
+    DataSet = ZQuery4
+    Left = 265
+    Top = 370
+  end
+  object ZQuery5: TZQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'CHM_REF_NR'
+    BeforeOpen = ZQuery5BeforeOpen
+    Params = <>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = LinkedDataSource
+    LinkedFields = 'CHM_REF_NR'
+    IndexFieldNames = 'CHM_REF_NR Asc'
+    Left = 305
+    Top = 370
+    object ZQuery5CHM_REF_NR: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ZQuery5LI: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'LI'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery5CE: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'CE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery5AU: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'AU'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery5AG: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'AG'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery5PT: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'PT'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery5TE: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'TE'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery5TL: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'TL'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery5W: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'W'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery5V: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'V'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery5U: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'U'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery5SE: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'SE'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery5BE: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'BE'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery5BR: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'BR'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery5I: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'I'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+      MaxValue = 999999999
+      MinValue = -1
+    end
+    object ZQuery5SN: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'SN'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+    end
+    object ZQuery5PD: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PD'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+    end
+    object ZQuery5ZR: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ZR'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+    end
+    object ZQuery5LA: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LA'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+    end
+    object ZQuery5NB: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NB'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+    end
+    object ZQuery5TA: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'TA'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+    end
+    object ZQuery5ND: TFloatField
+      DefaultExpression = '-1'
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ND'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ChemTableGetText
+      OnSetText = ChemTableSetText
+    end
+  end
+  object DataSource5: TDataSource
+    Tag = 5
+    AutoEdit = False
+    DataSet = ZQuery5
+    Left = 337
+    Top = 370
+  end
+  object ZQuery7: TZQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'CPARAMETER'
+    OnNewRecord = ZQuery7NewRecord
+    SQL.Strings = (
+      'SELECT * FROM deteclim'
+    )
+    Params = <>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = LinkedDataSource
+    LinkedFields = 'CHM_REF_NR'
+    IndexFieldNames = 'CPARAMETER Asc'
+    Left = 344
+    Top = 424
+    object ZQuery7CHM_REF_NR: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object ZQuery7CPARAMETER: TStringField
+      DisplayLabel = 'Parameter'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'CPARAMETER'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 24
+    end
+    object ZQuery7METHOD: TStringField
+      DisplayLabel = 'Method'
+      DisplayWidth = 39
+      FieldKind = fkData
+      FieldName = 'METHOD'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object ZQuery7LIMITS: TStringField
+      Tag = 1
+      Alignment = taCenter
+      DisplayLabel = 'Limit'
+      DisplayWidth = 4
+      FieldKind = fkData
+      FieldName = 'LIMITS'
+      Index = 3
+      LookupCache = False
+      LookupKeyFields = 'LIMTTYPE'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      OnValidate = ZQuery7LIMITSValidate
+      Size = 1
+    end
+    object DetectionTableCOMMENT: TStringField
+      DisplayLabel = 'Comment'
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'COMMENTS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 12
+    end
+  end
+  object DataSource6: TDataSource
+    Tag = 6
+    AutoEdit = False
+    DataSet = ZQuery6
+    OnDataChange = DataSource6DataChange
+    Left = 464
+    Top = 368
+  end
+  object DataSource7: TDataSource
+    Tag = 7
+    AutoEdit = False
+    DataSet = ZQuery7
+    Left = 416
+    Top = 424
+  end
+  object ZQuery6: TZQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'CHM_REF_NR'
+    BeforeOpen = ZQuery6BeforeOpen
+    AfterOpen = ZQuery6AfterOpen
+    OnCalcFields = ZQuery6CalcFields
+    BeforeEdit = ZQuery6BeforeEdit
+    AfterPost = ZQuery6AfterPost
+    OnNewRecord = ZQuery6NewRecord
+    Params = <>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = LinkedDataSource
+    LinkedFields = 'CHM_REF_NR'
+    IndexFieldNames = 'CHM_REF_NR Asc'
+    Left = 408
+    Top = 370
+    object FloatField1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object ZQuery6CPARAMETER: TStringField
+      DisplayLabel = 'Parameter'
+      DisplayWidth = 26
+      FieldKind = fkData
+      FieldName = 'CPARAMETER'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      OnSetText = UserChemTableSetText
+      OnValidate = ZQuery6CPARAMETERValidate
+      Size = 24
+    end
+    object ZQuery6READING: TFloatField
+      DefaultExpression = '-1'
+      DisplayLabel = 'Reading'
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'READING'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      OnGetText = ZQuery6READINGGetText
+    end
+    object ZQuery6UNIT: TStringField
+      DisplayLabel = 'Unit'
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'UNIT'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 12
+    end
+    object ZQuery6SYMBOL: TStringField
+      Alignment = taCenter
+      DisplayLabel = 'Symbol'
+      DisplayWidth = 1
+      FieldKind = fkCalculated
+      FieldName = 'SYMBOL'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+    object ZQuery6PARAM_REF: TStringField
+      DisplayLabel = 'Reference'
+      DisplayWidth = 14
+      FieldKind = fkData
+      FieldName = 'PARAM_REF'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = UserChemTableSetText
+      Size = 12
+    end
+    object ZQuery6COMMENT: TStringField
+      DisplayLabel = 'Comment'
+      DisplayWidth = 26
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = UserChemTableSetText
+      Size = 24
+    end
+  end
+  object EntryPopupMenu: TPopupMenu
+    OnPopup = EntryPopupMenuPopup
+    Left = 464
+    Top = 312
+    object Open1: TMenuItem
+      Caption = '&Open definition...'
+      OnClick = Open1Click
+    end
+    object Save1: TMenuItem
+      Caption = '&Save definition...'
+      OnClick = Save1Click
+    end
+    object Clearall1: TMenuItem
+      Caption = '&Clear definition'
+      OnClick = Clearall1Click
+    end
+    object MenuItemDelete: TMenuItem
+      Caption = '&Delete definition'
+      OnClick = MenuItemDeleteClick
+    end
+  end
+  object DefTable: TZTable
+    Connection = DataModuleMain.ZConnectionSettings
+    TableName = 'userentr'
+    Left = 208
+    Top = 241
+    object DefTablePosition: TIntegerField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'POSITION'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object DefTableParameter: TStringField
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'PARAMETER'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 12
+    end
+    object DefTableLabel_Descr: TStringField
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'LABEL_DESCR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 12
+    end
+    object DefTableHint_Descr: TStringField
+      DisplayWidth = 24
+      FieldKind = fkData
+      FieldName = 'HINT_DESCR'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object DefTableDataSource: TIntegerField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DATASOURCE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object DefTableDESCRIPTION: TStringField
+      FieldKind = fkData
+      FieldName = 'DESCRIPTION'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object ChangeQuery: TZQuery
+    Params = <>
+    Left = 272
+    Top = 192
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    Left = 504
+    Top = 408
+  end
+  object ZReadOnlyQueryCoordAcc: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''COORDACC'''
+    )
+    Params = <>
+    Left = 176
+    Top = 144
+    object ZReadOnlyQueryCoordAccSEARCH: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryCoordAccDESCRIBE: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object AccuDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQueryCoordAcc
+    Left = 176
+    Top = 192
+  end
+  object ZReadOnlyQuerySiteType: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''SITETYPE'''
+    )
+    Params = <>
+    Left = 384
+    Top = 128
+    object ZReadOnlyQueryTopoSetSEARCH3: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryTopoSetDESCRIBE3: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object TypeDataSource: TDataSource
+    AutoEdit = False
+    DataSet = ZReadOnlyQuerySiteType
+    Left = 472
+    Top = 180
+  end
+  object ParamListQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    Left = 256
+    Top = 416
+  end
+  object PopupMenu1: TPopupMenu
+    OnPopup = PopupMenu1Popup
+    Left = 272
+    Top = 8
+    object MenuItemSetBookmarks: TMenuItem
+      Caption = '&Set Bookmarks'
+      object MenuItemSetBookmark1: TMenuItem
+        Tag = 1
+        Caption = 'Bookmark &1'
+        ShortCut = 117
+        OnClick = MenuItemSetBookmark1Click
+      end
+      object MenuItemSetBookMark2: TMenuItem
+        Tag = 2
+        Caption = 'BookMark &2'
+        ShortCut = 118
+        OnClick = MenuItemSetBookMark2Click
+      end
+    end
+    object GotoBookmark: TMenuItem
+      Caption = '&Goto Bookmarks'
+      object MenuItemGotoBookmark1: TMenuItem
+        Caption = 'Goto Bookmark &1'
+        ShortCut = 16501
+        OnClick = MenuItemGotoBookmark1Click
+      end
+      object MenuItemGotoBookmark2: TMenuItem
+        Caption = 'Goto Bookmark &2'
+        ShortCut = 16502
+        OnClick = MenuItemGotoBookmark2Click
+      end
+    end
+  end
+end

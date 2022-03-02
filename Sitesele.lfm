@@ -1,0 +1,125 @@
+inherited SiteSelectionForm: TSiteSelectionForm
+  Left = 544
+  Height = 366
+  Top = 283
+  Caption = 'Site Selection Form'
+  ClientHeight = 366
+  Icon.Data = {
+    FE0200000000010001002020100000000000E802000016000000280000002000
+    0000400000000100040000000000800200000000000000000000000000000000
+    0000000000000000800000800000008080008000000080008000808000008080
+    8000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+    FF00000008888888888888888888888880000000000000000007000000000000
+    8000000088888888887888888888888080000000000000000007000000000008
+    80000000FBFBFBFBFBF0008B8BFBFB0080000000BFBFBFBFBFBF0078BFBFBF03
+    8BB00000FBF1111111110001811BFB038BB00000BFBFBFBFBFBFB008B8BFBF03
+    3B000000FBFBFBFBFBFBF0008B8BFB033B000000BFB11111111111001818BF03
+    3B000000FBFBFBFBFBFBFB00078FFB033B000000BFBFBFBFBFBFBFB80878BF03
+    8B000000FBF1111111111110008B8B038B000000BFBFBFBFBFBFBFBF0078B803
+    8B000000FBFBFBFBFBFBFBFB00078B038B000000BFB11111111111111008B803
+    8B000000FBFBFBFBFBFBFBFBF0008B038B000000BFBFBFBFBFBFBFBFBF00BF03
+    8B000000FBF1111111111111110BFB038B000000BFBFBFBFBFBFBFBFBFBFBF03
+    8B000000FBFBFBFBFBFBFBFBFBFBFB038B000000BFB1111111111111111FBF03
+    8B000000FBFBFBFBFBFBFBFBFBFBFB0880000000BFBFBFBFBFBFBFBFBFBFBF03
+    80000000FBF1111111111111111BFB0880000000BFBFBFBFBFBFBFBFBFBFBF03
+    80000000FBFBFBFBFBFBFBFBFBFBFB0880000008303030303030303030303003
+    8000000073737373737373737373737880000000BFBFBFBFBFBFBFBFBFB73730
+    00000000FBFBFBFBFBFBFBFBFBFBFBF000000000000000000000000000000000
+    0000F8000007F0000007E0000007E0000007E0000001E0000001E0000001E000
+    0003E0000003E0000003E0000003E0000003E0000003E0000003E0000003E000
+    0003E0000003E0000003E0000003E0000003E0000003E0000003E0000007E000
+    0007E0000007E0000007E0000007E0000007E0000007E000000FE000000FF000
+    001F
+  }
+  inherited Panel1: TPanel
+    inherited ViewNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited BasicDBNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited Panel2: TPanel
+    Height = 219
+    ClientHeight = 219
+    inherited Panel4: TPanel
+      Top = 189
+      inherited DetailNavigator: TDBNavigator
+        Hints.Strings = (        )
+      end
+    end
+    inherited DBGrid: TDBGrid
+      Height = 164
+      Width = 90
+      Align = alLeft
+      AutoFillColumns = True
+      Scrollbars = ssAutoVertical
+    end
+    object DBMemo1: TDBMemo[3]
+      Left = 99
+      Height = 164
+      Top = 23
+      Width = 472
+      Align = alClient
+      BorderSpacing.Top = 22
+      BorderSpacing.Right = 4
+      DataField = 'NOTE_PAD'
+      DataSource = LinkedDataSource
+      TabOrder = 2
+    end
+  end
+  inherited LinkedDataSource: TDataSource
+    left = 232
+    top = 256
+  end
+  inherited LinkedQuery: TZQuery
+    BeforeOpen = LinkedQueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM sitesele WHERE SITE_ID_NR = :CurSite'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    left = 144
+    top = 256
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'CurSite'
+        ParamType = ptInput
+        Size = 11
+      end>
+    object LinkedQueryREP_INST: TStringField[1]
+      Tag = 1
+      Alignment = taCenter
+      DisplayLabel = 'Rep. inst.'
+      DisplayWidth = 16
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 1
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryREP_INSTSetText
+      OnValidate = LinkedQueryREP_INSTValidate
+      Size = 16
+    end
+    object LinkedQueryNOTE_PAD: TBlobField[2]
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NOTE_PAD'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+  end
+end

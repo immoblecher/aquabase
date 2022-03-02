@@ -1,0 +1,104 @@
+inherited DepthReportSettingsForm: TDepthReportSettingsForm
+  Left = 500
+  Height = 357
+  Top = 196
+  ClientHeight = 357
+  OnCreate = FormCreate
+  inherited RadioGroup1: TRadioGroup
+    ClientHeight = 52
+  end
+  inherited GroupBox1: TGroupBox
+    ClientHeight = 107
+    inherited CheckBox2: TCheckBox
+      Checked = False
+      State = cbUnchecked
+    end
+    inherited cbPageBreak: TCheckBox
+      Checked = False
+      State = cbUnchecked
+    end
+  end
+  inherited TitleEdit: TEdit
+    Text = 'TIME-DEPENDENT DEPTH REPORT'
+  end
+  inherited ConstrGroupBox: TGroupBox
+    ClientHeight = 79
+  end
+  inherited ButtonPanel1: TButtonPanel
+    Top = 313
+    OKButton.OnClick = OKButtonClick
+  end
+  object Label3: TLabel[11]
+    Left = 8
+    Height = 10
+    Top = 276
+    Width = 55
+    Caption = 'From Date:'
+    ParentColor = False
+  end
+  object DateTimePicker1: TDateTimePicker[12]
+    Left = 8
+    Height = 18
+    Top = 290
+    Width = 77
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoYMD
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 9
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDate
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 36526
+    UseDefaultSeparators = True
+    HideDateTimeParts = [dtpSecond, dtpMiliSec]
+    MonthNames = 'Long'
+  end
+  object Label4: TLabel[13]
+    Left = 100
+    Height = 10
+    Top = 276
+    Width = 42
+    Caption = 'To Date:'
+    ParentColor = False
+  end
+  object DateTimePicker2: TDateTimePicker[14]
+    Left = 100
+    Height = 18
+    Top = 290
+    Width = 77
+    CenturyFrom = 1941
+    DateDisplayOrder = ddoYMD
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 10
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDate
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 43351
+    Time = 0.431706736111664
+    UseDefaultSeparators = True
+    HideDateTimeParts = [dtpSecond, dtpMiliSec]
+    MonthNames = 'Long'
+  end
+  object CheckBoxLocale: TCheckBox[15]
+    Left = 200
+    Height = 23
+    Top = 286
+    Width = 133
+    Caption = 'Date in Locale Format'
+    Checked = True
+    State = cbChecked
+    TabOrder = 11
+  end
+  inherited PopupMenu1: TPopupMenu[16]
+  end
+end

@@ -1,0 +1,2501 @@
+inherited LandscapeReportFormChem: TLandscapeReportFormChem
+  Left = 235
+  Height = 523
+  Top = 142
+  Caption = 'Time-dependent Chemistry Report'
+  ClientHeight = 523
+  inherited RLReportLandscape: TRLReport
+    Title = 'TIME-DEPENDENT CHEMISTRY REPORT'
+    AfterPrint = RLReportLandscapeAfterPrint
+    BeforePrint = RLReportLandscapeBeforePrint
+    inherited RLBandHeader: TRLBand
+      InsideMargins.BottomMargin = 3
+      inherited RLSystemInfo1: TRLSystemInfo
+        AutoSize = True
+      end
+      inherited RLSystemInfoReportTitle: TRLSystemInfo
+        Width = 38
+        AutoSize = True
+      end
+    end
+    inherited SubDetail1: TRLSubDetail
+      Top = 119
+      inherited DetailBand1: TRLBand
+        GroupIndex = 1
+        inherited RLDBText2: TRLDBText
+          Left = 58
+          Width = 60
+          DataField = 'SAMPLE_NR'
+        end
+        inherited RLDBText1: TRLDBText
+          Left = 2
+          Width = 54
+          Alignment = taRightJustify
+          DataField = 'CHM_REF_NR'
+        end
+        inherited RLDBText4: TRLDBText
+          Left = 142
+          Width = 56
+          DataField = 'DATE_SAMPL'
+        end
+        object RLDBText7: TRLDBText[3]
+          Left = 202
+          Height = 14
+          Top = 2
+          Width = 30
+          AutoSize = False
+          DataField = 'TIME_SAMPL'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextParam0: TRLDBText[4]
+          Left = 234
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          Visible = False
+        end
+        object RLDBTextParam1: TRLDBText[5]
+          Left = 291
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          Visible = False
+        end
+        object RLDBTextParam2: TRLDBText[6]
+          Left = 348
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          Visible = False
+        end
+        object RLDBTextParam3: TRLDBText[7]
+          Left = 406
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          Visible = False
+        end
+        object RLDBTextParam4: TRLDBText[8]
+          Left = 464
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          Visible = False
+        end
+        object RLDBTextParam5: TRLDBText[9]
+          Left = 522
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          Visible = False
+        end
+        object RLDBTextParam6: TRLDBText[10]
+          Left = 580
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          Visible = False
+        end
+        object RLDBTextParam7: TRLDBText[11]
+          Left = 638
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          Visible = False
+        end
+        object RLDBTextParam8: TRLDBText[12]
+          Left = 696
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          Visible = False
+        end
+        object RLDBTextParam9: TRLDBText[13]
+          Left = 754
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          Visible = False
+        end
+        object RLDBTextParam10: TRLDBText[14]
+          Left = 812
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          Visible = False
+        end
+        object RLDBTextParam11: TRLDBText[15]
+          Left = 870
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          Visible = False
+        end
+        object RLDBTextParam12: TRLDBText[16]
+          Left = 928
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          Visible = False
+        end
+        object RLDBTextParam13: TRLDBText[17]
+          Left = 986
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+          Visible = False
+        end
+        object RLDBText8: TRLDBText[18]
+          Left = 120
+          Height = 14
+          Top = 2
+          Width = 20
+          Alignment = taCenter
+          AutoSize = False
+          DataField = 'SAMPL_TYPE'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Layout = tlBottom
+          ParentFont = False
+          AfterPrint = RLDBText8AfterPrint
+        end
+      end
+      inherited RLBandSummary: TRLBand
+        BeforePrint = RLBandSummaryBeforePrint
+        object RLLabel4: TRLLabel[0]
+          Left = 176
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Caption = 'Minimum:'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLLabel5: TRLLabel[1]
+          Left = 176
+          Height = 13
+          Top = 18
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Caption = 'Maximum:'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLLabel6: TRLLabel[2]
+          Left = 176
+          Height = 13
+          Top = 34
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          Caption = 'Average:'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMin0: TRLDBText[3]
+          Left = 234
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Min0'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMax0: TRLDBText[4]
+          Left = 234
+          Height = 13
+          Top = 18
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Max0'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAvg0: TRLDBText[5]
+          Left = 234
+          Height = 13
+          Top = 34
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Avg0'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMin1: TRLDBText[6]
+          Left = 291
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Min1'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMax1: TRLDBText[7]
+          Left = 291
+          Height = 13
+          Top = 18
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Max1'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAvg1: TRLDBText[8]
+          Left = 291
+          Height = 13
+          Top = 34
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Avg1'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMin2: TRLDBText[9]
+          Left = 348
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Min2'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMax2: TRLDBText[10]
+          Left = 348
+          Height = 13
+          Top = 18
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Max2'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAvg2: TRLDBText[11]
+          Left = 348
+          Height = 13
+          Top = 34
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Avg2'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMin3: TRLDBText[12]
+          Left = 406
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Min3'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMax3: TRLDBText[13]
+          Left = 406
+          Height = 13
+          Top = 18
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Max3'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAvg3: TRLDBText[14]
+          Left = 406
+          Height = 13
+          Top = 34
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Avg3'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMin4: TRLDBText[15]
+          Left = 464
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Min4'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMax4: TRLDBText[16]
+          Left = 464
+          Height = 13
+          Top = 18
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Max4'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAvg4: TRLDBText[17]
+          Left = 464
+          Height = 13
+          Top = 34
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Avg4'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMin5: TRLDBText[18]
+          Left = 522
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Min5'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMax5: TRLDBText[19]
+          Left = 522
+          Height = 13
+          Top = 18
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Max5'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAvg5: TRLDBText[20]
+          Left = 522
+          Height = 13
+          Top = 34
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Avg5'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMin6: TRLDBText[21]
+          Left = 580
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Min6'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMax6: TRLDBText[22]
+          Left = 580
+          Height = 13
+          Top = 18
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Max6'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAvg6: TRLDBText[23]
+          Left = 580
+          Height = 13
+          Top = 34
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Avg6'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMin7: TRLDBText[24]
+          Left = 638
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Min7'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMax7: TRLDBText[25]
+          Left = 638
+          Height = 13
+          Top = 18
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Max7'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAvg7: TRLDBText[26]
+          Left = 638
+          Height = 13
+          Top = 34
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Avg7'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMin8: TRLDBText[27]
+          Left = 696
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Min8'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMax8: TRLDBText[28]
+          Left = 696
+          Height = 13
+          Top = 18
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Max8'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAvg8: TRLDBText[29]
+          Left = 696
+          Height = 13
+          Top = 34
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Avg8'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMin9: TRLDBText[30]
+          Left = 754
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Min9'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMax9: TRLDBText[31]
+          Left = 754
+          Height = 13
+          Top = 18
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Max9'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAvg9: TRLDBText[32]
+          Left = 754
+          Height = 13
+          Top = 34
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Avg9'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMin10: TRLDBText[33]
+          Left = 812
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Min10'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMax10: TRLDBText[34]
+          Left = 812
+          Height = 13
+          Top = 18
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Max10'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAvg10: TRLDBText[35]
+          Left = 812
+          Height = 13
+          Top = 34
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Avg10'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMin11: TRLDBText[36]
+          Left = 870
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Min11'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMax11: TRLDBText[37]
+          Left = 870
+          Height = 13
+          Top = 18
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Max11'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAvg11: TRLDBText[38]
+          Left = 870
+          Height = 13
+          Top = 34
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Avg11'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMin12: TRLDBText[39]
+          Left = 928
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Min12'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMax12: TRLDBText[40]
+          Left = 928
+          Height = 13
+          Top = 18
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Max12'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAvg12: TRLDBText[41]
+          Left = 928
+          Height = 13
+          Top = 34
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Avg12'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMin13: TRLDBText[42]
+          Left = 986
+          Height = 13
+          Top = 2
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Min13'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextMax13: TRLDBText[43]
+          Left = 986
+          Height = 13
+          Top = 18
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Max13'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBTextAvg13: TRLDBText[44]
+          Left = 986
+          Height = 13
+          Top = 34
+          Width = 56
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'Avg13'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    inherited FooterBand: TRLBand
+      Height = 118
+      Top = 187
+      AfterPrint = FooterBandAfterPrint
+      BeforePrint = FooterBandBeforePrint
+      inherited RLMemoUserDetails: TRLMemo
+        Left = 836
+        Width = 200
+      end
+      inherited CommentRLMemo: TRLMemo
+        Width = 200
+      end
+      inherited RLImageLogo: TRLImage
+        Left = 630
+      end
+      object RLMemoLookups: TRLMemo[4]
+        Left = 480
+        Height = 102
+        Top = 8
+        Width = 140
+        AutoSize = False
+        Behavior = [beSiteExpander]
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Lines.Strings = (
+          'Sample Types:'
+        )
+        ParentFont = False
+        WordWrap = False
+      end
+      object RLMemoLegend: TRLMemo[5]
+        Left = 224
+        Height = 102
+        Top = 8
+        Width = 244
+        AutoSize = False
+        Behavior = [beSiteExpander]
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Lines.Strings = (
+          'Chemistry Standard:'
+        )
+        ParentFont = False
+        WordWrap = False
+      end
+    end
+    inherited HeaderBand1: TRLBand
+      Height = 41
+      GroupIndex = 1
+      Options = [boOptimisticPageBreak]
+      inherited RLLabelHeader2: TRLLabel
+        Left = 58
+        Width = 83
+        Caption = 'Samp. Nr./Type'
+      end
+      inherited RLLabelHeader1: TRLLabel
+        Width = 42
+        Caption = 'Ref. Nr.'
+      end
+      inherited RLDBText3: TRLDBText
+        DataField = 'SITE_ID_NR'
+      end
+      inherited RLLabelHeader3: TRLLabel
+        Left = 142
+        Width = 91
+        Caption = 'Date/Time samp.'
+      end
+      inherited RLLabel2: TRLLabel
+        Left = 200
+      end
+      inherited RLDBText5: TRLDBText
+        Left = 262
+        DataField = 'NR_ON_MAP'
+      end
+      inherited RLLabel3: TRLLabel
+        Left = 356
+      end
+      inherited RLDBText6: TRLDBText
+        Left = 506
+        Width = 530
+        DataField = 'SITE_NAME'
+      end
+      object RLLabelParam0: TRLLabel[9]
+        Left = 234
+        Height = 13
+        Top = 24
+        Width = 56
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Param0'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        ParentFont = False
+        Transparent = False
+        Visible = False
+      end
+      object RLLabelParam1: TRLLabel[10]
+        Left = 291
+        Height = 13
+        Top = 24
+        Width = 56
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Param1'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        ParentFont = False
+        Transparent = False
+        Visible = False
+      end
+      object RLLabelParam2: TRLLabel[11]
+        Left = 348
+        Height = 13
+        Top = 24
+        Width = 56
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Param2'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        ParentFont = False
+        Transparent = False
+        Visible = False
+      end
+      object RLLabelParam3: TRLLabel[12]
+        Left = 406
+        Height = 13
+        Top = 24
+        Width = 56
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Param3'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        ParentFont = False
+        Transparent = False
+        Visible = False
+      end
+      object RLLabelParam4: TRLLabel[13]
+        Left = 464
+        Height = 13
+        Top = 24
+        Width = 56
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Param4'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        ParentFont = False
+        Transparent = False
+        Visible = False
+      end
+      object RLLabelParam5: TRLLabel[14]
+        Left = 522
+        Height = 13
+        Top = 24
+        Width = 56
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Param5'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        ParentFont = False
+        Transparent = False
+        Visible = False
+      end
+      object RLLabelParam6: TRLLabel[15]
+        Left = 580
+        Height = 13
+        Top = 24
+        Width = 56
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Param6'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        ParentFont = False
+        Transparent = False
+        Visible = False
+      end
+      object RLLabelParam7: TRLLabel[16]
+        Left = 638
+        Height = 13
+        Top = 24
+        Width = 56
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Param7'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        ParentFont = False
+        Transparent = False
+        Visible = False
+      end
+      object RLLabelParam8: TRLLabel[17]
+        Left = 696
+        Height = 13
+        Top = 24
+        Width = 56
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Param8'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        ParentFont = False
+        Transparent = False
+        Visible = False
+      end
+      object RLLabelParam9: TRLLabel[18]
+        Left = 754
+        Height = 13
+        Top = 24
+        Width = 56
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Param9'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        ParentFont = False
+        Transparent = False
+        Visible = False
+      end
+      object RLLabelParam10: TRLLabel[19]
+        Left = 812
+        Height = 13
+        Top = 24
+        Width = 56
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Param10'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        ParentFont = False
+        Transparent = False
+        Visible = False
+      end
+      object RLLabelParam11: TRLLabel[20]
+        Left = 870
+        Height = 13
+        Top = 24
+        Width = 56
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Param11'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        ParentFont = False
+        Transparent = False
+        Visible = False
+      end
+      object RLLabelParam12: TRLLabel[21]
+        Left = 928
+        Height = 13
+        Top = 24
+        Width = 56
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Param12'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        ParentFont = False
+        Transparent = False
+        Visible = False
+      end
+      object RLLabelParam13: TRLLabel[22]
+        Left = 986
+        Height = 13
+        Top = 24
+        Width = 56
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Param13'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        ParentFont = False
+        Transparent = False
+        Visible = False
+      end
+    end
+  end
+  inherited HeaderQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SQL.Strings = (
+      'SELECT basicinf.site_id_nr, basicinf.nr_on_map, basicinf.site_name FROM basicinf'
+      'JOIN chem_000 on (basicinf.site_id_nr = chem_000.site_id_nr)'
+    )
+  end
+  inherited DetailQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'site_id_nr, date_sampl, time_sampl'
+    SQL.Strings = (
+      'SELECT site_id_nr, sample_nr, sampl_type, date_sampl, time_sampl, chm_ref_nr FROM chem_000'
+    )
+    MasterFields = 'SITE_ID_NR'
+    LinkedFields = 'SITE_ID_NR'
+    IndexFieldNames = 'site_id_nr Asc, date_sampl Asc, time_sampl Asc'
+  end
+  inherited ViewQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SortedFields = 'SITE_ID_NR'
+    SQL.Strings = (
+      'SELECT site_id_nr FROM allsites'
+      'ORDER BY site_id_nr'
+    )
+    IndexFieldNames = 'SITE_ID_NR Asc'
+  end
+  inherited SummaryQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    AfterOpen = SummaryQueryAfterOpen
+    Left = 848
+  end
+  object ChemQuery1: TZReadOnlyQuery[9]
+    Connection = DataModuleMain.ZConnectionDB
+    SQL.Strings = (
+      'SELECT * FROM chem_001'
+    )
+    Params = <>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = DetailDataSource
+    LinkedFields = 'CHM_REF_NR'
+    Left = 24
+    Top = 264
+    object ChemQuery1CHM_REF_NR: TLargeintField
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object ChemQuery1PH: TFloatField
+      FieldKind = fkData
+      FieldName = 'PH'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1EC: TFloatField
+      FieldKind = fkData
+      FieldName = 'EC'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1TDS: TFloatField
+      FieldKind = fkData
+      FieldName = 'TDS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1CA: TFloatField
+      FieldKind = fkData
+      FieldName = 'CA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1MG: TFloatField
+      FieldKind = fkData
+      FieldName = 'MG'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1NA: TFloatField
+      FieldKind = fkData
+      FieldName = 'NA'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1K: TFloatField
+      FieldKind = fkData
+      FieldName = 'K'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1SI: TFloatField
+      FieldKind = fkData
+      FieldName = 'SI'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1PALK: TFloatField
+      FieldKind = fkData
+      FieldName = 'PALK'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1MALK: TFloatField
+      FieldKind = fkData
+      FieldName = 'MALK'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1MACID: TFloatField
+      FieldKind = fkData
+      FieldName = 'MACID'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1PACID: TFloatField
+      FieldKind = fkData
+      FieldName = 'PACID'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1CL: TFloatField
+      FieldKind = fkData
+      FieldName = 'CL'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1SO4: TFloatField
+      FieldKind = fkData
+      FieldName = 'SO4'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1N: TFloatField
+      FieldKind = fkData
+      FieldName = 'N'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1F: TFloatField
+      FieldKind = fkData
+      FieldName = 'F'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1CO3: TFloatField
+      FieldKind = fkData
+      FieldName = 'CO3'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1HCO3: TFloatField
+      FieldKind = fkData
+      FieldName = 'HCO3'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1AL: TFloatField
+      FieldKind = fkData
+      FieldName = 'AL'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1FE: TFloatField
+      FieldKind = fkData
+      FieldName = 'FE'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery1MN: TFloatField
+      FieldKind = fkData
+      FieldName = 'MN'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+  end
+  object DataSource1: TDataSource[10]
+    DataSet = ChemQuery1
+    Left = 1040
+    Top = 264
+  end
+  object ChemQuery2: TZReadOnlyQuery[11]
+    Connection = DataModuleMain.ZConnectionDB
+    SQL.Strings = (
+      'SELECT * FROM chem_002'
+    )
+    Params = <>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = DetailDataSource
+    LinkedFields = 'CHM_REF_NR'
+    Left = 52
+    Top = 292
+    object ChemQuery2CHM_REF_NR: TLargeintField
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object ChemQuery2N_AMONIA: TFloatField
+      FieldKind = fkData
+      FieldName = 'N_AMONIA'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2SB: TFloatField
+      FieldKind = fkData
+      FieldName = 'SB'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2ARSENIC: TFloatField
+      FieldKind = fkData
+      FieldName = 'ARSENIC'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2BA: TFloatField
+      FieldKind = fkData
+      FieldName = 'BA'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2BI: TFloatField
+      FieldKind = fkData
+      FieldName = 'BI'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2B: TFloatField
+      FieldKind = fkData
+      FieldName = 'B'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2CD: TFloatField
+      FieldKind = fkData
+      FieldName = 'CD'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2CR: TFloatField
+      FieldKind = fkData
+      FieldName = 'CR'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2CO: TFloatField
+      FieldKind = fkData
+      FieldName = 'CO'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2CU: TFloatField
+      FieldKind = fkData
+      FieldName = 'CU'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2CN: TFloatField
+      FieldKind = fkData
+      FieldName = 'CN'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2PB: TFloatField
+      FieldKind = fkData
+      FieldName = 'PB'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2HG: TFloatField
+      FieldKind = fkData
+      FieldName = 'HG'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2MO: TFloatField
+      FieldKind = fkData
+      FieldName = 'MO'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2NI: TFloatField
+      FieldKind = fkData
+      FieldName = 'NI'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2NO2: TFloatField
+      FieldKind = fkData
+      FieldName = 'NO2'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2PO4: TFloatField
+      FieldKind = fkData
+      FieldName = 'PO4'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2SR: TFloatField
+      FieldKind = fkData
+      FieldName = 'SR'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2SULF: TFloatField
+      FieldKind = fkData
+      FieldName = 'SULF'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2TI: TFloatField
+      FieldKind = fkData
+      FieldName = 'TI'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery2ZN: TFloatField
+      FieldKind = fkData
+      FieldName = 'ZN'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+  end
+  object DataSource2: TDataSource[12]
+    DataSet = ChemQuery2
+    Left = 984
+    Top = 320
+  end
+  object ChemQuery3: TZReadOnlyQuery[13]
+    Connection = DataModuleMain.ZConnectionDB
+    SQL.Strings = (
+      'SELECT * FROM chem_003'
+    )
+    Params = <>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = DetailDataSource
+    LinkedFields = 'CHM_REF_NR'
+    Left = 80
+    Top = 320
+    object ChemQuery3CHM_REF_NR: TLargeintField
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object ChemQuery3COD: TFloatField
+      FieldKind = fkData
+      FieldName = 'COD'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery3CFR: TFloatField
+      FieldKind = fkData
+      FieldName = 'CFR'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery3DOC: TFloatField
+      FieldKind = fkData
+      FieldName = 'DOC'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery3DOX: TFloatField
+      FieldKind = fkData
+      FieldName = 'DOX'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery3ECOL: TLargeintField
+      FieldKind = fkData
+      FieldName = 'ECOL'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+    end
+    object ChemQuery3FAEC_ECOL: TLargeintField
+      FieldKind = fkData
+      FieldName = 'FAEC_ECOL'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+    end
+    object ChemQuery3TOTAL_COL: TLargeintField
+      FieldKind = fkData
+      FieldName = 'TOTAL_COL'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+    end
+    object ChemQuery3SPC: TLargeintField
+      FieldKind = fkData
+      FieldName = 'SPC'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+    end
+    object ChemQuery3FAEC_STREP: TLargeintField
+      FieldKind = fkData
+      FieldName = 'FAEC_STREP'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+    end
+    object ChemQuery3TVO: TLargeintField
+      FieldKind = fkData
+      FieldName = 'TVO'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+    end
+    object ChemQuery3H2S: TFloatField
+      FieldKind = fkData
+      FieldName = 'H2S'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery3KJED: TFloatField
+      FieldKind = fkData
+      FieldName = 'KJED'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery3OIL: TFloatField
+      FieldKind = fkData
+      FieldName = 'OIL'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery3PHEN: TFloatField
+      FieldKind = fkData
+      FieldName = 'PHEN'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery3SOAP: TFloatField
+      FieldKind = fkData
+      FieldName = 'SOAP'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery3BOD: TFloatField
+      FieldKind = fkData
+      FieldName = 'BOD'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery3TOC: TFloatField
+      FieldKind = fkData
+      FieldName = 'TOC'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery3SOM_COLI: TLargeintField
+      FieldKind = fkData
+      FieldName = 'SOM_COLI'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+    end
+    object ChemQuery3ENT_VIRUS: TLargeintField
+      FieldKind = fkData
+      FieldName = 'ENT_VIRUS'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+    end
+    object ChemQuery3PROTO_PARA: TLargeintField
+      FieldKind = fkData
+      FieldName = 'PROTO_PARA'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+    end
+    object ChemQuery3TOT_THM: TFloatField
+      FieldKind = fkData
+      FieldName = 'TOT_THM'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+  end
+  object DataSource3: TDataSource[14]
+    DataSet = ChemQuery3
+    Left = 1032
+    Top = 352
+  end
+  object ChemQuery4: TZReadOnlyQuery[15]
+    Connection = DataModuleMain.ZConnectionDB
+    SQL.Strings = (
+      'SELECT * FROM chem_004'
+    )
+    Params = <>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = DetailDataSource
+    LinkedFields = 'CHM_REF_NR'
+    Left = 108
+    Top = 348
+    object ChemQuery4CHM_REF_NR: TLargeintField
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object ChemQuery4COLR: TFloatField
+      FieldKind = fkData
+      FieldName = 'COLR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery4MBAS: TFloatField
+      FieldKind = fkData
+      FieldName = 'MBAS'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery4ODR: TFloatField
+      FieldKind = fkData
+      FieldName = 'ODR'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery4SPECGRAV: TFloatField
+      FieldKind = fkData
+      FieldName = 'SPECGRAV'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery4TST: TFloatField
+      FieldKind = fkData
+      FieldName = 'TST'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery4TEMP: TFloatField
+      FieldKind = fkData
+      FieldName = 'TEMP'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery4TUR: TFloatField
+      FieldKind = fkData
+      FieldName = 'TUR'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery4SUSP_SOLID: TFloatField
+      FieldKind = fkData
+      FieldName = 'SUSP_SOLID'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery4RCARBON: TFloatField
+      FieldKind = fkData
+      FieldName = 'RCARBON'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery4DEUTERIUM: TFloatField
+      FieldKind = fkData
+      FieldName = 'DEUTERIUM'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery4TRITIUM: TFloatField
+      FieldKind = fkData
+      FieldName = 'TRITIUM'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery4OXYGEN18: TFloatField
+      FieldKind = fkData
+      FieldName = 'OXYGEN18'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+  end
+  object DataSource4: TDataSource[16]
+    DataSet = ChemQuery4
+    Left = 1056
+    Top = 408
+  end
+  object ChemQuery5: TZReadOnlyQuery[17]
+    Connection = DataModuleMain.ZConnectionDB
+    SQL.Strings = (
+      'SELECT * FROM chem_005'
+    )
+    Params = <>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = DetailDataSource
+    LinkedFields = 'CHM_REF_NR'
+    Left = 136
+    Top = 376
+    object ChemQuery5CHM_REF_NR: TLargeintField
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object ChemQuery5BE: TFloatField
+      FieldKind = fkData
+      FieldName = 'BE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5CE: TFloatField
+      FieldKind = fkData
+      FieldName = 'CE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5AU: TFloatField
+      FieldKind = fkData
+      FieldName = 'AU'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5BR: TFloatField
+      FieldKind = fkData
+      FieldName = 'BR'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5I: TFloatField
+      FieldKind = fkData
+      FieldName = 'I'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5LI: TFloatField
+      FieldKind = fkData
+      FieldName = 'LI'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5PT: TFloatField
+      FieldKind = fkData
+      FieldName = 'PT'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5SE: TFloatField
+      FieldKind = fkData
+      FieldName = 'SE'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5AG: TFloatField
+      FieldKind = fkData
+      FieldName = 'AG'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5TE: TFloatField
+      FieldKind = fkData
+      FieldName = 'TE'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5TL: TFloatField
+      FieldKind = fkData
+      FieldName = 'TL'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5W: TFloatField
+      FieldKind = fkData
+      FieldName = 'W'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5U: TFloatField
+      FieldKind = fkData
+      FieldName = 'U'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5V: TFloatField
+      FieldKind = fkData
+      FieldName = 'V'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5SN: TFloatField
+      FieldKind = fkData
+      FieldName = 'SN'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5PD: TFloatField
+      FieldKind = fkData
+      FieldName = 'PD'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5ZR: TFloatField
+      FieldKind = fkData
+      FieldName = 'ZR'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5LA: TFloatField
+      FieldKind = fkData
+      FieldName = 'LA'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5NB: TFloatField
+      FieldKind = fkData
+      FieldName = 'NB'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5TA: TFloatField
+      FieldKind = fkData
+      FieldName = 'TA'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+    object ChemQuery5ND: TFloatField
+      FieldKind = fkData
+      FieldName = 'ND'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = ChemQueryGetText
+      Precision = 2
+    end
+  end
+  object DataSource5: TDataSource[18]
+    DataSet = ChemQuery5
+    Left = 1000
+    Top = 440
+  end
+  object QueryParams: TZReadOnlyQuery[19]
+    BeforeOpen = QueryParamsBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM chemparams'
+    )
+    Params = <>
+    Left = 704
+    Top = 376
+  end
+  object QueryLookups: TZReadOnlyQuery[20]
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM Lookup'
+      'WHERE USED_FOR = ''SAMPTYPE'''
+    )
+    Params = <>
+    Left = 707
+    Top = 316
+  end
+  object QueryLimits: TZQuery[21]
+    SortedFields = 'CPARAMETER'
+    SQL.Strings = (
+      'SELECT * FROM deteclim ORDER BY CPARAMETER'
+    )
+    Params = <>
+    MasterFields = 'CHM_REF_NR'
+    MasterSource = DetailDataSource
+    LinkedFields = 'CHM_REF_NR'
+    IndexFieldNames = 'CPARAMETER Asc'
+    Left = 248
+    Top = 432
+    object QueryLimitsCHM_REF_NR: TLongintField
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Visible = False
+    end
+    object QueryLimitsCPARAMETER: TStringField
+      DisplayLabel = 'Parameter'
+      FieldKind = fkData
+      FieldName = 'CPARAMETER'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 12
+    end
+    object QueryLimitsMETHOD: TStringField
+      DisplayLabel = 'Method'
+      FieldKind = fkData
+      FieldName = 'METHOD'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object QueryLimitsLIMITS: TStringField
+      DisplayLabel = 'Limit'
+      FieldKind = fkData
+      FieldName = 'LIMITS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+    object QueryLimitsCOMMENTS: TStringField
+      DisplayLabel = 'Comment'
+      FieldKind = fkData
+      FieldName = 'COMMENTS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 12
+    end
+  end
+end

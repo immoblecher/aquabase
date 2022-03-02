@@ -1,0 +1,1089 @@
+inherited SurfaceWaterReportForm: TSurfaceWaterReportForm
+  Left = 544
+  Height = 707
+  Caption = 'Surface Water Report'
+  ClientHeight = 707
+  inherited TheReport: TRLReport
+    Title = 'SURFACE HYDROLOGY REPORT'
+    AfterPrint = TheReportAfterPrint
+    BeforePrint = TheReportBeforePrint
+    inherited RLBandHeader: TRLBand
+      inherited RLSystemInfoReportTitle: TRLSystemInfo
+        Height = 15
+      end
+    end
+    inherited FooterBand: TRLBand
+      Top = 465
+    end
+    inherited SubDetail1: TRLSubDetail
+      DataSource = StageHeightDataSource
+      inherited SubHeaderBand: TRLBand
+        inherited RLLabel78: TRLLabel
+          Height = 15
+          Width = 102
+          Caption = 'STAGE HEIGHT'
+        end
+        object RLLabel209: TRLLabel[1]
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 66
+          Caption = 'Info. source'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel92: TRLLabel[2]
+          Left = 200
+          Height = 13
+          Top = 22
+          Width = 82
+          Caption = 'Date measured'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel197: TRLLabel[3]
+          Left = 300
+          Height = 13
+          Top = 22
+          Width = 84
+          Caption = 'Time measured'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel84: TRLLabel[4]
+          Left = 580
+          Height = 13
+          Top = 24
+          Width = 55
+          Caption = 'Comment'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelStageHi: TRLLabel[5]
+          Left = 440
+          Height = 13
+          Top = 24
+          Width = 70
+          Caption = 'Stage height'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      inherited RLBand: TRLBand
+        object RLDBText80: TRLDBText[0]
+          Left = 8
+          Height = 14
+          Top = 0
+          Width = 190
+          AutoSize = False
+          DataField = 'INFO_SOURC'
+          DataSource = StageHeightDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText131: TRLDBText[1]
+          Left = 210
+          Height = 14
+          Top = 0
+          Width = 59
+          AutoSize = False
+          DataField = 'DATE_MEAS'
+          DataSource = StageHeightDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText132: TRLDBText[2]
+          Left = 310
+          Height = 14
+          Top = 0
+          Width = 28
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TIME_MEAS'
+          DataSource = StageHeightDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText67: TRLDBText[3]
+          Left = 580
+          Height = 14
+          Top = 0
+          Width = 130
+          AutoSize = False
+          DataField = 'COMMENTS'
+          DataSource = StageHeightDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText141: TRLDBText[4]
+          Left = 434
+          Height = 13
+          Top = 0
+          Width = 74
+          Alignment = taRightJustify
+          DataField = 'STAGE_HIGH'
+          DataSource = StageHeightDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail4: TRLSubDetail[4]
+      Left = 39
+      Height = 56
+      Top = 409
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = IntakeDataSource
+      object SubHeaderBand1: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabel79: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 15
+          Top = 4
+          Width = 52
+          Caption = 'INTAKE'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel210: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 66
+          Caption = 'Info. source'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel93: TRLLabel
+          Left = 200
+          Height = 13
+          Top = 22
+          Width = 82
+          Caption = 'Date measured'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel198: TRLLabel
+          Left = 300
+          Height = 13
+          Top = 22
+          Width = 84
+          Caption = 'Time measured'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel85: TRLLabel
+          Left = 580
+          Height = 13
+          Top = 24
+          Width = 55
+          Caption = 'Comment'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelIntake: TRLLabel
+          Left = 454
+          Height = 13
+          Top = 24
+          Width = 35
+          Caption = 'Intake'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand2: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText81: TRLDBText
+          Left = 8
+          Height = 14
+          Top = 0
+          Width = 190
+          AutoSize = False
+          DataField = 'INFO_SOURC'
+          DataSource = IntakeDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText133: TRLDBText
+          Left = 210
+          Height = 14
+          Top = 0
+          Width = 59
+          AutoSize = False
+          DataField = 'DATE_MEAS'
+          DataSource = IntakeDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText134: TRLDBText
+          Left = 310
+          Height = 14
+          Top = 0
+          Width = 28
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TIME_MEAS'
+          DataSource = IntakeDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText68: TRLDBText
+          Left = 580
+          Height = 14
+          Top = 0
+          Width = 130
+          AutoSize = False
+          DataField = 'COMMENTS'
+          DataSource = IntakeDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText142: TRLDBText
+          Left = 435
+          Height = 13
+          Top = 0
+          Width = 73
+          Alignment = taRightJustify
+          DataField = 'INTAK_FLOW'
+          DataSource = IntakeDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail3: TRLSubDetail[5]
+      Left = 39
+      Height = 56
+      Top = 353
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = StrmVeloDataSource
+      object SubHeaderBand2: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabel80: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 15
+          Top = 4
+          Width = 171
+          Caption = 'STREAM FLOW VELOCITY'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel211: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 114
+          Caption = 'Reporting institution'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel94: TRLLabel
+          Left = 200
+          Height = 13
+          Top = 22
+          Width = 82
+          Caption = 'Date measured'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel199: TRLLabel
+          Left = 300
+          Height = 13
+          Top = 22
+          Width = 84
+          Caption = 'Time measured'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel86: TRLLabel
+          Left = 580
+          Height = 13
+          Top = 24
+          Width = 55
+          Caption = 'Comment'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelFlowVelo: TRLLabel
+          Left = 440
+          Height = 13
+          Top = 24
+          Width = 73
+          Caption = 'Flow velocity'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand3: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText82: TRLDBText
+          Left = 8
+          Height = 14
+          Top = 0
+          Width = 190
+          AutoSize = False
+          DataField = 'REP_INST'
+          DataSource = StrmVeloDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText135: TRLDBText
+          Left = 210
+          Height = 14
+          Top = 0
+          Width = 59
+          AutoSize = False
+          DataField = 'DATE_MEAS'
+          DataSource = StrmVeloDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText136: TRLDBText
+          Left = 310
+          Height = 14
+          Top = 0
+          Width = 28
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TIME_MEAS'
+          DataSource = StrmVeloDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText69: TRLDBText
+          Left = 580
+          Height = 14
+          Top = 0
+          Width = 130
+          AutoSize = False
+          DataField = 'COMMENT'
+          DataSource = StrmVeloDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText143: TRLDBText
+          Left = 455
+          Height = 13
+          Top = 0
+          Width = 53
+          Alignment = taRightJustify
+          DataField = 'READING'
+          DataSource = StrmVeloDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    object SubDetail2: TRLSubDetail[6]
+      Left = 39
+      Height = 56
+      Top = 297
+      Width = 716
+      AllowedBands = [btColumnHeader]
+      Borders.Sides = sdCustom
+      Borders.DrawLeft = False
+      Borders.DrawTop = False
+      Borders.DrawRight = False
+      Borders.DrawBottom = True
+      DataSource = FlowDisDataSource
+      object SubHeaderBand3: TRLBand
+        Left = 0
+        Height = 40
+        Top = 0
+        Width = 716
+        BandType = btColumnHeader
+        Color = clMoneyGreen
+        GroupIndex = 4
+        ParentColor = False
+        Transparent = False
+        object RLLabel81: TRLLabel
+          Tag = 1
+          Left = 8
+          Height = 15
+          Top = 4
+          Width = 123
+          Caption = 'FLOW DISCHARGE'
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel212: TRLLabel
+          Left = 8
+          Height = 13
+          Top = 24
+          Width = 66
+          Caption = 'Info. source'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel95: TRLLabel
+          Left = 200
+          Height = 13
+          Top = 22
+          Width = 82
+          Caption = 'Date measured'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel200: TRLLabel
+          Left = 300
+          Height = 13
+          Top = 22
+          Width = 84
+          Caption = 'Time measured'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabel87: TRLLabel
+          Left = 580
+          Height = 13
+          Top = 24
+          Width = 55
+          Caption = 'Comment'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+        object RLLabelFlowDis: TRLLabel
+          Left = 440
+          Height = 13
+          Top = 24
+          Width = 84
+          Caption = 'Flow discharge'
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsItalic]
+          HoldStyle = hsVertically
+          ParentFont = False
+          Transparent = False
+        end
+      end
+      object RLBand4: TRLBand
+        Left = 0
+        Height = 16
+        Top = 40
+        Width = 716
+        object RLDBText83: TRLDBText
+          Left = 8
+          Height = 14
+          Top = 0
+          Width = 190
+          AutoSize = False
+          DataField = 'INFO_SOURC'
+          DataSource = FlowDisDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText137: TRLDBText
+          Left = 210
+          Height = 14
+          Top = 0
+          Width = 59
+          AutoSize = False
+          DataField = 'DATE_MEAS'
+          DataSource = FlowDisDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText138: TRLDBText
+          Left = 310
+          Height = 14
+          Top = 0
+          Width = 28
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TIME_MEAS'
+          DataSource = FlowDisDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText70: TRLDBText
+          Left = 580
+          Height = 14
+          Top = 0
+          Width = 130
+          AutoSize = False
+          DataField = 'COMMENTS'
+          DataSource = FlowDisDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText144: TRLDBText
+          Left = 449
+          Height = 13
+          Top = 0
+          Width = 59
+          Alignment = taRightJustify
+          DataField = 'DIS_FLOW'
+          DataSource = FlowDisDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+  end
+  inherited ViewDataSource: TDataSource
+    OnDataChange = ViewDataSourceDataChange
+  end
+  inherited BasicinfDataSource: TDataSource
+    Left = 368
+  end
+  inherited BasicinfQuery: TZReadOnlyQuery
+    AfterOpen = BasicinfQueryAfterOpen
+  end
+  object stage_hi: TZReadOnlyQuery[5]
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = QueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM stage_hi'
+    )
+    Params = <>
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = ViewDataSource
+    LinkedFields = 'SITE_ID_NR'
+    Left = 72
+    Top = 592
+    object stage_hiID: TLargeintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object stage_hiSITE_ID_NR: TStringField
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 44
+    end
+    object stage_hiINFO_SOURC: TStringField
+      Tag = 2
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'IS_SURHY'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 4
+    end
+    object stage_hiDATE_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DateGetText
+      Size = 32
+    end
+    object stage_hiTIME_MEAS: TStringField
+      FieldKind = fkData
+      FieldName = 'TIME_MEAS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = TimeGetText
+      Size = 16
+    end
+    object stage_hiSTAGE_HIGH: TFloatField
+      FieldKind = fkData
+      FieldName = 'STAGE_HIGH'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = stage_hiSTAGE_HIGHGetText
+      Precision = 2
+    end
+    object stage_hiCOMMENTS: TStringField
+      FieldKind = fkData
+      FieldName = 'COMMENTS'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 80
+    end
+  end
+  object StageHeightDataSource: TDataSource[6]
+    DataSet = stage_hi
+    Left = 72
+    Top = 648
+  end
+  object flow_dis: TZReadOnlyQuery[7]
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = QueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM flow_dis'
+    )
+    Params = <>
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = ViewDataSource
+    LinkedFields = 'SITE_ID_NR'
+    Left = 200
+    Top = 592
+    object StageHeightQueryID1: TLargeintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object StageHeightQuerySITE_ID_NR1: TStringField
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 44
+    end
+    object StageHeightQueryINFO_SOURC1: TStringField
+      Tag = 2
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'IS_SURHY'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 4
+    end
+    object StageHeightQueryDATE_MEAS1: TStringField
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DateGetText
+      Size = 32
+    end
+    object StageHeightQueryTIME_MEAS1: TStringField
+      FieldKind = fkData
+      FieldName = 'TIME_MEAS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = TimeGetText
+      Size = 16
+    end
+    object flow_disDIS_FLOW: TFloatField
+      FieldKind = fkData
+      FieldName = 'DIS_FLOW'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = flow_disDIS_FLOWGetText
+    end
+    object StageHeightQueryCOMMENTS1: TStringField
+      FieldKind = fkData
+      FieldName = 'COMMENTS'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 80
+    end
+  end
+  object FlowDisDataSource: TDataSource[8]
+    DataSet = flow_dis
+    Left = 200
+    Top = 648
+  end
+  object strmvelo: TZReadOnlyQuery[9]
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = QueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM strmvelo'
+    )
+    Params = <>
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = ViewDataSource
+    LinkedFields = 'SITE_ID_NR'
+    Left = 296
+    Top = 592
+    object StageHeightQueryID2: TLargeintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object StageHeightQuerySITE_ID_NR2: TStringField
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 44
+    end
+    object strmveloREP_INST: TStringField
+      Tag = 1
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 4
+    end
+    object StageHeightQueryDATE_MEAS2: TStringField
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DateGetText
+      Size = 32
+    end
+    object StageHeightQueryTIME_MEAS2: TStringField
+      FieldKind = fkData
+      FieldName = 'TIME_MEAS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = TimeGetText
+      Size = 16
+    end
+    object strmveloREADING: TFloatField
+      FieldKind = fkData
+      FieldName = 'READING'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = strmveloREADINGGetText
+    end
+    object strmveloCOMMENT: TStringField
+      DisplayWidth = 12
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 12
+    end
+  end
+  object StrmVeloDataSource: TDataSource[10]
+    DataSet = strmvelo
+    Left = 296
+    Top = 648
+  end
+  object intake__: TZReadOnlyQuery[11]
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = QueryBeforeOpen
+    SQL.Strings = (
+      'SELECT * FROM intake__'
+    )
+    Params = <>
+    MasterFields = 'SITE_ID_NR'
+    MasterSource = ViewDataSource
+    LinkedFields = 'SITE_ID_NR'
+    Left = 400
+    Top = 592
+    object StageHeightQueryID3: TLargeintField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object StageHeightQuerySITE_ID_NR3: TStringField
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 44
+    end
+    object StageHeightQueryINFO_SOURC3: TStringField
+      Tag = 2
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'IS_SURHY'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = LookupsGetText
+      Size = 4
+    end
+    object StageHeightQueryDATE_MEAS3: TStringField
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DateGetText
+      Size = 32
+    end
+    object StageHeightQueryTIME_MEAS3: TStringField
+      FieldKind = fkData
+      FieldName = 'TIME_MEAS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = TimeGetText
+      Size = 16
+    end
+    object intake__INTAK_FLOW: TFloatField
+      FieldKind = fkData
+      FieldName = 'INTAK_FLOW'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = intake__INTAK_FLOWGetText
+    end
+    object StageHeightQueryCOMMENTS3: TStringField
+      FieldKind = fkData
+      FieldName = 'COMMENTS'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 80
+    end
+  end
+  object IntakeDataSource: TDataSource[12]
+    DataSet = intake__
+    Left = 400
+    Top = 648
+  end
+end

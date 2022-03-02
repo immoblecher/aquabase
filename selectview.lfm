@@ -1,0 +1,134 @@
+object SelectViewForm: TSelectViewForm
+  Left = 731
+  Height = 259
+  Top = 178
+  Width = 449
+  Caption = 'Use View'
+  ClientHeight = 259
+  ClientWidth = 449
+  KeyPreview = True
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poScreenCenter
+  SessionProperties = 'Left;Top'
+  LCLVersion = '2.0.12.0'
+  object PairSplitter1: TPairSplitter
+    Left = 0
+    Height = 209
+    Top = 0
+    Width = 449
+    Align = alClient
+    Position = 175
+    object PairSplitterSide1: TPairSplitterSide
+      Cursor = crArrow
+      Left = 0
+      Height = 209
+      Top = 0
+      Width = 175
+      ClientWidth = 175
+      ClientHeight = 209
+      object ListBoxViews: TListBox
+        AnchorSideLeft.Control = PairSplitterSide1
+        AnchorSideTop.Control = PairSplitterSide1
+        AnchorSideRight.Control = PairSplitterSide1
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = PairSplitterSide1
+        AnchorSideBottom.Side = asrBottom
+        Left = 5
+        Height = 199
+        Hint = 'Click to select View, then double-click or OK to use the view'
+        Top = 5
+        Width = 170
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Left = 5
+        BorderSpacing.Top = 5
+        BorderSpacing.Bottom = 5
+        ItemHeight = 0
+        OnClick = ListBoxViewsClick
+        OnDblClick = ListBoxViewsDblClick
+        ParentShowHint = False
+        ScrollWidth = 168
+        ShowHint = True
+        Sorted = True
+        TabOrder = 0
+        TopIndex = -1
+      end
+    end
+    object PairSplitterSide2: TPairSplitterSide
+      Cursor = crArrow
+      Left = 180
+      Height = 209
+      Top = 0
+      Width = 269
+      ClientWidth = 269
+      ClientHeight = 209
+      object DBMemo: TDBMemo
+        AnchorSideLeft.Control = PairSplitterSide2
+        AnchorSideTop.Control = PairSplitterSide2
+        AnchorSideRight.Control = PairSplitterSide2
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = PairSplitterSide2
+        AnchorSideBottom.Side = asrBottom
+        Left = 0
+        Height = 199
+        Hint = 'View Definition'
+        Top = 5
+        Width = 264
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Top = 5
+        BorderSpacing.Right = 5
+        BorderSpacing.Bottom = 5
+        DataSource = DataSource1
+        ParentShowHint = False
+        ReadOnly = True
+        ScrollBars = ssAutoVertical
+        ShowHint = True
+        TabOrder = 0
+      end
+    end
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 38
+    Top = 215
+    Width = 437
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.HelpContext = 321
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 1
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object XMLPropStorage: TXMLPropStorage
+    StoredValues = <>
+    Left = 55
+    Top = 95
+  end
+  object DefinitionQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SQL.Strings = (
+      ''
+    )
+    Params = <>
+    Left = 272
+    Top = 95
+  end
+  object DataSource1: TDataSource
+    DataSet = DefinitionQuery
+    Left = 104
+    Top = 24
+  end
+  object ViewQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    Left = 80
+    Top = 160
+  end
+end

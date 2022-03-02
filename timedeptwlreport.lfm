@@ -1,0 +1,467 @@
+inherited PortraitReportFormWL: TPortraitReportFormWL
+  Caption = 'Water Level Portrait Report'
+  OnClose = FormClose
+  inherited RLReportPortrait: TRLReport
+    AfterPrint = RLReportPortraitAfterPrint
+    BeforePrint = RLReportPortraitBeforePrint
+    inherited RLBandHeader: TRLBand
+      InsideMargins.BottomMargin = 3
+    end
+    inherited SubDetail1: TRLSubDetail
+      inherited DetailBand1: TRLBand
+        inherited RLDBText2: TRLDBText
+          Left = 62
+          Width = 166
+          DataField = 'METH_MEAS'
+        end
+        inherited RLDBText1: TRLDBText
+          Left = 16
+          Width = 24
+          DataField = 'INFO_SOURC'
+          AfterPrint = RLDBText1AfterPrint
+        end
+        inherited RLDBText4: TRLDBText
+          Left = 234
+          Width = 166
+          DataField = 'LEVEL_STAT'
+        end
+        object RLDBText7: TRLDBText[3]
+          Left = 404
+          Height = 14
+          Top = 2
+          Width = 20
+          Alignment = taCenter
+          AutoSize = False
+          DataField = 'PIEZOM_NR'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Layout = tlBottom
+          ParentFont = False
+        end
+        object RLDBText8: TRLDBText[4]
+          Left = 434
+          Height = 14
+          Top = 2
+          Width = 52
+          AutoSize = False
+          DataField = 'DATE_MEAS'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Layout = tlBottom
+          ParentFont = False
+        end
+        object RLDBText9: TRLDBText[5]
+          Left = 488
+          Height = 14
+          Top = 2
+          Width = 34
+          AutoSize = False
+          DataField = 'TIME_MEAS'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Layout = tlBottom
+          ParentFont = False
+        end
+        object RLDBText10: TRLDBText[6]
+          Left = 528
+          Height = 14
+          Top = 2
+          Width = 30
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'TIME_SEC'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Layout = tlBottom
+          ParentFont = False
+        end
+        object RLDBText11: TRLDBText[7]
+          Left = 564
+          Height = 14
+          Top = 2
+          Width = 60
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'WATER_LEV'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Layout = tlBottom
+          ParentFont = False
+        end
+        object RLDBText12: TRLDBText[8]
+          Left = 626
+          Height = 14
+          Top = 2
+          Width = 86
+          AutoSize = False
+          DataField = 'COMMENT'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Layout = tlBottom
+          ParentFont = False
+        end
+      end
+      inherited RLBandSummary: TRLBand
+        Visible = False
+        inherited RLLabel4: TRLLabel
+          Left = 504
+        end
+        inherited RLLabel5: TRLLabel
+          Left = 504
+        end
+        inherited RLLabel6: TRLLabel
+          Left = 504
+        end
+        object RLDBText42: TRLDBText[3]
+          Left = 564
+          Height = 13
+          Top = 2
+          Width = 60
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'MinWL'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText43: TRLDBText[4]
+          Left = 564
+          Height = 13
+          Top = 18
+          Width = 60
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'MaxWL'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText44: TRLDBText[5]
+          Left = 564
+          Height = 13
+          Top = 34
+          Width = 60
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'AvgWL'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    inherited FooterBand: TRLBand
+      AfterPrint = FooterBandAfterPrint
+      BeforePrint = FooterBandBeforePrint
+      inherited CommentRLMemo: TRLMemo
+        Width = 160
+      end
+      inherited RLMemoLookups: TRLMemo
+        Left = 170
+        Top = 8
+        Width = 136
+        Lines.Strings = (
+          'Information Source:'
+        )
+      end
+    end
+    inherited HeaderBand1: TRLBand
+      inherited RLLabelHeader2: TRLLabel
+        Left = 62
+        Width = 87
+        Caption = 'Meth. measured'
+      end
+      inherited RLLabelHeader1: TRLLabel
+        Width = 49
+        Caption = 'Info. src.'
+      end
+      inherited RLDBText3: TRLDBText
+        Left = 98
+      end
+      inherited RLLabelHeader3: TRLLabel
+        Left = 234
+        Width = 67
+        Caption = 'Level status'
+      end
+      inherited RLDBText5: TRLDBText
+        Left = 252
+      end
+      inherited RLLabel3: TRLLabel
+        Left = 340
+      end
+      inherited RLDBText6: TRLDBText
+        Left = 454
+      end
+      object RLLabelHeader4: TRLLabel[9]
+        Left = 400
+        Height = 13
+        Top = 24
+        Width = 28
+        Caption = 'Piez.'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        Layout = tlBottom
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabelHeader5: TRLLabel[10]
+        Left = 434
+        Height = 13
+        Top = 24
+        Width = 90
+        Caption = 'Date/Time meas.'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        Layout = tlBottom
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabelHeader6: TRLLabel[11]
+        Left = 534
+        Height = 13
+        Top = 24
+        Width = 25
+        Alignment = taRightJustify
+        Caption = 'Sec.'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        Layout = tlBottom
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabelHeader7: TRLLabel[12]
+        Left = 564
+        Height = 13
+        Top = 24
+        Width = 58
+        Alignment = taRightJustify
+        Caption = 'W. lev. [m]'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        Layout = tlBottom
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabelHeader8: TRLLabel[13]
+        Left = 626
+        Height = 13
+        Top = 24
+        Width = 55
+        Caption = 'Comment'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        Layout = tlBottom
+        ParentFont = False
+        Transparent = False
+      end
+    end
+  end
+  inherited DetailQuery: TZReadOnlyQuery
+    SortedFields = 'SITE_ID_NR,DATE_MEAS,TIME_MEAS,TIME_SEC'
+    SQL.Strings = (
+      'SELECT * FROM waterlev'
+    )
+    MasterFields = 'SITE_ID_NR'
+    LinkedFields = 'SITE_ID_NR'
+    IndexFieldNames = 'SITE_ID_NR Asc,DATE_MEAS Asc,TIME_MEAS Asc,TIME_SEC Asc'
+    Top = 8
+    object DetailQuerySITE_ID_NR: TStringField[0]
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 44
+    end
+    object DetailQueryMETH_MEAS: TStringField[1]
+      FieldKind = fkData
+      FieldName = 'METH_MEAS'
+      Index = 1
+      LookupCache = False
+      LookupKeyFields = 'OTHRMEAS'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DetailQueryMETH_MEASGetText
+      Size = 4
+    end
+    object DetailQueryLEVEL_STAT: TStringField[2]
+      FieldKind = fkData
+      FieldName = 'LEVEL_STAT'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'WLV_STAT'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DetailQueryLEVEL_STATGetText
+      Size = 4
+    end
+    object DetailQueryPIEZOM_NR: TStringField[3]
+      FieldKind = fkData
+      FieldName = 'PIEZOM_NR'
+      Index = 3
+      LookupCache = False
+      LookupKeyFields = 'IS_BASIC'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 4
+    end
+    object DetailQueryINFO_SOURC: TStringField[4]
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 4
+      LookupCache = False
+      LookupKeyFields = 'IS_BASIC'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 4
+    end
+    object DetailQueryDATE_MEAS: TStringField[5]
+      FieldKind = fkData
+      FieldName = 'DATE_MEAS'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DetailQueryDATE_MEASGetText
+      Size = 32
+    end
+    object DetailQueryTIME_MEAS: TStringField[6]
+      FieldKind = fkData
+      FieldName = 'TIME_MEAS'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DetailQueryTIME_MEASGetText
+      Size = 16
+    end
+    object DetailQueryTIME_SEC: TFloatField[7]
+      FieldKind = fkData
+      FieldName = 'TIME_SEC'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Precision = 2
+    end
+    object DetailQueryWATER_LEV: TFloatField[8]
+      FieldKind = fkData
+      FieldName = 'WATER_LEV'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DetailQueryWATER_LEVGetText
+      Precision = 2
+    end
+    object DetailQueryCOMMENT: TStringField[9]
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 48
+    end
+  end
+  inherited SummaryQuery: TZReadOnlyQuery
+    SQL.Strings = (
+      ''
+    )
+    Left = 352
+    object SummaryQuerySITE_ID_NR: TStringField[0]
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 11
+    end
+    object SummaryQueryMinWL: TFloatField[1]
+      FieldKind = fkData
+      FieldName = 'MinWL'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DetailQueryWATER_LEVGetText
+    end
+    object SummaryQueryMaxWL: TFloatField[2]
+      FieldKind = fkData
+      FieldName = 'MaxWL'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DetailQueryWATER_LEVGetText
+    end
+    object SummaryQueryAvgWL: TFloatField[3]
+      FieldKind = fkData
+      FieldName = 'AvgWL'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DetailQueryWATER_LEVGetText
+    end
+  end
+  object QueryLookups: TZReadOnlyQuery[9]
+    BeforeOpen = QueryLookupsBeforeOpen
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM Lookup'
+      'WHERE USED_FOR = ''IS_BASIC'''
+    )
+    Params = <>
+    Left = 272
+    Top = 288
+  end
+end

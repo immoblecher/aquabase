@@ -1,0 +1,389 @@
+inherited PortraitReportFormDepth: TPortraitReportFormDepth
+  Left = 534
+  Top = 159
+  Caption = 'Depth Portrait Report'
+  OnClose = FormClose
+  inherited RLReportPortrait: TRLReport
+    Title = 'TIME-DEPENDENT DEPTH REPORT'
+    AfterPrint = RLReportPortraitAfterPrint
+    BeforePrint = RLReportPortraitBeforePrint
+    inherited RLBandHeader: TRLBand
+      InsideMargins.BottomMargin = 3
+    end
+    inherited SubDetail1: TRLSubDetail
+      inherited DetailBand1: TRLBand
+        inherited RLDBText2: TRLDBText
+          Left = 60
+          Width = 210
+          DataField = 'REP_INST'
+        end
+        inherited RLDBText1: TRLDBText
+          Left = 18
+          Width = 24
+          DataField = 'INFO_SOURC'
+          AfterPrint = RLDBText1AfterPrint
+        end
+        inherited RLDBText4: TRLDBText
+          Left = 270
+          Width = 166
+          DataField = 'CONTRACTOR'
+        end
+        object RLDBText8: TRLDBText[3]
+          Left = 450
+          Height = 14
+          Top = 2
+          Width = 62
+          AutoSize = False
+          DataField = 'DATE_CONST'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Layout = tlBottom
+          ParentFont = False
+        end
+        object RLDBText10: TRLDBText[4]
+          Left = 536
+          Height = 14
+          Top = 2
+          Width = 32
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'COLLAR_HI'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Layout = tlBottom
+          ParentFont = False
+        end
+        object RLDBText11: TRLDBText[5]
+          Left = 570
+          Height = 14
+          Top = 2
+          Width = 50
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'DEPTH'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Layout = tlBottom
+          ParentFont = False
+        end
+        object RLDBText12: TRLDBText[6]
+          Left = 626
+          Height = 14
+          Top = 2
+          Width = 86
+          AutoSize = False
+          DataField = 'COMMENT'
+          DataSource = DetailDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Layout = tlBottom
+          ParentFont = False
+        end
+      end
+      inherited RLBandSummary: TRLBand
+        Visible = False
+        BeforePrint = RLBandSummaryBeforePrint
+        inherited RLLabel4: TRLLabel
+          Left = 512
+        end
+        inherited RLLabel5: TRLLabel
+          Left = 512
+        end
+        inherited RLLabel6: TRLLabel
+          Left = 512
+        end
+        object RLDBText42: TRLDBText[3]
+          Left = 570
+          Height = 13
+          Top = 2
+          Width = 50
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'MinDepth'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText43: TRLDBText[4]
+          Left = 570
+          Height = 13
+          Top = 18
+          Width = 50
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'MaxDepth'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+        object RLDBText44: TRLDBText[5]
+          Left = 570
+          Height = 13
+          Top = 34
+          Width = 50
+          Alignment = taRightJustify
+          AutoSize = False
+          DataField = 'AvgDepth'
+          DataSource = SummaryDataSource
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          ParentFont = False
+        end
+      end
+    end
+    inherited FooterBand: TRLBand
+      AfterPrint = FooterBandAfterPrint
+      BeforePrint = FooterBandBeforePrint
+      inherited CommentRLMemo: TRLMemo
+        Width = 160
+      end
+      inherited RLMemoLookups: TRLMemo
+        Left = 170
+        Top = 8
+        Width = 136
+        Lines.Strings = (
+          'Information Source:'
+        )
+      end
+    end
+    inherited HeaderBand1: TRLBand
+      inherited RLLabelHeader2: TRLLabel
+        Left = 60
+        Width = 85
+        Caption = 'Rep. Institution'
+      end
+      inherited RLLabelHeader1: TRLLabel
+        Width = 49
+        Caption = 'Info. src.'
+      end
+      inherited RLDBText3: TRLDBText
+        Left = 98
+      end
+      inherited RLLabelHeader3: TRLLabel
+        Left = 270
+        Width = 60
+        Caption = 'Contractor'
+      end
+      inherited RLDBText5: TRLDBText
+        Left = 252
+      end
+      inherited RLLabel3: TRLLabel
+        Left = 340
+      end
+      inherited RLDBText6: TRLDBText
+        Width = 254
+      end
+      object RLLabelHeader5: TRLLabel[9]
+        Left = 426
+        Height = 13
+        Top = 24
+        Width = 101
+        Caption = 'Date constr./meas.'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        Layout = tlBottom
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabelHeader6: TRLLabel[10]
+        Left = 530
+        Height = 13
+        Top = 24
+        Width = 91
+        Alignment = taRightJustify
+        Caption = 'Col. & Depth [m]'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        Layout = tlBottom
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabelHeader8: TRLLabel[11]
+        Left = 626
+        Height = 13
+        Top = 24
+        Width = 55
+        Caption = 'Comment'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        HoldStyle = hsVertically
+        Layout = tlBottom
+        ParentFont = False
+        Transparent = False
+      end
+    end
+  end
+  inherited DetailQuery: TZReadOnlyQuery
+    SQL.Strings = (
+      'SELECT * FROM constrct'
+    )
+    MasterFields = 'SITE_ID_NR'
+    LinkedFields = 'SITE_ID_NR'
+    Top = 8
+    object DetailQuerySITE_ID_NR: TStringField[0]
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 44
+    end
+    object DetailQueryINFO_SOURC: TStringField[1]
+      Tag = 2
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 4
+    end
+    object DetailQueryREP_INST: TStringField[2]
+      Tag = 1
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 2
+      LookupCache = False
+      LookupKeyFields = 'REP_INST'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DetailQueryREP_INSTGetText
+      Size = 16
+    end
+    object DetailQueryDATE_CONST: TStringField[3]
+      FieldKind = fkData
+      FieldName = 'DATE_CONST'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DetailQueryDATE_CONSTGetText
+      Size = 32
+    end
+    object DetailQueryCONTRACTOR: TStringField[4]
+      FieldKind = fkData
+      FieldName = 'CONTRACTOR'
+      Index = 4
+      LookupCache = False
+      LookupKeyFields = 'CONTRACT'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DetailQueryCONTRACTORGetText
+      Size = 96
+    end
+    object DetailQueryCOLLAR_HI: TFloatField[5]
+      FieldKind = fkData
+      FieldName = 'COLLAR_HI'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DetailQueryCOLLAR_HIGetText
+      Precision = 2
+    end
+    object DetailQueryDEPTH: TFloatField[6]
+      FieldKind = fkData
+      FieldName = 'DEPTH'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DetailQueryDEPTHGetText
+      Precision = 2
+    end
+    object DetailQueryCOMMENT: TStringField[7]
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 48
+    end
+  end
+  inherited SummaryQuery: TZReadOnlyQuery
+    SQL.Strings = (
+      ''
+    )
+    Left = 352
+    object SummaryQuerySITE_ID_NR: TStringField[0]
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 11
+    end
+    object SummaryQueryMinDepth: TFloatField[1]
+      FieldKind = fkData
+      FieldName = 'MinDepth'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DetailQueryDEPTHGetText
+    end
+    object SummaryQueryMaxDepth: TFloatField[2]
+      FieldKind = fkData
+      FieldName = 'MaxDepth'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DetailQueryDEPTHGetText
+    end
+    object SummaryQueryAvgDepth: TFloatField[3]
+      FieldKind = fkData
+      FieldName = 'AvgDepth'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = DetailQueryDEPTHGetText
+    end
+  end
+  object QueryLookups: TZReadOnlyQuery[9]
+    BeforeOpen = QueryLookupsBeforeOpen
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM Lookup'
+      'WHERE USED_FOR = ''IS_BASIC'''
+    )
+    Params = <>
+    Left = 96
+    Top = 328
+  end
+end

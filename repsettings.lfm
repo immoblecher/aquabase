@@ -1,0 +1,253 @@
+object ReportSettingsForm: TReportSettingsForm
+  Left = 860
+  Height = 320
+  Top = 208
+  Width = 421
+  BorderStyle = bsSingle
+  Caption = 'Report Settings'
+  ClientHeight = 320
+  ClientWidth = 421
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
+  object Label1: TLabel
+    Left = 8
+    Height = 11
+    Top = 78
+    Width = 29
+    Caption = 'View:'
+    Enabled = False
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 8
+    Height = 11
+    Top = 126
+    Width = 64
+    Caption = '&Report Title:'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    ParentColor = False
+    ParentFont = False
+  end
+  object RadioGroup1: TRadioGroup
+    Left = 8
+    Height = 65
+    Top = 8
+    Width = 208
+    AutoFill = True
+    Caption = 'Sites from:'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 52
+    ClientWidth = 206
+    ItemIndex = 0
+    Items.Strings = (
+      'Current Site'
+      'View'
+    )
+    OnClick = RadioGroup1Click
+    TabOrder = 0
+  end
+  object ViewComboBox: TComboBox
+    Left = 8
+    Height = 25
+    Top = 94
+    Width = 208
+    Enabled = False
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      '<No View>'
+    )
+    Sorted = True
+    Style = csDropDownList
+    TabOrder = 1
+    Text = '<No View>'
+  end
+  object GroupBox1: TGroupBox
+    Left = 225
+    Height = 120
+    Top = 8
+    Width = 184
+    Caption = 'Report Layout:'
+    ClientHeight = 107
+    ClientWidth = 182
+    TabOrder = 2
+    object CheckBox1: TCheckBox
+      Left = 6
+      Height = 23
+      Hint = 'Show page numbering'
+      Top = 4
+      Width = 120
+      Caption = 'Show &page number'
+      Checked = True
+      ParentShowHint = False
+      ShowHint = True
+      State = cbChecked
+      TabOrder = 0
+    end
+    object CheckBox2: TCheckBox
+      Left = 6
+      Height = 23
+      Hint = 'Show summary'
+      Top = 78
+      Width = 100
+      Caption = 'Show &summary'
+      Checked = True
+      ParentShowHint = False
+      ShowHint = True
+      State = cbChecked
+      TabOrder = 1
+    end
+    object CheckBox3: TCheckBox
+      Left = 6
+      Height = 23
+      Hint = 'Show current date on report'
+      Top = 28
+      Width = 77
+      Caption = 'Show &date'
+      Checked = True
+      ParentShowHint = False
+      ShowHint = True
+      State = cbChecked
+      TabOrder = 2
+    end
+    object cbPageBreak: TCheckBox
+      Left = 6
+      Height = 23
+      Hint = 'Insert new page for each site'
+      Top = 52
+      Width = 150
+      Caption = 'Page &break between sites'
+      Checked = True
+      OnChange = cbPageBreakChange
+      ParentShowHint = False
+      ShowHint = True
+      State = cbChecked
+      TabOrder = 3
+    end
+  end
+  object TitleEdit: TEdit
+    Left = 8
+    Height = 24
+    Top = 142
+    Width = 401
+    AutoSize = False
+    MaxLength = 100
+    TabOrder = 3
+    Text = '<default>'
+  end
+  object CommentMemo: TMemo
+    Left = 8
+    Height = 73
+    Top = 192
+    Width = 225
+    Lines.Strings = (
+      'Comment:'
+    )
+    PopupMenu = PopupMenu1
+    TabOrder = 4
+  end
+  object ConstrGroupBox: TGroupBox
+    Left = 240
+    Height = 92
+    Top = 173
+    Width = 169
+    Caption = 'Constraints:'
+    ClientHeight = 79
+    ClientWidth = 167
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    ParentFont = False
+    TabOrder = 5
+    object RecordsButton: TButton
+      Left = 22
+      Height = 25
+      Hint = 'Set required output'
+      Top = 42
+      Width = 121
+      Caption = '&Set Constraints...'
+      Enabled = False
+      OnClick = RecordsButtonClick
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+    end
+    object ConstrCheckBox: TCheckBox
+      Left = 8
+      Height = 23
+      Top = 8
+      Width = 116
+      Caption = 'Enable Constraints'
+      OnClick = ConstrCheckBoxClick
+      TabOrder = 1
+    end
+  end
+  object CheckBox4: TCheckBox
+    Left = 8
+    Height = 23
+    Top = 168
+    Width = 81
+    Caption = 'Comments:'
+    TabOrder = 6
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 38
+    Top = 276
+    Width = 409
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CloseButton.OnClick = CloseButtonClick
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    CancelButton.OnClick = CancelButtonClick
+    TabOrder = 7
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object CheckBoxFromBasic: TCheckBox
+    Left = 110
+    Height = 23
+    Top = 168
+    Width = 105
+    Caption = 'From Basic Info.'
+    OnChange = CheckBoxFromBasicChange
+    OnClick = CheckBoxFromBasicClick
+    TabOrder = 8
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 96
+    Top = 208
+    object Wordwrap1: TMenuItem
+      AutoCheck = True
+      Caption = '&Wordwrap'
+      Checked = True
+      OnClick = Wordwrap1Click
+    end
+    object MenuItem1: TMenuItem
+      Caption = '&Clear'
+      OnClick = MenuItem1Click
+    end
+  end
+end

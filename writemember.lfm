@@ -1,0 +1,172 @@
+object WriteMemberForm: TWriteMemberForm
+  Left = 888
+  Height = 186
+  Top = 308
+  Width = 340
+  HelpContext = 316
+  BorderStyle = bsSingle
+  Caption = 'Create Members from View'
+  ClientHeight = 186
+  ClientWidth = 340
+  KeyPreview = True
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
+  object ViewComboBox: TComboBox
+    Left = 8
+    Height = 25
+    Top = 27
+    Width = 326
+    ItemHeight = 0
+    Items.Strings = (
+      'allsites'
+    )
+    Sorted = True
+    Style = csDropDownList
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    Left = 8
+    Height = 11
+    Top = 10
+    Width = 50
+    Caption = '&Use View'
+    ParentColor = False
+  end
+  object LabeledEditMemberID: TLabeledEdit
+    Left = 8
+    Height = 24
+    Top = 78
+    Width = 74
+    CharCase = ecUppercase
+    EditLabel.Height = 11
+    EditLabel.Width = 74
+    EditLabel.Caption = '&Member ID:'
+    EditLabel.ParentColor = False
+    LabelSpacing = 2
+    MaxLength = 10
+    TabOrder = 1
+    OnChange = LabeledEditMemberIDChange
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 38
+    Top = 142
+    Width = 328
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.Enabled = False
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.HelpContext = 316
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 6
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object DateTimePicker1: TDateTimePicker
+    Left = 46
+    Height = 19
+    Top = 112
+    Width = 85
+    CenturyFrom = 1941
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 3
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDate
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 2
+    Time = 0.522176203703566
+    UseDefaultSeparators = True
+    HideDateTimeParts = []
+    MonthNames = 'Long'
+  end
+  object DateTimePicker2: TDateTimePicker
+    Left = 245
+    Height = 19
+    Top = 112
+    Width = 85
+    CenturyFrom = 1941
+    MaxDate = 2958465
+    MinDate = -53780
+    TabOrder = 5
+    TrailingSeparator = False
+    TextForNullDate = 'NULL'
+    LeadingZeros = True
+    Kind = dtkDate
+    TimeFormat = tf24
+    TimeDisplay = tdHMS
+    DateMode = dmComboBox
+    Date = 42653
+    Time = 0.522285925922915
+    UseDefaultSeparators = True
+    HideDateTimeParts = []
+    MonthNames = 'Long'
+  end
+  object Label2: TLabel
+    Left = 8
+    Height = 11
+    Top = 116
+    Width = 30
+    Caption = '&From:'
+    FocusControl = DateTimePicker1
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 222
+    Height = 11
+    Top = 116
+    Width = 17
+    Caption = '&To:'
+    FocusControl = DateTimePicker2
+    ParentColor = False
+  end
+  object Button1: TButton
+    Left = 140
+    Height = 25
+    Top = 109
+    Width = 62
+    Caption = '<< Today'
+    OnClick = Button1Click
+    TabOrder = 4
+  end
+  object LabeledEditMemberDescr: TLabeledEdit
+    Left = 92
+    Height = 24
+    Top = 78
+    Width = 242
+    CharCase = ecUppercase
+    EditLabel.Height = 11
+    EditLabel.Width = 242
+    EditLabel.Caption = '&Description for the member/group:'
+    EditLabel.ParentColor = False
+    LabelSpacing = 2
+    MaxLength = 128
+    TabOrder = 2
+  end
+  object DefinitionQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SQL.Strings = (
+      'SELECT name FROM sqlite_master WHERE type = ''view'''
+    )
+    Params = <>
+    Left = 264
+    Top = 16
+  end
+  object ViewQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    Left = 264
+    Top = 72
+  end
+end

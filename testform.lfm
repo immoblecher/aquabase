@@ -1,0 +1,125 @@
+inherited TestMastDetlForm: TTestMastDetlForm
+  Caption = 'Test Form'
+  inherited Panel1: TPanel
+    inherited DBFilterNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+    inherited EditNavigator: TDBNavigator
+      Hints.Strings = (      )
+    end
+  end
+  inherited LinkedQuery: TZQuery
+    BeforeOpen = LinkedQueryBeforeOpen
+    SQL.Strings = (
+      'select * from aquifer_'
+    )
+    object LinkedQueryDATE_ENTRY: TStringField[1]
+      FieldKind = fkData
+      FieldName = 'DATE_ENTRY'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 32
+    end
+    object LinkedQueryREP_INST: TStringField[2]
+      FieldKind = fkData
+      FieldName = 'REP_INST'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 16
+    end
+    object LinkedQueryINFO_SOURC: TStringField[3]
+      FieldKind = fkData
+      FieldName = 'INFO_SOURC'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 4
+    end
+    object LinkedQueryDEPTH_TOP: TFloatField[4]
+      FieldKind = fkData
+      FieldName = 'DEPTH_TOP'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object LinkedQueryDEPTH_BOT: TFloatField[5]
+      FieldKind = fkData
+      FieldName = 'DEPTH_BOT'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object LinkedQueryYIELD: TFloatField[6]
+      FieldKind = fkData
+      FieldName = 'YIELD'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object LinkedQueryMETH_MEAS: TMemoField[7]
+      FieldKind = fkData
+      FieldName = 'METH_MEAS'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftMemo
+      Transliterate = False
+    end
+    object LinkedQueryAQUI_TYPE: TMemoField[8]
+      FieldKind = fkData
+      FieldName = 'AQUI_TYPE'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftMemo
+      Transliterate = False
+    end
+    object LinkedQueryAQUI_CODE: TStringField[9]
+      FieldKind = fkData
+      FieldName = 'AQUI_CODE'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 24
+    end
+    object LinkedQueryCOMMENT: TStringField[10]
+      FieldKind = fkData
+      FieldName = 'COMMENT'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 96
+    end
+  end
+end

@@ -1,0 +1,214 @@
+object WriteKMLForm: TWriteKMLForm
+  Left = 778
+  Height = 285
+  Top = 188
+  Width = 386
+  BorderStyle = bsSingle
+  Caption = 'Write KML File for Google My Maps'
+  ClientHeight = 285
+  ClientWidth = 386
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
+  object ViewComboBox: TComboBox
+    Left = 8
+    Height = 23
+    Top = 30
+    Width = 182
+    AutoSize = False
+    ItemHeight = 0
+    Items.Strings = (
+      'allsites'
+    )
+    Style = csDropDownList
+    TabOrder = 1
+  end
+  object Label2: TLabel
+    Left = 205
+    Height = 11
+    Top = 10
+    Width = 76
+    Caption = 'and &Site Type:'
+    FocusControl = ComboBoxType
+    ParentColor = False
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 38
+    Top = 241
+    Width = 374
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.Enabled = False
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.HelpContext = 1001
+    HelpButton.DefaultCaption = True
+    HelpButton.OnClick = HelpButtonClick
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 6
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object LabeledEditFile: TLabeledEdit
+    Left = 8
+    Height = 23
+    Top = 160
+    Width = 339
+    AutoSize = False
+    EditLabel.Height = 11
+    EditLabel.Width = 339
+    EditLabel.Caption = 'Output &KML File'
+    EditLabel.ParentColor = False
+    LabelSpacing = 2
+    TabOrder = 3
+    OnChange = LabeledEditFileChange
+  end
+  object Button1: TButton
+    Left = 352
+    Height = 25
+    Top = 160
+    Width = 26
+    Anchors = [akLeft, akBottom]
+    Caption = '...'
+    OnClick = Button1Click
+    TabOrder = 4
+  end
+  object LabeledEditLayerName: TLabeledEdit
+    Left = 8
+    Height = 23
+    Top = 208
+    Width = 370
+    AutoSize = False
+    EditLabel.Height = 11
+    EditLabel.Width = 370
+    EditLabel.Caption = '&Name for the layer:'
+    EditLabel.ParentColor = False
+    LabelSpacing = 2
+    TabOrder = 5
+    Text = 'Boreholes'
+  end
+  object ComboBoxType: TComboBox
+    Left = 205
+    Height = 23
+    Top = 30
+    Width = 171
+    AutoSize = False
+    ItemHeight = 0
+    OnChange = ComboBoxTypeChange
+    Sorted = True
+    Style = csDropDownList
+    TabOrder = 2
+  end
+  object CheckBox1: TCheckBox
+    Left = 8
+    Height = 23
+    Top = 6
+    Width = 169
+    Caption = '&Use View with default fields'
+    Checked = True
+    OnClick = CheckBox1Click
+    State = cbChecked
+    TabOrder = 0
+  end
+  object CheckBox2: TCheckBox
+    Left = 8
+    Height = 23
+    Hint = 'Make sure the first three fields of your query are Placemark Name, Longitude, Latitude. All other fields go into the Description.'
+    Top = 64
+    Width = 338
+    Caption = 'Or use SQL (fields Placemark Name, Longitude, Latitude,...)'
+    OnClick = CheckBox2Click
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 7
+  end
+  object LabeledEditSQLFile: TLabeledEdit
+    Left = 8
+    Height = 23
+    Top = 105
+    Width = 339
+    AutoSize = False
+    EditLabel.Height = 11
+    EditLabel.Width = 339
+    EditLabel.Caption = '&Query File:'
+    EditLabel.ParentColor = False
+    Enabled = False
+    LabelSpacing = 2
+    TabOrder = 8
+    OnChange = LabeledEditFileChange
+  end
+  object Button2: TButton
+    Left = 352
+    Height = 25
+    Top = 105
+    Width = 26
+    Anchors = [akLeft, akBottom]
+    Caption = '...'
+    Enabled = False
+    OnClick = Button2Click
+    TabOrder = 9
+  end
+  object SaveDialog1: TSaveDialog
+    Title = 'Save file as KML'
+    DefaultExt = '.kml'
+    Filter = 'KML File (*.kml)|*.kml'
+    Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
+    Left = 136
+    Top = 224
+  end
+  object DefinitionQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    SQL.Strings = (
+      'SELECT name FROM sqlite_master WHERE type = ''view'''
+    )
+    Params = <>
+    Left = 80
+    Top = 8
+  end
+  object ViewQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    Left = 72
+    Top = 136
+  end
+  object DataQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeOpen = DataQueryBeforeOpen
+    SQL.Strings = (
+      'SELECT DISTINCT basicinf.NR_ON_MAP AS Number, basicinf.LONGITUDE AS Longitude, basicinf.LATITUDE AS Latitude, basicinf.SITE_ID_NR AS "Site ID", basicinf.ALT_NO_1 AS AltNr1, basicinf.ALT_NO_2 AS AltNr2, basicinf.REGION_BB AS "BB Nr", basicinf.SITE_NAME AS "Site Name", basicinf.FARM_NR AS "Farm Nr", basicinf.ALTITUDE AS Altitude, basicinf.DEPTH AS Depth, basicinf.BH_DIAM AS Diameter, basicinf.COLLAR_HI AS "Collar Height", basicinf.SITE_STATU AS "Site Status", waterlev.WATER_LEV AS "Water Level", MAX(waterlev.DATE_MEAS) AS "WL Date measured", recommnd.DEPTH_INTK AS "Rec. Depth to Intake", recommnd.DISCH_RATE AS "Rec. Disch. Rate", recommnd.DUTY_CYCLE AS "Rec. Duty Cycle", recommnd.WATER_QUAL AS "Water Quality", installa.TYPE_INSTL AS "Type Install", installa.TYPE_POWER AS "Type Power", aquifer_.COMMENT AS "Aquifer Comment" '
+      'FROM ((((basicinf AS basicinf'
+      '     LEFT JOIN waterlev AS waterlev ON (waterlev.SITE_ID_NR = basicinf.SITE_ID_NR )'
+      #9'    AND waterlev.LEVEL_STAT = ''S'''
+      #9#9' AND waterlev.DATE_MEAS = (SELECT MAX(waterlev.DATE_MEAS) FROM waterlev where waterlev.SITE_ID_NR = basicinf.SITE_ID_NR))'
+      '     LEFT JOIN recommnd AS recommnd ON (recommnd.SITE_ID_NR = basicinf.SITE_ID_NR )'
+      #9'    AND recommnd.PRIORITY = 1 )'
+      '     LEFT JOIN installa AS installa ON (installa.SITE_ID_NR = basicinf.SITE_ID_NR ))'
+      '     LEFT JOIN aquifer_ AS aquifer_ ON (aquifer_.SITE_ID_NR = basicinf.SITE_ID_NR ))'
+    )
+    Params = <>
+    Left = 184
+    Top = 136
+  end
+  object TypeQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM Lookup WHERE USED_FOR = ''SITETYPE'''
+    )
+    Params = <>
+    Left = 306
+    Top = 9
+  end
+  object OpenDialog1: TOpenDialog
+    DefaultExt = '.sql'
+    Filter = 'SQL Query File (*.sql, *.SQL)|*.sql|*.SQL'
+    Options = [ofOverwritePrompt, ofFileMustExist, ofEnableSizing, ofViewDetail, ofAutoPreview]
+    Left = 272
+    Top = 70
+  end
+end
