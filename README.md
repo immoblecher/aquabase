@@ -12,4 +12,12 @@ More info on Aquabase and downloads: https://aquabase.blecher.co.za/wp/
 What is needed to compile? 
 
 * Lazarus/FreePascal IDE https://www.lazarus-ide.org/
-* 
+* The ZeosDBO database components https://sourceforge.net/projects/zeoslib/
+* For creating the report FortesReportCE http://fortes4lazarus.sourceforge.net/
+* The rxnew components for additional functionality https://wiki.lazarus.freepascal.org/RXfpc
+* The mapping component LazMapViewer https://wiki.lazarus.freepascal.org/LazMapViewer
+* For photo EXIF functionality the DExif component https://github.com/cutec-chris/dexif
+* For spreadsheet functionalities the FPSpreadsheet components https://sourceforge.net/projects/lazarus-ccr/files/FPSpreadsheet/OPM/update_FPSpreadsheet.json/download
+* Synapse for online functions http://www.ararat.cz/synapse/doku.php/start
+
+The additional requirements on top of Lazarus/FreePascal should be installed/updated through the Online Package Manager in Lazarus. If you want to cross-com
