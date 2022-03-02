@@ -5,7 +5,7 @@ Aquabase is a powerful water resources management software application with data
 
 The current version is in no way complete and development continues, as there is quite a bit of work still necessary to rewrite the reports and charting functions from old (Aquabase Ver. 6) functionality. Aquabase is developed with the Lazarus / FreePascal IDE under Ubuntu Linux and uses only open-source components, i.e. for the database access (ZeosDBO), the reports (Fortesreport CE) and some enhanced controls (rxnew) with more user-friendly functions. The Windows 32 bit and 64 bit versions are then compiled with Lazarus / FreePascal and tested under Wine before distribution (Aquabase runs perfectly under Wine).
 
-Aquabase supports the following popular databases: SQLite/Spatialite (flat-file based, on local computer or file server), MySQL, MariaDB, PostgreSQL with PostGIS and MS SQLServer (all database-server based). Only the latest versions of MS SQLServer (for Windows and Linux) with spatial functions are supported, but due to typical constant updates and changes by Microsoft some adaptations may be necessary in the Aquabase code, which can be accommodated, if you are interested in using Aquabase with SQLServer.
+Aquabase supports the following popular databases: SQLite/Spatialite (flat-file based, on local computer or file server), MySQL, MariaDB, PostgreSQL with PostGIS and MS SQLServer (all database-server based). Only the latest versions of MS SQLServer (for Windows and Linux) with spatial functions are supported, but due to typical constant updates and changes by Microsoft some adaptations may be necessary in the Aquabase code, which can be accommodated.
 
 More info on Aquabase and downloads: https://aquabase.blecher.co.za/wp/
 
@@ -22,7 +22,7 @@ What is needed to compile?
 
 The additional requirements on top of Lazarus/FreePascal above should be installed/updated through the Online Package Manager in Lazarus. If you want to cross-compile under Windows you need to install the cross-compile packages for Lazarus as well.
 
-Aquabase needs a lot of additional libraries (.dll, .o etc.) to run. Most of these are distributed with Aquabase: The Inno Setup files to create Windows installations are under the .../install directory. So it might be a good idea to install Aquabase from the website and have a look at the "\Program Files\Aquabase 2020" directory for the required files to be distributed with Aquabase.
+Aquabase needs a lot of additional libraries (.dll, .o etc.) to run. Most of these are distributed with Aquabase: The Inno Setup https://jrsoftware.org/isinfo.php files to create Windows installations are under the .../install directory. So it might be a good idea to install Aquabase from the website and have a look at the "\Program Files\Aquabase 2020" directory for the required files to be distributed with Aquabase.
 
 Under Linux use Debreate or any other for Debian based installations and make sure that required libraries are installed (minimum proj/mod_spatialite and sqlite). For access to other databases make sure to install the relevant client libraries.
 
