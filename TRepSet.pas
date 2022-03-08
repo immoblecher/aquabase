@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -116,9 +116,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure HelpButtonClick(Sender: TObject);
-    procedure Label13Click(Sender: TObject);
-    procedure MultiComboBoxEditingDone(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure MultiDateComboBoxChange(Sender: TObject);
     procedure OKButtonClick(Sender: TObject);
     procedure PumpingTestQueryAfterOpen(DataSet: TDataSet);
     procedure PumpingTestQueryBeforeOpen(DataSet: TDataSet);
@@ -221,7 +220,6 @@ begin
   ConstEndDateComboBox.ItemIndex := 0;
   TestingDetailsQuery.Open;
   WLQuery.Open;
-  if SpinEditSteps.MaxValue > 1 then SpinEditSteps.MaxValue := SpinEditSteps.MaxValue - 1; //additional steps, so exclude 1st step
   {$IFDEF WINDOWS}
   if VerDiff > 3 then
   begin
@@ -249,33 +247,15 @@ begin
   DataModuleMain.OpenHelp(Sender);
 end;
 
-procedure TTestRepSetForm.Label13Click(Sender: TObject);
-begin
-
-end;
-
-procedure TTestRepSetForm.MultiComboBoxEditingDone(Sender: TObject);
-begin
-  SpinEditSteps.MaxValue := 0;
-  with TestingDetailsQuery do
-  begin
-    First;
-    while not EOF do
-    begin
-      if (Fields[1].AsString + ' ' + Fields[2].AsString >= MultiStartDateComboBox.Text)
-        and (Fields[1].AsString + ' ' + Fields[2].AsString < MultiEndDateComboBox.Text) then
-          SpinEditSteps.MaxValue := SpinEditSteps.MaxValue + 1;
-      Next;
-    end;
-  end;
-  if SpinEditSteps.MaxValue > 1 then SpinEditSteps.MaxValue := SpinEditSteps.MaxValue - 1; //additional steps, so exclude 1st step
-end;
-
 procedure TTestRepSetForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   PumpingTestQuery.Close;
-  TestingDetailsQuery.Close;
   CloseAction := caFree;
+end;
+
+procedure TTestRepSetForm.MultiDateComboBoxChange(Sender: TObject);
+begin
+  TestingDetailsQuery.Open; //to change number of available steps
 end;
 
 procedure TTestRepSetForm.OKButtonClick(Sender: TObject);
@@ -478,15 +458,17 @@ end;
 
 procedure TTestRepSetForm.TestingDetailsQueryAfterOpen(DataSet: TDataSet);
 begin
+  SpinEditSteps.MaxValue := 0;
   with DataSet do
   begin
     while not EOF do
     begin
-      if (Fields[1].AsString + ' ' + Fields[2].AsString >= MultiStartDateComboBox.Text)
+      if (Fields[1].AsString + ' ' + Fields[2].AsString > MultiStartDateComboBox.Text)
         and (Fields[1].AsString + ' ' + Fields[2].AsString < MultiEndDateComboBox.Text) then
           SpinEditSteps.MaxValue := SpinEditSteps.MaxValue + 1;
       Next;
     end;
+    Close;
   end;
 end;
 

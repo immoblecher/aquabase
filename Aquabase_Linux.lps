@@ -477,8 +477,8 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="651"/>
-        <CursorPos X="108" Y="663"/>
+        <TopLine Value="2096"/>
+        <CursorPos X="3" Y="2099"/>
         <UsageCount Value="229"/>
         <Loaded Value="True"/>
       </Unit43>
@@ -701,13 +701,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="MainDataModule"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="462"/>
-        <CursorPos X="10" Y="465"/>
+        <CursorPos X="21" Y="464"/>
         <UsageCount Value="229"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit64>
       <Unit65>
         <Filename Value="login.pas"/>
@@ -1139,7 +1137,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="862"/>
-        <CursorPos X="38" Y="863"/>
+        <CursorPos X="24" Y="868"/>
         <UsageCount Value="232"/>
       </Unit104>
       <Unit105>
@@ -1663,10 +1661,13 @@
         <ComponentName Value="TestRepSetForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="206"/>
-        <CursorPos X="42" Y="217"/>
-        <UsageCount Value="9"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="459"/>
+        <CursorPos X="58" Y="466"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit157>
       <Unit158>
         <Filename Value="pumptestrep.pas"/>
@@ -1902,102 +1903,125 @@
         <UsageCount Value="11"/>
       </Unit185>
     </Units>
-    <JumpHistory Count="24" HistoryIndex="23">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="445" TopLine="432"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="469" TopLine="460"/>
       </Position1>
       <Position2>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="446" TopLine="432"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="470" TopLine="460"/>
       </Position2>
       <Position3>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="448" TopLine="432"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="465" TopLine="460"/>
       </Position3>
       <Position4>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="451" TopLine="438"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="467" TopLine="460"/>
       </Position4>
       <Position5>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="452" TopLine="438"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="468" TopLine="460"/>
       </Position5>
       <Position6>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="453" TopLine="438"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="469" TopLine="460"/>
       </Position6>
       <Position7>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="454" TopLine="438"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="470" TopLine="460"/>
       </Position7>
       <Position8>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="455" TopLine="438"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="465" TopLine="460"/>
       </Position8>
       <Position9>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="464" TopLine="456"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="467" TopLine="460"/>
       </Position9>
       <Position10>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="484" TopLine="473"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="468" TopLine="460"/>
       </Position10>
       <Position11>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="485" TopLine="473"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="469" TopLine="460"/>
       </Position11>
       <Position12>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="486" TopLine="473"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="470" TopLine="460"/>
       </Position12>
       <Position13>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="487" TopLine="473"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="465" TopLine="460"/>
       </Position13>
       <Position14>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="468" Column="27" TopLine="454"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="467" TopLine="460"/>
       </Position14>
       <Position15>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="323" Column="21" TopLine="303"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="468" TopLine="460"/>
       </Position15>
       <Position16>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="430" Column="25" TopLine="423"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="469" TopLine="460"/>
       </Position16>
       <Position17>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="1009" Column="28" TopLine="893"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="470" TopLine="460"/>
       </Position17>
       <Position18>
-        <Filename Value="maindatamodule.pas"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="465" TopLine="460"/>
       </Position18>
       <Position19>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="26" Column="49" TopLine="6"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="467" TopLine="460"/>
       </Position19>
       <Position20>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="27" Column="31" TopLine="7"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="468" TopLine="460"/>
       </Position20>
       <Position21>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="133" Column="33" TopLine="114"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="470" TopLine="460"/>
       </Position21>
       <Position22>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="134" Column="38" TopLine="115"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="465" TopLine="460"/>
       </Position22>
       <Position23>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="196" Column="58" TopLine="177"/>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="467" TopLine="460"/>
       </Position23>
       <Position24>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="323" Column="21" TopLine="306"/>
+        <Filename Value="TRepSet.pas"/>
       </Position24>
+      <Position25>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="16" Column="13"/>
+      </Position25>
+      <Position26>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="398" Column="94" TopLine="378"/>
+      </Position26>
+      <Position27>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="428" Column="94" TopLine="409"/>
+      </Position27>
+      <Position28>
+        <Filename Value="TRepSet.pas"/>
+      </Position28>
+      <Position29>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="223" TopLine="204"/>
+      </Position29>
+      <Position30>
+        <Filename Value="TRepSet.pas"/>
+        <Caret Line="494" Column="30" TopLine="474"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

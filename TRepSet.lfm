@@ -211,7 +211,7 @@ object TestRepSetForm: TTestRepSetForm
         ChildSizing.ShrinkVertical = crsScaleChilds
         ChildSizing.Layout = cclLeftToRightThenTopToBottom
         ChildSizing.ControlsPerLine = 2
-        ClientHeight = 31
+        ClientHeight = 30
         ClientWidth = 258
         Columns = 2
         Font.Color = clWindowText
@@ -413,7 +413,6 @@ object TestRepSetForm: TTestRepSetForm
         Font.Name = 'MS Sans Serif'
         ParentColor = False
         ParentFont = False
-        OnClick = Label13Click
       end
       object Label15: TLabel
         Left = 8
@@ -476,7 +475,7 @@ object TestRepSetForm: TTestRepSetForm
         Items.Strings = (
           '20200404 2222'
         )
-        OnEditingDone = MultiComboBoxEditingDone
+        OnChange = MultiDateComboBoxChange
         ParentFont = False
         Sorted = True
         Style = csDropDownList
@@ -492,7 +491,7 @@ object TestRepSetForm: TTestRepSetForm
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         ItemHeight = 0
-        OnEditingDone = MultiComboBoxEditingDone
+        OnChange = MultiDateComboBoxChange
         ParentFont = False
         Sorted = True
         Style = csDropDownList
@@ -565,7 +564,7 @@ object TestRepSetForm: TTestRepSetForm
         Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
-        MaxValue = 9
+        MaxValue = 0
         ParentFont = False
         ParentShowHint = False
         ShowHint = True
