@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Aquabase 2020 - Updated"
-#define MyAppVersion "8.4.2.391"
+#define MyAppVersion "8.4.3.392"
 #define MyAppPublisher "Lazarus Projects"
 #define MyAppURL "https://aquabase.blecher.co.za/wp"
 #define MyAppExeName "Aquabase.exe"
@@ -117,10 +117,11 @@ function NextButtonClick(CurPageID: Integer): Boolean;
 begin
   Result := True;
   if CurPageID = PasswordPage.ID then begin
-    // stay on this page if password is wrong
-    if PasswordPage.Edits[0].Text <> '0micron@SA' then begin
-      MsgBox(SetupMessage(msgIncorrectPassword), mbError, MB_OK);
-      Result := False;
+    // stay on this page if password is wrong.
+    //DEVELOPERS NOTE: insert a password below for users with Support and Development Programme subscription
+    if PasswordPage.Edits[0].Text <> '*************' then begin
+       MsgBox(SetupMessage(msgIncorrectPassword), mbError, MB_OK);
+       Result := False;
     end;
   end;
 end;
