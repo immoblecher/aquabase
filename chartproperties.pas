@@ -77,9 +77,11 @@ type
     Label46: TLabel;
     Label47: TLabel;
     Label48: TLabel;
+    Label49: TLabel;
     LabelSeriesTitle: TLabel;
     PointsBrushComboBox: TComboBox;
     CheckBoxShowPoints: TCheckBox;
+    SpinEditColumns: TSpinEdit;
     SpinEditTADigits: TSpinEdit;
     SpinEditLADigits: TSpinEdit;
     SpinEditBADigits: TSpinEdit;
@@ -427,6 +429,7 @@ type
     procedure RadioGroupVertAxisClick(Sender: TObject);
     procedure RightAxisPageControlChange(Sender: TObject);
     procedure SpinEditArrowWidthChange(Sender: TObject);
+    procedure SpinEditColumnsChange(Sender: TObject);
     procedure SpinEditMarginTopChange(Sender: TObject);
     procedure SpinEditMarginLeftChange(Sender: TObject);
     procedure SpinEditMarginBottomChange(Sender: TObject);
@@ -576,6 +579,11 @@ begin
   else
   if (TempChart.Series[ComboBoxSeries.ItemIndex] is TBarSeries) then
     (TempChart.Series[ComboBoxSeries.ItemIndex] as TBarSeries).Marks.Arrow.Width := (Sender as TSpinEdit).Value
+end;
+
+procedure TChartPropDlg.SpinEditColumnsChange(Sender: TObject);
+begin
+  TempChart.Legend.ColumnCount := SpinEditColumns.Value;
 end;
 
 procedure TChartPropDlg.ButtonExportClick(Sender: TObject);
@@ -1341,6 +1349,7 @@ begin
     SpinEditLegendX.Value:= Legend.MarginX;
     ColorButtonLegendBack.ButtonColor := Legend.BackgroundBrush.Color;
     RadioGroupLegendPos.ItemIndex := Ord(Legend.Alignment);
+    SpinEditColumns.Value := Legend.ColumnCount;
     {Panel and background Settings}
     CheckBoxNoBackColour.Enabled := (BackColor <> clNone);
     ColorButtonBack.ButtonColor := BackColor;

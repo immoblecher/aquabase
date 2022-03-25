@@ -3,7 +3,7 @@
   <ProjectSession>
     <PathDelim Value="\"/>
     <Version Value="11"/>
-    <BuildModes Active="Release 32"/>
+    <BuildModes Active="Default"/>
     <Units Count="223">
       <Unit0>
         <Filename Value="Aquabase.lpr"/>
@@ -626,7 +626,6 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="1662"/>
         <CursorPos X="24" Y="1672"/>
         <UsageCount Value="229"/>
@@ -901,10 +900,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="MainDataModule"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="525"/>
-        <CursorPos X="25" Y="532"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="1924"/>
+        <CursorPos Y="1930"/>
         <UsageCount Value="58"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit85>
       <Unit86>
         <Filename Value="login.pas"/>
@@ -2094,7 +2096,7 @@
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="3">
+    <BreakPoints Count="4">
       <Item1>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
@@ -2116,6 +2118,13 @@
         <Source Value="Main.pas"/>
         <Line Value="675"/>
       </Item3>
+      <Item4>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="maindatamodule.pas"/>
+        <Line Value="1930"/>
+      </Item4>
     </BreakPoints>
   </Debugging>
 </CONFIG>

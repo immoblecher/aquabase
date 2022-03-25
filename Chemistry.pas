@@ -923,7 +923,7 @@ begin
   try
     LinkedQuery.Open;
   except on E: Exception do
-    MessageDlg(E.Message + ' - You may have to contact your database administrator to resollve this error.', mtError, [mbOK], 0);
+    MessageDlg(E.Message + ' - You may have to contact your database administrator to resolve this error.', mtError, [mbOK], 0);
   end;
 end;
 
@@ -1561,22 +1561,22 @@ begin
   begin
     case PageControlChemistry.ActivePageIndex of
     0: begin
-         TimeDeptTable[1] := 'chem_001';
+         TimeDeptTable[1] := 'CHEM_001';
        end;
     1: begin
-         TimeDeptTable[1] := 'chem_002';
+         TimeDeptTable[1] := 'CHEM_002';
        end;
     2: begin
-         TimeDeptTable[1] := 'chem_003';
+         TimeDeptTable[1] := 'CHEM_003';
        end;
     3: begin
-         TimeDeptTable[1] := 'chem_004';
+         TimeDeptTable[1] := 'CHEM_004';
        end;
     4: begin
-         TimeDeptTable[1] := 'chem_005';
+         TimeDeptTable[1] := 'CHEM_005';
        end;
     5: begin
-         TimeDeptTable[1] := 'chem_006';
+         TimeDeptTable[1] := 'CHEM_006';
        end;
     end; //of case
     StartDate := StringToDate(LinkedQueryDATE_SAMPL.AsString);

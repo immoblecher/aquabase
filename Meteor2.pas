@@ -1,4 +1,4 @@
-{ Copyright (C) 2018 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2022 Immo Blecher immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -251,22 +251,22 @@ begin
       0: begin
            StartDate := StringToDate(ZQuery1DATE_MEAS.AsString);
            StartTime := StringToTime(ZQuery1TIME_MEAS.AsString);
-           TimeDeptTable[1] := 'air_temp';
+           TimeDeptTable[1] := 'AIR_TEMP';
          end;
       1: begin
            StartDate := StringToDate(ZQuery2DATE_MEAS.AsString);
            StartTime := StringToTime(ZQuery2TIME_MEAS.AsString);
-           TimeDeptTable[1] := 'pressure';
+           TimeDeptTable[1] := 'PRESSURE';
          end;
       2: begin
            StartDate := StringToDate(ZQuery3DATE_MEAS.AsString);
            StartTime := StringToTime(ZQuery3TIME_MEAS.AsString);
-           TimeDeptTable[1] := 'solaradi';
+           TimeDeptTable[1] := 'SOLARADI';
          end;
       3: begin
            StartDate := StringToDate(ZQuery4DATE_MEAS.AsString);
            StartTime := StringToTime(ZQuery4TIME_MEAS.AsString);
-           TimeDeptTable[1] := 'windvdir';
+           TimeDeptTable[1] := 'WINDVDIR';
          end;
     end; //of case
     ShowModal;

@@ -314,6 +314,7 @@ object SQLScriptForm: TSQLScriptForm
     ParentColor = False
     ParentFont = False
     ParentShowHint = False
+    PopupMenu = PopupMenu1
     ShowHint = True
     TabOrder = 2
     OnEnter = SynEdit1Enter
@@ -839,6 +840,7 @@ object SQLScriptForm: TSQLScriptForm
   end
   object SynSQLSyn1: TSynSQLSyn
     DefaultFilter = 'SQL Files (*.sql)|*.sql'
+    Enabled = False
     TableNameAttri.Style = [fsItalic]
     SQLDialect = sqlStandard
     Left = 64
@@ -880,5 +882,33 @@ object SQLScriptForm: TSQLScriptForm
     Params = <>
     Left = 160
     Top = 63
+  end
+  object PopupMenu1: TPopupMenu
+    OnPopup = PopupMenu1Popup
+    Left = 368
+    Top = 63
+    object MenuItemSelectAll: TMenuItem
+      Caption = 'Select &All'
+      ShortCut = 16449
+      OnClick = MenuItemSelectAllClick
+    end
+    object N1: TMenuItem
+      Caption = '-'
+    end
+    object MenuItemCut: TMenuItem
+      Caption = '&Cut'
+      ShortCut = 16472
+      OnClick = MenuItemCutClick
+    end
+    object MenuItemCopy: TMenuItem
+      Caption = 'Cop&y'
+      ShortCut = 16451
+      OnClick = MenuItemCopyClick
+    end
+    object MenuItemPaste: TMenuItem
+      Caption = '&Paste'
+      ShortCut = 16470
+      OnClick = MenuItemPasteClick
+    end
   end
 end

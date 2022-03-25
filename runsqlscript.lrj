@@ -9,5 +9,9 @@
 {"hash":4456554,"name":"tsqlscriptform.label1.caption","sourcebytes":[68,101,108,105,109,105,116,101,114,58],"value":"Delimiter:"},
 {"hash":136050691,"name":"tsqlscriptform.synedit1.hint","sourcebytes":[73,110,115,101,114,116,32,99,111,110,100,105,116,105,111,110,46,32,67,116,114,108,45,83,112,97,99,101,32,102,111,114,32,102,105,101,108,100,115,44,32,83,104,105,102,116,43,83,112,97,99,101,32,102,111,114,32,116,97,98,108,101,115],"value":"Insert condition. Ctrl-Space for fields, Shift+Space for tables"},
 {"hash":268253717,"name":"tsqlscriptform.openquerydialog.title","sourcebytes":[79,112,101,110,32,83,81,76,32,83,99,114,105,112,116,32,70,105,108,101],"value":"Open SQL Script File"},
-{"hash":108581301,"name":"tsqlscriptform.savequerydialog.title","sourcebytes":[83,97,118,101,32,83,81,76,32,83,99,114,105,112,116,32,116,111,32,70,105,108,101],"value":"Save SQL Script to File"}
+{"hash":108581301,"name":"tsqlscriptform.savequerydialog.title","sourcebytes":[83,97,118,101,32,83,81,76,32,83,99,114,105,112,116,32,116,111,32,70,105,108,101],"value":"Save SQL Script to File"},
+{"hash":171665052,"name":"tsqlscriptform.menuitemselectall.caption","sourcebytes":[83,101,108,101,99,116,32,38,65,108,108],"value":"Select &All"},
+{"hash":174788,"name":"tsqlscriptform.menuitemcut.caption","sourcebytes":[38,67,117,116],"value":"&Cut"},
+{"hash":4874969,"name":"tsqlscriptform.menuitemcopy.caption","sourcebytes":[67,111,112,38,121],"value":"Cop&y"},
+{"hash":45517477,"name":"tsqlscriptform.menuitempaste.caption","sourcebytes":[38,80,97,115,116,101],"value":"&Paste"}
 ]}

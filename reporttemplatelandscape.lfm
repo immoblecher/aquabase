@@ -29,7 +29,7 @@ object LandscapeReportForm: TLandscapeReportForm
     OnPageStarting = RLReportLandscapePageStarting
     object RLBandHeader: TRLBand
       Left = 39
-      Height = 39
+      Height = 40
       Top = 39
       Width = 1045
       AutoSize = True
@@ -40,32 +40,39 @@ object LandscapeReportForm: TLandscapeReportForm
       Borders.DrawRight = False
       Borders.DrawBottom = True
       Color = clInactiveCaption
-      InsideMargins.BottomMargin = 3
+      InsideMargins.LeftMargin = 2
+      InsideMargins.TopMargin = 1
+      InsideMargins.RightMargin = 2
+      InsideMargins.BottomMargin = 1
       ParentColor = False
       Transparent = False
       object RLSystemInfo1: TRLSystemInfo
         Tag = 1
-        Left = 900
+        Left = 905
         Height = 15
         Top = 12
         Width = 132
+        Align = faCenterRight
         Alignment = taRightJustify
         AutoSize = False
+        Layout = tlCenter
         Text = 'Date Compiled: '
         Transparent = False
       end
       object RLSystemInfoReportTitle: TRLSystemInfo
         Tag = 2
-        Left = 7
-        Height = 15
-        Top = 12
+        Left = 8
+        Height = 16
+        Top = 11
         Width = 39
+        Align = faCenterLeft
         AutoSize = False
         Font.Color = clBlack
         Font.Height = -13
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         Info = itTitle
+        Layout = tlCenter
         ParentFont = False
         Transparent = False
       end
@@ -73,7 +80,7 @@ object LandscapeReportForm: TLandscapeReportForm
     object SubDetail1: TRLSubDetail
       Left = 39
       Height = 68
-      Top = 118
+      Top = 119
       Width = 1045
       AllowedBands = [btColumnHeader]
       Borders.Sides = sdCustom
@@ -144,7 +151,7 @@ object LandscapeReportForm: TLandscapeReportForm
     object FooterBand: TRLBand
       Left = 39
       Height = 119
-      Top = 186
+      Top = 187
       Width = 1045
       BandType = btFooter
       Borders.Sides = sdCustom
@@ -207,7 +214,7 @@ object LandscapeReportForm: TLandscapeReportForm
     object HeaderBand1: TRLBand
       Left = 39
       Height = 40
-      Top = 78
+      Top = 79
       Width = 1045
       Color = clMoneyGreen
       ParentColor = False
@@ -227,7 +234,6 @@ object LandscapeReportForm: TLandscapeReportForm
         HoldStyle = hsVertically
         Layout = tlBottom
         ParentFont = False
-        Transparent = False
       end
       object RLLabelHeader2: TRLLabel
         Left = 120
@@ -263,13 +269,16 @@ object LandscapeReportForm: TLandscapeReportForm
         Tag = 1
         Left = 104
         Height = 15
-        Top = 4
+        Top = 3
         Width = 90
         AutoSize = False
         DataSource = HeaderDataSource
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'Arial'
         HoldStyle = hsVertically
         Layout = tlBottom
-        Transparent = False
+        ParentFont = False
       end
       object RLLabelHeader3: TRLLabel
         Left = 216
@@ -300,19 +309,21 @@ object LandscapeReportForm: TLandscapeReportForm
         HoldStyle = hsVertically
         Layout = tlBottom
         ParentFont = False
-        Transparent = False
       end
       object RLDBText5: TRLDBText
         Tag = 1
         Left = 258
         Height = 15
-        Top = 4
+        Top = 3
         Width = 90
         AutoSize = False
         DataSource = HeaderDataSource
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'Arial'
         HoldStyle = hsVertically
         Layout = tlBottom
-        Transparent = False
+        ParentFont = False
       end
       object RLLabel3: TRLLabel
         Tag = 1
@@ -328,19 +339,21 @@ object LandscapeReportForm: TLandscapeReportForm
         HoldStyle = hsVertically
         Layout = tlBottom
         ParentFont = False
-        Transparent = False
       end
       object RLDBText6: TRLDBText
         Tag = 1
         Left = 500
         Height = 15
-        Top = 4
+        Top = 3
         Width = 540
         AutoSize = False
         DataSource = HeaderDataSource
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'Arial'
         HoldStyle = hsVertically
         Layout = tlBottom
-        Transparent = False
+        ParentFont = False
       end
     end
   end

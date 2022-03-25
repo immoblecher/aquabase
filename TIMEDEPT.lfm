@@ -1,7 +1,7 @@
 object TimeDeptForm: TTimeDeptForm
   Left = 732
   Height = 354
-  Top = 129
+  Top = 130
   Width = 606
   HelpContext = 931
   BorderStyle = bsSingle
@@ -512,7 +512,7 @@ object TimeDeptForm: TTimeDeptForm
             Top = 38
             Width = 290
             Caption = 'Time dependent parameters:'
-            ClientHeight = 121
+            ClientHeight = 120
             ClientWidth = 288
             TabOrder = 1
             object Label11: TLabel
@@ -568,6 +568,7 @@ object TimeDeptForm: TTimeDeptForm
               OnChange = FilterValueComboBoxChange
               ParentFont = False
               Sorted = True
+              Style = csDropDownList
               TabOrder = 2
             end
             object FilterFieldComboBox2: TComboBox
@@ -635,7 +636,7 @@ object TimeDeptForm: TTimeDeptForm
             Top = 38
             Width = 276
             Caption = 'Time step, sites and chart type:'
-            ClientHeight = 191
+            ClientHeight = 190
             ClientWidth = 274
             TabOrder = 2
             object AggregateRadioGroup2: TRadioGroup
@@ -654,7 +655,7 @@ object TimeDeptForm: TTimeDeptForm
               ChildSizing.ShrinkVertical = crsScaleChilds
               ChildSizing.Layout = cclLeftToRightThenTopToBottom
               ChildSizing.ControlsPerLine = 1
-              ClientHeight = 87
+              ClientHeight = 86
               ClientWidth = 94
               Enabled = False
               Font.Color = clBlack
@@ -685,7 +686,7 @@ object TimeDeptForm: TTimeDeptForm
               ChildSizing.ShrinkVertical = crsScaleChilds
               ChildSizing.Layout = cclLeftToRightThenTopToBottom
               ChildSizing.ControlsPerLine = 1
-              ClientHeight = 43
+              ClientHeight = 42
               ClientWidth = 94
               Enabled = False
               Font.Color = clBlack
@@ -715,7 +716,7 @@ object TimeDeptForm: TTimeDeptForm
               ChildSizing.ShrinkVertical = crsScaleChilds
               ChildSizing.Layout = cclLeftToRightThenTopToBottom
               ChildSizing.ControlsPerLine = 1
-              ClientHeight = 87
+              ClientHeight = 86
               ClientWidth = 154
               Font.Color = clBlack
               Font.Height = -11
@@ -778,7 +779,7 @@ object TimeDeptForm: TTimeDeptForm
             Top = 178
             Width = 290
             Caption = 'Time Settings:'
-            ClientHeight = 51
+            ClientHeight = 50
             ClientWidth = 288
             TabOrder = 3
             object Label3: TLabel
@@ -901,8 +902,8 @@ object TimeDeptForm: TTimeDeptForm
         TabOrder = 0
         object TabSheetBotLeft: TTabSheet
           Caption = 'Left Axis'
-          ClientHeight = 252
-          ClientWidth = 586
+          ClientHeight = 274
+          ClientWidth = 592
           object Label15: TLabel
             Left = 9
             Height = 10
@@ -937,7 +938,7 @@ object TimeDeptForm: TTimeDeptForm
             Top = 38
             Width = 290
             Caption = 'Time dependent parameters:'
-            ClientHeight = 121
+            ClientHeight = 120
             ClientWidth = 288
             TabOrder = 1
             object Label16: TLabel
@@ -993,6 +994,7 @@ object TimeDeptForm: TTimeDeptForm
               OnChange = FilterValueComboBoxChange
               ParentFont = False
               Sorted = True
+              Style = csDropDownList
               TabOrder = 2
             end
             object FilterFieldComboBox3: TComboBox
@@ -1060,7 +1062,7 @@ object TimeDeptForm: TTimeDeptForm
             Top = 38
             Width = 276
             Caption = 'Time step, sites and chart type:'
-            ClientHeight = 191
+            ClientHeight = 190
             ClientWidth = 274
             TabOrder = 2
             object AggregateRadioGroup3: TRadioGroup
@@ -1079,7 +1081,7 @@ object TimeDeptForm: TTimeDeptForm
               ChildSizing.ShrinkVertical = crsScaleChilds
               ChildSizing.Layout = cclLeftToRightThenTopToBottom
               ChildSizing.ControlsPerLine = 1
-              ClientHeight = 87
+              ClientHeight = 86
               ClientWidth = 94
               Enabled = False
               Font.Color = clBlack
@@ -1110,7 +1112,7 @@ object TimeDeptForm: TTimeDeptForm
               ChildSizing.ShrinkVertical = crsScaleChilds
               ChildSizing.Layout = cclLeftToRightThenTopToBottom
               ChildSizing.ControlsPerLine = 1
-              ClientHeight = 43
+              ClientHeight = 42
               ClientWidth = 94
               Enabled = False
               Font.Color = clBlack
@@ -1140,7 +1142,7 @@ object TimeDeptForm: TTimeDeptForm
               ChildSizing.ShrinkVertical = crsScaleChilds
               ChildSizing.Layout = cclLeftToRightThenTopToBottom
               ChildSizing.ControlsPerLine = 1
-              ClientHeight = 87
+              ClientHeight = 86
               ClientWidth = 154
               Font.Color = clBlack
               Font.Height = -11
@@ -1203,7 +1205,7 @@ object TimeDeptForm: TTimeDeptForm
             Top = 178
             Width = 290
             Caption = 'Time Settings:'
-            ClientHeight = 51
+            ClientHeight = 50
             ClientWidth = 288
             TabOrder = 3
             object Label20: TLabel
@@ -1310,8 +1312,8 @@ object TimeDeptForm: TTimeDeptForm
         end
         object TabSheetBotRight: TTabSheet
           Caption = 'Right Axis'
-          ClientHeight = 252
-          ClientWidth = 586
+          ClientHeight = 274
+          ClientWidth = 592
           object Label22: TLabel
             Left = 9
             Height = 10
@@ -1346,7 +1348,7 @@ object TimeDeptForm: TTimeDeptForm
             Top = 38
             Width = 290
             Caption = 'Time dependent parameters:'
-            ClientHeight = 121
+            ClientHeight = 120
             ClientWidth = 288
             TabOrder = 1
             object Label23: TLabel
@@ -1402,6 +1404,7 @@ object TimeDeptForm: TTimeDeptForm
               OnChange = FilterValueComboBoxChange
               ParentFont = False
               Sorted = True
+              Style = csDropDownList
               TabOrder = 2
             end
             object FilterFieldComboBox4: TComboBox
@@ -1469,7 +1472,7 @@ object TimeDeptForm: TTimeDeptForm
             Top = 38
             Width = 276
             Caption = 'Time step, sites and chart type:'
-            ClientHeight = 191
+            ClientHeight = 190
             ClientWidth = 274
             TabOrder = 2
             object AggregateRadioGroup4: TRadioGroup
@@ -1488,7 +1491,7 @@ object TimeDeptForm: TTimeDeptForm
               ChildSizing.ShrinkVertical = crsScaleChilds
               ChildSizing.Layout = cclLeftToRightThenTopToBottom
               ChildSizing.ControlsPerLine = 1
-              ClientHeight = 87
+              ClientHeight = 86
               ClientWidth = 94
               Enabled = False
               Font.Color = clBlack
@@ -1519,7 +1522,7 @@ object TimeDeptForm: TTimeDeptForm
               ChildSizing.ShrinkVertical = crsScaleChilds
               ChildSizing.Layout = cclLeftToRightThenTopToBottom
               ChildSizing.ControlsPerLine = 1
-              ClientHeight = 43
+              ClientHeight = 42
               ClientWidth = 94
               Enabled = False
               Font.Color = clBlack
@@ -1549,7 +1552,7 @@ object TimeDeptForm: TTimeDeptForm
               ChildSizing.ShrinkVertical = crsScaleChilds
               ChildSizing.Layout = cclLeftToRightThenTopToBottom
               ChildSizing.ControlsPerLine = 1
-              ClientHeight = 87
+              ClientHeight = 86
               ClientWidth = 154
               Font.Color = clBlack
               Font.Height = -11
@@ -1612,7 +1615,7 @@ object TimeDeptForm: TTimeDeptForm
             Top = 178
             Width = 290
             Caption = 'Time Settings:'
-            ClientHeight = 51
+            ClientHeight = 50
             ClientWidth = 288
             TabOrder = 3
             object Label27: TLabel
@@ -1735,22 +1738,13 @@ object TimeDeptForm: TTimeDeptForm
     Left = 344
     Top = 304
   end
-  object LookupQuery: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionLanguage
-    SQL.Strings = (
-      'SELECT * FROM Lookup ORDER BY USED_FOR, SEARCH'
-    )
-    Params = <>
-    Left = 481
-    Top = 17
-  end
   object AquasortQuery: TZReadOnlyQuery
     Connection = DataModuleMain.ZConnectionSettings
     SQL.Strings = (
-      'SELECT * FROM aquasort'
+      'SELECT * FROM Aquasort WHERE TIME_ID IS NOT NULL ORDER BY TIME_ID'
     )
     Params = <>
-    Left = 234
-    Top = 16
+    Left = 284
+    Top = 9
   end
 end

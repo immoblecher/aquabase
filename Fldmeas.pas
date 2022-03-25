@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -103,8 +103,7 @@ begin
   begin
     StartDate := StringToDate(LinkedQueryDATE_MEAS.AsString);
     StartTime := StringToTime(LinkedQueryTIME_MEAS.AsString);
-    TimeDeptTable[1] := 'fldmeas_';
-    ComboBoxDataChange(ComboBoxData1); //trigger event to update comboboxes
+    TimeDeptTable[1] := 'FLDMEAS_';
     ShowModal;
   end;
 end;

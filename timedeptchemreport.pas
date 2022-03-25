@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2022 Immo Blecher immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -23,7 +23,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, 
-    reporttemplatelandscape, db, RLReport, ZDataset;
+    reporttemplatelandscape, db, RLReport, ZDataset, ZConnection;
 
 type
 
@@ -141,6 +141,12 @@ type
     DataSource3: TDataSource;
     DataSource4: TDataSource;
     DataSource5: TDataSource;
+    DetailQueryCHM_REF_NR: TLargeintField;
+    DetailQueryDATE_SAMPL: TStringField;
+    DetailQuerySAMPLE_NR: TStringField;
+    DetailQuerySAMPL_TYPE: TStringField;
+    DetailQuerySITE_ID_NR: TStringField;
+    DetailQueryTIME_SAMPL: TStringField;
     RLDBResult1: TRLDBResult;
     RLDBTextMax0: TRLDBText;
     RLDBTextAvg0: TRLDBText;
@@ -183,7 +189,6 @@ type
     RLDBTextMin13: TRLDBText;
     RLDBTextMax13: TRLDBText;
     RLDBTextAvg13: TRLDBText;
-    RLDBText7: TRLDBText;
     RLDBText8: TRLDBText;
     RLDBTextMin0: TRLDBText;
     RLDBTextParam0: TRLDBText;
@@ -229,6 +234,8 @@ type
     RLMemoLegend: TRLMemo;
     procedure ChemQueryGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
+    procedure DetailQueryDATE_SAMPLGetText(Sender: TField; var aText: string;
+      DisplayText: Boolean);
     procedure FooterBandAfterPrint(Sender: TObject);
     procedure FooterBandBeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure QueryParamsBeforeOpen(DataSet: TDataSet);
@@ -254,7 +261,7 @@ implementation
 
 {$R *.lfm}
 
-uses VARINIT, MainDataModule;
+uses VARINIT, MainDataModule, StrDateTime;
 
 { TLandscapeReportFormChem }
 
@@ -399,22 +406,13 @@ begin
     end;
     Add('Concentrations in [' + ChemUnit + '] where applicable');
   end;
+  NewLeft := RLDBText4.Left + 92; //Start of first Label/DBText
   //Determine width of Labels/DBText etc.
-  if ParamsList.Count >= 10 then
-    SpaceAvail := 810
-  else
-  if ParamsList.Count < 3 then
-    SpaceAvail := 240
-  else
-  if ParamsList.Count < 6 then
-    SpaceAvail := 406
-  else
-  if ParamsList.Count < 8 then
-    SpaceAvail := 608
-  else
-    SpaceAvail := 720;
+  with RLReportLandscape do
+    SpaceAvail := Width - NewLeft - Round(Width/PageSetup.PaperHeight)*LLeftMargin - Round(Width/PageSetup.PaperHeight)*LRightMargin; //margins converted to pixels
+  if ParamsList.Count < 14 then
+    SpaceAvail := Round(SpaceAvail * ParamsList.Count / 10);
   CWidth := Round(SpaceAvail/ParamsList.Count) - 2;
-  NewLeft := 232; //Start of first Label/DBText
   //set labels and datasources/fields
   QueryParams.Open;
   for p := 0 to ParamsList.Count - 1 do
@@ -556,6 +554,12 @@ begin
         aText := aText + GetSymbol(Sender.AsFloat);
     end;
   end;
+end;
+
+procedure TLandscapeReportFormChem.DetailQueryDATE_SAMPLGetText(Sender: TField;
+  var aText: string; DisplayText: Boolean);
+begin
+  DateTimeToString(aText, 'YYYY/MM/DD hh:nn', StringToDate(Sender.Value) + StringToTime(DetailQueryTIME_SAMPL.Value));
 end;
 
 procedure TLandscapeReportFormChem.FooterBandAfterPrint(Sender: TObject);

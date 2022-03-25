@@ -2,11 +2,11 @@ object FlagForm: TFlagForm
   Left = 898
   Height = 250
   Top = 132
-  Width = 356
+  Width = 391
   ActiveControl = SpinEdit1
   Caption = 'Flag Table Records'
   ClientHeight = 250
-  ClientWidth = 356
+  ClientWidth = 391
   Constraints.MinHeight = 250
   Constraints.MinWidth = 310
   KeyPreview = True
@@ -20,7 +20,7 @@ object FlagForm: TFlagForm
     Left = 6
     Height = 38
     Top = 206
-    Width = 344
+    Width = 379
     OKButton.Name = 'OKButton'
     OKButton.Caption = '&Execute'
     OKButton.Enabled = False
@@ -47,7 +47,7 @@ object FlagForm: TFlagForm
     Left = 46
     Height = 24
     Top = 6
-    Width = 136
+    Width = 141
     AutoSize = False
     ItemHeight = 0
     OnChange = ComboBox1Change
@@ -57,7 +57,7 @@ object FlagForm: TFlagForm
     TabOrder = 1
   end
   object Label2: TLabel
-    Left = 236
+    Left = 271
     Height = 11
     Top = 12
     Width = 27
@@ -66,7 +66,7 @@ object FlagForm: TFlagForm
     ParentColor = False
   end
   object SpinEdit1: TSpinEdit
-    Left = 269
+    Left = 304
     Height = 24
     Top = 6
     Width = 79
@@ -85,7 +85,7 @@ object FlagForm: TFlagForm
     ParentColor = False
   end
   object BitBtnCheck: TBitBtn
-    Left = 206
+    Left = 241
     Height = 30
     Top = 168
     Width = 136
@@ -135,7 +135,7 @@ object FlagForm: TFlagForm
     Height = 104
     Hint = 'Insert condition. Ctrl-Space for fields, Shift+Space for tables'
     Top = 56
-    Width = 337
+    Width = 372
     Anchors = [akTop, akLeft, akRight, akBottom]
     Font.Height = -12
     Font.Name = 'Courier New'
@@ -144,6 +144,7 @@ object FlagForm: TFlagForm
     ParentColor = False
     ParentFont = False
     ParentShowHint = False
+    PopupMenu = PopupMenu1
     ShowHint = True
     TabOrder = 3
     OnEnter = SynEdit1Enter
@@ -811,5 +812,33 @@ object FlagForm: TFlagForm
     Options = [ofOverwritePrompt, ofHideReadOnly, ofShowHelp, ofExtensionDifferent, ofPathMustExist, ofEnableSizing]
     Left = 200
     Top = 176
+  end
+  object PopupMenu1: TPopupMenu
+    OnPopup = PopupMenu1Popup
+    Left = 264
+    Top = 72
+    object MenuItemSelectAll: TMenuItem
+      Caption = 'Select &All'
+      ShortCut = 16449
+      OnClick = MenuItemSelectAllClick
+    end
+    object N1: TMenuItem
+      Caption = '-'
+    end
+    object MenuItemCut: TMenuItem
+      Caption = '&Cut'
+      ShortCut = 16472
+      OnClick = MenuItemCutClick
+    end
+    object MenuItemCopy: TMenuItem
+      Caption = 'Cop&y'
+      ShortCut = 16451
+      OnClick = MenuItemCopyClick
+    end
+    object MenuItemPaste: TMenuItem
+      Caption = '&Paste'
+      ShortCut = 16470
+      OnClick = MenuItemPasteClick
+    end
   end
 end

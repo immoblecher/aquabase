@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -147,7 +147,7 @@ type
     Aggregate: Array[1..4] of Byte;
     TheFactor: Array[1..4] of Real;
     ShowLimits: Array[1..4] of Boolean;
-    ChemParam: Array[1..4] of ShortString;
+    ChemParam, SeriesTitle, FilterValue: Array[1..4] of ShortString;
   end;
 
 var
@@ -787,7 +787,6 @@ var
   TheSeriesColour: TColor;
   RecCount: Integer;
 begin
-  Randomize;
   SiteID := '';
   TheFilter := '';
   RecCount := DataSet.RecordCount;
@@ -808,7 +807,7 @@ begin
       begin
         TheBarSeries := TBarSeries.Create(cht);
         TheBarSeries.Source := TheListChartSource;
-        TheBarSeries.Title := DataSet.Fields[0].AsString;
+        TheBarSeries.Title := SeriesTitle[DataSet.Tag] + FilterValue[DataSet.Tag] + ': ' + DataSet.Fields[0].AsString;
         if not DataSet.Fields[1].IsNull then
           TheBarSeries.Title := TheBarSeries.Title + ' - ' + DataSet.Fields[1].AsString;
         if DataSet.FindField('CHEMREF') <> NIL then
@@ -826,7 +825,7 @@ begin
       begin
         TheLineSeries := TLineSeries.Create(cht);
         TheLineSeries.Source := TheListChartSource;
-        TheLineSeries.Title := DataSet.Fields[0].AsString;
+        TheLineSeries.Title := SeriesTitle[DataSet.Tag] + FilterValue[DataSet.Tag] + ': ' + DataSet.Fields[0].AsString;
         if not DataSet.Fields[1].IsNull then
           TheLineSeries.Title := TheLineSeries.Title + ' - ' + DataSet.Fields[1].AsString;
         if DataSet.FindField('CHEMREF') <> NIL then

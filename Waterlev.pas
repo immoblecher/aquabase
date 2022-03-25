@@ -125,7 +125,7 @@ begin
     StartDate := StringToDate(LinkedQueryDATE_MEAS.AsString);
     StartTime := StringToTime(LinkedQueryTIME_MEAS.AsString);
     CheckBoxUseElev1.Checked := AMSLCheckBox.Checked;
-    TimeDeptTable[1] := 'waterlev';
+    TimeDeptTable[1] := 'WATERLEV';
     ShowModal;
   end;
 end;

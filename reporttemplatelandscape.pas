@@ -141,8 +141,8 @@ begin
         Style := [fsBold];
         case Components[c].Tag of
           0: Size := ReportFont.Size;
-          1: Size := ReportFont.Size + 2;
-          2: Size := ReportFont.Size - 2;
+          1: Size := ReportFont.Size + 1;
+          2: Size := ReportFont.Size - 1;
         end;
       end
       else

@@ -487,26 +487,25 @@ inherited DischargeForm: TDischargeForm
     end
   end
   inherited Panel2: TPanel
-    Height = 234
+    Height = 238
     Caption = ''
-    ClientHeight = 234
+    ClientHeight = 238
     inherited Panel4: TPanel
-      Top = 204
+      Top = 208
       inherited DetailNavigator: TDBNavigator
         Hints.Strings = (        )
       end
     end
     inherited DBGrid: TDBGrid
-      Height = 248
-      Top = -48
+      Height = 183
     end
   end
   inherited BasicinfDataSource: TDataSource
-    left = 240
+    Left = 240
   end
   inherited LinkedDataSource: TDataSource
-    left = 160
-    top = 273
+    Left = 160
+    Top = 273
   end
   inherited LinkedQuery: TZQuery
     SortedFields = 'SITE_ID_NR, DATE_MEAS, TIME_MEAS'
@@ -527,7 +526,7 @@ inherited DischargeForm: TDischargeForm
         Size = 11
       end>
     IndexFieldNames = 'SITE_ID_NR Asc, DATE_MEAS Asc, TIME_MEAS Asc'
-    top = 273
+    Top = 273
     ParamData = <    
       item
         DataType = ftString
@@ -643,8 +642,6 @@ inherited DischargeForm: TDischargeForm
       Required = False
       OnGetText = LinkedQueryDISCH_RATEGetText
       OnSetText = LinkedQueryDISCH_RATESetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryCOMMENT: TStringField[8]

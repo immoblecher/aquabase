@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -146,7 +146,6 @@ type
     YComboBox2: TComboBox;
     YComboBox3: TComboBox;
     YComboBox4: TComboBox;
-    LookupQuery: TZReadOnlyQuery;
     AquasortQuery: TZReadOnlyQuery;
     procedure ComboBoxDataChange(Sender: TObject);
     procedure ComboBoxViewDropDown(Sender: TObject);
@@ -221,9 +220,12 @@ begin
     //check if time dept is chemistry and set date/time fields
     IsChem := InRange((FindComponent('ComboBoxData' + IntToStr(c)) as TComboBox).ItemIndex, 3, 8) or
       ((FindComponent('ComboBoxData' + IntToStr(c)) as TComboBox).ItemIndex = 23);
-    AquaSortQuery.Locate('TIME_ID', (FindComponent('ComboBoxData' + IntToStr(c)) as TComboBox).ItemIndex, []);
-    DateField := AquaSortQuery.FieldByName('DATE').AsString;
-    TimeField := AquaSortQuery.FieldByName('TIME').AsString;
+    with AquaSortQuery do
+    begin
+      Locate('TIME_ID', (Self.FindComponent('ComboBoxData' + IntToStr(c)) as TComboBox).ItemIndex, []);
+      DateField := FieldByName('DATE').AsString;
+      TimeField := FieldByName('TIME').AsString;
+    end;
     with SpecTimeChartForm.FindComponent('QueryXY' + IntToStr(c)) as TZReadOnlyQuery do
     begin
       FilterField := (Self.FindComponent('FilterFieldComboBox' + IntToStr(c)) as TComboBox).Text;
@@ -234,13 +236,6 @@ begin
         Filtered := False;
       end
       else
-      if (FilterField = 'DEPTH') then
-      begin
-        FilterField := 'd.DEPTH'; //to prevent ambigeous field in basicinf
-        Filter := 'THEFILTER = ' + (Self.FindComponent('FilterValueComboBox' + IntToStr(c)) as TComboBox).Text;
-        Filtered := True;
-      end
-      else
       if (FilterField = 'PIEZOM_NR') and ((Self.FindComponent('FilterValueComboBox' + IntToStr(c)) as TComboBox).Text = '<All>') then
       begin
         Filter := 'THEFILTER >= ' + QuotedStr('0');
@@ -248,6 +243,7 @@ begin
       end
       else
       begin
+        FilterField := 'd.' + FilterField; //to prevent ambigeous field in basicinf
         Filter := 'THEFILTER = ' + QuotedStr((Self.FindComponent('FilterValueComboBox' + IntToStr(c)) as TComboBox).Text);
         Filtered := True;
       end;
@@ -294,12 +290,12 @@ begin
           Add('AND b.SITE_ID_NR = ' + QuotedStr(CurrentSite));
         Add('JOIN ' + TimeDeptTable[c]  + ' d ON (d.SITE_ID_NR = v.SITE_ID_NR)');
         //check for chemistry and add relevant table
-        if TimeDeptTable[c] = 'chem_000' then
+        if TimeDeptTable[c] = 'CHEM_000' then
         begin
           if (Self.FindComponent('ComboBoxData' + IntToStr(c)) as TComboBox).ItemIndex = 23 then
-            ChemTable := 'userchem'
+            ChemTable := 'USERCHEM'
           else
-            ChemTable := 'chem_00' + IntToStr((Self.FindComponent('ComboBoxData' + IntToStr(c)) as TComboBox).ItemIndex - 2);
+            ChemTable := 'CHEM_00' + IntToStr((Self.FindComponent('ComboBoxData' + IntToStr(c)) as TComboBox).ItemIndex - 2);
           Add('JOIN ' + ChemTable + ' d1 ON (d1.CHM_REF_NR = d.CHM_REF_NR)');
           //make sure only value > -1 extracted
           if (Self.FindComponent('ComboBoxData' + IntToStr(c)) as TComboBox).ItemIndex = 23 then
@@ -339,8 +335,12 @@ begin
       TimeStep[c] := (Self.FindComponent('TimeStepRadioGroup' + IntToStr(c)) as TRadioGroup).ItemIndex;
       SeriesType[c] := (Self.FindComponent('TypeRadioGroup' + IntToStr(c)) as TRadioGroup).ItemIndex;
       Aggregate[c] := (Self.FindComponent('AggregateRadioGroup' + IntToStr(c)) as TRadioGroup).ItemIndex;
+      SeriesTitle[c] := (Self.FindComponent('ComboBoxData' + IntToStr(c)) as TComboBox).Text;
+      FilterValue[c] := (Self.FindComponent('FilterValueComboBox' + IntToStr(c)) as TComboBox).Text;
+      if FilterValue[c] > '' then
+        FilterValue[c] := ' (' + FilterValue[c] + ') ';
       //for chemistry
-      if (TimeDeptTable[c] = 'chem_000') then
+      if (TimeDeptTable[c] = 'CHEM_000') then
       begin
         ShowLimits[c] := (Self.FindComponent('CheckBoxLimits' + IntToStr(c)) as TCheckBox).Checked;
         ChemParam[c] := (Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text;
@@ -376,35 +376,35 @@ begin
         UnitMultiplier := FieldByName('UNITYVAL_TIME').AsString;
       end;
       //sort out the units
-      if UnitMultiplier = 'LENGTHUNIT' then
+      if UnitMultiplier = 'LengthUnit' then
       begin
-        if (TimeDeptTable[c] = 'waterlev') and (not (Self.FindComponent('CheckBoxUseElev' + IntToStr(c)) as TCheckbox).Checked) then
+        if (UpperCase(TimeDeptTable[c]) = 'WATERLEV') and (not (Self.FindComponent('CheckBoxUseElev' + IntToStr(c)) as TCheckbox).Checked) then
           TheFactor[c] := -LengthFactor //negative water levels
         else
           TheFactor[c] := LengthFactor;
       end
       else
-      if UnitMultiplier = 'DISUNIT' then
+      if UnitMultiplier = 'DisUnit' then
       begin
         TheFactor[c] := VolumeFactor * TimeFactor;
       end
       else
-      if UnitMultiplier = 'DIAMUNIT' then
+      if UnitMultiplier = 'DiamUnit' then
       begin
         TheFactor[c] := DiamFactor;
       end
       else
-      if UnitMultiplier = 'PRESSUREUNIT' then
+      if UnitMultiplier = 'PressureUnit' then
       begin
         TheFactor[c] := PressureFactor;
       end
       else
-      if UnitMultiplier = 'SPEEDUNIT' then
+      if UnitMultiplier = 'SpeedUnit' then
       begin
         TheFactor[c] := LengthFactor * TimeFactor;
       end
       else
-      if UnitMultiplier = 'CHEMUNIT' then
+      if UnitMultiplier = 'ChemUnit' then
       begin
         //sort out chemistry units
         if (Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text = 'PH' then
@@ -467,14 +467,7 @@ end;
 procedure TTimeDeptForm.FormCreate(Sender: TObject);
 begin
   DataModuleMain.SetComponentFontAndSize(Sender, True);
-  with AquaSortQuery do
-  begin
-    SortedFields := 'TIME_ID';
-    Filter := 'TIME_ID > 0';
-    Filtered := True;
-    Open;
-  end;
-  LookupQuery.Open;
+  AquaSortQuery.Open;
 end;
 
 procedure TTimeDeptForm.FormKeyDown(Sender: TObject; var Key: Word;
@@ -492,364 +485,126 @@ end;
 procedure TTimeDeptForm.ComboBoxDataChange(Sender: TObject);
 var
   m: Integer;
+  fname: ShortString;
+  flist: TStrings;
 begin
   ButtonPanel1.OKButton.Enabled := (ComboBoxData1.Text <> '<none>')
     or (ComboBoxData2.Text <> '<none>')
     or (ComboBoxData3.Text <> '<none>')
     or (ComboBoxData4.Text <> '<none>');
-  case (Sender as TComboBox).ItemIndex of
-    0: begin
-         //no time dept table selected
-       end;
-    1: begin //Air temperature
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'air_temp';
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('READING');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('<none>');
-           Items.Add('READ_TYPE');
-           ItemIndex := 0;
-           Enabled := True;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := 'ºC';
-       end;
-    2: begin //GW temperature
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'bhg_temp';
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('READING');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('<none>');
-           Items.Add('DEPTH');
-           ItemIndex := 0;
-           Enabled := True;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := 'ºC';
-       end;
- 3..8: begin //chemistry
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'chem_000';
-         (FindComponent('CheckBoxLimits' + IntToStr((Sender as TComboBox).Tag)) as TCheckbox).Enabled := True;         (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Items.Clear;
-         with DataModuleMain.CheckQuery do
-         begin
-           SQL.Clear;
-           SQL.Add('SELECT * FROM chem_00' + IntToStr((Sender as TComboBox).ItemIndex - 2) + ' LIMIT 1');
-           Open;
-         end;
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           for m := 1 to DataModuleMain.CheckQuery.FieldDefs.Count - 1 do
-             Items.Add(DataModuleMain.CheckQuery.Fields[m].FieldName);
-           ItemIndex := 0;
-         end;
-         DataModuleMain.CheckQuery.Close;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Enabled := False;
-         end;
-         YComboBoxChange(FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox);
-       end;
-    9: begin //Discharge rate
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'discharg';
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('DISCH_RATE');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('<none>');
-           Items.Add('DISCH_TYPE');
-           ItemIndex := 0;
-           Enabled := True;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := Disunit;
-       end;
-   10: begin //GW EC
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'eleccond';
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('<none>');
-           Items.Add('DEPTH');
-           ItemIndex := 0;
-           Enabled := True;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('<none>');
-           Items.Add('DEPTH');
-           ItemIndex := 0;
-           Enabled := True;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := ECUnit;
-       end;
-   11: begin //Field measurements
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'fldmeas_';
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('READING');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('PARM_MEAS');
-           ItemIndex := 0;
-           Enabled := True;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := 'ºC';
-       end;
-   12: begin //GW Flow Velocity
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'flowvelo';
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('READING');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('<none>');
-           Items.Add('DEPTH');
-           ItemIndex := 0;
-           Enabled := True;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := LengthUnit + '/' + TimeUnit;
-       end;
-   13: begin //Stream/river flow discharge
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'flow_dis';
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('DIS_FLOW');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Enabled := False;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := Disunit;
-       end;
-   14: begin //Humidity
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'humidity';
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('READING');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Enabled := False;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := DiamUnit;
-       end;
-   15: begin //Intake
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'intake__';
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('INTAK_FLOW');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Enabled := False;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := Disunit;
-       end;
-   17: begin //Pan Evaporation
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'pan_evap';
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('READING');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Enabled := False;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := DiamUnit;
-       end;
-   18: begin //Atm. pressure
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'pressure';
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('READING');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Enabled := False;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := PressureUnit;
-       end;
-   19: begin //Rainfall
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'rainfall';
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('READING');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Enabled := False;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := DiamUnit;
-       end;
-   20: begin //Solar radiation
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'solaradi';
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('READING');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Enabled := False;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := 'W/m²';
-       end;
-   21: begin //Stage height
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'stage_hi';
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('STAGE_HIGH');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Enabled := False;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := LengthUnit;
-       end;
-   22: begin //Stream flow velocity
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'strmvelo';
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('READING');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Enabled := False;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := LengthUnit + '/' + TimeUnit;
-       end;
-   23: begin //user chemistry
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'chem_000';
-         (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Items.Clear;
-         with DataModuleMain.CheckQuery do
-         begin
-           SQL.Clear;
-           SQL.Add('SELECT DISTINCT CPARAMETER FROM userchem');
-           Open;
-         end;
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Sorted := True;
-           while not DataModuleMain.CheckQuery.EOF do
-           begin
-             Items.Add(DataModuleMain.CheckQuery.Fields[0].AsString);
-             DataModuleMain.CheckQuery.Next;
-           end;
-           ItemIndex := 0;
-         end;
-         DataModuleMain.CheckQuery.Close;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Enabled := False;
-         end;
-         YComboBoxChange(FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox);
-       end;
-   24: begin //user-def DTH and time
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'usr_dthp';
-         (FindComponent('CheckBoxUseElev' + IntToStr((Sender as TComboBox).Tag)) as TCheckbox).Enabled := True;
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('READING');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('DEPTH');
-           Items.Add('PARM_MEAS');
-           ItemIndex := 0;
-           Enabled := True;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := LengthUnit;
-       end;
-   25: begin //Water level
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'waterlev';
-         (FindComponent('CheckBoxUseElev' + IntToStr((Sender as TComboBox).Tag)) as TCheckbox).Enabled := True;
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('WATER_LEV');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('PIEZOM_NR');
-           Items.Add('LEVEL_STAT');
-           Items.Add('METH_MEAS');
-           ItemIndex := 0;
-           Enabled := True;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := LengthUnit;
-       end;
-   26: begin //wind speed and direction
-         TimeDeptTable[(Sender as TComboBox).Tag] := 'windvdir';
-         with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Items.Add('READING');
-           ItemIndex := 0;
-         end;
-         with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-         begin
-           Items.Clear;
-           Enabled := False;
-         end;
-         (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := LengthUnit + '/' + TimeUnit;
-       end;
-  end; //of case
+  if (Sender as TComboBox).ItemIndex > 0 then //do something
+  begin
+    if Copy((Sender as TComboBox).Text, 1, 9) = 'Chemistry' then //if it is chemistry
+    begin
+      TimeDeptTable[(Sender as TComboBox).Tag] := 'CHEM_000';
+      (FindComponent('CheckBoxLimits' + IntToStr((Sender as TComboBox).Tag)) as TCheckbox).Enabled := True;         (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Items.Clear;
+      with DataModuleMain.CheckQuery do
+      begin
+        SQL.Clear;
+        SQL.Add('SELECT * FROM CHEM_00' + IntToStr((Sender as TComboBox).ItemIndex - 2) + ' WHERE 1<>1');
+        Open;
+      end;
+      //fill YComboBox with all parameters
+      with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
+      begin
+        for m := 1 to DataModuleMain.CheckQuery.FieldDefs.Count - 1 do
+          Items.Add(UpperCase(DataModuleMain.CheckQuery.Fields[m].FieldName));
+        ItemIndex := 0;
+      end;
+      DataModuleMain.CheckQuery.Close;
+      with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
+      begin
+        Items.Clear;
+        Items.Add('<none>');
+        Items.Add('DEPTH_SAMP');
+        Items.Add('NGDB_FLAG');
+        ItemIndex := 0;
+        Enabled := True;
+      end;
+      YComboBoxChange(FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox);
+    end
+    else //not chemistry
+    begin
+      AquaSortQuery.Locate('TIME_ID', (Sender as TComboBox).ItemIndex, []);
+      TimeDeptTable[(Sender as TComboBox).Tag] := AquaSortQuery.FieldByName('FILE_NAME').Value;
+      with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
+      begin
+        Clear;
+        Items.Add(AquaSortQuery.FieldByName('YVAL_TIME').Value);
+        ItemIndex := 0;
+      end;
+      with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
+      begin
+        Items.Clear;
+        Items.Add('<none>');
+      end;
+      with DataModuleMain.CheckQuery do //get ngdb_flag, depth fields and some string fields that are not site_id_nr
+      begin
+        SQL.Clear;
+        SQL.Add('SELECT * FROM ' + TimeDeptTable[(Sender as TComboBox).Tag] + ' WHERE 1<>1');
+        Open;
+        FieldDefs.Update;
+        flist := TStringList.Create;
+        for m := 0 to FieldDefs.Count - 1 do
+        begin
+          fname := UpperCase(FieldDefs.Items[m].Name);
+          if FieldByName(fname) is TStringField then
+          begin
+            if (fname <> 'SITE_ID_NR') and (fname <> 'DATE_MEAS') and (fname <> 'TIME_MEAS') and (fname <> 'COMMENT') and (fname <> 'DATE_ENTRY') then
+              flist.Add(fname);
+          end
+          else
+          if fname = 'NGDB_FLAG' then
+            flist.Add(fname)
+          else
+          if fname = 'DEPTH' then
+            flist.Add(fname);
+        end;
+        Close;
+      end;
+      (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Items.AddStrings(flist);
+      flist.Free;
+      with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
+      if Items.Count > 1 then
+      begin
+        if TimeDeptTable[(Sender as TComboBox).Tag] = 'WATERLEV' then
+          ItemIndex := Items.IndexOf('PIEZOM_NR')
+        else
+        if TimeDeptTable[(Sender as TComboBox).Tag] = 'FLDMEAS_' then
+          ItemIndex := Items.IndexOf('PARM_MEAS')
+        else
+          ItemIndex := 0;
+        Enabled := True;
+      end;
+      //sort out units
+      if AquaSortQuery.FieldByName('UNITYVAL_TIME').Value = 'SpeedUnit' then
+        (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Text :=
+          LengthUnit + '/' + TimeUnit
+      else
+      if AquaSortQuery.FieldByName('UNITYVAL_TIME').Value = 'DisUnit' then
+        (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Text := DisUnit
+      else
+      if AquaSortQuery.FieldByName('UNITYVAL_TIME').Value = 'LengthUnit' then
+        (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Text := LengthUnit
+      else
+      if AquaSortQuery.FieldByName('UNITYVAL_TIME').Value = 'VolumeUnit' then
+        (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Text := VolumeUnit
+      else
+      if AquaSortQuery.FieldByName('UNITYVAL_TIME').Value = 'PressureUnit' then
+        (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Text := PressureUnit
+      else
+      if AquaSortQuery.FieldByName('UNITYVAL_TIME').Value = 'ECUnit' then
+        (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Text := ECUnit
+      else
+      if AquaSortQuery.FieldByName('UNITYVAL_TIME').Value = 'DiamUnit' then
+        (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Text := DiamUnit
+      else
+      if not AquaSortQuery.FieldByName('UNITYVAL_TIME').IsNull then
+        (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Text := AquaSortQuery.FieldByName('UNITYVAL_TIME').Value
+      else
+        (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Text := '';
+    end;
+  end;
   FilterFieldComboBoxChange(FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox);
 end;
 
@@ -889,31 +644,20 @@ end;
 
 procedure TTimeDeptForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  with AquaSortQuery do
-  begin
-    Close;
-    SortedFields := 'FILE_NAME';
-    Filtered := False;
-    Filter := '';
-  end;
-  LookupQuery.Close;
+  AquasortQuery.Close;
   CloseAction := caFree;
 end;
 
 procedure TTimeDeptForm.FormShow(Sender: TObject);
 begin
-  with AquaSortQuery do
+  with AquasortQuery do
   begin
     while not EOF do //fill the available time-dependent parameters
     begin
       ComboBoxData1.Items.Add(FieldByName('DESCRIPTION').AsString);
-      ComboBoxData1.ItemIndex := 0;
       ComboBoxData2.Items.Add(FieldByName('DESCRIPTION').AsString);
-      ComboBoxData2.ItemIndex := 0;
       ComboBoxData3.Items.Add(FieldByName('DESCRIPTION').AsString);
-      ComboBoxData3.ItemIndex := 0;
       ComboBoxData4.Items.Add(FieldByName('DESCRIPTION').AsString);
-      ComboBoxData4.ItemIndex := 0;
       Next;
     end;
     if TimeDeptTable[1] <> '' then //if table name has been sent from forms with quick chart button
@@ -921,6 +665,13 @@ begin
       if Locate('FILE_NAME', TimeDeptTable[1], [loCaseInsensitive]) then
         ComboBoxData1.ItemIndex := FieldByName('TIME_ID').AsInteger;
       ComboBoxDataChange(ComboBoxData1); //trigger event to update comboboxes
+    end
+    else
+    begin
+      ComboBoxData1.ItemIndex := 0;
+      ComboBoxData2.ItemIndex := 0;
+      ComboBoxData3.ItemIndex := 0;
+      ComboBoxData4.ItemIndex := 0;
     end;
   end;
   if StartDate > 0 then
@@ -941,107 +692,44 @@ begin
 end;
 
 procedure TTimeDeptForm.FilterFieldComboBoxChange(Sender: TObject);
-var
-  m: Integer;
 begin
-  //Fill the filter value combobox depending on table
-  case (FindComponent('ComboBoxData' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).ItemIndex of
-     1: begin //Air temperature
-          LookupQuery.Filter := 'USED_FOR = ' + QuotedStr('READTYPE');
-          LookupQuery.Filtered := True;
-        end;
-     9: begin //Discharge rate
-          with LookupQuery do
-          begin
-            Filter := 'USED_FOR = ' + QuotedStr('DISCTYPE');
-            Filtered := True;
-          end;
-        end;
-    11: begin //Field measurement
-          with LookupQuery do
-          begin
-            Filter := 'USED_FOR = ' + QuotedStr('PARAMEAS');
-            Filtered := True;
-          end;
-        end;
-13..15: with (FindComponent('FilterValueComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-        begin
-          Enabled := True;
-          Items.Add('0');
-          ItemIndex := 0;
-        end;
-    16: begin //Meter readings
-          if (Sender as TComboBox).ItemIndex = 0 then
-            LookupQuery.Filter := 'USED_FOR = ' + QuotedStr('TYPEMEAS')
-          else
-            LookupQuery.Filter := 'USED_FOR = ' + QuotedStr('UNITMEAS');
-          LookupQuery.Filtered := True;
-        end;
-    24: begin //user-def DTH and time
-          with LookupQuery do
-          begin
-            Filter := 'USED_FOR = ' + QuotedStr('PARAMEAS');
-            Filtered := True;
-          end;
-        end;
-    25: begin //Water levels
-          case (Sender as TComboBox).ItemIndex of
-            0: begin
-                 LookupQuery.Filtered := False;
-                 with (FindComponent('FilterValueComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-                 begin
-                   Items.Clear;
-                   Items.Add('<All>');
-                   for m := 0 to 9 do
-                     Items.Add(IntToStr(m));
-                   ItemIndex := 0;
-                   Enabled := True;
-                 end;
-               end;
-            1: begin
-                 LookupQuery.Filter := 'USED_FOR = ' + QuotedStr('WLV_STAT');
-                 LookupQuery.Filtered := True;
-               end;
-            2: begin
-                 LookupQuery.Filter := 'USED_FOR = ' + QuotedStr('OTHRMEAS');
-                 LookupQuery.Filtered := True;
-               end;
-          end; //of wl case
-        end;
-  end; //of case
-  if LookupQuery.Filtered then
+  //Fill the filter values combobox depending on table and existing codes
+  if (Sender as TComboBox).Text <> '<none>' then
   begin
-    if ((FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Text <> '<none>')
-      and ((FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Text <> 'DEPTH') then
+    with DataModuleMain.CheckQuery do
+    begin
+      SQL.Clear;
+      Connection := DataModuleMain.ZConnectionDB;
+      SQL.Add('SELECT DISTINCT ' + (Sender as TComboBox).Text + ' FROM ' + TimeDeptTable[(Sender as TComboBox).Tag] + ' ORDER BY ' + (Sender as TComboBox).Text);
+      Open;
+    end;
     with (FindComponent('FilterValueComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
     begin
       Items.Clear;
-      Text := '';
-      LookupQuery.First;
-      while not LookupQuery.EOF do
+      if (Sender as TComboBox).Text = 'PIEZOM_NR' then //for water level piezometers
+        Items.Add('<All>');
+      while not DataModuleMain.CheckQuery.EOF do
       begin
-        Items.Add(LookupQuery.FieldByName('SEARCH').AsString);
-        LookupQuery.Next;
+        Items.Add(DataModuleMain.CheckQuery.Fields[0].AsString);
+        DataModuleMain.CheckQuery.Next;
       end;
       ItemIndex := 0;
       Enabled := True;
-    end
-    else
-    with (FindComponent('FilterValueComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-    begin
-      Items.Clear;
-      Text := '';
-      Enabled := False;
     end;
-  end;
-  LookupQuery.Filtered := False;
-  LookupQuery.Filter := '';
-  FilterValueComboBoxChange(Sender);
+    with DataModuleMain.CheckQuery do
+    begin
+      Close;
+      SQL.Clear;
+    end;
+    FilterValueComboBoxChange(Sender);
+  end
+  else
+    (FindComponent('FilterValueComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Clear;
 end;
 
 procedure TTimeDeptForm.FilterValueComboBoxChange(Sender: TObject);
 begin
-  if TimeDeptTable[(Sender as TComboBox).Tag] = 'mreading' then
+  if TimeDeptTable[(Sender as TComboBox).Tag] = 'MREADING' then
   begin
     if ((FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Text = 'TYPEMEAS') and (FilterValueComboBox1.Text = '') then
     begin
@@ -1055,7 +743,7 @@ begin
     end;
   end
   else
-  if TimeDeptTable[(Sender as TComboBox).Tag] = 'fldmeas_' then
+  if TimeDeptTable[(Sender as TComboBox).Tag] = 'FLDMEAS_' then
   begin
     if (FindComponent('FilterValueComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Text = 'C' then
       (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := ECUnit
@@ -1066,10 +754,13 @@ begin
     if (FindComponent('FilterValueComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Text = 'P' then
       (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := ''
     else
+    if (FindComponent('FilterValueComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Text = 'O' then
+      (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := 'mV'
+    else
       (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := ChemUnit;
   end
   else
-  if TimeDeptTable[(Sender as TComboBox).Tag] = 'usr_dthp' then
+  if TimeDeptTable[(Sender as TComboBox).Tag] = 'USR_DTHP' then
   begin
     if (FindComponent('FilterValueComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Text = 'C' then
       (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := ECUnit
@@ -1086,7 +777,7 @@ end;
 
 procedure TTimeDeptForm.YComboBoxChange(Sender: TObject);
 begin
-  if (FindComponent('ComboBoxData' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).ItemIndex = 3 then
+  if (TimeDeptTable[(Sender as TComboBox).Tag] = 'CHEM_000') then //set chemistry units
   begin
     if UpperCase((FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Text) = 'PH' then
       (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := ''
@@ -1095,12 +786,6 @@ begin
       (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := ECUnit
     else
       (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := ChemUnit;
-  end
-  else
-  if ((FindComponent('ComboBoxData' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).ItemIndex >= 4)
-    and ((FindComponent('ComboBoxData' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).ItemIndex <= 8) then
-  begin
-    (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := ChemUnit;
   end;
 end;
 

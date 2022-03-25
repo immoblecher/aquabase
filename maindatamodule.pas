@@ -25,7 +25,7 @@ uses
   Forms, Classes, sysutils, db, FileUtil, ZConnection, ZDataset, Dialogs,
   DBGrids, Controls, maskedit, IniFiles, Process, StrUtils, Graphics, ExtCtrls,
   rxlookup, Menus, ZSqlProcessor, ZSqlMetadata, ZSqlMonitor, ZDbcSqLite, math,
-  rxDBGrid, ComCtrls, StdCtrls, ButtonPanel, help;
+  rxDBGrid, ComCtrls, StdCtrls, ButtonPanel, help, ZScriptParser;
 
 type
 
@@ -82,7 +82,6 @@ type
     ClassTablePARA_DESCR: TStringField;
     ClassTableUNIT: TStringField;
     DataSourceView: TDataSource;
-    DefinitionQuery: TZReadOnlyQuery;
     IdleTimerSQL: TIdleTimer;
     ImageListNavs: TImageList;
     LookupTableADJECTIVE: TStringField;
@@ -111,7 +110,6 @@ type
     StandDescrTableID: TLongintField;
     StandDescrTableSTAND_DESCR: TStringField;
     StandDescrTableTABLE_NAME: TStringField;
-    ViewQuery: TZReadOnlyQuery;
     ZConnectionDefaults: TZConnection;
     ZConnectionDB: TZConnection;
     ZConnectionProj: TZConnection;
@@ -130,7 +128,7 @@ type
     ZQueryMapsheet50: TStringField;
     DBMetadata: TZSQLMetadata;
     ZSQLMonitor1: TZSQLMonitor;
-    ZSQLProcessor1: TZSQLProcessor;
+    ZSQLProcessorDB: TZSQLProcessor;
     ZSQLProcessorLookup: TZSQLProcessor;
     procedure BasicinfQueryAfterCancel(DataSet: TDataSet);
     procedure BasicinfQueryAfterDelete(DataSet: TDataSet);
@@ -193,7 +191,7 @@ type
     procedure ZConnectionSettingsBeforeConnect(Sender: TObject);
     procedure ZQueryViewBeforeOpen(DataSet: TDataSet);
     procedure ZQueryDefaultLookupAfterClose(DataSet: TDataSet);
-    procedure ZSQLProcessor1Error(Processor: TZSQLProcessor;
+    procedure ZSQLProcessorDBError(Processor: TZSQLProcessor;
       StatementIndex: Integer; E: Exception;
       var ErrorHandleAction: TZErrorHandleAction);
     procedure ZQueryViewAfterOpen(DataSet: TDataSet);
@@ -599,8 +597,11 @@ end;
 procedure TDataModuleMain.GetAllViews(const TheConnection: TZConnection; var TheList: TStringList);
 var
   Ignore: Boolean;
+  ViewQuery, DefinitionQuery: TZReadOnlyQuery;
 begin
   Ignore := False;
+  ViewQuery := TZReadOnlyQuery.Create(Self);
+  DefinitionQuery := TZReadOnlyQuery.Create(Self);
   with DefinitionQuery do
   begin
     SQL.Clear;
@@ -653,6 +654,8 @@ begin
       Next;
     end;
   end;
+  ViewQuery.Free;
+  DefinitionQuery.Free;
 end;
 
 function TDataModuleMain.GetValidATables(const InList: TStringList): TStringList;
@@ -1030,9 +1033,9 @@ begin
         if FieldByName('user_version').Value = 7 then
         //fix basicinf spatial triggers
         begin
-          ZSQLProcessor1.Script.Clear;
-          ZSQLProcessor1.Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'fix_basicinf_triggers.sql');
-          ZSQLProcessor1.Execute;
+          ZSQLProcessorDB.Script.Clear;
+          ZSQLProcessorDB.Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'fix_basicinf_triggers.sql');
+          ZSQLProcessorDB.Execute;
         end;
       end;
       //check deteclim for ID primary key and create if not there
@@ -1046,9 +1049,9 @@ begin
       end;
       if DBMetadata.RecordCount = 0 then
       begin
-        ZSQLProcessor1.Script.Clear;
-        ZSQLProcessor1.Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'id_add_deteclim.sql');
-        ZSQLProcessor1.Execute;
+        ZSQLProcessorDB.Script.Clear;
+        ZSQLProcessorDB.Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'id_add_deteclim.sql');
+        ZSQLProcessorDB.Execute;
       end;
       DBMetadata.Close;
       //fix chemistry triggers if they are old
@@ -1062,9 +1065,9 @@ begin
       end;
       if DBMetadata.RecordCount > 0 then
       begin
-        ZSQLProcessor1.Script.Clear;
-        ZSQLProcessor1.Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'fix_chemistry_triggers.sql');
-        ZSQLProcessor1.Execute;
+        ZSQLProcessorDB.Script.Clear;
+        ZSQLProcessorDB.Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'fix_chemistry_triggers.sql');
+        ZSQLProcessorDB.Execute;
       end;
       DBMetadata.Close;
       //Spatially enable main database
@@ -1120,8 +1123,8 @@ begin
       //Run MySQL updates if MySQLOld
       if MySQLOld then
       begin
-        ZSQLProcessor1.Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'MySQL' + DirectorySeparator + 'update1to1_1.sql');
-        ZSQLProcessor1.Execute;
+        ZSQLProcessorDB.Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'MySQL' + DirectorySeparator + 'update1to1_1.sql');
+        ZSQLProcessorDB.Execute;
       end;
       Screen.Cursor := crDefault;
     end; //of MySQL/MariaDB
@@ -1359,6 +1362,31 @@ begin
           MessageDlg('The new field "ROX" for "Redox" in CHEM_004 table was not found, but will be created now! Please make sure you have database permissions to change tables.', mtInformation, [mbOK], 0);
           try
             DataModuleMain.ZConnectionDB.ExecuteDirect('ALTER TABLE chem_004 ADD COLUMN ROX DOUBLE');
+          except on Ex: Exception do
+            MessageDlg(Ex.Message + ' - New field not created. Make sure you have database permissions to change tables!', mtError, [mbOK], 0);
+          end;
+        end;
+      end;
+      SQL.Clear;
+    end;
+    //check for CONDITION field in humidity
+    with CheckQuery do
+    begin
+      Screen.Cursor := crSQLWait;
+      Connection := ZConnectionDB;
+      SQL.Clear;
+      SQL.Add('SELECT DISTINCT CONDITIONS FROM HUMIDITY WHERE 1<>1');
+      try
+        Open;
+        Close;
+        Screen.Cursor := crDefault;
+      except on E: Exception do
+        begin
+          Close;
+          Screen.Cursor := crDefault;
+          MessageDlg('The new field "CONDITIONS" for "Weather conditions" in Humudity table was not found, but will be created now! Please make sure you have database permissions to change tables.', mtInformation, [mbOK], 0);
+          try
+            DataModuleMain.ZConnectionDB.ExecuteDirect('ALTER TABLE humidity ADD COLUMN CONDITIONS VARCHAR (36)');
           except on Ex: Exception do
             MessageDlg(Ex.Message + ' - New field not created. Make sure you have database permissions to change tables!', mtError, [mbOK], 0);
           end;
@@ -1648,7 +1676,7 @@ begin
       Open;
       if RecordCount > 0 then //it is the old country table
       begin //update to a new version with script
-        with ZSQLProcessor1 do
+        with ZSQLProcessorDB do
         begin
           Clear;
           Connection := ZConnectionLanguage;
@@ -1690,7 +1718,7 @@ begin
       Screen.Cursor := crDefault;
       MessageDlg('Your Aquabase Settings Databases in your non-default location seem to be outdated and will be upgraded now.', mtInformation, [mbOK], 0);
       Screen.Cursor := crSQLWait;
-      with ZSQLProcessor1 do
+      with ZSQLProcessorDB do
       begin
         Connection := ZConnectionLanguage;
         Delimiter := ';';
@@ -1722,7 +1750,7 @@ begin
     end;
     if DBMetaData.RecordCount = 0 then //SANS241 doesn't exist
     begin
-      with ZSQLProcessor1 do
+      with ZSQLProcessorDB do
       begin
         Clear;
         Connection := ZConnectionLanguage;
@@ -1744,7 +1772,7 @@ begin
         Open;
         if RecordCount = 0 then //it is the old SANS241 table
         begin //update to a new version with script
-          with ZSQLProcessor1 do
+          with ZSQLProcessorDB do
           begin
             Clear;
             Connection := ZConnectionLanguage;
@@ -1771,7 +1799,7 @@ begin
     end;
     if DBMetaData.RecordCount = 0 then //doesn't exist
     begin
-      with ZSQLProcessor1 do
+      with ZSQLProcessorDB do
       begin
         Clear;
         Connection := ZConnectionLanguage;
@@ -1842,8 +1870,10 @@ begin
 end;
 
 procedure TDataModuleMain.ZConnectionSettingsAfterConnect(Sender: TObject);
+var
+  AquaSortProcessor: TZSQLProcessor;
 begin
-  with CheckQuery do
+  with CheckQuery do //check chemistry user standards table
   begin
     Connection := ZConnectionSettings;
     SQL.Clear;
@@ -1869,9 +1899,43 @@ begin
         end;
       end;
     end;
+  end;
+  //update Aquasort table
+  if ExtractFilePath(ZConnectionSettings.Database) <> ProgramDir + DirectorySeparator then
+  with CheckQuery do //check if AquaSort table is old in non-default folders and replace
+  begin
+    SQL.Clear;
+    SQL.Add('SELECT UNITYVAL_TIME FROM Aquasort WHERE TIME_ID = 1'); //check if it is the new table
+    Open;
+    if Fields[0].Value <> '°C' then
+    begin
+      AquaSortProcessor := TZSQLProcessor.Create(Self);
+      with AquaSortProcessor do
+      begin
+        Connection := ZConnectionSettings;
+        DelimiterType := dtDelimiter;
+        Delimiter := ';';
+        Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases'
+          + DirectorySeparator + 'SQLite' + DirectorySeparator +  'create_aquasort.sql');
+        Execute;
+        Free;
+      end;
+    end;
+    Close;
     Connection := ZConnectionDB;
     SQL.Clear;
   end;
+  //check for the QGIS plugin
+  {$IFDEF WINDOWS}
+  if DirectoryExists(ProgramDir + '\plugins\QGIS\Aquabase') and DirectoryExists(GetUserDir + '\Application Data\QGIS\QGIS3')
+    and not DirectoryExists(GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase') then
+      CopyDirTree(ProgramDir + '\plugins\QGIS\Aquabase', GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase', [cffOverwriteFile]);
+  {$ENDIF}
+  {$IFDEF LINUX}
+  if DirectoryExists('/usr/share/aquabase/plugins/QGIS/Aquabase') and DirectoryExists(GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins')
+    and not DirectoryExists(GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase') then
+      CopyDirTree('/usr/share/aquabase/plugins/QGIS/Aquabase', GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase');
+  {$ENDIF}
 end;
 
 procedure TDataModuleMain.ZConnectionSettingsBeforeConnect(Sender: TObject);
@@ -1900,7 +1964,7 @@ begin
   ZConnectionDefaults.Disconnect;
 end;
 
-procedure TDataModuleMain.ZSQLProcessor1Error(Processor: TZSQLProcessor;
+procedure TDataModuleMain.ZSQLProcessorDBError(Processor: TZSQLProcessor;
   StatementIndex: Integer; E: Exception;
   var ErrorHandleAction: TZErrorHandleAction);
 begin

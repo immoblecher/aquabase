@@ -687,7 +687,7 @@ begin
       Close;
     end;
   except on E: Exception do
-    MessageDlg(E.Message + ' - You may have to contact your database administrator to resollve this error.', mtError, [mbOK], 0);
+    MessageDlg(E.Message + ' - You may have to contact your database administrator to resolve this error.', mtError, [mbOK], 0);
   end;
   DBGrid2.Columns[0].PickList.AddStrings(ParameterList);
   DBGrid2.Columns[2].PickList.AddStrings(UnitList);
@@ -1661,7 +1661,7 @@ procedure TUserChemistryForm.GraphSpeedButtonClick(Sender: TObject);
 begin
   with TTimeDeptForm.Create(Application) do
   begin
-    TimeDeptTable[1] := 'userchem';
+    TimeDeptTable[1] := 'USERCHEM';
     StartDate := StringToDate(LinkedQueryDATE_SAMPL.AsString);
     StartTime := StringToTime(LinkedQueryTIME_SAMPL.AsString);
     ShowModal;

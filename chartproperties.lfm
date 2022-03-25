@@ -84,7 +84,7 @@ object ChartPropDlg: TChartPropDlg
           ClientHeight = 160
           ClientWidth = 359
           object CheckBoxShowInLegend: TCheckBox
-            Left = 8
+            Left = 4
             Height = 23
             Top = 32
             Width = 103
@@ -95,7 +95,7 @@ object ChartPropDlg: TChartPropDlg
             TabOrder = 0
           end
           object RadioGroupHorAxis: TRadioGroup
-            Left = 214
+            Left = 206
             Height = 56
             Top = 4
             Width = 150
@@ -119,7 +119,7 @@ object ChartPropDlg: TChartPropDlg
             TabOrder = 1
           end
           object RadioGroupVertAxis: TRadioGroup
-            Left = 214
+            Left = 206
             Height = 56
             Top = 66
             Width = 150
@@ -143,15 +143,15 @@ object ChartPropDlg: TChartPropDlg
             TabOrder = 2
           end
           object EditSeriesTitle: TEdit
-            Left = 8
+            Left = 4
             Height = 23
             Top = 132
-            Width = 238
+            Width = 242
             TabOrder = 3
             TextHint = '<Title of the series>'
           end
           object LabelSeriesTitle: TLabel
-            Left = 8
+            Left = 4
             Height = 10
             Top = 120
             Width = 56
@@ -159,7 +159,7 @@ object ChartPropDlg: TChartPropDlg
             ParentColor = False
           end
           object ButtonApplySeriesTitle: TButton
-            Left = 258
+            Left = 254
             Height = 26
             Top = 130
             Width = 102
@@ -169,7 +169,7 @@ object ChartPropDlg: TChartPropDlg
             TabOrder = 4
           end
           object Label30: TLabel
-            Left = 8
+            Left = 4
             Height = 10
             Top = 66
             Width = 77
@@ -194,7 +194,7 @@ object ChartPropDlg: TChartPropDlg
             TabOrder = 6
           end
           object CheckBoxShowSeries: TCheckBox
-            Left = 8
+            Left = 4
             Height = 23
             Top = 4
             Width = 86
@@ -3032,7 +3032,7 @@ object ChartPropDlg: TChartPropDlg
       end
       object CheckBoxLegendVisible: TCheckBox
         Left = 8
-        Height = 24
+        Height = 23
         Top = 8
         Width = 56
         Caption = '&Visible'
@@ -3059,7 +3059,7 @@ object ChartPropDlg: TChartPropDlg
       end
       object RadioGroupLegendPos: TRadioGroup
         Left = 144
-        Height = 184
+        Height = 183
         Top = 8
         Width = 224
         AutoFill = True
@@ -3091,7 +3091,7 @@ object ChartPropDlg: TChartPropDlg
       end
       object SpinEditLegendX: TSpinEdit
         Left = 65
-        Height = 21
+        Height = 23
         Top = 168
         Width = 57
         Alignment = taRightJustify
@@ -3101,7 +3101,7 @@ object ChartPropDlg: TChartPropDlg
       end
       object SpinEditLegendY: TSpinEdit
         Left = 65
-        Height = 21
+        Height = 23
         Top = 136
         Width = 57
         Alignment = taRightJustify
@@ -3125,12 +3125,35 @@ object ChartPropDlg: TChartPropDlg
       end
       object CheckBoxOnSidePanel: TCheckBox
         Left = 8
-        Height = 24
-        Top = 199
+        Height = 23
+        Top = 198
         Width = 128
         Caption = 'Legend on side panel'
         OnChange = CheckBoxOnSidePanelChange
         TabOrder = 6
+      end
+      object Label49: TLabel
+        Left = 152
+        Height = 10
+        Top = 204
+        Width = 45
+        Caption = 'Columns:'
+        ParentColor = False
+      end
+      object SpinEditColumns: TSpinEdit
+        Left = 203
+        Height = 23
+        Hint = 'Number of columns (1-4) in which the legend will be displayed'
+        Top = 198
+        Width = 50
+        Alignment = taRightJustify
+        MaxValue = 4
+        MinValue = 1
+        OnChange = SpinEditColumnsChange
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 7
+        Value = 1
       end
     end
     object TabSheetGeneral: TTabSheet

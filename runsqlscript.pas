@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -24,7 +24,8 @@ interface
 uses
   Classes, SysUtils, FileUtil, SynHighlighterSQL, SynCompletion, SynEdit,
   ZSqlProcessor, ZDataset, Forms, Controls, LCLType, Graphics, Dialogs,
-  StdCtrls, ButtonPanel, Buttons, ExtCtrls, XMLPropStorage, Clipbrd, Types;
+  StdCtrls, ButtonPanel, Buttons, ExtCtrls, XMLPropStorage, Clipbrd, Menus,
+  Types, SynEditKeyCmds;
 
 type
 
@@ -34,8 +35,14 @@ type
     ButtonPanel1: TButtonPanel;
     ComboBox1: TComboBox;
     Label1: TLabel;
+    MenuItemCopy: TMenuItem;
+    MenuItemPaste: TMenuItem;
+    MenuItemCut: TMenuItem;
+    MenuItemSelectAll: TMenuItem;
+    N1: TMenuItem;
     OpenQueryDialog: TOpenDialog;
     OpenSpeedButton: TSpeedButton;
+    PopupMenu1: TPopupMenu;
     TablesQuery: TZReadOnlyQuery;
     Panel1: TPanel;
     SaveQueryDialog: TSaveDialog;
@@ -53,7 +60,12 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure HelpButtonClick(Sender: TObject);
+    procedure MenuItemCopyClick(Sender: TObject);
+    procedure MenuItemPasteClick(Sender: TObject);
+    procedure MenuItemCutClick(Sender: TObject);
+    procedure MenuItemSelectAllClick(Sender: TObject);
     procedure OpenSpeedButtonClick(Sender: TObject);
+    procedure PopupMenu1Popup(Sender: TObject);
     procedure SaveSpeedButtonClick(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
@@ -94,6 +106,14 @@ begin
     SpeedButton1.Enabled := SynEdit1.Text > '';
     SaveSpeedButton.Enabled := SynEdit1.Text > '';
   end;
+end;
+
+procedure TSQLScriptForm.PopupMenu1Popup(Sender: TObject);
+begin
+  MenuItemSelectAll.Enabled := SynEdit1.Text > '';
+  MenuItemCopy.Enabled := SynEdit1.SelText > '';
+  MenuItemCut.Enabled := SynEdit1.SelText > '';
+  MenuItemPaste.Enabled := Clipboard.HasFormat(CF_TEXT);
 end;
 
 procedure TSQLScriptForm.FormCreate(Sender: TObject);
@@ -137,6 +157,26 @@ begin
   DataModuleMain.OpenHelp(Sender);
 end;
 
+procedure TSQLScriptForm.MenuItemCopyClick(Sender: TObject);
+begin
+  SynEdit1.CommandProcessor(TSynEditorCommand(ecCopy), ' ', nil);
+end;
+
+procedure TSQLScriptForm.MenuItemPasteClick(Sender: TObject);
+begin
+  SynEdit1.CommandProcessor(TSynEditorCommand(ecPaste), ' ', nil);
+end;
+
+procedure TSQLScriptForm.MenuItemCutClick(Sender: TObject);
+begin
+  SynEdit1.CommandProcessor(TSynEditorCommand(ecCut), ' ', nil);
+end;
+
+procedure TSQLScriptForm.MenuItemSelectAllClick(Sender: TObject);
+begin
+  SynEdit1.SelectAll;
+end;
+
 procedure TSQLScriptForm.CloseButtonClick(Sender: TObject);
 begin
   Close;
@@ -158,30 +198,31 @@ begin
 end;
 
 procedure TSQLScriptForm.SpeedButton1Click(Sender: TObject);
-var m: Integer;
-    warn: Boolean;
+var warn: Boolean;
 begin
   //check for delete and update with where clause and warn user
-  for m := 0 to SynEdit1.Lines.Count - 1 do
-  begin
-    warn := ((Pos('UPDATE', UpperCase(SynEdit1.Lines[m])) > 0) or (Pos('DELETE', UpperCase(SynEdit1.Lines[m])) > 0)) and (Pos('WHERE', UpperCase(SynEdit1.Lines[m])) = 0);
-    if warn then break;
-  end;
+  warn := ((Pos('UPDATE', UpperCase(SynEdit1.Text)) > 0) or (Pos('DELETE', UpperCase(SynEdit1.Text)) > 0)) and (Pos('WHERE', UpperCase(SynEdit1.Text)) = 0);
   if warn then
   begin
-    warn := False;
     if MessageDlg('Please confirm before running the script', 'The script contains UPDATE and/or DELETE clauses without WHERE clause, which may change/delete a whole dataset! Are you sure you want to continue?', mtWarning, [mbYes, mbNo], 0) = mrYes then
+      warn := False;
+  end;
+  if not warn then
+  begin
+    if MessageDlg('Please confirm before running the script', 'Are you sure you want to run this script?', mtWarning, [mbYes, mbNo], 0) = mrYes then
     begin
+      Screen.Cursor := crSQLWait;
+      Sleep(100);
+      Application.ProcessMessages;
       error := False;
       with ZSQLProcessor1 do
       begin
         Delimiter := ComboBox1.Text;
         Script.Clear;
         Script.AddStrings(SynEdit1.Lines);
-        Screen.Cursor := crSQLWait;
-        Sleep(100);
-        Application.ProcessMessages;
         Execute;
+        Screen.Cursor := crDefault;
+        Application.ProcessMessages;
       end;
       if error then
       begin
@@ -193,25 +234,6 @@ begin
         Screen.Cursor := crDefault;
         MessageDlg('Script successfully executed! No records will be shown here, even if selected.', mtInformation, [mbOK], 0);
       end;
-    end;
-  end
-  else
-  begin
-    if MessageDlg('Please confirm before running the script', 'Are you sure you want to run this script?', mtWarning, [mbYes, mbNo], 0) = mrYes then
-    begin
-      error := False;
-      with ZSQLProcessor1 do
-      begin
-        Script.Clear;
-        Script.AddStrings(SynEdit1.Lines);
-        Screen.Cursor := crSQLWait;
-        Execute;
-        Screen.Cursor := crDefault;
-      end;
-      if error then
-        MessageDlg('The execution of the script encountered some errors! Please fix the relevant lines and try again.', mtError, [mbOK], 0)
-      else
-        MessageDlg('Script successfully executed! No records will be shown here, even if selected.', mtInformation, [mbOK], 0);
     end;
   end;
 end;
@@ -285,8 +307,11 @@ end;
 
 procedure TSQLScriptForm.SynEdit1Enter(Sender: TObject);
 begin
-  if SynEdit1.Lines[0] = 'Load or type a SQL script to execute...' then
-    SynEdit1.Clear;
+  with SynEdit1 do
+  begin
+    if Lines[0] = 'Load or type a SQL script to execute...' then
+      Clear;
+  end;
 end;
 
 procedure TSQLScriptForm.SynEdit1KeyPress(Sender: TObject; var Key: char);

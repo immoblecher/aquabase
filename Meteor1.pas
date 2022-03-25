@@ -1,4 +1,4 @@
-{ Copyright (C) 2018 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2022 Immo Blecher immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -24,7 +24,7 @@ interface
 uses
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs, TabDetl, Menus, Db,
   DBCtrls, LCLtype, Buttons, ExtCtrls, StdCtrls, MaskEdit, ComCtrls, DBGrids,
-  ZDataset;
+  XMLPropStorage, ZDataset, rxlookup;
 
 type
 
@@ -44,6 +44,7 @@ type
     ZQuery2REP_INST: TStringField;
     ZQuery2SITE_ID_NR: TStringField;
     ZQuery2TIME_MEAS: TStringField;
+    ZQuery3CONDITIONS: TStringField;
     ZQuery3DATE_MEAS: TStringField;
     ZQuery3INFO_SOURC: TStringField;
     ZQuery3READING: TFloatField;
@@ -107,7 +108,7 @@ begin
   LinkedLabel.Enabled := PageControl.Enabled;
   DetailNavigator.Enabled := PageControl.Enabled;
   if not DetailNavigator.Enabled then
-    ShowMessage('This site type does not seem to allow Meteorology readings!');
+    ShowMessage('This Site Type does not suggest Meteorology readings!');
 end;
 
 procedure TMeteorologyForm1.PageControlEnter(Sender: TObject);
@@ -174,17 +175,17 @@ begin
   begin
     case PageControl.ActivePageIndex of
       0: begin
-           TimeDeptTable[1] := 'rainfall';
+           TimeDeptTable[1] := 'RAINFALL';
            StartDate := StringToDate(ZQuery1DATE_MEAS.AsString);
            StartTime := StringToTime(ZQuery1TIME_MEAS.AsString);
          end;
       1: begin
-           TimeDeptTable[1] := 'pan_evap';
+           TimeDeptTable[1] := 'PAN_EVAP';
            StartDate := StringToDate(ZQuery2DATE_MEAS.AsString);
            StartTime := StringToTime(ZQuery2TIME_MEAS.AsString);
          end;
       2: begin
-           TimeDeptTable[1] := 'humidity';
+           TimeDeptTable[1] := 'HUMIDITY';
            StartDate := StringToDate(ZQuery3DATE_MEAS.AsString);
            StartTime := StringToTime(ZQuery3TIME_MEAS.AsString);
          end;

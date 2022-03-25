@@ -849,7 +849,7 @@ inherited MeteorologyForm2: TMeteorologyForm2
           Caption = 'Solar Radiation [W/m²]'
           ClientHeight = 173
           inherited DBGrid3: TDBGrid
-            Height = 171
+            Height = 173
             Hint = 'Solar radiation'
             Width = 556
             AutoFillColumns = True

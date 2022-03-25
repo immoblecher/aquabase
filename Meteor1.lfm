@@ -673,12 +673,12 @@ inherited MeteorologyForm1: TMeteorologyForm1
         end
         inherited TabSheet3: TTabSheet
           Hint = 'Humidity'
-          Caption = 'Humidity [%]'
+          Caption = 'Humidity [%] and Weather Conditions'
           ClientHeight = 173
           inherited DBGrid3: TDBGrid
+            Height = 173
             Hint = 'Humidity Information'
-            AutoFillColumns = True
-            Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
+            Width = 556
             OnKeyDown = DBGridKeyDown
             OnMouseDown = DBGridMouseDown
           end
@@ -686,6 +686,10 @@ inherited MeteorologyForm1: TMeteorologyForm1
         inherited TabSheet4: TTabSheet
           ClientHeight = 173
           TabVisible = False
+          inherited DBGrid4: TDBGrid
+            Height = 173
+            Width = 556
+          end
         end
       end
       inherited Panel4: TPanel
@@ -941,6 +945,7 @@ inherited MeteorologyForm1: TMeteorologyForm1
     SortedFields = 'SITE_ID_NR, DATE_MEAS, TIME_MEAS'
     BeforeOpen = ZQueryBeforeOpen
     AfterRefresh = ZQueryAfterRefresh
+    BeforeInsert = ZQueryMeteoBeforeInsert
     AfterInsert = ZQueryAfterInsert
     AfterPost = ZQuery3AfterPost
     OnNewRecord = ZQueryMeteoNewRecord
@@ -1007,6 +1012,7 @@ inherited MeteorologyForm1: TMeteorologyForm1
     object ZQuery3DATE_MEAS: TStringField[3]
       Alignment = taCenter
       DisplayLabel = 'Date measured'
+      DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'DATE_MEAS'
       Index = 3
@@ -1019,7 +1025,8 @@ inherited MeteorologyForm1: TMeteorologyForm1
     end
     object ZQuery3TIME_MEAS: TStringField[4]
       Alignment = taCenter
-      DisplayLabel = 'Time measured'
+      DisplayLabel = 'Time meas.'
+      DisplayWidth = 8
       FieldKind = fkData
       FieldName = 'TIME_MEAS'
       Index = 4
@@ -1042,6 +1049,19 @@ inherited MeteorologyForm1: TMeteorologyForm1
       OnGetText = TableREADINGGetText
       OnSetText = TableREADINGSetText
       Precision = 2
+    end
+    object ZQuery3CONDITIONS: TStringField[6]
+      DisplayLabel = 'Weather conditions'
+      DisplayWidth = 42
+      FieldKind = fkData
+      FieldName = 'CONDITIONS'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = TableUpperSetText
+      Size = 36
     end
   end
   inherited ZQuery4: TZQuery

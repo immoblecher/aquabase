@@ -9,5 +9,9 @@
 {"hash":95490949,"name":"tflagform.openspeedbutton.hint","sourcebytes":[79,112,101,110,32,113,117,101,114,121,32,102,105,108,101],"value":"Open query file"},
 {"hash":137532453,"name":"tflagform.savespeedbutton.hint","sourcebytes":[83,97,118,101,32,113,117,101,114,121,32,116,111,32,102,105,108,101],"value":"Save query to file"},
 {"hash":171786805,"name":"tflagform.openquerydialog.title","sourcebytes":[79,112,101,110,32,83,81,76,32,81,117,101,114,121,32,70,105,108,101],"value":"Open SQL Query File"},
-{"hash":116757445,"name":"tflagform.savequerydialog.title","sourcebytes":[83,97,118,101,32,83,81,76,32,81,117,101,114,121,32,116,111,32,70,105,108,101],"value":"Save SQL Query to File"}
+{"hash":116757445,"name":"tflagform.savequerydialog.title","sourcebytes":[83,97,118,101,32,83,81,76,32,81,117,101,114,121,32,116,111,32,70,105,108,101],"value":"Save SQL Query to File"},
+{"hash":171665052,"name":"tflagform.menuitemselectall.caption","sourcebytes":[83,101,108,101,99,116,32,38,65,108,108],"value":"Select &All"},
+{"hash":174788,"name":"tflagform.menuitemcut.caption","sourcebytes":[38,67,117,116],"value":"&Cut"},
+{"hash":4874969,"name":"tflagform.menuitemcopy.caption","sourcebytes":[67,111,112,38,121],"value":"Cop&y"},
+{"hash":45517477,"name":"tflagform.menuitempaste.caption","sourcebytes":[38,80,97,115,116,101],"value":"&Paste"}
 ]}

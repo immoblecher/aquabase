@@ -1726,18 +1726,12 @@ begin
   DataModuleMain := TDataModuleMain.Create(Application);
   Application.OnHint := @ShowHint;
   Application.OnIdle := @AppIdle;
-  //check for the QGIS plugin and copy it to user .qgis2 folder
+  //check for the QGIS plugin
   {$IFDEF WINDOWS}
-  if DirectoryExists(ProgramDir + '\plugins\QGIS\Aquabase') and DirectoryExists(GetUserDir + '\.qgis2') then
-    CopyDirTree(ProgramDir + '\plugins\QGIS\Aquabase', GetUserDir + '\.qgis2\python\plugins\Aquabase', [cffOverwriteFile]);
-  MenuItemQGIS.Visible := DirectoryExists(GetUserDir + '\.qgis2\python\plugins\Aquabase') or DirectoryExists(GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase')
-    or DirectoryExists(GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase');
+  MenuItemQGIS.Visible := DirectoryExists(GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase');
   {$ENDIF}
   {$IFDEF LINUX}
-  if DirectoryExists('/usr/share/aquabase/plugins/QGIS/Aquabase') and DirectoryExists(GetUserDir + DirectorySeparator + '.qgis2') then
-    CopyDirTree('/usr/share/aquabase/plugins/QGIS/Aquabase', GetUserDir + '/.qgis2/python/plugins/Aquabase');
-  MenuItemQGIS.Visible := DirectoryExists(GetUserDir + '/.qgis2/python/plugins/Aquabase') or DirectoryExists(GetUserDir + '.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase')
-    or DirectoryExists(GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase');
+  MenuItemQGIS.Visible := DirectoryExists(GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase');
   {$ENDIF}
   DividerQGIS.Visible := MenuItemQGIS.Visible;
   if DividerQGIS.Visible then

@@ -388,10 +388,8 @@ begin
 end;
 
 procedure TProjManForm.PopupMenu1Popup(Sender: TObject);
-
 var
   HasSelection: Boolean;
-
 begin
   if Assigned(BookMark) then GotoBookmark.Enabled := True
   else GotoBookmark.Enabled := False;

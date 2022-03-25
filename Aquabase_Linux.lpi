@@ -23,8 +23,8 @@
       <UseVersionInfo Value="True"/>
       <MajorVersionNr Value="2"/>
       <MinorVersionNr Value="4"/>
-      <RevisionNr Value="3"/>
-      <BuildNr Value="392"/>
+      <RevisionNr Value="4"/>
+      <BuildNr Value="393"/>
       <Language Value="0809"/>
       <Attributes pvaPreRelease="True"/>
       <StringTable CompanyName="Lazarus Projects" FileDescription="The Aquabase main executable" LegalCopyright="(c) Copyright 2015 - 2022 Immo Blecher" ProductName="Aquabase Twenty20" ProductVersion="2020"/>

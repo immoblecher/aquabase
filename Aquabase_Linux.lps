@@ -4,7 +4,7 @@
     <PathDelim Value="\"/>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="186">
+    <Units Count="147">
       <Unit0>
         <Filename Value="Aquabase_Linux.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -64,8 +64,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="609"/>
-        <CursorPos X="37" Y="615"/>
+        <TopLine Value="324"/>
+        <CursorPos X="94" Y="344"/>
         <UsageCount Value="229"/>
       </Unit5>
       <Unit6>
@@ -108,8 +108,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="44"/>
-        <CursorPos X="17" Y="54"/>
         <UsageCount Value="229"/>
       </Unit9>
       <Unit10>
@@ -128,8 +126,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="127"/>
-        <CursorPos X="47" Y="140"/>
+        <TopLine Value="241"/>
+        <CursorPos Y="261"/>
         <UsageCount Value="229"/>
       </Unit11>
       <Unit12>
@@ -139,8 +137,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="70"/>
-        <CursorPos X="26" Y="82"/>
+        <CursorPos X="21"/>
         <UsageCount Value="229"/>
       </Unit12>
       <Unit13>
@@ -255,7 +252,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="47" Y="14"/>
+        <TopLine Value="116"/>
+        <CursorPos X="5" Y="128"/>
         <UsageCount Value="229"/>
       </Unit23>
       <Unit24>
@@ -405,8 +403,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="124"/>
-        <CursorPos X="25" Y="140"/>
+        <CursorPos X="21"/>
         <UsageCount Value="229"/>
       </Unit37>
       <Unit38>
@@ -456,8 +453,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="166"/>
-        <CursorPos X="40" Y="178"/>
+        <CursorPos Y="18"/>
         <UsageCount Value="229"/>
       </Unit41>
       <Unit42>
@@ -477,8 +473,8 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="2096"/>
-        <CursorPos X="3" Y="2099"/>
+        <TopLine Value="1723"/>
+        <CursorPos Y="1734"/>
         <UsageCount Value="229"/>
         <Loaded Value="True"/>
       </Unit43>
@@ -489,8 +485,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1445"/>
-        <CursorPos X="21" Y="1457"/>
         <UsageCount Value="229"/>
       </Unit44>
       <Unit45>
@@ -519,8 +513,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="102"/>
-        <CursorPos Y="111"/>
+        <CursorPos X="21"/>
         <UsageCount Value="229"/>
       </Unit47>
       <Unit48>
@@ -530,8 +523,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="132"/>
-        <CursorPos Y="141"/>
+        <CursorPos X="38" Y="3"/>
         <UsageCount Value="229"/>
       </Unit48>
       <Unit49>
@@ -701,11 +693,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="MainDataModule"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="462"/>
-        <CursorPos X="21" Y="464"/>
+        <TopLine Value="1923"/>
+        <CursorPos Y="1935"/>
         <UsageCount Value="229"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit64>
       <Unit65>
         <Filename Value="login.pas"/>
@@ -764,8 +758,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="220"/>
-        <CursorPos Y="232"/>
+        <TopLine Value="248"/>
+        <CursorPos X="35" Y="261"/>
         <UsageCount Value="204"/>
       </Unit70>
       <Unit71>
@@ -931,8 +925,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="135"/>
-        <CursorPos X="26" Y="156"/>
+        <CursorPos X="37" Y="5"/>
         <UsageCount Value="200"/>
       </Unit85>
       <Unit86>
@@ -1103,8 +1096,8 @@
         <Filename Value="VARINIT.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="82"/>
-        <CursorPos X="14" Y="94"/>
+        <TopLine Value="37"/>
+        <CursorPos X="21" Y="2"/>
         <UsageCount Value="232"/>
       </Unit101>
       <Unit102>
@@ -1135,10 +1128,12 @@
         <ComponentName Value="TimeDeptForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="862"/>
-        <CursorPos X="24" Y="868"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="411"/>
+        <CursorPos Y="433"/>
         <UsageCount Value="232"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit104>
       <Unit105>
         <Filename Value="QUICKSCH.pas"/>
@@ -1190,8 +1185,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="209"/>
-        <CursorPos X="52" Y="217"/>
+        <TopLine Value="385"/>
+        <CursorPos X="54" Y="404"/>
         <UsageCount Value="232"/>
       </Unit109>
       <Unit110>
@@ -1266,8 +1261,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="256"/>
-        <CursorPos X="43" Y="265"/>
+        <TopLine Value="129"/>
+        <CursorPos Y="146"/>
         <UsageCount Value="200"/>
       </Unit116>
       <Unit117>
@@ -1387,8 +1382,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="TimeDeptChemReport"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="526"/>
-        <CursorPos Y="538"/>
+        <TopLine Value="407"/>
+        <CursorPos Y="412"/>
         <UsageCount Value="200"/>
       </Unit127>
       <Unit128>
@@ -1497,8 +1492,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="237"/>
-        <CursorPos X="3" Y="241"/>
+        <TopLine Value="249"/>
+        <CursorPos X="40" Y="261"/>
         <UsageCount Value="215"/>
       </Unit137>
       <Unit138>
@@ -1520,8 +1515,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="importSYNOP"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="140"/>
-        <CursorPos X="3" Y="152"/>
+        <TopLine Value="190"/>
+        <CursorPos Y="205"/>
         <UsageCount Value="200"/>
       </Unit139>
       <Unit140>
@@ -1542,7 +1537,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="29" Y="7"/>
-        <UsageCount Value="117"/>
+        <UsageCount Value="102"/>
       </Unit141>
       <Unit142>
         <Filename Value="chartproperties.pas"/>
@@ -1550,478 +1545,136 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="597"/>
-        <CursorPos X="4" Y="609"/>
-        <UsageCount Value="49"/>
+        <TopLine Value="1340"/>
+        <CursorPos X="48" Y="1352"/>
+        <UsageCount Value="40"/>
       </Unit142>
       <Unit143>
-        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\fortesreport-ce4\Source\RLMetaFile.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="2270"/>
-        <CursorPos Y="2282"/>
-        <UsageCount Value="3"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit143>
-      <Unit144>
         <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\rtl\objpas\sysutils\datih.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="121"/>
-        <CursorPos X="16" Y="133"/>
-        <UsageCount Value="9"/>
+        <TopLine Value="140"/>
+        <CursorPos X="10" Y="151"/>
+        <UsageCount Value="10"/>
+      </Unit143>
+      <Unit144>
+        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\zeosdbo\src\component\ZSqlProcessor.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="136"/>
+        <CursorPos X="14" Y="146"/>
+        <UsageCount Value="1"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit144>
       <Unit145>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\rtl\objpas\sysutils\sysinth.inc"/>
+        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\zeosdbo\src\parsesql\ZScriptParser.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="83"/>
-        <CursorPos X="35" Y="103"/>
-        <UsageCount Value="10"/>
+        <TopLine Value="52"/>
+        <CursorPos X="5" Y="52"/>
+        <UsageCount Value="1"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit145>
       <Unit146>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\packages\rtl-objpas\src\inc\strutils.pp"/>
-        <UnitName Value="StrUtils"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="189"/>
-        <CursorPos X="10" Y="200"/>
-        <UsageCount Value="8"/>
-      </Unit146>
-      <Unit147>
-        <Filename Value="..\..\..\..\..\usr\share\lazarus\2.0.12\components\turbopower_ipro\ipmsg.pas"/>
-        <UnitName Value="IpMsg"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="177"/>
-        <CursorPos X="3" Y="168"/>
-        <UsageCount Value="3"/>
-      </Unit147>
-      <Unit148>
-        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\HtmlViewer\source\FramBrwz.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="33"/>
-        <CursorPos X="10" Y="45"/>
-        <UsageCount Value="3"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit148>
-      <Unit149>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\packages\fcl-web\src\base\fphttpclient.pp"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="325"/>
-        <CursorPos X="3" Y="336"/>
-        <UsageCount Value="3"/>
-      </Unit149>
-      <Unit150>
-        <Filename Value="..\..\..\..\..\usr\share\lazarus\2.0.12\lcl\grids.pas"/>
-        <UnitName Value="Grids"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="585"/>
-        <CursorPos X="14" Y="596"/>
-        <UsageCount Value="4"/>
-      </Unit150>
-      <Unit151>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\rtl\objpas\classes\classesh.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="49"/>
-        <CursorPos X="3" Y="62"/>
-        <UsageCount Value="3"/>
-      </Unit151>
-      <Unit152>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\rtl\inc\systemh.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="471"/>
-        <CursorPos X="3" Y="479"/>
-        <UsageCount Value="2"/>
-      </Unit152>
-      <Unit153>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\packages\rtl-objpas\src\inc\dateutil.inc"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="6"/>
-      </Unit153>
-      <Unit154>
-        <Filename Value="..\..\..\..\..\usr\share\lazarus\2.0.12\lcl\forms.pp"/>
-        <UnitName Value="Forms"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1497"/>
-        <CursorPos X="15" Y="1506"/>
-        <UsageCount Value="9"/>
-      </Unit154>
-      <Unit155>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\packages\fcl-db\src\base\sqlscript.pp"/>
-        <UnitName Value="SQLScript"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="7"/>
-        <UsageCount Value="9"/>
-      </Unit155>
-      <Unit156>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\packages\fcl-db\src\base\csvdataset.pp"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="14"/>
-        <CursorPos X="3" Y="119"/>
-        <UsageCount Value="9"/>
-      </Unit156>
-      <Unit157>
-        <Filename Value="TRepSet.pas"/>
-        <ComponentName Value="TestRepSetForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="459"/>
-        <CursorPos X="58" Y="466"/>
-        <UsageCount Value="11"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
-      </Unit157>
-      <Unit158>
-        <Filename Value="pumptestrep.pas"/>
-        <ComponentName Value="PumpTestRepForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="PumpTestRep"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="782"/>
-        <CursorPos Y="794"/>
-        <UsageCount Value="9"/>
-      </Unit158>
-      <Unit159>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\packages\fcl-db\src\base\db.pas"/>
-        <UnitName Value="DB"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="70"/>
-        <CursorPos X="3" Y="81"/>
-        <UsageCount Value="9"/>
-      </Unit159>
-      <Unit160>
-        <Filename Value="Append.pas"/>
-        <ComponentName Value="AppendForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="195"/>
-        <CursorPos X="13" Y="211"/>
-        <UsageCount Value="10"/>
-      </Unit160>
-      <Unit161>
-        <Filename Value="InsChar.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="51"/>
-        <CursorPos X="11" Y="69"/>
-        <UsageCount Value="9"/>
-      </Unit161>
-      <Unit162>
-        <Filename Value="Imprtdat.pas"/>
-        <ComponentName Value="ImportdatDlg"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="193"/>
-        <CursorPos X="3" Y="195"/>
-        <UsageCount Value="9"/>
-      </Unit162>
-      <Unit163>
-        <Filename Value="applynewsqlite.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="152"/>
-        <CursorPos X="20" Y="163"/>
-        <UsageCount Value="1"/>
-      </Unit163>
-      <Unit164>
-        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\zeosdbo\src\component\ZAbstractConnection.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1218"/>
-        <CursorPos X="48" Y="1226"/>
-        <UsageCount Value="6"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit164>
-      <Unit165>
-        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\zeosdbo\src\dbc\ZDbcSqLiteUtils.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="166"/>
-        <CursorPos Y="241"/>
-        <UsageCount Value="1"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit165>
-      <Unit166>
-        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\LazMapViewer\source\mvmapviewer.pas"/>
-        <UnitName Value="mvMapViewer"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="449"/>
-        <CursorPos Y="461"/>
-        <UsageCount Value="1"/>
-      </Unit166>
-      <Unit167>
-        <Filename Value="..\..\..\..\..\usr\share\lazarus\2.0.12\lcl\editbtn.pas"/>
-        <UnitName Value="EditBtn"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="366"/>
-        <CursorPos X="3" Y="354"/>
-        <UsageCount Value="1"/>
-      </Unit167>
-      <Unit168>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\packages\rtl-objpas\src\inc\dateutils.pp"/>
-        <UnitName Value="DateUtils"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="3"/>
-      </Unit168>
-      <Unit169>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\rtl\unix\sysutils.pp"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="103"/>
-        <UsageCount Value="2"/>
-      </Unit169>
-      <Unit170>
-        <Filename Value="logreport.pas"/>
-        <ComponentName Value="LogReportForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="805"/>
-        <CursorPos X="7" Y="807"/>
-        <UsageCount Value="11"/>
-      </Unit170>
-      <Unit171>
-        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\zeosdbo\src\component\ZConnection.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="61"/>
-        <CursorPos X="14" Y="76"/>
-        <UsageCount Value="6"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit171>
-      <Unit172>
-        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\zeosdbo\src\component\ZAbstractRODataset.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="143"/>
-        <CursorPos X="3" Y="156"/>
-        <UsageCount Value="6"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit172>
-      <Unit173>
-        <Filename Value="..\..\..\..\..\usr\share\lazarus\2.0.12\examples\SynEdit\Completion\unit1.pas"/>
-        <ComponentName Value="Form1"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="Unit1"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="87"/>
-        <UsageCount Value="7"/>
-      </Unit173>
-      <Unit174>
-        <Filename Value="..\..\..\..\..\usr\share\lazarus\2.0.12\components\synedit\syncompletion.pas"/>
-        <UnitName Value="SynCompletion"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="883"/>
-        <CursorPos X="13" Y="792"/>
-        <UsageCount Value="8"/>
-      </Unit174>
-      <Unit175>
-        <Filename Value="..\..\..\..\..\usr\share\lazarus\2.0.12\components\synedit\synedit.pp"/>
-        <UnitName Value="SynEdit"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="967"/>
-        <CursorPos X="88" Y="977"/>
-        <UsageCount Value="10"/>
-      </Unit175>
-      <Unit176>
-        <Filename Value="..\..\..\..\..\usr\share\lazarus\2.0.12\lcl\include\winapih.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="108"/>
-        <CursorPos X="10" Y="120"/>
-        <UsageCount Value="7"/>
-      </Unit176>
-      <Unit177>
-        <Filename Value="..\..\..\..\..\usr\share\lazarus\2.0.12\components\synedit\synedittypes.pp"/>
-        <UnitName Value="SynEditTypes"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="82"/>
-        <CursorPos X="3" Y="82"/>
-        <UsageCount Value="8"/>
-      </Unit177>
-      <Unit178>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\rtl\objpas\sysutils\sysutilh.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="134"/>
-        <CursorPos X="4" Y="107"/>
-        <UsageCount Value="9"/>
-      </Unit178>
-      <Unit179>
-        <Filename Value="..\..\..\..\..\usr\share\lazarus\2.0.12\lcl\dialogs.pp"/>
-        <UnitName Value="Dialogs"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="42"/>
-        <CursorPos X="3" Y="53"/>
-        <UsageCount Value="9"/>
-      </Unit179>
-      <Unit180>
-        <Filename Value="siteinfo.pas"/>
-        <ComponentName Value="SiteInfoReportForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="788"/>
-        <CursorPos X="29" Y="792"/>
-        <UsageCount Value="11"/>
-      </Unit180>
-      <Unit181>
-        <Filename Value="strdatetime.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="37"/>
-        <UsageCount Value="9"/>
-      </Unit181>
-      <Unit182>
-        <Filename Value="logreportsettings.pas"/>
-        <ComponentName Value="LogReportSetForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="194"/>
-        <CursorPos X="8" Y="215"/>
-        <UsageCount Value="11"/>
-      </Unit182>
-      <Unit183>
-        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\fortesreport-ce4\Source\RLConsts.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="48"/>
-        <CursorPos Y="66"/>
-        <UsageCount Value="9"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit183>
-      <Unit184>
         <Filename Value="reporttemplatelandscape.pas"/>
         <ComponentName Value="LandscapeReportForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="136"/>
-        <CursorPos X="49" Y="138"/>
-        <UsageCount Value="9"/>
-      </Unit184>
-      <Unit185>
-        <Filename Value="applycoord.pas"/>
-        <ComponentName Value="ApplyCoordForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="191"/>
-        <CursorPos X="5" Y="164"/>
-        <UsageCount Value="11"/>
-      </Unit185>
+        <TopLine Value="139"/>
+        <CursorPos X="41" Y="145"/>
+        <UsageCount Value="10"/>
+      </Unit146>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="23" HistoryIndex="22">
       <Position1>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="469" TopLine="460"/>
+        <Filename Value="TIMEDEPT.pas"/>
+        <Caret Line="592" TopLine="561"/>
       </Position1>
       <Position2>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="470" TopLine="460"/>
+        <Filename Value="TIMEDEPT.pas"/>
       </Position2>
       <Position3>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="465" TopLine="460"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="35" Column="18" TopLine="28"/>
       </Position3>
       <Position4>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="467" TopLine="460"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="2069" Column="107" TopLine="2050"/>
       </Position4>
       <Position5>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="468" TopLine="460"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="7" Column="36"/>
       </Position5>
       <Position6>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="469" TopLine="460"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="65" Column="16" TopLine="45"/>
       </Position6>
       <Position7>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="470" TopLine="460"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="90" Column="9" TopLine="71"/>
       </Position7>
       <Position8>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="465" TopLine="460"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="91" Column="9" TopLine="72"/>
       </Position8>
       <Position9>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="467" TopLine="460"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="110" Column="22" TopLine="91"/>
       </Position9>
       <Position10>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="468" TopLine="460"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="146" Column="17" TopLine="127"/>
       </Position10>
       <Position11>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="469" TopLine="460"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="147" Column="17" TopLine="128"/>
       </Position11>
       <Position12>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="470" TopLine="460"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="148" Column="17" TopLine="129"/>
       </Position12>
       <Position13>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="465" TopLine="460"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="429" Column="32" TopLine="410"/>
       </Position13>
       <Position14>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="467" TopLine="460"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="441" Column="27" TopLine="422"/>
       </Position14>
       <Position15>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="468" TopLine="460"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="444" Column="27" TopLine="425"/>
       </Position15>
       <Position16>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="469" TopLine="460"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="1277" Column="27" TopLine="1258"/>
       </Position16>
       <Position17>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="470" TopLine="460"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="1278" Column="18" TopLine="1259"/>
       </Position17>
       <Position18>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="465" TopLine="460"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="1280" Column="51" TopLine="1261"/>
       </Position18>
       <Position19>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="467" TopLine="460"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="1308" Column="7" TopLine="1289"/>
       </Position19>
       <Position20>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="468" TopLine="460"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="1309" Column="7" TopLine="1290"/>
       </Position20>
       <Position21>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="470" TopLine="460"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="2069" Column="101" TopLine="2050"/>
       </Position21>
       <Position22>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="465" TopLine="460"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="937" Column="3" TopLine="928"/>
       </Position22>
       <Position23>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="467" TopLine="460"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="1934" TopLine="1917"/>
       </Position23>
-      <Position24>
-        <Filename Value="TRepSet.pas"/>
-      </Position24>
-      <Position25>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="16" Column="13"/>
-      </Position25>
-      <Position26>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="398" Column="94" TopLine="378"/>
-      </Position26>
-      <Position27>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="428" Column="94" TopLine="409"/>
-      </Position27>
-      <Position28>
-        <Filename Value="TRepSet.pas"/>
-      </Position28>
-      <Position29>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="223" TopLine="204"/>
-      </Position29>
-      <Position30>
-        <Filename Value="TRepSet.pas"/>
-        <Caret Line="494" Column="30" TopLine="474"/>
-      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -24,7 +24,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ButtonPanel, StdCtrls,
   Spin, Buttons, XMLPropStorage, SynCompletion, SynEdit, SynHighlighterSQL,
-  ZDataset, DB, SynEditTypes, Types, LCLType, StrUtils;
+  ZDataset, DB, SynEditTypes, Types, LCLType, Menus, StrUtils, Clipbrd, SynEditKeyCmds;
 
 type
 
@@ -37,8 +37,14 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+    MenuItemCopy: TMenuItem;
+    MenuItemCut: TMenuItem;
+    MenuItemPaste: TMenuItem;
+    MenuItemSelectAll: TMenuItem;
+    N1: TMenuItem;
     OpenQueryDialog: TOpenDialog;
     OpenSpeedButton: TSpeedButton;
+    PopupMenu1: TPopupMenu;
     SaveQueryDialog: TSaveDialog;
     SaveSpeedButton: TSpeedButton;
     SpinEdit1: TSpinEdit;
@@ -56,8 +62,13 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
+    procedure MenuItemCopyClick(Sender: TObject);
+    procedure MenuItemCutClick(Sender: TObject);
+    procedure MenuItemPasteClick(Sender: TObject);
+    procedure MenuItemSelectAllClick(Sender: TObject);
     procedure OKButtonClick(Sender: TObject);
     procedure OpenSpeedButtonClick(Sender: TObject);
+    procedure PopupMenu1Popup(Sender: TObject);
     procedure SaveSpeedButtonClick(Sender: TObject);
     procedure SynCompletion2CodeCompletion(var Value: string;
       SourceValue: string; var SourceStart, SourceEnd: TPoint;
@@ -142,6 +153,14 @@ begin
       end;
     end;
   end;
+end;
+
+procedure TFlagForm.PopupMenu1Popup(Sender: TObject);
+begin
+  MenuItemSelectAll.Enabled := SynEdit1.Text > '';
+  MenuItemCopy.Enabled := SynEdit1.SelText > '';
+  MenuItemCut.Enabled := SynEdit1.SelText > '';
+  MenuItemPaste.Enabled := Clipboard.HasFormat(CF_TEXT);
 end;
 
 procedure TFlagForm.SaveSpeedButtonClick(Sender: TObject);
@@ -290,6 +309,26 @@ begin
   ComboBox1.ItemIndex := 0;
   TableQuery.Open;
   TableQuery.Close;
+end;
+
+procedure TFlagForm.MenuItemCopyClick(Sender: TObject);
+begin
+  SynEdit1.CommandProcessor(TSynEditorCommand(ecCopy), ' ', nil);
+end;
+
+procedure TFlagForm.MenuItemCutClick(Sender: TObject);
+begin
+  SynEdit1.CommandProcessor(TSynEditorCommand(ecCut), ' ', nil);
+end;
+
+procedure TFlagForm.MenuItemPasteClick(Sender: TObject);
+begin
+  SynEdit1.CommandProcessor(TSynEditorCommand(ecPaste), ' ', nil);
+end;
+
+procedure TFlagForm.MenuItemSelectAllClick(Sender: TObject);
+begin
+  SynEdit1.SelectAll;
 end;
 
 procedure TFlagForm.BitBtnCheckClick(Sender: TObject);

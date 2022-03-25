@@ -941,13 +941,13 @@ object DataModuleMain: TDataModuleMain
     Left = 343
     Top = 294
   end
-  object ZSQLProcessor1: TZSQLProcessor
+  object ZSQLProcessorDB: TZSQLProcessor
     Params = <>
     Connection = ZConnectionDB
     DelimiterType = dtDelimiter
     Delimiter = '$$'
-    OnError = ZSQLProcessor1Error
-    Left = 128
+    OnError = ZSQLProcessorDBError
+    Left = 144
     Top = 360
   end
   object IdleTimerSQL: TIdleTimer
@@ -987,26 +987,13 @@ object DataModuleMain: TDataModuleMain
     Connection = ZConnectionLanguage
     DelimiterType = dtDelimiter
     Delimiter = ';'
-    Left = 240
-    Top = 360
+    Left = 296
+    Top = 424
   end
   object ZQueryMapLookup: TZReadOnlyQuery
     Connection = ZConnectionLanguage
     Params = <>
     Left = 152
-    Top = 424
-  end
-  object ViewQuery: TZReadOnlyQuery
-    Params = <>
-    Left = 256
-    Top = 424
-  end
-  object DefinitionQuery: TZReadOnlyQuery
-    SQL.Strings = (
-      'SELECT name FROM sqlite_master WHERE type = ''view'''
-    )
-    Params = <>
-    Left = 343
     Top = 424
   end
   object ZConnectionProj: TZConnection

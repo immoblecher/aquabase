@@ -1,7 +1,7 @@
 inherited LandscapeReportFormChem: TLandscapeReportFormChem
   Left = 235
   Height = 523
-  Top = 142
+  Top = 141
   Caption = 'Time-dependent Chemistry Report'
   ClientHeight = 523
   inherited RLReportLandscape: TRLReport
@@ -9,49 +9,52 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
     AfterPrint = RLReportLandscapeAfterPrint
     BeforePrint = RLReportLandscapeBeforePrint
     inherited RLBandHeader: TRLBand
-      InsideMargins.BottomMargin = 3
+      Height = 41
+      InsideMargins.LeftMargin = 2
+      InsideMargins.TopMargin = 1
+      InsideMargins.RightMargin = 2
+      InsideMargins.BottomMargin = 1
       inherited RLSystemInfo1: TRLSystemInfo
+        Height = 16
         AutoSize = True
+        Borders.Sides = sdCustom
+        Borders.Width = 10
+        Borders.Style = bsClear
       end
       inherited RLSystemInfoReportTitle: TRLSystemInfo
+        Top = 12
         Width = 38
         AutoSize = True
       end
     end
     inherited SubDetail1: TRLSubDetail
-      Top = 119
+      Top = 121
       inherited DetailBand1: TRLBand
         GroupIndex = 1
         inherited RLDBText2: TRLDBText
           Left = 58
+          Height = 13
           Width = 60
           DataField = 'SAMPLE_NR'
+          Layout = tlTop
         end
         inherited RLDBText1: TRLDBText
           Left = 2
+          Height = 13
           Width = 54
           Alignment = taRightJustify
           DataField = 'CHM_REF_NR'
+          Layout = tlTop
         end
         inherited RLDBText4: TRLDBText
           Left = 142
-          Width = 56
+          Height = 13
+          Width = 91
+          Alignment = taRightJustify
           DataField = 'DATE_SAMPL'
+          Layout = tlTop
         end
-        object RLDBText7: TRLDBText[3]
-          Left = 202
-          Height = 14
-          Top = 2
-          Width = 30
-          AutoSize = False
-          DataField = 'TIME_SAMPL'
-          DataSource = DetailDataSource
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          ParentFont = False
-        end
-        object RLDBTextParam0: TRLDBText[4]
+        object RLDBTextParam0: TRLDBText[3]
           Left = 234
           Height = 13
           Top = 2
@@ -64,7 +67,7 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
           Visible = False
         end
-        object RLDBTextParam1: TRLDBText[5]
+        object RLDBTextParam1: TRLDBText[4]
           Left = 291
           Height = 13
           Top = 2
@@ -77,7 +80,7 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
           Visible = False
         end
-        object RLDBTextParam2: TRLDBText[6]
+        object RLDBTextParam2: TRLDBText[5]
           Left = 348
           Height = 13
           Top = 2
@@ -90,7 +93,7 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
           Visible = False
         end
-        object RLDBTextParam3: TRLDBText[7]
+        object RLDBTextParam3: TRLDBText[6]
           Left = 406
           Height = 13
           Top = 2
@@ -103,7 +106,7 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
           Visible = False
         end
-        object RLDBTextParam4: TRLDBText[8]
+        object RLDBTextParam4: TRLDBText[7]
           Left = 464
           Height = 13
           Top = 2
@@ -116,7 +119,7 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
           Visible = False
         end
-        object RLDBTextParam5: TRLDBText[9]
+        object RLDBTextParam5: TRLDBText[8]
           Left = 522
           Height = 13
           Top = 2
@@ -129,7 +132,7 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
           Visible = False
         end
-        object RLDBTextParam6: TRLDBText[10]
+        object RLDBTextParam6: TRLDBText[9]
           Left = 580
           Height = 13
           Top = 2
@@ -142,7 +145,7 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
           Visible = False
         end
-        object RLDBTextParam7: TRLDBText[11]
+        object RLDBTextParam7: TRLDBText[10]
           Left = 638
           Height = 13
           Top = 2
@@ -155,7 +158,7 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
           Visible = False
         end
-        object RLDBTextParam8: TRLDBText[12]
+        object RLDBTextParam8: TRLDBText[11]
           Left = 696
           Height = 13
           Top = 2
@@ -168,7 +171,7 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
           Visible = False
         end
-        object RLDBTextParam9: TRLDBText[13]
+        object RLDBTextParam9: TRLDBText[12]
           Left = 754
           Height = 13
           Top = 2
@@ -181,7 +184,7 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
           Visible = False
         end
-        object RLDBTextParam10: TRLDBText[14]
+        object RLDBTextParam10: TRLDBText[13]
           Left = 812
           Height = 13
           Top = 2
@@ -194,7 +197,7 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
           Visible = False
         end
-        object RLDBTextParam11: TRLDBText[15]
+        object RLDBTextParam11: TRLDBText[14]
           Left = 870
           Height = 13
           Top = 2
@@ -207,7 +210,7 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
           Visible = False
         end
-        object RLDBTextParam12: TRLDBText[16]
+        object RLDBTextParam12: TRLDBText[15]
           Left = 928
           Height = 13
           Top = 2
@@ -220,7 +223,7 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
           Visible = False
         end
-        object RLDBTextParam13: TRLDBText[17]
+        object RLDBTextParam13: TRLDBText[16]
           Left = 986
           Height = 13
           Top = 2
@@ -233,9 +236,9 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
           Visible = False
         end
-        object RLDBText8: TRLDBText[18]
+        object RLDBText8: TRLDBText[17]
           Left = 120
-          Height = 14
+          Height = 13
           Top = 2
           Width = 20
           Alignment = taCenter
@@ -245,7 +248,6 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Layout = tlBottom
           ParentFont = False
           AfterPrint = RLDBText8AfterPrint
         end
@@ -883,7 +885,7 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
     end
     inherited FooterBand: TRLBand
       Height = 118
-      Top = 187
+      Top = 189
       AfterPrint = FooterBandAfterPrint
       BeforePrint = FooterBandBeforePrint
       inherited RLMemoUserDetails: TRLMemo
@@ -931,6 +933,7 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
     end
     inherited HeaderBand1: TRLBand
       Height = 41
+      Top = 80
       GroupIndex = 1
       Options = [boOptimisticPageBreak]
       inherited RLLabelHeader2: TRLLabel
@@ -1221,6 +1224,67 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
     MasterFields = 'SITE_ID_NR'
     LinkedFields = 'SITE_ID_NR'
     IndexFieldNames = 'site_id_nr Asc, date_sampl Asc, time_sampl Asc'
+    Top = 8
+    object DetailQuerySITE_ID_NR: TStringField[0]
+      FieldKind = fkData
+      FieldName = 'SITE_ID_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 11
+    end
+    object DetailQuerySAMPLE_NR: TStringField[1]
+      FieldKind = fkData
+      FieldName = 'SAMPLE_NR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 12
+    end
+    object DetailQuerySAMPL_TYPE: TStringField[2]
+      FieldKind = fkData
+      FieldName = 'SAMPL_TYPE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 1
+    end
+    object DetailQueryDATE_SAMPL: TStringField[3]
+      FieldKind = fkData
+      FieldName = 'DATE_SAMPL'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      OnGetText = DetailQueryDATE_SAMPLGetText
+      Size = 8
+    end
+    object DetailQueryTIME_SAMPL: TStringField[4]
+      FieldKind = fkData
+      FieldName = 'TIME_SAMPL'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 4
+    end
+    object DetailQueryCHM_REF_NR: TLargeintField[5]
+      FieldKind = fkData
+      FieldName = 'CHM_REF_NR'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
   end
   inherited ViewQuery: TZReadOnlyQuery
     Connection = DataModuleMain.ZConnectionDB

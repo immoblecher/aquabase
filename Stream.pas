@@ -1,3 +1,20 @@
+{ Copyright (C) 2022 Immo Blecher immo@blecher.co.za
+
+  This source is free software; you can redistribute it and/or modify it under
+  the terms of the GNU General Public License as published by the Free
+  Software Foundation; either version 2 of the License, or (at your option)
+  any later version.
+
+  This code is distributed in the hope that it will be useful, but WITHOUT ANY
+  WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  details.
+
+  A copy of the GNU General Public License is available on the World Wide Web
+  at http://www.gnu.org/copyleft/gpl.html. You can also obtain it by writing
+  to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+  MA 02111-1307, USA.
+}
 unit Stream;
 
 {$mode objfpc}{$H+}
@@ -180,17 +197,17 @@ begin
     YComboBox1.Items.Clear;
     case PageControl.ActivePage.TabIndex of
       0: begin
-           TimeDeptTable[1] := 'flow_dis';
+           TimeDeptTable[1] := 'FLOW_DIS';
            StartDate := StringToDate(ZQuery1DATE_MEAS.AsString);
            StartTime := StringToTime(ZQuery1TIME_MEAS.AsString);
          end;
       1: begin
-           TimeDeptTable[1] := 'strmvelo';
+           TimeDeptTable[1] := 'STRMVELO';
            StartDate := StringToDate(ZQuery2DATE_MEAS.AsString);
            StartTime := StringToTime(ZQuery2TIME_MEAS.AsString);
          end;
       2: begin
-           TimeDeptTable[1] := 'intake__';
+           TimeDeptTable[1] := 'INTAKE__';
            StartDate := StringToDate(ZQuery3DATE_MEAS.AsString);
            StartTime := StringToTime(ZQuery3TIME_MEAS.AsString);
          end;
