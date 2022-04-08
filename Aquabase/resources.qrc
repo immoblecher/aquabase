@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/plugins/Aquabase" >
+        <file>icon.png</file>
+        <file>createview.png</file>
+        <file>registersite.png</file>
+        <file>mapselect.png</file>
+    </qresource>
+</RCC>
