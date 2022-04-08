@@ -807,11 +807,12 @@ begin
       begin
         TheBarSeries := TBarSeries.Create(cht);
         TheBarSeries.Source := TheListChartSource;
+        if (Pos('All', FilterValue[DataSet.Tag]) > 1) or //for water level piezometers
+           (Pos('Piez', FilterValue[DataSet.Tag]) > 1) then //one Piezometer found already
+             FilterValue[DataSet.Tag] := ' (Piez. ' + DataSet.FieldByName('THEFILTER').AsString + ')';
         TheBarSeries.Title := SeriesTitle[DataSet.Tag] + FilterValue[DataSet.Tag] + ': ' + DataSet.Fields[0].AsString;
         if not DataSet.Fields[1].IsNull then
           TheBarSeries.Title := TheBarSeries.Title + ' - ' + DataSet.Fields[1].AsString;
-        if DataSet.FindField('CHEMREF') <> NIL then
-          TheBarSeries.Title := TheBarSeries.Title + ' - ' + DataSet.Fields[2].AsString;
         TheBarSeries.AxisIndexX := 1;
         case DataSet.Tag of
           1, 3: TheBarSeries.AxisIndexY := 0;
@@ -825,11 +826,12 @@ begin
       begin
         TheLineSeries := TLineSeries.Create(cht);
         TheLineSeries.Source := TheListChartSource;
+        if (Pos('All', FilterValue[DataSet.Tag]) > 1) or //for water level piezometers
+           (Pos('Piez', FilterValue[DataSet.Tag]) > 1) then //one Piezometer found already
+             FilterValue[DataSet.Tag] := ' (Piez. ' + DataSet.FieldByName('THEFILTER').AsString + ')';
         TheLineSeries.Title := SeriesTitle[DataSet.Tag] + FilterValue[DataSet.Tag] + ': ' + DataSet.Fields[0].AsString;
-        if not DataSet.Fields[1].IsNull then
+        if not DataSet.Fields[1].IsNull then //add nr_on_map
           TheLineSeries.Title := TheLineSeries.Title + ' - ' + DataSet.Fields[1].AsString;
-        if DataSet.FindField('CHEMREF') <> NIL then
-          TheLineSeries.Title := TheLineSeries.Title + ' - ' + DataSet.Fields[2].AsString;
         TheLineSeries.AxisIndexX := 1;
         case DataSet.Tag of
           1, 3: TheLineSeries.AxisIndexY := 0;

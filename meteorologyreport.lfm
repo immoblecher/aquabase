@@ -13,7 +13,7 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
       end
     end
     inherited FooterBand: TRLBand
-      Top = 633
+      Top = 643
     end
     inherited SubDetail1: TRLSubDetail
       DataSource = RainfallDataSource
@@ -33,7 +33,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -47,7 +46,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -61,7 +59,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -75,12 +72,11 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
         object RLLabelRain: TRLLabel[5]
-          Left = 630
+          Left = 634
           Height = 13
           Top = 24
           Width = 43
@@ -89,17 +85,18 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
       end
       inherited RLBand: TRLBand
+        Height = 14
+        InsideMargins.RightMargin = 3
         object RLDBText80: TRLDBText[0]
-          Left = 300
+          Left = 290
           Height = 14
           Top = 0
-          Width = 170
+          Width = 180
           AutoSize = False
           DataField = 'INFO_SOURC'
           DataSource = RainfallDataSource
@@ -149,10 +146,11 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           ParentFont = False
         end
         object RLDBText141: TRLDBText[4]
-          Left = 653
-          Height = 13
-          Top = 1
+          Left = 652
+          Height = 14
+          Top = 0
           Width = 53
+          Align = faClientRight
           Alignment = taRightJustify
           DataField = 'READING'
           DataSource = RainfallDataSource
@@ -166,7 +164,7 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
     object SubDetail4: TRLSubDetail[4]
       Left = 39
       Height = 56
-      Top = 409
+      Top = 419
       Width = 716
       AllowedBands = [btColumnHeader]
       Borders.Sides = sdCustom
@@ -210,7 +208,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -224,7 +221,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -238,7 +234,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -252,7 +247,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -266,21 +260,21 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
       end
       object RLBand2: TRLBand
         Left = 0
-        Height = 16
+        Height = 14
         Top = 40
         Width = 716
+        InsideMargins.RightMargin = 3
         object RLDBText81: TRLDBText
-          Left = 300
+          Left = 290
           Height = 14
           Top = 0
-          Width = 170
+          Width = 180
           AutoSize = False
           DataField = 'INFO_SOURC'
           DataSource = TempDataSource
@@ -321,7 +315,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Height = 14
           Top = 0
           Width = 60
-          Alignment = taCenter
           AutoSize = False
           DataField = 'READ_TYPE'
           DataSource = TempDataSource
@@ -361,7 +354,7 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
     object SubDetail3: TRLSubDetail[5]
       Left = 39
       Height = 56
-      Top = 353
+      Top = 363
       Width = 716
       AllowedBands = [btColumnHeader]
       Borders.Sides = sdCustom
@@ -405,7 +398,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -419,7 +411,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -433,12 +424,11 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
         object RLLabelHum: TRLLabel
-          Left = 630
+          Left = 634
           Height = 13
           Top = 24
           Width = 72
@@ -447,7 +437,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -461,16 +450,16 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
       end
       object RLBand3: TRLBand
         Left = 0
-        Height = 16
+        Height = 14
         Top = 40
         Width = 716
+        InsideMargins.RightMargin = 3
         object RLDBText82: TRLDBText
           Left = 8
           Height = 14
@@ -512,10 +501,11 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           ParentFont = False
         end
         object RLDBText143: TRLDBText
-          Left = 653
-          Height = 13
-          Top = 1
+          Left = 652
+          Height = 14
+          Top = 0
           Width = 53
+          Align = faClientRight
           Alignment = taRightJustify
           DataField = 'READING'
           DataSource = HumidityDataSource
@@ -525,10 +515,10 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           ParentFont = False
         end
         object RLDBText84: TRLDBText
-          Left = 300
+          Left = 290
           Height = 14
           Top = 0
-          Width = 170
+          Width = 180
           AutoSize = False
           DataField = 'INFO_SOURC'
           DataSource = PanEvapDataSource
@@ -542,7 +532,7 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
     object SubDetail2: TRLSubDetail[6]
       Left = 39
       Height = 56
-      Top = 297
+      Top = 307
       Width = 716
       AllowedBands = [btColumnHeader]
       Borders.Sides = sdCustom
@@ -586,7 +576,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -600,7 +589,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -614,7 +602,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -628,12 +615,11 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
         object RLLabelEvap: TRLLabel
-          Left = 630
+          Left = 634
           Height = 13
           Top = 24
           Width = 67
@@ -642,21 +628,21 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
       end
       object RLBand4: TRLBand
         Left = 0
-        Height = 16
+        Height = 14
         Top = 40
         Width = 716
+        InsideMargins.RightMargin = 3
         object RLDBText83: TRLDBText
-          Left = 300
+          Left = 290
           Height = 14
           Top = 0
-          Width = 170
+          Width = 180
           AutoSize = False
           DataField = 'INFO_SOURC'
           DataSource = PanEvapDataSource
@@ -706,10 +692,11 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           ParentFont = False
         end
         object RLDBText144: TRLDBText
-          Left = 653
-          Height = 13
-          Top = 1
+          Left = 652
+          Height = 14
+          Top = 0
           Width = 53
+          Align = faClientRight
           Alignment = taRightJustify
           DataField = 'READING'
           DataSource = PanEvapDataSource
@@ -723,7 +710,7 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
     object SubDetail5: TRLSubDetail[7]
       Left = 39
       Height = 56
-      Top = 521
+      Top = 531
       Width = 716
       AllowedBands = [btColumnHeader]
       Borders.Sides = sdCustom
@@ -767,7 +754,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -781,7 +767,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -795,12 +780,11 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
         object RLLabelRad: TRLLabel
-          Left = 630
+          Left = 634
           Height = 13
           Top = 24
           Width = 81
@@ -809,7 +793,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -823,16 +806,16 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
       end
       object RLBand5: TRLBand
         Left = 0
-        Height = 16
+        Height = 14
         Top = 40
         Width = 716
+        InsideMargins.RightMargin = 3
         object RLDBText86: TRLDBText
           Left = 8
           Height = 14
@@ -874,10 +857,11 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           ParentFont = False
         end
         object RLDBText145: TRLDBText
-          Left = 653
-          Height = 13
-          Top = 1
+          Left = 652
+          Height = 14
+          Top = 0
           Width = 53
+          Align = faClientRight
           Alignment = taRightJustify
           DataField = 'READING'
           DataSource = SolarDataSource
@@ -887,10 +871,10 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           ParentFont = False
         end
         object RLDBText87: TRLDBText
-          Left = 300
+          Left = 290
           Height = 14
           Top = 0
-          Width = 170
+          Width = 180
           AutoSize = False
           DataField = 'INFO_SOURC'
           DataSource = SolarDataSource
@@ -904,7 +888,7 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
     object SubDetail6: TRLSubDetail[8]
       Left = 39
       Height = 56
-      Top = 465
+      Top = 475
       Width = 716
       AllowedBands = [btColumnHeader]
       Borders.Sides = sdCustom
@@ -948,7 +932,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -962,7 +945,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -976,12 +958,11 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
         object RLLabelPres: TRLLabel
-          Left = 630
+          Left = 634
           Height = 13
           Top = 24
           Width = 49
@@ -990,7 +971,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -1004,16 +984,16 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
       end
       object RLBand6: TRLBand
         Left = 0
-        Height = 16
+        Height = 14
         Top = 40
         Width = 716
+        InsideMargins.RightMargin = 3
         object RLDBText88: TRLDBText
           Left = 8
           Height = 14
@@ -1055,10 +1035,11 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           ParentFont = False
         end
         object RLDBText148: TRLDBText
-          Left = 653
-          Height = 13
-          Top = 1
+          Left = 652
+          Height = 14
+          Top = 0
           Width = 53
+          Align = faClientRight
           Alignment = taRightJustify
           DataField = 'READING'
           DataSource = PressureDataSource
@@ -1068,10 +1049,10 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           ParentFont = False
         end
         object RLDBText89: TRLDBText
-          Left = 300
+          Left = 290
           Height = 14
           Top = 0
-          Width = 170
+          Width = 180
           AutoSize = False
           DataField = 'INFO_SOURC'
           DataSource = PressureDataSource
@@ -1085,7 +1066,7 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
     object SubDetail7: TRLSubDetail[9]
       Left = 39
       Height = 56
-      Top = 577
+      Top = 587
       Width = 716
       AllowedBands = [btColumnHeader]
       Borders.Sides = sdCustom
@@ -1129,7 +1110,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -1143,7 +1123,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -1157,7 +1136,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -1171,7 +1149,6 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
@@ -1185,21 +1162,21 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
-          HoldStyle = hsVertically
           ParentFont = False
           Transparent = False
         end
       end
       object RLBand7: TRLBand
         Left = 0
-        Height = 16
+        Height = 14
         Top = 40
         Width = 716
+        InsideMargins.RightMargin = 3
         object RLDBText90: TRLDBText
-          Left = 300
+          Left = 290
           Height = 14
           Top = 0
-          Width = 170
+          Width = 180
           AutoSize = False
           DataField = 'INFO_SOURC'
           DataSource = WindDataSource
@@ -1236,10 +1213,11 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
           ParentFont = False
         end
         object RLDBText69: TRLDBText
-          Left = 646
+          Left = 645
           Height = 14
           Top = 0
           Width = 60
+          Align = faClientRight
           Alignment = taRightJustify
           AutoSize = False
           DataField = 'DIRECTION'

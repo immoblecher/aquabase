@@ -29,7 +29,7 @@ object LandscapeReportForm: TLandscapeReportForm
     OnPageStarting = RLReportLandscapePageStarting
     object RLBandHeader: TRLBand
       Left = 39
-      Height = 40
+      Height = 41
       Top = 39
       Width = 1045
       AutoSize = True
@@ -39,7 +39,7 @@ object LandscapeReportForm: TLandscapeReportForm
       Borders.DrawTop = False
       Borders.DrawRight = False
       Borders.DrawBottom = True
-      Color = clInactiveCaption
+      Color = clSilver
       InsideMargins.LeftMargin = 2
       InsideMargins.TopMargin = 1
       InsideMargins.RightMargin = 2
@@ -49,7 +49,7 @@ object LandscapeReportForm: TLandscapeReportForm
       object RLSystemInfo1: TRLSystemInfo
         Tag = 1
         Left = 905
-        Height = 15
+        Height = 16
         Top = 12
         Width = 132
         Align = faCenterRight
@@ -63,7 +63,7 @@ object LandscapeReportForm: TLandscapeReportForm
         Tag = 2
         Left = 8
         Height = 16
-        Top = 11
+        Top = 12
         Width = 39
         Align = faCenterLeft
         AutoSize = False
@@ -80,7 +80,7 @@ object LandscapeReportForm: TLandscapeReportForm
     object SubDetail1: TRLSubDetail
       Left = 39
       Height = 68
-      Top = 119
+      Top = 120
       Width = 1045
       AllowedBands = [btColumnHeader]
       Borders.Sides = sdCustom
@@ -151,7 +151,7 @@ object LandscapeReportForm: TLandscapeReportForm
     object FooterBand: TRLBand
       Left = 39
       Height = 119
-      Top = 187
+      Top = 188
       Width = 1045
       BandType = btFooter
       Borders.Sides = sdCustom
@@ -214,7 +214,7 @@ object LandscapeReportForm: TLandscapeReportForm
     object HeaderBand1: TRLBand
       Left = 39
       Height = 40
-      Top = 79
+      Top = 80
       Width = 1045
       Color = clMoneyGreen
       ParentColor = False
@@ -234,6 +234,7 @@ object LandscapeReportForm: TLandscapeReportForm
         HoldStyle = hsVertically
         Layout = tlBottom
         ParentFont = False
+        Transparent = False
       end
       object RLLabelHeader2: TRLLabel
         Left = 120
@@ -279,6 +280,7 @@ object LandscapeReportForm: TLandscapeReportForm
         HoldStyle = hsVertically
         Layout = tlBottom
         ParentFont = False
+        Transparent = False
       end
       object RLLabelHeader3: TRLLabel
         Left = 216
@@ -309,6 +311,7 @@ object LandscapeReportForm: TLandscapeReportForm
         HoldStyle = hsVertically
         Layout = tlBottom
         ParentFont = False
+        Transparent = False
       end
       object RLDBText5: TRLDBText
         Tag = 1
@@ -324,6 +327,7 @@ object LandscapeReportForm: TLandscapeReportForm
         HoldStyle = hsVertically
         Layout = tlBottom
         ParentFont = False
+        Transparent = False
       end
       object RLLabel3: TRLLabel
         Tag = 1
@@ -339,6 +343,7 @@ object LandscapeReportForm: TLandscapeReportForm
         HoldStyle = hsVertically
         Layout = tlBottom
         ParentFont = False
+        Transparent = False
       end
       object RLDBText6: TRLDBText
         Tag = 1
@@ -354,6 +359,7 @@ object LandscapeReportForm: TLandscapeReportForm
         HoldStyle = hsVertically
         Layout = tlBottom
         ParentFont = False
+        Transparent = False
       end
     end
   end

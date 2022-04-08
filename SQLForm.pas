@@ -432,7 +432,8 @@ begin
   SpeedButtonNotes.Enabled := False;
   StatusBar1.Panels[2].Text := '';
   SearchQuery.Close;
-  SearchQuery.UnPrepare;
+  SearchQuery.SortedFields := '';
+  RxDBGrid.SortColumns.Clear;
   StatusBar1.Panels[1].Text := '';
   try
     SearchQuery.Connection := DataModuleMain.ZConnectionDB;
@@ -441,7 +442,6 @@ begin
     if Pos('SELECT', UpperCase(SearchQuery.SQL.Text)) = 1 then
     begin
       Screen.Cursor := crSQLWait;
-      SearchQuery.Prepare;
       SearchQuery.Open;
       Screen.Cursor := crDefault;
       StatusBar1.Panels[0].Text := 'SQL query successful';

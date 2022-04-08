@@ -159,6 +159,8 @@
 {"hash":143739749,"name":"tmainform.menuitemchemdata.caption","sourcebytes":[67,104,101,109,105,115,116,114,121,32,68,97,116,97,32,105,110,32,67,83,86,47,68,66,70,32,84,97,98,108,101],"value":"Chemistry Data in CSV/DBF Table"},
 {"hash":165559845,"name":"tmainform.menuitemwms.caption","sourcebytes":[87,77,83,32,67,104,101,109,105,115,116,114,121,32,68,97,116,97,32,105,110,32,67,83,86,32,70,105,108,101],"value":"WMS Chemistry Data in CSV File"},
 {"hash":263756179,"name":"tmainform.menuitemdwsaudited.caption","sourcebytes":[68,87,83,32,65,117,100,105,116,101,100,32,87,97,116,101,114,32,76,101,118,101,108,115],"value":"DWS Audited Water Levels"},
+{"hash":242642764,"name":"tmainform.menuitem8.caption","sourcebytes":[67,83,86,32,82,101,112,111,114,116,32,102,114,111,109,32,69,109,97,105,108],"value":"CSV Report from Email"},
+{"hash":49547365,"name":"tmainform.menuitem10.caption","sourcebytes":[67,83,86,32,70,105,108,101,32,119,105,116,104,32,115,105,110,103,108,101,32,83,105,116,101],"value":"CSV File with single Site"},
 {"hash":132085460,"name":"tmainform.menuitemexport.caption","sourcebytes":[69,38,120,112,111,114,116],"value":"E&xport"},
 {"hash":77075969,"name":"tmainform.pumpingtestdata2.caption","sourcebytes":[38,80,117,109,112,105,110,103,32,116,101,115,116,32,100,97,116,97],"value":"&Pumping test data"},
 {"hash":133931155,"name":"tmainform.datatofc1.caption","sourcebytes":[68,97,116,97,32,116,111,32,38,70,67],"value":"Data to &FC"},

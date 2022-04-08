@@ -242,6 +242,13 @@ begin
         Filtered := True;
       end
       else
+      if (FilterField = 'NGDB_FLAG') and ((Self.FindComponent('FilterValueComboBox' + IntToStr(c)) as TComboBox).Text = '<All>') then
+      begin
+        FilterField := 'd.' + FilterField; //to prevent ambigeous field in basicinf
+        Filter := 'THEFILTER = ' + (Self.FindComponent('FilterValueComboBox' + IntToStr(c)) as TComboBox).Text;
+        Filtered := True;
+      end
+      else
       begin
         FilterField := 'd.' + FilterField; //to prevent ambigeous field in basicinf
         Filter := 'THEFILTER = ' + QuotedStr((Self.FindComponent('FilterValueComboBox' + IntToStr(c)) as TComboBox).Text);
@@ -273,7 +280,7 @@ begin
             3: DateLength := 4; //annually
           end; //of case
           if (Self.FindComponent('CheckBoxUseElev' + IntToStr(c)) as TCheckBox).Checked then
-            Add('SELECT v.SITE_ID_NR, b.NR_ON_MAP, b.ALTITUDE, ' + FilterField + '  THEFILTER, ' + DateField + ' THEDATE, ' + TimeField + ' THETIME, MIN(ALTITUDE-' + (Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text + ') MINIMUM, MAX(ALTITUDE-' + (Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text + ') MAXIMUM, AVG(ALTITUDE-' + (Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text + ') AVERAGE, SUM(ALTITUDE-' + (Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text + ') SUMMED FROM '+ TheView + ' v')
+            Add('SELECT v.SITE_ID_NR, b.NR_ON_MAP, b.ALTITUDE, ' + FilterField + ' THEFILTER, ' + DateField + ' THEDATE, ' + TimeField + ' THETIME, MIN(ALTITUDE-' + (Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text + ') MINIMUM, MAX(ALTITUDE-' + (Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text + ') MAXIMUM, AVG(ALTITUDE-' + (Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text + ') AVERAGE, SUM(ALTITUDE-' + (Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text + ') SUMMED FROM '+ TheView + ' v')
           else
           if IsChem then
           begin
@@ -337,7 +344,7 @@ begin
       Aggregate[c] := (Self.FindComponent('AggregateRadioGroup' + IntToStr(c)) as TRadioGroup).ItemIndex;
       SeriesTitle[c] := (Self.FindComponent('ComboBoxData' + IntToStr(c)) as TComboBox).Text;
       FilterValue[c] := (Self.FindComponent('FilterValueComboBox' + IntToStr(c)) as TComboBox).Text;
-      if FilterValue[c] > '' then
+      if FilterValue[c] > '' then //add brackets
         FilterValue[c] := ' (' + FilterValue[c] + ') ';
       //for chemistry
       if (TimeDeptTable[c] = 'CHEM_000') then
@@ -568,12 +575,24 @@ begin
       if Items.Count > 1 then
       begin
         if TimeDeptTable[(Sender as TComboBox).Tag] = 'WATERLEV' then
-          ItemIndex := Items.IndexOf('PIEZOM_NR')
+        begin
+          ItemIndex := Items.IndexOf('PIEZOM_NR');
+          (Self.FindComponent('CheckBoxUseElev' + IntToStr((Sender as TComboBox).Tag)) as TCheckBox).Enabled := True;
+        end
         else
         if TimeDeptTable[(Sender as TComboBox).Tag] = 'FLDMEAS_' then
           ItemIndex := Items.IndexOf('PARM_MEAS')
         else
+        if TimeDeptTable[(Sender as TComboBox).Tag] = 'STAGE_HI' then
+        begin
           ItemIndex := 0;
+          (Self.FindComponent('CheckBoxUseElev' + IntToStr((Sender as TComboBox).Tag)) as TCheckBox).Enabled := True
+        end
+        else
+        begin
+          ItemIndex := 0;
+          (Self.FindComponent('CheckBoxUseElev' + IntToStr((Sender as TComboBox).Tag)) as TCheckBox).Enabled := False;
+        end;
         Enabled := True;
       end;
       //sort out units

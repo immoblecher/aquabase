@@ -66,8 +66,10 @@ type
     FontDialog1: TFontDialog;
     GeologyButton: TToolButton;
     HelpSpeedButton: TToolButton;
+    MenuItem10: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem7: TMenuItem;
+    MenuItem8: TMenuItem;
     MenuItemDWSAudited: TMenuItem;
     MenuItemSYNOP: TMenuItem;
     MenuItemWeatherSA: TMenuItem;
@@ -400,8 +402,9 @@ type
     ZSQLProcessorSpatial: TZSQLProcessor;
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure MenuChemistryReportClick(Sender: TObject);
+    procedure MenuItem10Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
-    procedure MenuItemDWSAuditedClick(Sender: TObject);
+    procedure MenuItem8Click(Sender: TObject);
     procedure MenuItemSYNOPClick(Sender: TObject);
     procedure MenuItemWeatherSAClick(Sender: TObject);
     procedure MenuItemFlagClick(Sender: TObject);
@@ -927,6 +930,20 @@ begin
     Show;
 end;
 
+procedure TMainForm.MenuItem10Click(Sender: TObject);
+begin
+  {$IFDEF WINDOWS}
+  if VerDiff > 3 then
+    MessageDlg(VersionMessage, mtError,[mbOK], 0)
+  else
+  {$ENDIF}
+  with TFormDWSAudited.Create(Application) do
+  begin
+    SingleSite := True;
+    ShowModal;
+  end;
+end;
+
 procedure TMainForm.MenuItem3Click(Sender: TObject);
 begin
   {$IFDEF WINDOWS}
@@ -942,7 +959,7 @@ begin
   end;
 end;
 
-procedure TMainForm.MenuItemDWSAuditedClick(Sender: TObject);
+procedure TMainForm.MenuItem8Click(Sender: TObject);
 begin
   {$IFDEF WINDOWS}
   if VerDiff > 3 then
@@ -950,7 +967,10 @@ begin
   else
   {$ENDIF}
   with TFormDWSAudited.Create(Application) do
+  begin
+    SingleSite := False;
     ShowModal;
+  end;
 end;
 
 procedure TMainForm.MenuItemSYNOPClick(Sender: TObject);
@@ -1702,6 +1722,7 @@ var
   AVer: ShortString;
   {$ENDIF}
   FileVerInfo: TFileVersionInfo;
+  plugin_ver, old_plugin_ver: Real;
 begin
   Height := 70;
   Constraints.MaxWidth := Screen.Width;
@@ -1728,9 +1749,49 @@ begin
   Application.OnIdle := @AppIdle;
   //check for the QGIS plugin
   {$IFDEF WINDOWS}
+  if DirectoryExists(ProgramDir + '\plugins\QGIS\Aquabase') and DirectoryExists(GetUserDir + '\Application Data\QGIS\QGIS3') then //plugin and qgis is installed
+  begin
+    if not DirectoryExists(GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase') then
+      CopyDirTree(ProgramDir + '\plugins\QGIS\Aquabase', GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase', [cffOverwriteFile, cffCreateDestDirectory, cffPreserveTime])
+    else //check for newer version
+    begin
+      with TIniFile.Create(GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase\metadata.txt') do
+      begin
+        old_plugin_ver := ReadFloat('general', 'version', 0);
+        Free;
+      end;
+      with TIniFile.Create(ProgramDir + '\plugins\QGIS\Aquabase\metadata.txt') do
+      begin
+        plugin_ver := ReadFloat('general', 'version', 0);
+        Free;
+      end;
+      if plugin_ver > old_plugin_ver then //there is a newer version, so copy again
+        CopyDirTree(ProgramDir + '\plugins\QGIS\Aquabase', GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase', [cffOverwriteFile, cffPreserveTime])
+    end;
+  end;
   MenuItemQGIS.Visible := DirectoryExists(GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase');
   {$ENDIF}
   {$IFDEF LINUX}
+  if DirectoryExists('/usr/share/aquabase/plugins/QGIS/Aquabase') and DirectoryExists(GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins') then //plugin and qgis is installed
+  begin
+    if not DirectoryExists(GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase') then //copy the plugin
+      CopyDirTree('/usr/share/aquabase/plugins/QGIS/Aquabase', GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase', [cffCreateDestDirectory, cffPreserveTime])
+    else //check for newer version
+    begin
+      with TIniFile.Create(GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase/metadata.txt') do
+      begin
+        old_plugin_ver := ReadFloat('general', 'version', 0);
+        Free;
+      end;
+      with TIniFile.Create('/usr/share/aquabase/plugins/QGIS/Aquabase/metadata.txt') do
+      begin
+        plugin_ver := ReadFloat('general', 'version', 0);
+        Free;
+      end;
+      if plugin_ver > old_plugin_ver then //there is a newer version, so copy again
+        CopyDirTree('/usr/share/aquabase/plugins/QGIS/Aquabase', GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase', [cffOverwriteFile, cffPreserveTime])
+    end;
+  end;
   MenuItemQGIS.Visible := DirectoryExists(GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase');
   {$ENDIF}
   DividerQGIS.Visible := MenuItemQGIS.Visible;

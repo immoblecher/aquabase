@@ -900,7 +900,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="MainDataModule"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="1924"/>
         <CursorPos Y="1930"/>
@@ -1897,10 +1896,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="TimeDeptChemReport"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="2"/>
         <TopLine Value="255"/>
-        <CursorPos X="23" Y="264"/>
+        <CursorPos X="26" Y="264"/>
         <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit204>
       <Unit205>
         <Filename Value="repsettingstimechem.pas"/>
@@ -1917,10 +1918,12 @@
         <ComponentName Value="LandscapeReportForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="75"/>
-        <CursorPos X="48" Y="82"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="158"/>
+        <CursorPos X="3" Y="132"/>
         <UsageCount Value="12"/>
+        <Loaded Value="True"/>
       </Unit206>
       <Unit207>
         <Filename Value="repsettingstimewl.pas"/>
@@ -2068,7 +2071,7 @@
         <UsageCount Value="10"/>
       </Unit222>
     </Units>
-    <JumpHistory Count="5" HistoryIndex="4">
+    <JumpHistory Count="6" HistoryIndex="5">
       <Position1>
         <Filename Value="Main.pas"/>
         <Caret Line="40" Column="45" TopLine="21"/>
@@ -2089,6 +2092,10 @@
         <Filename Value="Main.pas"/>
         <Caret Line="10" Column="34"/>
       </Position5>
+      <Position6>
+        <Filename Value="timedeptchemreport.pas"/>
+        <Caret Line="264" Column="26" TopLine="255"/>
+      </Position6>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
@@ -2096,7 +2103,7 @@
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="4">
+    <BreakPoints Count="3">
       <Item1>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
@@ -2118,13 +2125,6 @@
         <Source Value="Main.pas"/>
         <Line Value="675"/>
       </Item3>
-      <Item4>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="maindatamodule.pas"/>
-        <Line Value="1930"/>
-      </Item4>
     </BreakPoints>
   </Debugging>
 </CONFIG>

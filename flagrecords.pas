@@ -355,6 +355,7 @@ begin
     Close;
   end;
   UpdateError := False;
+  SynEdit1.SetFocus;
 end;
 
 procedure TFlagForm.ComboBox1Change(Sender: TObject);

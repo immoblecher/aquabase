@@ -4,7 +4,7 @@
     <PathDelim Value="\"/>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="147">
+    <Units Count="151">
       <Unit0>
         <Filename Value="Aquabase_Linux.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -253,7 +253,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="116"/>
-        <CursorPos X="5" Y="128"/>
+        <CursorPos X="54" Y="122"/>
         <UsageCount Value="229"/>
       </Unit23>
       <Unit24>
@@ -473,8 +473,9 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="1723"/>
-        <CursorPos Y="1734"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="1772"/>
+        <CursorPos Y="1792"/>
         <UsageCount Value="229"/>
         <Loaded Value="True"/>
       </Unit43>
@@ -555,8 +556,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="140"/>
-        <CursorPos Y="151"/>
+        <TopLine Value="430"/>
+        <CursorPos X="21" Y="436"/>
         <UsageCount Value="229"/>
       </Unit51>
       <Unit52>
@@ -566,8 +567,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="220"/>
-        <CursorPos X="17" Y="232"/>
+        <TopLine Value="36"/>
+        <CursorPos X="5" Y="47"/>
         <UsageCount Value="229"/>
       </Unit52>
       <Unit53>
@@ -620,7 +621,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="103"/>
-        <CursorPos X="36" Y="108"/>
+        <CursorPos X="48" Y="116"/>
         <UsageCount Value="229"/>
       </Unit57>
       <Unit58>
@@ -693,13 +694,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="MainDataModule"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="1923"/>
-        <CursorPos Y="1935"/>
+        <TopLine Value="1924"/>
+        <CursorPos Y="1928"/>
         <UsageCount Value="229"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit64>
       <Unit65>
         <Filename Value="login.pas"/>
@@ -925,7 +924,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="37" Y="5"/>
+        <TopLine Value="801"/>
+        <CursorPos Y="813"/>
         <UsageCount Value="200"/>
       </Unit85>
       <Unit86>
@@ -1096,8 +1096,8 @@
         <Filename Value="VARINIT.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="37"/>
-        <CursorPos X="21" Y="2"/>
+        <TopLine Value="197"/>
+        <CursorPos X="29" Y="209"/>
         <UsageCount Value="232"/>
       </Unit101>
       <Unit102>
@@ -1128,12 +1128,10 @@
         <ComponentName Value="TimeDeptForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="411"/>
-        <CursorPos Y="433"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="234"/>
+        <CursorPos X="9" Y="256"/>
         <UsageCount Value="232"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit104>
       <Unit105>
         <Filename Value="QUICKSCH.pas"/>
@@ -1306,7 +1304,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="178"/>
-        <CursorPos X="7" Y="190"/>
+        <CursorPos X="25" Y="188"/>
         <UsageCount Value="200"/>
       </Unit120>
       <Unit121>
@@ -1383,7 +1381,7 @@
         <UnitName Value="TimeDeptChemReport"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="407"/>
-        <CursorPos Y="412"/>
+        <CursorPos X="30" Y="414"/>
         <UsageCount Value="200"/>
       </Unit127>
       <Unit128>
@@ -1492,8 +1490,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="249"/>
-        <CursorPos X="40" Y="261"/>
+        <TopLine Value="237"/>
+        <CursorPos X="3" Y="240"/>
         <UsageCount Value="215"/>
       </Unit137>
       <Unit138>
@@ -1526,8 +1524,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="104"/>
-        <CursorPos X="3" Y="116"/>
+        <TopLine Value="151"/>
+        <CursorPos X="41" Y="152"/>
         <UsageCount Value="200"/>
       </Unit140>
       <Unit141>
@@ -1537,7 +1535,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="29" Y="7"/>
-        <UsageCount Value="102"/>
+        <UsageCount Value="99"/>
       </Unit141>
       <Unit142>
         <Filename Value="chartproperties.pas"/>
@@ -1547,21 +1545,21 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="1340"/>
         <CursorPos X="48" Y="1352"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="37"/>
       </Unit142>
       <Unit143>
         <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\rtl\objpas\sysutils\datih.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="140"/>
         <CursorPos X="10" Y="151"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="7"/>
       </Unit143>
       <Unit144>
         <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\zeosdbo\src\component\ZSqlProcessor.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="136"/>
         <CursorPos X="14" Y="146"/>
-        <UsageCount Value="1"/>
+        <UsageCount Value="8"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit144>
       <Unit145>
@@ -1569,7 +1567,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="52"/>
         <CursorPos X="5" Y="52"/>
-        <UsageCount Value="1"/>
+        <UsageCount Value="8"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit145>
       <Unit146>
@@ -1578,103 +1576,164 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="139"/>
-        <CursorPos X="41" Y="145"/>
-        <UsageCount Value="10"/>
+        <TopLine Value="144"/>
+        <CursorPos Y="165"/>
+        <UsageCount Value="7"/>
       </Unit146>
+      <Unit147>
+        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\packages\rtl-objpas\src\inc\strutils.pp"/>
+        <UnitName Value="StrUtils"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="189"/>
+        <CursorPos X="10" Y="200"/>
+        <UsageCount Value="9"/>
+      </Unit147>
+      <Unit148>
+        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\Rx\rxdb\rxdbgrid.pas"/>
+        <UnitName Value="RxDBGrid"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="685"/>
+        <CursorPos X="3" Y="698"/>
+        <UsageCount Value="9"/>
+      </Unit148>
+      <Unit149>
+        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\zeosdbo\src\component\ZDatasetUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1486"/>
+        <CursorPos X="23" Y="1535"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit149>
+      <Unit150>
+        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\packages\fcl-base\src\inifiles.pp"/>
+        <UnitName Value="IniFiles"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="166"/>
+        <CursorPos X="14" Y="177"/>
+        <UsageCount Value="10"/>
+      </Unit150>
     </Units>
-    <JumpHistory Count="23" HistoryIndex="22">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="TIMEDEPT.pas"/>
-        <Caret Line="592" TopLine="561"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="678" Column="7" TopLine="658"/>
       </Position1>
       <Position2>
-        <Filename Value="TIMEDEPT.pas"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="687" Column="83" TopLine="667"/>
       </Position2>
       <Position3>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="35" Column="18" TopLine="28"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="705" Column="56" TopLine="686"/>
       </Position3>
       <Position4>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="2069" Column="107" TopLine="2050"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="711" Column="9" TopLine="692"/>
       </Position4>
       <Position5>
         <Filename Value="Main.pas"/>
-        <Caret Line="7" Column="36"/>
+        <Caret Line="712" Column="85" TopLine="693"/>
       </Position5>
       <Position6>
         <Filename Value="Main.pas"/>
-        <Caret Line="65" Column="16" TopLine="45"/>
+        <Caret Line="714" Column="58" TopLine="695"/>
       </Position6>
       <Position7>
         <Filename Value="Main.pas"/>
-        <Caret Line="90" Column="9" TopLine="71"/>
+        <Caret Line="715" Column="54" TopLine="696"/>
       </Position7>
       <Position8>
         <Filename Value="Main.pas"/>
-        <Caret Line="91" Column="9" TopLine="72"/>
+        <Caret Line="717" Column="23" TopLine="698"/>
       </Position8>
       <Position9>
         <Filename Value="Main.pas"/>
-        <Caret Line="110" Column="22" TopLine="91"/>
+        <Caret Line="724" Column="76" TopLine="705"/>
       </Position9>
       <Position10>
         <Filename Value="Main.pas"/>
-        <Caret Line="146" Column="17" TopLine="127"/>
+        <Caret Line="746" Column="9" TopLine="727"/>
       </Position10>
       <Position11>
         <Filename Value="Main.pas"/>
-        <Caret Line="147" Column="17" TopLine="128"/>
+        <Caret Line="1437" Column="7" TopLine="1417"/>
       </Position11>
       <Position12>
         <Filename Value="Main.pas"/>
-        <Caret Line="148" Column="17" TopLine="129"/>
+        <Caret Line="1442" Column="44" TopLine="1422"/>
       </Position12>
       <Position13>
         <Filename Value="Main.pas"/>
-        <Caret Line="429" Column="32" TopLine="410"/>
+        <Caret Line="1444" Column="9" TopLine="1424"/>
       </Position13>
       <Position14>
         <Filename Value="Main.pas"/>
-        <Caret Line="441" Column="27" TopLine="422"/>
+        <Caret Line="1445" Column="56" TopLine="1425"/>
       </Position14>
       <Position15>
         <Filename Value="Main.pas"/>
-        <Caret Line="444" Column="27" TopLine="425"/>
+        <Caret Line="1446" Column="52" TopLine="1426"/>
       </Position15>
       <Position16>
         <Filename Value="Main.pas"/>
-        <Caret Line="1277" Column="27" TopLine="1258"/>
+        <Caret Line="1449" Column="45" TopLine="1429"/>
       </Position16>
       <Position17>
         <Filename Value="Main.pas"/>
-        <Caret Line="1278" Column="18" TopLine="1259"/>
+        <Caret Line="1452" Column="9" TopLine="1432"/>
       </Position17>
       <Position18>
         <Filename Value="Main.pas"/>
-        <Caret Line="1280" Column="51" TopLine="1261"/>
+        <Caret Line="1720" Column="23" TopLine="1700"/>
       </Position18>
       <Position19>
         <Filename Value="Main.pas"/>
-        <Caret Line="1308" Column="7" TopLine="1289"/>
+        <Caret Line="1721" Column="7" TopLine="1701"/>
       </Position19>
       <Position20>
         <Filename Value="Main.pas"/>
-        <Caret Line="1309" Column="7" TopLine="1290"/>
+        <Caret Line="1732" Column="19" TopLine="1712"/>
       </Position20>
       <Position21>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="2069" Column="101" TopLine="2050"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="1737" Column="9" TopLine="1743"/>
       </Position21>
       <Position22>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="937" Column="3" TopLine="928"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="1760" TopLine="1756"/>
       </Position22>
       <Position23>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="1934" TopLine="1917"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="1762" TopLine="1756"/>
       </Position23>
+      <Position24>
+        <Filename Value="Main.pas"/>
+        <Caret Line="1766" TopLine="1756"/>
+      </Position24>
+      <Position25>
+        <Filename Value="Main.pas"/>
+        <Caret Line="1768" TopLine="1756"/>
+      </Position25>
+      <Position26>
+        <Filename Value="Main.pas"/>
+        <Caret Line="1769" TopLine="1756"/>
+      </Position26>
+      <Position27>
+        <Filename Value="Main.pas"/>
+        <Caret Line="1771" TopLine="1756"/>
+      </Position27>
+      <Position28>
+        <Filename Value="Main.pas"/>
+        <Caret Line="1773" TopLine="1756"/>
+      </Position28>
+      <Position29>
+        <Filename Value="Main.pas"/>
+        <Caret Line="1774" TopLine="1756"/>
+      </Position29>
+      <Position30>
+        <Filename Value="Main.pas"/>
+        <Caret Line="1776" TopLine="1757"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

@@ -1361,7 +1361,7 @@ begin
           Screen.Cursor := crDefault;
           MessageDlg('The new field "ROX" for "Redox" in CHEM_004 table was not found, but will be created now! Please make sure you have database permissions to change tables.', mtInformation, [mbOK], 0);
           try
-            DataModuleMain.ZConnectionDB.ExecuteDirect('ALTER TABLE chem_004 ADD COLUMN ROX DOUBLE');
+            DataModuleMain.ZConnectionDB.ExecuteDirect('ALTER TABLE chem_004 ADD COLUMN ROX DOUBLE DEFAULT ( -1)');
           except on Ex: Exception do
             MessageDlg(Ex.Message + ' - New field not created. Make sure you have database permissions to change tables!', mtError, [mbOK], 0);
           end;
@@ -1925,17 +1925,6 @@ begin
     Connection := ZConnectionDB;
     SQL.Clear;
   end;
-  //check for the QGIS plugin
-  {$IFDEF WINDOWS}
-  if DirectoryExists(ProgramDir + '\plugins\QGIS\Aquabase') and DirectoryExists(GetUserDir + '\Application Data\QGIS\QGIS3')
-    and not DirectoryExists(GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase') then
-      CopyDirTree(ProgramDir + '\plugins\QGIS\Aquabase', GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase', [cffOverwriteFile]);
-  {$ENDIF}
-  {$IFDEF LINUX}
-  if DirectoryExists('/usr/share/aquabase/plugins/QGIS/Aquabase') and DirectoryExists(GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins')
-    and not DirectoryExists(GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase') then
-      CopyDirTree('/usr/share/aquabase/plugins/QGIS/Aquabase', GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase');
-  {$ENDIF}
 end;
 
 procedure TDataModuleMain.ZConnectionSettingsBeforeConnect(Sender: TObject);
