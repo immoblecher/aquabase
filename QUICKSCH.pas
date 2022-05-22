@@ -37,7 +37,7 @@ type
     Label2: TLabel;
     SearchQuery: TZReadOnlyQuery;
     SpeedButton2: TSpeedButton;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     procedure CloseButtonClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -64,7 +64,7 @@ implementation
 
 {$R *.lfm}
 
-uses varinit, MainDataModule;
+uses VARINIT, MainDataModule;
 
 procedure TQuickSearchForm.FormActivate(Sender: TObject);
 begin
@@ -112,8 +112,8 @@ begin
   TheSearchText := ComboBoxSearch.Text;
   if ComboBoxSearch.Items.IndexOf(TheSearchText) = -1 then //it doesn't exist yet
   begin
-    if ComboBoxSearch.Items.Count = 10 then
-      ComboBoxSearch.Items.Delete(9);
+    if ComboBoxSearch.Items.Count = 100 then
+      ComboBoxSearch.Items.Delete(99);
     ComboBoxSearch.Items.Insert(0, TheSearchText);
     ComboBoxSearch.ItemIndex := 0;
   end;
@@ -148,6 +148,8 @@ end;
 
 procedure TQuickSearchForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
+  if not FileExists(WSpaceDir + DirectorySeparator + '.quicksearch.xml') then
+    XMLPropStorage1.FileName := WSpaceDir + DirectorySeparator + '.quicksearch.xml';
   SearchQuery.Close;
   CloseAction := caFree;
 end;
@@ -160,8 +162,8 @@ begin
   TheSearchText := ComboBoxSearch.Text;
   if ComboBoxSearch.Items.IndexOf(TheSearchText) = -1 then
   begin
-    if ComboBoxSearch.Items.Count = 10 then
-      ComboBoxSearch.Items.Delete(9);
+    if ComboBoxSearch.Items.Count = 100 then
+      ComboBoxSearch.Items.Delete(99);
     ComboBoxSearch.Items.Insert(0, TheSearchText);
     ComboBoxSearch.ItemIndex := 0;
   end;
@@ -216,7 +218,10 @@ end;
 
 procedure TQuickSearchForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  if FileExists(WSpaceDir + DirectorySeparator + '.quicksearch.xml') then
+    XMLPropStorage1.FileName := WSpaceDir + DirectorySeparator + '.quicksearch.xml'
+  else
+    XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, True);
   SearchQuery.SQL.Clear;
   case Self.Tag of

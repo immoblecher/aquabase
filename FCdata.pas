@@ -1,12 +1,30 @@
+{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+
+  This source is free software; you can redistribute it and/or modify it under
+  the terms of the GNU General Public License as published by the Free
+  Software Foundation; either version 2 of the License, or (at your option)
+  any later version.
+
+  This code is distributed in the hope that it will be useful, but WITHOUT ANY
+  WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  details.
+
+  A copy of the GNU General Public License is available on the World Wide Web
+  at <http://www.gnu.org/copyleft/gpl.html>. You can also obtain it by writing
+  to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+  MA 02111-1307, USA.
+}
 unit FCdata;
 
-{$MODE Delphi}
+{$mode objfpc}{$H+}
 
 interface
 
 uses
-  SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Buttons, StdCtrls, DB, SdfData, ComCtrls, ButtonPanel, ZDataset;
+  SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, Buttons,
+  StdCtrls, DB, SdfData, ComCtrls, ButtonPanel, EditBtn, DBCtrls, ZDataset,
+  DateUtils;
 
 type
 
@@ -14,54 +32,35 @@ type
 
   TfrmFCdata = class(TForm)
     ButtonPanel1: TButtonPanel;
-    FCDataSetCOMMENTS: TStringField;
-    FCDataSetDATE_MEAS: TStringField;
-    FCDataSetLEVEL_STAT: TStringField;
-    FCDataSetPUMPTIME: TFloatField;
-    FCDataSetPUMP_LEV: TFloatField;
-    FCDataSetREC_LEV: TFloatField;
-    FCDataSetREC_TIME: TFloatField;
-    FCDataSetSITE_ID_NR: TStringField;
-    FCDataSetSTATICWL: TFloatField;
-    FCDataSetTIME_MEAS: TStringField;
-    FCDataSetWATER_LEV: TFloatField;
+    DataSourceWL: TDataSource;
+    FileNameEdit1: TFileNameEdit;
     GroupBox2: TGroupBox;
-    Edit1: TEdit;
-    Button1: TButton;
-    SaveDialog: TSaveDialog;
-    FCDataSet: TSdfDataSet;
-    tblBasicinf: TZTable;
-    tblWLev: TZTable;
-    tblDisch: TZTable;
-    tblAquifer: TZTable;
-    tblPumpt: TZTable;
-    tblRecommend: TZTable;
-    dtsBasic: TDataSource;
+    EndDateComboBox: TComboBox;
+    StartDateComboBox: TComboBox;
     GroupBox1: TGroupBox;
     Label7: TLabel;
-    Label8: TLabel;
     Label9: TLabel;
-    Label10: TLabel;
-    StartDateComboBox: TComboBox;
-    StartTimeComboBox: TComboBox;
-    EndDateComboBox: TComboBox;
-    EndTimeComboBox: TComboBox;
-    Label1: TLabel;
-    Label2: TLabel;
-    cdStatic: TComboBox;
-    Edit2: TEdit;
-    lbTime: TLabel;
-    ProgressBar1: TProgressBar;
-    procedure Button1Click(Sender: TObject);
+    PumpTestQuery: TZReadOnlyQuery;
+    WlQuery: TZReadOnlyQuery;
+    DischQuery: TZReadOnlyQuery;
     procedure CancelButtonClick(Sender: TObject);
+    procedure DischQueryAfterOpen(DataSet: TDataSet);
+    procedure DischQueryBeforeOpen(DataSet: TDataSet);
+    procedure FileNameEdit1ButtonClick(Sender: TObject);
+    procedure FileNameEdit1Change(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure OKButtonClick(Sender: TObject);
-    function OpenTable(pTable:TZTable):Boolean;
-    procedure FormActivate(Sender: TObject);
-    procedure FindStatic;
-    procedure cdStaticChange(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure WlQueryAfterOpen(DataSet: TDataSet);
+    procedure WlQueryBeforeOpen(DataSet: TDataSet);
+    procedure PumpTestQueryAfterOpen(DataSet: TDataSet);
+    procedure PumpTestQueryBeforeOpen(DataSet: TDataSet);
+    procedure StaticWlQueryWATER_LEVGetText(Sender: TField; var aText: string;
+      DisplayText: Boolean);
   private
     { Private declarations }
+    StaticFound: Boolean;
+    csvList: TStringList;
   public
     { Public declarations }
   end;
@@ -71,215 +70,171 @@ var
 
 implementation
 
-uses VARINIT, MainDataModule;
+uses VARINIT, MainDataModule, StrDateTime;
 
 {$R *.lfm}
-
-function TfrmFCData.OpenTable(pTable:TZTable):Boolean;
-begin
-  with pTable do
-  begin
-    Connection := DataModuleMain.ZConnectionDB;
-    Filter := 'SITE_ID_NR = ''' + CurrentSite + '''';
-    Filtered := True;
-    Open;
-    Result := Active;
-  end;
-end;
-
-procedure TfrmFCdata.Button1Click(Sender: TObject);
-begin
-  SaveDialog.Title := 'Save to Excel CSV';
-  SaveDialog.InitialDir := WSpaceDir;
-  if SaveDialog.Execute then
-  begin
-    edit1.Text := SaveDialog.FileName;
-    ButtonPanel1.OKButton.Enabled := Edit1.Text > '';
-    FCDataSet.FileName := Savedialog.FileName;
-  end;
-end;
 
 procedure TfrmFCdata.CancelButtonClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TfrmFCdata.OKButtonClick(Sender: TObject);
-var pQuery : TZQuery;
-    firstrecovery : Boolean;
-    firstrecdate, firstrectime : string;
+procedure TfrmFCdata.DischQueryAfterOpen(DataSet: TDataSet);
 begin
-  pQuery := TZQuery.Create(nil);
-  pQuery.Connection := DataModuleMain.ZConnectionDB;
-  with pQuery do
+  with WlQuery do
   begin
     SQL.Clear;
-    SQL.Add('Select DATE_MEAS, TIME_MEAS, WATER_LEV, LEVEL_STAT from waterlev');
-    SQL.Add('WHERE (DATE_MEAS + TIME_MEAS >= ''' + StartDateComboBox.Text + StartTimeComboBox.Text + '''' + ')');
-    SQL.Add('AND (DATE_MEAS + TIME_MEAS <= ''' + EndDateComboBox.Text + EndTimeComboBox.Text + '''' + ')');
-    SQL.Add('AND SITE_ID_NR = ' + QuotedStr(CurrentSite));
-    SQL.Add('ORDER BY DATE_MEAS, TIME_MEAS');
-  end;
-  pQuery.Open;
-  ProgressBar1.Visible := True;
-  firstrecovery := true;
-  ProgressBar1.Position := 0;
-  ProgressBar1.Max := pQuery.RecordCount;
-  FCDataSet.SaveFileAs(SaveDialog.FileName);
-  FCDataSet.Open;
-  FCDataSet.Insert;
-  FCDataSetSITE_ID_NR.Value := CurrentSite;
-  FCDataSetDATE_MEAS.Value := cdStatic.Text;
-  FCDataSetTIME_MEAS.Value := lbTime.Caption;
-  FCDataSetWATER_LEV.Value := StrToFloat(Edit2.Text);
-  FCDataSet.Post;
-  pQuery.First;
-  while not pQuery.Eof do
-  begin
-    ProgressBar1.Position := ProgressBar1.Position + 1;
-    FCDataSet.Insert;
-    FCDataSetSITE_ID_NR.Value := CurrentSite;
-    FCDataSetDATE_MEAS.Value := pQuery.FieldByName('DATE_MEAS').Value;
-    FCDataSetTIME_MEAS.Value := pQuery.FieldByName('TIME_MEAS').Value;
-    FCDataSetWATER_LEV.AsFloat := pQuery.FieldByName('WATER_LEV').AsFloat;
-    FCDataSetLEVEL_STAT.Value := pQuery.FieldByName('LEVEL_STAT').Value;
-    FCDataSetCOMMENTS.Value := pQuery.FieldByName('COMMENT').Value;
-    if pQuery.FieldByName('LEVEL_STAT').Value = 'S' then
-      FCDataSetSTATICWL.Value := pQuery.FieldByName('WATER_LEV').Value;
-    if pQuery.FieldByName('LEVEL_STAT').Value = 'P' then
+    SQL.Add('SELECT w.DATE_MEAS, w.TIME_MEAS, w.WATER_LEV, w.LEVEL_STAT, w.COMMENT from waterlev w');
+    SQL.Add('WHERE w.SITE_ID_NR = ' + QuotedStr(CurrentSite));
+    if DataModuleMain.ZConnectionDB.Tag = 1 then //SQLite
     begin
-      FCDataSetPUMP_LEV.AsFloat := pQuery.FieldByName('WATER_LEV').AsFloat - StrToFloat(Edit2.Text);
-      if StartDateComboBox.Text <> pQuery.FieldByName('DATE_MEAS').Value then
-      begin
-        if pQuery.FieldByName('DATE_MEAS').AsInteger - StrToInt(StartDateCombobox.Text) = 1 then
-          FCDataSetPUMPTIME.Value := (StrToFloat(pQuery.FieldByName('TIME_MEAS').Value) + 2400) - StrToFloat(StartDateCombobox.Text)
-        else if pQuery.FieldByName('DATE_MEAS').AsInteger - StrToInt(StartDateCombobox.Text) = 2 then
-          FCDataSetPUMPTIME.Value := (StrToFloat(pQuery.FieldByName('TIME_MEAS').Value) + 4800) - StrToFloat(StartDateCombobox.Text)
-        else if pQuery.FieldByName('DATE_MEAS').AsInteger - StrToInt(StartDateCombobox.Text) = 3 then
-          FCDataSetPUMPTIME.Value := (StrToFloat(pQuery.FieldByName('TIME_MEAS').Value) + 7200) - StrToFloat(StartDateCombobox.Text);
-      end
-      else
-        FCDataSetPUMPTIME.Value := StrToFloat(pQuery.FieldByName('TIME_MEAS').Value) - StrToFloat(StartTimeComboBox.Text);
+      SQL.Add('AND w.DATE_MEAS || w.TIME_MEAS >= ' + QuotedStr(StringReplace(StartDateComboBox.Text, ' ', '', [])));
+      SQL.Add('AND w.DATE_MEAS || w.TIME_MEAS <= ' + QuotedStr(StringReplace(EndDateComboBox.Text, ' ', '', [])));
     end
-    else if pQuery.FieldByName('LEVEL_STAT').Value = 'R' then
+    else
     begin
-      if firstrecovery then
-      begin
-        firstrecdate := pQuery.FieldByName('DATE_MEAS').Value;
-        firstrectime := pQuery.FieldByName('TIME_MEAS').Value;
-        firstrecovery := false;
-      end;
-      FCDataSetREC_LEV.Value := pQuery.FieldByName('WATER_LEV').Value - StrToFloat(Edit2.Text);
-      if firstrecdate <> pQuery.FieldByName('DATE_MEAS').Value then
-      begin
-        if pQuery.FieldByName('DATE_MEAS').AsInteger - StrToInt(firstrecdate) = 1 then
-          FCDataSetREC_TIME.Value := (StrToFloat(pQuery.FieldByName('TIME_MEAS').Value) + 2400) - StrToFloat(firstrectime)
-        else if pQuery.FieldByName('DATE_MEAS').AsInteger - StrToInt(firstrecdate) = 2 then
-          FCDataSetREC_TIME.Value := (StrToFloat(pQuery.FieldByName('TIME_MEAS').Value) + 4800) - StrToFloat(firstrectime)
-        else if pQuery.FieldByName('DATE_MEAS').AsInteger - StrToInt(firstrecdate) = 3 then
-          FCDataSetREC_TIME.Value := (StrToFloat(pQuery.FieldByName('TIME_MEAS').Value) + 7200) - StrToFloat(firstrectime);
-      end
-      else
-        FCDataSetREC_TIME.Value := StrToFloat(pQuery.FieldByName('TIME_MEAS').Value) - StrToFloat(firstrectime);
+      SQL.Add('AND CONCAT(w.DATE_MEAS, w.TIME_MEAS) >= ' + QuotedStr(StringReplace(StartDateComboBox.Text, ' ', '', [])));
+      SQL.Add('AND CONCAT(w.DATE_MEAS, w.TIME_MEAS) <= ' + QuotedStr(StringReplace(EndDateComboBox.Text, ' ', '', [])));
     end;
-    FCDataSet.Post;
-    pQuery.Next;
+    SQL.Add('ORDER BY w.DATE_MEAS, w.TIME_MEAS');
+    Open;
   end;
-  pQuery.Close;
-  if MessageDlg('Finished exporting data!', mtInformation, [mbOk], 0) = mrOk then
-    Close;
 end;
 
-procedure TfrmFCdata.FormActivate(Sender: TObject);
-
-var m: integer;
-
+procedure TfrmFCdata.DischQueryBeforeOpen(DataSet: TDataSet);
 begin
-  ReadINIFile;
-  OpenTable(tblBasicinf);
-  OpenTable(tblWLev);
-  OpenTable(tblDisch);
-  OpenTable(tblAquifer);
-  OpenTable(tblPumpt);
-  OpenTable(tblRecommend);
-  if tblPumpT.RecordCount > 0 then
+  DischQuery.Connection := DataModuleMain.ZConnectionDB;
+end;
+
+procedure TfrmFCdata.FileNameEdit1ButtonClick(Sender: TObject);
+begin
+  FileNameEdit1.InitialDir := WSpaceDir;
+end;
+
+procedure TfrmFCdata.FileNameEdit1Change(Sender: TObject);
+begin
+  ButtonPanel1.OKButton.Enabled := FileNameEdit1.Text > '';
+end;
+
+procedure TfrmFCdata.FormCreate(Sender: TObject);
+begin
+  DataModuleMain.SetComponentFontAndSize(Sender, False);
+  PumpTestQuery.Open;
+end;
+
+procedure TfrmFCdata.OKButtonClick(Sender: TObject);
+begin
+  csvList := TStringList.Create;
+  csvList.Add('lvl_stat,t_min,s_m,Q_l_s,comment');
+  with DischQuery do //open first as needed after open of WlQuery
   begin
-    StartDateComboBox.Items.Clear;
-    StartTimeComboBox.Items.Clear;
-    EndDateComboBox.Items.Clear;
-    EndDateComboBox.Items.Clear;
+    SQL.Clear;
+    SQL.Add('SELECT d.DATE_MEAS, d.TIME_MEAS, d.DISCH_RATE from discharg d');
+    SQL.Add('WHERE d.SITE_ID_NR = ' + QuotedStr(CurrentSite));
+    if DataModuleMain.ZConnectionDB.Tag = 1 then //SQLite
+    begin
+      SQL.Add('AND d.DATE_MEAS || d.TIME_MEAS >= ' + QuotedStr(StringReplace(StartDateComboBox.Text, ' ', '', [])));
+      SQL.Add('AND d.DATE_MEAS || d.TIME_MEAS <= ' + QuotedStr(StringReplace(EndDateComboBox.Text, ' ', '', [])));
+    end
+    else
+    begin
+      SQL.Add('AND CONCAT(d.DATE_MEAS, d.TIME_MEAS) >= ' + QuotedStr(StringReplace(StartDateComboBox.Text, ' ', '', [])));
+      SQL.Add('AND CONCAT(d.DATE_MEAS, d.TIME_MEAS) <= ' + QuotedStr(StringReplace(EndDateComboBox.Text, ' ', '', [])));
+    end;
+    SQL.Add('ORDER BY d.DATE_MEAS, d.TIME_MEAS');
+    Open;
   end;
-  for m := 0 to tblPumpT.RecordCount - 1 do
+  csvList.SaveToFile(FileNameEdit1.Text);
+  csvList.Free;
+  if not StaticFound then
+    MessageDlg('Finished exporting data to FC! However, there was no initial static water level and therefore your drawdowns may be incorrect.', mtWarning, [mbOk], 0)
+  else
+    MessageDlg('Finished exporting data to FC!', mtInformation, [mbOk], 0);
+end;
+
+procedure TfrmFCdata.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  CloseAction := caFree;
+end;
+
+procedure TfrmFCdata.WlQueryAfterOpen(DataSet: TDataSet);
+var
+  StaticWl, DischRate: Double;
+  StartDateTime, TheDateTime: TDateTime;
+begin
+  StaticWl := 0;
+  DischRate := 0;
+  while not DataSet.EOF do
+  with DataSet do
   begin
-    if StartDateComboBox.Items.IndexOf(tblPumpT.FieldByName('DATE_START').Value) = -1
-      then StartDateComboBox.Items.Add(tblPumpT.FieldByName('DATE_START').Value);
-    if StartTimeComboBox.Items.IndexOf(tblPumpT.FieldByName('TIME_START').Value) = -1
-      then StartTimeComboBox.Items.Add(tblPumpT.FieldByName('TIME_START').Value);
-    if EndDateComboBox.Items.IndexOf(tblPumpT.FieldByName('DATE_END').Value) = -1
-      then EndDateComboBox.Items.Add(tblPumpT.FieldByName('DATE_END').Value);
-    if EndTimeComboBox.Items.IndexOf(tblPumpT.FieldByName('TIME_END').Value) = -1
-      then EndTimeComboBox.Items.Add(tblPumpT.FieldByName('TIME_END').Value);
-    tblPumpT.Next;
+    //work out discharge rate
+    if DischQuery.Locate('DATE_MEAS;TIME_MEAS', VarArrayOf([FieldByName('DATE_MEAS').Value, FieldByName('TIME_MEAS').Value]), []) then
+      DischRate := DischQuery.FieldByName('DISCH_RATE').Value;
+    if FieldByName('LEVEL_STAT').Value = 'R' then //recovery, so no discharge rate
+      DischRate := 0;
+    //if static water level then work out starting static, else add string to csv
+    if FieldByName('LEVEL_STAT').Value = 'S' then //determine date/time of and static wl
+    begin
+      StartDateTime := StringToDate(FieldByName('DATE_MEAS').Value) + StringToTime(FieldByName('TIME_MEAS').Value);
+      StaticWl := FieldByName('WATER_LEV').AsFloat;
+      if WlQuery.BOF then StaticFound := True; //only if the first record is static
+    end
+    else
+    begin
+      TheDateTime := StringToDate(FieldByName('DATE_MEAS').Value) + StringToTime(FieldByName('TIME_MEAS').Value);
+      csvList.Add(FieldByName('LEVEL_STAT').AsString + ','
+        + IntToStr(MinutesBetween(TheDateTime, StartDateTime)) + ',' //minutes since start
+        + FloatToStr(FieldByName('WATER_LEV').AsFloat - StaticWl) + ',' //water level minus stating water level = drawdown
+        + FloatToStr(DischRate) + ',' //discharge rate
+        + FieldByName('COMMENT').AsString);
+    end;
+    Next;
+  end;
+  DataSet.Close;
+  DischQuery.Close;
+end;
+
+procedure TfrmFCdata.WlQueryBeforeOpen(DataSet: TDataSet);
+begin
+  WlQuery.Connection := DataModuleMain.ZConnectionDB;
+end;
+
+procedure TfrmFCdata.PumpTestQueryAfterOpen(DataSet: TDataSet);
+begin
+  if DataSet.RecordCount > 0 then
+  while not DataSet.EOF do
+  begin
+    StartDateComboBox.Items.Add(DataSet.FieldByName('DATE_START').Value
+      + ' ' + DataSet.FieldByName('TIME_START').Value);
+    EndDateComboBox.Items.Add(DataSet.FieldByName('DATE_END').Value
+      + ' ' + DataSet.FieldByName('TIME_END').Value);
+    DataSet.Next;
   end;
   if StartDateComboBox.Items.Count > 0 then
   begin
-    StartDateComboBox.Text := StartDateComboBox.Items[0];
-    StartTimeComboBox.Text := StartTimeComboBox.Items[0];
-    EndDateComboBox.Text := EndDateComboBox.Items[0];
-    EndTimeComboBox.Text := EndTimeComboBox.Items[0];
-    FindStatic;
+    StartDateComboBox.ItemIndex := 0;
+    EndDateComboBox.ItemIndex := 0;
   end
   else
-    MessageDlg('Now data found!' ,MTError ,[MbOk],0);
+    MessageDlg('No pumping test data found!', mtError ,[mbOk], 0);
 end;
 
-procedure TfrmFCData.FindStatic;
-
-var m,n: integer;
-
+procedure TfrmFCdata.PumpTestQueryBeforeOpen(DataSet: TDataSet);
 begin
-  n := 0;
-  for m := 0 to tblWLev.RecordCount - 1 do
+  PumpTestQuery.Connection := DataModuleMain.ZConnectionDB;
+  PumpTestQuery.Params[0].Value := CurrentSite;
+end;
+
+procedure TfrmFCdata.StaticWlQueryWATER_LEVGetText(Sender: TField;
+  var aText: string; DisplayText: Boolean);
+begin
+  if not Sender.IsNull then
   begin
-    if tblWLev.FieldByName('LEVEL_STAT').Value = 'S' then
-    begin
-      cdStatic.Items.Add(tblWLev.FieldByName('DATE_MEAS').AsString);
-      if n = 0 then
-      begin
-        Edit2.Text := tblWLev.FieldByName('WATER_LEV').AsString;
-        lbTime.Caption := tblWLev.FieldByName('TIME_MEAS').AsString;
-        n := 1;
-      end;
-    end;    
-    tblWLev.Next;
+    if Abs(Sender.AsFloat * LengthFactor) > 10000 then
+      aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 1)
+    else
+      aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 2);
   end;
-  if cdStatic.Items.Count > 0 then
-    cdStatic.ItemIndex := 0
-  else
-    Edit2.Text := InputBox('Static Water Level',
-    'No static water level available from database, Please enter:','0');
-end;
-procedure TfrmFCdata.cdStaticChange(Sender: TObject);
-
-var m: integer;
-
-begin
-  tblWLev.First;
-  for m := 0 to tblWLev.RecordCount - 1 do
-  begin
-    if (tblWLev.FieldByName('DATE_MEAS').AsString = cdStatic.Text) and
-       (tblWLev.FieldByName('LEVEL_STAT').Value = 'S') then
-    begin
-       edit2.Text := tblWLev.FieldByName('WATER_LEV').AsString;
-       lbTime.Caption := tblWLev.FieldByName('TIME_MEAS').AsString;
-    end;
-    tblWLev.Next;
-  end;
-end;
-
-procedure TfrmFCdata.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  Action := caFree;
 end;
 
 end.

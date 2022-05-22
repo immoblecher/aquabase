@@ -1001,7 +1001,9 @@ object DataModuleMain: TDataModuleMain
     AutoEncodeStrings = True
     Properties.Strings = (
       'AutoEncodeStrings=ON'
+      'controls_cp=CP_UTF8'
     )
+    Connected = True
     BeforeConnect = ZConnectionProjBeforeConnect
     Port = 0
     Protocol = 'sqlite-3'
@@ -1397,5 +1399,14 @@ object DataModuleMain: TDataModuleMain
       FF00FFFFFF00FFFFFF00FFFFFF00286E2D03256929AAFFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00
     }
+  end
+  object SRIDQuery: TZReadOnlyQuery
+    Connection = ZConnectionProj
+    SQL.Strings = (
+      'select code, type from crs_view'
+    )
+    Params = <>
+    Left = 260
+    Top = 361
   end
 end

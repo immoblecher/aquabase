@@ -23,8 +23,8 @@
       <UseVersionInfo Value="True"/>
       <MajorVersionNr Value="2"/>
       <MinorVersionNr Value="4"/>
-      <RevisionNr Value="5"/>
-      <BuildNr Value="394"/>
+      <RevisionNr Value="6"/>
+      <BuildNr Value="395"/>
       <Language Value="0809"/>
       <Attributes pvaPreRelease="True"/>
       <StringTable CompanyName="Lazarus Projects" FileDescription="The Aquabase main executable" LegalCopyright="(c) Copyright 2015 - 2022 Immo Blecher" ProductName="Aquabase Twenty20" ProductVersion="2020"/>
@@ -82,93 +82,96 @@
         </Mode0>
       </Modes>
     </RunParams>
-    <RequiredPackages Count="28">
+    <RequiredPackages Count="29">
       <Item1>
-        <PackageName Value="SynEdit"/>
+        <PackageName Value="PascalTZ"/>
       </Item1>
       <Item2>
-        <PackageName Value="FrameViewer09"/>
+        <PackageName Value="SynEdit"/>
       </Item2>
       <Item3>
-        <PackageName Value="SQLDBLaz"/>
+        <PackageName Value="FrameViewer09"/>
       </Item3>
       <Item4>
-        <PackageName Value="laz_synapse"/>
+        <PackageName Value="SQLDBLaz"/>
       </Item4>
       <Item5>
-        <PackageName Value="lazreport"/>
+        <PackageName Value="laz_synapse"/>
       </Item5>
       <Item6>
-        <PackageName Value="MemDSLaz"/>
+        <PackageName Value="lazreport"/>
       </Item6>
       <Item7>
-        <PackageName Value="mbColorLibLaz"/>
+        <PackageName Value="MemDSLaz"/>
       </Item7>
       <Item8>
-        <PackageName Value="lazMapViewerPkg"/>
+        <PackageName Value="mbColorLibLaz"/>
       </Item8>
       <Item9>
-        <PackageName Value="SDFLaz"/>
+        <PackageName Value="lazMapViewerPkg"/>
       </Item9>
       <Item10>
-        <PackageName Value="TurboPowerIPro"/>
+        <PackageName Value="SDFLaz"/>
       </Item10>
       <Item11>
-        <PackageName Value="dexif_package"/>
+        <PackageName Value="TurboPowerIPro"/>
       </Item11>
       <Item12>
-        <PackageName Value="frce"/>
+        <PackageName Value="dexif_package"/>
       </Item12>
       <Item13>
-        <PackageName Value="rxdbgrid_print"/>
+        <PackageName Value="frce"/>
       </Item13>
       <Item14>
-        <PackageName Value="rxdbgrid_export_spreadsheet"/>
+        <PackageName Value="rxdbgrid_print"/>
       </Item14>
       <Item15>
-        <PackageName Value="rx_sort_zeos"/>
+        <PackageName Value="rxdbgrid_export_spreadsheet"/>
       </Item15>
       <Item16>
-        <PackageName Value="zcore"/>
+        <PackageName Value="rx_sort_zeos"/>
       </Item16>
       <Item17>
-        <PackageName Value="TAChartPrint"/>
+        <PackageName Value="zcore"/>
       </Item17>
       <Item18>
-        <PackageName Value="DateTimeCtrls"/>
+        <PackageName Value="TAChartPrint"/>
       </Item18>
       <Item19>
-        <PackageName Value="rxnew"/>
+        <PackageName Value="DateTimeCtrls"/>
       </Item19>
       <Item20>
-        <PackageName Value="RunTimeTypeInfoControls"/>
+        <PackageName Value="rxnew"/>
       </Item20>
       <Item21>
-        <PackageName Value="DateTimeCtrls"/>
+        <PackageName Value="RunTimeTypeInfoControls"/>
       </Item21>
       <Item22>
-        <PackageName Value="zcomponent"/>
+        <PackageName Value="DateTimeCtrls"/>
       </Item22>
       <Item23>
-        <PackageName Value="lazdbexport"/>
+        <PackageName Value="zcomponent"/>
       </Item23>
       <Item24>
-        <PackageName Value="Printer4Lazarus"/>
+        <PackageName Value="lazdbexport"/>
       </Item24>
       <Item25>
-        <PackageName Value="DBFLaz"/>
+        <PackageName Value="Printer4Lazarus"/>
       </Item25>
       <Item26>
-        <PackageName Value="TAChartLazarusPkg"/>
+        <PackageName Value="DBFLaz"/>
       </Item26>
       <Item27>
-        <PackageName Value="FCL"/>
+        <PackageName Value="TAChartLazarusPkg"/>
       </Item27>
       <Item28>
-        <PackageName Value="LCL"/>
+        <PackageName Value="FCL"/>
       </Item28>
+      <Item29>
+        <PackageName Value="LCL"/>
+      </Item29>
     </RequiredPackages>
-    <Units Count="141">
+    <Units Count="142">
       <Unit0>
         <Filename Value="Aquabase_Linux.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -1155,6 +1158,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit140>
+      <Unit141>
+        <Filename Value="geositelist.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="GeoSiteListForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit141>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

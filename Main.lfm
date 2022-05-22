@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 279
+  Left = 295
   Height = 140
-  Top = 236
+  Top = 243
   Width = 1049
   Caption = 'Aquabase Twenty20'
   ClientHeight = 119
@@ -252,6 +252,7 @@ object MainForm: TMainForm
     end
     object GeologyButton: TToolButton
       Left = 397
+      Hint = 'Open geology'
       Top = 0
       Caption = '&Geology'
       DropdownMenu = DropdownMenuLogs
@@ -273,6 +274,7 @@ object MainForm: TMainForm
     end
     object PreferencesButton: TToolButton
       Left = 558
+      Hint = 'Open preferences'
       Top = 0
       Caption = '&Preferences'
       DropdownMenu = PopupMenu1
@@ -367,6 +369,7 @@ object MainForm: TMainForm
     end
     object AdditionalInfoButton: TToolButton
       Left = 432
+      Hint = 'Open comments'
       Top = 0
       Caption = 'Co&mments'
       DropdownMenu = DropdownMenuAdditional
@@ -546,6 +549,7 @@ object MainForm: TMainForm
             ImageIndex = 43
             object MenuItemGeology: TMenuItem
               Caption = '&Geology'
+              Hint = 'Open geology'
               ImageIndex = 11
               OnClick = MenuItemGeologyClick
             end
@@ -681,6 +685,7 @@ object MainForm: TMainForm
           end
           object MenuItemComments: TMenuItem
             Caption = 'Co&mments'
+            Hint = 'Open comments'
             ImageIndex = 85
             OnClick = MenuItemCommentsClick
           end
@@ -866,14 +871,13 @@ object MainForm: TMainForm
         GroupIndex = 24
         ImageIndex = 30
         Visible = False
-        object PumpingTestData2: TMenuItem
-          Caption = '&Pumping test data'
-          ImageIndex = 14
-          OnClick = PumpingTestData2Click
-        end
         object DatatoFC1: TMenuItem
-          Caption = 'Data to &FC'
+          Caption = 'CSV data for &FC pumping test analysis'
           OnClick = DatatoFC1Click
+        end
+        object MenuItemGeoSiteList: TMenuItem
+          Caption = 'Geosite list file for &NGA exports'
+          OnClick = MenuItemGeoSiteListClick
         end
       end
       object SeparatorImprtExp: TMenuItem
@@ -1069,6 +1073,7 @@ object MainForm: TMainForm
       end
       object MenuItemPreferences: TMenuItem
         Caption = '&Preferences'
+        Hint = 'Open preferences'
         ImageIndex = 19
         OnClick = SystemSettingsClick
       end
@@ -4564,7 +4569,6 @@ object MainForm: TMainForm
   end
   object ZSQLProcessorSpatial: TZSQLProcessor
     Params = <>
-    Connection = DataModuleMain.ZConnectionDB
     DelimiterType = dtSetTerm
     Delimiter = ';'
     CleanupStatements = True

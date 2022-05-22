@@ -67,6 +67,7 @@ type
     GeologyButton: TToolButton;
     HelpSpeedButton: TToolButton;
     MenuItem10: TMenuItem;
+    MenuItemGeoSiteList: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
@@ -312,7 +313,6 @@ type
     LastWSpace2: TMenuItem;
     LastWSpace3: TMenuItem;
     PumpingTestData1: TMenuItem;
-    PumpingTestData2: TMenuItem;
     Database1: TMenuItem;
     MenuItemMaintenance: TMenuItem;
     MenuItemPumpEngine: TMenuItem;
@@ -403,6 +403,7 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure MenuChemistryReportClick(Sender: TObject);
     procedure MenuItem10Click(Sender: TObject);
+    procedure MenuItemGeoSiteListClick(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem8Click(Sender: TObject);
     procedure MenuItemSYNOPClick(Sender: TObject);
@@ -540,7 +541,6 @@ type
     procedure MenuItemOtherDataClick(Sender: TObject);
     procedure MenuItemSearchStatusClick(Sender: TObject);
     procedure OtherCases1Click(Sender: TObject);
-    procedure PumpingTestData2Click(Sender: TObject);
     procedure MenuItemProfilingClick(Sender: TObject);
     procedure BoreholeLog1Click(Sender: TObject);
     function InitWSpace: Boolean;
@@ -620,7 +620,7 @@ uses
   boxsettings, loggerimport, importchem, lithprofilesettings,
   //New 2020
   crsinfo, mapview, graduatedmap, flagrecords, importrain, importSYNOP,
-  importdwsaudited,
+  importdwsaudited, geositelist,
   //Reports
   Manrecset, TRepSet, BasicSet, lookuprepset, repsettingschem, repsettingssurfwatr,
   repsettingstimechem, repsettingstimewl, repsettingstimedis, repsettingstimedepth,
@@ -941,6 +941,19 @@ begin
   begin
     SingleSite := True;
     ShowModal;
+  end;
+end;
+
+procedure TMainForm.MenuItemGeoSiteListClick(Sender: TObject);
+begin
+  {$IFDEF WINDOWS}
+  if VerDiff > 3 then
+    MessageDlg(VersionMessage, mtError,[mbOK], 0)
+  else
+  {$ENDIF}
+  with TGeoSiteListForm.Create(Application) do
+  begin
+    ShowModal
   end;
 end;
 
@@ -1288,6 +1301,7 @@ begin
   MenuItemDWS.Visible := Country = 'South Africa';
   MenuItemOnline.Visible := Country = 'South Africa';
   MenuItemDWSAudited.Visible := Country = 'South Africa';
+  MenuItemGeoSiteList.Visible := Country = 'South Africa';
   SeparatorSQLite.Visible := MenuSQLiteDB.Visible;
   //top menu items
   MenuItemEdit.Visible := WspaceActive;
@@ -2251,11 +2265,6 @@ begin
   end;
 end;
 
-procedure TMainForm.PumpingTestData2Click(Sender: TObject);
-begin
-  ShowMessage('This function has not been implemented back yet.');
-end;
-
 procedure TMainForm.MenuItemProfilingClick(Sender: TObject);
 begin
   with TProfilingForm.Create(Application) do
@@ -2373,6 +2382,7 @@ begin
       {$ENDIF}
       {$IFDEF WINDOWS}
       l := 255;
+      ComputerName := '';
       SetLength(ComputerName, l);
       GetComputerName(PChar(ComputerName), l);
       SetLength(ComputerName, l);

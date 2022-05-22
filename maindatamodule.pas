@@ -127,6 +127,7 @@ type
     ZQueryMap: TZReadOnlyQuery;
     ZQueryMapsheet50: TStringField;
     DBMetadata: TZSQLMetadata;
+    SRIDQuery: TZReadOnlyQuery;
     ZSQLMonitor1: TZSQLMonitor;
     ZSQLProcessorDB: TZSQLProcessor;
     ZSQLProcessorLookup: TZSQLProcessor;
@@ -317,15 +318,32 @@ var
   cmd, OutStr, srcRef, dstRef: String;
   LO: Byte;
   xValue, yValue: Double;
-  gotDMS: Boolean;
+  gotDMS, outDMS, srcSRIDgeogr, dstSRIDgeogr: Boolean;
   ProjProc: TProcess;
   OutStrList: TStringList;
 begin
+  srcSRIDgeogr := False;
+  dstSRIDgeogr := False;
+  //make SRIDs strings
+  srcRef := IntToStr(srcSRID);
+  dstRef := IntToStr(dstSRID);
+  //check if SRIDs are geographic or not
+  with SRIDQuery do
+  begin
+    if Locate('code', srcRef, []) then
+      srcSRIDgeogr := Pos('geographic', Fields[1].AsString) > 0 //is LatLong
+    else
+      srcSRIDgeogr := False;
+    if Locate('code', dstRef, []) then
+      dstSRIDgeogr := Pos('geographic', Fields[1].AsString) > 0 //is LatLong
+    else
+      dstSRIDgeogr := False;
+  end;
   //check if DMS has been sent; this prevents conversions to DMS output when posting data
   gotDMS := Pos('°', fromX) > 0;
-  if srcLatLong or (srcSRID = 4326) then //is lat/long
+  if srcSRIDgeogr then //is lat/long
   begin
-    if ShowDMS and gotDMS then //convert input coords to decimals, because it is lat/long
+    if gotDMS then //convert input coords to decimals, because it is lat/long
     begin
       xValue := DMStoDeg(fromX);
       yValue := DMStoDeg(fromY);
@@ -338,23 +356,15 @@ begin
   end
   else //make floats with length factors
   begin
-    if ShowDMS and gotDMS then //convert input coords to decimals, because it is lat/long
-    begin
-      xValue := DMStoDeg(fromX) / LengthFactor;
-      yValue := DMStoDeg(fromY) / LengthFactor;
-    end
-    else //make floats
-    begin
-      xValue := StrToFloat(fromX) / LengthFactor;
-      yValue := StrToFloat(fromY) / LengthFactor;
-    end;
+    xValue := StrToFloat(fromX) / LengthFactor;
+    yValue := StrToFloat(fromY) / LengthFactor;
   end;
-  if srcSRID = dstSRID then //don't convert
+  if srcSRID = dstSRID then //don't convert, just copy from to
   begin
     Result := True;
-    if dstLatLong then //check for DMS
+    if dstSRIDgeogr then //check for DMS to send back
     begin
-      if ShowDMS and not gotDMS then //show Degrees, minutes, seconds
+      if ShowDMS and not gotDMS then //send Degrees, minutes, seconds
       begin
         if xValue < 0 then toX := DegToDMS(Abs(xValue)) + 'W'
         else toX := DegToDMS(xValue) + 'E';
@@ -376,14 +386,12 @@ begin
   end
   else //convert coordinates
   begin
-    srcRef := IntToStr(srcSRID);
-    dstRef := IntToStr(dstSRID);
     //check if coordinates are worked out from map reference
     if InRange(srcSRID, 1, 7) or
       InRange(dstSRID, 1, 7) then
     begin
       //replace map-referenced SRIDs relevant proper SRID
-      if MapRef < '17' then
+      if Copy(MapRef, 3, 2) < '17' then
         LO := 17 //smallest most western LO
       else
         LO := StrToInt(Copy(MapRef, 3,2));
@@ -421,7 +429,7 @@ begin
       //setup the command to send to cs2cs
       cmd := 'echo ' + FloatToStr(xValue) + ' ' + FloatToStr(yValue) + ' | cs2cs ';
     end;
-    if dstLatLong or (dstSRID = 4326) then //is lat/long
+    if dstSRIDgeogr then //is lat/long, so have 7 decimals after comma
       cmd := cmd + '-f %.7f ';
     cmd := cmd + '+init=EPSG:' + srcRef + ' +init=EPSG:' + dstRef;
     OutStrList := TStringList.Create;
@@ -447,6 +455,7 @@ begin
     begin
       //return the output from cs2cs as two unformatted strings
       OutStr := OutStrList[0]; //it's only one line
+      outDMS := Pos('d', OutStr) > 0; //if inverse the output is in DMS
       if InRange(dstSRID, 1, 7)
         or InRange(dstSRID, 2046, 2055)
         or InRange(dstSRID, 22275, 22293) //all RSA LOs
@@ -457,9 +466,9 @@ begin
         toX := FloatToStrF(xValue, ffFixed, 15, 2);
         toY := FloatToStrF(yValue, ffFixed, 15, 2);
       end
-      else
+      else //do not swap x and y
       begin
-        if dstLatLong or (dstSRID = 4326) then //is lat/long
+        if dstSRIDgeogr then //is lat/long
         begin
           if ShowDMS and not gotDMS then //show Degrees, minutes, seconds
           begin
@@ -479,8 +488,17 @@ begin
         end
         else
         begin
-          xValue := StrToFloat(ExtractWord(1, OutStr, [#9])) * LengthFactor;
-          yValue := StrToFloat(ExtractWord(2, OutStr, [#9, ' '])) * LengthFactor;
+          if outDMS then
+          begin
+            OutStr := StringReplace(OutStr, 'd', '°', [rfReplaceAll]);
+            xValue := DMSToDeg(ExtractWord(1, OutStr, [#9]));
+            yValue := DMSToDeg(ExtractWord(2, OutStr, [#9, ' ']));
+          end
+          else
+          begin
+            xValue := StrToFloat(ExtractWord(1, OutStr, [#9])) * LengthFactor;
+            yValue := StrToFloat(ExtractWord(2, OutStr, [#9, ' '])) * LengthFactor;
+          end;
           toX := FloatToStrF(xValue, ffFixed, 15, 2);
           toY := FloatToStrF(yValue, ffFixed, 15, 2);
         end;
@@ -1396,28 +1414,17 @@ begin
     end;
     //check if src and dst SRIDs are geographic
     ZConnectionProj.Connect; //connect to the proj database
-    with CheckQuery do //to determine if src is LatLong
+    SRIDQuery.Open; //to check SRIDS when converting coordinates
+    with SRIDQuery do //to determine if src is LatLong
     begin
-      Connection := ZConnectionProj; //temporary
-      SQL.Clear;
-      SQL.Add('select code, type from crs_view');
-      SQL.Add('where type like ' + QuotedStr('geographic%'));
-      SQL.Add('and code = ' + QuotedStr(IntToStr(OrigCoordSysNr)));
-      Open;
-      srcLatLong := RecordCount > 0; //found it
-      Close;
-    end;
-    with CheckQuery do //to determine if dst is LatLong
-    begin
-      SQL.Clear;
-      SQL.Add('select code, type from crs_view');
-      SQL.Add('where type like ' + QuotedStr('geographic%'));
-      SQL.Add('and code = ' + QuotedStr(IntToStr(CoordSysNr)));
-      Open;
-      dstLatLong := RecordCount > 0;
-      Close;
-      SQL.Clear;
-      Connection := ZConnectionDB; //reset to default
+      if Locate('code', OrigCoordSysNr, []) then
+        srcLatLong := Pos('geographic', Fields[1].AsString) > 0 //is LatLong
+      else
+        srcLatLong := False;
+      if Locate('code', CoordSysNr, []) then
+        dstLatLong := Pos('geographic', Fields[1].AsString) > 0 //is LatLong
+      else
+        dstLatLong := False;
     end;
     //check if stored coordinates are LO
     srcLO := InRange(OrigCoordSysNr, 1, 7)
@@ -1442,6 +1449,8 @@ end;
 
 procedure TDataModuleMain.ZConnectionDBAfterDisconnect(Sender: TObject);
 begin
+  SRIDQuery.Close;
+  ZConnectionProj.Disconnect;
   with ZConnectionDB do //reset
   begin
     Database := '';

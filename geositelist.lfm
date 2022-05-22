@@ -1,0 +1,118 @@
+object GeoSiteListForm: TGeoSiteListForm
+  Left = 836
+  Height = 163
+  Top = 196
+  Width = 342
+  BorderStyle = bsDialog
+  Caption = 'Create Geosite List File'
+  ClientHeight = 163
+  ClientWidth = 342
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 38
+    Top = 119
+    Width = 330
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.Enabled = False
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 0
+    DefaultButton = pbCancel
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object FileNameEdit1: TFileNameEdit
+    Left = 6
+    Height = 24
+    Top = 87
+    Width = 330
+    DialogKind = dkSave
+    DialogTitle = 'Save as Geosite List File'
+    DialogOptions = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
+    Filter = 'CSV File (*.csv)|*.CSV;*.csv'
+    FilterIndex = 0
+    DefaultExt = '.csv'
+    HideDirectories = False
+    ButtonWidth = 23
+    NumGlyphs = 1
+    Anchors = [akLeft, akBottom]
+    AutoSize = False
+    MaxLength = 0
+    TabOrder = 1
+    OnButtonClick = FileNameEdit1ButtonClick
+    OnChange = FileNameEdit1Change
+  end
+  object Label1: TLabel
+    Left = 6
+    Height = 11
+    Top = 73
+    Width = 78
+    Anchors = [akLeft, akBottom]
+    Caption = 'Geosite list file:'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 6
+    Height = 11
+    Top = 10
+    Width = 86
+    Caption = 'For sites in view:'
+    ParentColor = False
+  end
+  object ViewComboBox: TComboBox
+    Left = 96
+    Height = 23
+    Top = 5
+    Width = 240
+    AutoSize = False
+    ItemHeight = 0
+    ItemIndex = 0
+    Items.Strings = (
+      '<Updating view list. Please wait...>'
+    )
+    Style = csDropDownList
+    TabOrder = 2
+    Text = '<Updating view list. Please wait...>'
+  end
+  object DataOwnerEdit: TEdit
+    Left = 96
+    Height = 24
+    Hint = 'See Data Owners on NGA'
+    Top = 38
+    Width = 240
+    OnChange = DataOwnerEditChange
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+    TextHint = '<e.g. Dept Water - Western Cape>'
+  end
+  object Label3: TLabel
+    Left = 6
+    Height = 11
+    Top = 46
+    Width = 65
+    Caption = 'Data Owner:'
+    ParentColor = False
+  end
+  object SiteListQuery: TZReadOnlyQuery
+    SortedFields = 'SITE_ID_NR'
+    BeforeOpen = SiteListQueryBeforeOpen
+    SQL.Strings = (
+      ''
+    )
+    Params = <>
+    IndexFieldNames = 'SITE_ID_NR Asc'
+    Left = 178
+    Top = 33
+  end
+end

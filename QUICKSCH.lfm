@@ -224,7 +224,7 @@ object QuickSearchForm: TQuickSearchForm
     ShowHint = True
     ParentShowHint = False
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
     Left = 60
     Top = 22

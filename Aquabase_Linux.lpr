@@ -74,11 +74,12 @@ uses
   chemcharts {TChemChartsForm},
   EditFillColour, uscaledpi, editcolours, help, stiffdiagram, boxwhisker,
   importwms, boxsettings, loggerimport, importchem, lithprofile,
-  lithprofilesettings, surfacewaterreport, repsettingssurfwatr, crsinfo, mapview,
-  graduatedmap, repsettingstimechem, reporttemplatelandscape,
+  lithprofilesettings, surfacewaterreport, repsettingssurfwatr, crsinfo,
+  mapview, graduatedmap, repsettingstimechem, reporttemplatelandscape,
   TimeDeptChemReport, repsettingstimewl, timedeptwlreport, editchartdata,
   addrefline, repsettingstimedepth, repsettingssitemon, sitemonitorreport,
-  repsettingsmeteor, flagrecords, importrain, importSYNOP, importdwsaudited;
+  repsettingsmeteor, flagrecords, importrain, importSYNOP, importdwsaudited,
+  geositelist;
 
 {$R *.res}
 

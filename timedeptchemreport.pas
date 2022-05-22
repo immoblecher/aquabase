@@ -23,7 +23,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, 
-    reporttemplatelandscape, db, RLReport, ZDataset, ZConnection;
+    reporttemplatelandscape, db, RLReport, ZDataset;
 
 type
 

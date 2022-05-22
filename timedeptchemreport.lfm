@@ -9,20 +9,17 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
     AfterPrint = RLReportLandscapeAfterPrint
     BeforePrint = RLReportLandscapeBeforePrint
     inherited RLBandHeader: TRLBand
-      Height = 41
       InsideMargins.LeftMargin = 2
       InsideMargins.TopMargin = 1
       InsideMargins.RightMargin = 2
       InsideMargins.BottomMargin = 1
       inherited RLSystemInfo1: TRLSystemInfo
-        Height = 16
         AutoSize = True
         Borders.Sides = sdCustom
         Borders.Width = 10
         Borders.Style = bsClear
       end
       inherited RLSystemInfoReportTitle: TRLSystemInfo
-        Top = 12
         Width = 38
         AutoSize = True
       end
@@ -34,7 +31,7 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
         inherited RLDBText2: TRLDBText
           Left = 58
           Height = 13
-          Width = 60
+          Width = 73
           DataField = 'SAMPLE_NR'
           Layout = tlTop
         end
@@ -47,9 +44,9 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Layout = tlTop
         end
         inherited RLDBText4: TRLDBText
-          Left = 142
+          Left = 155
           Height = 13
-          Width = 91
+          Width = 78
           Alignment = taRightJustify
           DataField = 'DATE_SAMPL'
           Layout = tlTop
@@ -237,10 +234,10 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Visible = False
         end
         object RLDBText8: TRLDBText[17]
-          Left = 120
+          Left = 134
           Height = 13
           Top = 2
-          Width = 20
+          Width = 18
           Alignment = taCenter
           AutoSize = False
           DataField = 'SAMPL_TYPE'
@@ -933,7 +930,6 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
     end
     inherited HeaderBand1: TRLBand
       Height = 41
-      Top = 80
       GroupIndex = 1
       Options = [boOptimisticPageBreak]
       inherited RLLabelHeader2: TRLLabel
@@ -949,8 +945,9 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
         DataField = 'SITE_ID_NR'
       end
       inherited RLLabelHeader3: TRLLabel
-        Left = 142
-        Width = 91
+        Left = 155
+        Width = 78
+        Alignment = taRightJustify
         Caption = 'Date/Time samp.'
       end
       inherited RLLabel2: TRLLabel

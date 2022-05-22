@@ -304,7 +304,10 @@ begin
                     ErrorLog.Add('Could not transfer field "' + ImportField.FieldName +'" value into "' + ChemTable.TableName + '" table for Ref. Nr. ' + IntToStr(RefNr) + ': ' + E.Message);
                   end;
                 end;
-                AquabaseField.Value := TheValue * TheFactor;
+                if TheValue = -1 then
+                  AquabaseField.Value := TheValue
+                else
+                  AquabaseField.Value := TheValue * TheFactor;
               end
               else
               if (AquabaseField.DataType = ftLargeInt) then //integer fields
@@ -334,7 +337,7 @@ begin
                 end
                 else
                 try
-                  TheInt := ImportField.Value;
+                  TheInt := ImportField.AsLargeInt;
                   ValueFound := True;
                 except on E: EVariantError do
                   begin
@@ -343,7 +346,10 @@ begin
                     ErrorLog.Add('Could not transfer field "' + ImportField.FieldName +'" value into "' + ChemTable.TableName + '" table for Ref. Nr. ' + IntToStr(RefNr) + ': ' + E.Message);
                   end;
                 end;
-                AquabaseField.AsInteger := Round(TheInt * TheFactor);
+                if TheInt = -1 then
+                  AquabaseField.AsInteger := TheInt
+                else
+                  AquabaseField.AsInteger := Round(TheInt * TheFactor);
               end
               else //character fields, there are none in chem_001 to chem_006
                 AquabaseField.Value := UpperCase(ImportField.Value);
@@ -408,7 +414,7 @@ begin
     Screen.Cursor := crDefault;
     ProgressBoxForm.Close;
     Application.ProcessMessages;
-    MessageDlg('Import of table(s) completed successfully! If there were errors, check out your log file "ChemistryImport.log" for error messages.', mtInformation, [mbOk], 0);
+    MessageDlg('Import of table(s) completed successfully! The first Chemistry Reference Number used was ' + IntToStr(LastRefNr + 1) + '. If there were errors, check out your log file "ChemistryImport.log" for error messages.', mtInformation, [mbOk], 0);
   end;
   if DataModuleMain.ZConnectionDB.Tag = 4 then //reset the autoincement
     DataModuleMain.ZConnectionDB.ExecuteDirect('SELECT setval(''chem_000_chm_ref_nr_seq'', (SELECT MAX(chm_ref_nr) from chem_000));');

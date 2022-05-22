@@ -1,0 +1,9 @@
+{"version":1,"strings":[
+{"hash":153527141,"name":"tgeositelistform.caption","sourcebytes":[67,114,101,97,116,101,32,71,101,111,115,105,116,101,32,76,105,115,116,32,70,105,108,101],"value":"Create Geosite List File"},
+{"hash":147306538,"name":"tgeositelistform.label1.caption","sourcebytes":[71,101,111,115,105,116,101,32,108,105,115,116,32,102,105,108,101,58],"value":"Geosite list file:"},
+{"hash":67562954,"name":"tgeositelistform.label2.caption","sourcebytes":[70,111,114,32,115,105,116,101,115,32,105,110,32,118,105,101,119,58],"value":"For sites in view:"},
+{"hash":149922222,"name":"tgeositelistform.viewcombobox.text","sourcebytes":[60,85,112,100,97,116,105,110,103,32,118,105,101,119,32,108,105,115,116,46,32,80,108,101,97,115,101,32,119,97,105,116,46,46,46,62],"value":"<Updating view list. Please wait...>"},
+{"hash":99206049,"name":"tgeositelistform.dataowneredit.hint","sourcebytes":[83,101,101,32,68,97,116,97,32,79,119,110,101,114,115,32,111,110,32,78,71,65],"value":"See Data Owners on NGA"},
+{"hash":58415214,"name":"tgeositelistform.dataowneredit.texthint","sourcebytes":[60,101,46,103,46,32,68,101,112,116,32,87,97,116,101,114,32,45,32,87,101,115,116,101,114,110,32,67,97,112,101,62],"value":"<e.g. Dept Water - Western Cape>"},
+{"hash":86558314,"name":"tgeositelistform.label3.caption","sourcebytes":[68,97,116,97,32,79,119,110,101,114,58],"value":"Data Owner:"}
+]}
