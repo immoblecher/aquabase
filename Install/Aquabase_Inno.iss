@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Aquabase 2020"
-#define MyAppVersion "8.4.2.391"
+#define MyAppVersion "8.4.5.394"
 #define MyAppPublisher "Lazarus Projects"
 #define MyAppURL "https://aquabase.blecher.co.za/wp"
 #define MyAppExeName "Aquabase.exe"
@@ -69,30 +69,31 @@ Source: "C:\Users\Immo\Documents\Aquabase_x86_64\map*.*"; DestDir: "{app}\defaul
 Source: "C:\Users\Immo\Documents\Aquabase_x86_64\defaults\*"; DestDir: "{app}\defaults"; Flags: ignoreversion onlyifdoesntexist
 Source: "C:\Users\Immo\Documents\Aquabase_x86_64\proj\*"; DestDir: "{app}\proj"; Flags: ignoreversion onlyifdoesntexist
 Source: "C:\Users\Immo\Documents\Aquabase_x86_64\Templates\*"; DestDir: "{app}\Templates"; Flags: ignoreversion onlyifdoesntexist
-Source: "C:\Users\Immo\Documents\Aquabase_x86_64\BitMaps\*"; DestDir: "{app}\Bitmaps"; Flags: ignoreversion recursesubdirs createallsubdirs onlyifdoesntexist
+Source: "C:\Users\Immo\Documents\Aquabase_x86_64\BitMaps\*"; DestDir: "{app}\Bitmaps"; Flags: ignoreversion onlyifdoesntexist
 Source: "C:\Users\Immo\Documents\Aquabase_x86_64\Databases\*"; DestDir: "{app}\Databases"; Flags: ignoreversion recursesubdirs createallsubdirs onlyifdoesntexist
+Source: "C:\Users\Immo\Documents\Aquabase_x86_64\TimeZones\*"; DestDir: "{app}\TimeZones"; Flags: ignoreversion onlyifdoesntexist
 Source: "C:\Users\Immo\Documents\Aquabase_x86_64\Optional\vc_redist.x64.exe"; DestDir: "{app}\Optional"; Flags: ignoreversion onlyifdoesntexist; Check: WizardIsTaskSelected('install_vcredist64'); AfterInstall: MyAfterInstallVCredist64
 Source: "C:\Users\Immo\Documents\Aquabase_x86_64\Optional\vc_redist.x86.exe"; DestDir: "{app}\Optional"; Flags: ignoreversion onlyifdoesntexist; Check: WizardIsTaskSelected('install_vcredist32'); AfterInstall: MyAfterInstallVCredist32
 Source: "C:\Users\Immo\Documents\Aquabase_x86_64\plugins\*"; DestDir: "{app}\plugins\"; Flags: recursesubdirs ignoreversion onlyifdoesntexist; Check: WizardIsTaskSelected('install_qgis_plugin')
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 ;[FontInstall]
-Source: "c:\windows\fonts\liberationmono-regular.ttf"; DestDir: "{fonts}"; FontInstall: "Liberation Mono"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "c:\windows\fonts\liberationmono-bold.ttf"; DestDir: "{fonts}"; FontInstall: "Liberation Mono Bold"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "c:\windows\fonts\liberationmono-boldItalic.ttf"; DestDir: "{fonts}"; FontInstall: "Liberation Mono Bold Italic"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "c:\windows\fonts\liberationmono-italic.ttf"; DestDir: "{fonts}"; FontInstall: "Liberation Mono Italic"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "c:\windows\fonts\liberationsans-regular.ttf"; DestDir: "{fonts}"; FontInstall: "Liberation Sans"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "c:\windows\fonts\liberationsans-bold.ttf"; DestDir: "{fonts}"; FontInstall: "Liberation Sans Bold"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "c:\windows\fonts\liberationsans-boldItalic.ttf"; DestDir: "{fonts}"; FontInstall: "Liberation Sans Bold Italic"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "c:\windows\fonts\liberationsans-italic.ttf"; DestDir: "{fonts}"; FontInstall: "Liberation Sans Italic"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "c:\windows\fonts\liberationsansnarrow-Regular.ttf"; DestDir: "{fonts}"; FontInstall: "Liberation Sans Narrow"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "c:\windows\fonts\liberationsansnarrow-Bold.ttf"; DestDir: "{fonts}"; FontInstall: "Liberation Sans Narrow Bold"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "c:\windows\fonts\liberationsansnarrow-BoldItalic.ttf"; DestDir: "{fonts}"; FontInstall: "Liberation Sans Narrow Bold Italic"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "c:\windows\fonts\liberationsansnarrow-Italic.ttf"; DestDir: "{fonts}"; FontInstall: "Liberation Sans Narrow Italic"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "c:\windows\fonts\liberationserif-regular.ttf"; DestDir: "{fonts}"; FontInstall: "Liberation Serif"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "c:\windows\fonts\liberationserif-bold.ttf"; DestDir: "{fonts}"; FontInstall: "Liberation Serif Bold"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "c:\windows\fonts\liberationserif-boldItalic.ttf"; DestDir: "{fonts}"; FontInstall: "Liberation Serif Bold Italic"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "c:\windows\fonts\liberationserif-italic.ttf"; DestDir: "{fonts}"; FontInstall: "Liberation Serif Italic"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "c:\windows\fonts\liberationmono-regular.ttf"; DestDir: "{commonfonts}"; FontInstall: "Liberation Mono"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "c:\windows\fonts\liberationmono-bold.ttf"; DestDir: "{commonfonts}"; FontInstall: "Liberation Mono Bold"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "c:\windows\fonts\liberationmono-boldItalic.ttf"; DestDir: "{commonfonts}"; FontInstall: "Liberation Mono Bold Italic"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "c:\windows\fonts\liberationmono-italic.ttf"; DestDir: "{commonfonts}"; FontInstall: "Liberation Mono Italic"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "c:\windows\fonts\liberationsans-regular.ttf"; DestDir: "{commonfonts}"; FontInstall: "Liberation Sans"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "c:\windows\fonts\liberationsans-bold.ttf"; DestDir: "{commonfonts}"; FontInstall: "Liberation Sans Bold"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "c:\windows\fonts\liberationsans-boldItalic.ttf"; DestDir: "{commonfonts}"; FontInstall: "Liberation Sans Bold Italic"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "c:\windows\fonts\liberationsans-italic.ttf"; DestDir: "{commonfonts}"; FontInstall: "Liberation Sans Italic"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "c:\windows\fonts\liberationsansnarrow-Regular.ttf"; DestDir: "{commonfonts}"; FontInstall: "Liberation Sans Narrow"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "c:\windows\fonts\liberationsansnarrow-Bold.ttf"; DestDir: "{commonfonts}"; FontInstall: "Liberation Sans Narrow Bold"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "c:\windows\fonts\liberationsansnarrow-BoldItalic.ttf"; DestDir: "{commonfonts}"; FontInstall: "Liberation Sans Narrow Bold Italic"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "c:\windows\fonts\liberationsansnarrow-Italic.ttf"; DestDir: "{commonfonts}"; FontInstall: "Liberation Sans Narrow Italic"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "c:\windows\fonts\liberationserif-regular.ttf"; DestDir: "{commonfonts}"; FontInstall: "Liberation Serif"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "c:\windows\fonts\liberationserif-bold.ttf"; DestDir: "{commonfonts}"; FontInstall: "Liberation Serif Bold"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "c:\windows\fonts\liberationserif-boldItalic.ttf"; DestDir: "{commonfonts}"; FontInstall: "Liberation Serif Bold Italic"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "c:\windows\fonts\liberationserif-italic.ttf"; DestDir: "{commonfonts}"; FontInstall: "Liberation Serif Italic"; Flags: onlyifdoesntexist uninsneveruninstall
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
