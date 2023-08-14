@@ -374,6 +374,7 @@ begin
   else
     MessageDlg('Finished importing ' + ComboBoxDataVar.Text + ' data. The "ngdb_flag" for imported records was set to 77. Please see synop_import.log for failed error messages.', mtInformation, [mbOK], 0);
   ProgressBoxForm.Close;
+  Close;
 end;
 
 procedure TFormSYNOP.FormClose(Sender: TObject; var CloseAction: TCloseAction);

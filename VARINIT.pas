@@ -34,11 +34,11 @@ uses
   function GetFileNameOnDisk(const FileName: TFileName; Directory: String): ShortString;
 
 var
-  AsN, ShowDMS, AutoEditGrid, UseSQLitePW, PrintNoInfo, UseWSpaceRepSet: Boolean;
+  AsN, ShowDMS, AutoEditData, UseSQLitePW, PrintNoInfo, UseWSpaceRepSet: Boolean;
   NewSQLite, BusyNewSQLite, Spatialite, LookForUpdate, SaveSettings, WrongDecimal: Boolean;
   HasSelection, CanCut, CanPaste: Boolean;
   WSpaceDir, ProgramDir, SettingsDir, QGISExe, CoordSysDescr: String;
-  FilterName, Editing, Country, Language: ShortString;
+  FilterName, Editing, Country, Language, Proj_Version: ShortString;
   ChemStandard: Byte;
   CoordSysNr, OrigCoordSysNr: LongWord;
   CurrentSite, LastSiteID, CurrentTraverse, CurrentProject, CurrentRepNr: ShortString;
@@ -66,7 +66,7 @@ const
     MariaDBLib = 'libmariadb' + SharedSuffix;
     PostgreLib = 'libpq' + SharedSuffix;
     MSsqlLib = 'sybdb' + SharedSuffix;
-    VersionMessage = 'This function was not available on older Aquabase builds (your original installation), which were different from this Aquabase installation! You may have to upgrade to a newer version by running the latest Aquabase update or contacting the developers about the "Aquabase Development and Support Programme".';
+    VersionMessage = 'This function was not available on older Aquabase builds (your original installation), which was different from this Aquabase installation! You may have to upgrade to a newer version by running the latest Aquabase update or contacting the developers about the "Aquabase Development and Support Programme".';
   {$ENDIF}
 
   {$IFDEF LINUX}
@@ -86,7 +86,7 @@ const
     MSsqlLib = 'libsybdb' + SharedSuffix; //Sybase and MSSql via FreeTDS
   {$ENDIF}
 
-  SQLiteDBVer = 8;
+  SQLiteDBVer = 10;
   MySQLDBVer = 1.1;
 
   //NGDB_FLAGs constants
@@ -102,6 +102,8 @@ const
 
   //N as NO3, NO2 as N, N a NH4, PO4 as P
   ParamFactor: Array[0..3] of Real = (4.4263724, 0.304466833, 1.28785367, 0.3261);
+
+  LO_Countries: Array of String = ('South Africa', 'Lesotho', 'eSwatini', 'Swaziland', 'Namibia', 'Botswana');
 
 implementation
 

@@ -1,7 +1,7 @@
 object ApplyCoordForm: TApplyCoordForm
-  Left = 905
+  Left = 1101
   Height = 150
-  Top = 378
+  Top = 179
   Width = 306
   HelpContext = 74
   Caption = 'Apply Coordinates'
@@ -12,14 +12,13 @@ object ApplyCoordForm: TApplyCoordForm
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   Position = poScreenCenter
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '2.2.0.4'
   object Label1: TLabel
     Left = 9
-    Height = 11
+    Height = 13
     Top = 9
     Width = 109
     Caption = '&Apply coordinates to:'
-    ParentColor = False
   end
   object ComboBox1: TComboBox
     Left = 9
@@ -40,19 +39,18 @@ object ApplyCoordForm: TApplyCoordForm
   end
   object CoordLabel: TLabel
     Left = 9
-    Height = 10
+    Height = 12
     Top = 56
     Width = 158
     Caption = '&Coordinate System to be applied:'
     Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
-    ParentColor = False
     ParentFont = False
   end
   object ComboBoxCoordSys: TComboBox
     Left = 9
-    Height = 26
+    Height = 27
     Top = 73
     Width = 287
     Anchors = [akTop, akLeft, akRight]
@@ -87,8 +85,8 @@ object ApplyCoordForm: TApplyCoordForm
     ReadOnly = True
     TableName = 'Countries'
     IndexFieldNames = 'C_NAME Asc'
-    left = 160
-    top = 8
+    Left = 160
+    Top = 8
     object CountryTableCOUNTRY_ID: TLargeintField
       DisplayWidth = 10
       FieldKind = fkData
@@ -117,8 +115,8 @@ object ApplyCoordForm: TApplyCoordForm
       'SELECT OGR_FID, SITE_ID_NR, Y_COORD, X_COORD, ALTITUDE, LONGITUDE, LATITUDE, NGDB_FLAG FROM basicinf'
     )
     Params = <>
-    left = 248
-    top = 8
+    Left = 248
+    Top = 8
     object BasicinfQueryOGR_FID: TLargeintField
       FieldKind = fkData
       FieldName = 'OGR_FID'
@@ -146,8 +144,6 @@ object ApplyCoordForm: TApplyCoordForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object BasicinfQueryX_COORD: TFloatField
@@ -158,8 +154,6 @@ object ApplyCoordForm: TApplyCoordForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object BasicinfQueryALTITUDE: TFloatField
@@ -170,8 +164,6 @@ object ApplyCoordForm: TApplyCoordForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object BasicinfQueryLONGITUDE: TFloatField
@@ -182,8 +174,6 @@ object ApplyCoordForm: TApplyCoordForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object BasicinfQueryLATITUDE: TFloatField
@@ -194,8 +184,6 @@ object ApplyCoordForm: TApplyCoordForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object BasicinfQueryNGDB_FLAG: TLargeintField

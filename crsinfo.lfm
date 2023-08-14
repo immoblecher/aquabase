@@ -1,7 +1,7 @@
 object CRSInfoForm: TCRSInfoForm
-  Left = 778
+  Left = 777
   Height = 416
-  Top = 155
+  Top = 324
   Width = 520
   Caption = 'Available Coordinate Reference Systems'
   ClientHeight = 416
@@ -13,7 +13,7 @@ object CRSInfoForm: TCRSInfoForm
   OnCreate = FormCreate
   OnShow = FormShow
   SessionProperties = 'Left;Top;Height;Width'
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '2.2.0.4'
   object Panel1: TPanel
     Left = 0
     Height = 36
@@ -77,23 +77,21 @@ object CRSInfoForm: TCRSInfoForm
     end
     object Label1: TLabel
       Left = 147
-      Height = 11
+      Height = 13
       Top = 10
       Width = 26
       Caption = 'Filter'
-      ParentColor = False
     end
     object Label2: TLabel
       Left = 300
-      Height = 11
+      Height = 13
       Top = 10
       Width = 21
       Caption = 'with'
-      ParentColor = False
     end
     object Edit1: TEdit
       Left = 328
-      Height = 24
+      Height = 25
       Hint = 'Type e.g. a country and press ENTER'
       Top = 4
       Width = 92
@@ -107,7 +105,7 @@ object CRSInfoForm: TCRSInfoForm
   end
   object RxDBGrid1: TRxDBGrid
     Left = 4
-    Height = 358
+    Height = 357
     Top = 40
     Width = 512
     ColumnDefValues.BlobText = '(blob)'
@@ -176,7 +174,7 @@ object CRSInfoForm: TCRSInfoForm
       end    
       item
         MaxSize = 256
-        Title.Alignment = taCenter
+        Title.Alignment = taLeftJustify
         Title.Orientation = toHorizontal
         Title.Caption = 'Area Description'
         Width = 101
@@ -258,28 +256,30 @@ object CRSInfoForm: TCRSInfoForm
     DrawFullLine = False
     FocusColor = clRed
     SelectedColor = clHighlight
-    GridLineStyle = psSolid
     DataSource = DataSource1
     Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgDisableDelete, dgDisableInsert, dgRowHighlight, dgDblClickAutoSize, dgDisplayMemoText]
+    PopupMenu = PopupMenu1
     ReadOnly = True
     Scrollbars = ssAutoBoth
     TabOrder = 1
+    OnCellClick = RxDBGrid1CellClick
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 14
-    Top = 402
+    Height = 15
+    Top = 401
     Width = 520
     Panels = <>
   end
   object DataSource1: TDataSource
     AutoEdit = False
     DataSet = ZReadOnlyQuery1
-    left = 376
-    top = 72
+    Left = 376
+    Top = 72
   end
   object ZReadOnlyQuery1: TZReadOnlyQuery
     Connection = DataModuleMain.ZConnectionProj
+    BeforeOpen = ZReadOnlyQuery1BeforeOpen
     AfterOpen = ZReadOnlyQuery1AfterOpen
     SQL.Strings = (
       'select cast(crs_view.code as integer) as SRID, crs_view.type, crs_view.name as crs, area.name as area_used, area.description from area'
@@ -290,8 +290,8 @@ object CRSInfoForm: TCRSInfoForm
       'order by SRID'
     )
     Params = <>
-    left = 280
-    top = 72
+    Left = 280
+    Top = 72
     object ZReadOnlyQuery1SRID: TLargeintField
       FieldKind = fkData
       FieldName = 'SRID'
@@ -335,6 +335,7 @@ object CRSInfoForm: TCRSInfoForm
       Size = 128
     end
     object ZReadOnlyQuery1description: TWideMemoField
+      DisplayLabel = 'Description'
       DisplayWidth = 128
       FieldKind = fkData
       FieldName = 'description'
@@ -349,7 +350,16 @@ object CRSInfoForm: TCRSInfoForm
   end
   object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    left = 112
-    top = 72
+    Left = 112
+    Top = 72
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 443
+    Top = 167
+    object MenuItem1: TMenuItem
+      Caption = '&Copy cell value'
+      ShortCut = 49219
+      OnClick = MenuItem1Click
+    end
   end
 end

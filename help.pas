@@ -289,10 +289,15 @@ end;
 
 procedure THelpForm.ZConnection1BeforeConnect(Sender: TObject);
 begin
+  with DataModuleMain.ZConnectionCountries do
+  begin
+    Connect;
+    Disconnect;
+  end;
   with ZConnection1 do
   begin
     LibraryLocation := SQLiteLib;
-    Database := ProgramDir + DirectorySeparator + 'en_za.sqlite'
+    Database := ProgramDir + DirectorySeparator + DataModuleMain.CountryDB + '.sqlite'
   end;
 end;
 

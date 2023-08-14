@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <General>
+      <Flags>
+        <CompatibilityMode Value="True"/>
+      </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <MainUnit Value="0"/>
       <AutoCreateForms Value="False"/>
       <Title Value="Aquabase_Linux"/>
       <Scaled Value="True"/>
@@ -21,10 +23,10 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <MajorVersionNr Value="2"/>
-      <MinorVersionNr Value="4"/>
-      <RevisionNr Value="6"/>
-      <BuildNr Value="395"/>
+      <MajorVersionNr Value="8"/>
+      <MinorVersionNr Value="5"/>
+      <RevisionNr Value="2"/>
+      <BuildNr Value="402"/>
       <Language Value="0809"/>
       <Attributes pvaPreRelease="True"/>
       <StringTable CompanyName="Lazarus Projects" FileDescription="The Aquabase main executable" LegalCopyright="(c) Copyright 2015 - 2022 Immo Blecher" ProductName="Aquabase Twenty20" ProductVersion="2020"/>
@@ -82,7 +84,7 @@
         </Mode0>
       </Modes>
     </RunParams>
-    <RequiredPackages Count="29">
+    <RequiredPackages Count="21">
       <Item1>
         <PackageName Value="PascalTZ"/>
       </Item1>
@@ -90,1081 +92,1031 @@
         <PackageName Value="SynEdit"/>
       </Item2>
       <Item3>
-        <PackageName Value="FrameViewer09"/>
+        <PackageName Value="laz_synapse"/>
       </Item3>
       <Item4>
-        <PackageName Value="SQLDBLaz"/>
+        <PackageName Value="lazMapViewerPkg"/>
       </Item4>
       <Item5>
-        <PackageName Value="laz_synapse"/>
+        <PackageName Value="SDFLaz"/>
       </Item5>
       <Item6>
-        <PackageName Value="lazreport"/>
+        <PackageName Value="dexif_package"/>
       </Item6>
       <Item7>
-        <PackageName Value="MemDSLaz"/>
+        <PackageName Value="frce"/>
       </Item7>
       <Item8>
-        <PackageName Value="mbColorLibLaz"/>
+        <PackageName Value="rxdbgrid_print"/>
       </Item8>
       <Item9>
-        <PackageName Value="lazMapViewerPkg"/>
+        <PackageName Value="rxdbgrid_export_spreadsheet"/>
       </Item9>
       <Item10>
-        <PackageName Value="SDFLaz"/>
+        <PackageName Value="rx_sort_zeos"/>
       </Item10>
       <Item11>
-        <PackageName Value="TurboPowerIPro"/>
+        <PackageName Value="zcore"/>
       </Item11>
       <Item12>
-        <PackageName Value="dexif_package"/>
+        <PackageName Value="TAChartPrint"/>
       </Item12>
       <Item13>
-        <PackageName Value="frce"/>
+        <PackageName Value="rxnew"/>
       </Item13>
       <Item14>
-        <PackageName Value="rxdbgrid_print"/>
+        <PackageName Value="DateTimeCtrls"/>
       </Item14>
       <Item15>
-        <PackageName Value="rxdbgrid_export_spreadsheet"/>
+        <PackageName Value="zcomponent"/>
       </Item15>
       <Item16>
-        <PackageName Value="rx_sort_zeos"/>
+        <PackageName Value="lazdbexport"/>
       </Item16>
       <Item17>
-        <PackageName Value="zcore"/>
+        <PackageName Value="Printer4Lazarus"/>
       </Item17>
       <Item18>
-        <PackageName Value="TAChartPrint"/>
+        <PackageName Value="DBFLaz"/>
       </Item18>
       <Item19>
-        <PackageName Value="DateTimeCtrls"/>
+        <PackageName Value="TAChartLazarusPkg"/>
       </Item19>
       <Item20>
-        <PackageName Value="rxnew"/>
+        <PackageName Value="FCL"/>
       </Item20>
       <Item21>
-        <PackageName Value="RunTimeTypeInfoControls"/>
-      </Item21>
-      <Item22>
-        <PackageName Value="DateTimeCtrls"/>
-      </Item22>
-      <Item23>
-        <PackageName Value="zcomponent"/>
-      </Item23>
-      <Item24>
-        <PackageName Value="lazdbexport"/>
-      </Item24>
-      <Item25>
-        <PackageName Value="Printer4Lazarus"/>
-      </Item25>
-      <Item26>
-        <PackageName Value="DBFLaz"/>
-      </Item26>
-      <Item27>
-        <PackageName Value="TAChartLazarusPkg"/>
-      </Item27>
-      <Item28>
-        <PackageName Value="FCL"/>
-      </Item28>
-      <Item29>
         <PackageName Value="LCL"/>
-      </Item29>
+      </Item21>
     </RequiredPackages>
-    <Units Count="142">
+    <Units Count="138">
       <Unit0>
         <Filename Value="Aquabase_Linux.lpr"/>
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="FILTER.PAS"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="FilterForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-      </Unit1>
-      <Unit2>
         <Filename Value="chemchartsettings.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ChemChartSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit2>
-      <Unit3>
+      </Unit1>
+      <Unit2>
         <Filename Value="Sysset.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SysSetDlgForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit3>
-      <Unit4>
+      </Unit2>
+      <Unit3>
         <Filename Value="Instrmnt.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="InstrumentForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit4>
-      <Unit5>
+      </Unit3>
+      <Unit4>
         <Filename Value="MastDetl.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MasterDetailForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit5>
-      <Unit6>
+      </Unit4>
+      <Unit5>
         <Filename Value="Aquifer.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="AquiferForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit6>
-      <Unit7>
+      </Unit5>
+      <Unit6>
         <Filename Value="Comments.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="CommentsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit7>
-      <Unit8>
+      </Unit6>
+      <Unit7>
         <Filename Value="Referenc.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ReferencesForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit8>
-      <Unit9>
+      </Unit7>
+      <Unit8>
         <Filename Value="Discharg.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DischargeForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit9>
-      <Unit10>
+      </Unit8>
+      <Unit9>
         <Filename Value="Expendit.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ExpenditureForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit10>
-      <Unit11>
+      </Unit9>
+      <Unit10>
         <Filename Value="Fldmeas.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FldMeasForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit11>
-      <Unit12>
+      </Unit10>
+      <Unit11>
         <Filename Value="Meteread.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MeterReadingForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit12>
-      <Unit13>
+      </Unit11>
+      <Unit12>
         <Filename Value="Othrhole.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="OtherHoleForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit13>
-      <Unit14>
+      </Unit12>
+      <Unit13>
         <Filename Value="Otherdat.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="OtherDataForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit14>
-      <Unit15>
+      </Unit13>
+      <Unit14>
         <Filename Value="Searchst.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SearchStatusForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit15>
-      <Unit16>
+      </Unit14>
+      <Unit15>
         <Filename Value="Specases.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SpecCasesForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit16>
-      <Unit17>
+      </Unit15>
+      <Unit16>
         <Filename Value="Geology.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="GeologyForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit17>
-      <Unit18>
+      </Unit16>
+      <Unit17>
         <Filename Value="Notepad.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="NotepadForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit18>
-      <Unit19>
+      </Unit17>
+      <Unit18>
         <Filename Value="Calcchem.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="CalcForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit19>
-      <Unit20>
+      </Unit18>
+      <Unit19>
         <Filename Value="Profilng.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ProfilingForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit20>
-      <Unit21>
+      </Unit19>
+      <Unit20>
         <Filename Value="GeollogSetForm.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="GeollogSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit21>
-      <Unit22>
+      </Unit20>
+      <Unit21>
         <Filename Value="Penetrat.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="PenetrationForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit22>
-      <Unit23>
+      </Unit21>
+      <Unit22>
         <Filename Value="Waterlev.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="WaterlevelForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit23>
-      <Unit24>
+      </Unit22>
+      <Unit23>
         <Filename Value="Pumptest.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="PumpTestForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit24>
-      <Unit25>
+      </Unit23>
+      <Unit24>
         <Filename Value="Sitesele.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SiteSelectionForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit25>
-      <Unit26>
+      </Unit24>
+      <Unit25>
         <Filename Value="Nameownr.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="NameOwnerForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit26>
-      <Unit27>
+      </Unit25>
+      <Unit26>
         <Filename Value="Sitevisi.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SiteVisitorForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit27>
-      <Unit28>
+      </Unit26>
+      <Unit27>
         <Filename Value="Otherid.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="OtherIdForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit28>
-      <Unit29>
+      </Unit27>
+      <Unit28>
         <Filename Value="Watersam.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="WaterSampleForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit29>
-      <Unit30>
+      </Unit28>
+      <Unit29>
         <Filename Value="Instdetl.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="AddinstallForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit30>
-      <Unit31>
+      </Unit29>
+      <Unit30>
         <Filename Value="Maintain.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MaintainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit31>
-      <Unit32>
+      </Unit30>
+      <Unit31>
         <Filename Value="Member.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MemberForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit32>
-      <Unit33>
+      </Unit31>
+      <Unit32>
         <Filename Value="Testdetl.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TestDetlForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit33>
-      <Unit34>
+      </Unit32>
+      <Unit33>
         <Filename Value="Recommnd.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="RecommendForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit34>
-      <Unit35>
+      </Unit33>
+      <Unit34>
         <Filename Value="ChemRadial.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ChemRadialForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit35>
-      <Unit36>
+      </Unit34>
+      <Unit35>
         <Filename Value="PieChem.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="PieForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit36>
-      <Unit37>
+      </Unit35>
+      <Unit36>
         <Filename Value="Stagehi.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="StageHiForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit37>
-      <Unit38>
+      </Unit36>
+      <Unit37>
         <Filename Value="chemcharts.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ChemChartsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit38>
-      <Unit39>
+      </Unit37>
+      <Unit38>
         <Filename Value="TabDetl.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TabbedMastDetailForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit39>
-      <Unit40>
+      </Unit38>
+      <Unit39>
         <Filename Value="BHConstr.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="BHConstrForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit40>
-      <Unit41>
+      </Unit39>
+      <Unit40>
         <Filename Value="Stream.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="StreamForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit41>
-      <Unit42>
+      </Unit40>
+      <Unit41>
         <Filename Value="NewWSpace.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="NewWSpaceForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit42>
-      <Unit43>
+      </Unit41>
+      <Unit42>
         <Filename Value="Main.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit43>
-      <Unit44>
+      </Unit42>
+      <Unit43>
         <Filename Value="Chemistry.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ChemistryForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit44>
-      <Unit45>
+      </Unit43>
+      <Unit44>
         <Filename Value="Userchem.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="UserChemistryForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit45>
-      <Unit46>
+      </Unit44>
+      <Unit45>
         <Filename Value="DeptSet.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DepthSetForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit46>
-      <Unit47>
+      </Unit45>
+      <Unit46>
         <Filename Value="Meteor1.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MeteorologyForm1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit47>
-      <Unit48>
+      </Unit46>
+      <Unit47>
         <Filename Value="Meteor2.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MeteorologyForm2"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit48>
-      <Unit49>
+      </Unit47>
+      <Unit48>
         <Filename Value="GWProp.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="GWPropertiesForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit49>
-      <Unit50>
+      </Unit48>
+      <Unit49>
         <Filename Value="Selparameter.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ParamSelectionForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit50>
-      <Unit51>
+      </Unit49>
+      <Unit50>
         <Filename Value="SQLForm.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SQLQueryForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit51>
-      <Unit52>
+      </Unit50>
+      <Unit51>
         <Filename Value="BHProp.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="BhPropertiesForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit52>
-      <Unit53>
+      </Unit51>
+      <Unit52>
         <Filename Value="Geoelectric.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="GeoElectricForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit53>
-      <Unit54>
+      </Unit52>
+      <Unit53>
         <Filename Value="RadioAct.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="RadioActiveForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit54>
-      <Unit55>
+      </Unit53>
+      <Unit54>
         <Filename Value="Magnetic.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MagneticSusForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit55>
-      <Unit56>
+      </Unit54>
+      <Unit55>
         <Filename Value="SearchSites.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SearchSitesForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit56>
-      <Unit57>
+      </Unit55>
+      <Unit56>
         <Filename Value="SiteImages.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SiteImageForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit57>
-      <Unit58>
+      </Unit56>
+      <Unit57>
         <Filename Value="Targets.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TargetsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit58>
-      <Unit59>
+      </Unit57>
+      <Unit58>
         <Filename Value="ExpDewater.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ExpDewaterForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit59>
-      <Unit60>
+      </Unit58>
+      <Unit59>
         <Filename Value="Editform.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="EditLookupForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit60>
-      <Unit61>
-        <Filename Value="ChemSettingAdd.pas"/>
-        <IsPartOfProject Value="True"/>
-        <HasResources Value="True"/>
-      </Unit61>
-      <Unit62>
-        <Filename Value="expAltWtl.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="FormExpAltWtl"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-      </Unit62>
-      <Unit63>
+      </Unit59>
+      <Unit60>
         <Filename Value="provideviewname.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ProvideViewNameForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ProvideViewName"/>
-      </Unit63>
-      <Unit64>
+      </Unit60>
+      <Unit61>
         <Filename Value="maindatamodule.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DataModuleMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="MainDataModule"/>
-      </Unit64>
-      <Unit65>
+      </Unit61>
+      <Unit62>
         <Filename Value="login.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LoginForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit65>
-      <Unit66>
+      </Unit62>
+      <Unit63>
         <Filename Value="proj.pas"/>
         <IsPartOfProject Value="True"/>
-      </Unit66>
-      <Unit67>
+      </Unit63>
+      <Unit64>
         <Filename Value="Splash.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SplashForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit67>
-      <Unit68>
+      </Unit64>
+      <Unit65>
         <Filename Value="selectview.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SelectViewForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="SelectView"/>
-      </Unit68>
-      <Unit69>
+      </Unit65>
+      <Unit66>
         <Filename Value="manviews.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ManageViewsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit69>
-      <Unit70>
+      </Unit66>
+      <Unit67>
         <Filename Value="runsqlscript.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SQLScriptForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit70>
-      <Unit71>
+      </Unit67>
+      <Unit68>
         <Filename Value="quickdthchart.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="QuickDTHChartForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="QuickDTHChart"/>
-      </Unit71>
-      <Unit72>
+      </Unit68>
+      <Unit69>
         <Filename Value="aboutbox.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="AboutBoxForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit72>
-      <Unit73>
+      </Unit69>
+      <Unit70>
         <Filename Value="progressbox.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ProgressBoxForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ProgressBox"/>
-      </Unit73>
-      <Unit74>
+      </Unit70>
+      <Unit71>
         <Filename Value="constrctlogform.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LogForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit74>
-      <Unit75>
+      </Unit71>
+      <Unit72>
         <Filename Value="BasicSet.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="BasicReportSetForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit75>
-      <Unit76>
+      </Unit72>
+      <Unit73>
         <Filename Value="Delsites.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DelSitesDlg"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit76>
-      <Unit77>
+      </Unit73>
+      <Unit74>
         <Filename Value="Manrecset.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ManRecSetForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit77>
-      <Unit78>
+      </Unit74>
+      <Unit75>
         <Filename Value="Appendprog.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="AppendProgForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit78>
-      <Unit79>
+      </Unit75>
+      <Unit76>
         <Filename Value="DbStats.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="dbStatForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit79>
-      <Unit80>
+      </Unit76>
+      <Unit77>
         <Filename Value="writekml.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="WriteKMLForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit80>
-      <Unit81>
+      </Unit77>
+      <Unit78>
         <Filename Value="writemember.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="WriteMemberForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit81>
-      <Unit82>
+      </Unit78>
+      <Unit79>
         <Filename Value="sitestatus.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SiteStatusForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit82>
-      <Unit83>
+      </Unit79>
+      <Unit80>
         <Filename Value="lookuprepset.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LookupRepSetForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="LookupRepSet"/>
-      </Unit83>
-      <Unit84>
+      </Unit80>
+      <Unit81>
         <Filename Value="lookuprep.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LookupReportForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit84>
-      <Unit85>
+      </Unit81>
+      <Unit82>
         <Filename Value="timechart.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TimeChartForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit85>
-      <Unit86>
+      </Unit82>
+      <Unit83>
         <Filename Value="definitiondescr.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DescrForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit86>
-      <Unit87>
+      </Unit83>
+      <Unit84>
         <Filename Value="selectdef.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SelectDefForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit87>
-      <Unit88>
+      </Unit84>
+      <Unit85>
         <Filename Value="selectsiteid.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormSelSiteID"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="selectSiteID"/>
-      </Unit88>
-      <Unit89>
-        <Filename Value="reportdatamodule.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="RepDataModule"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="DataModule"/>
-      </Unit89>
-      <Unit90>
+      </Unit85>
+      <Unit86>
         <Filename Value="repsettings.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ReportSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Repsettings"/>
-      </Unit90>
-      <Unit91>
+      </Unit86>
+      <Unit87>
         <Filename Value="repsettingschem.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ChemReportSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit91>
-      <Unit92>
+      </Unit87>
+      <Unit88>
         <Filename Value="selectsamples.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SelectSamplesForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit92>
-      <Unit93>
+      </Unit88>
+      <Unit89>
         <Filename Value="reporttemplate.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ReportTemplateForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit93>
-      <Unit94>
+      </Unit89>
+      <Unit90>
         <Filename Value="chemreport.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ChemReportForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit94>
-      <Unit95>
+      </Unit90>
+      <Unit91>
         <Filename Value="reportdocuments.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ReportDocsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit95>
-      <Unit96>
+      </Unit91>
+      <Unit92>
         <Filename Value="sitelinkedreports.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SiteReportDetailForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit96>
-      <Unit97>
-        <Filename Value="testform.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="TestMastDetlForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-      </Unit97>
-      <Unit98>
+      </Unit92>
+      <Unit93>
         <Filename Value="hydreservoir.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="HydResForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit98>
-      <Unit99>
+      </Unit93>
+      <Unit94>
         <Filename Value="holefinish.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="HoleConstForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit99>
-      <Unit100>
+      </Unit94>
+      <Unit95>
         <Filename Value="PMPIMPRT.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="PmpimprtForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit100>
-      <Unit101>
+      </Unit95>
+      <Unit96>
         <Filename Value="VARINIT.pas"/>
         <IsPartOfProject Value="True"/>
-      </Unit101>
-      <Unit102>
+      </Unit96>
+      <Unit97>
         <Filename Value="SQLSEACH.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SQLSearchForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit102>
-      <Unit103>
+      </Unit97>
+      <Unit98>
         <Filename Value="NEWSITE.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="NewSiteForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit103>
-      <Unit104>
+      </Unit98>
+      <Unit99>
         <Filename Value="TIMEDEPT.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TimeDeptForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit104>
-      <Unit105>
+      </Unit99>
+      <Unit100>
         <Filename Value="QUICKSCH.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="QuickSearchForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit105>
-      <Unit106>
+      </Unit100>
+      <Unit101>
         <Filename Value="SELSITES.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SelectSitesDlg"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit106>
-      <Unit107>
+      </Unit101>
+      <Unit102>
         <Filename Value="INSTALLA.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="InstallForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit107>
-      <Unit108>
+      </Unit102>
+      <Unit103>
         <Filename Value="LOOKUP.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LookupForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit108>
-      <Unit109>
+      </Unit103>
+      <Unit104>
         <Filename Value="PROJ_MAN.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ProjManForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit109>
-      <Unit110>
+      </Unit104>
+      <Unit105>
         <Filename Value="help.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="HelpForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit110>
-      <Unit111>
+      </Unit105>
+      <Unit106>
         <Filename Value="stiffdiagram.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="StiffForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit111>
-      <Unit112>
+      </Unit106>
+      <Unit107>
         <Filename Value="boxwhisker.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="BoxWhiskerForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit112>
-      <Unit113>
+      </Unit107>
+      <Unit108>
         <Filename Value="importwms.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ImportWMSForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit113>
-      <Unit114>
+      </Unit108>
+      <Unit109>
         <Filename Value="basicinf.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="BasicinfForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit114>
-      <Unit115>
+      </Unit109>
+      <Unit110>
         <Filename Value="boxsettings.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="BoxSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit115>
-      <Unit116>
+      </Unit110>
+      <Unit111>
         <Filename Value="loggerimport.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LoggerImportForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit116>
-      <Unit117>
+      </Unit111>
+      <Unit112>
         <Filename Value="importchem.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ImportChemForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit117>
-      <Unit118>
+      </Unit112>
+      <Unit113>
         <Filename Value="lithprofile.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LithProfileForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit118>
-      <Unit119>
+      </Unit113>
+      <Unit114>
         <Filename Value="lithprofilesettings.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LithProfileSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit119>
-      <Unit120>
+      </Unit114>
+      <Unit115>
         <Filename Value="meteorologyreport.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MeteorologyReportForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit120>
-      <Unit121>
+      </Unit115>
+      <Unit116>
         <Filename Value="repsettingssurfwatr.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SurfWatrRepSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit121>
-      <Unit122>
+      </Unit116>
+      <Unit117>
         <Filename Value="crsinfo.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="CRSInfoForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit122>
-      <Unit123>
+      </Unit117>
+      <Unit118>
         <Filename Value="mapview.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MapViewForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit123>
-      <Unit124>
+      </Unit118>
+      <Unit119>
         <Filename Value="graduatedmap.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormGraduatedPnts"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit124>
-      <Unit125>
+      </Unit119>
+      <Unit120>
         <Filename Value="repsettingstimechem.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TimeChemReportSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit125>
-      <Unit126>
+      </Unit120>
+      <Unit121>
         <Filename Value="reporttemplateportrait.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="PortraitReportForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit126>
-      <Unit127>
+      </Unit121>
+      <Unit122>
         <Filename Value="timedeptchemreport.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LandscapeReportFormChem"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="TimeDeptChemReport"/>
-      </Unit127>
-      <Unit128>
+      </Unit122>
+      <Unit123>
         <Filename Value="repsettingstimedis.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TimeDisReportSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit128>
-      <Unit129>
+      </Unit123>
+      <Unit124>
         <Filename Value="timedeptdisreport.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="PortraitReportFormDis"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit129>
-      <Unit130>
+      </Unit124>
+      <Unit125>
         <Filename Value="editchartdata.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="EditChartDataForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit130>
-      <Unit131>
+      </Unit125>
+      <Unit126>
         <Filename Value="Filter.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FilterForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit131>
-      <Unit132>
+      </Unit126>
+      <Unit127>
         <Filename Value="addtrendline.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="AddTrendLineForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit132>
-      <Unit133>
+      </Unit127>
+      <Unit128>
         <Filename Value="repsettingstimedepth.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DepthReportSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit133>
-      <Unit134>
+      </Unit128>
+      <Unit129>
         <Filename Value="repsettingssitemon.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SiteMonRepSetForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit134>
-      <Unit135>
+      </Unit129>
+      <Unit130>
         <Filename Value="sitemonitorreport.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SiteMonitoringReportForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit135>
-      <Unit136>
+      </Unit130>
+      <Unit131>
         <Filename Value="repsettingsmeteor.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MeteoReportSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit136>
-      <Unit137>
+      </Unit131>
+      <Unit132>
         <Filename Value="flagrecords.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FlagForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit137>
-      <Unit138>
+      </Unit132>
+      <Unit133>
         <Filename Value="importrain.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ImportRainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit138>
-      <Unit139>
+      </Unit133>
+      <Unit134>
         <Filename Value="importsynop.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormSYNOP"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="importSYNOP"/>
-      </Unit139>
-      <Unit140>
+      </Unit134>
+      <Unit135>
         <Filename Value="importdwsaudited.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormDWSAudited"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit140>
-      <Unit141>
+      </Unit135>
+      <Unit136>
         <Filename Value="geositelist.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="GeoSiteListForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit141>
+      </Unit136>
+      <Unit137>
+        <Filename Value="dateoptions.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DateOptionsForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit137>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -1183,8 +1135,8 @@
     </CodeGeneration>
     <Linking>
       <Debugging>
+        <DebugInfoType Value="dsDwarf2"/>
         <UseHeaptrc Value="True"/>
-        <UseValgrind Value="True"/>
       </Debugging>
     </Linking>
     <Other>

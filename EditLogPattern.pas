@@ -62,7 +62,7 @@ procedure TEditLogPatternForm.FormCreate(Sender: TObject);
 begin
   XMLPropStorage.FileName := GetUserDir + '/.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, True);
-  DataSourceLookup.AutoEdit := AutoEditGrid;
+  DataSourceLookup.AutoEdit := AutoEditData;
   DBNavigator1.Images := DataModuleMain.ImageListNavs;
   ZTableLookup.Open;
 end;

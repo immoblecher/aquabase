@@ -18,9 +18,9 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <MajorVersionNr Value="8"/>
-      <MinorVersionNr Value="4"/>
-      <RevisionNr Value="6"/>
-      <BuildNr Value="395"/>
+      <MinorVersionNr Value="5"/>
+      <RevisionNr Value="2"/>
+      <BuildNr Value="402"/>
       <StringTable CompanyName="Lazarus Projects" InternalName="Aquabase" LegalCopyright="Immo Blecher" ProductName="Aquabase Twenty20" ProductVersion="2020"/>
     </VersionInfo>
     <BuildModes>
@@ -40,43 +40,6 @@
             <SmartLinkUnit Value="True"/>
             <TargetCPU Value="x86_64"/>
             <TargetOS Value="win64"/>
-            <Optimizations>
-              <OptimizationLevel Value="3"/>
-            </Optimizations>
-          </CodeGeneration>
-          <Linking>
-            <Debugging>
-              <GenerateDebugInfo Value="False"/>
-            </Debugging>
-            <LinkSmart Value="True"/>
-            <Options>
-              <Win32>
-                <GraphicApplication Value="True"/>
-              </Win32>
-            </Options>
-          </Linking>
-          <Other>
-            <CompilerMessages>
-              <IgnoredMessages idx6058="True" idx3123="True"/>
-            </CompilerMessages>
-          </Other>
-        </CompilerOptions>
-      </Item>
-      <Item Name="Release Win32">
-        <CompilerOptions>
-          <Version Value="11"/>
-          <PathDelim Value="\"/>
-          <Target>
-            <Filename Value="c:\users\immo\Documents\Aquabase_i386\Aquabase"/>
-          </Target>
-          <SearchPaths>
-            <IncludeFiles Value="$(ProjOutDir)"/>
-            <UnitOutputDirectory Value="H:\Development\LazarusProjects\output\Aquabase\windows\$(TargetCPU)-$(TargetOS)"/>
-          </SearchPaths>
-          <CodeGeneration>
-            <SmartLinkUnit Value="True"/>
-            <TargetCPU Value="i386"/>
-            <TargetOS Value="win32"/>
             <Optimizations>
               <OptimizationLevel Value="3"/>
             </Optimizations>
@@ -205,6 +168,7 @@
         <Filename Value="applycoord.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ApplyCoordForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
@@ -212,10 +176,6 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ApplyNewSQLiteForm"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit>
-      <Unit>
-        <Filename Value="Aquabase_TLB.pas"/>
-        <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="Aquifer.pas"/>
@@ -239,6 +199,7 @@
         <Filename Value="BHConstr.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="BHConstrForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
@@ -293,6 +254,7 @@
         <Filename Value="Chemistry.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ChemistryForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
@@ -333,6 +295,7 @@
         <Filename Value="crsinfo.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="CRSInfoForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
@@ -926,6 +889,7 @@
         <Filename Value="repsettings.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ReportSettingsForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Repsettings"/>
       </Unit>
@@ -957,6 +921,7 @@
         <Filename Value="repsettingstimechem.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TimeChemReportSettingsForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
@@ -1144,6 +1109,7 @@
         <Filename Value="TabDetl.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TabbedMastDetailForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
@@ -1201,10 +1167,6 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TestRepSetForm"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit>
-      <Unit>
-        <Filename Value="uscaledpi.pas"/>
-        <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="Userchem.pas"/>
@@ -1279,6 +1241,9 @@
       </Item>
       <Item>
         <Name Value="EFOpenError"/>
+      </Item>
+      <Item>
+        <Name Value="EZSQLException"/>
       </Item>
     </Exceptions>
   </Debugging>

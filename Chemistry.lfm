@@ -2,7 +2,7 @@ object ChemistryForm: TChemistryForm
   Tag = 127
   Left = 712
   Height = 465
-  Top = 209
+  Top = 237
   Width = 576
   Caption = 'Chemistry Parameters'
   ClientHeight = 465

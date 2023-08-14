@@ -10,8 +10,7 @@ uses
   Forms,
   { you can add units after this }
   clocale,
-  controls, FrameViewer09, sdflaz, memdslaz,
-  Filter in 'Filter.pas' {FilterForm},
+  controls, sdflaz,
   chemchartsettings {ChemSettingsForm},
   Sysset in 'Sysset.pas' {SysSetDlgForm},
   Instrmnt in 'Instrmnt.pas' {InstrumentForm},
@@ -72,14 +71,14 @@ uses
   Splash in 'Splash.pas',
   Editform in 'Editform.pas' {EditLookupForm},
   chemcharts {TChemChartsForm},
-  EditFillColour, uscaledpi, editcolours, help, stiffdiagram, boxwhisker,
+  EditFillColour, editcolours, help, stiffdiagram, boxwhisker,
   importwms, boxsettings, loggerimport, importchem, lithprofile,
   lithprofilesettings, surfacewaterreport, repsettingssurfwatr, crsinfo,
   mapview, graduatedmap, repsettingstimechem, reporttemplatelandscape,
   TimeDeptChemReport, repsettingstimewl, timedeptwlreport, editchartdata,
   addrefline, repsettingstimedepth, repsettingssitemon, sitemonitorreport,
   repsettingsmeteor, flagrecords, importrain, importSYNOP, importdwsaudited,
-  geositelist;
+  geositelist, dateoptions;
 
 {$R *.res}
 
@@ -102,7 +101,6 @@ begin
     SplashForm.Free;
   end;
   Screen.Cursor := crDefault;
-  HighDPI(96);
   Application.CreateForm(TMainForm, MainForm);
   Application.Run;
 end.

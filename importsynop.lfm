@@ -1,9 +1,9 @@
 object FormSYNOP: TFormSYNOP
   Left = 646
   Height = 416
-  Top = 212
+  Top = 240
   Width = 630
-  BorderStyle = bsDialog
+  BorderStyle = bsSingle
   Caption = 'Import SYNOP/BUFR Observations'
   ClientHeight = 416
   ClientWidth = 630
@@ -11,11 +11,11 @@ object FormSYNOP: TFormSYNOP
   OnCreate = FormCreate
   Position = poScreenCenter
   SessionProperties = 'CheckBoxDelete.Checked;SpinEdit1.Value'
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '2.0.12.0'
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 34
-    Top = 376
+    Height = 38
+    Top = 372
     Width = 618
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -164,8 +164,8 @@ object FormSYNOP: TFormSYNOP
     Top = 8
     Width = 460
     Caption = 'Search data for current site:'
-    ClientHeight = 86
-    ClientWidth = 456
+    ClientHeight = 91
+    ClientWidth = 458
     TabOrder = 2
     object LabeledEdit1: TLabeledEdit
       Left = 6
@@ -174,9 +174,10 @@ object FormSYNOP: TFormSYNOP
       Top = 24
       Width = 110
       AutoSize = False
-      EditLabel.Height = 14
+      EditLabel.Height = 13
       EditLabel.Width = 110
       EditLabel.Caption = 'Site Nr. (WMO Nr.)'
+      EditLabel.ParentColor = False
       ParentShowHint = False
       ReadOnly = True
       ShowHint = True
@@ -212,17 +213,19 @@ object FormSYNOP: TFormSYNOP
     end
     object Label1: TLabel
       Left = 228
-      Height = 14
+      Height = 13
       Top = 10
-      Width = 57
+      Width = 55
       Caption = 'Start Date:'
+      ParentColor = False
     end
     object Label2: TLabel
       Left = 342
-      Height = 14
+      Height = 13
       Top = 10
-      Width = 53
+      Width = 51
       Caption = 'End Date:'
+      ParentColor = False
     end
     object DateTimePicker2: TDateTimePicker
       Left = 342
@@ -253,12 +256,12 @@ object FormSYNOP: TFormSYNOP
     end
     object ComboBoxDataVar: TComboBox
       Left = 272
-      Height = 22
+      Height = 25
       Top = 56
       Width = 178
       DropDownCount = 5
       Enabled = False
-      ItemHeight = 14
+      ItemHeight = 0
       ItemIndex = 0
       Items.Strings = (
         'Rainfall'
@@ -275,18 +278,19 @@ object FormSYNOP: TFormSYNOP
     end
     object Label4: TLabel
       Left = 192
-      Height = 14
+      Height = 13
       Top = 64
-      Width = 74
+      Width = 76
       Anchors = [akTop, akRight]
       Caption = 'Data Variable:'
+      ParentColor = False
     end
     object ComboBoxScope: TComboBox
       Left = 64
-      Height = 22
+      Height = 25
       Top = 56
       Width = 112
-      ItemHeight = 14
+      ItemHeight = 0
       ItemIndex = 0
       Items.Strings = (
         'Monthly'
@@ -299,17 +303,18 @@ object FormSYNOP: TFormSYNOP
     end
     object Label3: TLabel
       Left = 24
-      Height = 14
+      Height = 13
       Top = 64
-      Width = 37
+      Width = 36
       Caption = 'Scope:'
+      ParentColor = False
     end
     object ComboBoxNumber: TComboBox
       Left = 120
-      Height = 22
+      Height = 25
       Top = 24
       Width = 100
-      ItemHeight = 14
+      ItemHeight = 0
       ItemIndex = 0
       Items.Strings = (
         'Site Number'
@@ -322,10 +327,11 @@ object FormSYNOP: TFormSYNOP
     end
     object Label5: TLabel
       Left = 120
-      Height = 14
+      Height = 13
       Top = 10
-      Width = 91
+      Width = 87
       Caption = 'WMO number in:'
+      ParentColor = False
     end
   end
   object BitBtnRetrieve: TBitBtn
@@ -378,10 +384,10 @@ object FormSYNOP: TFormSYNOP
   end
   object CheckBoxDelete: TCheckBox
     Left = 472
-    Height = 18
+    Height = 23
     Hint = 'If e.g. monthly data has been stored before'
     Top = 52
-    Width = 149
+    Width = 148
     Caption = 'Delete other stored data'
     Checked = True
     ParentShowHint = False
@@ -391,7 +397,7 @@ object FormSYNOP: TFormSYNOP
   end
   object SpinEdit1: TSpinEdit
     Left = 472
-    Height = 22
+    Height = 25
     Hint = 'Day > 28 will store rainfall on last day of the month'
     Top = 24
     Width = 56
@@ -405,31 +411,34 @@ object FormSYNOP: TFormSYNOP
   end
   object Label6: TLabel
     Left = 472
-    Height = 14
+    Height = 13
     Top = 8
-    Width = 73
+    Width = 68
     Caption = 'Store on day:'
+    ParentColor = False
   end
   object Label7: TLabel
     Left = 496
-    Height = 14
+    Height = 13
     Top = 74
-    Width = 76
+    Width = 70
     Caption = 'for this period'
+    ParentColor = False
     WordWrap = True
   end
   object LabelStation: TLabel
     Left = 260
-    Height = 14
+    Height = 13
     Top = 130
-    Width = 175
+    Width = 161
     Caption = '<Station: no data retrieved yet>'
+    ParentColor = False
   end
   object CheckBoxNoReading: TCheckBox
     Left = 472
-    Height = 18
+    Height = 23
     Top = 88
-    Width = 146
+    Width = 145
     Caption = 'Store "no reading" as 0'
     TabOrder = 6
   end
@@ -501,10 +510,11 @@ object FormSYNOP: TFormSYNOP
   end
   object Label8: TLabel
     Left = 472
-    Height = 14
+    Height = 13
     Top = 116
-    Width = 113
+    Width = 112
     Caption = 'Database Time Zone:'
+    ParentColor = False
   end
   object ComboBoxTZ: TComboBox
     Left = 472
@@ -513,7 +523,7 @@ object FormSYNOP: TFormSYNOP
     Top = 130
     Width = 150
     AutoSize = False
-    ItemHeight = 14
+    ItemHeight = 0
     ParentShowHint = False
     ShowHint = True
     Sorted = True

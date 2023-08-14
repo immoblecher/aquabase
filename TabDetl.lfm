@@ -2,7 +2,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
   Tag = 127
   Left = 616
   Height = 397
-  Top = 257
+  Top = 285
   Width = 576
   ActiveControl = CloseBitBtn
   Caption = 'Tabbed Master Detail Form'

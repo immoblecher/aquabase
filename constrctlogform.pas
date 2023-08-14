@@ -129,7 +129,7 @@ type
     { public declarations }
     ShowLithology, ShowHole, ShowCasing, ShowPiezometer, ShowFill, ShowWaterlevel: Boolean;
     ShowWater, AutoInterval, ShowCap, UsePrimFeat, ShowMemo, ShowPiezLabels: Boolean;
-    CumulativeStrikes, ShowStrikes, PiezLabelsAbove: Boolean;
+    CumulativeStrikes, ShowStrikes, PiezLabelsAbove, UseDepthLineStyles: Boolean;
     DefaultColour, OverrideThickn, POverrideThickn, StaggerLabels, LabelUnderLine: Boolean;
     UseDefaultFillColour, ShowLegendFrame, Prep2Pages: Boolean;
     Depth1TableName, Depth2TableName, TopX, TopY, BotX, BotY, WLDate: ShortString;
@@ -142,6 +142,7 @@ type
     TopPenetrOpt, BotPenetrOpt: Byte;
     TheTopFactor, TheBotFactor: Double;
     TheLabelFont: TFont;
+    DepthFromDateTime, DepthToDateTime: TDateTime;
   end;
 
 var
@@ -209,7 +210,7 @@ begin
       if GetDataQuery.FieldByName('DEPTH_TOP').Value > (DepthMax - DepthMax/10) then
         if GetDataQuery.FieldByName('DEPTH_BOT').Value - GetDataQuery.FieldByName('DEPTH_TOP').Value < 5 then
           Inc(NrThinLithBot);
-      GetdataQuery.Next;
+      GetDataQuery.Next;
     end;
     //create the area series
     GetDataQuery.First;
@@ -1088,8 +1089,11 @@ procedure TLogForm.CreateDepthDependentChart;
 var
   TopMax, BottomMax: Real;
   NrSeriesToAddLog, NrSeriesToAddDTH, s: Word;
-  DummySeries: TLineSeries; //actually just a point
+  DummySeries, AddTopSeries, AddBotSeries: TLineSeries;
+  SeriesAdded: Boolean;
+  PrevDateTime: TDateTime;
 begin
+  SeriesAdded := False;
   TopMax := 0;
   BottomMax := 0;
   DTHChart.Legend.Frame.Visible := ShowLegendFrame;
@@ -1115,73 +1119,111 @@ begin
     end;
     GetDataQuery.SQL.Clear;
     if TopY = 'DEPTH' then
+    with GetDataQuery do
     begin
-      GetDataQuery.SQL.Add('SELECT SITE_ID_NR, DEPTH, ' + TopX + ' FROM ' + Depth1TableName);
-      GetDataQuery.SQL.Add('WHERE SITE_ID_NR = ' + QuotedStr(CurrentSite));
-      GetDataQuery.SQL.Add('ORDER BY DEPTH');
-      GetDataQuery.Open;
-      if GetDataQuery.RecordCount > 0 then
+      SQL.Add('SELECT SITE_ID_NR, DATE_MEAS, TIME_MEAS, DEPTH, ' + TopX + ' FROM ' + Depth1TableName);
+      SQL.Add('WHERE SITE_ID_NR = ' + QuotedStr(CurrentSite));
+      if DataModuleMain.ZConnectionDB.Tag = 1 then
       begin
-        while not GetDataQuery.EOF do
+        SQL.Add('AND DATE_MEAS || TIME_MEAS >= ' + QuotedStr(FormatDateTime('YYYYMMDDhhnn', DepthFromDateTime)));
+        SQL.Add('AND DATE_MEAS || TIME_MEAS <= ' + QuotedStr(FormatDateTime('YYYYMMDDhhnn', DepthToDateTime)));
+      end
+      else
+      begin
+        SQL.Add('AND CONCAT(DATE_MEAS, TIME_MEAS) >= ' + QuotedStr(FormatDateTime('YYYYMMDDhhnn', DepthFromDateTime)));
+        SQL.Add('AND CONCAT(DATE_MEAS, TIME_MEAS) <= ' + QuotedStr(FormatDateTime('YYYYMMDDhhnn', DepthToDateTime)));
+      end;
+      SQL.Add('ORDER BY DATE_MEAS, TIME_MEAS, DEPTH');
+      Open;
+      if RecordCount > 0 then
+      begin
+        while not EOF do
         begin
-          TopSeries.AddXY(GetDataQuery.FieldByName(TopX).Value, GetDataQuery.FieldByName('DEPTH').Value);
-          if GetDataQuery.FieldByName(TopX).Value > TopMax then
-            TopMax := GetDataQuery.FieldByName(TopX).Value;
-          GetDataQuery.Next;
+          if SeriesAdded then
+            AddTopSeries.AddXY(FieldByName(TopX).Value, FieldByName('DEPTH').Value)
+          else
+            TopSeries.AddXY(FieldByName(TopX).Value, FieldByName('DEPTH').Value);
+          if FieldByName(TopX).Value > TopMax then
+            TopMax := FieldByName(TopX).Value;
+          PrevDateTime := StringToDate(FieldByName('DATE_MEAS').AsString) + StringToTime(FieldByName('TIME_MEAS').AsString);
+          Next;
+          //check if new series needs to be created --> if new date is at least 1 day apart
+          if (StringToDate(FieldByName('DATE_MEAS').AsString) + StringToTime(FieldByName('TIME_MEAS').AsString)) - PrevDateTime >= 1 then
+          begin
+            AddTopSeries := TLineSeries.Create(DTHChart);
+            with AddTopSeries do
+            begin
+              SeriesColor := TopSeries.SeriesColor;
+              Legend.Visible := False;
+              AxisIndexX := TopSeries.AxisIndexX;
+              AxisIndexY := TopSeries.AxisIndexY;
+            end;
+            DTHChart.AddSeries(AddTopSeries);
+            SeriesAdded := True;
+            if UseDepthLineStyles then
+            begin
+              with AddTopSeries do
+              begin
+                LinePen.Style := TFPPenStyle(Random(5));
+                if LinePen.Style = psClear then LinePen.Style := TFPPenStyle(1);
+              end;
+            end;
+          end;
         end
       end
       else
         MessageDlg('No data for top axis series of depth-dependent chart!', mtError, [mbOK], 0);
-      GetDataQuery.Close;
+      Close;
     end
     else
     if TopY = 'DEPTH_TOP' then
+    with GetDataQuery do
     begin
-      GetDataQuery.SQL.Add('SELECT SITE_ID_NR, DEPTH_TOP, DEPTH_BOT, ' + TopX + ' FROM ' + Depth1TableName);
-      GetDataQuery.SQL.Add('WHERE SITE_ID_NR = ' + QuotedStr(CurrentSite));
-      GetDataQuery.SQL.Add('ORDER BY DEPTH_TOP');
-      GetDataQuery.Open;
-      if GetDataQuery.RecordCount > 0 then
+      SQL.Add('SELECT SITE_ID_NR, DEPTH_TOP, DEPTH_BOT, ' + TopX + ' FROM ' + Depth1TableName);
+      SQL.Add('WHERE SITE_ID_NR = ' + QuotedStr(CurrentSite));
+      SQL.Add('ORDER BY DEPTH_TOP');
+      Open;
+      if RecordCount > 0 then
       begin
         //Add the first zero value
-        TopSeries.AddXY(0, GetDataQuery.FieldByName('DEPTH_TOP').Value);
-        while not GetDataQuery.EOF do
+        TopSeries.AddXY(0, FieldByName('DEPTH_TOP').Value);
+        while not EOF do
         begin
           if Depth1TableName = 'penetrat' then //covert from saved m/min to current units
           begin
             case TopPenetrOpt of
               0: begin
-                  TopSeries.AddXY(60/TimeFactor/(GetDataQuery.FieldByName(TopX).Value * LengthFactor), GetDataQuery.FieldByName('DEPTH_TOP').Value);
-                  TopSeries.AddXY(60/TimeFactor/(GetDataQuery.FieldByName(TopX).Value * LengthFactor), GetDataQuery.FieldByName('DEPTH_BOT').Value);
-                  if 60/TimeFactor/(GetDataQuery.FieldByName(TopX).Value * LengthFactor) > TopMax then
-                    TopMax := 60/TimeFactor/(GetDataQuery.FieldByName(TopX).Value * LengthFactor);
+                  TopSeries.AddXY(60/TimeFactor/(FieldByName(TopX).Value * LengthFactor), FieldByName('DEPTH_TOP').Value);
+                  TopSeries.AddXY(60/TimeFactor/(FieldByName(TopX).Value * LengthFactor), FieldByName('DEPTH_BOT').Value);
+                  if 60/TimeFactor/(FieldByName(TopX).Value * LengthFactor) > TopMax then
+                    TopMax := 60/TimeFactor/(FieldByName(TopX).Value * LengthFactor);
                  end;
               1: begin
-                  TopSeries.AddXY(1/(GetDataQuery.FieldByName(TopX).Value * LengthFactor), GetDataQuery.FieldByName('DEPTH_TOP').Value);
-                  TopSeries.AddXY(1/(GetDataQuery.FieldByName(TopX).Value * LengthFactor), GetDataQuery.FieldByName('DEPTH_BOT').Value);
-                  if 1/(GetDataQuery.FieldByName(TopX).Value * LengthFactor) > TopMax then
-                    TopMax := 1/(GetDataQuery.FieldByName(TopX).Value * LengthFactor);
+                  TopSeries.AddXY(1/(FieldByName(TopX).Value * LengthFactor), FieldByName('DEPTH_TOP').Value);
+                  TopSeries.AddXY(1/(FieldByName(TopX).Value * LengthFactor), FieldByName('DEPTH_BOT').Value);
+                  if 1/(FieldByName(TopX).Value * LengthFactor) > TopMax then
+                    TopMax := 1/(FieldByName(TopX).Value * LengthFactor);
                  end;
               2: begin
-                  TopSeries.AddXY(GetDataQuery.FieldByName(TopX).Value * LengthFactor, GetDataQuery.FieldByName('DEPTH_TOP').Value);
-                  TopSeries.AddXY(GetDataQuery.FieldByName(TopX).Value * LengthFactor, GetDataQuery.FieldByName('DEPTH_BOT').Value);
-                  if GetDataQuery.FieldByName(TopX).Value * LengthFactor > TopMax then
-                    TopMax := GetDataQuery.FieldByName(TopX).Value * LengthFactor;
+                  TopSeries.AddXY(FieldByName(TopX).Value * LengthFactor, FieldByName('DEPTH_TOP').Value);
+                  TopSeries.AddXY(FieldByName(TopX).Value * LengthFactor, FieldByName('DEPTH_BOT').Value);
+                  if FieldByName(TopX).Value * LengthFactor > TopMax then
+                    TopMax := FieldByName(TopX).Value * LengthFactor;
                  end;
             end; //of case
           end
           else
           begin
-            TopSeries.AddXY(GetDataQuery.FieldByName(TopX).Value * TheTopFactor, GetDataQuery.FieldByName('DEPTH_TOP').Value);
-            TopSeries.AddXY(GetDataQuery.FieldByName(TopX).Value * TheTopFactor, GetDataQuery.FieldByName('DEPTH_BOT').Value);
-            if GetDataQuery.FieldByName(TopX).Value * TheTopFactor > TopMax then
-              TopMax := GetDataQuery.FieldByName(TopX).Value * TheTopFactor;
+            TopSeries.AddXY(FieldByName(TopX).Value * TheTopFactor, FieldByName('DEPTH_TOP').Value);
+            TopSeries.AddXY(FieldByName(TopX).Value * TheTopFactor, FieldByName('DEPTH_BOT').Value);
+            if FieldByName(TopX).Value * TheTopFactor > TopMax then
+              TopMax := FieldByName(TopX).Value * TheTopFactor;
           end;
-          GetDataQuery.Next;
+          Next;
         end;
       end
       else
-        MessageDlg('There is no data for top axis series of depth-dependent chart!', mtError, [mbOK], 0);
+        MessageDlg('There is no data for top axis series of depth-dependent chart!', mtWarning, [mbOK], 0);
       GetDataQuery.Close;
     end;
   end;
@@ -1206,70 +1248,109 @@ begin
       DTHChart.AxisList[3].Title.Caption := DTHChart.AxisList[1].Title.Caption;
     end;
     GetDataQuery.SQL.Clear;
+    SeriesAdded := False;
     if BotY = 'DEPTH' then
+    with GetDataQuery do
     begin
-      GetDataQuery.SQL.Add('SELECT SITE_ID_NR, DEPTH, ' + BotX + ' FROM ' + Depth2TableName);
-      GetDataQuery.SQL.Add('WHERE SITE_ID_NR = ' + QuotedStr(CurrentSite));
-      GetDataQuery.SQL.Add('ORDER BY DEPTH');
-      GetDataQuery.Open;
-      if GetDataQuery.RecordCount > 0 then
+      SQL.Add('SELECT SITE_ID_NR, DATE_MEAS, TIME_MEAS, DEPTH, ' + BotX + ' FROM ' + Depth2TableName);
+      SQL.Add('WHERE SITE_ID_NR = ' + QuotedStr(CurrentSite));
+      if DataModuleMain.ZConnectionDB.Tag = 1 then
       begin
-        while not GetDataQuery.EOF do
+        SQL.Add('AND DATE_MEAS || TIME_MEAS >= ' + QuotedStr(FormatDateTime('YYYYMMDDhhnn', DepthFromDateTime)));
+        SQL.Add('AND DATE_MEAS || TIME_MEAS <= ' + QuotedStr(FormatDateTime('YYYYMMDDhhnn', DepthToDateTime)));
+      end
+      else
+      begin
+        SQL.Add('AND CONCAT(DATE_MEAS, TIME_MEAS) >= ' + QuotedStr(FormatDateTime('YYYYMMDDhhnn', DepthFromDateTime)));
+        SQL.Add('AND CONCAT(DATE_MEAS, TIME_MEAS) <= ' + QuotedStr(FormatDateTime('YYYYMMDDhhnn', DepthToDateTime)));
+      end;
+      SQL.Add('ORDER BY DATE_MEAS, TIME_MEAS, DEPTH');
+      Open;
+      if RecordCount > 0 then
+      begin
+        while not EOF do
         begin
-          BottomSeries.AddXY(GetDataQuery.FieldByName(BotX).Value, GetDataQuery.FieldByName('DEPTH').Value);
-          if GetDataQuery.FieldByName(BotX).Value > BottomMax then
-            BottomMax := GetDataQuery.FieldByName(BotX).Value;
-          GetDataQuery.Next;
+          if SeriesAdded then
+            AddBotSeries.AddXY(FieldByName(BotX).Value, FieldByName('DEPTH').Value)
+          else
+            BottomSeries.AddXY(FieldByName(BotX).Value, FieldByName('DEPTH').Value);
+          if FieldByName(BotX).Value > BottomMax then
+            BottomMax := FieldByName(BotX).Value;
+          PrevDateTime := StringToDate(FieldByName('DATE_MEAS').AsString) + StringToTime(FieldByName('TIME_MEAS').AsString);
+          Next;
+          //check if new series needs to be created --> if new date is at least 1 day apart
+          if (StringToDate(FieldByName('DATE_MEAS').AsString) + StringToTime(FieldByName('TIME_MEAS').AsString)) - PrevDateTime >= 1 then
+          begin
+            AddBotSeries := TLineSeries.Create(DTHChart);
+            with AddBotSeries do
+            begin
+              SeriesColor := BottomSeries.SeriesColor;
+              Legend.Visible := False;
+              AxisIndexX := BottomSeries.AxisIndexX;
+              AxisIndexY := BottomSeries.AxisIndexY;
+            end;
+            DTHChart.AddSeries(AddBotSeries);
+            SeriesAdded := True;
+            if UseDepthLineStyles then
+            begin
+              with AddBotSeries do
+              begin
+                LinePen.Style := TFPPenStyle(Random(5));
+                if LinePen.Style = psClear then LinePen.Style := TFPPenStyle(1);
+              end;
+            end;
+          end;
         end
       end
       else
-        MessageDlg('There is no data for bottom axis series of depth-dependent chart!', mtError, [mbOK], 0);
-      GetDataQuery.Close;
+        MessageDlg('There is no data for bottom axis series of depth-dependent chart!', mtWarning, [mbOK], 0);
+      Close;
     end
     else
     if BotY = 'DEPTH_TOP' then
+    with GetDataQuery do
     begin
-      GetDataQuery.SQL.Add('SELECT SITE_ID_NR, DEPTH_TOP, DEPTH_BOT, ' + BotX + ' FROM ' + Depth2TableName);
-      GetDataQuery.SQL.Add('WHERE SITE_ID_NR = ' + QuotedStr(CurrentSite));
-      GetDataQuery.SQL.Add('ORDER BY DEPTH_TOP');
-      GetDataQuery.Open;
-      if GetDataQuery.RecordCount > 0 then
+      SQL.Add('SELECT SITE_ID_NR, DEPTH_TOP, DEPTH_BOT, ' + BotX + ' FROM ' + Depth2TableName);
+      SQL.Add('WHERE SITE_ID_NR = ' + QuotedStr(CurrentSite));
+      SQL.Add('ORDER BY DEPTH_TOP');
+      Open;
+      if RecordCount > 0 then
       begin
         //Add the first zero value
-        BottomSeries.AddXY(0, GetDataQuery.FieldByName('DEPTH_TOP').Value);
-        while not GetDataQuery.EOF do
+        BottomSeries.AddXY(0, FieldByName('DEPTH_TOP').Value);
+        while not EOF do
         begin
           if Depth2TableName = 'penetrat' then //covert from saved m/min to current units
           begin
             case BotPenetrOpt of
               0: begin
-                  BottomSeries.AddXY(60/TimeFactor/(GetDataQuery.FieldByName(BotX).Value * LengthFactor), GetDataQuery.FieldByName('DEPTH_TOP').Value);
-                  BottomSeries.AddXY(60/TimeFactor/(GetDataQuery.FieldByName(BotX).Value * LengthFactor), GetDataQuery.FieldByName('DEPTH_BOT').Value);
-                  if 60/TimeFactor/(GetDataQuery.FieldByName(BotX).Value * LengthFactor) > BottomMax then
-                    BottomMax := 60/TimeFactor/(GetDataQuery.FieldByName(BotX).Value * LengthFactor);
+                  BottomSeries.AddXY(60/TimeFactor/(FieldByName(BotX).Value * LengthFactor), FieldByName('DEPTH_TOP').Value);
+                  BottomSeries.AddXY(60/TimeFactor/(FieldByName(BotX).Value * LengthFactor), FieldByName('DEPTH_BOT').Value);
+                  if 60/TimeFactor/(FieldByName(BotX).Value * LengthFactor) > BottomMax then
+                    BottomMax := 60/TimeFactor/(FieldByName(BotX).Value * LengthFactor);
                  end;
               1: begin
-                  BottomSeries.AddXY(1/(GetDataQuery.FieldByName(BotX).Value * LengthFactor), GetDataQuery.FieldByName('DEPTH_TOP').Value);
-                  BottomSeries.AddXY(1/(GetDataQuery.FieldByName(BotX).Value * LengthFactor), GetDataQuery.FieldByName('DEPTH_BOT').Value);
-                  if 1/(GetDataQuery.FieldByName(BotX).Value * LengthFactor) > BottomMax then
-                    BottomMax := 1/(GetDataQuery.FieldByName(BotX).Value * LengthFactor);
+                  BottomSeries.AddXY(1/(FieldByName(BotX).Value * LengthFactor), FieldByName('DEPTH_TOP').Value);
+                  BottomSeries.AddXY(1/(FieldByName(BotX).Value * LengthFactor), FieldByName('DEPTH_BOT').Value);
+                  if 1/(FieldByName(BotX).Value * LengthFactor) > BottomMax then
+                    BottomMax := 1/(FieldByName(BotX).Value * LengthFactor);
                  end;
               2: begin
-                  BottomSeries.AddXY(GetDataQuery.FieldByName(BotX).Value * LengthFactor, GetDataQuery.FieldByName('DEPTH_TOP').Value);
-                  BottomSeries.AddXY(GetDataQuery.FieldByName(BotX).Value * LengthFactor, GetDataQuery.FieldByName('DEPTH_BOT').Value);
-                  if GetDataQuery.FieldByName(BotX).Value * LengthFactor > BottomMax then
-                    BottomMax := GetDataQuery.FieldByName(BotX).Value * LengthFactor;
+                  BottomSeries.AddXY(FieldByName(BotX).Value * LengthFactor, FieldByName('DEPTH_TOP').Value);
+                  BottomSeries.AddXY(FieldByName(BotX).Value * LengthFactor, FieldByName('DEPTH_BOT').Value);
+                  if FieldByName(BotX).Value * LengthFactor > BottomMax then
+                    BottomMax := FieldByName(BotX).Value * LengthFactor;
                  end;
             end; //of case
           end
           else
           begin
-            BottomSeries.AddXY(GetDataQuery.FieldByName(BotX).Value * TheBotFactor, GetDataQuery.FieldByName('DEPTH_TOP').Value);
-            BottomSeries.AddXY(GetDataQuery.FieldByName(BotX).Value * TheBotFactor, GetDataQuery.FieldByName('DEPTH_BOT').Value);
-            if GetDataQuery.FieldByName(BotX).Value * TheBotFactor > BottomMax then
-              BottomMax := GetDataQuery.FieldByName(BotX).Value * TheBotFactor;
+            BottomSeries.AddXY(FieldByName(BotX).Value * TheBotFactor, FieldByName('DEPTH_TOP').Value);
+            BottomSeries.AddXY(FieldByName(BotX).Value * TheBotFactor, FieldByName('DEPTH_BOT').Value);
+            if FieldByName(BotX).Value * TheBotFactor > BottomMax then
+              BottomMax := FieldByName(BotX).Value * TheBotFactor;
           end;
-          GetDataQuery.Next;
+          Next;
         end;
       end
       else
@@ -1282,7 +1363,7 @@ begin
   begin
     DTHChart.Free;
     Splitter1.Free;
-    MessageDlg('There is no data for the top and bottom series in the depth-dependent chart. It will therefore not be shown.', mtInformation, [mbOK], 0);
+    MessageDlg('There is no data for the top and bottom series in the depth-dependent chart! It will therefore not be shown.', mtWarning, [mbOK], 0);
   end
   else
   begin

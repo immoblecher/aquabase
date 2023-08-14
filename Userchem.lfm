@@ -2,7 +2,7 @@ object UserChemistryForm: TUserChemistryForm
   Tag = 127
   Left = 632
   Height = 500
-  Top = 162
+  Top = 190
   Width = 576
   Caption = 'User-defined Chemistry'
   ClientHeight = 500
@@ -39,8 +39,8 @@ object UserChemistryForm: TUserChemistryForm
     TabOrder = 1
     object StandardLabel: TLabel
       Left = 288
-      Height = 11
-      Top = 229
+      Height = 13
+      Top = 227
       Width = 55
       Anchors = [akLeft, akBottom]
       Caption = 'Standard:'
@@ -53,8 +53,8 @@ object UserChemistryForm: TUserChemistryForm
     end
     object ChemStandardLabel: TLabel
       Left = 348
-      Height = 11
-      Top = 229
+      Height = 13
+      Top = 227
       Width = 110
       Anchors = [akLeft, akBottom]
       Caption = 'ChemStandardLabel'
@@ -66,7 +66,7 @@ object UserChemistryForm: TUserChemistryForm
     end
     object SamplesLabel: TLabel
       Left = 8
-      Height = 11
+      Height = 13
       Top = 118
       Width = 50
       Caption = 'Samples'
@@ -107,8 +107,8 @@ object UserChemistryForm: TUserChemistryForm
     end
     object ChemLabel: TLabel
       Left = 16
-      Height = 11
-      Top = 229
+      Height = 13
+      Top = 227
       Width = 61
       Anchors = [akLeft, akBottom]
       Caption = 'Parameters'

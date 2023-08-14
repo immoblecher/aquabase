@@ -76,7 +76,7 @@ procedure TEditColoursForm.FormCreate(Sender: TObject);
 begin
   XMLPropStorage.FileName := GetUserDir + '/.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, True);
-  DataSource1.AutoEdit := AutoEditGrid;
+  DataSource1.AutoEdit := AutoEditData;
   DBNavigator1.Images := DataModuleMain.ImageListNavs;
   ZTableLookup.Open;
 end;

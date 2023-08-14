@@ -785,6 +785,7 @@ var
 begin
   Screen.Cursor := crSQLWait;
   DataModuleMain.BasicValidFound := True;
+  BasicinfDataSource.AutoEdit := AutoEditData;
   Caption := 'Chemistry Parameters - [' + UpperCase(FilterName) + ']';
   if PageControlChemistry.ActivePageIndex = 2 then
     ChemLabel.Caption := 'Parameters [' + ChemUnit + '], bact. [counts/100ml]'
@@ -933,7 +934,7 @@ begin
   begin
     TimeSpeedButton.Enabled := LinkedQuery.RecordCount > 0;
     LinkedQuery.First;
-    LinkedDataSource.AutoEdit := AutoEditGrid;
+    LinkedDataSource.AutoEdit := AutoEditData;
   end;
 end;
 
@@ -1720,13 +1721,13 @@ begin
     ZQuery6.Close;
     ZQuery6.Open;
   end;
-  DataSource1.AutoEdit := AutoEditGrid and (LinkedQuery.RecordCount > 0);
-  DataSource2.AutoEdit := AutoEditGrid and (LinkedQuery.RecordCount > 0);
-  DataSource3.AutoEdit := AutoEditGrid and (LinkedQuery.RecordCount > 0);
-  DataSource4.AutoEdit := AutoEditGrid and (LinkedQuery.RecordCount > 0);
-  DataSource5.AutoEdit := AutoEditGrid and (LinkedQuery.RecordCount > 0);
-  DataSource6.AutoEdit := AutoEditGrid and (LinkedQuery.RecordCount > 0);
-  DataSourceDetect.AutoEdit := AutoEditGrid and (LinkedQuery.RecordCount > 0);
+  DataSource1.AutoEdit := AutoEditData and (LinkedQuery.RecordCount > 0);
+  DataSource2.AutoEdit := AutoEditData and (LinkedQuery.RecordCount > 0);
+  DataSource3.AutoEdit := AutoEditData and (LinkedQuery.RecordCount > 0);
+  DataSource4.AutoEdit := AutoEditData and (LinkedQuery.RecordCount > 0);
+  DataSource5.AutoEdit := AutoEditData and (LinkedQuery.RecordCount > 0);
+  DataSource6.AutoEdit := AutoEditData and (LinkedQuery.RecordCount > 0);
+  DataSourceDetect.AutoEdit := AutoEditData and (LinkedQuery.RecordCount > 0);
   if PageControlChemistry.ActivePageIndex = 2 then
     ChemLabel.Caption := 'Parameters [' + ChemUnit + '], bact. [counts/100ml]'
   else
@@ -1806,14 +1807,12 @@ begin
                 ZQuery7LIMITS.AsString := '#';
                 ZQuery7.Post;
               end;
-       VK_F8: (Sender as TDBEdit).DataSource.DataSet.Edit
+       VK_F8: if not InEditMode then (Sender as TDBEdit).DataSource.DataSet.Edit
     end; //of case
   end
   else
-  if (ssShift in Shift) and (Key = VK_DELETE) then
-  begin
-    TDBEdit(Sender).DataSource.DataSet.FieldByName(TDBEdit(Sender).DataField).Value := -1;
-  end
+  if (ssShift in Shift) and (Key = VK_DELETE) and InEditMode then
+    TDBEdit(Sender).DataSource.DataSet.FieldByName(TDBEdit(Sender).DataField).Value := -1
   else
   case Key of
       VK_F5: (Sender as TDBEdit).DataSource.DataSet.Refresh;
@@ -2527,28 +2526,6 @@ begin
   end;
   X_CoordLabel.Width := 88;
   Y_CoordLabel.Width := 88;
-  //check if current site's geometry has changed
-  with DataModuleMain.CheckQuery do
-  begin
-    SQL.Clear;
-    SQL.Add('SELECT NGDB_FLAG FROM basicinf WHERE SITE_ID_NR = ' + QuotedStr(CurrentSite));
-    Open;
-    if FieldByName('NGDB_FLAG').Value = 9 then //convert LONGITUDE/LATITUDE to X_COORD/Y_COORD
-    if Showing and (MessageDlg('The geometry of the current site has changed. Do you want to update the coordinates in the database accordingly?', mtInformation, [mbYes, mbNo], 0) = mrYes) then
-    begin
-      try
-        Screen.Cursor := crSQLWait;
-        with DataModuleMain do
-          UpdateCoordsWithCs2cs(BasicinfQueryLONGITUDE.AsString, BasicinfQueryLATITUDE.AsString, BasicinfQuerySITE_ID_NR.AsString);
-        DataModuleMain.BasicinfQuery.Refresh;
-      finally
-        Screen.Cursor := crDefault;
-      end;
-      ShowMessage('Site coordinates were updated from a changed geometry!');
-    end;
-    Close;
-    SQL.Clear;
-  end;
   EditCOLLAR_HI.Enabled := (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'B')
     or (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'D')
     or (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'W');

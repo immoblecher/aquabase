@@ -1,7 +1,7 @@
 object GeollogSettingsForm: TGeollogSettingsForm
-  Left = 862
+  Left = 958
   Height = 300
-  Top = 272
+  Top = 440
   Width = 390
   HelpContext = 95
   BorderStyle = bsSingle
@@ -46,10 +46,10 @@ object GeollogSettingsForm: TGeollogSettingsForm
   OnShow = FormShow
   Position = poScreenCenter
   SessionProperties = 'BottomLineComboBox.ItemIndex;BottomSeriesColorButton.ButtonColor;CapColorButton.ButtonColor;CasingMarkerLabelColorButton.ButtonColor;CheckBoxAlternate.Checked;CheckBoxMemo.Checked;CheckBoxOverlap.Checked;CheckBoxShowStrikes.Checked;CheckBoxUsePrim.Checked;ComboBoxStrikes.ItemIndex;EditFontGeneral1.Font;EditFontGeneral2.Font;HoleColorButton.ButtonColor;HoleMarkerLabelColorButton.ButtonColor;LabelUnderLineCheckBox.Checked;LegendFrameCheckBox.Checked;LithologyFontColorButton.ButtonColor;LithologyFontSizeSpinEdit.Value;PiezometerColorButton.ButtonColor;ScreenColorButton.ButtonColor;ShowMemoCheckBox.Checked;SpinEdit1.Value;SpinEditLblWidth.Value;SpinEditLith.Value;SpinEditResFactor.Value;SpinEditTtlMargin.Value;TopLineComboBox.ItemIndex;TopSeriesColorButton.ButtonColor;TrackBar1.Position;TrackBar2.Position;TrackBar3.Position;WaterColorButton.ButtonColor;WLColorButton.ButtonColor;CasingCopperColorButton.ButtonColor;CasingPVCColorButton.ButtonColor;CasingSteelColorButton.ButtonColor'
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '2.0.12.0'
   object PageControl1: TPageControl
     Left = 0
-    Height = 252
+    Height = 250
     Top = 0
     Width = 390
     ActivePage = LogTab
@@ -58,34 +58,34 @@ object GeollogSettingsForm: TGeollogSettingsForm
     TabOrder = 0
     object LogTab: TTabSheet
       Caption = 'Log Components'
-      ClientHeight = 226
-      ClientWidth = 386
+      ClientHeight = 224
+      ClientWidth = 380
       object PageControl2: TPageControl
         Left = 0
-        Height = 226
+        Height = 224
         Top = 0
-        Width = 386
+        Width = 380
         ActivePage = CstrcLithTabSheet
         Align = alClient
         TabIndex = 0
         TabOrder = 0
         object CstrcLithTabSheet: TTabSheet
           Caption = 'Construction and Lithology'
-          ClientHeight = 200
-          ClientWidth = 382
+          ClientHeight = 198
+          ClientWidth = 370
           object PageControl4: TPageControl
             Left = 0
-            Height = 200
+            Height = 198
             Top = 0
-            Width = 382
+            Width = 370
             ActivePage = TabSheetGeneral
             Align = alClient
             TabIndex = 0
             TabOrder = 0
             object TabSheetGeneral: TTabSheet
               Caption = 'General'
-              ClientHeight = 174
-              ClientWidth = 378
+              ClientHeight = 172
+              ClientWidth = 360
               ImageIndex = 3
               object StaticText2: TStaticText
                 Left = 8
@@ -97,7 +97,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object Label1: TLabel
                 Left = 8
-                Height = 10
+                Height = 12
                 Top = 84
                 Width = 157
                 Caption = 'Space in length units above hole:'
@@ -107,20 +107,18 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object FloatSpinEditTop: TFloatSpinEdit
                 Left = 192
-                Height = 21
+                Height = 24
                 Top = 78
                 Width = 56
                 Alignment = taRightJustify
                 DecimalPlaces = 1
                 Increment = 0.5
                 MaxValue = 10
-                MinValue = 0
                 TabOrder = 3
-                Value = 0
               end
               object Label10: TLabel
                 Left = 8
-                Height = 10
+                Height = 12
                 Top = 110
                 Width = 156
                 Caption = 'Space in length units below hole:'
@@ -130,20 +128,18 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object FloatSpinEditBot: TFloatSpinEdit
                 Left = 192
-                Height = 21
+                Height = 24
                 Top = 104
                 Width = 56
                 Alignment = taRightJustify
                 DecimalPlaces = 1
                 Increment = 0.5
                 MaxValue = 10
-                MinValue = 0
                 TabOrder = 4
-                Value = 0
               end
               object Label16: TLabel
                 Left = 8
-                Height = 10
+                Height = 12
                 Top = 56
                 Width = 70
                 Caption = 'Lithology width'
@@ -153,7 +149,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object SpinEditLith: TSpinEdit
                 Left = 114
-                Height = 21
+                Height = 24
                 Hint = 'Width of lithology in mm on the left and right of the hole'
                 Top = 50
                 Width = 66
@@ -168,7 +164,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object CheckBoxShowStrikes: TCheckBox
                 Left = 8
-                Height = 24
+                Height = 23
                 Top = 132
                 Width = 176
                 Caption = 'Show water strikes on lithology:'
@@ -245,7 +241,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object Label18: TLabel
                 Left = 185
-                Height = 10
+                Height = 12
                 Top = 56
                 Width = 10
                 Caption = '%'
@@ -254,20 +250,20 @@ object GeollogSettingsForm: TGeollogSettingsForm
             end
             object TabSheetLith: TTabSheet
               Caption = 'Lithology'
-              ClientHeight = 174
-              ClientWidth = 378
+              ClientHeight = 172
+              ClientWidth = 360
               object GroupBox7: TGroupBox
                 Left = 184
                 Height = 103
                 Top = 20
                 Width = 184
                 Caption = '                                                          '
-                ClientHeight = 86
-                ClientWidth = 180
+                ClientHeight = 89
+                ClientWidth = 182
                 TabOrder = 5
                 object Label7: TLabel
                   Left = 31
-                  Height = 10
+                  Height = 12
                   Hint = 'Weathered, loose, soft, unconsolidated'
                   Top = 8
                   Width = 81
@@ -279,7 +275,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
                 end
                 object Label8: TLabel
                   Left = 59
-                  Height = 10
+                  Height = 12
                   Hint = 'Broken, fractured, light'
                   Top = 36
                   Width = 58
@@ -291,7 +287,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
                 end
                 object Label9: TLabel
                   Left = 8
-                  Height = 10
+                  Height = 12
                   Hint = 'Solid, consolidated, dark, fresh, hard'
                   Top = 66
                   Width = 103
@@ -303,7 +299,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
                 end
                 object SpinEditVLight: TSpinEdit
                   Left = 118
-                  Height = 21
+                  Height = 24
                   Top = 4
                   Width = 56
                   Alignment = taRightJustify
@@ -315,7 +311,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
                 end
                 object SpinEditLighter: TSpinEdit
                   Left = 118
-                  Height = 21
+                  Height = 24
                   Top = 32
                   Width = 56
                   Alignment = taRightJustify
@@ -327,7 +323,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
                 end
                 object SpinEditDarker: TSpinEdit
                   Left = 118
-                  Height = 21
+                  Height = 24
                   Top = 60
                   Width = 56
                   Alignment = taRightJustify
@@ -338,7 +334,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
                 end
                 object CheckBoxUsePrim: TCheckBox
                   Left = 0
-                  Height = 24
+                  Height = 23
                   Hint = 'Higher value is lighter'
                   Top = -16
                   Width = 156
@@ -350,7 +346,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object CheckBox3: TCheckBox
                 Left = 4
-                Height = 24
+                Height = 23
                 Top = 0
                 Width = 98
                 Caption = 'Show &Lithology'
@@ -372,7 +368,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object CheckBoxDefaultColor: TCheckBox
                 Left = 130
-                Height = 24
+                Height = 23
                 Top = 0
                 Width = 209
                 Caption = 'Use default instead of observed colour'
@@ -380,7 +376,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object LithologyFontSizeSpinEdit: TSpinEdit
                 Left = 74
-                Height = 21
+                Height = 24
                 Top = 54
                 Width = 40
                 Alignment = taRightJustify
@@ -391,7 +387,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object StaggerCheckBox: TCheckBox
                 Left = 4
-                Height = 24
+                Height = 23
                 Top = 102
                 Width = 135
                 Caption = 'Stagger labels left/right'
@@ -399,7 +395,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object LabelUnderLineCheckBox: TCheckBox
                 Left = 4
-                Height = 24
+                Height = 23
                 Top = 128
                 Width = 175
                 Caption = 'Label under top-of-lithology line'
@@ -407,7 +403,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object ShowMemoCheckBox: TCheckBox
                 Left = 208
-                Height = 24
+                Height = 23
                 Top = 128
                 Width = 151
                 Caption = 'Show notepad information'
@@ -415,7 +411,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object Label15: TLabel
                 Left = 4
-                Height = 10
+                Height = 12
                 Hint = 'Maximum width of the lithology label'
                 Top = 83
                 Width = 99
@@ -427,7 +423,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object SpinEditLblWidth: TSpinEdit
                 Left = 130
-                Height = 21
+                Height = 24
                 Top = 78
                 Width = 48
                 Alignment = taRightJustify
@@ -439,7 +435,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object Label17: TLabel
                 Left = 4
-                Height = 10
+                Height = 12
                 Hint = 'Maximum width of the lithology label'
                 Top = 60
                 Width = 46
@@ -452,11 +448,11 @@ object GeollogSettingsForm: TGeollogSettingsForm
             end
             object TabSheetHole: TTabSheet
               Caption = 'Hole'
-              ClientHeight = 174
-              ClientWidth = 378
+              ClientHeight = 172
+              ClientWidth = 360
               object CheckBox4: TCheckBox
                 Left = 8
-                Height = 24
+                Height = 23
                 Top = 10
                 Width = 78
                 Caption = 'Show &Hole'
@@ -491,12 +487,12 @@ object GeollogSettingsForm: TGeollogSettingsForm
             end
             object TabSheet6: TTabSheet
               Caption = 'Casing'
-              ClientHeight = 174
-              ClientWidth = 378
+              ClientHeight = 172
+              ClientWidth = 360
               ImageIndex = 1
               object CheckBox2: TCheckBox
                 Left = 8
-                Height = 24
+                Height = 23
                 Top = 6
                 Width = 89
                 Caption = 'Show &Casing'
@@ -511,8 +507,8 @@ object GeollogSettingsForm: TGeollogSettingsForm
                 Top = 6
                 Width = 164
                 Caption = 'Casing/Screen material colours'
-                ClientHeight = 93
-                ClientWidth = 160
+                ClientHeight = 96
+                ClientWidth = 162
                 ParentShowHint = False
                 ShowHint = True
                 TabOrder = 4
@@ -557,7 +553,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object ThicknCheckBox: TCheckBox
                 Left = 8
-                Height = 24
+                Height = 23
                 Hint = 'All casing thicknesses the same width'
                 Top = 30
                 Width = 128
@@ -568,7 +564,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object ThicknSpinEdit: TSpinEdit
                 Left = 148
-                Height = 21
+                Height = 24
                 Top = 28
                 Width = 42
                 Alignment = taRightJustify
@@ -579,7 +575,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object CapCheckBox: TCheckBox
                 Left = 8
-                Height = 24
+                Height = 23
                 Top = 130
                 Width = 184
                 Caption = 'Show cap on casing/screen with:'
@@ -600,7 +596,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object CheckBoxOverlap: TCheckBox
                 Left = 8
-                Height = 24
+                Height = 23
                 Top = 54
                 Width = 139
                 Caption = 'Allow overlapping labels'
@@ -608,7 +604,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object CheckBoxAbove: TCheckBox
                 Left = 8
-                Height = 24
+                Height = 23
                 Hint = 'Default is label above marker'
                 Top = 78
                 Width = 126
@@ -632,12 +628,12 @@ object GeollogSettingsForm: TGeollogSettingsForm
             end
             object TabSheet1: TTabSheet
               Caption = 'Piezometer'
-              ClientHeight = 174
-              ClientWidth = 378
+              ClientHeight = 172
+              ClientWidth = 360
               ImageIndex = 4
               object CheckBox16: TCheckBox
                 Left = 8
-                Height = 24
+                Height = 23
                 Top = 10
                 Width = 110
                 Caption = 'Show &Piezometer'
@@ -657,7 +653,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object PThicknCheckBox: TCheckBox
                 Left = 8
-                Height = 24
+                Height = 23
                 Top = 82
                 Width = 141
                 Caption = 'Override thickness with '
@@ -665,7 +661,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object PThicknSpinEdit: TSpinEdit
                 Left = 170
-                Height = 21
+                Height = 24
                 Top = 80
                 Width = 42
                 Alignment = taRightJustify
@@ -676,7 +672,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object CheckBoxLabelPiez: TCheckBox
                 Left = 217
-                Height = 24
+                Height = 23
                 Top = 10
                 Width = 114
                 Caption = 'Label Piezometers'
@@ -703,12 +699,12 @@ object GeollogSettingsForm: TGeollogSettingsForm
             end
             object TabSheet7: TTabSheet
               Caption = 'Fill Material'
-              ClientHeight = 174
-              ClientWidth = 378
+              ClientHeight = 172
+              ClientWidth = 360
               ImageIndex = 2
               object Label2: TLabel
                 Left = 8
-                Height = 10
+                Height = 12
                 Top = 72
                 Width = 317
                 Caption = '(If Default Colour is not selected then random colours will be used)'
@@ -716,7 +712,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object CheckBox7: TCheckBox
                 Left = 8
-                Height = 24
+                Height = 23
                 Top = 10
                 Width = 110
                 Caption = 'Show Fill Material'
@@ -724,7 +720,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object DefaultFillColourCheckBox: TCheckBox
                 Left = 8
-                Height = 24
+                Height = 23
                 Top = 48
                 Width = 95
                 Caption = 'Default Colour'
@@ -734,7 +730,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object Label11: TLabel
                 Left = 8
-                Height = 10
+                Height = 12
                 Hint = 'Drill cuttings, gravel, sand'
                 Top = 110
                 Width = 156
@@ -745,7 +741,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object SpinEditTransparency: TSpinEdit
                 Left = 173
-                Height = 21
+                Height = 24
                 Top = 104
                 Width = 50
                 Alignment = taRightJustify
@@ -755,7 +751,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
               end
               object Label12: TLabel
                 Left = 8
-                Height = 10
+                Height = 12
                 Top = 130
                 Width = 178
                 Caption = '(Will increase time for creation of log)'
@@ -766,20 +762,20 @@ object GeollogSettingsForm: TGeollogSettingsForm
         end
         object Penetration: TTabSheet
           Caption = 'Depth dependent '
-          ClientHeight = 200
-          ClientWidth = 382
+          ClientHeight = 198
+          ClientWidth = 370
           object GroupBox3: TGroupBox
             Left = 6
             Height = 70
             Top = 28
             Width = 370
             Caption = 'Top Axis'
-            ClientHeight = 56
-            ClientWidth = 366
+            ClientHeight = 57
+            ClientWidth = 368
             TabOrder = 0
             object Label33: TLabel
               Left = 112
-              Height = 10
+              Height = 12
               Top = 8
               Width = 51
               Caption = 'Data from:'
@@ -814,10 +810,10 @@ object GeollogSettingsForm: TGeollogSettingsForm
             end
             object TopLabeledEdit: TLabeledEdit
               Left = 190
-              Height = 21
+              Height = 24
               Top = 29
               Width = 90
-              EditLabel.Height = 10
+              EditLabel.Height = 12
               EditLabel.Width = 45
               EditLabel.Caption = 'Axis Title:'
               EditLabel.ParentColor = False
@@ -844,7 +840,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
             end
             object Label4: TLabel
               Left = 4
-              Height = 10
+              Height = 12
               Top = 34
               Width = 47
               Caption = 'Line style:'
@@ -852,11 +848,11 @@ object GeollogSettingsForm: TGeollogSettingsForm
             end
             object MaxTopLabeledEdit: TLabeledEdit
               Left = 314
-              Height = 21
+              Height = 24
               Top = 29
               Width = 38
               Alignment = taRightJustify
-              EditLabel.Height = 10
+              EditLabel.Height = 12
               EditLabel.Width = 26
               EditLabel.Caption = 'Max.:'
               EditLabel.ParentColor = False
@@ -872,12 +868,12 @@ object GeollogSettingsForm: TGeollogSettingsForm
             Top = 100
             Width = 370
             Caption = 'Bottom Axis'
-            ClientHeight = 56
-            ClientWidth = 366
+            ClientHeight = 57
+            ClientWidth = 368
             TabOrder = 1
             object Label13: TLabel
               Left = 112
-              Height = 10
+              Height = 12
               Top = 8
               Width = 51
               Caption = 'Data from:'
@@ -912,10 +908,10 @@ object GeollogSettingsForm: TGeollogSettingsForm
             end
             object BottomLabeledEdit: TLabeledEdit
               Left = 190
-              Height = 21
+              Height = 24
               Top = 29
               Width = 90
-              EditLabel.Height = 10
+              EditLabel.Height = 12
               EditLabel.Width = 45
               EditLabel.Caption = 'Axis Title:'
               EditLabel.ParentColor = False
@@ -924,7 +920,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
             end
             object Label5: TLabel
               Left = 4
-              Height = 10
+              Height = 12
               Top = 34
               Width = 47
               Caption = 'Line style:'
@@ -950,11 +946,11 @@ object GeollogSettingsForm: TGeollogSettingsForm
             end
             object MaxBotLabeledEdit: TLabeledEdit
               Left = 314
-              Height = 21
+              Height = 24
               Top = 29
               Width = 38
               Alignment = taRightJustify
-              EditLabel.Height = 10
+              EditLabel.Height = 12
               EditLabel.Width = 26
               EditLabel.Caption = 'Max.:'
               EditLabel.ParentColor = False
@@ -966,20 +962,20 @@ object GeollogSettingsForm: TGeollogSettingsForm
           end
           object ShowDepthCheckBox: TCheckBox
             Left = 6
-            Height = 24
+            Height = 23
             Top = 4
-            Width = 165
-            Caption = '&Show depth dependent chart'
+            Width = 81
+            Caption = '&Show chart'
             OnChange = ShowDepthCheckBoxChange
             TabOrder = 2
           end
           object LabelTopParamOpt: TLabel
-            Left = 180
-            Height = 10
+            Left = 159
+            Height = 12
             Top = 10
-            Width = 91
+            Width = 112
             Alignment = taRightJustify
-            Caption = 'Parameter options:'
+            Caption = 'Top parameter options:'
             Enabled = False
             ParentColor = False
           end
@@ -999,16 +995,6 @@ object GeollogSettingsForm: TGeollogSettingsForm
             TabOrder = 3
             Text = 'default'
           end
-          object LabelBotParamOpt: TLabel
-            Left = 179
-            Height = 10
-            Top = 180
-            Width = 91
-            Alignment = taRightJustify
-            Caption = 'Parameter options:'
-            Enabled = False
-            ParentColor = False
-          end
           object ComboBoxBotParamOpt: TComboBox
             Left = 276
             Height = 25
@@ -1025,11 +1011,30 @@ object GeollogSettingsForm: TGeollogSettingsForm
             TabOrder = 4
             Text = 'default'
           end
+          object LabelBotParamOpt: TLabel
+            Left = 143
+            Height = 12
+            Top = 180
+            Width = 127
+            Alignment = taRightJustify
+            Caption = 'Bottom parameter options:'
+            Enabled = False
+            ParentColor = False
+          end
+          object DateButton: TButton
+            Left = 6
+            Height = 22
+            Top = 173
+            Width = 119
+            Caption = 'Date Options'
+            OnClick = DateButtonClick
+            TabOrder = 5
+          end
         end
         object Waterlevel: TTabSheet
           Caption = 'Water level'
-          ClientHeight = 200
-          ClientWidth = 382
+          ClientHeight = 198
+          ClientWidth = 370
           object WLLabelRadioGroup: TRadioGroup
             Left = 248
             Height = 78
@@ -1044,8 +1049,8 @@ object GeollogSettingsForm: TGeollogSettingsForm
             ChildSizing.ShrinkVertical = crsScaleChilds
             ChildSizing.Layout = cclLeftToRightThenTopToBottom
             ChildSizing.ControlsPerLine = 1
-            ClientHeight = 61
-            ClientWidth = 110
+            ClientHeight = 64
+            ClientWidth = 112
             ItemIndex = 0
             Items.Strings = (
               'No'
@@ -1058,7 +1063,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
             Left = 8
             Height = 23
             Top = 0
-            Width = 70
+            Width = 65
             Caption = '&Enabled'
             Enabled = False
             TabOrder = 0
@@ -1078,7 +1083,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
           end
           object WLSpinEdit: TSpinEdit
             Left = 152
-            Height = 25
+            Height = 24
             Top = 24
             Width = 47
             Alignment = taRightJustify
@@ -1089,9 +1094,9 @@ object GeollogSettingsForm: TGeollogSettingsForm
           end
           object Label6: TLabel
             Left = 152
-            Height = 13
+            Height = 12
             Top = 10
-            Width = 82
+            Width = 72
             Caption = 'Line Thickness'
             ParentColor = False
           end
@@ -1109,8 +1114,8 @@ object GeollogSettingsForm: TGeollogSettingsForm
             ChildSizing.ShrinkVertical = crsScaleChilds
             ChildSizing.Layout = cclLeftToRightThenTopToBottom
             ChildSizing.ControlsPerLine = 1
-            ClientHeight = 105
-            ClientWidth = 222
+            ClientHeight = 108
+            ClientWidth = 224
             ItemIndex = 1
             Items.Strings = (
               'First'
@@ -1123,7 +1128,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
           end
           object cbWLDate: TComboBox
             Left = 116
-            Height = 21
+            Height = 27
             Top = 148
             Width = 104
             Enabled = False
@@ -1134,7 +1139,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
             Left = 248
             Height = 23
             Top = 112
-            Width = 130
+            Width = 117
             Caption = 'Show water in hole'
             TabOrder = 4
           end
@@ -1156,16 +1161,16 @@ object GeollogSettingsForm: TGeollogSettingsForm
     end
     object ChartTab: TTabSheet
       Caption = 'Chart Settings'
-      ClientHeight = 226
-      ClientWidth = 386
+      ClientHeight = 224
+      ClientWidth = 380
       object GroupBox2: TGroupBox
         Left = 0
         Height = 213
         Top = 8
         Width = 377
         Caption = 'Chart settings:'
-        ClientHeight = 196
-        ClientWidth = 373
+        ClientHeight = 199
+        ClientWidth = 375
         Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
@@ -1177,12 +1182,12 @@ object GeollogSettingsForm: TGeollogSettingsForm
           Top = 8
           Width = 168
           Caption = 'Depth axis intervals'
-          ClientHeight = 56
-          ClientWidth = 164
+          ClientHeight = 59
+          ClientWidth = 166
           TabOrder = 0
           object Label3: TLabel
             Left = 4
-            Height = 13
+            Height = 12
             Top = 29
             Width = 27
             Caption = 'Every'
@@ -1190,7 +1195,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
           end
           object AutoIntervalCheckBox: TCheckBox
             Left = 4
-            Height = 24
+            Height = 23
             Top = 0
             Width = 74
             Caption = 'Automatic'
@@ -1201,7 +1206,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
           end
           object IntervalSpinEdit: TSpinEdit
             Left = 42
-            Height = 23
+            Height = 24
             Top = 24
             Width = 41
             MinValue = 1
@@ -1210,7 +1215,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
           end
           object UnitLabel: TLabel
             Left = 90
-            Height = 13
+            Height = 12
             Top = 29
             Width = 54
             Caption = 'length units'
@@ -1231,7 +1236,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
         end
         object Label14: TLabel
           Left = 200
-          Height = 13
+          Height = 12
           Top = 60
           Width = 88
           Caption = 'Resolution Factor:'
@@ -1239,7 +1244,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
         end
         object SpinEditResFactor: TSpinEdit
           Left = 310
-          Height = 23
+          Height = 24
           Top = 54
           Width = 44
           Alignment = taRightJustify
@@ -1250,7 +1255,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
         end
         object LegendFrameCheckBox: TCheckBox
           Left = 8
-          Height = 24
+          Height = 23
           Top = 96
           Width = 119
           Caption = 'Show legend frame'
@@ -1258,7 +1263,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
         end
         object CheckBox2Pages: TCheckBox
           Left = 8
-          Height = 24
+          Height = 23
           Top = 126
           Width = 330
           Caption = 'Prepare for display on 2 pages on report, with Page 1 displaying'
@@ -1268,7 +1273,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
         end
         object LabelTopExt: TLabel
           Left = 58
-          Height = 13
+          Height = 12
           Top = 160
           Width = 306
           Caption = '% of the log (top) and Page 2 displaying 50% of the log (bottom)'
@@ -1276,7 +1281,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
         end
         object SpinEditTopExt: TSpinEdit
           Left = 10
-          Height = 23
+          Height = 24
           Hint = 'A smaller %age displays more detail'
           Top = 154
           Width = 44
@@ -1296,8 +1301,8 @@ object GeollogSettingsForm: TGeollogSettingsForm
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 36
-    Top = 258
+    Height = 38
+    Top = 256
     Width = 378
     HelpContext = 95
     OKButton.Name = 'OKButton'
@@ -1339,7 +1344,7 @@ object GeollogSettingsForm: TGeollogSettingsForm
       'ColorS=F0FBFF'
       'ColorT=A4A0A0'
     )
-    left = 248
+    Left = 248
   end
   object wlQuery: TZReadOnlyQuery
     SQL.Strings = (
@@ -1352,8 +1357,8 @@ object GeollogSettingsForm: TGeollogSettingsForm
         Name = 'CurrentSite'
         ParamType = ptInput
       end>
-    left = 184
-    top = 224
+    Left = 136
+    Top = 72
     ParamData = <    
       item
         DataType = ftString
@@ -1368,89 +1373,21 @@ object GeollogSettingsForm: TGeollogSettingsForm
     MaxFontSize = 12
     Options = [fdEffects, fdNoSizeSel]
     PreviewText = 'GRANITE: Reddish brown, medium'
-    left = 328
+    Left = 328
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    left = 104
-    top = 224
+    Left = 56
+    Top = 72
   end
   object DepthQuery: TZReadOnlyQuery
     Connection = DataModuleMain.ZConnectionSettings
     SQL.Strings = (
-      'SELECT FILE_NAME, DESCRIPTION, XVAL, YVAL, UNITXVAL, X_AXISTITLE_BOT FROM Aquasort'
-      'WHERE XVAL > '''''
+      'SELECT * FROM Aquasort WHERE XVAL > '''''
       'ORDER BY DESCRIPTION'
     )
     Params = <>
-    left = 288
-    top = 224
-    object DepthQueryFILE_NAME: TMemoField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'FILE_NAME'
-      Index = 0
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      BlobType = ftMemo
-      Transliterate = False
-    end
-    object DepthQueryDESCRIPTION: TMemoField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'DESCRIPTION'
-      Index = 1
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      BlobType = ftMemo
-      Transliterate = False
-    end
-    object DepthQueryXVAL: TStringField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'XVAL'
-      Index = 2
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 10
-    end
-    object DepthQueryYVAL: TStringField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'YVAL'
-      Index = 3
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 10
-    end
-    object DepthQueryUNITXVAL: TStringField
-      DisplayWidth = 15
-      FieldKind = fkData
-      FieldName = 'UNITXVAL'
-      Index = 4
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 15
-    end
-    object DepthQueryX_AXISTITLE_BOT: TStringField
-      FieldKind = fkData
-      FieldName = 'X_AXISTITLE_BOT'
-      Index = 5
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 24
-    end
+    Left = 240
+    Top = 72
   end
 end

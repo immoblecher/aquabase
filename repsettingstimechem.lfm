@@ -8,22 +8,44 @@ inherited TimeChemReportSettingsForm: TTimeChemReportSettingsForm
   ClientWidth = 502
   OnCreate = FormCreate
   OnShow = FormShow
-  SessionProperties = 'ListBoxParams.Items;DateTimePicker1.Date;DateTimePicker1.Time'
+  SessionProperties = 'DateTimePicker1.Date;DateTimePicker1.Time;ListBoxParams.Items'
+  inherited Label1: TLabel
+    Height = 13
+    Width = 26
+  end
   inherited Label2: TLabel
-    Height = 10
-    Width = 59
+    Height = 13
+    Width = 58
     Font.Height = -11
   end
   inherited RadioGroup1: TRadioGroup
-    ClientHeight = 52
+    ClientHeight = 47
+    ClientWidth = 204
+  end
+  inherited ViewComboBox: TComboBox
+    Height = 21
+    ItemHeight = 13
   end
   inherited GroupBox1: TGroupBox
-    ClientHeight = 107
+    ClientHeight = 102
+    ClientWidth = 180
+    inherited CheckBox1: TCheckBox
+      Height = 17
+      Width = 112
+    end
     inherited CheckBox2: TCheckBox
+      Height = 17
+      Width = 91
       Checked = False
       State = cbUnchecked
     end
+    inherited CheckBox3: TCheckBox
+      Height = 17
+      Width = 71
+    end
     inherited cbPageBreak: TCheckBox
+      Height = 17
+      Width = 143
       Checked = False
       State = cbUnchecked
     end
@@ -33,18 +55,37 @@ inherited TimeChemReportSettingsForm: TTimeChemReportSettingsForm
   end
   inherited CommentMemo: TMemo
     Height = 74
+    Lines.Strings = (
+      'Comment:'
+    )
   end
   inherited ConstrGroupBox: TGroupBox
-    Height = 96
-    ClientHeight = 83
+    Height = 74
+    ClientHeight = 56
+    ClientWidth = 165
+    inherited RecordsButton: TButton
+      Top = 30
+    end
     inherited ConstrCheckBox: TCheckBox
+      Height = 17
+      Top = 4
+      Width = 108
       ParentFont = False
     end
   end
+  inherited CheckBox4: TCheckBox
+    Height = 17
+    Width = 72
+  end
   inherited ButtonPanel1: TButtonPanel
-    Top = 315
+    Height = 34
+    Top = 319
     Width = 490
     OKButton.OnClick = OKButtonClick
+  end
+  inherited CheckBoxFromBasic: TCheckBox
+    Height = 17
+    Width = 96
   end
   object ButtonSelParam: TButton[11]
     Left = 270
@@ -60,17 +101,16 @@ inherited TimeChemReportSettingsForm: TTimeChemReportSettingsForm
   end
   object Label3: TLabel[12]
     Left = 8
-    Height = 10
+    Height = 13
     Top = 276
-    Width = 82
+    Width = 80
     Caption = 'From Date/Time:'
-    ParentColor = False
   end
   object DateTimePicker1: TDateTimePicker[13]
     Left = 8
-    Height = 18
+    Height = 21
     Top = 290
-    Width = 116
+    Width = 122
     CenturyFrom = 1941
     DateDisplayOrder = ddoYMD
     MaxDate = 2958465
@@ -83,24 +123,24 @@ inherited TimeChemReportSettingsForm: TTimeChemReportSettingsForm
     TimeFormat = tf24
     TimeDisplay = tdHMS
     DateMode = dmComboBox
-    Date = 36526
+    Date = 2
+    Time = 0.324433530091483
     UseDefaultSeparators = True
     HideDateTimeParts = [dtpSecond, dtpMiliSec]
     MonthNames = 'Long'
   end
   object Label4: TLabel[14]
     Left = 140
-    Height = 10
+    Height = 13
     Top = 276
-    Width = 69
+    Width = 70
     Caption = 'To Date/Time:'
-    ParentColor = False
   end
   object DateTimePicker2: TDateTimePicker[15]
     Left = 140
-    Height = 18
+    Height = 21
     Top = 290
-    Width = 116
+    Width = 122
     CenturyFrom = 1941
     DateDisplayOrder = ddoYMD
     MaxDate = 2958465
@@ -134,16 +174,14 @@ inherited TimeChemReportSettingsForm: TTimeChemReportSettingsForm
     ScrollWidth = 78
     ShowHint = True
     TabOrder = 12
-    TopIndex = -1
   end
   object Label5: TLabel[17]
     Left = 416
-    Height = 10
+    Height = 13
     Top = 8
-    Width = 59
+    Width = 56
     Caption = '&Parameters:'
     FocusControl = ListBoxParams
-    ParentColor = False
   end
   object Button1: TButton[18]
     Left = 417
@@ -169,21 +207,47 @@ inherited TimeChemReportSettingsForm: TTimeChemReportSettingsForm
     ShowHint = True
     TabOrder = 14
   end
-  inherited PopupMenu1: TPopupMenu[20]
+  object Label6: TLabel[20]
+    Left = 240
+    Height = 13
+    Top = 258
+    Width = 103
+    Caption = 'Reduce col. width by '
   end
-  object XMLPropStorage1: TXMLPropStorage[21]
+  object SpinEdit1: TSpinEdit[21]
+    Left = 346
+    Height = 21
+    Hint = 'Reduce the width of colums with shorter headings'
+    Top = 251
+    Width = 50
+    Alignment = taRightJustify
+    MaxValue = 25
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 15
+  end
+  object Label7: TLabel[22]
+    Left = 399
+    Height = 13
+    Top = 258
+    Width = 8
+    Caption = '%'
+  end
+  inherited PopupMenu1: TPopupMenu[23]
+  end
+  object XMLPropStorage1: TXMLPropStorage[24]
     StoredValues = <>
     Left = 359
     Top = 47
   end
-  object OpenDialog1: TOpenDialog[22]
+  object OpenDialog1: TOpenDialog[25]
     Title = 'Open existing parameter file'
     DefaultExt = '.lst'
     Filter = 'Parameter List (*.lst)|*.lst|All Files (*.*)|*.*'
     Left = 164
     Top = 312
   end
-  object SaveDialog1: TSaveDialog[23]
+  object SaveDialog1: TSaveDialog[26]
     Title = 'Save parameter list as'
     DefaultExt = '.lst'
     Filter = 'Parameter List (*.lst)|*.lst|All Files (*.*)|*.*'

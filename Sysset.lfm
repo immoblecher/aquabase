@@ -1,7 +1,7 @@
 object SysSetDlgForm: TSysSetDlgForm
   Left = 899
   Height = 287
-  Top = 122
+  Top = 307
   Width = 338
   ActiveControl = PageControl1
   BorderIcons = [biSystemMenu, biMinimize]
@@ -57,11 +57,11 @@ object SysSetDlgForm: TSysSetDlgForm
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '2.2.0.4'
   Visible = True
   object PageControl1: TPageControl
     Left = 4
-    Height = 235
+    Height = 233
     Top = 4
     Width = 330
     ActivePage = WorkspaceTabSheet
@@ -71,19 +71,17 @@ object SysSetDlgForm: TSysSetDlgForm
     BorderSpacing.Right = 4
     TabIndex = 0
     TabOrder = 0
-    OnChange = PageControl1Change
     object WorkspaceTabSheet: TTabSheet
       Caption = 'Workspace'
-      ClientHeight = 209
-      ClientWidth = 326
+      ClientHeight = 207
+      ClientWidth = 320
       ImageIndex = 1
       object Label15: TLabel
         Left = 8
-        Height = 10
+        Height = 12
         Top = 64
         Width = 41
         Caption = '&Country:'
-        ParentColor = False
       end
       object Label17: TLabel
         Left = 8
@@ -92,12 +90,11 @@ object SysSetDlgForm: TSysSetDlgForm
         Width = 297
         AutoSize = False
         Caption = 'Start Site &Identifier automatic numbering >'
-        ParentColor = False
         WordWrap = True
       end
       object NewNrSpinEdit: TSpinEdit
         Left = 8
-        Height = 21
+        Height = 24
         Top = 31
         Width = 113
         Alignment = taRightJustify
@@ -109,19 +106,18 @@ object SysSetDlgForm: TSysSetDlgForm
       end
       object CoordLabel: TLabel
         Left = 8
-        Height = 10
+        Height = 12
         Top = 112
         Width = 196
         Caption = '&Show Coordinates in Coordinate System:'
         Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
-        ParentColor = False
         ParentFont = False
       end
       object ComboBoxCountry: TComboBox
         Left = 8
-        Height = 25
+        Height = 26
         Top = 81
         Width = 296
         ItemHeight = 0
@@ -133,7 +129,7 @@ object SysSetDlgForm: TSysSetDlgForm
       end
       object ComboBoxCoordSys: TComboBox
         Left = 8
-        Height = 25
+        Height = 26
         Top = 127
         Width = 296
         DropDownCount = 12
@@ -145,7 +141,7 @@ object SysSetDlgForm: TSysSetDlgForm
       end
       object CheckBoxDMS: TCheckBox
         Left = 9
-        Height = 24
+        Height = 23
         Top = 168
         Width = 230
         Caption = 'Coordinates in Degrees, Minutes, Seconds'
@@ -155,83 +151,75 @@ object SysSetDlgForm: TSysSetDlgForm
     end
     object UnitsTabSheet: TTabSheet
       Caption = 'Units'
-      ClientHeight = 209
-      ClientWidth = 326
+      ClientHeight = 207
+      ClientWidth = 320
       object Label2: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 8
         Width = 33
         Caption = '&Length'
         FocusControl = LengthCombo
-        ParentColor = False
       end
       object Label3: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 56
-        Width = 35
+        Width = 36
         Caption = '&Volume'
         FocusControl = VolumeCombo
-        ParentColor = False
       end
       object Label4: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 104
-        Width = 23
+        Width = 24
         Caption = '&Time'
         FocusControl = TimeCombo
-        ParentColor = False
       end
       object DiamLabel: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 152
-        Width = 105
+        Width = 106
         Caption = '&Diameter/Meteorology'
         FocusControl = DiamCombo
-        ParentColor = False
       end
       object Label8: TLabel
         Left = 160
-        Height = 13
+        Height = 12
         Top = 8
-        Width = 101
+        Width = 107
         Caption = '&Chemistry Parameters'
         FocusControl = ChemCombo
-        ParentColor = False
       end
       object Label7: TLabel
         Left = 160
-        Height = 13
+        Height = 12
         Top = 56
-        Width = 104
+        Width = 105
         Caption = '&Electrical Conductivity'
         FocusControl = ECCombo
-        ParentColor = False
       end
       object Label18: TLabel
         Left = 160
-        Height = 13
+        Height = 12
         Top = 104
-        Width = 102
+        Width = 99
         Caption = '&NO3/NO2/NH4/PO4'
         FocusControl = NComboBox
-        ParentColor = False
       end
       object Label25: TLabel
         Left = 160
-        Height = 13
+        Height = 12
         Top = 152
-        Width = 41
+        Width = 43
         Caption = '&Pressure'
         FocusControl = PressureComboBox
-        ParentColor = False
       end
       object LengthCombo: TComboBox
         Left = 8
-        Height = 21
+        Height = 26
         Top = 24
         Width = 145
         ItemHeight = 0
@@ -240,7 +228,7 @@ object SysSetDlgForm: TSysSetDlgForm
       end
       object VolumeCombo: TComboBox
         Left = 8
-        Height = 21
+        Height = 26
         Top = 72
         Width = 145
         ItemHeight = 0
@@ -249,7 +237,7 @@ object SysSetDlgForm: TSysSetDlgForm
       end
       object TimeCombo: TComboBox
         Left = 8
-        Height = 21
+        Height = 26
         Top = 120
         Width = 145
         ItemHeight = 0
@@ -258,7 +246,7 @@ object SysSetDlgForm: TSysSetDlgForm
       end
       object DiamCombo: TComboBox
         Left = 8
-        Height = 21
+        Height = 26
         Top = 168
         Width = 145
         ItemHeight = 0
@@ -267,7 +255,7 @@ object SysSetDlgForm: TSysSetDlgForm
       end
       object ChemCombo: TComboBox
         Left = 160
-        Height = 21
+        Height = 26
         Top = 24
         Width = 145
         ItemHeight = 0
@@ -276,7 +264,7 @@ object SysSetDlgForm: TSysSetDlgForm
       end
       object ECCombo: TComboBox
         Left = 160
-        Height = 21
+        Height = 26
         Top = 72
         Width = 145
         ItemHeight = 0
@@ -285,7 +273,7 @@ object SysSetDlgForm: TSysSetDlgForm
       end
       object NComboBox: TComboBox
         Left = 160
-        Height = 21
+        Height = 25
         Top = 120
         Width = 145
         ItemHeight = 0
@@ -298,7 +286,7 @@ object SysSetDlgForm: TSysSetDlgForm
       end
       object PressureComboBox: TComboBox
         Left = 160
-        Height = 21
+        Height = 25
         Top = 168
         Width = 145
         ItemHeight = 0
@@ -311,19 +299,18 @@ object SysSetDlgForm: TSysSetDlgForm
     end
     object ChemTabSheet: TTabSheet
       Caption = 'Chemistry'
-      ClientHeight = 209
-      ClientWidth = 326
+      ClientHeight = 207
+      ClientWidth = 320
       object Label10: TLabel
         Left = 8
-        Height = 10
+        Height = 12
         Top = 8
         Width = 84
         Caption = 'Default Standard:'
-        ParentColor = False
       end
       object StandardComboBox: TComboBox
         Left = 9
-        Height = 25
+        Height = 26
         Hint = 'Change default chemistry standard'
         Top = 24
         Width = 281
@@ -339,40 +326,36 @@ object SysSetDlgForm: TSysSetDlgForm
         Top = 50
         Width = 281
         Caption = 'Display of Limits:'
-        ClientHeight = 128
-        ClientWidth = 277
+        ClientHeight = 140
+        ClientWidth = 279
         TabOrder = 1
         object Label11: TLabel
           Left = 8
-          Height = 10
+          Height = 12
           Top = 12
           Width = 99
           Caption = 'Max. recommended:'
-          ParentColor = False
         end
         object Label12: TLabel
           Left = 8
-          Height = 10
+          Height = 12
           Top = 36
           Width = 73
           Caption = 'Max. allowable:'
-          ParentColor = False
         end
         object Label13: TLabel
           Left = 8
-          Height = 10
+          Height = 12
           Top = 76
           Width = 96
           Caption = 'Min. recommended:'
-          ParentColor = False
         end
         object Label14: TLabel
           Left = 8
-          Height = 10
+          Height = 12
           Top = 100
           Width = 70
           Caption = 'Min. allowable:'
-          ParentColor = False
         end
         object Edit1: TEdit
           Cursor = crArrow
@@ -492,13 +475,13 @@ object SysSetDlgForm: TSysSetDlgForm
     end
     object ReportsTabSheet: TTabSheet
       Caption = 'Reports'
-      ClientHeight = 209
-      ClientWidth = 326
+      ClientHeight = 207
+      ClientWidth = 320
       object PageControl2: TPageControl
         Left = 0
         Height = 128
-        Top = 77
-        Width = 317
+        Top = 79
+        Width = 320
         ActivePage = TabSheet2
         Align = alBottom
         TabIndex = 0
@@ -506,39 +489,36 @@ object SysSetDlgForm: TSysSetDlgForm
         object TabSheet2: TTabSheet
           Caption = 'Portrait'
           ClientHeight = 124
-          ClientWidth = 313
+          ClientWidth = 310
           object GroupBox2: TGroupBox
             Left = 4
             Height = 130
             Top = 0
             Width = 294
             Caption = 'Margins:'
-            ClientHeight = 113
-            ClientWidth = 290
+            ClientHeight = 128
+            ClientWidth = 292
             TabOrder = 0
             object Label19: TLabel
               Left = 8
-              Height = 14
+              Height = 12
               Top = 4
-              Width = 101
+              Width = 84
               Caption = 'Left Margin [mm]:'
-              ParentColor = False
             end
             object Label20: TLabel
               Left = 8
-              Height = 14
+              Height = 12
               Top = 34
-              Width = 99
+              Width = 85
               Caption = 'Top Margin [mm]:'
-              ParentColor = False
             end
             object Label22: TLabel
               Left = 8
-              Height = 14
+              Height = 12
               Top = 64
-              Width = 121
+              Width = 100
               Caption = 'Bottom Margin [mm]:'
-              ParentColor = False
             end
             object SpinEdit1: TSpinEdit
               Left = 130
@@ -578,7 +558,7 @@ object SysSetDlgForm: TSysSetDlgForm
         object TabSheet3: TTabSheet
           Caption = 'Landscape'
           ClientHeight = 124
-          ClientWidth = 313
+          ClientWidth = 310
           ImageIndex = 1
           object GroupBox3: TGroupBox
             Left = 4
@@ -586,32 +566,29 @@ object SysSetDlgForm: TSysSetDlgForm
             Top = 0
             Width = 294
             Caption = 'Margins:'
-            ClientHeight = 113
-            ClientWidth = 290
+            ClientHeight = 128
+            ClientWidth = 292
             TabOrder = 0
             object Label23: TLabel
               Left = 8
-              Height = 14
+              Height = 12
               Top = 4
-              Width = 101
+              Width = 84
               Caption = 'Left Margin [mm]:'
-              ParentColor = False
             end
             object Label24: TLabel
               Left = 8
-              Height = 14
+              Height = 12
               Top = 34
-              Width = 99
+              Width = 85
               Caption = 'Top Margin [mm]:'
-              ParentColor = False
             end
             object Label27: TLabel
               Left = 8
-              Height = 14
+              Height = 12
               Top = 64
-              Width = 109
+              Width = 91
               Caption = 'Right Margin [mm]:'
-              ParentColor = False
             end
             object SpinEdit4: TSpinEdit
               Left = 130
@@ -651,10 +628,10 @@ object SysSetDlgForm: TSysSetDlgForm
       end
       object CheckBoxShowNoInfo: TCheckBox
         Left = 4
-        Height = 24
+        Height = 23
         Hint = 'Otherwise field will be empty'
         Top = 20
-        Width = 261
+        Width = 243
         Caption = 'Show "No Information" when field is NULL'
         ParentShowHint = False
         ShowHint = True
@@ -736,17 +713,17 @@ object SysSetDlgForm: TSysSetDlgForm
       end
       object CheckBoxWSpace: TCheckBox
         Left = 4
-        Height = 24
+        Height = 23
         Top = 0
-        Width = 183
+        Width = 168
         Caption = 'Use for this workspace only'
         TabOrder = 3
       end
     end
     object SystemTabSheet: TTabSheet
       Caption = 'System'
-      ClientHeight = 209
-      ClientWidth = 326
+      ClientHeight = 207
+      ClientWidth = 320
       Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
@@ -755,16 +732,15 @@ object SysSetDlgForm: TSysSetDlgForm
       ParentFont = False
       object Label28: TLabel
         Left = 16
-        Height = 13
+        Height = 12
         Top = 140
-        Width = 88
+        Width = 89
         Caption = '&System Language:'
         FocusControl = LangComboBox
-        ParentColor = False
       end
       object LangComboBox: TComboBox
         Left = 112
-        Height = 21
+        Height = 25
         Top = 136
         Width = 169
         DropDownCount = 5
@@ -783,12 +759,12 @@ object SysSetDlgForm: TSysSetDlgForm
         Top = 16
         Width = 297
         Caption = '&Directories:'
-        ClientHeight = 95
-        ClientWidth = 293
+        ClientHeight = 110
+        ClientWidth = 295
         TabOrder = 1
         object EditQGISExe: TEdit
           Left = 8
-          Height = 21
+          Height = 24
           Hint = 'Full Path to your QGIS Executable'
           Top = 16
           Width = 248
@@ -800,25 +776,23 @@ object SysSetDlgForm: TSysSetDlgForm
         end
         object Label6: TLabel
           Left = 8
-          Height = 13
+          Height = 12
           Top = 1
-          Width = 122
+          Width = 123
           Caption = '&Path to QGIS Executable:'
           FocusControl = EditQGISExe
-          ParentColor = False
         end
         object Label16: TLabel
           Left = 8
-          Height = 13
+          Height = 12
           Top = 48
-          Width = 137
+          Width = 138
           Caption = 'Settings and &Language Files:'
           FocusControl = EditSettingsDir
-          ParentColor = False
         end
         object EditSettingsDir: TEdit
           Left = 8
-          Height = 21
+          Height = 24
           Top = 65
           Width = 248
           TabOrder = 1
@@ -918,18 +892,18 @@ object SysSetDlgForm: TSysSetDlgForm
       end
       object CheckBoxAutoEdit: TCheckBox
         Left = 16
-        Height = 17
+        Height = 23
         Top = 184
-        Width = 246
+        Width = 274
         Caption = 'Auto-edit data (may cause editing without intent)'
         TabOrder = 2
       end
       object CheckBoxUpdates: TCheckBox
         Left = 16
-        Height = 17
+        Height = 23
         Hint = 'Un-checking this will prevent Aquabase automatically looking for updates, which may speed up the startup process'
         Top = 163
-        Width = 203
+        Width = 226
         Caption = 'Look for Aquabase Updates on startup'
         Checked = True
         OnChange = CheckBoxUpdatesChange
@@ -941,8 +915,8 @@ object SysSetDlgForm: TSysSetDlgForm
     end
     object UserTabSheet: TTabSheet
       Caption = 'User'
-      ClientHeight = 209
-      ClientWidth = 326
+      ClientHeight = 207
+      ClientWidth = 320
       object Bevel3: TBevel
         Left = 8
         Height = 43
@@ -951,11 +925,10 @@ object SysSetDlgForm: TSysSetDlgForm
       end
       object Label1: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 8
-        Width = 93
+        Width = 95
         Caption = 'Name and Address:'
-        ParentColor = False
       end
       object Label5: TLabel
         Left = 128
@@ -967,7 +940,6 @@ object SysSetDlgForm: TSysSetDlgForm
         Font.Color = clWindowText
         Font.Height = -9
         Font.Name = 'MS Sans Serif'
-        ParentColor = False
         ParentFont = False
         WordWrap = True
       end
@@ -1039,13 +1011,12 @@ object SysSetDlgForm: TSysSetDlgForm
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 36
+    Height = 38
     Hint = 'Apply preferences without closing'
-    Top = 245
+    Top = 243
     Width = 326
     OKButton.Name = 'OKButton'
     OKButton.Caption = '&Apply'
-    OKButton.DefaultCaption = False
     OKButton.OnClick = OKButtonClick
     HelpButton.Name = 'HelpButton'
     HelpButton.DefaultCaption = True
@@ -1055,7 +1026,6 @@ object SysSetDlgForm: TSysSetDlgForm
     CancelButton.Name = 'ApplyButton'
     CancelButton.Hint = 'Apply settings without closing'
     CancelButton.Caption = 'Apply'
-    CancelButton.DefaultCaption = False
     CancelButton.ShowHint = True
     TabOrder = 1
     ShowButtons = [pbOK, pbClose, pbHelp]
@@ -1063,8 +1033,8 @@ object SysSetDlgForm: TSysSetDlgForm
   object UnitTable: TZTable
     Connection = DataModuleMain.ZConnectionLanguage
     ReadOnly = True
-    left = 88
-    top = 216
+    Left = 88
+    Top = 216
   end
   object FontDialog: TFontDialog
     Font.Color = clWindowText
@@ -1072,27 +1042,29 @@ object SysSetDlgForm: TSysSetDlgForm
     Font.Name = 'System'
     MinFontSize = 6
     MaxFontSize = 12
-    left = 232
-    top = 80
+    Left = 232
+    Top = 80
   end
   object OpenDialog: TOpenDialog
     Filter = 'JPEG File (*.jpg)|*.jpg|Bitmap File (*.bmp)|*.bmp'
     Options = [ofEnableSizing]
-    left = 32
-    top = 208
+    Left = 32
+    Top = 208
   end
   object CountryTable: TZTable
-    Connection = DataModuleMain.ZConnectionLanguage
+    Connection = DataModuleMain.ZConnectionCountries
     SortedFields = 'C_NAME'
+    BeforeOpen = CountryTableBeforeOpen
+    AfterClose = CountryTableAfterClose
     ReadOnly = True
     TableName = 'Countries'
     IndexFieldNames = 'C_NAME Asc'
-    left = 256
-    top = 216
+    Left = 256
+    Top = 216
   end
   object SelectDirectoryDialog: TSelectDirectoryDialog
-    left = 152
-    top = 40
+    Left = 152
+    Top = 40
   end
   object ColorDialog1: TColorDialog
     Color = clBlack
@@ -1118,7 +1090,7 @@ object SysSetDlgForm: TSysSetDlgForm
       'ColorS=F0FBFF'
       'ColorT=A4A0A0'
     )
-    left = 280
-    top = 160
+    Left = 280
+    Top = 160
   end
 end

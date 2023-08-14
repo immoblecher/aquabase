@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2023 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -29,7 +29,7 @@ uses
   unix,
   {$ENDIF}
   SysUtils, Classes, Graphics, Controls, PrintersDlgs, Clipbrd, Forms, Dialogs,
-  Buttons, Menus, DBCtrls, ComCtrls, ZDataset, ZSqlProcessor, DBGrids,
+  Buttons, Menus, DBCtrls, ComCtrls, ZDataset, ZSqlProcessor, DBGrids, StrUtils,
   Printers, XMLPropStorage, ExtCtrls, IniFiles, db, ftpsend, Process, FileUtil,
   LCLType, RLPreview, RLFilters, maskedit, Grids, mvMapViewer, DefaultTranslator;
 
@@ -531,7 +531,7 @@ type
     procedure RemovecurrentmarkedsiteClick(Sender: TObject);
     procedure LocationandManagement1Click(Sender: TObject);
     procedure LastWSpaceClick(Sender: TObject);
-    procedure UpdateWSpaceMenu;
+    procedure UpdateWSpaceMenu(Add: Boolean);
     procedure MenuItemMagneticSusceptClick(Sender: TObject);
     procedure TestPumping1Click(Sender: TObject);
     procedure SiteInformation2Click(Sender: TObject);
@@ -586,7 +586,6 @@ type
     procedure SurfaceHydrology2Click(Sender: TObject);
     procedure DatatoFC1Click(Sender: TObject);
   private
-    Workspace: Array[1..10] of String;
     BackupSQLite: Boolean;
     DefaultSettingsDir: String;
     FileVer, ProdVer, FormName: ShortString;
@@ -797,19 +796,10 @@ begin
       FilterName := 'allsites';
       if InitWSpace then
       begin
-        Workspace[10] := Workspace[9];
-        Workspace[9] := Workspace[8];
-        Workspace[8] := Workspace[7];
-        Workspace[7] := Workspace[6];
-        Workspace[6] := Workspace[5];
-        Workspace[5] := Workspace[4];
-        Workspace[4] := Workspace[3];
-        Workspace[3] := Workspace[2];
-        Workspace[2] := Workspace[1];
-        Workspace[1] := WSpaceDir;
         CurrentSite := '';
         CopyFile(ProgramDir + DirectorySeparator + 'splash_logo.jpg', WSpaceDir + DirectorySeparator + 'userlogo.jpg');
         UpdateMenus;
+        UpdateWSpaceMenu(True);
         MessageDlg('The workspace "' + WSpaceDir + '" was successfully created!',
           mtInformation, [mbOK], 0);
       end
@@ -1226,11 +1216,7 @@ begin
 end;
 
 procedure TMainForm.MenuItemOpenWorkspaceClick(Sender: TObject);
-var
-  i: Byte;
-  Found: Boolean;
 begin
-  Found := False;
   OpenDialog1.InitialDir := GetUserDir;
   if OpenDialog1.Execute then
   begin
@@ -1245,22 +1231,7 @@ begin
     else
     begin
       InitWSpace;
-      for i := 1 to 10 do
-        if WSpaceDir = Workspace[i] then
-          Found := True;
-      if not Found then
-      begin
-        Workspace[10] := Workspace[9];
-        Workspace[9] := Workspace[8];
-        Workspace[8] := Workspace[7];
-        Workspace[7] := Workspace[6];
-        Workspace[6] := Workspace[5];
-        Workspace[5] := Workspace[4];
-        Workspace[4] := Workspace[3];
-        Workspace[3] := Workspace[2];
-        Workspace[2] := Workspace[1];
-        Workspace[1] := WSpaceDir;
-      end;
+      UpdateWSpaceMenu(True);
     end;
   end;
   UpdateMenus;
@@ -1268,7 +1239,6 @@ end;
 
 procedure TMainForm.UpdateMenus;
 begin
-  UpdateWSpaceMenu; //with folder names
   //Enable or disable menus when workspace is active or not
   LastWSpace1.Enabled := not WspaceActive;
   LastWSpace2.Enabled := not WspaceActive;
@@ -2109,46 +2079,78 @@ begin
 end;
 
 procedure TMainForm.LastWSpaceClick(Sender: TObject);
-var w: Byte;
 begin
-  if DirectoryExists(Workspace[(Sender as TMenuItem).Tag]) then
+  if DirectoryExists((Sender as TMenuItem).Caption) then
   begin
-    if not FileExistsExt('workspace.ini', Workspace[(Sender as TMenuItem).Tag]) then
+    if not FileExistsExt('workspace.ini', (Sender as TMenuItem).Caption) then
     begin
       WSpaceActive := False;
       MessageDlg('This is not a valid workspace or the workspace has been removed!', mtError, [mbOk], 0);
     end
     else
     begin
-      ChDir(Workspace[(Sender as TMenuItem).Tag]);
-      WSpaceDir := Workspace[(Sender as TMenuItem).Tag];
-      for w := (Sender as TMenuItem).Tag downto 2 do
-        Workspace[w] := Workspace[w - 1];
-      Workspace[1] := WSpaceDir;
+      ChDir((Sender as TMenuItem).Caption);
+      WSpaceDir := (Sender as TMenuItem).Caption;
       InitWSpace;
+      UpdateWSpaceMenu(False);
     end;
   end
   else
   begin
     WSpaceActive := False;
-    for w := (Sender as TMenuItem).Tag to 10 do
-      Workspace[w] := Workspace[w + 1];
-    Workspace[w + 1] := '';
+    UpdateWSpaceMenu(False);
     MessageDlg('This workspace has been removed or renamed!', mtError, [mbOk], 0);
   end;
   UpdateMenus;
 end;
 
-procedure TMainForm.UpdateWSpaceMenu;
-var w: Byte;
+procedure TMainForm.UpdateWSpaceMenu(Add: Boolean);
+var
+  w: Byte;
+  WSpaces: TStringList;
 begin
+  if Add then //update the last workspaces menu, if workspace was opened or new one created
+  begin
+    //check if this workspace has been opened before and therefore is in the menu already
+    WSpaces := TStringList.Create;
+    for w := 1 to 10 do
+      WSpaces.Add((FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption);
+    //if it is not then add the new workspace in menu on top an move the existing ones down
+    if WSpaces.IndexOf(WSpaceDir) = -1 then
+    begin
+      for w := 10 downto 2 do
+        (FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption := WSpaces[w-2];
+      (FindComponent('LastWSpace' + IntToStr(1)) as TMenuItem).Caption := WSpaceDir;
+    end
+    else
+    begin
+      WSpaces.Delete(WSpaces.IndexOf(WSpaceDir));
+      WSpaces.Insert(0, WSpaceDir);
+      for w := 1 to 10 do
+        (FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption := WSpaces[w-1];
+    end;
+    WSpaces.Free;
+  end
+  else
+  begin
+    //check if the workspaces still exist and add only those that do
+    WSpaces := TStringList.Create;
+    for w := 1 to 10 do
+      if DirectoryExists((FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption) then
+        WSpaces.Add((FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption);
+    WSpaces.Delete(WSpaces.IndexOf(WSpaceDir));
+    WSpaces.Insert(0, WSpaceDir);
+    for w := 1 to WSpaces.Count do
+      (FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption := WSpaces[w-1];
+    WSpaces.Free;
+  end;
+  //just update the hints and visibility if there is a valid caption
   for w := 1 to 10 do
   begin
-    if Workspace[w] > '' then
+    if (FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption > '' then
     begin
-    MenuItemRecentWorkspaces.Enabled := true;
-    (FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Hint := 'Open Workspace "' + Workspace[w] + '"';
-    (FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption := Workspace[w];
+    MenuItemRecentWorkspaces.Enabled := True;
+    (FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Hint := 'Open Workspace "' + (FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption + '"';
     (FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Visible := True;
     end;
   end;
@@ -2648,13 +2650,13 @@ procedure TMainForm.XMLPropStorage1RestoreProperties(Sender: TObject);
 var
   TempStandard: ShortString;
 begin
-  AutoEditGrid := StrToBool(XMLPropStorage1.StoredValues[0].Value);
+  AutoEditData := StrToBool(XMLPropStorage1.StoredValues[0].Value);
   Language := XMLPropStorage1.StoredValues[1].Value;
   if Language = '' then Language := 'English';
   if XMLPropStorage1.StoredValues[2].Value = '' then
     SettingsDir := ProgramDir
   else SettingsDir := XMLPropStorage1.StoredValues[2].Value;
-  if (not FileExists(SettingsDir + DirectorySeparator + 'en_za.sqlite')) or (not FileExists(SettingsDir + DirectorySeparator + 'settings.sqlite')) then
+  if (not FileExists(SettingsDir + DirectorySeparator + 'settings.sqlite')) then
     SettingsDir := ProgramDir;
   DefaultSettingsDir := SettingsDir;
   VolumeUnit := XMLPropStorage1.StoredValues[3].Value;
@@ -2732,41 +2734,31 @@ begin
   LTopMargin := StrToInt(XMLPropStorage1.StoredValues[31].Value);
   LRightMargin := StrToInt(XMLPropStorage1.StoredValues[32].Value);
   ReportHeaderBandColor := StringToColor(XMLPropStorage1.StoredValues[33].Value);
-  Workspace[1] := XMLPropStorage1.StoredValues[34].Value;
-  Workspace[2] := XMLPropStorage1.StoredValues[35].Value;
-  Workspace[3] := XMLPropStorage1.StoredValues[36].Value;
-  Workspace[4] := XMLPropStorage1.StoredValues[37].Value;
-  Workspace[5] := XMLPropStorage1.StoredValues[38].Value;
-  Workspace[6] := XMLPropStorage1.StoredValues[45].Value;
-  Workspace[7] := XMLPropStorage1.StoredValues[46].Value;
-  Workspace[8] := XMLPropStorage1.StoredValues[47].Value;
-  Workspace[9] := XMLPropStorage1.StoredValues[48].Value;
-  Workspace[10]  := XMLPropStorage1.StoredValues[49].Value;
-  Country := XMLPropStorage1.StoredValues[39].Value;
+  Country := XMLPropStorage1.StoredValues[34].Value;
   if Country = '' then Country := 'South Africa';
-  PrintNoInfo := StrToBool(XMLPropStorage1.StoredValues[40].Value);
-  ReportFont.Name := XMLPropStorage1.StoredValues[41].Value;
+  PrintNoInfo := StrToBool(XMLPropStorage1.StoredValues[35].Value);
+  ReportFont.Name := XMLPropStorage1.StoredValues[36].Value;
   if ReportFont.Name = '' then ReportFont.Name := 'Arial';
-  if XMLPropStorage1.StoredValues[42].Value = '' then
+  if XMLPropStorage1.StoredValues[37].Value = '' then
     ReportFont.Size := 8
   else
-    ReportFont.Size := StrToInt(XMLPropStorage1.StoredValues[42].Value);
-  if XMLPropStorage1.StoredValues[43].Value = '' then
+    ReportFont.Size := StrToInt(XMLPropStorage1.StoredValues[37].Value);
+  if XMLPropStorage1.StoredValues[38].Value = '' then
     ReportFont.Color := clBlack
   else
-    ReportFont.Color := StringToColor(XMLPropStorage1.StoredValues[43].Value);
-  if XMLPropStorage1.StoredValues[44].Value = '' then
+    ReportFont.Color := StringToColor(XMLPropStorage1.StoredValues[38].Value);
+  if XMLPropStorage1.StoredValues[39].Value = '' then
     ReportFont.Style := []
   else
-    ReportFont.Style := ConvertStyle(XMLPropStorage1.StoredValues[44].Value);
+    ReportFont.Style := ConvertStyle(XMLPropStorage1.StoredValues[39].Value);
   DisUnit := VolumeUnit + '/' + TimeUnit;
-  QGISExe := XMLPropStorage1.StoredValues[50].Value;
+  QGISExe := XMLPropStorage1.StoredValues[40].Value;
   if QGISExe = '' then QGISExe := 'qgis';
 end;
 
 procedure TMainForm.XMLPropStorage1SavingProperties(Sender: TObject);
 begin
-  XMLPropStorage1.StoredValues[0].Value := BoolToStr(AutoEditGrid);
+  XMLPropStorage1.StoredValues[0].Value := BoolToStr(AutoEditData);
   XMLPropStorage1.StoredValues[1].Value := Language;
   if SettingsDir <> WSpaceDir then
     XMLPropStorage1.StoredValues[2].Value := SettingsDir;
@@ -2801,23 +2793,13 @@ begin
   XMLPropStorage1.StoredValues[31].Value := IntToStr(LTopMargin);
   XMLPropStorage1.StoredValues[32].Value := IntToStr(LRightMargin);
   XMLPropStorage1.StoredValues[33].Value := IntToStr(ReportHeaderBandColor);
-  XMLPropStorage1.StoredValues[34].Value := Workspace[1];
-  XMLPropStorage1.StoredValues[35].Value := Workspace[2];
-  XMLPropStorage1.StoredValues[36].Value := Workspace[3];
-  XMLPropStorage1.StoredValues[37].Value := Workspace[4];
-  XMLPropStorage1.StoredValues[38].Value := Workspace[5];
-  XMLPropStorage1.StoredValues[39].Value := Country;
-  XMLPropStorage1.StoredValues[40].Value := BoolToStr(PrintNoInfo);
-  XMLPropStorage1.StoredValues[41].Value := ReportFont.Name;
-  XMLPropStorage1.StoredValues[42].Value := IntToStr(ReportFont.Size);
-  XMLPropStorage1.StoredValues[43].Value := IntToStr(ReportFont.Color);
-  XMLPropStorage1.StoredValues[44].Value := ConvertFromStyle(ReportFont.Style);
-  XMLPropStorage1.StoredValues[45].Value := Workspace[6];
-  XMLPropStorage1.StoredValues[46].Value := Workspace[7];
-  XMLPropStorage1.StoredValues[47].Value := Workspace[8];
-  XMLPropStorage1.StoredValues[48].Value := Workspace[9];
-  XMLPropStorage1.StoredValues[49].Value := Workspace[10];
-  XMLPropStorage1.StoredValues[50].Value := QGISExe;
+  XMLPropStorage1.StoredValues[34].Value := Country;
+  XMLPropStorage1.StoredValues[35].Value := BoolToStr(PrintNoInfo);
+  XMLPropStorage1.StoredValues[36].Value := ReportFont.Name;
+  XMLPropStorage1.StoredValues[37].Value := IntToStr(ReportFont.Size);
+  XMLPropStorage1.StoredValues[38].Value := IntToStr(ReportFont.Color);
+  XMLPropStorage1.StoredValues[39].Value := ConvertFromStyle(ReportFont.Style);
+  XMLPropStorage1.StoredValues[40].Value := QGISExe;
 end;
 
 procedure TMainForm.Yield1Click(Sender: TObject);
@@ -3490,8 +3472,9 @@ begin
   //check if there are unresolved geometries
   with DataModuleMain.CheckQuery do
   begin
+    Connection := DataModuleMain.ZConnectionDB;
     SQL.Clear;
-    SQL.Add('SELECT SITE_ID_NR, NGDB_FLAG FROM basicinf WHERE NGDB_FLAG = '+ IntToStr(UpdtdByTrigger));
+    SQL.Add('SELECT SITE_ID_NR, NGDB_FLAG FROM basicinf WHERE NGDB_FLAG = ' + IntToStr(UpdtdByTrigger));
     Open;
     GeomFound := RecordCount > 0;
     Close;

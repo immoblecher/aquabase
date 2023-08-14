@@ -52,12 +52,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Layout = tlTop
         end
         object RLDBTextParam0: TRLDBText[3]
-          Left = 234
+          Left = 199
           Height = 13
           Top = 2
-          Width = 56
+          Width = 91
           Alignment = taRightJustify
-          AutoSize = False
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
@@ -65,12 +64,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Visible = False
         end
         object RLDBTextParam1: TRLDBText[4]
-          Left = 291
+          Left = 256
           Height = 13
           Top = 2
-          Width = 56
+          Width = 91
           Alignment = taRightJustify
-          AutoSize = False
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
@@ -78,12 +76,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Visible = False
         end
         object RLDBTextParam2: TRLDBText[5]
-          Left = 348
+          Left = 313
           Height = 13
           Top = 2
-          Width = 56
+          Width = 91
           Alignment = taRightJustify
-          AutoSize = False
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
@@ -91,12 +88,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Visible = False
         end
         object RLDBTextParam3: TRLDBText[6]
-          Left = 406
+          Left = 371
           Height = 13
           Top = 2
-          Width = 56
+          Width = 91
           Alignment = taRightJustify
-          AutoSize = False
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
@@ -104,12 +100,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Visible = False
         end
         object RLDBTextParam4: TRLDBText[7]
-          Left = 464
+          Left = 429
           Height = 13
           Top = 2
-          Width = 56
+          Width = 91
           Alignment = taRightJustify
-          AutoSize = False
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
@@ -117,12 +112,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Visible = False
         end
         object RLDBTextParam5: TRLDBText[8]
-          Left = 522
+          Left = 487
           Height = 13
           Top = 2
-          Width = 56
+          Width = 91
           Alignment = taRightJustify
-          AutoSize = False
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
@@ -130,12 +124,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Visible = False
         end
         object RLDBTextParam6: TRLDBText[9]
-          Left = 580
+          Left = 545
           Height = 13
           Top = 2
-          Width = 56
+          Width = 91
           Alignment = taRightJustify
-          AutoSize = False
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
@@ -143,12 +136,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Visible = False
         end
         object RLDBTextParam7: TRLDBText[10]
-          Left = 638
+          Left = 603
           Height = 13
           Top = 2
-          Width = 56
+          Width = 91
           Alignment = taRightJustify
-          AutoSize = False
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
@@ -156,12 +148,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Visible = False
         end
         object RLDBTextParam8: TRLDBText[11]
-          Left = 696
+          Left = 661
           Height = 13
           Top = 2
-          Width = 56
+          Width = 91
           Alignment = taRightJustify
-          AutoSize = False
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
@@ -169,12 +160,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Visible = False
         end
         object RLDBTextParam9: TRLDBText[12]
-          Left = 754
+          Left = 719
           Height = 13
           Top = 2
-          Width = 56
+          Width = 91
           Alignment = taRightJustify
-          AutoSize = False
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
@@ -182,12 +172,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Visible = False
         end
         object RLDBTextParam10: TRLDBText[13]
-          Left = 812
+          Left = 771
           Height = 13
           Top = 2
-          Width = 56
+          Width = 97
           Alignment = taRightJustify
-          AutoSize = False
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
@@ -195,12 +184,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Visible = False
         end
         object RLDBTextParam11: TRLDBText[14]
-          Left = 870
+          Left = 829
           Height = 13
           Top = 2
-          Width = 56
+          Width = 97
           Alignment = taRightJustify
-          AutoSize = False
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
@@ -208,12 +196,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Visible = False
         end
         object RLDBTextParam12: TRLDBText[15]
-          Left = 928
+          Left = 887
           Height = 13
           Top = 2
-          Width = 56
+          Width = 97
           Alignment = taRightJustify
-          AutoSize = False
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
@@ -221,12 +208,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           Visible = False
         end
         object RLDBTextParam13: TRLDBText[16]
-          Left = 986
+          Left = 945
           Height = 13
           Top = 2
-          Width = 56
+          Width = 97
           Alignment = taRightJustify
-          AutoSize = False
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
@@ -291,12 +277,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMin0: TRLDBText[3]
-          Left = 234
+          Left = 264
           Height = 13
           Top = 2
-          Width = 56
+          Width = 26
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Min0'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -305,12 +290,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMax0: TRLDBText[4]
-          Left = 234
+          Left = 260
           Height = 13
           Top = 18
-          Width = 56
+          Width = 30
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Max0'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -319,12 +303,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextAvg0: TRLDBText[5]
-          Left = 234
+          Left = 263
           Height = 13
           Top = 34
-          Width = 56
+          Width = 27
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Avg0'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -333,12 +316,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMin1: TRLDBText[6]
-          Left = 291
+          Left = 321
           Height = 13
           Top = 2
-          Width = 56
+          Width = 26
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Min1'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -347,12 +329,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMax1: TRLDBText[7]
-          Left = 291
+          Left = 317
           Height = 13
           Top = 18
-          Width = 56
+          Width = 30
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Max1'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -361,12 +342,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextAvg1: TRLDBText[8]
-          Left = 291
+          Left = 320
           Height = 13
           Top = 34
-          Width = 56
+          Width = 27
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Avg1'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -375,12 +355,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMin2: TRLDBText[9]
-          Left = 348
+          Left = 378
           Height = 13
           Top = 2
-          Width = 56
+          Width = 26
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Min2'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -389,12 +368,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMax2: TRLDBText[10]
-          Left = 348
+          Left = 374
           Height = 13
           Top = 18
-          Width = 56
+          Width = 30
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Max2'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -403,12 +381,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextAvg2: TRLDBText[11]
-          Left = 348
+          Left = 377
           Height = 13
           Top = 34
-          Width = 56
+          Width = 27
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Avg2'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -417,12 +394,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMin3: TRLDBText[12]
-          Left = 406
+          Left = 436
           Height = 13
           Top = 2
-          Width = 56
+          Width = 26
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Min3'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -431,12 +407,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMax3: TRLDBText[13]
-          Left = 406
+          Left = 432
           Height = 13
           Top = 18
-          Width = 56
+          Width = 30
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Max3'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -445,12 +420,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextAvg3: TRLDBText[14]
-          Left = 406
+          Left = 435
           Height = 13
           Top = 34
-          Width = 56
+          Width = 27
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Avg3'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -459,12 +433,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMin4: TRLDBText[15]
-          Left = 464
+          Left = 494
           Height = 13
           Top = 2
-          Width = 56
+          Width = 26
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Min4'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -473,12 +446,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMax4: TRLDBText[16]
-          Left = 464
+          Left = 490
           Height = 13
           Top = 18
-          Width = 56
+          Width = 30
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Max4'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -487,12 +459,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextAvg4: TRLDBText[17]
-          Left = 464
+          Left = 493
           Height = 13
           Top = 34
-          Width = 56
+          Width = 27
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Avg4'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -501,12 +472,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMin5: TRLDBText[18]
-          Left = 522
+          Left = 552
           Height = 13
           Top = 2
-          Width = 56
+          Width = 26
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Min5'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -515,12 +485,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMax5: TRLDBText[19]
-          Left = 522
+          Left = 548
           Height = 13
           Top = 18
-          Width = 56
+          Width = 30
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Max5'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -529,12 +498,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextAvg5: TRLDBText[20]
-          Left = 522
+          Left = 551
           Height = 13
           Top = 34
-          Width = 56
+          Width = 27
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Avg5'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -543,12 +511,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMin6: TRLDBText[21]
-          Left = 580
+          Left = 610
           Height = 13
           Top = 2
-          Width = 56
+          Width = 26
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Min6'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -557,12 +524,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMax6: TRLDBText[22]
-          Left = 580
+          Left = 606
           Height = 13
           Top = 18
-          Width = 56
+          Width = 30
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Max6'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -571,12 +537,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextAvg6: TRLDBText[23]
-          Left = 580
+          Left = 609
           Height = 13
           Top = 34
-          Width = 56
+          Width = 27
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Avg6'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -585,12 +550,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMin7: TRLDBText[24]
-          Left = 638
+          Left = 668
           Height = 13
           Top = 2
-          Width = 56
+          Width = 26
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Min7'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -599,12 +563,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMax7: TRLDBText[25]
-          Left = 638
+          Left = 664
           Height = 13
           Top = 18
-          Width = 56
+          Width = 30
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Max7'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -613,12 +576,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextAvg7: TRLDBText[26]
-          Left = 638
+          Left = 667
           Height = 13
           Top = 34
-          Width = 56
+          Width = 27
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Avg7'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -627,12 +589,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMin8: TRLDBText[27]
-          Left = 696
+          Left = 726
           Height = 13
           Top = 2
-          Width = 56
+          Width = 26
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Min8'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -641,12 +602,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMax8: TRLDBText[28]
-          Left = 696
+          Left = 722
           Height = 13
           Top = 18
-          Width = 56
+          Width = 30
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Max8'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -655,12 +615,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextAvg8: TRLDBText[29]
-          Left = 696
+          Left = 725
           Height = 13
           Top = 34
-          Width = 56
+          Width = 27
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Avg8'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -669,12 +628,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMin9: TRLDBText[30]
-          Left = 754
+          Left = 784
           Height = 13
           Top = 2
-          Width = 56
+          Width = 26
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Min9'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -683,12 +641,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMax9: TRLDBText[31]
-          Left = 754
+          Left = 780
           Height = 13
           Top = 18
-          Width = 56
+          Width = 30
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Max9'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -697,12 +654,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextAvg9: TRLDBText[32]
-          Left = 754
+          Left = 783
           Height = 13
           Top = 34
-          Width = 56
+          Width = 27
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Avg9'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -711,12 +667,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMin10: TRLDBText[33]
-          Left = 812
+          Left = 836
           Height = 13
           Top = 2
-          Width = 56
+          Width = 32
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Min10'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -725,12 +680,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMax10: TRLDBText[34]
-          Left = 812
+          Left = 832
           Height = 13
           Top = 18
-          Width = 56
+          Width = 36
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Max10'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -739,12 +693,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextAvg10: TRLDBText[35]
-          Left = 812
+          Left = 835
           Height = 13
           Top = 34
-          Width = 56
+          Width = 33
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Avg10'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -753,12 +706,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMin11: TRLDBText[36]
-          Left = 870
+          Left = 894
           Height = 13
           Top = 2
-          Width = 56
+          Width = 32
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Min11'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -767,12 +719,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMax11: TRLDBText[37]
-          Left = 870
+          Left = 890
           Height = 13
           Top = 18
-          Width = 56
+          Width = 36
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Max11'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -781,12 +732,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextAvg11: TRLDBText[38]
-          Left = 870
+          Left = 893
           Height = 13
           Top = 34
-          Width = 56
+          Width = 33
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Avg11'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -795,12 +745,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMin12: TRLDBText[39]
-          Left = 928
+          Left = 952
           Height = 13
           Top = 2
-          Width = 56
+          Width = 32
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Min12'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -809,12 +758,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMax12: TRLDBText[40]
-          Left = 928
+          Left = 948
           Height = 13
           Top = 18
-          Width = 56
+          Width = 36
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Max12'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -823,12 +771,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextAvg12: TRLDBText[41]
-          Left = 928
+          Left = 951
           Height = 13
           Top = 34
-          Width = 56
+          Width = 33
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Avg12'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -837,12 +784,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMin13: TRLDBText[42]
-          Left = 986
+          Left = 1010
           Height = 13
           Top = 2
-          Width = 56
+          Width = 32
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Min13'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -851,12 +797,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextMax13: TRLDBText[43]
-          Left = 986
+          Left = 1006
           Height = 13
           Top = 18
-          Width = 56
+          Width = 36
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Max13'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -865,12 +810,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
           ParentFont = False
         end
         object RLDBTextAvg13: TRLDBText[44]
-          Left = 986
+          Left = 1009
           Height = 13
           Top = 34
-          Width = 56
+          Width = 33
           Alignment = taRightJustify
-          AutoSize = False
           DataField = 'Avg13'
           DataSource = SummaryDataSource
           Font.Color = clBlack
@@ -934,8 +878,8 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
       Options = [boOptimisticPageBreak]
       inherited RLLabelHeader2: TRLLabel
         Left = 58
-        Width = 83
-        Caption = 'Samp. Nr./Type'
+        Width = 94
+        Caption = 'Samp. Nr. & Type'
       end
       inherited RLLabelHeader1: TRLLabel
         Width = 42
@@ -966,12 +910,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
         DataField = 'SITE_NAME'
       end
       object RLLabelParam0: TRLLabel[9]
-        Left = 234
+        Left = 248
         Height = 13
         Top = 24
-        Width = 56
+        Width = 42
         Alignment = taRightJustify
-        AutoSize = False
         Caption = 'Param0'
         Font.Color = clBlack
         Font.Height = -11
@@ -983,12 +926,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
         Visible = False
       end
       object RLLabelParam1: TRLLabel[10]
-        Left = 291
+        Left = 305
         Height = 13
         Top = 24
-        Width = 56
+        Width = 42
         Alignment = taRightJustify
-        AutoSize = False
         Caption = 'Param1'
         Font.Color = clBlack
         Font.Height = -11
@@ -1000,12 +942,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
         Visible = False
       end
       object RLLabelParam2: TRLLabel[11]
-        Left = 348
+        Left = 362
         Height = 13
         Top = 24
-        Width = 56
+        Width = 42
         Alignment = taRightJustify
-        AutoSize = False
         Caption = 'Param2'
         Font.Color = clBlack
         Font.Height = -11
@@ -1017,12 +958,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
         Visible = False
       end
       object RLLabelParam3: TRLLabel[12]
-        Left = 406
+        Left = 420
         Height = 13
         Top = 24
-        Width = 56
+        Width = 42
         Alignment = taRightJustify
-        AutoSize = False
         Caption = 'Param3'
         Font.Color = clBlack
         Font.Height = -11
@@ -1034,12 +974,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
         Visible = False
       end
       object RLLabelParam4: TRLLabel[13]
-        Left = 464
+        Left = 478
         Height = 13
         Top = 24
-        Width = 56
+        Width = 42
         Alignment = taRightJustify
-        AutoSize = False
         Caption = 'Param4'
         Font.Color = clBlack
         Font.Height = -11
@@ -1051,12 +990,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
         Visible = False
       end
       object RLLabelParam5: TRLLabel[14]
-        Left = 522
+        Left = 536
         Height = 13
         Top = 24
-        Width = 56
+        Width = 42
         Alignment = taRightJustify
-        AutoSize = False
         Caption = 'Param5'
         Font.Color = clBlack
         Font.Height = -11
@@ -1068,12 +1006,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
         Visible = False
       end
       object RLLabelParam6: TRLLabel[15]
-        Left = 580
+        Left = 594
         Height = 13
         Top = 24
-        Width = 56
+        Width = 42
         Alignment = taRightJustify
-        AutoSize = False
         Caption = 'Param6'
         Font.Color = clBlack
         Font.Height = -11
@@ -1085,12 +1022,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
         Visible = False
       end
       object RLLabelParam7: TRLLabel[16]
-        Left = 638
+        Left = 652
         Height = 13
         Top = 24
-        Width = 56
+        Width = 42
         Alignment = taRightJustify
-        AutoSize = False
         Caption = 'Param7'
         Font.Color = clBlack
         Font.Height = -11
@@ -1102,12 +1038,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
         Visible = False
       end
       object RLLabelParam8: TRLLabel[17]
-        Left = 696
+        Left = 710
         Height = 13
         Top = 24
-        Width = 56
+        Width = 42
         Alignment = taRightJustify
-        AutoSize = False
         Caption = 'Param8'
         Font.Color = clBlack
         Font.Height = -11
@@ -1119,12 +1054,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
         Visible = False
       end
       object RLLabelParam9: TRLLabel[18]
-        Left = 754
+        Left = 768
         Height = 13
         Top = 24
-        Width = 56
+        Width = 42
         Alignment = taRightJustify
-        AutoSize = False
         Caption = 'Param9'
         Font.Color = clBlack
         Font.Height = -11
@@ -1136,12 +1070,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
         Visible = False
       end
       object RLLabelParam10: TRLLabel[19]
-        Left = 812
+        Left = 820
         Height = 13
         Top = 24
-        Width = 56
+        Width = 48
         Alignment = taRightJustify
-        AutoSize = False
         Caption = 'Param10'
         Font.Color = clBlack
         Font.Height = -11
@@ -1153,12 +1086,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
         Visible = False
       end
       object RLLabelParam11: TRLLabel[20]
-        Left = 870
+        Left = 878
         Height = 13
         Top = 24
-        Width = 56
+        Width = 48
         Alignment = taRightJustify
-        AutoSize = False
         Caption = 'Param11'
         Font.Color = clBlack
         Font.Height = -11
@@ -1170,12 +1102,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
         Visible = False
       end
       object RLLabelParam12: TRLLabel[21]
-        Left = 928
+        Left = 936
         Height = 13
         Top = 24
-        Width = 56
+        Width = 48
         Alignment = taRightJustify
-        AutoSize = False
         Caption = 'Param12'
         Font.Color = clBlack
         Font.Height = -11
@@ -1187,12 +1118,11 @@ inherited LandscapeReportFormChem: TLandscapeReportFormChem
         Visible = False
       end
       object RLLabelParam13: TRLLabel[22]
-        Left = 986
+        Left = 994
         Height = 13
         Top = 24
-        Width = 56
+        Width = 48
         Alignment = taRightJustify
-        AutoSize = False
         Caption = 'Param13'
         Font.Color = clBlack
         Font.Height = -11

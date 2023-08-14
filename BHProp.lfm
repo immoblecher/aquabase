@@ -1,6 +1,6 @@
 inherited BhPropertiesForm: TBhPropertiesForm
   Left = 630
-  Top = 215
+  Top = 271
   Caption = 'Borehole Properties'
   Icon.Data = {
     FE0200000000010001002020100000000000E802000016000000280000002000
@@ -86,24 +86,17 @@ inherited BhPropertiesForm: TBhPropertiesForm
   end
   inherited Panel2: TPanel
     inherited Panel3: TPanel
-      Height = 244
-      Top = 116
-      ClientHeight = 244
       inherited LinkedLabel: TLabel
         Width = 135
         Caption = 'Borehole Properties'
       end
       inherited PageControl: TPageControl
-        Height = 191
         OnChange = PageControlChange
         inherited TabSheet1: TTabSheet
           Hint = 'Caliper'
           Caption = 'Caliper'
-          ClientHeight = 165
-          ClientWidth = 558
+          ClientHeight = 173
           inherited DBGrid1: TDBGrid
-            Height = 165
-            Width = 558
             AutoFillColumns = True
             Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
             OnKeyDown = DBGridKeyDown
@@ -113,6 +106,7 @@ inherited BhPropertiesForm: TBhPropertiesForm
         inherited TabSheet2: TTabSheet
           Hint = 'Dip'
           Caption = 'Dip'
+          ClientHeight = 173
           inherited DBGrid2: TDBGrid
             AutoFillColumns = True
             Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
@@ -121,27 +115,24 @@ inherited BhPropertiesForm: TBhPropertiesForm
           end
         end
         inherited TabSheet3: TTabSheet
+          ClientHeight = 173
           TabVisible = False
         end
         inherited TabSheet4: TTabSheet
+          ClientHeight = 173
           TabVisible = False
         end
       end
       inherited Panel4: TPanel
-        Top = 215
         inherited DetailNavigator: TDBNavigator
           Hints.Strings = (          )
         end
-        inherited StaticText1: TStaticText
-          Left = 456
-          Width = 38
-        end
       end
       object AMSLCheckBox: TCheckBox[3]
-        Left = 476
-        Height = 17
+        Left = 471
+        Height = 23
         Top = 2
-        Width = 61
+        Width = 66
         Anchors = [akTop, akRight]
         Caption = 'a.m.s.l.'
         Font.Color = clBlack
@@ -154,18 +145,11 @@ inherited BhPropertiesForm: TBhPropertiesForm
         TabStop = False
       end
     end
-    inherited GroupBox1: TGroupBox
-      Height = 107
-      ClientHeight = 89
-      inherited RxDBLookupComboType: TRxDBLookupCombo
-        Height = 27
-      end
-    end
   end
   inherited BasicinfDataSource: TDataSource
     OnDataChange = BasicinfDataSourceDataChange
-    left = 440
-    top = 48
+    Left = 440
+    Top = 48
   end
   inherited DataSource1: TDataSource
     DataSet = ZQuery1
@@ -260,8 +244,6 @@ inherited BhPropertiesForm: TBhPropertiesForm
       Required = False
       OnGetText = TableDEPTHGetText
       OnSetText = TableDEPTHSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object ZQuery1READING: TFloatField[5]
@@ -275,8 +257,6 @@ inherited BhPropertiesForm: TBhPropertiesForm
       Required = False
       OnGetText = ZQuery1READINGGetText
       OnSetText = ZQuery1READINGSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
   end
@@ -367,8 +347,6 @@ inherited BhPropertiesForm: TBhPropertiesForm
       Required = False
       OnGetText = TableDEPTHGetText
       OnSetText = TableDEPTHSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object ZQuery2READING: TFloatField[5]
@@ -382,7 +360,6 @@ inherited BhPropertiesForm: TBhPropertiesForm
       Required = False
       DisplayFormat = '0.00'
       MaxValue = 90
-      MinValue = 0
       Precision = 30
     end
   end

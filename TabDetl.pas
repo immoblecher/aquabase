@@ -247,6 +247,7 @@ var
   i: Word;
 begin
   Screen.Cursor := crSQLWait;
+  BasicinfDataSource.AutoEdit := AutoEditData;
   DataModuleMain.BasicValidFound := True;
   BitBtnHelp.Hint := 'Help on ' + Caption;
   //Set Labels
@@ -680,7 +681,7 @@ end;
 
 procedure TTabbedMastDetailForm.ZQueryAfterOpen(DataSet: TDataSet);
 begin
-  (FindComponent('DataSource' + IntToStr(Dataset.Tag)) as TDataSource).AutoEdit := AutoEditGrid;
+  (FindComponent('DataSource' + IntToStr(Dataset.Tag)) as TDataSource).AutoEdit := AutoEditData;
 end;
 
 procedure TTabbedMastDetailForm.ZQuery1NewRecord(DataSet: TDataSet);

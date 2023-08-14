@@ -10,5 +10,6 @@
 {"hash":376933,"name":"tcrsinfoform.rxdbgrid1.columns[1].title.caption","sourcebytes":[84,121,112,101],"value":"Type"},
 {"hash":98936557,"name":"tcrsinfoform.rxdbgrid1.columns[2].title.caption","sourcebytes":[67,111,111,114,100,105,110,97,116,101,32,82,101,102,101,114,101,110,99,101,32,83,121,115,116,101,109],"value":"Coordinate Reference System"},
 {"hash":188186932,"name":"tcrsinfoform.rxdbgrid1.columns[3].title.caption","sourcebytes":[65,114,101,97,32,117,115,101,100],"value":"Area used"},
-{"hash":206171982,"name":"tcrsinfoform.rxdbgrid1.columns[4].title.caption","sourcebytes":[65,114,101,97,32,68,101,115,99,114,105,112,116,105,111,110],"value":"Area Description"}
+{"hash":206171982,"name":"tcrsinfoform.rxdbgrid1.columns[4].title.caption","sourcebytes":[65,114,101,97,32,68,101,115,99,114,105,112,116,105,111,110],"value":"Area Description"},
+{"hash":164123125,"name":"tcrsinfoform.menuitem1.caption","sourcebytes":[38,67,111,112,121,32,99,101,108,108,32,118,97,108,117,101],"value":"&Copy cell value"}
 ]}

@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2023 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -23,7 +23,7 @@ interface
 
 uses
   Classes, SysUtils, db, FileUtil, ZDataset, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, ButtonPanel, LCLType, IniFiles;
+  StdCtrls, ButtonPanel, LCLType, IniFiles, StrUtils;
 
 type
 
@@ -71,7 +71,7 @@ implementation
 uses VARINIT, MainDataModule, progressbox;
 
 const
-  CoordMsg = 'Oops, something went wrong with a coordinate conversion! Not sure what to do about it, but the coordinates may actually be correct.';
+  CoordMsg = 'Oops, something went wrong with a coordinate conversion! Your selected coordinate system may not be available in your database! Please upgrade your database or select a different coordinate system.';
 
 { TApplyCoordForm }
 
@@ -95,22 +95,8 @@ end;
 procedure TApplyCoordForm.FormCreate(Sender: TObject);
 begin
   DataModuleMain.SetComponentFontAndSize(Sender, True);
-  CountryTable.Open;
   with DataModuleMain.ZQueryProj do
   begin
-    //check for "St. Islands" spellings
-    if Pos('St ', Country) = 1 then
-      begin
-        if Pos('Helena', Country) > 1 then
-          DataModuleMain.ZQueryProj.Params[0].AsString := '%Helena Island%'
-        else
-        if Pos('Vincent', Country) > 1 then
-          DataModuleMain.ZQueryProj.Params[0].AsString := '%Vincent%'
-        else
-          DataModuleMain.ZQueryProj.Params[0].AsString := '%' + Copy(Country, 4, 12) + '%'
-      end
-    else
-      DataModuleMain.ZQueryProj.Params[0].AsString := '%' + Country + '%';
     Open;
     //Fill coordinate systems combobox
     while not EOF do
@@ -120,21 +106,16 @@ begin
     end;
     Close;
   end;
-  if Country = 'South Africa' then
+  //for LO countries
+  if AnsiIndexStr(Country, LO_Countries) >= 0 then
   begin
-    ComboBoxCoordSys.Items.Add('Cape (LO from Map Reference)');
-    ComboBoxCoordSys.Items.Add('Hartebeesthoek94 (LO from Map Reference)');
-  end
-  else
-  if Country = 'Lesotho' then
-  begin
-    ComboBoxCoordSys.Items.Add('Cape (LO from Map Reference)');
-    ComboBoxCoordSys.Items.Add('Hartebeesthoek94 (LO from Map Reference)');
-  end
-  else
-  if Country = 'Namibia' then
-  begin
-    ComboBoxCoordSys.Items.Add('Schwarzeck (LO from Map Reference)');
+    if AnsiIndexStr(Country, LO_Countries) <= 3 then
+    begin
+      ComboBoxCoordSys.Items.Add('Cape (LO from Map Reference)');
+      ComboBoxCoordSys.Items.Add('Hartebeesthoek94 (LO from Map Reference)');
+    end
+    else
+      ComboBoxCoordSys.Items.Add('Schwarzeck (LO from Map Reference)');
   end;
   ComboBoxCoordSys.ItemIndex := 0;
 end;
@@ -160,6 +141,7 @@ var
 begin
   newProj := 0;
   Latlong := False;
+  //Pre-processing
   if ComboBox1.ItemIndex > 0 then
   begin
     if MessageDlg('Are you sure you want to apply coordinate system "' +
@@ -186,6 +168,14 @@ begin
             newProj := 3;
         end
         else
+        if (Country = 'eSwatini') or (Country = 'Swaziland') then
+        begin
+          if Pos('Cape', ComboBoxCoordSys.Text) = 1 then
+            newProj := 6
+          else
+            newProj := 5;
+        end
+        else
         if Country = 'Namibia' then
         begin
           newProj := 7;
@@ -204,7 +194,7 @@ begin
   else
   begin
     //write WGS84 to Longitude/Latitude
-    LatLong := True
+    Latlong := True
   end;
   Screen.Cursor := crSQLWait;
   BasicinfQuery.Open;
@@ -227,7 +217,7 @@ begin
     BasicinfQuery.Edit;
     if Latlong then //update the Longitude/Latitude fields
     begin
-      //reset Longitude to 0 to trigger the trigger
+      //reset Longitude to 0 to trigger the trigger (longitude changed)
       BasicinfQueryLONGITUDE.Value := 0;
       BasicinfQuery.Post;
       BasicinfQuery.Edit;
@@ -267,11 +257,23 @@ begin
       else
         ShowMessage(CoordMsg);
     end;
-    BasicinfQuery.Post;
+    try
+      BasicinfQuery.Post;
+    except on E: Exception do
+      MessageDlg(E.Message + ': Cannot convert coordinates due to errors in your X_COORD or Y_COORD coordinate values! Please check these fields for values not possible for the stored coordinate system.', mtError, [mbOK], 0);
+    end;
     BasicinfQuery.Next;
   end;
-  ProgressBoxForm.Finished := True;
   BasicinfQuery.Close;
+  if Latlong then
+  with DataModuleMain.ZConnectionDB do
+  begin
+    if Tag = 1 then
+      ExecuteDirect('update basicinf set geometry = SetSrid(MakePoint(longitude, latitude), 4326);')
+    else
+      ExecuteDirect('update basicinf set geometry = ST_SetSrid(ST_MakePoint(longitude, latitude), 4326);');
+  end;
+  ProgressBoxForm.Finished := True;
   if ProgressBoxForm.CancelPressed then
   begin
     ProgressBoxForm.Close;

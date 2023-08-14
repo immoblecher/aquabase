@@ -252,6 +252,7 @@ type
     LookupList: TStringList;
   public
     ParamsList: TStringList;
+    ColPercent: Double;
   end;
 
 var
@@ -356,10 +357,10 @@ end;
 procedure TLandscapeReportFormChem.RLReportLandscapeBeforePrint(
   Sender: TObject; var PrintIt: Boolean);
 var
-  p, CWidth: Byte;
+  p: Byte;
   TheRLDBText, TheRLDBMin, TheRLDBMax, TheRLDBAvg: TRLDBText;
   TheRLLabel: TRLLabel;
-  SpaceAvail, NewLeft: Word;
+  SpaceAvail, NewLeft, ColWidth, LongColWidth: Word;
 begin
   inherited;
   ChemQuery1.Connection := DataModuleMain.ZConnectionDB;
@@ -406,13 +407,15 @@ begin
     end;
     Add('Concentrations in [' + ChemUnit + '] where applicable');
   end;
-  NewLeft := RLDBText4.Left + 92; //Start of first Label/DBText
-  //Determine width of Labels/DBText etc.
+  NewLeft := RLDBText4.Left + 80; //Start of first Label/DBText
+  LongColWidth := 0;
   with RLReportLandscape do
-    SpaceAvail := Width - NewLeft - Round(Width/PageSetup.PaperHeight)*LLeftMargin - Round(Width/PageSetup.PaperHeight)*LRightMargin; //margins converted to pixels
-  if ParamsList.Count < 14 then
-    SpaceAvail := Round(SpaceAvail * ParamsList.Count / 10);
-  CWidth := Round(SpaceAvail/ParamsList.Count) - 2;
+    SpaceAvail := Width - NewLeft - Round(Width/PageSetup.PaperHeight)*LRightMargin; //margins converted to pixels
+  ColWidth := Round(SpaceAvail/ParamsList.Count * ColPercent) - 2;
+  if ColWidth > 56 then
+    ColWidth := Round(56 * ColPercent);
+
+  //CWidth := 56; //default columns width to fit in 14 parameters
   //set labels and datasources/fields
   QueryParams.Open;
   for p := 0 to ParamsList.Count - 1 do
@@ -435,7 +438,7 @@ begin
       TheRLDBText.DataSource := DataSource5;
     TheRLDBText.DataField := ParamsList[p];
     TheRLDBText.Left := NewLeft;
-    TheRLDBText.Width := CWidth;
+    TheRLDBText.Width := ColWidth;
     TheRLDBText.Visible:= True;
     //Set RLLabels
     TheRLLabel := (FindComponent('RLLabelParam' + IntToStr(p)) as TRLLabel);
@@ -458,29 +461,55 @@ begin
     end
     else
       TheRLLabel.Caption := ParamsList[p];
-    TheRLLabel.Left := NewLeft;
-    TheRLLabel.Width := CWidth;
+    //for long labels check width and also adjust column width
+    if TheRLLabel.Canvas.TextWidth(TheRLLabel.Caption) > ColWidth then
+    begin
+      LongColWidth := TheRLLabel.Canvas.TextWidth(TheRLLabel.Caption);
+      TheRLLabel.Left := NewLeft;
+      TheRLDBText.Left := NewLeft + LongColWidth - ColWidth;
+    end
+    else
+    begin
+      TheRLLabel.AutoSize := False;
+      TheRLLabel.Width := ColWidth;
+      TheRLLabel.Left := NewLeft;
+    end;
     TheRLLabel.Visible := True;
     //set SummaryQuery Field Origins and same tag as RLDBText
     if RLBandSummary.Visible and SummaryQuery.Active then
     begin
       TheRLDBMin := (FindComponent('RLDBTextMin' + IntToStr(p)) as TRLDBText);
       TheRLDBMin.Left := NewLeft;
-      TheRLDBMin.Width := CWidth;
       TheRLDBMax := (FindComponent('RLDBTextMax' + IntToStr(p)) as TRLDBText);
       TheRLDBMax.Left := NewLeft;
-      TheRLDBMax.Width := CWidth;
       TheRLDBAvg := (FindComponent('RLDBTextAvg' + IntToStr(p)) as TRLDBText);
       TheRLDBAvg.Left := NewLeft;
-      TheRLDBAvg.Width := CWidth;
       SummaryQuery.FieldByName('Min'+ IntToStr(p)).Origin := ParamsList[p];
       SummaryQuery.FieldByName('Max'+ IntToStr(p)).Origin := ParamsList[p];
       SummaryQuery.FieldByName('Avg'+ IntToStr(p)).Origin := ParamsList[p];
       SummaryQuery.FieldByName('Min'+ IntToStr(p)).Tag := TheRLDBText.DataSource.DataSet.FieldByName(ParamsList[p]).Tag; //for calculating with chemfactor
       SummaryQuery.FieldByName('Max'+ IntToStr(p)).Tag := TheRLDBText.DataSource.DataSet.FieldByName(ParamsList[p]).Tag; //for calculating with chemfactor
       SummaryQuery.FieldByName('Avg'+ IntToStr(p)).Tag := TheRLDBText.DataSource.DataSet.FieldByName(ParamsList[p]).Tag; //for calculating with chemfactor
+      if LongColWidth > ColWidth then
+      begin
+        TheRLDBMin.Width := LongColWidth;
+        TheRLDBMax.Width := LongColWidth;
+        TheRLDBAvg.Width := LongColWidth;
+        NewLeft := NewLeft + 2 + LongColWidth;
+      end
+      else
+      begin
+        TheRLDBMin.Width := ColWidth;
+        TheRLDBMax.Width := ColWidth;
+        TheRLDBAvg.Width := ColWidth;
+        NewLeft := NewLeft + 2 + ColWidth;
+      end;
     end;
-    NewLeft := NewLeft + 2 + CWidth;
+    if LongColWidth > ColWidth then
+      NewLeft := NewLeft + 2 + LongColWidth
+    else
+      NewLeft := NewLeft + 2 + ColWidth;
+    LongColWidth := 0; //reset for each new column
   end;
   QueryParams.Close;
 end;

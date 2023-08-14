@@ -1,0 +1,12 @@
+{"version":1,"strings":[
+{"hash":105704547,"name":"tdateoptionsform.caption","sourcebytes":[67,104,97,114,116,32,68,97,116,101,32,79,112,116,105,111,110,115],"value":"Chart Date Options"},
+{"hash":62793402,"name":"tdateoptionsform.label3.caption","sourcebytes":[70,114,111,109,32,68,97,116,101,47,84,105,109,101,58],"value":"From Date/Time:"},
+{"hash":224291706,"name":"tdateoptionsform.label4.caption","sourcebytes":[84,111,32,68,97,116,101,47,84,105,109,101,58],"value":"To Date/Time:"},
+{"hash":342540,"name":"tdateoptionsform.datetimepicker1.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":342540,"name":"tdateoptionsform.datetimepicker2.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"},
+{"hash":225341795,"name":"tdateoptionsform.combobox1.hint","sourcebytes":[70,111,114,32,34,65,108,108,34,32,100,97,116,101,32,114,97,110,103,101,115,32,110,101,101,100,32,116,111,32,98,101,32,97,116,32,108,101,97,115,116,32,97,32,100,97,121,32,97,112,97,114,116,32,116,111,32,98,101,32,105,100,101,110,116,105,102,105,101,100,32,97,115,32,50,32,115,101,114,105,101,115],"value":"For \"All\" date ranges need to be at least a day apart to be identified as 2 series"},
+{"hash":197051385,"name":"tdateoptionsform.combobox1.text","sourcebytes":[65,108,108,32,40,111,110,101,32,108,105,110,101,32,102,111,114,32,101,97,99,104,32,100,97,116,101,32,114,97,110,103,101,41],"value":"All (one line for each date range)"},
+{"hash":37102858,"name":"tdateoptionsform.label1.caption","sourcebytes":[67,104,97,114,116,32,100,97,116,101,115,58],"value":"Chart dates:"},
+{"hash":214988501,"name":"tdateoptionsform.checkbox1.hint","sourcebytes":[79,110,108,121,32,53,32,97,118,97,105,108,97,98,108,101],"value":"Only 5 available"},
+{"hash":222719811,"name":"tdateoptionsform.checkbox1.caption","sourcebytes":[68,105,115,116,105,110,103,117,105,115,104,32,100,97,116,101,32,114,97,110,103,101,115,32,119,105,116,104,32,100,105,102,102,101,114,101,110,116,32,108,105,110,101,32,115,116,121,108,101,115],"value":"Distinguish date ranges with different line styles"}
+]}

@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2023 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -25,7 +25,7 @@ uses
   Forms, Classes, sysutils, db, FileUtil, ZConnection, ZDataset, Dialogs,
   DBGrids, Controls, maskedit, IniFiles, Process, StrUtils, Graphics, ExtCtrls,
   rxlookup, Menus, ZSqlProcessor, ZSqlMetadata, ZSqlMonitor, ZDbcSqLite, math,
-  rxDBGrid, ComCtrls, StdCtrls, ButtonPanel, help, ZScriptParser;
+  rxDBGrid, ComCtrls, StdCtrls, help, ZScriptParser;
 
 type
 
@@ -82,6 +82,7 @@ type
     ClassTablePARA_DESCR: TStringField;
     ClassTableUNIT: TStringField;
     DataSourceView: TDataSource;
+    ConvCoordsQuery: TZReadOnlyQuery;
     IdleTimerSQL: TIdleTimer;
     ImageListNavs: TImageList;
     LookupTableADJECTIVE: TStringField;
@@ -110,6 +111,7 @@ type
     StandDescrTableID: TLongintField;
     StandDescrTableSTAND_DESCR: TStringField;
     StandDescrTableTABLE_NAME: TStringField;
+    ZConnectionCountries: TZConnection;
     ZConnectionDefaults: TZConnection;
     ZConnectionDB: TZConnection;
     ZConnectionProj: TZConnection;
@@ -163,6 +165,7 @@ type
     procedure BasicinfQueryY_COORDGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
     procedure BasicinfQueryY_COORDSetText(Sender: TField; const aText: string);
+    procedure ConvCoordsQueryBeforeOpen(DataSet: TDataSet);
     procedure DataSourceViewDataChange(Sender: TObject; Field: TField);
     procedure IdleTimerSQLTimer(Sender: TObject);
     procedure LookupTableBeforeOpen(DataSet: TDataSet);
@@ -178,6 +181,8 @@ type
     procedure StandDescrTableBeforeEdit(DataSet: TDataSet);
     procedure StandDescrTableBeforePost(DataSet: TDataSet);
     procedure StandDescrTableNewRecord(DataSet: TDataSet);
+    procedure ZConnectionCountriesAfterConnect(Sender: TObject);
+    procedure ZConnectionCountriesBeforeConnect(Sender: TObject);
     procedure ZConnectionDBAfterConnect(Sender: TObject);
     procedure ZConnectionDBAfterDisconnect(Sender: TObject);
     procedure ZConnectionDBBeforeConnect(Sender: TObject);
@@ -187,9 +192,11 @@ type
     procedure ZConnectionDefaultsBeforeConnect(Sender: TObject);
     procedure ZConnectionLanguageAfterConnect(Sender: TObject);
     procedure ZConnectionLanguageBeforeConnect(Sender: TObject);
+    procedure ZConnectionProjAfterConnect(Sender: TObject);
     procedure ZConnectionProjBeforeConnect(Sender: TObject);
     procedure ZConnectionSettingsAfterConnect(Sender: TObject);
     procedure ZConnectionSettingsBeforeConnect(Sender: TObject);
+    procedure ZQueryProjBeforeOpen(DataSet: TDataSet);
     procedure ZQueryViewBeforeOpen(DataSet: TDataSet);
     procedure ZQueryDefaultLookupAfterClose(DataSet: TDataSet);
     procedure ZSQLProcessorDBError(Processor: TZSQLProcessor;
@@ -216,6 +223,7 @@ type
     BasicValidFound: Boolean;
     NrRecords: LongWord;
     SpecHelpForm: THelpForm;
+    CountryDB: ShortString;
     function GetChemStdFileName: ShortString;
     function TranslateCode(const UsedFor, FieldValue: ShortString): ShortString;
     procedure CheckMaskEditInput(var TheKey: char);
@@ -226,7 +234,7 @@ type
     procedure GetAllViews(const TheConnection: TZConnection; var TheList: TStringList);
     function GetMapRef(const SiteID: ShortString): ShortString;
     //new conversion  to get and set text
-    function cs2cs(const fromX, fromY, MapRef: ShortString; const srcSRID, dstSRID: Word; out toX, toY: ShortString): Boolean;
+    function cs2cs(const fromX, fromY, MapRef: ShortString; srcSRID, dstSRID: LongWord; out toX, toY: ShortString): Boolean;
     procedure UpdateCoordsWithCs2cs(const Longitude, Latitude, SiteID: ShortString); //after moving point in GIS
     procedure SetComponentFontAndSize(Sender: TObject; SetLabels: Boolean);
     function GetValidATables(const InList: TStringList): TStringList;
@@ -240,13 +248,16 @@ const                            {Ca       Mg       Na       K        HCO3}
                                  0.05880, 0.01613, 0.0356049, 0.0179083, 0.0182023,
                                  {Al      Cu       Sr       Ba       SiO3}
                                  0.11120, 0.03147, 0.02283, 0.01456, 0.02629);
+
+  LO_Country_Mid: Array of String = ('2925AA', '2928AD', '2631AA', '2631CB', '2217AA', '2421CC');
+
 var
   DataModuleMain: TDataModuleMain;
   srcLatLong, dstLatLong, srcLO, dstLO: Boolean; //src = stored coordinates, dst = viewed coordinates
   AlwaysIgnore: Boolean;
 
 ResourceString
-  CoordMsg = 'Oops, something went wrong with a coordinate conversion! Not sure what to do about it, but the coordinates may actually be correct.';
+  CoordMsg = 'Oops, something went wrong with a coordinate conversion! Your selected coordinate system may not be available in your database! Please upgrade your database or select a different coordinate system.';
   ChemStdDelMsg = 'Chemistry standard deleted. Your current chemistry standard is now ';
   ChemStdDelConfMsg = 'Are you really sure you want to delete the current chemistry standard? This cannot be undone! You may have to close open chemistry entry forms.';
 
@@ -279,7 +290,7 @@ implementation
 
 {$R *.lfm}
 
-uses VARINIT, NEWSITE, strdatetime, progressbox, Login;
+uses VARINIT, NEWSITE, strdatetime, progressbox, Login, ButtonPanel;
 
 { TDataModuleMain }
 
@@ -313,9 +324,9 @@ begin
     Result := DecD + DecM + DecS;
 end;
 
-function TDataModuleMain.cs2cs(const fromX, fromY, MapRef: ShortString; const srcSRID, dstSRID: Word; out toX, toY: ShortString): Boolean;
+function TDataModuleMain.cs2cs(const fromX, fromY, MapRef: ShortString; srcSRID, dstSRID: LongWord; out toX, toY: ShortString): Boolean;
 var
-  cmd, OutStr, srcRef, dstRef: String;
+  cmd, OutStr: String;
   LO: Byte;
   xValue, yValue: Double;
   gotDMS, outDMS, srcSRIDgeogr, dstSRIDgeogr: Boolean;
@@ -324,17 +335,14 @@ var
 begin
   srcSRIDgeogr := False;
   dstSRIDgeogr := False;
-  //make SRIDs strings
-  srcRef := IntToStr(srcSRID);
-  dstRef := IntToStr(dstSRID);
   //check if SRIDs are geographic or not
   with SRIDQuery do
   begin
-    if Locate('code', srcRef, []) then
+    if Locate('code', srcSRID, []) then
       srcSRIDgeogr := Pos('geographic', Fields[1].AsString) > 0 //is LatLong
     else
       srcSRIDgeogr := False;
-    if Locate('code', dstRef, []) then
+    if Locate('code', dstSRID, []) then
       dstSRIDgeogr := Pos('geographic', Fields[1].AsString) > 0 //is LatLong
     else
       dstSRIDgeogr := False;
@@ -391,33 +399,32 @@ begin
       InRange(dstSRID, 1, 7) then
     begin
       //replace map-referenced SRIDs relevant proper SRID
-      if Copy(MapRef, 3, 2) < '17' then
-        LO := 17 //smallest most western LO
+      if Copy(MapRef, 3, 2) < '11' then
+        LO := 11 //smallest most western LO
       else
         LO := StrToInt(Copy(MapRef, 3,2));
       if LO and 1 <> 1 then Inc(LO); //find nearest uneven LO and replace LO
       begin
         if srcSRID IN [1,3,5] then //Hartebeesthoek
-          srcRef := IntToStr(2046 + Round((LO - 15)/2)) //difference between LO and 15 (lowest LO)
+          srcSRID := 2046 + Round((LO - 15)/2) //difference between LO and 15 (lowest LO)
         else
         if srcSRID IN [2,4,6] then //Cape
-          srcRef := IntToStr(22260 + LO)
+          srcSRID := 22260 + LO
         else
         if srcSRID = 7 then //Schwarzeck
-          srcRef := IntToStr(29360 + LO);
+          srcSRID := 29360 + LO;
         if dstSRID IN [1,3,5] then //Hartebeesthoek
-          dstRef := IntToStr(2046 + Round((LO - 15)/2)) //difference between LO and 15 (lowest LO)
+          dstSRID := 2046 + Round((LO - 15)/2) //difference between LO and 15 (lowest LO)
         else
         if dstSRID IN [2,4,6] then //Cape
-          dstRef := IntToStr(22260 + LO)
+          dstSRID := 22260 + LO
         else
         if dstSRID = 7 then //Schwarzeck
-          dstRef := IntToStr(29360 + LO);
+          dstSRID := 29360 + LO;
       end;
     end;
     //check for SA LO systems to swap coordinates
-    if InRange(srcSRID, 1, 7)
-      or InRange(srcSRID, 2046, 2055)
+    if InRange(srcSRID, 2046, 2055)
       or InRange(srcSRID, 22275, 22293) //all RSA LOs
       or InRange(srcSRID, 29371, 29385) then //all Nam LOs
     begin
@@ -431,7 +438,10 @@ begin
     end;
     if dstSRIDgeogr then //is lat/long, so have 7 decimals after comma
       cmd := cmd + '-f %.7f ';
-    cmd := cmd + '+init=EPSG:' + srcRef + ' +init=EPSG:' + dstRef;
+    if Proj_Version < '8.0.0' then
+      cmd := cmd + '+init=EPSG:' + IntToStr(srcSRID) + ' +init=EPSG:' + IntToStr(dstSRID)
+    else
+      cmd := cmd + '+init=EPSG:' + IntToStr(srcSRID) + ' +to' + ' +init=EPSG:' + IntToStr(dstSRID);
     OutStrList := TStringList.Create;
     ProjProc := TProcess.Create(nil);
     with ProjProc do
@@ -456,8 +466,7 @@ begin
       //return the output from cs2cs as two unformatted strings
       OutStr := OutStrList[0]; //it's only one line
       outDMS := Pos('d', OutStr) > 0; //if inverse the output is in DMS
-      if InRange(dstSRID, 1, 7)
-        or InRange(dstSRID, 2046, 2055)
+      if InRange(dstSRID, 2046, 2055)
         or InRange(dstSRID, 22275, 22293) //all RSA LOs
         or InRange(dstSRID, 29371, 29385) then //all Nam LOs
       begin //swap x and y
@@ -510,6 +519,192 @@ begin
     ProjProc.Free;
     OutStrList.Free;
   end;
+//trial with database coordinate conversions
+{var
+  LO: Byte;
+  xValue, yValue, xTemp: Double;
+  gotDMS, srcSRIDgeogr, dstSRIDgeogr: Boolean;
+  stSetSRID, stMakePoint: ShortString;
+begin
+  srcSRIDgeogr := False;
+  dstSRIDgeogr := False;
+  //check if SRIDs are geographic or not
+  with SRIDQuery do
+  begin
+    if Locate('code', IntToStr(srcSRID), []) then
+      srcSRIDgeogr := Pos('geographic', Fields[1].AsString) > 0 //is LatLong
+    else
+      srcSRIDgeogr := False;
+    if Locate('code', IntToStr(dstSRID), []) then
+      dstSRIDgeogr := Pos('geographic', Fields[1].AsString) > 0 //is LatLong
+    else
+      dstSRIDgeogr := False;
+  end;
+  //check if DMS has been sent; this prevents conversions to DMS output when posting data
+  gotDMS := Pos('°', fromX) > 0;
+  if srcSRIDgeogr then //is lat/long
+  begin
+    if gotDMS then //convert input coords to decimals, because it is lat/long
+    begin
+      xValue := DMStoDeg(fromX);
+      yValue := DMStoDeg(fromY);
+    end
+    else //make floats
+    begin
+      xValue := StrToFloat(fromX);
+      yValue := StrToFloat(fromY);
+    end;
+  end
+  else //make floats with length factors
+  begin
+    xValue := StrToFloat(fromX) / LengthFactor;
+    yValue := StrToFloat(fromY) / LengthFactor;
+  end;
+  if srcSRID = dstSRID then //don't convert, just copy from to
+  begin
+    Result := True;
+    if dstSRIDgeogr then //check for DMS to send back
+    begin
+      if ShowDMS and not gotDMS then //send Degrees, minutes, seconds
+      begin
+        if xValue < 0 then toX := DegToDMS(Abs(xValue)) + 'W'
+        else toX := DegToDMS(xValue) + 'E';
+        if xValue < 100 then toX := '0' + toX;
+        if yValue < 0 then toY := DegToDMS(Abs(yValue)) + 'S'
+        else toY := DegToDMS(yValue) + 'N';
+      end
+      else
+      begin
+        toX := FloatToStrF(xValue, ffFixed, 15, 7);
+        toY := FloatToStrF(yValue, ffFixed, 15, 7);
+      end;
+    end
+    else
+    begin
+      toX := FloatToStrF(xValue * LengthFactor, ffFixed, 15, 2);
+      toY := FloatToStrF(yValue * LengthFactor, ffFixed, 15, 2);
+    end;
+  end
+  else //convert coordinates
+  begin
+    //check if coordinates are worked out from map reference
+    if InRange(srcSRID, 1, 7) or
+      InRange(dstSRID, 1, 7) then
+    begin
+      //replace map-referenced SRIDs relevant proper SRID
+      if Copy(MapRef, 3, 2) < '11' then
+        LO := 11 //smallest most western LO
+      else
+        LO := StrToInt(Copy(MapRef, 3,2));
+      if LO and 1 <> 1 then Inc(LO); //find nearest uneven LO and replace LO
+      begin
+        if srcSRID IN [1,3,5] then //Hartebeesthoek
+          srcSRID := 2046 + Round((LO - 15)/2) //difference between LO and 15 (lowest LO)
+        else
+        if srcSRID IN [2,4,6] then //Cape
+          srcSRID := 22260 + LO
+        else
+        if srcSRID = 7 then //Schwarzeck
+          srcSRID := 29360 + LO;
+        if dstSRID IN [1,3,5] then //Hartebeesthoek
+          dstSRID := 2046 + Round((LO - 15)/2) //difference between LO and 15 (lowest LO)
+        else
+        if dstSRID IN [2,4,6] then //Cape
+          dstSRID := 22260 + LO
+        else
+        if dstSRID = 7 then //Schwarzeck
+          dstSRID := 29360 + LO;
+      end;
+    end;
+    //check for LO systems to swap coordinates
+    if InRange(srcSRID, 2046, 2055)
+      or InRange(srcSRID, 22275, 22293) //all RSA LOs
+      or InRange(srcSRID, 29371, 29385) then //all Nam LOs
+    //swap x and y
+    begin
+      xTemp := xValue;
+      xValue := yValue;
+      yValue := xTemp;
+    end;
+    with ConvCoordsQuery do
+    begin
+      if ZConnectionDB.Tag = 1 then
+      begin
+        stSetSRID := 'SetSrid';
+        stMakePoint := 'MakePoint';
+      end
+      else
+      begin
+        stSetSRID := 'ST_SetSrid';
+        stMakePoint := 'ST_MakePoint';
+      end;
+      SQL.Clear;
+      SQL.Add('select st_x(st_transform(' + stSetSrid + '(' + stMakePoint +'(' + FloatToStr(xValue)
+        + ', ' + FloatToStr(yValue) + '), ' + IntToStr(srcSRID) + '), ' + IntToStr(dstSRID)
+        + ')) as X, st_y(st_transform(' + stSetSrid + '(' + stMakePoint + '(' + FloatToStr(xValue)
+        + ', ' + FloatToStr(yValue) + '), ' + IntToStr(srcSRID) + '), ' + IntToStr(dstSRID)
+        + ')) as Y;');
+      try
+        Open;
+        if FieldByName('X').IsNull or FieldByName('Y').IsNull then
+        begin
+          Result := False;
+          toX := '0';
+          toY := '0';
+          Screen.Cursor := crDefault;
+        end
+        else
+          Result := True;
+      except
+        begin
+          Result := False;
+          toX := '0';
+          toY := '0';
+          Screen.Cursor := crDefault;
+        end;
+      end;
+      if Result = True then
+      begin
+        //check if destination is LO
+        if InRange(dstSRID, 2046, 2055)
+          or InRange(dstSRID, 22275, 22293) //all RSA LOs
+          or InRange(dstSRID, 29371, 29385) then //all Nam LOs
+        begin //swap x and y
+          xValue := FieldByName('Y').Value * LengthFactor;
+          yValue := FieldByName('X').Value * LengthFactor;
+          toX := FloatToStrF(xValue, ffFixed, 15, 3);
+          toY := FloatToStrF(yValue, ffFixed, 15, 3);
+        end
+        else //do not swap x and y
+        begin
+          xValue := FieldByName('X').Value * LengthFactor;
+          yValue := FieldByName('Y').Value * LengthFactor;
+          if dstSRIDgeogr then //is lat/long
+          begin
+            if ShowDMS and not gotDMS then //show Degrees, minutes, seconds
+            begin
+              if xValue < 0 then toX := DegToDMS(Abs(xValue)) + 'W'
+              else toX := DegToDMS(xValue) + 'E';
+              if Abs(xValue) < 100 then toX := '0' + toX;
+              if yValue < 0 then toY := DegToDMS(Abs(yValue)) + 'S'
+              else toY := DegToDMS(yValue) + 'N';
+            end
+            else
+            begin
+              toX := FloatToStrF(xValue, ffFixed, 15, 7);
+              toY := FloatToStrF(yValue, ffFixed, 15, 7);
+            end
+          end
+          else
+          begin
+            toX := FloatToStrF(xValue, ffFixed, 15, 3);
+            toY := FloatToStrF(yValue, ffFixed, 15, 3);
+          end;
+        end;
+        Close;
+      end;
+    end;
+  end;}
 end;
 
 procedure TDataModuleMain.UpdateCoordsWithCs2cs(const Longitude, Latitude, SiteID: ShortString); //after moving point in GIS
@@ -942,6 +1137,29 @@ end;
 procedure TDataModuleMain.StandDescrTableNewRecord(DataSet: TDataSet);
 begin
   IsNewTable := True;
+end;
+
+procedure TDataModuleMain.ZConnectionCountriesAfterConnect(Sender: TObject);
+begin
+  with CheckQuery do
+  begin
+    Connection := ZConnectionCountries;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM Countries WHERE C_NAME = ' + QuotedStr(Country));
+    Open;
+    CountryDB := FieldByName('LANG_1').AsString;
+    Close;
+    SQL.Clear;
+  end;
+end;
+
+procedure TDataModuleMain.ZConnectionCountriesBeforeConnect(Sender: TObject);
+begin
+  with ZConnectionCountries do
+  begin
+    Database := ProgramDir + DirectorySeparator + 'countries.db3';
+    LibraryLocation := SQLiteLib;
+  end;
 end;
 
 procedure TDataModuleMain.ZConnectionDBAfterConnect(Sender: TObject);
@@ -1393,7 +1611,7 @@ begin
       Screen.Cursor := crSQLWait;
       Connection := ZConnectionDB;
       SQL.Clear;
-      SQL.Add('SELECT DISTINCT CONDITIONS FROM HUMIDITY WHERE 1<>1');
+      SQL.Add('SELECT DISTINCT CONDITIONS FROM humidity WHERE 1<>1');
       try
         Open;
         Close;
@@ -1402,7 +1620,7 @@ begin
         begin
           Close;
           Screen.Cursor := crDefault;
-          MessageDlg('The new field "CONDITIONS" for "Weather conditions" in Humudity table was not found, but will be created now! Please make sure you have database permissions to change tables.', mtInformation, [mbOK], 0);
+          MessageDlg('The new field "CONDITIONS" for "Weather conditions" in Humidity table was not found, but will be created now! Please make sure you have database permissions to change tables.', mtInformation, [mbOK], 0);
           try
             DataModuleMain.ZConnectionDB.ExecuteDirect('ALTER TABLE humidity ADD COLUMN CONDITIONS VARCHAR (36)');
           except on Ex: Exception do
@@ -1603,9 +1821,14 @@ end;
 
 procedure TDataModuleMain.ZConnectionDefaultsBeforeConnect(Sender: TObject);
 begin
+  with ZConnectionCountries do
+  begin
+    Connect;
+    Disconnect;
+  end;
   with ZConnectionDefaults do
   begin
-    Database := ProgramDir + DirectorySeparator + 'defaults' + DirectorySeparator + 'en_za.sqlite';
+    Database := ProgramDir + DirectorySeparator + 'defaults' + DirectorySeparator + CountryDB + '.sqlite';
     LibraryLocation := SQLiteLib;
   end;
 end;
@@ -1679,7 +1902,7 @@ begin
   begin
     with CheckQuery do
     begin
-      Connection := ZConnectionLanguage;
+      Connection := ZConnectionCountries;
       SQL.Clear;
       SQL.Add('select C_NAME from Countries where C_NAME = ' + QuotedStr('Congo (DRC)')); //random selection to check whether the table is old
       Open;
@@ -1700,6 +1923,7 @@ begin
       Close;
       Connection := ZConnectionDB;
     end;
+    ZConnectionCountries.Disconnect; //close the countries database
     //check if the map lookup tables exist, otherwise create them
     UpdateTag := 0;
     with DBMetadata do
@@ -1750,54 +1974,57 @@ begin
       ShowMessage('Aquabase Settings Databases in non-default location successfully updated!');
     end;
     //check if SANS241 exists if it is non-default settings
-    with DBMetadata do
+    if InRange(AnsiIndexStr(Country, LO_Countries), 0, 4) then
     begin
-      Connection := ZConnectionLanguage;
-      MetaDataType := mdTables;
-      TableName := 'SANS241';
-      Open;
-    end;
-    if DBMetaData.RecordCount = 0 then //SANS241 doesn't exist
-    begin
-      with ZSQLProcessorDB do
-      begin
-        Clear;
-        Connection := ZConnectionLanguage;
-        Delimiter := ';';
-        Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'create_sans241.sql');
-        Execute;
-        Clear;
-        Delimiter := '$$';
-        Connection := ZConnectionDB;
-      end;
-    end
-    else //it exists then update if outdated (Microcystin is not there)
-    begin
-      with CheckQuery do
+      with DBMetadata do
       begin
         Connection := ZConnectionLanguage;
-        SQL.Clear;
-        SQL.Add('select PARAMETER from SANS241 where PARAMETER = ' + QuotedStr('MICROCYST'));
+        MetaDataType := mdTables;
+        TableName := 'SANS241';
         Open;
-        if RecordCount = 0 then //it is the old SANS241 table
-        begin //update to a new version with script
-          with ZSQLProcessorDB do
-          begin
-            Clear;
-            Connection := ZConnectionLanguage;
-            Delimiter := ';';
-            Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'create_sans241.sql');
-            Execute;
-            Clear;
-            Delimiter := '$$';
-            Connection := ZConnectionDB;
-          end;
-        end;
-        Close;
-        Connection := ZConnectionDB;
       end;
+      if DBMetaData.RecordCount = 0 then //SANS241 doesn't exist
+      begin
+        with ZSQLProcessorDB do
+        begin
+          Clear;
+          Connection := ZConnectionLanguage;
+          Delimiter := ';';
+          Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'create_sans241.sql');
+          Execute;
+          Clear;
+          Delimiter := '$$';
+          Connection := ZConnectionDB;
+        end;
+      end
+      else //it exists then update if outdated (Microcystin is not there)
+      begin
+        with CheckQuery do
+        begin
+          Connection := ZConnectionLanguage;
+          SQL.Clear;
+          SQL.Add('select PARAMETER from SANS241 where PARAMETER = ' + QuotedStr('MICROCYST'));
+          Open;
+          if RecordCount = 0 then //it is the old SANS241 table
+          begin //update to a new version with script
+            with ZSQLProcessorDB do
+            begin
+              Clear;
+              Connection := ZConnectionLanguage;
+              Delimiter := ';';
+              Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'create_sans241.sql');
+              Execute;
+              Clear;
+              Delimiter := '$$';
+              Connection := ZConnectionDB;
+            end;
+          end;
+          Close;
+          Connection := ZConnectionDB;
+        end;
+      end;
+      DBMetadata.Close;
     end;
-    DBMetadata.Close;
     //check if chemparams table exists if it is non-default settings
     with DBMetadata do
     begin
@@ -1825,9 +2052,15 @@ begin
   //open the chemistry standards table
   StandDescrTable.Open;
   if StandDescrTable.Locate('ID', ChemStandard, []) then
-    ChemStandardDescr := StandDescrTable.FieldByName('STAND_DESCR').AsString
+  begin
+    ChemStandardDescr := StandDescrTable.FieldByName('STAND_DESCR').AsString;
+    StandardTable.TableName := StandDescrTable.FieldByName('TABLE_NAME').AsString;
+  end
   else
-    ChemStandardDescr := 'No valid standard selected!';
+  begin
+    ChemStandardDescr := 'No valid standard selected! Setting standard to default "WHO"';
+    StandardTable.TableName := 'WHO';
+  end;
   if StandDescrTable.FieldByName('TABLE_NAME').AsString = 'chmclass' then //for SA domestic classes
   begin
     StandardTable.Close;
@@ -1849,12 +2082,36 @@ begin
   if SettingsDir = ProgramDir then
     LookupTable.ReadOnly := True
   else
-  if FileExists(WSpaceDir + DirectorySeparator + 'settings.sqlite') and FileExists(WSpaceDir + DirectorySeparator + 'en_za.sqlite') then
+  if FileExists(WSpaceDir + DirectorySeparator + 'settings.sqlite') then
     SettingsDir := WSpaceDir; //use settings in workspace (override default)
+  with ZConnectionCountries do
+  begin
+    Connect;
+    Disconnect;
+  end;
   with ZConnectionLanguage do
   begin
-    Database := SettingsDir + DirectorySeparator + 'en_za.sqlite';
+    Database := SettingsDir + DirectorySeparator + CountryDB + '.sqlite';
     LibraryLocation := SQLiteLib;
+  end;
+end;
+
+procedure TDataModuleMain.ZConnectionProjAfterConnect(Sender: TObject);
+begin
+  //check PROJ version
+  with CheckQuery do
+  begin
+    SQL.Clear;
+    Connection := ZConnectionProj;
+    SQL.Add('SELECT * FROM metadata WHERE key = ''PROJ.VERSION''');
+    Open;
+    if RecordCount > 0 then
+      Proj_Version := FieldByName('value').AsString
+    else
+      Proj_Version := '6.3.1'; //previous version in Aquabase: no entry in metadata table
+    Close;
+    SQL.Clear;
+    Connection := ZConnectionDB;
   end;
 end;
 
@@ -1864,16 +2121,16 @@ begin
   begin
     LibraryLocation := SQLiteLib;
     {$IFDEF UNIX}
-    if FileExists('/usr/local/share/proj/proj.db') then
-      Database := '/usr/local/share/proj/proj.db'
-    else
     if FileExists('/usr/share/proj/proj.db') then
       Database := '/usr/share/proj/proj.db'
+    else
+    if FileExists('/usr/local/share/proj/proj.db') then
+      Database := '/usr/local/share/proj/proj.db'
     else
       MessageDlg('Cannot find the PROJ database! Maybe PROJ is not installed or your version is older than 5.0.', mtError, [mbOK], 0);
     {$ENDIF}
     {$IFDEF WINDOWS}
-    Database := ProgramDir + '/proj/' + 'proj.db';
+      Database := ProgramDir + '\share\proj\proj.db';
     {$ENDIF}
   end;
 end;
@@ -1938,12 +2195,53 @@ end;
 
 procedure TDataModuleMain.ZConnectionSettingsBeforeConnect(Sender: TObject);
 begin
-  if FileExists(WSpaceDir + DirectorySeparator + 'settings.sqlite') and FileExists(WSpaceDir + DirectorySeparator + 'en_za.sqlite') then
+  if FileExists(WSpaceDir + DirectorySeparator + 'settings.sqlite') then
     SettingsDir := WSpaceDir; //use settings in workspace (override default)
   with ZConnectionSettings do
   begin
     Database := SettingsDir + DirectorySeparator + 'settings.sqlite';
     LibraryLocation := SQLiteLib;
+  end;
+end;
+
+procedure TDataModuleMain.ZQueryProjBeforeOpen(DataSet: TDataSet);
+var
+  TheCountry: String;
+begin
+  //check for "St. Islands" spellings
+  if Pos('St ', Country) = 1 then
+    begin
+      if Pos('Helena', Country) > 1 then
+        TheCountry := '%Helena Island%'
+      else
+      if Pos('Vincent', Country) > 1 then
+        TheCountry := '%Vincent%'
+      else
+        TheCountry := '%' + Copy(Country, 4, 12) + '%'
+    end
+  else
+    TheCountry := '%' + Country + '%';
+  ZQueryProj.SQL.Clear;
+  if Proj_Version < '8.0.0' then
+  with ZQueryProj.SQL do
+  begin
+    Add('select cast(crs_view.code as Integer) as SRID, crs_view.name || '' ('' || crs_view.type || '')'' as crs from area');
+    Add('join crs_view on (crs_view.area_of_use_code = area.code)');
+    Add('and (area.description like ' + QuotedStr(TheCountry) + ' or SRID = 4326)');
+    Add('and SRID > 0 and SRID < 100000');
+    Add('and (crs_view.type like ''geographic%'' or crs_view.type = ''projected'')');
+    Add('and crs_view.deprecated = 0');
+  end
+  else
+  with ZQueryProj.SQL do
+  begin
+    Add('select cast(crs_view.code as Integer) as SRID, crs_view.name || '' ('' || crs_view.type || '')'' as crs from usage');
+    Add('join crs_view on (crs_view.code = usage.object_code)');
+    Add('join extent on (extent.code = usage.extent_code)');
+    Add('and (extent.description like ' + QuotedStr(TheCountry) + ' or SRID = 4326)');
+    Add('and SRID > 0 and SRID < 100000');
+    Add('and (crs_view.type like ''geographic%'' or crs_view.type = ''projected'')');
+    Add('and crs_view.deprecated = 0');
   end;
 end;
 
@@ -1990,15 +2288,20 @@ end;
 procedure TDataModuleMain.BasicinfQueryAfterCancel(DataSet: TDataSet);
 begin
   CoordsEdited := False;
+  if DataSet.RecordCount = 0 then
+    CurrentSite := '';
 end;
 
 procedure TDataModuleMain.BasicinfQueryAfterDelete(DataSet: TDataSet);
 begin
-  BasicinfQuery.MasterSource := DataSourceView;
   with ZQueryView do
   begin
     Refresh;
-    Locate('SITE_ID_NR', CurrentSite, []);
+  end;
+  if Dataset.RecordCount = 0 then
+  begin
+    MessageDlg('The database now does not contain any records.', mtInformation, [mbOK], 0);
+    CurrentSite := '';
   end;
 end;
 
@@ -2177,7 +2480,7 @@ begin
   else
   begin
     if Abs(Sender.AsFloat * LengthFactor) > 10000 then
-      aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 0)
+      aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 1)
     else
     if (Abs(Sender.AsFloat * LengthFactor) < 0.01) and (Abs(Sender.AsFloat * LengthFactor) > 0) then
       aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 5)
@@ -2222,17 +2525,17 @@ begin
     begin
       if CurrentSite <> '' then //there are sites
       begin
-        //check if we are dealing with a proper map reference, if South Africa
-        if (Country = 'South Africa') then
+        //check if we are dealing with a proper map reference, if LO
+        if InRange(AnsiIndexStr(Country, LO_Countries), 0, 5) then
         begin
           if (RadioGroup1.ItemIndex = 0) then
           begin
             try
               MapRef := (Copy(CurrentSite, 1, 6));
-              //check if Latitude within RSA
-              MapRefValid := (StrToInt(Copy(MapRef, 1, 2)) >= 22) and (StrToInt(Copy(MapRef, 1, 2)) <= 34);
-              //check if Longitude within RSA
-              MapRefValid := (StrToInt(Copy(MapRef, 3, 2)) >= 16) and (StrToInt(Copy(MapRef, 3, 2)) <= 32);
+              //check if Latitude within LO countries
+              MapRefValid := (StrToInt(Copy(MapRef, 1, 2)) >= 16) and (StrToInt(Copy(MapRef, 1, 2)) <= 34);
+              //check if Longitude within LO countries
+              MapRefValid := (StrToInt(Copy(MapRef, 3, 2)) >= 11) and (StrToInt(Copy(MapRef, 3, 2)) <= 32);
             except on EConvertError do
               MapRefValid := False;
             end;
@@ -2246,11 +2549,11 @@ begin
             else
             begin
               //use default
-              MapRefEdit.Text := '2527AA';
+              MapRefEdit.Text := LO_Country_Mid[AnsiIndexStr(Country, LO_Countries)];
               AddCodeEdit.Text := '0';
             end;
           end;
-        end //of South Africa
+        end //LO Countries
         else //other countries
         begin
           RadioGroup1.ItemIndex := 1;
@@ -2260,9 +2563,9 @@ begin
         end;
       end
       else //there are no sites yet
-      if Country = 'South Africa' then
+      if InRange(AnsiIndexStr(Country, LO_Countries), 0, 5) then
       begin
-        MapRefEdit.Text := '2527AA';
+        MapRefEdit.Text := LO_Country_Mid[AnsiIndexStr(Country, LO_Countries)];
         AddCodeEdit.Text := '0';
       end
       else
@@ -2387,7 +2690,7 @@ begin
         begin
           Clear;
           Add('SELECT sheet50 FROM maps50 ');
-          Add('WHERE WITHIN(GeomFromText(''POINT(' + EditX + ' ' + EditY + ')'', ' + IntToStr(CoordSysNr) + '), maps50.GEOMETRY)');
+          Add('WHERE ST_WITHIN(GeomFromText(''POINT(' + EditX + ' ' + EditY + ')'', ' + IntToStr(CoordSysNr) + '), maps50.GEOMETRY)');
         end;
         Open;
         if RecordCount > 0 then
@@ -2395,7 +2698,7 @@ begin
         else
         begin
           SQL.Clear;
-          if MessageDlg('Your coordinates do not fall within the South African 1:50000 maps and therefore the map reference could not be calculated! Do you want to correct the coordinates now or use the default map reference "1111EE" by selecting "No"?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+          if MessageDlg('Your coordinates do not fall within the 1:50000 maps of ' + Country + ' and therefore the map reference could not be calculated! Do you want to correct the coordinates now or use the default map reference "1111EE" by selecting "No"?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
             Abort
           else
             NewSiteID := StringReplace(NewSiteID, '0000ZZ', '1111EE', [rfReplaceAll])
@@ -2443,77 +2746,30 @@ begin
     else
       ShowMessage(CoordMsg);
   end;
+  //LO countries with catchments
   with DBMetadata do
   begin
     Connection := ZConnectionLanguage;
     MetaDataType := mdTables;
-    TableName := 'maps50';
+    TableName := 'catchments';
     Open;
-  end;
-  if DBMetadata.RecordCount > 0 then
-  begin
-    //check the drainage region
-    with ZQueryMapLookup do
+    if (RecordCount > 0) and InRange(AnsiIndexStr(Country, LO_Countries), 0, 3) then
     begin
-      SQL.Clear;
-      SQL.Add('SELECT quaternary FROM catchments ');
-      SQL.Add('WHERE WITHIN(GeomFromText(''POINT(' + BasicinfQueryLONGITUDE.AsString + ' ' + BasicinfQueryLATITUDE.AsString + ')'', 4326),catchments.GEOMETRY)');
-      Open;
-    end;
-    if BasicinfQueryDRAINAGE_R.Value = ' AUTO' then
-    begin
-      with ZQueryMapLookup do
-      begin
-        if RecordCount > 0 then
-        begin
-          BasicinfQueryDRAINAGE_R.Value := FieldByName('quaternary').Value;
-          Close;
-          SQL.Clear;
-        end
-        else
-        begin
-          Close;
-          SQL.Clear;
-          if MessageDlg('Please confirm', 'Your coordinates do not fall within South African drainage regions! Do you want to correct either the coordinates or the drainage region manually and try again?', mtWarning, [mbYes, mbNo], 0) = mrYes then
-            Abort;
-        end;
-      end;
-    end
-    else
-    begin
-      with ZQueryMapLookup do
-      begin
-        if (RecordCount > 0) and (BasicinfQueryDRAINAGE_R.Value <> FieldByName('quaternary').Value) then
-        begin
-          if MessageDlg('The selected drainage region does not correspond with the coordinates. Do you want to correct the drainage region automatically?', mtConfirmation, [mbYES, mbNO],0) = mrYES then
-            BasicinfQueryDRAINAGE_R.AsString := FieldByName('quaternary').AsString;
-        end;
-        Close;
-        SQL.Clear;
-      end;
-    end;
-  end;
-  DBMetadata.Close;
-  DBMetadata.TableName := 'municipalities';
-  DBMetadata.Open;
-  if DBMetadata.RecordCount > 0 then
-  begin
-    if BasicinfQueryREGN_TYPE.AsString = 'MUN' then //check the municipality
-    begin
+      //check the drainage region
       with ZQueryMapLookup do
       begin
         SQL.Clear;
-        SQL.Add('SELECT map_title FROM municipalities ');
-        SQL.Add('WHERE WITHIN(GeomFromText(''POINT(' + BasicinfQueryLONGITUDE.AsString + ' ' + BasicinfQueryLATITUDE.AsString + ')'', 4326), municipalities.GEOMETRY)');
+        SQL.Add('SELECT quaternary FROM catchments ');
+        SQL.Add('WHERE ST_WITHIN(GeomFromText(''POINT(' + BasicinfQueryLONGITUDE.AsString + ' ' + BasicinfQueryLATITUDE.AsString + ')'', 4326), GEOMETRY)');
         Open;
       end;
-      if BasicinfQueryREGN_DESCR.Value = '<AUTOMATIC>' then
+      if BasicinfQueryDRAINAGE_R.Value = ' AUTO' then
       begin
         with ZQueryMapLookup do
         begin
           if RecordCount > 0 then
           begin
-            BasicinfQueryREGN_DESCR.Value := UpperCase(FieldByName('map_title').AsString);
+            BasicinfQueryDRAINAGE_R.Value := FieldByName('quaternary').Value;
             Close;
             SQL.Clear;
           end
@@ -2521,7 +2777,7 @@ begin
           begin
             Close;
             SQL.Clear;
-            if MessageDlg('Please confirm', 'Your coordinates do not fall within any of the South African municipalities! Do you want to correct the coordinates and try again?', mtWarning, [mbYes, mbNo], 0) = mrYes then
+            if MessageDlg('Please confirm', 'Your coordinates do not fall within the drainage regions of ' + Country + '! Do you want to correct either the coordinates or the drainage region manually and try again?', mtWarning, [mbYes, mbNo], 0) = mrYes then
               Abort;
           end;
         end;
@@ -2530,28 +2786,85 @@ begin
       begin
         with ZQueryMapLookup do
         begin
-          if (RecordCount > 0) and (BasicinfQueryREGN_DESCR.Value <> UpperCase(FieldByName('map_title').AsString)) then
+          if (RecordCount > 0) and (BasicinfQueryDRAINAGE_R.Value <> FieldByName('quaternary').Value) then
           begin
-            if MessageDlg('The municipality name inserted does not correspond with the coordinates of the site. Do you want to correct the municipality name automatically?', mtConfirmation, [mbYes, mbNo],0) = mrYes then
-              BasicinfQueryREGN_DESCR.AsString := UpperCase(FieldByName('map_title').AsString);
+            if MessageDlg('The selected drainage region does not correspond with the coordinates. Do you want to correct the drainage region automatically?', mtConfirmation, [mbYES, mbNO],0) = mrYES then
+              BasicinfQueryDRAINAGE_R.AsString := FieldByName('quaternary').AsString;
           end;
           Close;
           SQL.Clear;
         end;
       end;
-    end
-    else //check wma
+    end;
+    Close;
+  end;
+  //LO countries only for municipalities...for now
+  with DBMetadata do
+  begin
+    TableName := 'municipalities';
+    Open;
+    if (RecordCount > 0) and InRange(AnsiIndexStr(Country, LO_Countries), 0, 5) then
     begin
-      DBMetadata.Close;
-      DBMetadata.TableName := 'wmas';
-      DBMetadata.Open;
-      if (DBMetadata.RecordCount > 0) and (BasicinfQueryREGN_TYPE.AsString = 'WMA') then //check the water management area
+      if BasicinfQueryREGN_TYPE.AsString = 'MUN' then //check the municipality
+      begin
+        with ZQueryMapLookup do
+        begin
+          SQL.Clear;
+          SQL.Add('SELECT map_title FROM municipalities ');
+          SQL.Add('WHERE ST_WITHIN(GeomFromText(''POINT(' + BasicinfQueryLONGITUDE.AsString + ' ' + BasicinfQueryLATITUDE.AsString + ')'', 4326), GEOMETRY)');
+          Open;
+        end;
+        if BasicinfQueryREGN_DESCR.Value = '<AUTOMATIC>' then
+        begin
+          with ZQueryMapLookup do
+          begin
+            if RecordCount > 0 then
+            begin
+              BasicinfQueryREGN_DESCR.Value := UpperCase(FieldByName('map_title').AsString);
+              Close;
+              SQL.Clear;
+            end
+            else
+            begin
+              Close;
+              SQL.Clear;
+              if MessageDlg('Please confirm', 'Your coordinates do not fall within any of the South African municipalities! Do you want to correct the coordinates and try again?', mtWarning, [mbYes, mbNo], 0) = mrYes then
+                Abort;
+            end;
+          end;
+        end
+        else
+        begin
+          with ZQueryMapLookup do
+          begin
+            if (RecordCount > 0) and (BasicinfQueryREGN_DESCR.Value <> UpperCase(FieldByName('map_title').AsString)) then
+            begin
+              if MessageDlg('The municipality name inserted does not correspond with the coordinates of the site. Do you want to correct the municipality name automatically?', mtConfirmation, [mbYes, mbNo],0) = mrYes then
+                BasicinfQueryREGN_DESCR.AsString := UpperCase(FieldByName('map_title').AsString);
+            end;
+            Close;
+            SQL.Clear;
+          end;
+        end;
+      end;
+    end;
+    Close;
+  end;
+  //South African water management areas
+  with DBMetadata do
+  begin
+    TableName := 'wmas';
+    Open;
+    if (RecordCount > 0) and (AnsiIndexStr(Country, LO_Countries) = 0) then
+    begin
+      Open;
+      if BasicinfQueryREGN_TYPE.AsString = 'WMA' then //check the water management area
       begin
         with ZQueryMapLookup do
         begin
           SQL.Clear;
           SQL.Add('SELECT waterman_n FROM wmas ');
-          SQL.Add('WHERE WITHIN(GeomFromText(''POINT(' + BasicinfQueryLONGITUDE.AsString + ' ' + BasicinfQueryLATITUDE.AsString + ')'', 4326), wmas.GEOMETRY)');
+          SQL.Add('WHERE ST_WITHIN(GeomFromText(''POINT(' + BasicinfQueryLONGITUDE.AsString + ' ' + BasicinfQueryLATITUDE.AsString + ')'', 4326), wmas.GEOMETRY)');
           Open;
         end;
         if BasicinfQueryREGN_DESCR.Value = '<AUTOMATIC>' then
@@ -2588,9 +2901,9 @@ begin
         end;
       end;
     end;
-   DBMetadata.Close;
- end;
-  //finally insert the new site_id_nr
+    Close;
+  end;
+  //finally insert the site
   if DataSet.State = dsInsert then
     BasicinfQuerySITE_ID_NR.Value := NewSiteID;
   if BasicinfQueryNOTE_PAD.IsNull or (BasicinfQueryNOTE_PAD.Value = '') then
@@ -2779,6 +3092,11 @@ begin
     Sender.Value := aText
 end;
 
+procedure TDataModuleMain.ConvCoordsQueryBeforeOpen(DataSet: TDataSet);
+begin
+  ConvCoordsQuery.Connection := ZConnectionDB;
+end;
+
 function TDataModuleMain.GetMapRef(const SiteID: ShortString): ShortString;
 var
   MapRef: ShortString;
@@ -2788,13 +3106,13 @@ const
 begin
   MapRef := Copy(SiteID, 1, 6);
   //check if SiteID has valid map reference to convert to/from LO
-  if ((Country = 'South Africa') or (Country = 'Lesotho')) and srcLatLong and InRange(CoordSysNr, 1, 7) then
+  if InRange(AnsiIndexStr(Country, LO_Countries), 0, 3) and srcLatLong and InRange(CoordSysNr, 1, 7) then
   begin
     try
-      //check if Latitude within RSA
-      MapRefValid := (StrToInt(Copy(MapRef, 1, 2)) >= 22) and (StrToInt(Copy(MapRef, 1, 2)) <= 34);
-      //check if Longitude within RSA
-      MapRefValid := (StrToInt(Copy(MapRef, 3, 2)) >= 16) and (StrToInt(Copy(MapRef, 3, 2)) <= 32);
+      //check if Latitude within RSA/Namibia
+      MapRefValid := (StrToInt(Copy(MapRef, 1, 2)) >= 16) and (StrToInt(Copy(MapRef, 1, 2)) <= 34);
+      //check if Longitude within RSA/Namibia
+      MapRefValid := (StrToInt(Copy(MapRef, 3, 2)) >= 11) and (StrToInt(Copy(MapRef, 3, 2)) <= 32);
     except on EConvertError do
       MapRefValid := False;
     end;
@@ -2809,7 +3127,7 @@ begin
       begin
         Clear;
         Add('SELECT sheet50 FROM maps50 ');
-        Add('WHERE WITHIN(GeomFromText(''POINT(' + BasicinfQueryX_COORD.AsString + ' ' + BasicinfQueryY_COORD.AsString + ')'', 4326),maps50.GEOMETRY)');
+        Add('WHERE ST_WITHIN(GeomFromText(''POINT(' + BasicinfQueryX_COORD.AsString + ' ' + BasicinfQueryY_COORD.AsString + ')'', 4326),maps50.GEOMETRY)');
       end;
       Open;
       if RecordCount > 0 then

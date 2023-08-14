@@ -2,9 +2,10 @@
 <CONFIG>
   <ProjectSession>
     <PathDelim Value="\"/>
-    <Version Value="11"/>
+    <Version Value="12"/>
+    <ManyBuildModesSelection Value="Default,&quot;Release x86_64&quot;"/>
     <BuildModes Active="Default"/>
-    <Units Count="157">
+    <Units Count="170">
       <Unit0>
         <Filename Value="Aquabase_Linux.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -14,17 +15,6 @@
         <UsageCount Value="229"/>
       </Unit0>
       <Unit1>
-        <Filename Value="FILTER.PAS"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="FilterForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="378"/>
-        <CursorPos X="21" Y="373"/>
-        <UsageCount Value="229"/>
-      </Unit1>
-      <Unit2>
         <Filename Value="chemchartsettings.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ChemChartSettingsForm"/>
@@ -34,19 +24,18 @@
         <TopLine Value="189"/>
         <CursorPos X="17" Y="201"/>
         <UsageCount Value="229"/>
-      </Unit2>
-      <Unit3>
+      </Unit1>
+      <Unit2>
         <Filename Value="Sysset.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SysSetDlgForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="346"/>
-        <CursorPos X="30" Y="354"/>
+        <CursorPos X="25" Y="7"/>
         <UsageCount Value="229"/>
-      </Unit3>
-      <Unit4>
+      </Unit2>
+      <Unit3>
         <Filename Value="Instrmnt.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="InstrumentForm"/>
@@ -56,19 +45,19 @@
         <TopLine Value="81"/>
         <CursorPos X="52" Y="92"/>
         <UsageCount Value="229"/>
-      </Unit4>
-      <Unit5>
+      </Unit3>
+      <Unit4>
         <Filename Value="MastDetl.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MasterDetailForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="324"/>
-        <CursorPos X="94" Y="344"/>
+        <TopLine Value="369"/>
+        <CursorPos X="46" Y="381"/>
         <UsageCount Value="229"/>
-      </Unit5>
-      <Unit6>
+      </Unit4>
+      <Unit5>
         <Filename Value="Aquifer.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="AquiferForm"/>
@@ -78,8 +67,8 @@
         <TopLine Value="286"/>
         <CursorPos X="33" Y="298"/>
         <UsageCount Value="229"/>
-      </Unit6>
-      <Unit7>
+      </Unit5>
+      <Unit6>
         <Filename Value="Comments.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="CommentsForm"/>
@@ -89,8 +78,8 @@
         <TopLine Value="15"/>
         <CursorPos X="56" Y="26"/>
         <UsageCount Value="229"/>
-      </Unit7>
-      <Unit8>
+      </Unit6>
+      <Unit7>
         <Filename Value="Referenc.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ReferencesForm"/>
@@ -100,8 +89,8 @@
         <TopLine Value="41"/>
         <CursorPos X="39" Y="54"/>
         <UsageCount Value="229"/>
-      </Unit8>
-      <Unit9>
+      </Unit7>
+      <Unit8>
         <Filename Value="Discharg.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DischargeForm"/>
@@ -109,8 +98,8 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <UsageCount Value="229"/>
-      </Unit9>
-      <Unit10>
+      </Unit8>
+      <Unit9>
         <Filename Value="Expendit.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ExpenditureForm"/>
@@ -118,8 +107,8 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <UsageCount Value="229"/>
-      </Unit10>
-      <Unit11>
+      </Unit9>
+      <Unit10>
         <Filename Value="Fldmeas.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FldMeasForm"/>
@@ -129,8 +118,8 @@
         <TopLine Value="241"/>
         <CursorPos Y="261"/>
         <UsageCount Value="229"/>
-      </Unit11>
-      <Unit12>
+      </Unit10>
+      <Unit11>
         <Filename Value="Meteread.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MeterReadingForm"/>
@@ -139,8 +128,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
         <UsageCount Value="229"/>
-      </Unit12>
-      <Unit13>
+      </Unit11>
+      <Unit12>
         <Filename Value="Othrhole.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="OtherHoleForm"/>
@@ -149,8 +138,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos Y="18"/>
         <UsageCount Value="229"/>
-      </Unit13>
-      <Unit14>
+      </Unit12>
+      <Unit13>
         <Filename Value="Otherdat.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="OtherDataForm"/>
@@ -159,8 +148,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos Y="18"/>
         <UsageCount Value="229"/>
-      </Unit14>
-      <Unit15>
+      </Unit13>
+      <Unit14>
         <Filename Value="Searchst.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SearchStatusForm"/>
@@ -169,8 +158,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
         <UsageCount Value="229"/>
-      </Unit15>
-      <Unit16>
+      </Unit14>
+      <Unit15>
         <Filename Value="Specases.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SpecCasesForm"/>
@@ -179,8 +168,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
         <UsageCount Value="229"/>
-      </Unit16>
-      <Unit17>
+      </Unit15>
+      <Unit16>
         <Filename Value="Geology.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="GeologyForm"/>
@@ -190,8 +179,8 @@
         <TopLine Value="120"/>
         <CursorPos Y="132"/>
         <UsageCount Value="229"/>
-      </Unit17>
-      <Unit18>
+      </Unit16>
+      <Unit17>
         <Filename Value="Notepad.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="NotepadForm"/>
@@ -201,8 +190,8 @@
         <TopLine Value="21"/>
         <CursorPos X="8" Y="35"/>
         <UsageCount Value="229"/>
-      </Unit18>
-      <Unit19>
+      </Unit17>
+      <Unit18>
         <Filename Value="Calcchem.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="CalcForm"/>
@@ -212,30 +201,30 @@
         <TopLine Value="64"/>
         <CursorPos X="54" Y="79"/>
         <UsageCount Value="229"/>
-      </Unit19>
-      <Unit20>
+      </Unit18>
+      <Unit19>
         <Filename Value="Profilng.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ProfilingForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="764"/>
-        <CursorPos X="44" Y="776"/>
+        <TopLine Value="974"/>
+        <CursorPos X="40" Y="994"/>
         <UsageCount Value="229"/>
-      </Unit20>
-      <Unit21>
+      </Unit19>
+      <Unit20>
         <Filename Value="GeollogSetForm.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="GeollogSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="405"/>
-        <CursorPos X="3" Y="377"/>
+        <TopLine Value="501"/>
+        <CursorPos X="16" Y="507"/>
         <UsageCount Value="229"/>
-      </Unit21>
-      <Unit22>
+      </Unit20>
+      <Unit21>
         <Filename Value="Penetrat.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="PenetrationForm"/>
@@ -244,8 +233,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
         <UsageCount Value="229"/>
-      </Unit22>
-      <Unit23>
+      </Unit21>
+      <Unit22>
         <Filename Value="Waterlev.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="WaterlevelForm"/>
@@ -255,19 +244,19 @@
         <TopLine Value="208"/>
         <CursorPos X="7" Y="229"/>
         <UsageCount Value="229"/>
-      </Unit23>
-      <Unit24>
+      </Unit22>
+      <Unit23>
         <Filename Value="Pumptest.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="PumpTestForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="128"/>
-        <CursorPos Y="140"/>
+        <TopLine Value="227"/>
+        <CursorPos Y="243"/>
         <UsageCount Value="229"/>
-      </Unit24>
-      <Unit25>
+      </Unit23>
+      <Unit24>
         <Filename Value="Sitesele.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SiteSelectionForm"/>
@@ -277,8 +266,8 @@
         <TopLine Value="46"/>
         <CursorPos X="33" Y="58"/>
         <UsageCount Value="229"/>
-      </Unit25>
-      <Unit26>
+      </Unit24>
+      <Unit25>
         <Filename Value="Nameownr.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="NameOwnerForm"/>
@@ -288,8 +277,8 @@
         <TopLine Value="59"/>
         <CursorPos X="30" Y="77"/>
         <UsageCount Value="229"/>
-      </Unit26>
-      <Unit27>
+      </Unit25>
+      <Unit26>
         <Filename Value="Sitevisi.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SiteVisitorForm"/>
@@ -299,8 +288,8 @@
         <TopLine Value="67"/>
         <CursorPos Y="81"/>
         <UsageCount Value="229"/>
-      </Unit27>
-      <Unit28>
+      </Unit26>
+      <Unit27>
         <Filename Value="Otherid.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="OtherIdForm"/>
@@ -310,8 +299,8 @@
         <TopLine Value="44"/>
         <CursorPos X="33" Y="57"/>
         <UsageCount Value="229"/>
-      </Unit28>
-      <Unit29>
+      </Unit27>
+      <Unit28>
         <Filename Value="Watersam.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="WaterSampleForm"/>
@@ -321,8 +310,8 @@
         <TopLine Value="54"/>
         <CursorPos X="33" Y="66"/>
         <UsageCount Value="229"/>
-      </Unit29>
-      <Unit30>
+      </Unit28>
+      <Unit29>
         <Filename Value="Instdetl.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="AddinstallForm"/>
@@ -332,8 +321,8 @@
         <TopLine Value="62"/>
         <CursorPos X="33" Y="74"/>
         <UsageCount Value="229"/>
-      </Unit30>
-      <Unit31>
+      </Unit29>
+      <Unit30>
         <Filename Value="Maintain.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MaintainForm"/>
@@ -343,8 +332,8 @@
         <TopLine Value="58"/>
         <CursorPos X="33" Y="70"/>
         <UsageCount Value="229"/>
-      </Unit31>
-      <Unit32>
+      </Unit30>
+      <Unit31>
         <Filename Value="Member.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MemberForm"/>
@@ -353,8 +342,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
         <UsageCount Value="229"/>
-      </Unit32>
-      <Unit33>
+      </Unit31>
+      <Unit32>
         <Filename Value="Testdetl.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TestDetlForm"/>
@@ -364,8 +353,8 @@
         <TopLine Value="316"/>
         <CursorPos X="34" Y="328"/>
         <UsageCount Value="229"/>
-      </Unit33>
-      <Unit34>
+      </Unit32>
+      <Unit33>
         <Filename Value="Recommnd.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="RecommendForm"/>
@@ -375,8 +364,8 @@
         <TopLine Value="228"/>
         <CursorPos Y="240"/>
         <UsageCount Value="229"/>
-      </Unit34>
-      <Unit35>
+      </Unit33>
+      <Unit34>
         <Filename Value="ChemRadial.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ChemRadialForm"/>
@@ -384,8 +373,8 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <UsageCount Value="229"/>
-      </Unit35>
-      <Unit36>
+      </Unit34>
+      <Unit35>
         <Filename Value="PieChem.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="PieForm"/>
@@ -395,8 +384,8 @@
         <TopLine Value="78"/>
         <CursorPos X="8" Y="87"/>
         <UsageCount Value="229"/>
-      </Unit36>
-      <Unit37>
+      </Unit35>
+      <Unit36>
         <Filename Value="Stagehi.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="StageHiForm"/>
@@ -405,8 +394,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
         <UsageCount Value="229"/>
-      </Unit37>
-      <Unit38>
+      </Unit36>
+      <Unit37>
         <Filename Value="chemcharts.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ChemChartsForm"/>
@@ -423,30 +412,30 @@
           <Item3 X="10" Y="2372" ID="3"/>
           <Item4 X="38" Y="674" ID="4"/>
         </Bookmarks>
-      </Unit38>
-      <Unit39>
+      </Unit37>
+      <Unit38>
         <Filename Value="TabDetl.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TabbedMastDetailForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="720"/>
-        <CursorPos X="39" Y="731"/>
+        <TopLine Value="672"/>
+        <CursorPos X="96" Y="684"/>
         <UsageCount Value="229"/>
-      </Unit39>
-      <Unit40>
+      </Unit38>
+      <Unit39>
         <Filename Value="BHConstr.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="BHConstrForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="286"/>
-        <CursorPos Y="293"/>
+        <TopLine Value="347"/>
+        <CursorPos Y="361"/>
         <UsageCount Value="229"/>
-      </Unit40>
-      <Unit41>
+      </Unit39>
+      <Unit40>
         <Filename Value="Stream.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="StreamForm"/>
@@ -455,48 +444,52 @@
         <EditorIndex Value="-1"/>
         <CursorPos Y="18"/>
         <UsageCount Value="229"/>
-      </Unit41>
-      <Unit42>
+      </Unit40>
+      <Unit41>
         <Filename Value="NewWSpace.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="NewWSpaceForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="629"/>
-        <CursorPos X="10" Y="641"/>
+        <TopLine Value="310"/>
+        <CursorPos X="31" Y="310"/>
         <UsageCount Value="229"/>
-      </Unit42>
-      <Unit43>
+      </Unit41>
+      <Unit42>
         <Filename Value="Main.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="392"/>
-        <CursorPos X="46" Y="405"/>
+        <TopLine Value="2647"/>
+        <CursorPos X="31" Y="2665"/>
         <UsageCount Value="229"/>
         <Loaded Value="True"/>
-      </Unit43>
-      <Unit44>
+      </Unit42>
+      <Unit43>
         <Filename Value="Chemistry.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ChemistryForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
+        <TopLine Value="776"/>
+        <CursorPos X="46" Y="788"/>
         <UsageCount Value="229"/>
-      </Unit44>
-      <Unit45>
+      </Unit43>
+      <Unit44>
         <Filename Value="Userchem.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="UserChemistryForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
+        <TopLine Value="544"/>
+        <CursorPos X="46" Y="556"/>
         <UsageCount Value="229"/>
-      </Unit45>
-      <Unit46>
+      </Unit44>
+      <Unit45>
         <Filename Value="DeptSet.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DepthSetForm"/>
@@ -505,8 +498,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
         <UsageCount Value="229"/>
-      </Unit46>
-      <Unit47>
+      </Unit45>
+      <Unit46>
         <Filename Value="Meteor1.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MeteorologyForm1"/>
@@ -515,8 +508,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
         <UsageCount Value="229"/>
-      </Unit47>
-      <Unit48>
+      </Unit46>
+      <Unit47>
         <Filename Value="Meteor2.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MeteorologyForm2"/>
@@ -525,8 +518,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="38" Y="3"/>
         <UsageCount Value="229"/>
-      </Unit48>
-      <Unit49>
+      </Unit47>
+      <Unit48>
         <Filename Value="GWProp.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="GWPropertiesForm"/>
@@ -536,8 +529,8 @@
         <TopLine Value="302"/>
         <CursorPos X="20" Y="307"/>
         <UsageCount Value="229"/>
-      </Unit49>
-      <Unit50>
+      </Unit48>
+      <Unit49>
         <Filename Value="Selparameter.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ParamSelectionForm"/>
@@ -547,30 +540,29 @@
         <TopLine Value="195"/>
         <CursorPos Y="216"/>
         <UsageCount Value="229"/>
-      </Unit50>
-      <Unit51>
+      </Unit49>
+      <Unit50>
         <Filename Value="SQLForm.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SQLQueryForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="430"/>
-        <CursorPos X="21" Y="436"/>
+        <TopLine Value="158"/>
+        <CursorPos X="24" Y="155"/>
         <UsageCount Value="229"/>
-      </Unit51>
-      <Unit52>
+      </Unit50>
+      <Unit51>
         <Filename Value="BHProp.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="BhPropertiesForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="36"/>
-        <CursorPos X="5" Y="47"/>
+        <CursorPos X="16"/>
         <UsageCount Value="229"/>
-      </Unit52>
-      <Unit53>
+      </Unit51>
+      <Unit52>
         <Filename Value="Geoelectric.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="GeoElectricForm"/>
@@ -580,8 +572,8 @@
         <TopLine Value="81"/>
         <CursorPos X="40" Y="93"/>
         <UsageCount Value="229"/>
-      </Unit53>
-      <Unit54>
+      </Unit52>
+      <Unit53>
         <Filename Value="RadioAct.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="RadioActiveForm"/>
@@ -591,8 +583,8 @@
         <TopLine Value="89"/>
         <CursorPos X="40" Y="101"/>
         <UsageCount Value="229"/>
-      </Unit54>
-      <Unit55>
+      </Unit53>
+      <Unit54>
         <Filename Value="Magnetic.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MagneticSusForm"/>
@@ -601,8 +593,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
         <UsageCount Value="229"/>
-      </Unit55>
-      <Unit56>
+      </Unit54>
+      <Unit55>
         <Filename Value="SearchSites.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SearchSitesForm"/>
@@ -611,19 +603,19 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="30" Y="8"/>
         <UsageCount Value="229"/>
-      </Unit56>
-      <Unit57>
+      </Unit55>
+      <Unit56>
         <Filename Value="SiteImages.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SiteImageForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="103"/>
-        <CursorPos X="48" Y="116"/>
+        <TopLine Value="239"/>
+        <CursorPos X="39" Y="251"/>
         <UsageCount Value="229"/>
-      </Unit57>
-      <Unit58>
+      </Unit56>
+      <Unit57>
         <Filename Value="Targets.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TargetsForm"/>
@@ -633,8 +625,8 @@
         <TopLine Value="49"/>
         <CursorPos X="33" Y="61"/>
         <UsageCount Value="229"/>
-      </Unit58>
-      <Unit59>
+      </Unit57>
+      <Unit58>
         <Filename Value="ExpDewater.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ExpDewaterForm"/>
@@ -644,8 +636,8 @@
         <TopLine Value="487"/>
         <CursorPos X="34" Y="500"/>
         <UsageCount Value="229"/>
-      </Unit59>
-      <Unit60>
+      </Unit58>
+      <Unit59>
         <Filename Value="Editform.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="EditLookupForm"/>
@@ -654,27 +646,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="40" Y="11"/>
         <UsageCount Value="229"/>
-      </Unit60>
-      <Unit61>
-        <Filename Value="ChemSettingAdd.pas"/>
-        <IsPartOfProject Value="True"/>
-        <HasResources Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="187"/>
-        <CursorPos X="39" Y="8"/>
-        <UsageCount Value="229"/>
-      </Unit61>
-      <Unit62>
-        <Filename Value="expAltWtl.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="FormExpAltWtl"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="21" Y="12"/>
-        <UsageCount Value="229"/>
-      </Unit62>
-      <Unit63>
+      </Unit59>
+      <Unit60>
         <Filename Value="provideviewname.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ProvideViewNameForm"/>
@@ -682,24 +655,26 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ProvideViewName"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="107"/>
-        <CursorPos X="36" Y="126"/>
+        <TopLine Value="85"/>
+        <CursorPos X="23" Y="97"/>
         <UsageCount Value="229"/>
-      </Unit63>
-      <Unit64>
+      </Unit60>
+      <Unit61>
         <Filename Value="maindatamodule.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DataModuleMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="MainDataModule"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="328"/>
-        <CursorPos X="24" Y="241"/>
+        <TopLine Value="380"/>
+        <CursorPos Y="398"/>
         <UsageCount Value="229"/>
         <Loaded Value="True"/>
-      </Unit64>
-      <Unit65>
+        <LoadedDesigner Value="True"/>
+      </Unit61>
+      <Unit62>
         <Filename Value="login.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LoginForm"/>
@@ -707,16 +682,16 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <UsageCount Value="229"/>
-      </Unit65>
-      <Unit66>
+      </Unit62>
+      <Unit63>
         <Filename Value="proj.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="394"/>
         <CursorPos Y="394"/>
         <UsageCount Value="229"/>
-      </Unit66>
-      <Unit67>
+      </Unit63>
+      <Unit64>
         <Filename Value="Splash.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SplashForm"/>
@@ -725,8 +700,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="25" Y="3"/>
         <UsageCount Value="229"/>
-      </Unit67>
-      <Unit68>
+      </Unit64>
+      <Unit65>
         <Filename Value="selectview.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SelectViewForm"/>
@@ -737,8 +712,8 @@
         <TopLine Value="61"/>
         <CursorPos X="69" Y="73"/>
         <UsageCount Value="229"/>
-      </Unit68>
-      <Unit69>
+      </Unit65>
+      <Unit66>
         <Filename Value="manviews.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ManageViewsForm"/>
@@ -748,8 +723,8 @@
         <TopLine Value="212"/>
         <CursorPos X="78" Y="223"/>
         <UsageCount Value="229"/>
-      </Unit69>
-      <Unit70>
+      </Unit66>
+      <Unit67>
         <Filename Value="runsqlscript.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SQLScriptForm"/>
@@ -759,8 +734,8 @@
         <TopLine Value="248"/>
         <CursorPos X="35" Y="261"/>
         <UsageCount Value="204"/>
-      </Unit70>
-      <Unit71>
+      </Unit67>
+      <Unit68>
         <Filename Value="quickdthchart.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="QuickDTHChartForm"/>
@@ -771,8 +746,8 @@
         <TopLine Value="394"/>
         <CursorPos X="40" Y="406"/>
         <UsageCount Value="212"/>
-      </Unit71>
-      <Unit72>
+      </Unit68>
+      <Unit69>
         <Filename Value="aboutbox.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="AboutBoxForm"/>
@@ -782,8 +757,8 @@
         <TopLine Value="55"/>
         <CursorPos X="48" Y="64"/>
         <UsageCount Value="206"/>
-      </Unit72>
-      <Unit73>
+      </Unit69>
+      <Unit70>
         <Filename Value="progressbox.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ProgressBoxForm"/>
@@ -794,18 +769,19 @@
         <TopLine Value="38"/>
         <CursorPos X="39" Y="42"/>
         <UsageCount Value="200"/>
-      </Unit73>
-      <Unit74>
+      </Unit70>
+      <Unit71>
         <Filename Value="constrctlogform.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LogForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <CursorPos Y="20"/>
+        <TopLine Value="1276"/>
+        <CursorPos X="34" Y="1278"/>
         <UsageCount Value="200"/>
-      </Unit74>
-      <Unit75>
+      </Unit71>
+      <Unit72>
         <Filename Value="BasicSet.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="BasicReportSetForm"/>
@@ -815,8 +791,8 @@
         <TopLine Value="59"/>
         <CursorPos X="25" Y="69"/>
         <UsageCount Value="200"/>
-      </Unit75>
-      <Unit76>
+      </Unit72>
+      <Unit73>
         <Filename Value="Delsites.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DelSitesDlg"/>
@@ -826,8 +802,8 @@
         <TopLine Value="51"/>
         <CursorPos X="70" Y="63"/>
         <UsageCount Value="200"/>
-      </Unit76>
-      <Unit77>
+      </Unit73>
+      <Unit74>
         <Filename Value="Manrecset.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ManRecSetForm"/>
@@ -837,8 +813,8 @@
         <TopLine Value="51"/>
         <CursorPos X="31" Y="59"/>
         <UsageCount Value="200"/>
-      </Unit77>
-      <Unit78>
+      </Unit74>
+      <Unit75>
         <Filename Value="Appendprog.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="AppendProgForm"/>
@@ -848,8 +824,8 @@
         <TopLine Value="200"/>
         <CursorPos X="51" Y="319"/>
         <UsageCount Value="200"/>
-      </Unit78>
-      <Unit79>
+      </Unit75>
+      <Unit76>
         <Filename Value="DbStats.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="dbStatForm"/>
@@ -859,8 +835,8 @@
         <TopLine Value="84"/>
         <CursorPos X="23" Y="96"/>
         <UsageCount Value="200"/>
-      </Unit79>
-      <Unit80>
+      </Unit76>
+      <Unit77>
         <Filename Value="writekml.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="WriteKMLForm"/>
@@ -870,8 +846,8 @@
         <TopLine Value="76"/>
         <CursorPos X="70" Y="87"/>
         <UsageCount Value="202"/>
-      </Unit80>
-      <Unit81>
+      </Unit77>
+      <Unit78>
         <Filename Value="writemember.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="WriteMemberForm"/>
@@ -881,8 +857,8 @@
         <TopLine Value="61"/>
         <CursorPos X="22" Y="73"/>
         <UsageCount Value="207"/>
-      </Unit81>
-      <Unit82>
+      </Unit78>
+      <Unit79>
         <Filename Value="sitestatus.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SiteStatusForm"/>
@@ -892,8 +868,8 @@
         <TopLine Value="48"/>
         <CursorPos X="66" Y="61"/>
         <UsageCount Value="224"/>
-      </Unit82>
-      <Unit83>
+      </Unit79>
+      <Unit80>
         <Filename Value="lookuprepset.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LookupRepSetForm"/>
@@ -904,8 +880,8 @@
         <TopLine Value="74"/>
         <CursorPos X="86" Y="88"/>
         <UsageCount Value="258"/>
-      </Unit83>
-      <Unit84>
+      </Unit80>
+      <Unit81>
         <Filename Value="lookuprep.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LookupReportForm"/>
@@ -915,19 +891,19 @@
         <TopLine Value="116"/>
         <CursorPos X="8" Y="126"/>
         <UsageCount Value="256"/>
-      </Unit84>
-      <Unit85>
+      </Unit81>
+      <Unit82>
         <Filename Value="timechart.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TimeChartForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="801"/>
-        <CursorPos Y="813"/>
+        <TopLine Value="137"/>
+        <CursorPos X="5" Y="148"/>
         <UsageCount Value="200"/>
-      </Unit85>
-      <Unit86>
+      </Unit82>
+      <Unit83>
         <Filename Value="definitiondescr.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DescrForm"/>
@@ -937,8 +913,8 @@
         <TopLine Value="44"/>
         <CursorPos X="23" Y="51"/>
         <UsageCount Value="212"/>
-      </Unit86>
-      <Unit87>
+      </Unit83>
+      <Unit84>
         <Filename Value="selectdef.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SelectDefForm"/>
@@ -948,8 +924,8 @@
         <TopLine Value="29"/>
         <CursorPos X="24" Y="35"/>
         <UsageCount Value="211"/>
-      </Unit87>
-      <Unit88>
+      </Unit84>
+      <Unit85>
         <Filename Value="selectsiteid.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormSelSiteID"/>
@@ -959,19 +935,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
         <UsageCount Value="200"/>
-      </Unit88>
-      <Unit89>
-        <Filename Value="reportdatamodule.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="RepDataModule"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="DataModule"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="10"/>
-        <CursorPos X="5" Y="37"/>
-        <UsageCount Value="220"/>
-      </Unit89>
-      <Unit90>
+      </Unit85>
+      <Unit86>
         <Filename Value="repsettings.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ReportSettingsForm"/>
@@ -980,10 +945,10 @@
         <UnitName Value="Repsettings"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="89"/>
-        <CursorPos X="24" Y="106"/>
+        <CursorPos X="37" Y="97"/>
         <UsageCount Value="212"/>
-      </Unit90>
-      <Unit91>
+      </Unit86>
+      <Unit87>
         <Filename Value="repsettingschem.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ChemReportSettingsForm"/>
@@ -991,10 +956,10 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="115"/>
-        <CursorPos X="16" Y="129"/>
+        <CursorPos X="46" Y="124"/>
         <UsageCount Value="211"/>
-      </Unit91>
-      <Unit92>
+      </Unit87>
+      <Unit88>
         <Filename Value="selectsamples.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SelectSamplesForm"/>
@@ -1004,8 +969,8 @@
         <TopLine Value="53"/>
         <CursorPos X="54" Y="65"/>
         <UsageCount Value="206"/>
-      </Unit92>
-      <Unit93>
+      </Unit88>
+      <Unit89>
         <Filename Value="reporttemplate.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ReportTemplateForm"/>
@@ -1015,8 +980,8 @@
         <TopLine Value="267"/>
         <CursorPos Y="288"/>
         <UsageCount Value="200"/>
-      </Unit93>
-      <Unit94>
+      </Unit89>
+      <Unit90>
         <Filename Value="chemreport.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ChemReportForm"/>
@@ -1025,8 +990,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="42" Y="7"/>
         <UsageCount Value="200"/>
-      </Unit94>
-      <Unit95>
+      </Unit90>
+      <Unit91>
         <Filename Value="reportdocuments.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ReportDocsForm"/>
@@ -1036,8 +1001,8 @@
         <TopLine Value="306"/>
         <CursorPos X="52" Y="317"/>
         <UsageCount Value="215"/>
-      </Unit95>
-      <Unit96>
+      </Unit91>
+      <Unit92>
         <Filename Value="sitelinkedreports.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SiteReportDetailForm"/>
@@ -1046,19 +1011,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="37" Y="12"/>
         <UsageCount Value="200"/>
-      </Unit96>
-      <Unit97>
-        <Filename Value="testform.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="TestMastDetlForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="28"/>
-        <CursorPos X="18" Y="36"/>
-        <UsageCount Value="200"/>
-      </Unit97>
-      <Unit98>
+      </Unit92>
+      <Unit93>
         <Filename Value="hydreservoir.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="HydResForm"/>
@@ -1068,8 +1022,8 @@
         <TopLine Value="271"/>
         <CursorPos Y="283"/>
         <UsageCount Value="219"/>
-      </Unit98>
-      <Unit99>
+      </Unit93>
+      <Unit94>
         <Filename Value="holefinish.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="HoleConstForm"/>
@@ -1079,60 +1033,61 @@
         <TopLine Value="178"/>
         <CursorPos Y="184"/>
         <UsageCount Value="206"/>
-      </Unit99>
-      <Unit100>
+      </Unit94>
+      <Unit95>
         <Filename Value="PMPIMPRT.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="PmpimprtForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1388"/>
-        <CursorPos X="11" Y="1408"/>
+        <TopLine Value="863"/>
+        <CursorPos X="44" Y="875"/>
         <UsageCount Value="232"/>
-      </Unit100>
-      <Unit101>
+      </Unit95>
+      <Unit96>
         <Filename Value="VARINIT.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="19"/>
-        <CursorPos X="13" Y="31"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="34"/>
+        <CursorPos X="48" Y="41"/>
         <UsageCount Value="232"/>
-      </Unit101>
-      <Unit102>
+        <Loaded Value="True"/>
+      </Unit96>
+      <Unit97>
         <Filename Value="SQLSEACH.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SQLSearchForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="339"/>
-        <CursorPos X="17" Y="351"/>
+        <TopLine Value="128"/>
+        <CursorPos X="10" Y="141"/>
         <UsageCount Value="232"/>
-      </Unit102>
-      <Unit103>
+      </Unit97>
+      <Unit98>
         <Filename Value="NEWSITE.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="NewSiteForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="107"/>
-        <CursorPos X="37" Y="119"/>
+        <TopLine Value="140"/>
+        <CursorPos X="30" Y="145"/>
         <UsageCount Value="232"/>
-      </Unit103>
-      <Unit104>
+      </Unit98>
+      <Unit99>
         <Filename Value="TIMEDEPT.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TimeDeptForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="234"/>
-        <CursorPos X="9" Y="256"/>
+        <TopLine Value="409"/>
+        <CursorPos X="36" Y="418"/>
         <UsageCount Value="232"/>
-      </Unit104>
-      <Unit105>
+      </Unit99>
+      <Unit100>
         <Filename Value="QUICKSCH.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="QuickSearchForm"/>
@@ -1142,8 +1097,8 @@
         <TopLine Value="145"/>
         <CursorPos X="39" Y="165"/>
         <UsageCount Value="232"/>
-      </Unit105>
-      <Unit106>
+      </Unit100>
+      <Unit101>
         <Filename Value="SELSITES.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SelectSitesDlg"/>
@@ -1153,8 +1108,8 @@
         <TopLine Value="75"/>
         <CursorPos X="3" Y="82"/>
         <UsageCount Value="232"/>
-      </Unit106>
-      <Unit107>
+      </Unit101>
+      <Unit102>
         <Filename Value="INSTALLA.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="InstallForm"/>
@@ -1163,8 +1118,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="36" Y="11"/>
         <UsageCount Value="232"/>
-      </Unit107>
-      <Unit108>
+      </Unit102>
+      <Unit103>
         <Filename Value="LOOKUP.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LookupForm"/>
@@ -1174,30 +1129,30 @@
         <TopLine Value="76"/>
         <CursorPos X="50" Y="93"/>
         <UsageCount Value="232"/>
-      </Unit108>
-      <Unit109>
+      </Unit103>
+      <Unit104>
         <Filename Value="PROJ_MAN.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ProjManForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="385"/>
-        <CursorPos X="54" Y="404"/>
+        <TopLine Value="261"/>
+        <CursorPos X="56" Y="271"/>
         <UsageCount Value="232"/>
-      </Unit109>
-      <Unit110>
+      </Unit104>
+      <Unit105>
         <Filename Value="help.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="HelpForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="289"/>
-        <CursorPos X="3" Y="292"/>
+        <TopLine Value="288"/>
+        <CursorPos X="62" Y="300"/>
         <UsageCount Value="217"/>
-      </Unit110>
-      <Unit111>
+      </Unit105>
+      <Unit106>
         <Filename Value="stiffdiagram.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="StiffForm"/>
@@ -1207,8 +1162,8 @@
         <TopLine Value="395"/>
         <CursorPos X="3" Y="397"/>
         <UsageCount Value="257"/>
-      </Unit111>
-      <Unit112>
+      </Unit106>
+      <Unit107>
         <Filename Value="boxwhisker.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="BoxWhiskerForm"/>
@@ -1218,8 +1173,8 @@
         <TopLine Value="123"/>
         <CursorPos X="16" Y="216"/>
         <UsageCount Value="206"/>
-      </Unit112>
-      <Unit113>
+      </Unit107>
+      <Unit108>
         <Filename Value="importwms.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ImportWMSForm"/>
@@ -1229,19 +1184,19 @@
         <TopLine Value="548"/>
         <CursorPos Y="552"/>
         <UsageCount Value="215"/>
-      </Unit113>
-      <Unit114>
+      </Unit108>
+      <Unit109>
         <Filename Value="basicinf.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="BasicinfForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="371"/>
-        <CursorPos Y="382"/>
+        <TopLine Value="323"/>
+        <CursorPos X="22" Y="327"/>
         <UsageCount Value="200"/>
-      </Unit114>
-      <Unit115>
+      </Unit109>
+      <Unit110>
         <Filename Value="boxsettings.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="BoxSettingsForm"/>
@@ -1251,8 +1206,8 @@
         <TopLine Value="85"/>
         <CursorPos X="22" Y="95"/>
         <UsageCount Value="200"/>
-      </Unit115>
-      <Unit116>
+      </Unit110>
+      <Unit111>
         <Filename Value="loggerimport.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LoggerImportForm"/>
@@ -1262,8 +1217,8 @@
         <TopLine Value="129"/>
         <CursorPos Y="146"/>
         <UsageCount Value="200"/>
-      </Unit116>
-      <Unit117>
+      </Unit111>
+      <Unit112>
         <Filename Value="importchem.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ImportChemForm"/>
@@ -1273,8 +1228,8 @@
         <TopLine Value="237"/>
         <CursorPos Y="248"/>
         <UsageCount Value="208"/>
-      </Unit117>
-      <Unit118>
+      </Unit112>
+      <Unit113>
         <Filename Value="lithprofile.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LithProfileForm"/>
@@ -1284,8 +1239,8 @@
         <TopLine Value="368"/>
         <CursorPos X="25" Y="381"/>
         <UsageCount Value="265"/>
-      </Unit118>
-      <Unit119>
+      </Unit113>
+      <Unit114>
         <Filename Value="lithprofilesettings.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LithProfileSettingsForm"/>
@@ -1295,8 +1250,8 @@
         <TopLine Value="67"/>
         <CursorPos X="42" Y="78"/>
         <UsageCount Value="251"/>
-      </Unit119>
-      <Unit120>
+      </Unit114>
+      <Unit115>
         <Filename Value="meteorologyreport.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MeteorologyReportForm"/>
@@ -1306,8 +1261,8 @@
         <TopLine Value="179"/>
         <CursorPos X="7" Y="190"/>
         <UsageCount Value="200"/>
-      </Unit120>
-      <Unit121>
+      </Unit115>
+      <Unit116>
         <Filename Value="repsettingssurfwatr.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SurfWatrRepSettingsForm"/>
@@ -1317,19 +1272,19 @@
         <TopLine Value="87"/>
         <CursorPos Y="109"/>
         <UsageCount Value="200"/>
-      </Unit121>
-      <Unit122>
+      </Unit116>
+      <Unit117>
         <Filename Value="crsinfo.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="CRSInfoForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="90"/>
-        <CursorPos X="25" Y="92"/>
+        <TopLine Value="141"/>
+        <CursorPos X="27" Y="147"/>
         <UsageCount Value="200"/>
-      </Unit122>
-      <Unit123>
+      </Unit117>
+      <Unit118>
         <Filename Value="mapview.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MapViewForm"/>
@@ -1339,8 +1294,8 @@
         <TopLine Value="649"/>
         <CursorPos X="38" Y="662"/>
         <UsageCount Value="226"/>
-      </Unit123>
-      <Unit124>
+      </Unit118>
+      <Unit119>
         <Filename Value="graduatedmap.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormGraduatedPnts"/>
@@ -1350,19 +1305,19 @@
         <TopLine Value="154"/>
         <CursorPos X="25" Y="164"/>
         <UsageCount Value="200"/>
-      </Unit124>
-      <Unit125>
+      </Unit119>
+      <Unit120>
         <Filename Value="repsettingstimechem.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TimeChemReportSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="177"/>
-        <CursorPos X="65" Y="192"/>
+        <TopLine Value="279"/>
+        <CursorPos X="48" Y="285"/>
         <UsageCount Value="226"/>
-      </Unit125>
-      <Unit126>
+      </Unit120>
+      <Unit121>
         <Filename Value="reporttemplateportrait.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="PortraitReportForm"/>
@@ -1371,8 +1326,8 @@
         <EditorIndex Value="-1"/>
         <CursorPos X="34" Y="13"/>
         <UsageCount Value="202"/>
-      </Unit126>
-      <Unit127>
+      </Unit121>
+      <Unit122>
         <Filename Value="timedeptchemreport.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LandscapeReportFormChem"/>
@@ -1381,10 +1336,10 @@
         <UnitName Value="TimeDeptChemReport"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="407"/>
-        <CursorPos X="30" Y="414"/>
+        <CursorPos X="19" Y="413"/>
         <UsageCount Value="200"/>
-      </Unit127>
-      <Unit128>
+      </Unit122>
+      <Unit123>
         <Filename Value="repsettingstimedis.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TimeDisReportSettingsForm"/>
@@ -1394,8 +1349,8 @@
         <TopLine Value="56"/>
         <CursorPos Y="67"/>
         <UsageCount Value="211"/>
-      </Unit128>
-      <Unit129>
+      </Unit123>
+      <Unit124>
         <Filename Value="timedeptdisreport.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="PortraitReportFormDis"/>
@@ -1405,8 +1360,8 @@
         <TopLine Value="14"/>
         <CursorPos X="3" Y="26"/>
         <UsageCount Value="211"/>
-      </Unit129>
-      <Unit130>
+      </Unit124>
+      <Unit125>
         <Filename Value="editchartdata.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="EditChartDataForm"/>
@@ -1416,19 +1371,19 @@
         <TopLine Value="93"/>
         <CursorPos X="34" Y="94"/>
         <UsageCount Value="200"/>
-      </Unit130>
-      <Unit131>
+      </Unit125>
+      <Unit126>
         <Filename Value="Filter.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FilterForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="333"/>
-        <CursorPos Y="355"/>
+        <TopLine Value="391"/>
+        <CursorPos X="10" Y="404"/>
         <UsageCount Value="200"/>
-      </Unit131>
-      <Unit132>
+      </Unit126>
+      <Unit127>
         <Filename Value="addtrendline.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="AddTrendLineForm"/>
@@ -1438,8 +1393,8 @@
         <TopLine Value="40"/>
         <CursorPos X="45" Y="43"/>
         <UsageCount Value="221"/>
-      </Unit132>
-      <Unit133>
+      </Unit127>
+      <Unit128>
         <Filename Value="repsettingstimedepth.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="DepthReportSettingsForm"/>
@@ -1449,8 +1404,8 @@
         <TopLine Value="57"/>
         <CursorPos Y="68"/>
         <UsageCount Value="209"/>
-      </Unit133>
-      <Unit134>
+      </Unit128>
+      <Unit129>
         <Filename Value="repsettingssitemon.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SiteMonRepSetForm"/>
@@ -1460,8 +1415,8 @@
         <TopLine Value="143"/>
         <CursorPos Y="159"/>
         <UsageCount Value="200"/>
-      </Unit134>
-      <Unit135>
+      </Unit129>
+      <Unit130>
         <Filename Value="sitemonitorreport.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SiteMonitoringReportForm"/>
@@ -1471,8 +1426,8 @@
         <TopLine Value="992"/>
         <CursorPos X="3" Y="1004"/>
         <UsageCount Value="200"/>
-      </Unit135>
-      <Unit136>
+      </Unit130>
+      <Unit131>
         <Filename Value="repsettingsmeteor.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="MeteoReportSettingsForm"/>
@@ -1482,8 +1437,8 @@
         <TopLine Value="80"/>
         <CursorPos X="48" Y="84"/>
         <UsageCount Value="205"/>
-      </Unit136>
-      <Unit137>
+      </Unit131>
+      <Unit132>
         <Filename Value="flagrecords.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FlagForm"/>
@@ -1493,8 +1448,8 @@
         <TopLine Value="237"/>
         <CursorPos X="3" Y="240"/>
         <UsageCount Value="215"/>
-      </Unit137>
-      <Unit138>
+      </Unit132>
+      <Unit133>
         <Filename Value="importrain.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ImportRainForm"/>
@@ -1504,33 +1459,31 @@
         <TopLine Value="16"/>
         <CursorPos X="22" Y="16"/>
         <UsageCount Value="209"/>
-      </Unit138>
-      <Unit139>
+      </Unit133>
+      <Unit134>
         <Filename Value="importsynop.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormSYNOP"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="importSYNOP"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="256"/>
-        <CursorPos Y="274"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="357"/>
+        <CursorPos X="9" Y="377"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
-      </Unit139>
-      <Unit140>
+      </Unit134>
+      <Unit135>
         <Filename Value="importdwsaudited.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormDWSAudited"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <CursorPos Y="20"/>
+        <TopLine Value="283"/>
+        <CursorPos X="61" Y="298"/>
         <UsageCount Value="200"/>
-      </Unit140>
-      <Unit141>
+      </Unit135>
+      <Unit136>
         <Filename Value="geositelist.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="GeoSiteListForm"/>
@@ -1539,18 +1492,76 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="79"/>
         <CursorPos X="29" Y="96"/>
-        <UsageCount Value="60"/>
+        <UsageCount Value="202"/>
+      </Unit136>
+      <Unit137>
+        <Filename Value="dateoptions.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DateOptionsForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="37"/>
+        <CursorPos X="48" Y="45"/>
+        <UsageCount Value="200"/>
+      </Unit137>
+      <Unit138>
+        <Filename Value="FILTER.PAS"/>
+        <ComponentName Value="FilterForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="378"/>
+        <CursorPos X="21" Y="373"/>
+        <UsageCount Value="218"/>
+      </Unit138>
+      <Unit139>
+        <Filename Value="ChemSettingAdd.pas"/>
+        <HasResources Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="187"/>
+        <CursorPos X="39" Y="8"/>
+        <UsageCount Value="218"/>
+      </Unit139>
+      <Unit140>
+        <Filename Value="expAltWtl.pas"/>
+        <ComponentName Value="FormExpAltWtl"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="21" Y="12"/>
+        <UsageCount Value="218"/>
+      </Unit140>
+      <Unit141>
+        <Filename Value="reportdatamodule.pas"/>
+        <ComponentName Value="RepDataModule"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="10"/>
+        <CursorPos X="5" Y="37"/>
+        <UsageCount Value="209"/>
       </Unit141>
       <Unit142>
+        <Filename Value="testform.pas"/>
+        <ComponentName Value="TestMastDetlForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="28"/>
+        <CursorPos X="18" Y="36"/>
+        <UsageCount Value="189"/>
+      </Unit142>
+      <Unit143>
         <Filename Value="Icons\maplegend.pas"/>
         <ComponentName Value="LegendForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="29" Y="7"/>
-        <UsageCount Value="89"/>
-      </Unit142>
-      <Unit143>
+        <UsageCount Value="70"/>
+      </Unit143>
+      <Unit144>
         <Filename Value="chartproperties.pas"/>
         <ComponentName Value="ChartPropDlg"/>
         <HasResources Value="True"/>
@@ -1558,21 +1569,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="1340"/>
         <CursorPos X="48" Y="1352"/>
-        <UsageCount Value="27"/>
-      </Unit143>
-      <Unit144>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\rtl\objpas\sysutils\datih.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="109"/>
-        <CursorPos X="17" Y="122"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
       </Unit144>
       <Unit145>
         <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\zeosdbo\src\component\ZSqlProcessor.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="136"/>
         <CursorPos X="14" Y="146"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="9"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit145>
       <Unit146>
@@ -1580,35 +1584,10 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="52"/>
         <CursorPos X="5" Y="52"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="9"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit146>
       <Unit147>
-        <Filename Value="reporttemplatelandscape.pas"/>
-        <ComponentName Value="LandscapeReportForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="144"/>
-        <CursorPos Y="165"/>
-        <UsageCount Value="7"/>
-      </Unit147>
-      <Unit148>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\packages\fcl-base\src\inifiles.pp"/>
-        <UnitName Value="IniFiles"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="166"/>
-        <CursorPos X="14" Y="177"/>
-        <UsageCount Value="10"/>
-      </Unit148>
-      <Unit149>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\rtl\objpas\sysutils\sysstrh.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="41"/>
-        <CursorPos X="28" Y="28"/>
-        <UsageCount Value="10"/>
-      </Unit149>
-      <Unit150>
         <Filename Value="FCdata.pas"/>
         <ComponentName Value="frmFCdata"/>
         <HasResources Value="True"/>
@@ -1616,235 +1595,365 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="140"/>
         <CursorPos X="3" Y="157"/>
-        <UsageCount Value="34"/>
-      </Unit150>
-      <Unit151>
-        <Filename Value="..\..\..\..\..\usr\share\lazarus\2.0.12\lcl\dialogs.pp"/>
+        <UsageCount Value="15"/>
+      </Unit147>
+      <Unit148>
+        <Filename Value="..\..\..\..\usr\share\lazarus\2.0.12\lcl\dialogs.pp"/>
         <UnitName Value="Dialogs"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="718"/>
         <CursorPos X="10" Y="729"/>
-        <UsageCount Value="1"/>
-      </Unit151>
-      <Unit152>
-        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\zeosdbo\src\component\ZAbstractRODataset.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="4179"/>
-        <CursorPos Y="4190"/>
         <UsageCount Value="2"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit152>
-      <Unit153>
-        <Filename Value="TRepSet.pas"/>
-        <ComponentName Value="TestRepSetForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="399"/>
-        <CursorPos X="6" Y="410"/>
-        <UsageCount Value="4"/>
-      </Unit153>
-      <Unit154>
-        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.0\rtl\inc\systemh.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="469"/>
-        <CursorPos X="3" Y="481"/>
-        <UsageCount Value="9"/>
-      </Unit154>
-      <Unit155>
-        <Filename Value="Append.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="198"/>
-        <CursorPos Y="215"/>
-        <UsageCount Value="7"/>
-      </Unit155>
-      <Unit156>
+      </Unit148>
+      <Unit149>
         <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\PascalTZ\source\upascaltz.pas"/>
         <UnitName Value="uPascalTZ"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="751"/>
         <CursorPos X="71" Y="777"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="2"/>
+      </Unit149>
+      <Unit150>
+        <Filename Value="EditLogPattern.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="53"/>
+        <CursorPos X="44" Y="65"/>
+        <UsageCount Value="2"/>
+      </Unit150>
+      <Unit151>
+        <Filename Value="EditFillColour.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="71"/>
+        <CursorPos X="39" Y="83"/>
+        <UsageCount Value="2"/>
+      </Unit151>
+      <Unit152>
+        <Filename Value="editcolours.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="67"/>
+        <CursorPos X="39" Y="79"/>
+        <UsageCount Value="2"/>
+      </Unit152>
+      <Unit153>
+        <Filename Value="..\..\..\..\usr\share\lazarus\2.0.12\lcl\forms.pp"/>
+        <UnitName Value="Forms"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="58"/>
+        <CursorPos X="35" Y="70"/>
+        <UsageCount Value="2"/>
+      </Unit153>
+      <Unit154>
+        <Filename Value="applycoord.pas"/>
+        <ComponentName Value="ApplyCoordForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="254"/>
+        <CursorPos X="15" Y="271"/>
+        <UsageCount Value="13"/>
+      </Unit154>
+      <Unit155>
+        <Filename Value="strdatetime.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="16"/>
+        <CursorPos X="12" Y="27"/>
+        <UsageCount Value="9"/>
+      </Unit155>
+      <Unit156>
+        <Filename Value="..\..\..\..\usr\share\lazarus\2.0.12\lcl\graphics.pp"/>
+        <UnitName Value="Graphics"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="647"/>
+        <CursorPos X="14" Y="671"/>
+        <UsageCount Value="9"/>
       </Unit156>
+      <Unit157>
+        <Filename Value="..\..\..\..\usr\lib\lazarus\2.2.0\lcl\graphics.pp"/>
+        <UnitName Value="Graphics"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="59"/>
+        <CursorPos X="3" Y="78"/>
+        <UsageCount Value="9"/>
+      </Unit157>
+      <Unit158>
+        <Filename Value="..\..\..\..\usr\share\fpcsrc\3.2.2\packages\rtl-objpas\src\inc\strutils.pp"/>
+        <UnitName Value="StrUtils"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="182"/>
+        <CursorPos X="10" Y="201"/>
+        <UsageCount Value="9"/>
+      </Unit158>
+      <Unit159>
+        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\Rx\rxdb\rxdbgrid.pas"/>
+        <UnitName Value="RxDBGrid"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="29"/>
+        <CursorPos X="56" Y="41"/>
+        <UsageCount Value="5"/>
+      </Unit159>
+      <Unit160>
+        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.2\packages\fv\src\menus.pas"/>
+        <UnitName Value="Menus"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="317"/>
+        <CursorPos Y="328"/>
+        <UsageCount Value="7"/>
+      </Unit160>
+      <Unit161>
+        <Filename Value="imprtoldab.pas"/>
+        <ComponentName Value="ImprtOldABForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="imprtOldAB"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="17"/>
+        <UsageCount Value="21"/>
+      </Unit161>
+      <Unit162>
+        <Filename Value="..\..\..\..\..\usr\lib\lazarus\2.2.0\lcl\controls.pp"/>
+        <UnitName Value="Controls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2346"/>
+        <CursorPos X="15" Y="2356"/>
+        <UsageCount Value="7"/>
+      </Unit162>
+      <Unit163>
+        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\zeosdbo\src\dbc\ZDbcSqLiteUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="230"/>
+        <CursorPos Y="241"/>
+        <UsageCount Value="11"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit163>
+      <Unit164>
+        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\zeosdbo\src\component\ZAbstractConnection.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="849"/>
+        <CursorPos Y="863"/>
+        <UsageCount Value="7"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit164>
+      <Unit165>
+        <Filename Value="ChSiteID.pas"/>
+        <ComponentName Value="ChangeSiteIDForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="89"/>
+        <CursorPos X="32" Y="104"/>
+        <UsageCount Value="7"/>
+      </Unit165>
+      <Unit166>
+        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\Rx\rxdb\rxlookup.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="29"/>
+        <CursorPos X="74" Y="41"/>
+        <UsageCount Value="7"/>
+      </Unit166>
+      <Unit167>
+        <Filename Value="Imprtdat.pas"/>
+        <ComponentName Value="ImportdatDlg"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="56" Y="22"/>
+        <UsageCount Value="8"/>
+      </Unit167>
+      <Unit168>
+        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\zeosdbo\src\core\ZMessages.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1981"/>
+        <CursorPos X="3" Y="1999"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit168>
+      <Unit169>
+        <Filename Value="..\..\..\.lazarus\onlinepackagemanager\packages\zeosdbo\src\core\ZClasses.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="248"/>
+        <CursorPos X="3" Y="266"/>
+        <UsageCount Value="11"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit169>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="475" TopLine="460"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="412" Column="32" TopLine="391"/>
       </Position1>
       <Position2>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="477" TopLine="460"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="341" Column="30" TopLine="323"/>
       </Position2>
       <Position3>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="475" TopLine="460"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="346" Column="30" TopLine="326"/>
       </Position3>
       <Position4>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="477" TopLine="460"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="423" Column="32" TopLine="396"/>
       </Position4>
       <Position5>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="476" TopLine="460"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="442" Column="3" TopLine="424"/>
       </Position5>
       <Position6>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="477" TopLine="460"/>
+        <Filename Value="VARINIT.pas"/>
+        <Caret Line="38" Column="50" TopLine="34"/>
       </Position6>
       <Position7>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="476" TopLine="460"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="443" Column="20" TopLine="424"/>
       </Position7>
       <Position8>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="477" TopLine="460"/>
+        <Filename Value="VARINIT.pas"/>
+        <Caret Line="41" Column="48" TopLine="34"/>
       </Position8>
       <Position9>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="476" TopLine="460"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="2226" TopLine="2206"/>
       </Position9>
       <Position10>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="477" TopLine="460"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="472" Column="25" TopLine="448"/>
       </Position10>
       <Position11>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="476" TopLine="460"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="444" Column="100" TopLine="428"/>
       </Position11>
       <Position12>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="477" TopLine="460"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="398" TopLine="385"/>
       </Position12>
       <Position13>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="478" TopLine="460"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="399" TopLine="385"/>
       </Position13>
       <Position14>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="479" TopLine="463"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="402" TopLine="385"/>
       </Position14>
       <Position15>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="481" TopLine="469"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="405" TopLine="391"/>
       </Position15>
       <Position16>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="482" TopLine="478"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="406" TopLine="391"/>
       </Position16>
       <Position17>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="483" TopLine="478"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="408" TopLine="397"/>
       </Position17>
       <Position18>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="484" TopLine="478"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="411" TopLine="397"/>
       </Position18>
       <Position19>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="503" TopLine="495"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="414" TopLine="400"/>
       </Position19>
       <Position20>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="508" TopLine="498"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="416" TopLine="400"/>
       </Position20>
       <Position21>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="482" TopLine="471"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="417" TopLine="400"/>
       </Position21>
       <Position22>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="518" Column="19" TopLine="507"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="418" TopLine="400"/>
       </Position22>
       <Position23>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="520" TopLine="507"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="417" TopLine="400"/>
       </Position23>
       <Position24>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="522" TopLine="513"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="427" TopLine="406"/>
       </Position24>
       <Position25>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="524" TopLine="513"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="428" TopLine="406"/>
       </Position25>
       <Position26>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="565" TopLine="552"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="429" TopLine="406"/>
       </Position26>
       <Position27>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="469" TopLine="458"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="437" TopLine="413"/>
       </Position27>
       <Position28>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="474" TopLine="467"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="439" TopLine="413"/>
       </Position28>
       <Position29>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="518" TopLine="507"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="441" TopLine="422"/>
       </Position29>
       <Position30>
-        <Filename Value="importsynop.pas"/>
-        <Caret Line="556" Column="23" TopLine="528"/>
+        <Filename Value="maindatamodule.pas"/>
+        <Caret Line="444" TopLine="422"/>
       </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
-      <Modes Count="0" ActiveMode="default"/>
+      <Modes ActiveMode="default"/>
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="7">
-      <Item1>
+    <BreakPoints>
+      <Item>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="DepthWiz.pas"/>
         <Line Value="420"/>
-      </Item1>
-      <Item2>
+      </Item>
+      <Item>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="kcMapViewer.pas"/>
         <Line Value="820"/>
-      </Item2>
-      <Item3>
+      </Item>
+      <Item>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="TimeWiz.pas"/>
         <Line Value="157"/>
-      </Item3>
-      <Item4>
+      </Item>
+      <Item>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="DepthWiz.pas"/>
         <Line Value="128"/>
-      </Item4>
-      <Item5>
+      </Item>
+      <Item>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="PROJ_MAN.PAS"/>
         <Line Value="175"/>
-      </Item5>
-      <Item6>
+      </Item>
+      <Item>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="mapview.pas"/>
         <Line Value="685"/>
-      </Item6>
-      <Item7>
+      </Item>
+      <Item>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="holefinish.pas"/>
         <Line Value="137"/>
-      </Item7>
+      </Item>
     </BreakPoints>
   </Debugging>
 </CONFIG>

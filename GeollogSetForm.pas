@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2022 Immo Blecher immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -31,6 +31,7 @@ type
   { TGeollogSettingsForm }
 
   TGeollogSettingsForm = class(TForm)
+    DateButton: TButton;
     ButtonFont1: TButton;
     ButtonFont2: TButton;
     CapCheckBox: TCheckBox;
@@ -42,13 +43,12 @@ type
     CheckBoxOverlap: TCheckBox;
     CheckBoxShowStrikes: TCheckBox;
     CheckBoxUsePrim: TCheckBox;
-    ComboBoxTopParamOpt: TComboBox;
     ComboBoxBotParamOpt: TComboBox;
+    ComboBoxTopParamOpt: TComboBox;
     EditFontGeneral2: TEdit;
     HoleMarkerLabelColorButton: TColorButton;
     ComboBoxLabelPiez: TComboBox;
     ComboBoxStrikes: TComboBox;
-    DepthQueryX_AXISTITLE_BOT: TStringField;
     EditFontGeneral1: TEdit;
     CasingMarkerLabelColorButton: TColorButton;
     Label11: TLabel;
@@ -58,8 +58,8 @@ type
     Label16: TLabel;
     Label17: TLabel;
     Label18: TLabel;
-    LabelTopParamOpt: TLabel;
     LabelBotParamOpt: TLabel;
+    LabelTopParamOpt: TLabel;
     LabelTopExt: TLabel;
     LegendFrameCheckBox: TCheckBox;
     ShowMemoCheckBox: TCheckBox;
@@ -82,11 +82,6 @@ type
     StaticText3: TStaticText;
     TopLineComboBox: TComboBox;
     BottomLineComboBox: TComboBox;
-    DepthQueryDESCRIPTION: TMemoField;
-    DepthQueryFILE_NAME: TMemoField;
-    DepthQueryUNITXVAL: TStringField;
-    DepthQueryXVAL: TStringField;
-    DepthQueryYVAL: TStringField;
     WLLabelRadioGroup: TRadioGroup;
     Label4: TLabel;
     Label5: TLabel;
@@ -159,9 +154,10 @@ type
     TabSheet1: TTabSheet;
     CheckBox16: TCheckBox;
     wlQuery: TZReadOnlyQuery;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     DepthQuery: TZReadOnlyQuery;
     procedure BottomComboBoxChange(Sender: TObject);
+    procedure DateButtonClick(Sender: TObject);
     procedure CheckBox2PagesChange(Sender: TObject);
     procedure CheckBoxLabelPiezClick(Sender: TObject);
     procedure ButtonFont1Click(Sender: TObject);
@@ -184,6 +180,8 @@ type
     TopTableName, BottomTableName, TopX_Field, TopY_Field, BotX_Field, BotY_Field: ShortString;
     TopUnit, BottomUnit, TopSeriesTitle, BottomSeriesTitle: ShortString;
     TopFactor, BotFactor: Double;
+    FromDateTime, ToDateTime: TDateTime;
+    UseDates, UseLineStyles: Boolean;
   public
     { Public declarations }
     IsReport: Boolean;
@@ -194,21 +192,24 @@ var
 
 implementation
 
-uses VARINIT, MainDataModule, constrctlogform;
+uses VARINIT, MainDataModule, constrctlogform, dateoptions;
 
 {$R *.lfm}
 
 procedure TGeollogSettingsForm.FormCreate(Sender: TObject);
 begin
   Screen.Cursor := crDefault;
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, True);
-  DepthQuery.Open;
-  while not DepthQuery.EOF do
+  with DepthQuery do
   begin
-    TopComboBox.Items.Add(DepthQueryDESCRIPTION.Value);
-    BottomComboBox.Items.Add(DepthQueryDESCRIPTION.Value);
-    DepthQuery.Next;
+    Open;
+    while not EOF do
+    begin
+      TopComboBox.Items.Add(FieldByName('DESCRIPTION').Value);
+      BottomComboBox.Items.Add(FieldByName('DESCRIPTION').Value);
+      DepthQuery.Next;
+    end;
   end;
   TopComboBox.ItemIndex := 0;
   TopTableName := '<none>';
@@ -260,14 +261,16 @@ begin
   if BottomComboBox.ItemIndex > 0 then
   begin
     ButtonPanel1.OKButton.Enabled := True;
-    DepthQuery.Filter := 'DESCRIPTION = ' + QuotedStr(BottomComboBox.Text);
-    DepthQuery.Filtered := True;
-    BottomLabeledEdit.Text := DepthQueryX_AXISTITLE_BOT.Value;
-    BottomTableName := LowerCase(DepthQueryFILE_NAME.Value);
-    BotX_Field := DepthQueryXVAL.Value;
-    BotY_Field := DepthQueryYVAL.Value;
-    BottomUnit := DepthQueryUNITXVAL.Value;
-    BottomSeriesTitle := DepthQueryDESCRIPTION.Value;
+    with DepthQuery do
+    begin
+      Filter := 'DESCRIPTION = ' + QuotedStr(BottomComboBox.Text);
+      Filtered := True;
+      BottomLabeledEdit.Text := FieldByName('X_AXISTITLE_BOT').Value;
+      BottomTableName := LowerCase(FieldByName('FILE_NAME').Value);
+      BotX_Field := FieldByName('XVAL').Value;
+      BotY_Field := FieldByName('YVAL').Value;
+      BottomSeriesTitle := FieldByName('DESCRIPTION').Value;
+    end;
     //set units for axes
     if BottomTableName = 'penetrat' then
     begin
@@ -286,20 +289,21 @@ begin
       LabelBotParamOpt.Enabled := False;
       LabelBotParamOpt.Caption := 'Parameter options:';
       ComboBoxBotParamOpt.Enabled := False;
-      if DepthQueryUNITXVAL.Value = 'DISUNIT' then
+      if DepthQuery.FieldByName('UNITXVAL').Value = 'DISUNIT' then
       begin
         BottomUnit := VolumeUnit + '/' + TimeUnit;
         BotFactor := VolumeFactor * TimeFactor;
       end
       else
-      if DepthQueryUNITXVAL.Value = 'ECUNIT' then
+      if DepthQuery.FieldByName('UNITXVAL').Value = 'ECUNIT' then
       begin
         BottomUnit := ECUnit;
         BotFactor := ECFactor;
       end
       else
       begin
-        BottomUnit := DepthQueryUNITXVAL.Value;
+        if not DepthQuery.FieldByName('UNITXVAL').IsNull then
+          BottomUnit := DepthQuery.FieldByName('UNITXVAL').Value;
         BotFactor := 1;
       end;
     end;
@@ -313,6 +317,30 @@ begin
     BottomTableName := '<none>';
     BotX_Field := '';
     BotY_Field := '';
+  end;
+end;
+
+procedure TGeollogSettingsForm.DateButtonClick(Sender: TObject);
+begin
+  {$IFDEF WINDOWS}
+  if VerDiff > 2 then
+    MessageDlg(VersionMessage, mtError,[mbOK], 0)
+  else
+  {$ENDIF}
+  with TDateOptionsForm.Create(Self) do
+  begin
+    ShowModal;
+    if ModalResult = mrOK then
+    begin
+      UseDates := ComboBox1.ItemIndex = 1;
+      if UseDates then
+      begin
+        FromDateTime := DateTimePicker1.DateTime;
+        ToDateTime := DateTimePicker2.DateTime;
+      end;
+      UseLineStyles := CheckBox1.Checked;
+    end;
+    Close;
   end;
 end;
 
@@ -451,13 +479,27 @@ begin
     TopExt := SpinEditTopExt.Value / 100;
     //Update variables for depth dependent charts
     DTHChart.Visible := ShowDepthCheckBox.Checked;
+    UseDepthLineStyles := UseLineStyles;
+    if UseDates then
+    begin
+      DepthFromDateTime := FromDateTime;
+      DepthToDateTime := ToDateTime;
+    end
+    else
+    begin
+      DepthFromDateTime := EncodeDate(1900, 1, 1);
+      DepthToDateTime := Now;
+    end;
     //Series on top Axis
     Depth1TableName := TopTableName;
     TopX := TopX_Field;
     TopY := TopY_Field;
     DTHChart.AxisList[3].Title.Caption := TopLabeledEdit.Text + ' [' + TopUnit + ']';
-    TopSeries.SeriesColor := TopSeriesColorButton.ButtonColor;
-    TopSeries.Title := TopSeriesTitle;
+    with TopSeries do
+    begin
+      SeriesColor := TopSeriesColorButton.ButtonColor;
+      Title := TopSeriesTitle;
+    end;
     TheTopFactor := TopFactor;
     if MaxTopLabeledEdit.Text > '' then
       SetMaxTop := StrToFloat(MaxTopLabeledEdit.Text)
@@ -468,8 +510,11 @@ begin
     BotX := BotX_Field;
     BotY := BotY_Field;
     DTHChart.AxisList[1].Title.Caption := BottomLabeledEdit.Text + ' [' + BottomUnit + ']';
-    BottomSeries.SeriesColor := BottomSeriesColorButton.ButtonColor;
-    BottomSeries.Title := BottomSeriesTitle;
+    with BottomSeries do
+    begin
+      SeriesColor := BottomSeriesColorButton.ButtonColor;
+      Title := BottomSeriesTitle;
+    end;
     TheBotFactor := BotFactor;
     if MaxBotLabeledEdit.Text > '' then
       SetMaxBot := StrToFloat(MaxBotLabeledEdit.Text)
@@ -502,13 +547,16 @@ begin
   if TopComboBox.ItemIndex > 0 then
   begin
     ButtonPanel1.OKButton.Enabled := True;
-    DepthQuery.Filter := 'DESCRIPTION = ' + QuotedStr(TopComboBox.Text);
-    DepthQuery.Filtered := True;
-    TopLabeledEdit.Text := DepthQueryX_AXISTITLE_BOT.Value;
-    TopTableName := LowerCase(DepthQueryFILE_NAME.Value);
-    TopX_Field := DepthQueryXVAL.Value;
-    TopY_Field := DepthQueryYVAL.Value;
-    TopSeriesTitle := DepthQueryDESCRIPTION.Value;
+    with DepthQuery do
+    begin
+      Filter := 'DESCRIPTION = ' + QuotedStr(TopComboBox.Text);
+      Filtered := True;
+      TopLabeledEdit.Text := FieldByName('X_AXISTITLE_BOT').Value;
+      TopTableName := LowerCase(FieldByName('FILE_NAME').Value);
+      TopX_Field := FieldByName('XVAL').Value;
+      TopY_Field := FieldByName('YVAL').Value;
+      TopSeriesTitle := FieldByName('DESCRIPTION').Value;
+    end;
     //set units for axes
     if TopTableName = 'penetrat' then
     begin
@@ -527,20 +575,21 @@ begin
       LabelTopParamOpt.Enabled := False;
       LabelTopParamOpt.Caption := 'Parameter options:';
       ComboBoxTopParamOpt.Enabled := False;
-      if DepthQueryUNITXVAL.Value = 'DISUNIT' then
+      if DepthQuery.FieldByName('UNITXVAL').Value = 'DISUNIT' then
       begin
         TopUnit := VolumeUnit + '/' + TimeUnit;
         TopFactor := VolumeFactor * TimeFactor;
       end
       else
-      if DepthQueryUNITXVAL.Value = 'ECUNIT' then
+      if DepthQuery.FieldByName('UNITXVAL').Value = 'ECUNIT' then
       begin
         TopUnit := ECUnit;
         TopFactor := ECFactor;
       end
       else
       begin
-        TopUnit := DepthQueryUNITXVAL.Value;
+        if not DepthQuery.FieldByName('UNITXVAL').IsNull then
+          TopUnit := DepthQuery.FieldByName('UNITXVAL').Value;
         TopFactor := 1;
       end;
     end;

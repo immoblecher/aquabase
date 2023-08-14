@@ -1,8 +1,8 @@
 object BasicinfForm: TBasicinfForm
   Tag = 127
-  Left = 645
+  Left = 693
   Height = 452
-  Top = 157
+  Top = 288
   Width = 541
   ActiveControl = CloseBitBtn
   BorderIcons = [biSystemMenu, biMinimize]
@@ -15,6 +15,45 @@ object BasicinfForm: TBasicinfForm
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = [fsBold]
+  Icon.Data = {
+    7E04000000000100010010100000010020006804000016000000280000001000
+    0000200000000100200000000000000400006400000064000000000000000000
+    0000FFFFFF0094613E9C94603DFF93603CFF153E54FF2A5F86FF4A87BBFF5581
+    9CFF836048FF8F5B37FF8F5A36FF8E5A35FF8E5935B1FFFFFF00FFFFFF00FFFF
+    FF00FFFFFF0095623FE1CCAB85FFD1AF89FF2E6683FF94C7F9FF91C9F9FF4185
+    C9FF2467A8FFB09A86FFCB9F77FFC79971FF93613EFF4E3421A1FFFFFF00FFFF
+    FF00FFFFFF00966340E1CAA985FFA37854FF4389AAFFE0F2FFFF549AD8FF1A7A
+    BEFF4998C5FF4283B6FFA8886BFFC99D75FF93623FFF553C28E1FFFFFF00FFFF
+    FF00FFFFFF00966441E1CBAC88FFA67E57FF868A80FF7AB6D5FF90B7D1FF55C9
+    E4FF5BDFF5FF78D0EDFF4C93CFFFB79E85FF946240FF573E2AFFFFFFFF00FFFF
+    FF00FFFFFF00976543E1CEB08EFFAA855BFFCBA475FF909887FF75B7D3FFC2F6
+    FDFF63DFF7FF5DE2F8FF79D3F0FF4896D8FF886854FF573E2AFFFFFFFF00FFFF
+    FF00FFFFFF00986644E1D0B492FFAF8B60FFCEA97CFFCCA677FF8F998BFF77CB
+    E7FFC7F7FDFF5EDCF5FF5AE1F7FF7BD4F1FF4693D4FF504E4EFFFFFFFF00FFFF
+    FF00FFFFFF00996745E1D2B796FFB49265FFD1AE83FFCFAB7FFFCDA87AFF9AA8
+    93FF79D3EEFFC7F7FDFF5FDCF5FF5BE2F7FF7AD6F2FF4291CFFF448DCD30FFFF
+    FF00FFFFFF00996846E1D5BB9BFFB89A69FFD4B38AFFD2AF87FFD0AD82FFCFAA
+    7DFF9DAB96FF7DD4EDFFC4F6FDFF6CDDF6FF6DCAEDFF63A3D7FF5D9BD2EC5192
+    CA26FFFFFF009A6947E1D7BF9FFFBD9F6FFFD4B590FFCBAD88FFC7A881FFC6A5
+    7DFFC4A17AFF8FA89AFF80D4EBFFB2E3F9FF8BC0E7FFAED3F6FFC4E0FCFF669F
+    D3F7FFFFFF009B6A48E1D9C2A4FFC1A472FFD2B894FFF5EDE4FFF4ECE2FFF4EC
+    E1FFF4EBE0FFF3EADFFF8FAEA2FF77BEE7FFB4D2F0FFE5F3FFFFACD2EFFF488C
+    C7E8FFFFFF009B6A49E1DBC5A6FFC6A776FFD9BF9BFFD1B793FFCBB08EFFCAAE
+    8AFFC8AB87FFCBAB83FFD1B087FFA2B7B1FF58A5D8FF85B1DBFF469DD0FF2B95
+    D15EFFFFFF009C6B4AE1DDC8A9FFD4BD95FFE6D4B9FFE6D1B6FFE4D0B5FFE3CE
+    B3FFE2CBB0FFE0C9ADFFDFC7A9FFDABFA0FF9A6B4AFF573E2AFFFFFFFF00FFFF
+    FF00FFFFFF009C6C4BE0D9C2A5FFB59170FFAB805FFFA97E5EFFA97E5EFFA87D
+    5CFFA87C5BFFA77B5AFFA67959FF9C6B49FF966441FF573E2AFFFFFFFF00FFFF
+    FF00FFFFFF009D6D4BCFBA9778FFD8C5B9FFE8DED7FFE7DDD6FFE6DCD6FFE4DB
+    D4FFE3DAD3FFE2D8D1FFE1D7D0FFEBE7E5FFEFEFEFFF573E2AFFFFFFFF00FFFF
+    FF00FFFFFF009D6D4C919D6D4BFEBB9778FFAC8262FFAC8161FFAB8060FFAB7F
+    5FFFAA7F5EFFA87E5DFFA87C5CFF9D6D4CFF976643FF885C3CFFFFFFFF00FFFF
+    FF00FFFFFF009E6E4D2B9D6D4CD69D6D4BC59D6C4BFF9C6C4AFF9C6B49FF9B6A
+    49FF9B6A48FF9A6947FF996846FF986745FF936443FF845D3EDEFFFFFF00FFFF
+    FF00000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000
+  }
   KeyPreview = True
   OnActivate = FormActivate
   OnClose = FormClose
@@ -24,7 +63,7 @@ object BasicinfForm: TBasicinfForm
   PopupMenu = PopupMenu1
   Position = poDefaultSizeOnly
   SessionProperties = 'Left;Top'
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '2.2.0.4'
   Visible = True
   object GroupBox1: TGroupBox
     Left = 4
@@ -55,7 +94,6 @@ object BasicinfForm: TBasicinfForm
       FocusControl = EditSITE_ID_NR
       Font.Color = clBlack
       Font.Height = -12
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -71,7 +109,6 @@ object BasicinfForm: TBasicinfForm
       FocusControl = EditNR_ON_MAP
       Font.Color = clBlack
       Font.Height = -12
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -87,7 +124,6 @@ object BasicinfForm: TBasicinfForm
       FocusControl = EditREGION_BB
       Font.Color = clBlack
       Font.Height = -11
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -103,7 +139,6 @@ object BasicinfForm: TBasicinfForm
       FocusControl = EditALT_NO_
       Font.Color = clBlack
       Font.Height = -11
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -119,7 +154,6 @@ object BasicinfForm: TBasicinfForm
       FocusControl = EditALT_NO_2
       Font.Color = clBlack
       Font.Height = -11
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -135,7 +169,6 @@ object BasicinfForm: TBasicinfForm
       FocusControl = EditFARM_NR
       Font.Color = clBlack
       Font.Height = -11
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -151,7 +184,6 @@ object BasicinfForm: TBasicinfForm
       FocusControl = EditSITE_NAME
       Font.Color = clBlack
       Font.Height = -12
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -167,7 +199,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'Default'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -185,7 +216,6 @@ object BasicinfForm: TBasicinfForm
       Font.Name = 'Default'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -203,7 +233,6 @@ object BasicinfForm: TBasicinfForm
       Font.Name = 'Default'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -222,7 +251,6 @@ object BasicinfForm: TBasicinfForm
       Font.Name = 'Default'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -240,7 +268,6 @@ object BasicinfForm: TBasicinfForm
       Font.Name = 'Default'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -256,7 +283,6 @@ object BasicinfForm: TBasicinfForm
       FocusControl = EditFARM_NR
       Font.Color = clBlack
       Font.Height = -12
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -272,7 +298,6 @@ object BasicinfForm: TBasicinfForm
       FocusControl = EditFARM_NR
       Font.Color = clBlack
       Font.Height = -12
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -431,7 +456,6 @@ object BasicinfForm: TBasicinfForm
       DataField = 'ALTITUDE'
       DataSource = BasicinfDataSource
       AutoSize = False
-      CharCase = ecNormal
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
@@ -477,7 +501,6 @@ object BasicinfForm: TBasicinfForm
       Font.Name = 'Default'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -716,11 +739,10 @@ object BasicinfForm: TBasicinfForm
   end
   object FilterLabel: TLabel
     Left = 431
-    Height = 10
+    Height = 12
     Top = 39
     Width = 70
     Caption = 'Sites in View:'
-    ParentColor = False
   end
   object Panel1: TPanel
     Left = 0
@@ -857,9 +879,9 @@ object BasicinfForm: TBasicinfForm
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 14
-    Hint = 'Coordinate system of shown coordinates, possibly converted with the awesome PROJ library (https://proj.org)'
-    Top = 438
+    Height = 15
+    Hint = 'Coordinate system of shown coordinates, possibly converted with the PROJ library (https://proj.org)'
+    Top = 437
     Width = 541
     Font.Color = clBlack
     Font.Height = -11
@@ -868,7 +890,6 @@ object BasicinfForm: TBasicinfForm
     ParentFont = False
     ParentShowHint = False
     SizeGrip = False
-    ShowHint = True
     UseSystemFont = False
   end
   object DBSiteGrid: TDBGrid
@@ -919,7 +940,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -935,7 +955,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -951,7 +970,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -967,7 +985,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -983,7 +1000,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -999,7 +1015,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -1310,7 +1325,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -1326,7 +1340,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -1342,7 +1355,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -1358,7 +1370,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -1580,7 +1591,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -1597,7 +1607,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -1614,20 +1623,18 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
     end
     object EditBH_DIAM: TDBEdit
       Left = 4
-      Height = 24
+      Height = 25
       Top = 14
       Width = 40
       HelpContext = 31
       DataField = 'BH_DIAM'
       DataSource = BasicinfDataSource
-      CharCase = ecNormal
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
@@ -1641,13 +1648,12 @@ object BasicinfForm: TBasicinfForm
     end
     object EditCOLLAR_HI: TDBEdit
       Left = 54
-      Height = 24
+      Height = 25
       Top = 14
       Width = 36
       HelpContext = 31
       DataField = 'COLLAR_HI'
       DataSource = BasicinfDataSource
-      CharCase = ecNormal
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
@@ -1661,13 +1667,12 @@ object BasicinfForm: TBasicinfForm
     end
     object EditDEPTH: TDBEdit
       Left = 102
-      Height = 24
+      Height = 25
       Top = 14
       Width = 50
       HelpContext = 31
       DataField = 'DEPTH'
       DataSource = BasicinfDataSource
-      CharCase = ecNormal
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
@@ -1683,7 +1688,7 @@ object BasicinfForm: TBasicinfForm
   object GroupBox5: TGroupBox
     Left = 4
     Height = 88
-    Top = 348
+    Top = 347
     Width = 533
     Align = alBottom
     BorderSpacing.Left = 4
@@ -1709,14 +1714,13 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
     end
     object Label22: TLabel
       Left = 12
-      Height = 11
+      Height = 13
       Hint = 'Information source'
       Top = 50
       Width = 39
@@ -1725,7 +1729,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -1741,7 +1744,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
     end
     object Label31: TLabel
@@ -1755,7 +1757,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
     end
     object RecCountLabel: TLabel
@@ -1769,13 +1770,12 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       WordWrap = True
     end
     object Label32: TLabel
       Left = 112
-      Height = 11
+      Height = 13
       Hint = 'Additional notes on the site'
       Top = 50
       Width = 37
@@ -1785,7 +1785,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -1801,7 +1800,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -1815,7 +1813,6 @@ object BasicinfForm: TBasicinfForm
       DataField = 'DATE_ENTRY'
       DataSource = BasicinfDataSource
       AutoSize = False
-      CharCase = ecNormal
       Enabled = False
       Font.Color = clBlack
       Font.Height = -12
@@ -1834,7 +1831,6 @@ object BasicinfForm: TBasicinfForm
       DataSource = BasicinfDataSource
       ReadOnly = True
       AutoSize = False
-      CharCase = ecNormal
       Enabled = False
       Font.Color = clBlack
       Font.Height = -12
@@ -1961,7 +1957,7 @@ object BasicinfForm: TBasicinfForm
     end
     object Label10: TLabel
       Left = 198
-      Height = 11
+      Height = 13
       Hint = 'Member of the lastest group site belongs to'
       Top = 50
       Width = 64
@@ -1971,7 +1967,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -1989,7 +1984,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       Transparent = False
     end
@@ -2004,7 +1998,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       Visible = False
     end
@@ -2019,7 +2012,6 @@ object BasicinfForm: TBasicinfForm
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -2036,7 +2028,6 @@ object BasicinfForm: TBasicinfForm
     FocusControl = EditDATE_COMPL
     Font.Color = clBlack
     Font.Height = -12
-    ParentColor = False
     ParentFont = False
     ParentShowHint = False
     ShowHint = True
@@ -2044,14 +2035,13 @@ object BasicinfForm: TBasicinfForm
   end
   object EditDATE_COMPL: TDBEdit
     Left = 360
-    Height = 24
+    Height = 25
     Hint = 'Date site completed or commissioned'
     Top = 308
     Width = 64
     HelpContext = 31
     DataField = 'DATE_COMPL'
     DataSource = BasicinfDataSource
-    CharCase = ecNormal
     Font.Color = clBlack
     Font.Height = -12
     Font.Name = 'MS Sans Serif'
@@ -2208,7 +2198,7 @@ object BasicinfForm: TBasicinfForm
     Left = 264
     Top = 128
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
     Left = 473
     Top = 192

@@ -293,6 +293,7 @@ begin
         //check if SiteID exists in database
         with DataModuleMain.CheckQuery do
         begin
+          Connection := DataModuleMain.ZConnectionDB;
           SQL.Clear;
           SQL.Add('SELECT site_id_nr from basicinf where site_id_nr = ' + QuotedStr(SiteID));
           Open;

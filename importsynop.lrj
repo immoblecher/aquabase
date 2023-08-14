@@ -1,5 +1,5 @@
 {"version":1,"strings":[
-{"hash":79438531,"name":"tformsynop.caption","sourcebytes":[83,89,78,79,80,47,66,85,70,82,32,79,98,115,101,114,118,97,116,105,111,110,115],"value":"SYNOP/BUFR Observations"},
+{"hash":196630611,"name":"tformsynop.caption","sourcebytes":[73,109,112,111,114,116,32,83,89,78,79,80,47,66,85,70,82,32,79,98,115,101,114,118,97,116,105,111,110,115],"value":"Import SYNOP/BUFR Observations"},
 {"hash":195541633,"name":"tformsynop.stringgridrainfall.hint","sourcebytes":[70,111,114,32,109,111,114,101,32,105,110,102,111,114,109,97,116,105,111,110,32,111,110,32,116,104,101,32,100,105,115,112,108,97,121,101,100,32,99,111,108,117,109,110,115,32,97,110,100,32,100,97,116,97,32,118,105,115,105,116,32,104,116,116,112,58,47,47,119,119,119,46,109,101,116,101,111,109,97,110,122,46,99,111,109,47,105,110,100,101,120,63,108,61,49],"value":"For more information on the displayed columns and data visit http://www.meteomanz.com/index?l=1"},
 {"hash":130261282,"name":"tformsynop.stringgridrainfall.columns[0].title.caption","sourcebytes":[77,111,110,116,104,32,38,32,89,101,97,114],"value":"Month & Year"},
 {"hash":81059337,"name":"tformsynop.stringgridrainfall.columns[1].title.caption","sourcebytes":[84,10,40,194,186,67,41],"value":"T\n(\u00BAC)"},

@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2023 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -21,7 +21,7 @@ unit NEWSITE;
 
 interface
 
-uses Classes, Graphics, Forms, Controls, Buttons, LCLType, Math,
+uses Classes, Graphics, Forms, Controls, Buttons, LCLType, Math, StrUtils,
   StdCtrls, ExtCtrls, SysUtils, Dialogs, ButtonPanel, XMLPropStorage;
 
 type
@@ -114,12 +114,11 @@ end;
 
 procedure TNewSiteForm.FormShow(Sender: TObject);
 begin
-  if Country = 'South Africa' then
-  begin
-    CheckBoxAutoLocation.Enabled := dstLatLong;
-  end
+  if InRange(AnsiIndexStr(Country, LO_Countries), 0, 5) and (CoordSysNr > 7) then
+    CheckBoxAutoLocation.Enabled := True
   else
   begin
+    CheckBoxAutoLocation.Enabled := False;
     CheckBoxDefaultToCentre.Enabled := False;
     CheckBoxDefaultToCentre.Checked := False;
   end;
@@ -148,7 +147,7 @@ var
 const
    MapChars = ['A', 'B', 'C', 'D'];
 begin
-  if (Country = 'South Africa') and (RadioGroup1.ItemIndex = 0) then
+  if InRange(AnsiIndexStr(Country, LO_Countries), 0, 4) and (RadioGroup1.ItemIndex = 0) then
   begin
     if CheckBoxAutoLocation.Checked then
     begin
@@ -162,18 +161,18 @@ begin
       MapRef := MapRefEdit.Text;
       try
         StrToInt(Copy(MapRef, 1, 4));
-        //check if Latitude within RSA maps
-        NewIDValid := (StrToInt(Copy(MapRef, 1, 2)) >= 22) and (StrToInt(Copy(MapRef, 1, 2)) <= 34);
-        //check if Longitude within RSA maps
-        NewIDValid := (StrToInt(Copy(MapRef, 3, 2)) >= 16) and (StrToInt(Copy(MapRef, 3, 2)) <= 32);
+        //check if Latitude within LO countries
+        NewIDValid := (StrToInt(Copy(MapRef, 1, 2)) >= 16) and (StrToInt(Copy(MapRef, 1, 2)) <= 34);
+        //check if Longitude within LO countries
+        NewIDValid := (StrToInt(Copy(MapRef, 3, 2)) >= 11) and (StrToInt(Copy(MapRef, 3, 2)) <= 32);
         if not NewIDValid then
         begin
-          MessageDlg('Invalid map reference entered! First 2 digits must be >= 22 and <= 34 and 3rd and 4th digit >= 16 and <= 32.', mtError, [mbOK], 0);
+          MessageDlg('Invalid map reference entered! First 2 digits must be >= 16 and <= 34 and 3rd and 4th digit >= 11 and <= 32.', mtError, [mbOK], 0);
           MapRefEdit.SetFocus;
         end;
       except on EConvertError do
         begin
-          MessageDlg('Invalid map reference entered! First 2 digits must be >= 22 and <= 34 and 3rd and 4th digit >= 16 and <= 32.', mtError, [mbOK], 0);
+          MessageDlg('Invalid map reference entered! First 2 digits must be >= 16 and <= 34 and 3rd and 4th digit >= 11 and <= 32.', mtError, [mbOK], 0);
           MapRefEdit.SetFocus;
           NewIDValid := False;
         end;
@@ -193,6 +192,7 @@ begin
   begin
     with DataModuleMain.CheckQuery do
     begin
+      Connection := DataModuleMain.ZConnectionDB;
       SQL.Clear;
       SQL.Add('select site_id_nr from basicinf where site_id_nr = ' + QuotedStr(EditFreeForm.Text));
       Open;
@@ -212,47 +212,51 @@ end;
 
 procedure TNewSiteForm.RadioGroup1Click(Sender: TObject);
 begin
-  if RadioGroup1.ItemIndex = 0 then
+  if Showing then
   begin
-    if Country = 'South Africa' then
+    if RadioGroup1.ItemIndex = 0 then
     begin
-      GroupBox1.Enabled := True;
-      GroupBox2.Enabled := False;
-      if Showing then
-        MapRefEdit.SetFocus;
-      ButtonPanel1.OKButton.Enabled := (MapRefEdit.Text <> '') and (Length(MapRefEdit.Text) = 6) and (AddCodeEdit.Text <> '');
+      if InRange(AnsiIndexStr(Country, LO_Countries), 0, 5) then
+      begin
+        GroupBox1.Enabled := True;
+        GroupBox2.Enabled := False;
+        if Showing then
+          MapRefEdit.SetFocus;
+        ButtonPanel1.OKButton.Enabled := (MapRefEdit.Text <> '') and (Length(MapRefEdit.Text) = 6) and (AddCodeEdit.Text <> '');
+      end
+      else
+      begin
+        MessageDlg('You cannot use "Map reference" outside LO countries yet!', mtError, [mbOK], 0);
+        RadioGroup1.ItemIndex := 1;
+      end;
     end
     else
+    if RadioGroup1.ItemIndex = 1 then
     begin
-      MessageDlg('You cannot use "Map reference" outside South Africa yet!', mtError, [mbOK], 0);
-      RadioGroup1.ItemIndex := 1;
-    end;
-  end
-  else
-  if RadioGroup1.ItemIndex = 1 then
-  begin
-    GroupBox1.Enabled := False;
-    GroupBox2.Enabled := True;
-    if Showing then
-      EditFreeForm.SetFocus;
-    ButtonPanel1.OKButton.Enabled := (EditFreeForm.Text <> '');
-  end
-  else
-  if RadioGroup1.ItemIndex = 2 then
-  begin
-    GroupBox1.Enabled := False;
-    with DataModuleMain.CheckQuery do
+      GroupBox1.Enabled := False;
+      GroupBox2.Enabled := True;
+      if Showing then
+        EditFreeForm.SetFocus;
+      ButtonPanel1.OKButton.Enabled := (EditFreeForm.Text <> '');
+    end
+    else
+    if RadioGroup1.ItemIndex = 2 then
     begin
-      SQL.Clear;
-      SQL.Add('select max(ogr_fid) from basicinf');
-      Open;
-      if not Fields[0].IsNull then
-        EditFreeForm.Text := Format('%.11d', [Fields[0].AsInteger + 1])
-      else
-        EditFreeForm.Text := '00000000001';
-      Close;
-      SQL.Clear;
-      GroupBox2.Enabled := False;
+      GroupBox1.Enabled := False;
+      with DataModuleMain.CheckQuery do
+      begin
+       Connection := DataModuleMain.ZConnectionDB;
+       SQL.Clear;
+        SQL.Add('select max(ogr_fid) from basicinf');
+        Open;
+        if not Fields[0].IsNull then
+          EditFreeForm.Text := Format('%.11d', [Fields[0].AsInteger + 1])
+        else
+          EditFreeForm.Text := '00000000001';
+        Close;
+        SQL.Clear;
+        GroupBox2.Enabled := False;
+      end;
     end;
   end;
 end;

@@ -1,7 +1,7 @@
 object ChangeSiteIDForm: TChangeSiteIDForm
   Left = 882
   Height = 104
-  Top = 187
+  Top = 270
   Width = 284
   ActiveControl = Edit1
   BorderStyle = bsSingle
@@ -15,36 +15,27 @@ object ChangeSiteIDForm: TChangeSiteIDForm
   OnActivate = FormActivate
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '2.2.0.4'
   object GroupBox1: TGroupBox
     Left = 8
     Height = 48
     Top = 8
     Width = 257
     Caption = 'Change Site ID'
-    ClientHeight = 34
-    ClientWidth = 253
+    ClientHeight = 35
+    ClientWidth = 255
     TabOrder = 0
     object Label1: TLabel
       Left = 6
-      Height = 10
-      Top = 4
+      Height = 12
+      Top = 10
       Width = 90
       Caption = 'From: Current Site'
-      ParentColor = False
-    end
-    object Label2: TLabel
-      Left = 130
-      Height = 10
-      Top = 4
-      Width = 9
-      Caption = 'to'
-      ParentColor = False
     end
     object Edit1: TEdit
       Left = 150
-      Height = 21
-      Top = 0
+      Height = 24
+      Top = 2
       Width = 94
       CharCase = ecUppercase
       MaxLength = 11
@@ -54,8 +45,8 @@ object ChangeSiteIDForm: TChangeSiteIDForm
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 36
-    Top = 62
+    Height = 38
+    Top = 60
     Width = 272
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -72,7 +63,7 @@ object ChangeSiteIDForm: TChangeSiteIDForm
   end
   object tempQuery: TZReadOnlyQuery
     Params = <>
-    left = 244
-    top = 6
+    Left = 244
+    Top = 6
   end
 end

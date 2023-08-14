@@ -872,7 +872,7 @@ end;
 
 procedure TPmpimprtForm.LinkedTableAfterOpen(DataSet: TDataSet);
 begin
-  LinkedDataSource.AutoEdit := AutoEditGrid;
+  LinkedDataSource.AutoEdit := AutoEditData;
 end;
 
 procedure TPmpimprtForm.LinkedTableAfterPost(DataSet: TDataset);

@@ -1,7 +1,7 @@
 object LogForm: TLogForm
   Left = 670
   Height = 642
-  Top = 89
+  Top = 98
   Width = 582
   HelpContext = 951
   BorderIcons = [biSystemMenu, biMinimize]

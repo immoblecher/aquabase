@@ -359,12 +359,12 @@ end;
 
 procedure TProfilingForm.GenieTableAfterOpen(DataSet: TDataSet);
 begin
-  GenieDataSource.AutoEdit := AutoEditGrid;
+  GenieDataSource.AutoEdit := AutoEditData;
 end;
 
 procedure TProfilingForm.MagTableAfterOpen(DataSet: TDataSet);
 begin
-  MagDataSource.AutoEdit := AutoEditGrid;
+  MagDataSource.AutoEdit := AutoEditData;
 end;
 
 procedure TProfilingForm.PopupMenu1Popup(Sender: TObject);
@@ -391,7 +391,7 @@ end;
 
 procedure TProfilingForm.ResTableAfterOpen(DataSet: TDataSet);
 begin
-  ResDataSource.AutoEdit := AutoEditGrid;
+  ResDataSource.AutoEdit := AutoEditData;
 end;
 
 procedure TProfilingForm.SetBookmarkClick(Sender: TObject);
@@ -460,6 +460,7 @@ begin
   begin
     with DataModuleMain.CheckQuery do
     begin
+      Connection := DataModuleMain.ZConnectionDB;
       SQL.Clear;
       SQL.Add('SELECT MAX(TRAV_NR) FROM profilng');
       Open;
@@ -907,7 +908,7 @@ end;
 
 procedure TProfilingForm.VLFTableAfterOpen(DataSet: TDataSet);
 begin
-  VLFDataSource.AutoEdit := AutoEditGrid;
+  VLFDataSource.AutoEdit := AutoEditData;
 end;
 
 procedure TProfilingForm.VLFTableNewRecord(DataSet: TDataSet);
@@ -990,7 +991,7 @@ end;
 
 procedure TProfilingForm.EMTableAfterOpen(DataSet: TDataSet);
 begin
-  EMDataSource.AutoEdit := AutoEditGrid;
+  EMDataSource.AutoEdit := AutoEditData;
 end;
 
 end.

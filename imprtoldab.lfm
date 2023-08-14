@@ -1,21 +1,22 @@
 object ImprtOldABForm: TImprtOldABForm
-  Left = 902
+  Left = 941
   Height = 147
-  Top = 175
+  Top = 414
   Width = 388
   BorderStyle = bsSingle
   Caption = 'Import Aquabase DBase Workspace'
   ClientHeight = 147
   ClientWidth = 388
   Position = poScreenCenter
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '2.2.0.4'
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 36
-    Top = 105
+    Height = 38
+    Top = 103
     Width = 376
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
+    OKButton.Enabled = False
     OKButton.OnClick = OKButtonClick
     HelpButton.Name = 'HelpButton'
     HelpButton.DefaultCaption = True
@@ -28,20 +29,6 @@ object ImprtOldABForm: TImprtOldABForm
     TabOrder = 0
     DefaultButton = pbCancel
   end
-  object LabeledEdit1: TLabeledEdit
-    Left = 11
-    Height = 23
-    Top = 24
-    Width = 333
-    Anchors = [akTop, akLeft, akRight]
-    EditLabel.Height = 13
-    EditLabel.Width = 333
-    EditLabel.Caption = 'Folder with Aquabase dBase tables:'
-    EditLabel.ParentColor = False
-    EditLabel.ParentFont = False
-    EditLabel.Font.Style = [fsBold]
-    TabOrder = 1
-  end
   object Button1: TButton
     Left = 352
     Height = 23
@@ -49,44 +36,56 @@ object ImprtOldABForm: TImprtOldABForm
     Width = 24
     Anchors = [akTop, akRight]
     Caption = '...'
-    OnClick = Button1Click
-    TabOrder = 2
+    TabOrder = 1
   end
   object Label1: TLabel
     Left = 11
     Height = 13
     Top = 64
-    Width = 160
+    Width = 148
     Caption = 'Click OK to start the import...'
     Enabled = False
-    ParentColor = False
   end
   object Label2: TLabel
-    Left = 11
+    Left = 10
     Height = 13
     Top = 84
-    Width = 42
+    Width = 41
     Caption = 'Record '
-    ParentColor = False
     Visible = False
+  end
+  object DirectoryEdit1: TDirectoryEdit
+    Left = 10
+    Height = 25
+    Top = 24
+    Width = 370
+    OnAcceptDirectory = DirectoryEdit1AcceptDirectory
+    DialogTitle = 'Select Aquabase DBase Workspace'
+    ShowHidden = False
+    ButtonWidth = 23
+    DirectInput = False
+    NumGlyphs = 1
+    MaxLength = 0
+    TabOrder = 2
+    OnButtonClick = DirectoryEdit1ButtonClick
+  end
+  object Label3: TLabel
+    Left = 10
+    Height = 13
+    Top = 8
+    Width = 240
+    Caption = 'Select Directory with Aquabase DBase Tables'
   end
   object Dbf1: TDbf
     IndexDefs = <>
     ReadOnly = True
     TableLevel = 4
     FilterOptions = []
-    left = 40
-    top = 16
-  end
-  object SelectDirectoryDialog1: TSelectDirectoryDialog
-    Title = 'Select Directory with Aquabase DBase tables'
-    Filter = 'DBase Tables (*.dbf)|*.dbf;*.DBF;*.Dbf|All Files (*.*)|*.*'
-    Options = [ofPathMustExist, ofEnableSizing, ofViewDetail]
-    left = 296
-    top = 8
+    Left = 232
+    Top = 56
   end
   object ZTable1: TZTable
-    left = 96
-    top = 14
+    Left = 320
+    Top = 56
   end
 end

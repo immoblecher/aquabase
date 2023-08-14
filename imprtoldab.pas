@@ -1,3 +1,20 @@
+{ Copyright (C) 2023 Immo Blecher, immo@blecher.co.za
+
+  This source is free software; you can redistribute it and/or modify it under
+  the terms of the GNU General Public License as published by the Free
+  Software Foundation; either version 2 of the License, or (at your option)
+  any later version.
+
+  This code is distributed in the hope that it will be useful, but WITHOUT ANY
+  WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  details.
+
+  A copy of the GNU General Public License is available on the World Wide Web
+  at <http://www.gnu.org/copyleft/gpl.html>. You can also obtain it by writing
+  to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+  MA 02111-1307, USA.
+}
 unit imprtOldAB;
 
 {$mode objfpc}{$H+}
@@ -6,7 +23,7 @@ interface
 
 uses
   Classes, SysUtils, dbf, LazFileUtils, ZDataset, Forms, Controls,
-  Graphics, Dialogs, ButtonPanel, ExtCtrls, StdCtrls, db;
+  Graphics, Dialogs, ButtonPanel, ExtCtrls, StdCtrls, EditBtn, db;
 
 type
 
@@ -16,13 +33,14 @@ type
     Button1: TButton;
     ButtonPanel1: TButtonPanel;
     Dbf1: TDbf;
+    DirectoryEdit1: TDirectoryEdit;
     Label1: TLabel;
     Label2: TLabel;
-    LabeledEdit1: TLabeledEdit;
-    SelectDirectoryDialog1: TSelectDirectoryDialog;
+    Label3: TLabel;
     ZTable1: TZTable;
-    procedure Button1Click(Sender: TObject);
     procedure CancelButtonClick(Sender: TObject);
+    procedure DirectoryEdit1AcceptDirectory(Sender: TObject; var Value: String);
+    procedure DirectoryEdit1ButtonClick(Sender: TObject);
     procedure OKButtonClick(Sender: TObject);
   private
     { private declarations }
@@ -44,24 +62,6 @@ uses MainDataModule, varinit;
 
 { TImprtOldABForm }
 
-procedure TImprtOldABForm.Button1Click(Sender: TObject);
-begin
-  {$IFDEF WINDOWS}
-  SelectDirectoryDialog1.Options := [ofPathMustExist,ofOldStyleDialog,ofEnableSizing,ofViewDetail];
-  {$ENDIF}
- if SelectDirectoryDialog1.Execute then
-  begin
-    if FileExistsExt('basicinf.dbf', SelectDirectoryDialog1.FileName) and
-      FileExistsExt('workspace.ini', SelectDirectoryDialog1.FileName) then
-    begin
-      LabeledEdit1.Text := SelectDirectoryDialog1.FileName;
-      Label1.Enabled := True;
-    end
-    else
-      MessageDlg('This is not a valid previous version Aquabase DBase workspace!', mtError, [mbOK], 0);;
-  end;
-end;
-
 procedure TImprtOldABForm.CancelButtonClick(Sender: TObject);
 begin
   if MessageDlg('Are you sure you want to cancel the incomplete import?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
@@ -73,6 +73,38 @@ begin
   end
   else
     ImportCancelled := False;
+end;
+
+procedure TImprtOldABForm.DirectoryEdit1AcceptDirectory(Sender: TObject;
+  var Value: String);
+begin
+  if Value <> WSpaceDir then
+  begin
+    if FileExistsExt('basicinf.dbf', Value) and
+      FileExistsExt('allsites.db', Value) and
+      FileExistsExt('workspace.ini', Value) then
+    begin
+      Label1.Enabled := True;
+      ButtonPanel1.OKButton.Enabled := True;
+    end
+    else
+    begin
+      MessageDlg('This is not a valid previous version Aquabase DBase workspace!', mtError, [mbOK], 0);
+      DirectoryEdit1.Directory := '';
+      ButtonPanel1.OKButton.Enabled := False;
+    end;
+  end
+  else
+  begin
+    MessageDlg('The current workspace cannot be selected as an Aquabase DBase workspace!', mtError, [mbOK], 0);;
+    DirectoryEdit1.Directory := '';
+    ButtonPanel1.OKButton.Enabled := False;
+  end;
+end;
+
+procedure TImprtOldABForm.DirectoryEdit1ButtonClick(Sender: TObject);
+begin
+  DirectoryEdit1.Directory := WSpaceDir;
 end;
 
 procedure TImprtOldABForm.OKButtonClick(Sender: TObject);
@@ -90,7 +122,7 @@ begin
   LogList := TStringList.Create;
   ProgressList := TStringList.Create;
   Label2.Visible := True;
-  Dbf1.FilePath := LabeledEdit1.Text;
+  Dbf1.FilePath := DirectoryEdit1.Directory;
   TableList := TStringList.Create;
   TableList.Sorted := True;
   DataModuleMain.ZConnectionDB.GetTableNames('', '', TableList);
@@ -98,7 +130,7 @@ begin
   //basicinf first
   if not FileExists(WSpaceDir + DirectorySeparator + 'ImportProgress.log') then
   begin
-    Dbf1.TableName := GetFileNameOnDisk('basicinf.dbf', SelectDirectoryDialog1.FileName);
+    Dbf1.TableName := GetFileNameOnDisk('basicinf.dbf', DirectoryEdit1.Directory);
     ZTable1.TableName := 'basicinf';
     Label1.Caption := 'Processing table basicinf...';
     Application.ProcessMessages;
@@ -142,7 +174,7 @@ begin
     TableList.Delete(TableList.IndexOf('basicinf'));
   end;
   //then proj_man
-  if FileExistsExt('proj_man.dbf', SelectDirectoryDialog1.FileName) then
+  if FileExistsExt('proj_man.dbf', DirectoryEdit1.Directory) then
   begin
     for p := 0 to ProgressList.Count - 1 do
     begin
@@ -154,7 +186,7 @@ begin
       Label1.Caption := 'Processing table proj_man...';
       Application.ProcessMessages;
       if Importcancelled then Exit;
-      Dbf1.TableName := GetFileNameOnDisk('proj_man.dbf', SelectDirectoryDialog1.FileName);
+      Dbf1.TableName := GetFileNameOnDisk('proj_man.dbf', DirectoryEdit1.Directory);
       ZTable1.TableName := 'proj_man';
       Dbf1.Open;
       RecCount := Dbf1.RecordCount;
@@ -192,7 +224,7 @@ begin
       TableList.Delete(TableList.IndexOf('proj_man'));
   end;
   //last profilng
-  if FileExistsExt('profilng.dbf', SelectDirectoryDialog1.FileName) then
+  if FileExistsExt('profilng.dbf', DirectoryEdit1.Directory) then
   begin
     for p := 0 to ProgressList.Count - 1 do
     begin
@@ -204,7 +236,7 @@ begin
       Label1.Caption := 'Processing table profilng...';
       Application.ProcessMessages;
       if Importcancelled then Exit;
-      Dbf1.TableName := GetFileNameOnDisk('profilng.dbf', SelectDirectoryDialog1.FileName);
+      Dbf1.TableName := GetFileNameOnDisk('profilng.dbf', DirectoryEdit1.Directory);
       ZTable1.TableName := 'profilng';
       Dbf1.Open;
       RecCount := Dbf1.RecordCount;
@@ -244,7 +276,7 @@ begin
   //then all other tables
   for m := 0 to TableList.Count -1 do
   begin
-    if FileExistsExt(TableList[m] + '.dbf', SelectDirectoryDialog1.FileName) then
+    if FileExistsExt(TableList[m] + '.dbf', DirectoryEdit1.Directory) then
     begin
       for p := 0 to ProgressList.Count - 1 do
       begin
@@ -253,7 +285,7 @@ begin
       end;
       if not TableFound then
       begin
-        Dbf1.TableName := GetFileNameOnDisk(TableList[m] + '.dbf', SelectDirectoryDialog1.FileName);;
+        Dbf1.TableName := GetFileNameOnDisk(TableList[m] + '.dbf', DirectoryEdit1.Directory);;
         ZTable1.TableName := TableList[m];
         Label1.Caption := 'Processing table ' + TableList[m] + '...';
         Application.ProcessMessages;

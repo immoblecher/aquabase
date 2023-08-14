@@ -135,7 +135,7 @@ end;
 
 procedure TSiteImageForm.DataSource1DataChange(Sender: TObject; Field: TField);
 begin
-  DataSource1.AutoEdit := AutoEditGrid and (ZQuery1.RecordCount > 0);
+  DataSource1.AutoEdit := AutoEditData and (ZQuery1.RecordCount > 0);
 end;
 
 procedure TSiteImageForm.DBGridColExit(Sender: TObject);
@@ -248,7 +248,7 @@ begin
   DataModuleMain.SetComponentFontAndSize(Sender, False);
   ValidFound := True;
   ZQuery1.Open;
-  DataSource1.AutoEdit := AutoEditGrid;
+  DataSource1.AutoEdit := AutoEditData;
   DoubleBuffered := True;
 end;
 

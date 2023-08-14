@@ -1,4 +1,4 @@
-{ Copyright (C) 2017 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2023 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -33,7 +33,6 @@ type
     ButtonPanel1: TButtonPanel;
     GroupBox1: TGroupBox;
     Label1: TLabel;
-    Label2: TLabel;
     Edit1: TEdit;
     tempQuery: TZReadOnlyQuery;
     procedure FormActivate(Sender: TObject);
@@ -96,13 +95,13 @@ end;
 
 procedure TChangeSiteIDForm.FormActivate(Sender: TObject);
 begin
-  Label1.Caption := 'From: ' + CurrentSite;
+  Label1.Caption := 'From: ' + CurrentSite + ' to:';
   Edit1.Text := CurrentSite;
 end;
 
 procedure TChangeSiteIDForm.FormCreate(Sender: TObject);
 begin
- DataModuleMain.SetComponentFontAndSize(Sender, True);
+ DataModuleMain.SetComponentFontAndSize(Sender, False);
 end;
 
 procedure TChangeSiteIDForm.HelpButtonClick(Sender: TObject);

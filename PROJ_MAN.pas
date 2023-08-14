@@ -270,7 +270,7 @@ end;
 
 procedure TProjManForm.LinkedTableAfterOpen(DataSet: TDataSet);
 begin
-  LinkedDataSource.AutoEdit := AutoEditGrid;
+  LinkedDataSource.AutoEdit := AutoEditData;
 end;
 
 procedure TProjManForm.ProjManDataSourceDataChange(Sender: TObject;
@@ -290,6 +290,7 @@ begin
   begin
     with DataModuleMain.CheckQuery do
     begin
+      Connection := DataModuleMain.ZConnectionDB;
       SQL.Clear;
       SQL.Add('SELECT MAX(PRO_REF_NR) FROM proj_man WHERE PRO_REF_NR LIKE ' + QuotedStr(FormatDateTime('YYYY', Date) + '/%'));
       Open;

@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2023 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -24,7 +24,7 @@ interface
 uses
   SysUtils, Classes, Graphics, Controls, StdCtrls, Forms, DBCtrls, DB, ExtCtrls,
   Buttons, DBGrids, LCLType, Dialogs, Menus, Clipbrd, ComCtrls, XMLPropStorage,
-  ZDataset, rxlookup, Variants;
+  ZDataset, rxlookup, Variants, StrUtils, math;
 
 type
 
@@ -103,7 +103,7 @@ type
     Label5: TLabel;
     Label6: TLabel;
     Label7: TLabel;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     X_CoordLabel: TLabel;
     Y_CoordLabel: TLabel;
     Label12: TLabel;
@@ -270,7 +270,7 @@ uses VARINIT, Notepad, SiteImages, MainDataModule;
 
 procedure TBasicinfForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   TDBNavigatorEx(DBNavigatorView).Buttons[nbRefresh].Enabled := TRUE ;
   DataModuleMain.SetComponentFontAndSize(Sender, False);
   DBTextMember.Width := 100;
@@ -291,13 +291,12 @@ begin
   ZReadOnlyQueryInfo.Open;
   ZReadOnlyQueryRegn.Open;
   ZReadOnlyQueryRep.Open;
-  if Country = 'South Africa' then ZReadOnlyQueryMapRef.Open;
   MemberQuery.Open;
-  if (Country = 'South Africa') or (Country = 'Lesotho') or (Country = 'Swaziland') then
-    RxDBLookupComboDrain.Enabled := True
-  else
-    RxDBLookupComboDrain.Enabled := False;
+  if InRange(AnsiIndexStr(Country, LO_Countries), 0, 5) then
+    ZReadOnlyQueryMapRef.Open;
+  RxDBLookupComboDrain.Enabled := InRange(AnsiIndexStr(Country, LO_Countries), 0, 3);
   DataModuleMain.CoordsEdited := False;
+  StatusBar1.Hint := 'Coordinate system of shown coordinates, possibly converted with the PROJ library (https://proj.org); Ver. ' + Proj_Version;
   Screen.Cursor := crDefault;
 end;
 
@@ -337,9 +336,17 @@ begin
   DataModuleMain.BasicValidFound := True;
   Caption := 'Basic Site Information - [' + UpperCase(FilterName) + ']';
   CurrentSite := DataModuleMain.BasicinfQuerySITE_ID_NR.Value;
-  BasicinfDataSource.AutoEdit := AutoEditGrid;
-  LabelMapRef.Visible := Country = 'South Africa';
-  DBTextMapRef.Visible := Country = 'South Africa';
+  BasicinfDataSource.AutoEdit := AutoEditData;
+  if InRange(AnsiIndexStr(Country, LO_Countries), 0, 5) then
+  begin
+    LabelMapRef.Visible := True;
+    DBTextMapRef.Visible := True;
+  end
+  else
+  begin
+    LabelMapRef.Visible := False;
+    DBTextMapRef.Visible := False;
+  end;
   RecCountLabel.Caption := IntToStr(DataModuleMain.NrRecords);
   AltLabel.Caption := Altitudelabel + ' [' + LengthUnit + ']';
   ColLabel.Caption := CollarLabel + ' [' + LengthUnit + ']';
@@ -374,7 +381,7 @@ begin
   if CoordSysNr = OrigCoordSysNr then
     StatusBar1.SimpleText := 'CRS: ' + CoordSysDescr
   else
-    StatusBar1.SimpleText := 'CRS: ' + CoordSysDescr + ' (converted with PROJ Rel. 6.3.1)';
+    StatusBar1.SimpleText := 'CRS: ' + CoordSysDescr + ' (converted with PROJ Rel. ' + Proj_Version + ')';
   if DataModuleMain.BasicinfQueryNGDB_FLAG.Value = 9 then //convert LONGITUDE/LATITUDE to X_COORD/Y_COORD
   if MessageDlg('The geometry of the current site has changed. Do you want to update the coordinates in the database accordingly?', mtInformation, [mbYes, mbNo], 0) = mrYes then
   with DataModuleMain do
@@ -498,7 +505,18 @@ end;
 procedure TBasicinfForm.RxDBLookupComboRegnChange(Sender: TObject);
 begin
   if BasicinfDataSource.DataSet.State IN [dsEdit, dsInsert] then
-    BasicinfDataSource.DataSet.FieldByName('REGN_DESCR').Clear;
+  begin
+    if InRange(AnsiIndexStr(Country, LO_Countries), 0, 5) then
+    begin
+      if (BasicinfDataSource.DataSet.FieldByName('REGN_TYPE').Value = 'MUN')
+      or ((Country = 'South Africa') and (BasicinfDataSource.DataSet.FieldByName('REGN_TYPE').Value = 'WMA')) then
+        BasicinfDataSource.DataSet.FieldByName('REGN_DESCR').Value := '<AUTOMATIC>'
+      else
+        BasicinfDataSource.DataSet.FieldByName('REGN_DESCR').Clear;
+    end
+    else
+      BasicinfDataSource.DataSet.FieldByName('REGN_DESCR').Clear;
+  end;
 end;
 
 procedure TBasicinfForm.RxDBLookupComboSelect(Sender: TObject);
@@ -671,11 +689,14 @@ begin
   if CoordSysNr = OrigCoordSysNr then
     StatusBar1.SimpleText := 'CRS: ' + CoordSysDescr
   else
-    StatusBar1.SimpleText := 'CRS: ' + CoordSysDescr + ' (converted with PROJ Rel. 6.3.1)';
+    StatusBar1.SimpleText := 'CRS: ' + CoordSysDescr + ' (converted with PROJ Rel. ' + Proj_Version + ')';
   MemberQuery.Close;
   MemberQuery.Open;
-  ZReadOnlyQueryMapRef.Close;
-  ZReadOnlyQueryMapRef.Open;
+  if InRange(AnsiIndexStr(Country, LO_Countries), 0, 4) then
+  begin
+    ZReadOnlyQueryMapRef.Close;
+    ZReadOnlyQueryMapRef.Open;
+  end;
 end;
 
 procedure TBasicinfForm.BitBtnHelpClick(Sender: TObject);

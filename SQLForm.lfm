@@ -1,7 +1,7 @@
 object SQLQueryForm: TSQLQueryForm
   Left = 652
   Height = 398
-  Top = 202
+  Top = 230
   Width = 550
   HelpContext = 54
   Caption = 'Run a SQL Query'
@@ -59,7 +59,7 @@ object SQLQueryForm: TSQLQueryForm
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   SessionProperties = 'Height;Left;Memo1.Height;Top;Width;Panel2.Height'
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '2.2.0.4'
   Visible = True
   object SplitterTop: TSplitter
     Cursor = crVSplit
@@ -490,8 +490,8 @@ object SQLQueryForm: TSQLQueryForm
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 14
-    Top = 384
+    Height = 15
+    Top = 383
     Width = 550
     Panels = <    
       item
@@ -518,7 +518,7 @@ object SQLQueryForm: TSQLQueryForm
     TabOrder = 2
     object TableLabel: TLabel
       Left = 116
-      Height = 11
+      Height = 13
       Top = 4
       Width = 95
       Caption = 'Aquabase &Table:'
@@ -526,12 +526,11 @@ object SQLQueryForm: TSQLQueryForm
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentColor = False
       ParentFont = False
     end
     object FieldLabel: TLabel
       Left = 281
-      Height = 11
+      Height = 13
       Top = 4
       Width = 31
       Anchors = [akTop, akRight]
@@ -540,12 +539,11 @@ object SQLQueryForm: TSQLQueryForm
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentColor = False
       ParentFont = False
     end
     object UnitLabel: TLabel
       Left = 402
-      Height = 11
+      Height = 13
       Top = 4
       Width = 26
       Anchors = [akTop, akRight]
@@ -554,12 +552,11 @@ object SQLQueryForm: TSQLQueryForm
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentColor = False
       ParentFont = False
     end
     object OperatorLabel: TLabel
       Left = 494
-      Height = 11
+      Height = 13
       Top = 4
       Width = 54
       Anchors = [akTop, akRight]
@@ -568,12 +565,11 @@ object SQLQueryForm: TSQLQueryForm
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentColor = False
       ParentFont = False
     end
     object Label4: TLabel
       Left = 8
-      Height = 11
+      Height = 13
       Top = 4
       Width = 62
       Caption = 'Statement:'
@@ -581,7 +577,6 @@ object SQLQueryForm: TSQLQueryForm
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentColor = False
       ParentFont = False
     end
     object TableListBox: TListBox
@@ -733,7 +728,7 @@ object SQLQueryForm: TSQLQueryForm
   end
   object RxDBGrid: TRxDBGrid
     Left = 8
-    Height = 153
+    Height = 152
     Hint = 'Click up/down arrow for menu'
     Top = 231
     Width = 534
@@ -808,7 +803,6 @@ object SQLQueryForm: TSQLQueryForm
     DrawFullLine = False
     FocusColor = clRed
     SelectedColor = clHighlight
-    GridLineStyle = psSolid
     DataSource = QueryDataSource
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgHeaderPushedLook, dgDisableInsert, dgRowHighlight, dgDisplayMemoText]
     ParentShowHint = False

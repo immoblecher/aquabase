@@ -553,6 +553,7 @@ var
 begin
   DataModuleMain.BasicValidFound := True;
   CurrentSite := DataModuleMain.BasicinfQuerySITE_ID_NR.Value;
+  BasicinfDataSource.AutoEdit := AutoEditData;
   Caption := 'User-defined Parameters - [' + UpperCase(FilterName) + ']';
   ChemStandardLabel.Caption := ChemStandardDescr;
   //Check for AsN
@@ -697,7 +698,7 @@ end;
 
 procedure TUserChemistryForm.LinkedQueryAfterOpen(DataSet: TDataSet);
 begin
-  LinkedDataSource.AutoEdit := AutoEditGrid;
+  LinkedDataSource.AutoEdit := AutoEditData;
 end;
 
 procedure TUserChemistryForm.AMSLCheckBoxClick(Sender: TObject);
@@ -1375,7 +1376,7 @@ end;
 
 procedure TUserChemistryForm.ZQuery6AfterOpen(DataSet: TDataSet);
 begin
-  DataSource7.AutoEdit := AutoEditGrid;
+  DataSource7.AutoEdit := AutoEditData;
 end;
 
 procedure TUserChemistryForm.ZQuery6BeforeOpen(DataSet: TDataSet);
@@ -2063,28 +2064,6 @@ begin
   end;
   X_CoordLabel.Width := 88;
   Y_CoordLabel.Width := 88;
-  //check if current site's geometry has changed
-  with DataModuleMain.CheckQuery do
-  begin
-    SQL.Clear;
-    SQL.Add('SELECT NGDB_FLAG FROM basicinf WHERE SITE_ID_NR = ' + QuotedStr(CurrentSite));
-    Open;
-    if FieldByName('NGDB_FLAG').Value = 9 then //convert LONGITUDE/LATITUDE to X_COORD/Y_COORD
-    if Showing and (MessageDlg('The geometry of the current site has changed. Do you want to update the coordinates in the database accordingly?', mtInformation, [mbYes, mbNo], 0) = mrYes) then
-    begin
-      try
-        Screen.Cursor := crSQLWait;
-        with DataModuleMain do
-          UpdateCoordsWithCs2cs(BasicinfQueryLONGITUDE.AsString, BasicinfQueryLATITUDE.AsString, BasicinfQuerySITE_ID_NR.AsString);
-        DataModuleMain.BasicinfQuery.Refresh;
-      finally
-        Screen.Cursor := crDefault;
-      end;
-      ShowMessage('Site coordinates were updated from a changed geometry!');
-    end;
-    Close;
-    SQL.Clear;
-  end;
   EditCOLLAR_HI.Enabled := (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'B')
     or (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'D')
     or (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'W');

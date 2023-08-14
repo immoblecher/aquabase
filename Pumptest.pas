@@ -239,6 +239,7 @@ begin
   with DataModuleMain.CheckQuery do
   if not Sender.IsNull and (Sender.AsString <> '') then
   begin
+    Connection := DataModuleMain.ZConnectionDB;
     SQL.Clear;
     SQL.Add('SELECT SITE_ID_NR FROM basicinf WHERE SITE_ID_NR = ' + QuotedStr(Sender.AsString));
     Open;

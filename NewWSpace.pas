@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2023 Immo Blecher immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -24,7 +24,7 @@ interface
 uses
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs, LCLType, StdCtrls,
   Buttons, ExtCtrls, DbCtrls, ComCtrls, ButtonPanel, EditBtn, Inifiles, Db,
-  ZDataset, ZConnection, FileUtil, Math;
+  ZDataset, ZConnection, FileUtil, Math, StrUtils;
 
 type
 
@@ -232,21 +232,9 @@ end;
 procedure TNewWSpaceForm.ComboBoxCountryChange(Sender: TObject);
 begin
   ComboBoxCoordSys.Clear;
+  Country := ComboBoxCountry.Text;
   with DataModuleMain.ZQueryProj do
   begin
-    //check for "St. Islands" spellings
-    if Pos('St ', ComboBoxCountry.Text) = 1 then
-      begin
-        if Pos('Helena', ComboBoxCountry.Text) > 1 then
-          Params[0].AsString := '%Helena Island%'
-        else
-        if Pos('Vincent', ComboBoxCountry.Text) > 1 then
-          Params[0].AsString := '%Vincent%'
-        else
-          Params[0].AsString := '%' + Copy(ComboBoxCountry.Text, 4, 12) + '%'
-      end
-    else
-      Params[0].AsString := '%' + ComboBoxCountry.Text + '%';
     Open;
     //Fill coordinate systems combobox
     while not EOF do
@@ -257,21 +245,15 @@ begin
     Close
   end;
   //for LO countries
-  if ComboBoxCountry.Text = 'South Africa' then
+  if AnsiIndexStr(ComboBoxCountry.Text, LO_Countries) >= 0 then
   begin
-    ComboBoxCoordSys.Items.Add('Cape (LO from Map Reference)');
-    ComboBoxCoordSys.Items.Add('Hartebeethoek94 (LO from Map Reference)');
-  end
-  else
-  if ComboBoxCountry.Text = 'Lesotho' then
-  begin
-    ComboBoxCoordSys.Items.Add('Cape (LO from Map Reference)');
-    ComboBoxCoordSys.Items.Add('Hartebeethoek94 (LO from Map Reference)');
-  end
-  else
-  if ComboBoxCountry.Text = 'Namibia' then
-  begin
-    ComboBoxCoordSys.Items.Add('Schwarzeck (LO from Map Reference)');
+    if AnsiIndexStr(ComboBoxCountry.Text, LO_Countries) <= 3 then
+    begin
+      ComboBoxCoordSys.Items.Add('Cape (LO from Map Reference)');
+      ComboBoxCoordSys.Items.Add('Hartebeesthoek94 (LO from Map Reference)');
+    end
+    else
+      ComboBoxCoordSys.Items.Add('Schwarzeck (LO from Map Reference)');
   end;
   //set combobox to WGS84 if exists otherwise 0
   if ComboBoxCoordSys.Items.IndexOf('WGS 84 (geographic 3D)') > -1 then
@@ -337,23 +319,9 @@ begin
     end;
     Close;
   end;
-  ComboBoxCountry.ItemIndex := ComboBoxCountry.Items.IndexOf('South Africa') ;
   DataModuleMain.ZConnectionProj.Connect;
-  with DataModuleMain.ZQueryProj do
-  begin
-    Params[0].AsString := '%' + ComboBoxCountry.Text + '%';
-    Open;
-    //Fill coordinate systems combobox
-    while not EOF do
-    begin
-      ComboBoxCoordSys.Items.Add(Fields[1].Value);
-      Next;
-    end;
-    Close;
-  end;
-  ComboBoxCoordSys.Items.Add('Cape (LO from Map Reference)');
-  ComboBoxCoordSys.Items.Add('Hartebeesthoek94 (LO from Map Reference)');
-  ComboBoxCoordSys.ItemIndex := ComboBoxCoordSys.Items.IndexOf('Hartebeesthoek94 (geographic 3D)');
+  ComboBoxCountry.ItemIndex := ComboBoxCountry.Items.IndexOf('South Africa');
+  ComboBoxCountry.OnChange(Sender);
   //Fill protocol comboboxes
   Protocols := TStringList.Create;
   DataModuleMain.ZConnectionSettings.GetProtocolNames(Protocols);
@@ -496,6 +464,14 @@ begin
         CoordSysNr := 4
       else
         CoordSysNr := 3;
+    end
+    else
+    if (Country = 'eSwatini') or (Country = 'Swaziland') then
+    begin
+      if Pos('Cape', ComboBoxCoordSys.Text) = 1 then
+        CoordSysNr := 6
+      else
+        CoordSysNr := 5;
     end
     else
     if Country = 'Namibia' then

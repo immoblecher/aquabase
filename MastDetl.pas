@@ -218,6 +218,7 @@ var
 begin
   Screen.Cursor := crSQLWait;
   ChartSpeedButton.Enabled := LinkedQuery.RecordCount > 0;
+  BasicinfDataSource.AutoEdit := AutoEditData;
   DataModuleMain.BasicValidFound := True;
   BitBtnHelp.Hint := 'Help on ' + Caption;
   DBGrid.Hint := Caption + ' Information';
@@ -377,7 +378,7 @@ begin
   begin
     ChartSpeedButton.Enabled := LinkedQuery.RecordCount > 1;
     LinkedQuery.First;
-    LinkedDataSource.AutoEdit := AutoEditGrid;
+    LinkedDataSource.AutoEdit := AutoEditData;
   end;
   Screen.Cursor := crDefault;
 end;

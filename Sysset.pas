@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2023 Immo Blecher immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -22,7 +22,7 @@ unit Sysset;
 interface
 
 uses
-  SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  SysUtils, Classes, Graphics, Controls, Forms, Dialogs, StrUtils,
   Db, Buttons, StdCtrls, ExtCtrls, ComCtrls, ZDataset, Registry,
   IniFiles, Spin, DBCtrls, ButtonPanel, FileUtil, Math;
 
@@ -129,6 +129,8 @@ type
     CountryTable: TZTable;
     procedure CheckBoxUpdatesChange(Sender: TObject);
     procedure ComboBoxCountryChange(Sender: TObject);
+    procedure CountryTableAfterClose(DataSet: TDataSet);
+    procedure CountryTableBeforeOpen(DataSet: TDataSet);
     procedure Edit1Click(Sender: TObject);
     procedure Edit2Click(Sender: TObject);
     procedure Edit3Click(Sender: TObject);
@@ -147,7 +149,6 @@ type
     procedure Button8Click(Sender: TObject);
     procedure HelpButtonClick(Sender: TObject);
     procedure OKButtonClick(Sender: TObject);
-    procedure PageControl1Change(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
     procedure StandardComboBoxChange(Sender: TObject);
@@ -201,23 +202,14 @@ begin
 end;
 
 procedure TSysSetDlgForm.ComboBoxCountryChange(Sender: TObject);
+var
+  CurrentCountry: String;
 begin
+  CurrentCountry := Country; //remember current country of workspace
+  Country := ComboBoxCountry.Text;
   ComboBoxCoordSys.Clear;
   with DataModuleMain.ZQueryProj do
   begin
-    //check for "St. Islands" spellings
-    if Pos('St ', ComboBoxCountry.Text) = 1 then
-      begin
-        if Pos('Helena', ComboBoxCountry.Text) > 1 then
-          DataModuleMain.ZQueryProj.Params[0].AsString := '%Helena Island%'
-        else
-        if Pos('Vincent', ComboBoxCountry.Text) > 1 then
-          DataModuleMain.ZQueryProj.Params[0].AsString := '%Vincent%'
-        else
-          DataModuleMain.ZQueryProj.Params[0].AsString := '%' + Copy(ComboBoxCountry.Text, 4, 12) + '%'
-      end
-    else
-      DataModuleMain.ZQueryProj.Params[0].AsString := '%' + ComboBoxCountry.Text + '%';
     Open;
     //Fill coordinate systems combobox
     while not EOF do
@@ -227,27 +219,33 @@ begin
     end;
     Close
   end;
-  if ComboBoxCountry.Text = 'South Africa' then
+  Country := CurrentCountry;
+  //for LO countries
+  if AnsiIndexStr(ComboBoxCountry.Text, LO_Countries) >= 0 then
   begin
-    ComboBoxCoordSys.Items.Add('Cape (LO from Map Reference)');
-    ComboBoxCoordSys.Items.Add('Hartebeethoek94 (LO from Map Reference)');
-  end
-  else
-  if ComboBoxCountry.Text = 'Lesotho' then
-  begin
-    ComboBoxCoordSys.Items.Add('Cape (LO from Map Reference)');
-    ComboBoxCoordSys.Items.Add('Hartebeethoek94 (LO from Map Reference)');
-  end
-  else
-  if ComboBoxCountry.Text = 'Namibia' then
-  begin
-    ComboBoxCoordSys.Items.Add('Schwarzeck (LO from Map Reference)');
+    if AnsiIndexStr(ComboBoxCountry.Text, LO_Countries) <= 3 then
+    begin
+      ComboBoxCoordSys.Items.Add('Cape (LO from Map Reference)');
+      ComboBoxCoordSys.Items.Add('Hartebeesthoek94 (LO from Map Reference)');
+    end
+    else
+      ComboBoxCoordSys.Items.Add('Schwarzeck (LO from Map Reference)');
   end;
   if ComboBoxCoordSys.Items.IndexOf('WGS 84 (geographic 3D)') > -1 then
     ComboBoxCoordSys.ItemIndex := ComboBoxCoordSys.Items.IndexOf('WGS 84 (geographic 3D)')
   else
     ComboBoxCoordSys.ItemIndex := 0;
   MessageDlg('You have changed to a country which might have a different coordinate system for the stored coordinates. This can lead to unexpected coordinate conversion results. You should only do this if you have used Longitude/Latitude (e.g. WGS 84) or same CRSs for both countries for the stored coordinates!', mtWarning, [mbOK], 0);
+end;
+
+procedure TSysSetDlgForm.CountryTableAfterClose(DataSet: TDataSet);
+begin
+  CountryTable.Connection.Disconnect;
+end;
+
+procedure TSysSetDlgForm.CountryTableBeforeOpen(DataSet: TDataSet);
+begin
+  CountryTable.Connection.Connect;
 end;
 
 procedure TSysSetDlgForm.Edit1Click(Sender: TObject);
@@ -335,7 +333,7 @@ begin
   Screen.Cursor := crHourGlass;
   Application.ProcessMessages;
   LangComboBox.ItemIndex := LangComboBox.Items.IndexOf(Language);
-  CheckBoxAutoEdit.Checked := AutoEditGrid;
+  CheckBoxAutoEdit.Checked := AutoEditData;
   {$IFDEF WINDOWS}
     CheckBoxUpdates.Checked := LookForUpdate;
   {$ENDIF}
@@ -356,7 +354,6 @@ begin
   end;
   with DataModuleMain.ZQueryProj do
   begin
-    DataModuleMain.ZQueryProj.Params[0].AsString := '%' + ComboBoxCountry.Text + '%';
     Open;
     //Fill coordinate systems combobox
     while not EOF do
@@ -366,21 +363,15 @@ begin
     end;
     Close;
   end;
-  if ComboBoxCountry.Text = 'South Africa' then
+  if AnsiIndexStr(ComboBoxCountry.Text, LO_Countries) >= 0 then
   begin
-    ComboBoxCoordSys.Items.Add('Cape (LO from Map Reference)');
-    ComboBoxCoordSys.Items.Add('Hartebeethoek94 (LO from Map Reference)');
-  end
-  else
-  if ComboBoxCountry.Text = 'Lesotho' then
-  begin
-    ComboBoxCoordSys.Items.Add('Cape (LO from Map Reference)');
-    ComboBoxCoordSys.Items.Add('Hartebeethoek94 (LO from Map Reference)');
-  end
-  else
-  if ComboBoxCountry.Text = 'Namibia' then
-  begin
-    ComboBoxCoordSys.Items.Add('Schwarzeck (LO from Map Reference)');
+    if AnsiIndexStr(ComboBoxCountry.Text, LO_Countries) <= 3 then
+    begin
+      ComboBoxCoordSys.Items.Add('Cape (LO from Map Reference)');
+      ComboBoxCoordSys.Items.Add('Hartebeesthoek94 (LO from Map Reference)');
+    end
+    else
+      ComboBoxCoordSys.Items.Add('Schwarzeck (LO from Map Reference)');
   end;
   if ComboBoxCoordSys.Items.IndexOf(CoordSysDescr) > -1 then
     ComboBoxCoordSys.ItemIndex := ComboBoxCoordSys.Items.IndexOf(CoordSysDescr)
@@ -546,7 +537,7 @@ begin
   Screen.Cursor := crHourGlass;
   //System
   Language := LangComboBox.Text;
-  AutoEditGrid := CheckBoxAutoEdit.Checked;
+  AutoEditData := CheckBoxAutoEdit.Checked;
   QGISExe := EditQGISExe.Text;
   {$IFDEF Windows}
   LookForUpdate := CheckBoxUpdates.Checked;
@@ -562,19 +553,36 @@ begin
     SettingsDir := EditSettingsDir.Text;
     with DataModuleMain do
     begin
+      with ZConnectionCountries do
+      begin
+        Database := ProgramDir + DirectorySeparator + 'countries.db3';
+        LibraryLocation := SQLiteLib;
+        Connect;
+        with CheckQuery do
+        begin
+          Connection := ZConnectionCountries;
+          SQL.Clear;
+          SQL.Add('SELECT * FROM Countries WHERE C_NAME = ' + QuotedStr(Country));
+          Open;
+          CountryDB := FieldByName('LANG_1').AsString;
+          Close;
+          SQL.Clear;
+        end;
+        Disconnect;
+      end;
       ZConnectionLanguage.Connected := False;
       ZConnectionSettings.Connected := False;
       if MoveSettings then
       begin
-        CopyFile(WSpaceDir + DirectorySeparator + 'en_za.sqlite', SelectDirectoryDialog.FileName + DirectorySeparator + 'en_za.sqlite');
+        CopyFile(WSpaceDir + DirectorySeparator + CountryDB + '.sqlite', SelectDirectoryDialog.FileName + DirectorySeparator + CountryDB + '.sqlite');
         CopyFile(WSpaceDir + DirectorySeparator + 'settings.sqlite', SelectDirectoryDialog.FileName + DirectorySeparator + 'settings.sqlite');
       end;
       if DeleteSettings then
       begin
-        DeleteFile(WSpaceDir + DirectorySeparator + 'en_za.sqlite');
+        DeleteFile(WSpaceDir + DirectorySeparator + CountryDB + '.sqlite');
         DeleteFile(WSpaceDir + DirectorySeparator + 'settings.sqlite');
       end;
-      ZConnectionLanguage.Database := SettingsDir + DirectorySeparator + 'en_za.sqlite';
+      ZConnectionLanguage.Database := SettingsDir + DirectorySeparator + CountryDB + '.sqlite';
       ZConnectionLanguage.Connect;
       ZConnectionSettings.Database := SettingsDir + DirectorySeparator + 'settings.sqlite';
       ZConnectionSettings.Connect;
@@ -727,6 +735,14 @@ begin
         CoordSysNr := 3;
     end
     else
+    if (Country = 'eSwatini') or (Country = 'Swaziland') then
+    begin
+      if Pos('Cape', ComboBoxCoordSys.Text) = 1 then
+        CoordSysNr := 6
+      else
+        CoordSysNr := 5;
+    end
+    else
     if Country = 'Namibia' then
     begin
       CoordSysNr := 7;
@@ -789,11 +805,6 @@ begin
   Screen.Cursor := crDefault;
 end;
 
-procedure TSysSetDlgForm.PageControl1Change(Sender: TObject);
-begin
-
-end;
-
 procedure TSysSetDlgForm.SpeedButton3Click(Sender: TObject);
 var
   CurrentSettingsDir: String;
@@ -801,7 +812,13 @@ begin
   CurrentSettingsDir := EditSettingsDir.Text;
   SelectDirectoryDialog.InitialDir := EditSettingsDir.Text;
   if SelectDirectoryDialog.Execute then
+  with DataModuleMain do
   begin
+    with ZConnectionCountries do
+    begin
+      Connect;
+      Disconnect;
+    end;
     if not FileExists(SelectDirectoryDialog.FileName + DirectorySeparator + 'settings.sqlite') then
     begin
       if MessageDlg('The selected folder does not seem to contain the necessary settings data. Do you want to create the default settings data?',
@@ -816,14 +833,14 @@ begin
         end
         else
         begin
-          CopyFile(ProgramDir + DirectorySeparator + 'defaults/en_za.sqlite', SelectDirectoryDialog.FileName + DirectorySeparator + 'en_za.sqlite');
-          CopyFile(ProgramDir + DirectorySeparator + 'defaults/settings.sqlite', SelectDirectoryDialog.FileName + DirectorySeparator + 'settings.sqlite');
+          CopyFile(ProgramDir + DirectorySeparator + 'defaults' + DirectorySeparator + CountryDB + '.sqlite', SelectDirectoryDialog.FileName + DirectorySeparator + CountryDB + '.sqlite');
+          CopyFile(ProgramDir + DirectorySeparator + 'defaults' + DirectorySeparator + 'settings.sqlite', SelectDirectoryDialog.FileName + DirectorySeparator + 'settings.sqlite');
         end;
       end
       else
       begin
-        CopyFile(ProgramDir + DirectorySeparator + 'defaults/en_za.sqlite', SelectDirectoryDialog.FileName + DirectorySeparator + 'en_za.sqlite');
-        CopyFile(ProgramDir + DirectorySeparator + 'defaults/settings.sqlite', SelectDirectoryDialog.FileName + DirectorySeparator + 'settings.sqlite');
+        CopyFile(ProgramDir + DirectorySeparator + 'defaults' + DirectorySeparator + CountryDB + '.sqlite', SelectDirectoryDialog.FileName + DirectorySeparator + CountryDB + '.sqlite');
+        CopyFile(ProgramDir + DirectorySeparator + 'defaults' + DirectorySeparator + 'settings.sqlite', SelectDirectoryDialog.FileName + DirectorySeparator + 'settings.sqlite');
       end;
     end
     else

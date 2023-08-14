@@ -1,7 +1,7 @@
 object NewWSpaceForm: TNewWSpaceForm
-  Left = 878
+  Left = 828
   Height = 386
-  Top = 195
+  Top = 354
   Width = 400
   HelpContext = 11
   BorderStyle = bsSingle
@@ -17,14 +17,13 @@ object NewWSpaceForm: TNewWSpaceForm
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   Position = poScreenCenter
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '2.2.0.4'
   object Label2: TLabel
     Left = 6
-    Height = 10
+    Height = 12
     Top = 8
     Width = 92
     Caption = '&Workspace Folder:'
-    ParentColor = False
   end
   object GroupBox1: TGroupBox
     Left = 6
@@ -32,8 +31,8 @@ object NewWSpaceForm: TNewWSpaceForm
     Top = 56
     Width = 386
     Caption = 'Geographic Setting: '
-    ClientHeight = 94
-    ClientWidth = 382
+    ClientHeight = 95
+    ClientWidth = 384
     Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
@@ -42,41 +41,40 @@ object NewWSpaceForm: TNewWSpaceForm
     TabOrder = 0
     object Label15: TLabel
       Left = 6
-      Height = 10
+      Height = 12
       Top = 0
       Width = 41
       Caption = '&Country:'
       Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
     end
     object CoordLabel: TLabel
       Left = 7
-      Height = 10
+      Height = 12
       Top = 44
       Width = 195
       Caption = '&Store Coordinates in Coordinate System:'
       Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
     end
     object ComboBoxCountry: TComboBox
       Left = 7
-      Height = 25
+      Height = 26
       Top = 14
       Width = 370
       ItemHeight = 0
       OnChange = ComboBoxCountryChange
+      Sorted = True
       Style = csDropDownList
       TabOrder = 0
     end
     object ComboBoxCoordSys: TComboBox
       Left = 6
-      Height = 25
+      Height = 26
       Top = 58
       Width = 370
       DropDownCount = 12
@@ -89,7 +87,7 @@ object NewWSpaceForm: TNewWSpaceForm
   object PageControl1: TPageControl
     Left = 6
     Height = 166
-    Top = 172
+    Top = 170
     Width = 388
     ActivePage = TabSheetSQLite
     Align = alBottom
@@ -102,18 +100,17 @@ object NewWSpaceForm: TNewWSpaceForm
       Tag = 1
       Caption = 'SQLite/Spatialite'
       ClientHeight = 140
-      ClientWidth = 384
+      ClientWidth = 378
       object Label1: TLabel
         Left = 6
-        Height = 10
+        Height = 12
         Top = 8
         Width = 207
         Caption = 'New or existing SQLite/Spatialite Database:'
-        ParentColor = False
       end
       object PWCheckBox: TCheckBox
         Left = 6
-        Height = 24
+        Height = 23
         Top = 65
         Width = 79
         Caption = 'Password?'
@@ -122,7 +119,7 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object EditPasswdSQLite: TEdit
         Left = 90
-        Height = 21
+        Height = 24
         Hint = 'Enter password'
         Top = 64
         Width = 144
@@ -135,7 +132,7 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Edit1: TEdit
         Left = 6
-        Height = 21
+        Height = 24
         Top = 24
         Width = 346
         TabOrder = 2
@@ -189,10 +186,10 @@ object NewWSpaceForm: TNewWSpaceForm
       Tag = 2
       Caption = 'MySQL'
       ClientHeight = 140
-      ClientWidth = 384
+      ClientWidth = 378
       object EditHostMySQL: TEdit
         Left = 72
-        Height = 23
+        Height = 24
         Top = 9
         Width = 300
         TabOrder = 0
@@ -200,32 +197,29 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label5: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 16
         Width = 25
         Caption = 'Host:'
         FocusControl = EditHostMySQL
-        ParentColor = False
       end
       object Label3: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 78
         Width = 58
         Caption = 'User Name:'
-        ParentColor = False
       end
       object Label4: TLabel
         Left = 192
-        Height = 13
+        Height = 12
         Top = 78
         Width = 50
         Caption = 'Password:'
-        ParentColor = False
       end
       object EditUserNameMySQL: TEdit
         Left = 72
-        Height = 23
+        Height = 24
         Top = 72
         Width = 96
         TabOrder = 3
@@ -233,7 +227,7 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object EditPasswordmySQL: TEdit
         Left = 248
-        Height = 23
+        Height = 24
         Top = 72
         Width = 124
         EchoMode = emPassword
@@ -242,15 +236,14 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label6: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 46
         Width = 23
         Caption = 'Port:'
-        ParentColor = False
       end
       object EditPortMySQL: TEdit
         Left = 72
-        Height = 23
+        Height = 24
         Top = 41
         Width = 63
         TabOrder = 1
@@ -266,11 +259,10 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label7: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 112
         Width = 49
         Caption = 'Database:'
-        ParentColor = False
       end
       object ButtonRetrieveMySQL: TButton
         Left = 297
@@ -283,16 +275,15 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label13: TLabel
         Left = 160
-        Height = 13
+        Height = 12
         Top = 46
         Width = 43
         Caption = 'Protocol:'
         FocusControl = ComboBoxProtocolMySQL
-        ParentColor = False
       end
       object ComboBoxProtocolMySQL: TComboBox
         Left = 208
-        Height = 27
+        Height = 26
         Top = 41
         Width = 164
         ItemHeight = 0
@@ -304,19 +295,18 @@ object NewWSpaceForm: TNewWSpaceForm
       Tag = 3
       Caption = 'MariaDB'
       ClientHeight = 140
-      ClientWidth = 384
+      ClientWidth = 378
       object Label16: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 16
         Width = 25
         Caption = 'Host:'
         FocusControl = EditHostMaria
-        ParentColor = False
       end
       object EditHostMaria: TEdit
         Left = 72
-        Height = 23
+        Height = 24
         Top = 9
         Width = 300
         TabOrder = 0
@@ -324,15 +314,14 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label17: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 46
         Width = 23
         Caption = 'Port:'
-        ParentColor = False
       end
       object EditPortMaria: TEdit
         Left = 72
-        Height = 23
+        Height = 24
         Top = 41
         Width = 63
         TabOrder = 1
@@ -340,16 +329,15 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label18: TLabel
         Left = 160
-        Height = 13
+        Height = 12
         Top = 46
         Width = 43
         Caption = 'Protocol:'
         FocusControl = ComboBoxProtocolMaria
-        ParentColor = False
       end
       object ComboBoxProtocolMaria: TComboBox
         Left = 208
-        Height = 21
+        Height = 25
         Top = 41
         Width = 164
         ItemHeight = 0
@@ -364,15 +352,14 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label19: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 78
         Width = 58
         Caption = 'User Name:'
-        ParentColor = False
       end
       object EditUserNameMaria: TEdit
         Left = 72
-        Height = 23
+        Height = 24
         Top = 72
         Width = 96
         TabOrder = 3
@@ -380,15 +367,14 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label20: TLabel
         Left = 192
-        Height = 13
+        Height = 12
         Top = 78
         Width = 50
         Caption = 'Password:'
-        ParentColor = False
       end
       object EditPasswordMaria: TEdit
         Left = 248
-        Height = 23
+        Height = 24
         Top = 72
         Width = 124
         EchoMode = emPassword
@@ -397,15 +383,14 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label21: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 112
         Width = 49
         Caption = 'Database:'
-        ParentColor = False
       end
       object ComboBoxDBMaria: TComboBox
         Left = 72
-        Height = 21
+        Height = 27
         Top = 106
         Width = 216
         ItemHeight = 0
@@ -425,19 +410,18 @@ object NewWSpaceForm: TNewWSpaceForm
       Tag = 4
       Caption = 'PostgreSQL'
       ClientHeight = 140
-      ClientWidth = 384
+      ClientWidth = 378
       object Label8: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 16
         Width = 25
         Caption = 'Host:'
         FocusControl = EditHostPostgre
-        ParentColor = False
       end
       object EditHostPostgre: TEdit
         Left = 72
-        Height = 23
+        Height = 24
         Top = 9
         Width = 300
         TabOrder = 0
@@ -445,15 +429,14 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label9: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 45
         Width = 23
         Caption = 'Port:'
-        ParentColor = False
       end
       object EditPortPostgre: TEdit
         Left = 72
-        Height = 23
+        Height = 24
         Top = 40
         Width = 63
         TabOrder = 1
@@ -461,15 +444,14 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label10: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 76
         Width = 58
         Caption = 'User Name:'
-        ParentColor = False
       end
       object EditUserNamePostgre: TEdit
         Left = 72
-        Height = 23
+        Height = 24
         Top = 72
         Width = 96
         TabOrder = 3
@@ -477,15 +459,14 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label11: TLabel
         Left = 192
-        Height = 13
+        Height = 12
         Top = 76
         Width = 50
         Caption = 'Password:'
-        ParentColor = False
       end
       object EditPasswordPostgre: TEdit
         Left = 248
-        Height = 23
+        Height = 24
         Top = 72
         Width = 124
         EchoMode = emPassword
@@ -494,11 +475,10 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label12: TLabel
         Left = 8
-        Height = 13
+        Height = 12
         Top = 112
         Width = 49
         Caption = 'Database:'
-        ParentColor = False
       end
       object ButtonRetrievePostgre: TButton
         Left = 297
@@ -511,16 +491,15 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label14: TLabel
         Left = 160
-        Height = 13
+        Height = 12
         Top = 45
         Width = 43
         Caption = 'Protocol:'
         FocusControl = ComboBoxProtocolPostgre
-        ParentColor = False
       end
       object ComboBoxProtocolPostgre: TComboBox
         Left = 208
-        Height = 27
+        Height = 26
         Top = 41
         Width = 164
         ItemHeight = 0
@@ -540,15 +519,14 @@ object NewWSpaceForm: TNewWSpaceForm
       Tag = 5
       Caption = 'MS SQLServer'
       ClientHeight = 140
-      ClientWidth = 384
+      ClientWidth = 378
       object Label22: TLabel
         Left = 8
-        Height = 14
+        Height = 12
         Top = 16
-        Width = 29
+        Width = 25
         Caption = 'Host:'
         FocusControl = EditHostMSsql
-        ParentColor = False
       end
       object EditHostMSsql: TEdit
         Left = 72
@@ -560,11 +538,10 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label23: TLabel
         Left = 8
-        Height = 14
+        Height = 12
         Top = 45
-        Width = 27
+        Width = 23
         Caption = 'Port:'
-        ParentColor = False
       end
       object EditPortMSsql: TEdit
         Left = 72
@@ -576,16 +553,15 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label24: TLabel
         Left = 150
-        Height = 14
+        Height = 12
         Top = 45
-        Width = 50
+        Width = 43
         Caption = 'Protocol:'
         FocusControl = ComboBoxProtocolMSsql
-        ParentColor = False
       end
       object ComboBoxProtocolMSsql: TComboBox
         Left = 196
-        Height = 21
+        Height = 25
         Top = 41
         Width = 176
         ItemHeight = 0
@@ -603,11 +579,10 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label25: TLabel
         Left = 8
-        Height = 14
+        Height = 12
         Top = 76
-        Width = 67
+        Width = 58
         Caption = 'User Name:'
-        ParentColor = False
       end
       object EditUserNameMSsql: TEdit
         Left = 72
@@ -619,11 +594,10 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label26: TLabel
         Left = 192
-        Height = 14
+        Height = 12
         Top = 76
-        Width = 58
+        Width = 50
         Caption = 'Password:'
-        ParentColor = False
       end
       object EditPasswordMSsql: TEdit
         Left = 248
@@ -636,11 +610,10 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object Label27: TLabel
         Left = 8
-        Height = 14
+        Height = 12
         Top = 112
-        Width = 57
+        Width = 49
         Caption = 'Database:'
-        ParentColor = False
       end
       object ButtonRetrieveMSsql: TButton
         Left = 297
@@ -653,7 +626,7 @@ object NewWSpaceForm: TNewWSpaceForm
       end
       object ComboBoxDBMSsql: TComboBox
         Left = 72
-        Height = 21
+        Height = 27
         Top = 106
         Width = 216
         ItemHeight = 0
@@ -663,8 +636,8 @@ object NewWSpaceForm: TNewWSpaceForm
   end
   object ButtonPanel1: TButtonPanel
     Left = 8
-    Height = 36
-    Top = 344
+    Height = 38
+    Top = 342
     Width = 384
     BorderSpacing.Left = 2
     BorderSpacing.Right = 2
@@ -678,7 +651,6 @@ object NewWSpaceForm: TNewWSpaceForm
     HelpButton.OnClick = HelpButtonClick
     CloseButton.Name = 'TestButton'
     CloseButton.Caption = 'Close'
-    CloseButton.DefaultCaption = False
     CloseButton.Enabled = False
     CancelButton.Name = 'CancelButton'
     CancelButton.DefaultCaption = True
@@ -736,7 +708,7 @@ object NewWSpaceForm: TNewWSpaceForm
   end
   object DirectoryEdit1: TDirectoryEdit
     Left = 6
-    Height = 21
+    Height = 24
     Hint = 'Select a directory where the settings for the workspace will be stored'
     Top = 25
     Width = 386
@@ -797,8 +769,8 @@ object NewWSpaceForm: TNewWSpaceForm
       'codepage='
     )
     Port = 0
-    left = 80
-    top = 296
+    Left = 80
+    Top = 296
   end
   object PostgreDBQuery: TZReadOnlyQuery
     Connection = ZConnection1
@@ -806,23 +778,23 @@ object NewWSpaceForm: TNewWSpaceForm
       'SELECT datname FROM pg_database;'
     )
     Params = <>
-    left = 208
-    top = 296
+    Left = 208
+    Top = 296
   end
   object ZQueryCountries: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionLanguage
+    Connection = DataModuleMain.ZConnectionCountries
     SQL.Strings = (
       'select c_name from Countries'
     )
     Params = <>
-    left = 200
-    top = 54
+    Left = 200
+    Top = 54
   end
   object OpenDialog1: TOpenDialog
     Title = 'Open existing SQLite/Spatialite database file'
     DefaultExt = '.sqlite'
     Filter = 'SQLite Database (*.sqlite)|*.sqlite'
-    left = 333
-    top = 285
+    Left = 333
+    Top = 285
   end
 end

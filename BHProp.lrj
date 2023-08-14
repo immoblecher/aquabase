@@ -1,0 +1,10 @@
+{"version":1,"strings":[
+{"hash":232023939,"name":"tbhpropertiesform.caption","sourcebytes":[66,111,114,101,104,111,108,101,32,80,114,111,112,101,114,116,105,101,115],"value":"Borehole Properties"},
+{"hash":91367618,"name":"tbhpropertiesform.graphspeedbutton.hint","sourcebytes":[68,101,112,116,104,32,100,101,112,101,110,100,101,110,116,32,99,104,97,114,116,32,111,102,32,67,97,108,105,112,101,114],"value":"Depth dependent chart of Caliper"},
+{"hash":232023939,"name":"tbhpropertiesform.linkedlabel.caption","sourcebytes":[66,111,114,101,104,111,108,101,32,80,114,111,112,101,114,116,105,101,115],"value":"Borehole Properties"},
+{"hash":159581826,"name":"tbhpropertiesform.tabsheet1.hint","sourcebytes":[67,97,108,105,112,101,114],"value":"Caliper"},
+{"hash":159581826,"name":"tbhpropertiesform.tabsheet1.caption","sourcebytes":[67,97,108,105,112,101,114],"value":"Caliper"},
+{"hash":19200,"name":"tbhpropertiesform.tabsheet2.hint","sourcebytes":[68,105,112],"value":"Dip"},
+{"hash":19200,"name":"tbhpropertiesform.tabsheet2.caption","sourcebytes":[68,105,112],"value":"Dip"},
+{"hash":84239022,"name":"tbhpropertiesform.amslcheckbox.caption","sourcebytes":[97,46,109,46,115,46,108,46],"value":"a.m.s.l."}
+]}

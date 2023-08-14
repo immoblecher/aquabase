@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2022 Immo Blecher immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -23,8 +23,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  Menus, XMLPropStorage, Buttons, DateTimePicker, Repsettings,
-  RLReport;
+  Menus, XMLPropStorage, Buttons, ButtonPanel, Spin, DateTimePicker,
+  Repsettings, RLReport;
 
 type
 
@@ -39,9 +39,12 @@ type
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
     ListBoxParams: TListBox;
     OpenDialog1: TOpenDialog;
     SaveDialog1: TSaveDialog;
+    SpinEdit1: TSpinEdit;
     XMLPropStorage1: TXMLPropStorage;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
@@ -279,6 +282,7 @@ begin
     end
     else
       RLBandSummary.Visible := False;
+    ColPercent := (100 - SpinEdit1.Value) / 100 ;
     ParamsList := TStringList.Create;
     ParamsList.Assign(ListBoxParams.Items);
     RLReportLandscape.Title := TitleEdit.Text;
