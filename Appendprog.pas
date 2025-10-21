@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -24,7 +24,7 @@ interface
 uses
   LCLIntf, LCLType, SysUtils, Classes, Graphics, Controls, Forms, Dialogs, Db,
   StdCtrls, Buttons, ComCtrls, ExtCtrls, FileUtil, ZDataset,
-  ZConnection, ZSQLProcessor, ZDbcSqLite;
+  ZConnection, ZDbcSqLite;
 
 type
 
@@ -40,7 +40,6 @@ type
     ProfilingTableTRAV_NR: TStringField;
     ZConnectionOther: TZConnection;
     SelectQuery: TZReadOnlyQuery;
-    ZSQLProcessor1: TZSQLProcessor;
     ProjectTable: TZTable;
     AppendTable: TZTable;
     ProfilingTable: TZTable;
@@ -207,11 +206,12 @@ begin
   begin
     IsRunning := True;
     Cursor := crSQLWait;
-    if ZConnectionOther.Tag = 1 then
+    with ZConnectionOther do
+    if Tag = 1 then
     begin
-      ZConnectionOther.ExecuteDirect('PRAGMA foreign_keys = ON;'); //Enable foreign keys on sqlite
+      ExecuteDirect('PRAGMA foreign_keys = ON;'); //Enable foreign keys on sqlite
       //Spatially enable other database
-      sc := ZConnectionOther.DbcConnection as TZSQLiteConnection;
+      sc := DbcConnection as TZSQLiteConnection;
       sc.enable_load_extension(True);
       {$IFDEF DARWIN}
       loadResult := sc.load_extension('mod_spatialite.dylib', '', ErrMsg);
@@ -225,7 +225,10 @@ begin
         {$IFDEF UNIX}
         MessageDlg('Could not load "mod_spatialite" library! ' + ErrMsg + 'Please make sure it is installed and (on Linux) possibly sym-linked to "mod_spatialite" without the ".so".', mtError, [mbOK], 0);
         {$ENDIF}
-    end;
+    end
+    else
+    if Tag = 4 then
+      ExecuteDirect('SET search_path to "$user", ' + Catalog + ', public;');
     //Get highest CHM_REF_NR if selected
     if HiRefNr = 0 then GetHiChemRef;
     //Adjust project numbers
@@ -249,12 +252,7 @@ begin
       NewHiRefNr := 0;
       //for M$ SQLServer
       if (AppendTable.TableName = 'chem_000') and (DataModuleMain.ZConnectionDB.Tag = 5) then
-      begin
-        ZSQLProcessor1.Connection := DataModuleMain.ZConnectionDB;
-        ZSQLProcessor1.Script.Clear;
-        ZSQLProcessor1.Script.Add('SET IDENTITY_INSERT chem_000 ON;');
-        ZSQLProcessor1.Execute;
-      end;
+        DataModuleMain.ZConnectionDB.ExecuteDirect('SET IDENTITY_INSERT chem_000 ON;');
       with SelectQuery do
       begin
         SQL.Clear;
@@ -305,7 +303,7 @@ begin
             else
             begin
               AppendTable.Append;
-              if (UpperCase(Fields[0].FieldName) = 'ID') or (UpperCase(Fields[0].FieldName) = 'OGR_FID') then
+              if (UpperCase(Fields[0].FieldName) = 'ID') or (UpperCase(Fields[0].FieldName) = 'OGR_FID') or (UpperCase(Fields[0].FieldName) = 'FID') then
               begin
                 if not AppendTable.Fields[0].ReadOnly then //for M$ SQLServer
                   AppendTable.Fields[0].Value := NULL;
@@ -370,11 +368,8 @@ begin
       begin
         if DataModuleMain.ZConnectionDB.Tag = 5 then
         begin
-          ZSQLProcessor1.Connection := DataModuleMain.ZConnectionDB;
-          ZSQLProcessor1.Script.Clear;
-          ZSQLProcessor1.Script.Add('SET IDENTITY_INSERT chem_000 OFF;');
-          ZSQLProcessor1.Script.Add('DBCC CHECKIDENT (chem_000, RESEED, ' + IntToStr(NewHiRefNr) + ');');
-          ZSQLProcessor1.Execute;
+          DataModuleMain.ZConnectionDB.ExecuteDirect('SET IDENTITY_INSERT chem_000 OFF;');
+          DataModuleMain.ZConnectionDB.ExecuteDirect('DBCC CHECKIDENT (chem_000, RESEED, ' + IntToStr(NewHiRefNr) + ');');
         end
         else
         if DataModuleMain.ZConnectionDB.Tag = 4 then //reset the autoincement

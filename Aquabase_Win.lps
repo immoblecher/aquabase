@@ -9,9 +9,11 @@
       <Unit>
         <Filename Value="Aquabase_Win.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos Y="36"/>
-        <UsageCount Value="33"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="28"/>
+        <CursorPos X="6" Y="39"/>
+        <UsageCount Value="39"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="aboutbox.pas"/>
@@ -22,7 +24,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="addrefline.pas"/>
@@ -33,7 +35,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="addtrendline.pas"/>
@@ -44,7 +46,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Append.pas"/>
@@ -55,7 +57,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Appendprog.pas"/>
@@ -66,7 +68,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="applycoord.pas"/>
@@ -77,7 +79,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="104"/>
         <CursorPos Y="97"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="applynewsqlite.pas"/>
@@ -88,7 +90,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Aquifer.pas"/>
@@ -99,17 +101,18 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="basicinf.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="BasicinfForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="223"/>
-        <CursorPos X="7" Y="234"/>
-        <UsageCount Value="33"/>
+        <TopLine Value="222"/>
+        <CursorPos X="35" Y="231"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="BasicSet.pas"/>
@@ -120,7 +123,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="BHConstr.pas"/>
@@ -131,7 +134,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="359"/>
         <CursorPos X="19" Y="360"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="BHProp.pas"/>
@@ -142,7 +145,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Border.pas"/>
@@ -153,7 +156,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="boxsettings.pas"/>
@@ -164,7 +167,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="boxwhisker.pas"/>
@@ -175,7 +178,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Calcchem.pas"/>
@@ -186,7 +189,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="chartproperties.pas"/>
@@ -197,7 +200,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="chemcharts.pas"/>
@@ -208,7 +211,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="chemchartsettings.pas"/>
@@ -219,7 +222,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Chemistry.pas"/>
@@ -230,7 +233,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="2526"/>
         <CursorPos Y="2531"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="ChemRadial.pas"/>
@@ -241,7 +244,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="chemreport.pas"/>
@@ -252,7 +255,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Chrtproc.pas"/>
@@ -261,7 +264,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="ChSiteID.pas"/>
@@ -272,7 +275,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Comments.pas"/>
@@ -283,7 +286,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="constrctlogform.pas"/>
@@ -291,10 +294,9 @@
         <ComponentName Value="LogForm"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <TopLine Value="8"/>
+        <CursorPos X="22" Y="29"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="crsinfo.pas"/>
@@ -305,7 +307,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="83"/>
         <CursorPos X="27" Y="94"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="DbStats.pas"/>
@@ -316,7 +318,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="definitiondescr.pas"/>
@@ -327,7 +329,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Delsites.pas"/>
@@ -338,7 +340,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="DeptSet.pas"/>
@@ -349,7 +351,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Discharg.pas"/>
@@ -360,7 +362,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="DistanceDepSettings.pas"/>
@@ -371,7 +373,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="editchartdata.pas"/>
@@ -382,7 +384,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="editcolours.pas"/>
@@ -393,7 +395,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="EditFillColour.pas"/>
@@ -404,7 +406,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Editform.pas"/>
@@ -415,7 +417,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="EditLogPattern.pas"/>
@@ -426,7 +428,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="ExpDewater.pas"/>
@@ -437,7 +439,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Expendit.pas"/>
@@ -448,7 +450,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="FCdata.pas"/>
@@ -459,7 +461,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Filter.pas"/>
@@ -470,7 +472,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="flagrecords.pas"/>
@@ -481,7 +483,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Fldmeas.pas"/>
@@ -492,7 +494,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Geoelectric.pas"/>
@@ -503,7 +505,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="GeollogSetForm.pas"/>
@@ -514,7 +516,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Geology.pas"/>
@@ -525,7 +527,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="globals.pas"/>
@@ -534,7 +536,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="gpslistform.pas"/>
@@ -545,7 +547,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="graduatedmap.pas"/>
@@ -556,7 +558,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="GWProp.pas"/>
@@ -567,7 +569,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="help.pas"/>
@@ -578,7 +580,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="holefinish.pas"/>
@@ -589,7 +591,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="hydreservoir.pas"/>
@@ -600,7 +602,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="importchem.pas"/>
@@ -611,7 +613,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="importdwsaudited.pas"/>
@@ -622,7 +624,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="importrain.pas"/>
@@ -633,7 +635,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="importsynop.pas"/>
@@ -645,7 +647,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="101"/>
         <CursorPos Y="109"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="importwms.pas"/>
@@ -656,18 +658,18 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Imprtdat.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ImportdatDlg"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <TopLine Value="235"/>
+        <CursorPos X="36" Y="201"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="imprtoldab.pas"/>
@@ -679,7 +681,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="InsChar.pas"/>
@@ -690,7 +692,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="INSTALLA.pas"/>
@@ -701,7 +703,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Instdetl.pas"/>
@@ -712,7 +714,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Instrmnt.pas"/>
@@ -723,7 +725,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="lithprofile.pas"/>
@@ -734,7 +736,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="lithprofilesettings.pas"/>
@@ -745,7 +747,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="loadreport.pas"/>
@@ -756,7 +758,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="loggerimport.pas"/>
@@ -767,18 +769,18 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="login.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LoginForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <TopLine Value="55"/>
+        <CursorPos Y="89"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="logreport.pas"/>
@@ -789,7 +791,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="logreportsettings.pas"/>
@@ -800,7 +802,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="LOOKUP.pas"/>
@@ -811,7 +813,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="lookuprep.pas"/>
@@ -822,7 +824,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="lookuprepset.pas"/>
@@ -834,7 +836,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Magnetic.pas"/>
@@ -845,7 +847,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="maindatamodule.pas"/>
@@ -854,10 +856,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="MainDataModule"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="1885"/>
-        <CursorPos X="40" Y="1900"/>
-        <UsageCount Value="33"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="1618"/>
+        <CursorPos X="2" Y="1680"/>
+        <UsageCount Value="39"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -870,7 +872,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="man_rep.pas"/>
@@ -881,7 +883,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Manrecset.pas"/>
@@ -892,7 +894,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="manviews.pas"/>
@@ -903,7 +905,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="maplegend.pas"/>
@@ -914,7 +916,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="mapview.pas"/>
@@ -925,7 +927,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="MastDetl.pas"/>
@@ -937,7 +939,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Member.pas"/>
@@ -948,7 +950,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Meteor1.pas"/>
@@ -959,7 +961,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Meteor2.pas"/>
@@ -970,7 +972,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="meteorologyreport.pas"/>
@@ -981,7 +983,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Meteread.pas"/>
@@ -992,7 +994,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Nameownr.pas"/>
@@ -1003,7 +1005,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="NEWSITE.pas"/>
@@ -1014,7 +1016,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="NewWSpace.pas"/>
@@ -1025,18 +1027,19 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
-        <Filename Value="Notepad.pas"/>
+        <Filename Value="notepad.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="NotepadForm"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Notepad"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Otherdat.pas"/>
@@ -1047,7 +1050,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Otherid.pas"/>
@@ -1058,7 +1061,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Othrhole.pas"/>
@@ -1069,7 +1072,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Penetrat.pas"/>
@@ -1080,7 +1083,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="PieChem.pas"/>
@@ -1091,7 +1094,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="PMPIMPRT.pas"/>
@@ -1102,7 +1105,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Profilng.pas"/>
@@ -1113,7 +1116,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="progressbox.pas"/>
@@ -1125,7 +1128,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="PROJ_MAN.pas"/>
@@ -1136,7 +1139,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="proj.pas"/>
@@ -1145,7 +1148,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="provideviewname.pas"/>
@@ -1157,7 +1160,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Pumptest.pas"/>
@@ -1168,7 +1171,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="pumptestrep.pas"/>
@@ -1180,7 +1183,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="QBDBFrm.pas"/>
@@ -1191,7 +1194,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="QBDBFrm2.pas"/>
@@ -1202,7 +1205,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="QBDirFrm.pas"/>
@@ -1213,7 +1216,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="QBESqlDb.pas"/>
@@ -1222,7 +1225,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="QBEZEOS.pas"/>
@@ -1231,7 +1234,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="QBLnkFrm.pas"/>
@@ -1242,7 +1245,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="QBuilder.pas"/>
@@ -1253,7 +1256,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="quickdthchart.pas"/>
@@ -1265,7 +1268,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="QUICKSCH.pas"/>
@@ -1276,7 +1279,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="RadioAct.pas"/>
@@ -1287,7 +1290,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Recommnd.pas"/>
@@ -1298,7 +1301,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="reconsileSites.pas"/>
@@ -1309,7 +1312,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Referenc.pas"/>
@@ -1320,7 +1323,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="reportdocuments.pas"/>
@@ -1331,7 +1334,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="reporttemplate.pas"/>
@@ -1342,7 +1345,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="reporttemplatelandscape.pas"/>
@@ -1354,7 +1357,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="reporttemplateportrait.pas"/>
@@ -1365,7 +1368,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Repprev.pas"/>
@@ -1376,7 +1379,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="177"/>
         <CursorPos X="25" Y="193"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="repsettings.pas"/>
@@ -1389,7 +1392,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="repsettingschem.pas"/>
@@ -1400,7 +1403,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="repsettingsmeteor.pas"/>
@@ -1411,7 +1414,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="repsettingssitemon.pas"/>
@@ -1422,7 +1425,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="repsettingssurfwatr.pas"/>
@@ -1433,7 +1436,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="repsettingstimechem.pas"/>
@@ -1443,7 +1446,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="15" Y="4"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="repsettingstimedepth.pas"/>
@@ -1454,7 +1457,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="repsettingstimedis.pas"/>
@@ -1465,7 +1468,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="repsettingstimewl.pas"/>
@@ -1476,7 +1479,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="runsqlscript.pas"/>
@@ -1487,7 +1490,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="SearchSites.pas"/>
@@ -1498,7 +1501,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Searchst.pas"/>
@@ -1509,7 +1512,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="SelConstrDlg.pas"/>
@@ -1520,7 +1523,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="selectdef.pas"/>
@@ -1531,7 +1534,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="selectsamples.pas"/>
@@ -1542,7 +1545,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="selectsiteid.pas"/>
@@ -1554,7 +1557,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="selectview.pas"/>
@@ -1566,7 +1569,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Selparameter.pas"/>
@@ -1577,7 +1580,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="SELSITES.pas"/>
@@ -1588,7 +1591,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="SiteImages.pas"/>
@@ -1598,7 +1601,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="77"/>
         <CursorPos X="44" Y="93"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="siteinfo.pas"/>
@@ -1609,7 +1612,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="sitelinkedreports.pas"/>
@@ -1620,7 +1623,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="sitemonitorreport.pas"/>
@@ -1631,7 +1634,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Sitesele.pas"/>
@@ -1642,18 +1645,17 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="sitestatus.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SiteStatusForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <CursorPos X="44" Y="4"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Sitevisi.pas"/>
@@ -1664,7 +1666,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Specases.pas"/>
@@ -1675,18 +1677,18 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Splash.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SplashForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <TopLine Value="31"/>
+        <CursorPos X="91" Y="56"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="SQLForm.pas"/>
@@ -1696,7 +1698,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="42" Y="8"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="SQLSEACH.pas"/>
@@ -1707,7 +1709,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Stagehi.pas"/>
@@ -1718,7 +1720,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="stiffdiagram.pas"/>
@@ -1729,7 +1731,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="strdatetime.pas"/>
@@ -1738,18 +1740,20 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Stream.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="StreamForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="126"/>
+        <CursorPos Y="137"/>
+        <UsageCount Value="39"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="surfacewaterreport.pas"/>
@@ -1760,7 +1764,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Sysset.pas"/>
@@ -1771,7 +1775,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="TabDetl.pas"/>
@@ -1780,10 +1784,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <TopLine Value="411"/>
+        <CursorPos X="3" Y="413"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Targets.pas"/>
@@ -1794,7 +1797,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Testdetl.pas"/>
@@ -1805,7 +1808,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="timechart.pas"/>
@@ -1814,7 +1817,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="37" Y="35"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="TIMEDEPT.pas"/>
@@ -1825,7 +1828,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="timedeptchemreport.pas"/>
@@ -1837,7 +1840,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="407"/>
         <CursorPos Y="417"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="timedeptdepthreport.pas"/>
@@ -1848,7 +1851,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="timedeptdisreport.pas"/>
@@ -1859,7 +1862,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="timedeptwlreport.pas"/>
@@ -1870,7 +1873,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="TRepSet.pas"/>
@@ -1881,7 +1884,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Userchem.pas"/>
@@ -1892,15 +1895,16 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="VARINIT.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="83"/>
-        <CursorPos X="3" Y="95"/>
-        <UsageCount Value="33"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="418"/>
+        <CursorPos X="28" Y="457"/>
+        <UsageCount Value="39"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="vinfo.pas"/>
@@ -1909,7 +1913,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Waterlev.pas"/>
@@ -1919,7 +1923,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="16"/>
         <CursorPos X="40" Y="27"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Watersam.pas"/>
@@ -1930,7 +1934,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="writekml.pas"/>
@@ -1941,7 +1945,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="writemember.pas"/>
@@ -1952,7 +1956,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="39"/>
       </Unit>
       <Unit>
         <Filename Value="Aquabase_TLB.pas"/>
@@ -1991,9 +1995,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="3481"/>
-        <CursorPos Y="3497"/>
-        <UsageCount Value="16"/>
+        <TopLine Value="1246"/>
+        <CursorPos X="7" Y="1266"/>
+        <UsageCount Value="18"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -2107,121 +2111,125 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="28">
+    <JumpHistory HistoryIndex="29">
       <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="232" Column="36" TopLine="215"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="434" TopLine="426"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="432" TopLine="426"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="434" TopLine="426"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="432" TopLine="426"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="440" TopLine="426"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="444" TopLine="432"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="450" TopLine="438"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="451" TopLine="438"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="452" TopLine="438"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="453" TopLine="438"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="455" TopLine="444"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="456" TopLine="444"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="462" Column="25" TopLine="447"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="450" Column="15" TopLine="446"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="453" Column="8" TopLine="441"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="459" TopLine="441"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="450" Column="15" TopLine="443"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="449" Column="37" TopLine="443"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="436" Column="20" TopLine="424"/>
-      </Position>
-      <Position>
-        <Filename Value="maindatamodule.pas"/>
-        <Caret Line="1876" Column="19" TopLine="1863"/>
+        <Filename Value="Main.pas"/>
+        <Caret Line="2671" Column="71" TopLine="2645"/>
       </Position>
       <Position>
         <Filename Value="Main.pas"/>
-        <Caret Line="1579" Column="37" TopLine="1568"/>
+        <Caret Line="34" Column="6" TopLine="14"/>
       </Position>
       <Position>
         <Filename Value="Main.pas"/>
-        <Caret Line="3490" TopLine="3490"/>
+        <Caret Line="83" Column="22" TopLine="51"/>
       </Position>
       <Position>
         <Filename Value="Main.pas"/>
-        <Caret Line="3491" TopLine="3487"/>
+        <Caret Line="1655" Column="67" TopLine="1632"/>
       </Position>
       <Position>
         <Filename Value="Main.pas"/>
-        <Caret Line="3493" TopLine="3487"/>
+        <Caret Line="1491" Column="36" TopLine="1484"/>
       </Position>
       <Position>
         <Filename Value="Main.pas"/>
-        <Caret Line="3494" Column="101" TopLine="3487"/>
+        <Caret Line="1649" Column="22" TopLine="1636"/>
       </Position>
       <Position>
         <Filename Value="Main.pas"/>
-        <Caret Line="3493" Column="48" TopLine="3481"/>
+        <Caret Line="1021" Column="38" TopLine="1012"/>
       </Position>
       <Position>
         <Filename Value="Main.pas"/>
-        <Caret Line="3497" TopLine="3481"/>
+        <Caret Line="11" Column="47"/>
+      </Position>
+      <Position>
+        <Filename Value="Main.pas"/>
+        <Caret Line="33" Column="56"/>
+      </Position>
+      <Position>
+        <Filename Value="Aquabase_Win.lpr"/>
+        <Caret Line="31" Column="10" TopLine="18"/>
+      </Position>
+      <Position>
+        <Filename Value="Aquabase_Win.lpr"/>
+        <Caret Line="16" Column="24" TopLine="8"/>
+      </Position>
+      <Position>
+        <Filename Value="Aquabase_Win.lpr"/>
+        <Caret Line="30" Column="18" TopLine="11"/>
+      </Position>
+      <Position>
+        <Filename Value="Aquabase_Win.lpr"/>
+        <Caret Line="39" Column="22" TopLine="23"/>
+      </Position>
+      <Position>
+        <Filename Value="Aquabase_Win.lpr"/>
+        <Caret Line="37" Column="28" TopLine="24"/>
+      </Position>
+      <Position>
+        <Filename Value="VARINIT.pas"/>
+        <Caret Line="457" Column="28" TopLine="418"/>
+      </Position>
+      <Position>
+        <Filename Value="Aquabase_Win.lpr"/>
+        <Caret Line="39" Column="6" TopLine="28"/>
+      </Position>
+      <Position>
+        <Filename Value="Main.pas"/>
+        <Caret Line="1711" Column="5" TopLine="1694"/>
+      </Position>
+      <Position>
+        <Filename Value="Main.pas"/>
+        <Caret Line="2260" Column="29" TopLine="2250"/>
+      </Position>
+      <Position>
+        <Filename Value="Stream.pas"/>
+        <Caret Line="11" Column="32"/>
+      </Position>
+      <Position>
+        <Filename Value="Stream.pas"/>
+        <Caret Line="128" Column="3" TopLine="126"/>
+      </Position>
+      <Position>
+        <Filename Value="Stream.pas"/>
+        <Caret Line="277" Column="3" TopLine="275"/>
+      </Position>
+      <Position>
+        <Filename Value="Stream.pas"/>
+        <Caret Line="285" Column="50" TopLine="275"/>
+      </Position>
+      <Position>
+        <Filename Value="Stream.pas"/>
+      </Position>
+      <Position>
+        <Filename Value="Stream.pas"/>
+        <Caret Line="122" TopLine="90"/>
+      </Position>
+      <Position>
+        <Filename Value="Stream.pas"/>
+        <Caret Line="116" Column="13" TopLine="90"/>
+      </Position>
+      <Position>
+        <Filename Value="Stream.pas"/>
+        <Caret Line="124" TopLine="92"/>
+      </Position>
+      <Position>
+        <Filename Value="Stream.pas"/>
+        <Caret Line="122" Column="111" TopLine="92"/>
+      </Position>
+      <Position>
+        <Filename Value="Stream.pas"/>
+        <Caret Line="97" Column="39" TopLine="92"/>
+      </Position>
+      <Position>
+        <Filename Value="Stream.pas"/>
+        <Caret Line="277" Column="3" TopLine="275"/>
+      </Position>
+      <Position>
+        <Filename Value="Stream.pas"/>
+        <Caret Line="137" TopLine="126"/>
       </Position>
     </JumpHistory>
     <RunParams>

@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -48,6 +48,7 @@ type
     procedure DBGridExit(Sender: TObject);
     procedure GraphSpeedButtonClick(Sender: TObject);
     procedure LinkedQueryBeforeInsert(DataSet: TDataSet);
+    procedure LinkedQueryCOMMENTSetText(Sender: TField; const aText: string);
     procedure LinkedQueryDEPTHGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
     procedure LinkedQueryDEPTHSetText(Sender: TField; const aText: string);
@@ -182,6 +183,15 @@ begin
   PrevRepInst := LinkedQueryREP_INST.Value;
   PrevDepth2Bot := LinkedQueryDEPTH_BOT.Value;
   PrevYield := LinkedQueryYIELD.Value;
+end;
+
+procedure TAquiferForm.LinkedQueryCOMMENTSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TAquiferForm.LinkedQueryDEPTHGetText(Sender: TField;

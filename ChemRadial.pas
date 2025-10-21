@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2024 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -50,7 +50,7 @@ type
     N3D1: TMenuItem;
     Legend1: TMenuItem;
     Grid1: TMenuItem;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     procedure MenuItem5Click(Sender: TObject);
     procedure MenuItemBackgroundClick(Sender: TObject);
     procedure MenuItemFrameClick(Sender: TObject);
@@ -85,7 +85,7 @@ var
 
 implementation
 
-uses varinit, Chrtproc, MainDataModule;
+uses VARINIT, Chrtproc, MainDataModule;
 
 {$R *.lfm}
 
@@ -225,7 +225,7 @@ end;
 
 procedure TChemRadialForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
 end;
 
 procedure TChemRadialForm.FormShow(Sender: TObject);

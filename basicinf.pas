@@ -1,4 +1,4 @@
-{ Copyright (C) 2023 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -37,32 +37,45 @@ type
     DBEditY: TDBEdit;
     DBNavigatorView: TDBNavigator;
     DBLookupComboCMeth1: TDBLookupComboBox;
-    DBTextMember: TDBText;
     DBTextMapRef: TDBText;
+    DBTextMember: TDBText;
     EditDATE_COMPL: TDBEdit;
+    EditDATE_ENTRY: TDBEdit;
+    EditDATE_UPDTD: TDBEdit;
+    GroupBox5: TGroupBox;
     Label10: TLabel;
     Label18: TLabel;
     CMethDataSource: TDataSource;
-    LabelMapRef: TLabel;
+    Label22: TLabel;
+    Label27: TLabel;
+    Label30: TLabel;
+    Label31: TLabel;
+    Label9: TLabel;
     LabelCompleted: TLabel;
+    LabelMapRef: TLabel;
     MemberQueryDATE_TO: TStringField;
     MemberQueryMEMBER_ID: TStringField;
     MemberQuerySITE_ID_NR: TStringField;
     MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
     MenuItemGotoBookmark2: TMenuItem;
     MenuItemGotoBookmark1: TMenuItem;
     MenuItemBookMark2: TMenuItem;
     MenuItemBookmark1: TMenuItem;
     MenuItemSetBookmarks: TMenuItem;
     MenuItemCopy: TMenuItem;
+    PopupMenu2: TPopupMenu;
+    RecCountLabel: TLabel;
+    RxDBLookupComboInfo: TRxDBLookupCombo;
+    RxDBLookupComboRep: TRxDBLookupCombo;
     RxDBLookupComboSurvMeth: TRxDBLookupCombo;
     RxDBLookupComboRegn: TRxDBLookupCombo;
     RxDBLookupComboCoordMeth: TRxDBLookupCombo;
     RxDBLookupComboAcc: TRxDBLookupCombo;
     RxDBLookupComboTopoSet: TRxDBLookupCombo;
     RxDBLookupComboDrain: TRxDBLookupCombo;
-    RxDBLookupComboRep: TRxDBLookupCombo;
-    RxDBLookupComboInfo: TRxDBLookupCombo;
     RxDBLookupComboSelec: TRxDBLookupCombo;
     RxDBLookupComboType: TRxDBLookupCombo;
     RxDBLookupComboEquip: TRxDBLookupCombo;
@@ -80,6 +93,8 @@ type
     GotoBookmark: TMenuItem;
     AccuDataSource: TDataSource;
     MethDataSource: TDataSource;
+    Separator1: TMenuItem;
+    SpeedButtonNotes: TSpeedButton;
     TopoDataSource: TDataSource;
     SlctDataSource: TDataSource;
     EqpmDataSource: TDataSource;
@@ -141,17 +156,6 @@ type
     EditBH_DIAM: TDBEdit;
     EditCOLLAR_HI: TDBEdit;
     EditDEPTH: TDBEdit;
-    GroupBox5: TGroupBox;
-    Label27: TLabel;
-    Label22: TLabel;
-    Label30: TLabel;
-    Label31: TLabel;
-    RecCountLabel: TLabel;
-    Label32: TLabel;
-    Label9: TLabel;
-    EditDATE_ENTRY: TDBEdit;
-    EditDATE_UPDTD: TDBEdit;
-    EditNOTES_YN: TDBEdit;
     NRQuery: TZReadOnlyQuery;
     MemberQuery: TZReadOnlyQuery;
     ZReadOnlyQueryMapRef: TZReadOnlyQuery;
@@ -227,9 +231,13 @@ type
     procedure MemberQueryBeforeOpen(DataSet: TDataSet);
     procedure MemberQueryMEMBER_IDGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
+    procedure MenuItem2Click(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem4Click(Sender: TObject);
     procedure MenuItemBookMark2Click(Sender: TObject);
     procedure MenuItemCopyClick(Sender: TObject);
     procedure MenuItemGotoBookmark2Click(Sender: TObject);
+    procedure PopupMenu2Popup(Sender: TObject);
     procedure RxDBLookupComboMouseMove(Sender: TObject; Shift: TShiftState;
       X, Y: Integer);
     procedure RxDBLookupComboKeyDown(Sender: TObject; var Key: Word;
@@ -244,6 +252,7 @@ type
     procedure DBLookupComboTypeChange(Sender: TObject);
     procedure ImageButtonClick(Sender: TObject);
     procedure CloseBitBtnClick(Sender: TObject);
+    procedure SpeedButtonNotesClick(Sender: TObject);
     procedure ZReadOnlyQueryMapRefBeforeOpen(DataSet: TDataSet);
     procedure ZReadOnlyQueryMapRefsheet50GetText(Sender: TField;
       var aText: string; DisplayText: Boolean);
@@ -294,9 +303,10 @@ begin
   MemberQuery.Open;
   if InRange(AnsiIndexStr(Country, LO_Countries), 0, 5) then
     ZReadOnlyQueryMapRef.Open;
-  RxDBLookupComboDrain.Enabled := InRange(AnsiIndexStr(Country, LO_Countries), 0, 3);
+  RxDBLookupComboDrain.Enabled := ZReadOnlyQueryDrain.RecordCount > 0;
   DataModuleMain.CoordsEdited := False;
-  StatusBar1.Hint := 'Coordinate system of shown coordinates, possibly converted with the PROJ library (https://proj.org); Ver. ' + Proj_Version;
+  StatusBar1.Hint := 'Coordinate system of shown coordinates; EPSG in [ ], 1 - 7 internally used for LO systems from map reference.';
+  StatusBar1.Font.Height := -9;
   Screen.Cursor := crDefault;
 end;
 
@@ -347,7 +357,6 @@ begin
     LabelMapRef.Visible := False;
     DBTextMapRef.Visible := False;
   end;
-  RecCountLabel.Caption := IntToStr(DataModuleMain.NrRecords);
   AltLabel.Caption := Altitudelabel + ' [' + LengthUnit + ']';
   ColLabel.Caption := CollarLabel + ' [' + LengthUnit + ']';
   DepLabel.Caption := DepthLabel + ' [' + LengthUnit + ']';
@@ -379,9 +388,9 @@ begin
   end;
   Editing := EditLabel + ' Basic information';
   if CoordSysNr = OrigCoordSysNr then
-    StatusBar1.SimpleText := 'CRS: ' + CoordSysDescr
+    StatusBar1.SimpleText := 'CRS: ' + CoordSysDescr + ' [' + IntToStr(CoordSysNr) + ']'
   else
-    StatusBar1.SimpleText := 'CRS: ' + CoordSysDescr + ' (converted with PROJ Rel. ' + Proj_Version + ')';
+    StatusBar1.SimpleText := 'CRS: ' + CoordSysDescr + ' [' + IntToStr(CoordSysNr) + '], converted with PROJ Rel. ' + Proj_Version + ' from [' + IntToStr(OrigCoordSysNr) + ']';
   if DataModuleMain.BasicinfQueryNGDB_FLAG.Value = 9 then //convert LONGITUDE/LATITUDE to X_COORD/Y_COORD
   if MessageDlg('The geometry of the current site has changed. Do you want to update the coordinates in the database accordingly?', mtInformation, [mbYes, mbNo], 0) = mrYes then
   with DataModuleMain do
@@ -402,7 +411,6 @@ begin
   end;
   LabelCompleted.Height := 26;
   LabelCompleted.Width := 72;
-  RecCountLabel.Width := 80;
 end;
 
 procedure TBasicinfForm.FormKeyDown(Sender: TObject; var Key: Word;
@@ -459,13 +467,48 @@ end;
 procedure TBasicinfForm.MemberQueryBeforeOpen(DataSet: TDataSet);
 begin
   MemberQuery.SQL.Clear;
-  MemberQuery.SQL.Add('SELECT SITE_ID_NR, MEMBER_ID, DATE_TO FROM member__ WHERE SITE_ID_NR = ' + QuotedStr(CurrentSite));
+  MemberQuery.SQL.Add('SELECT SITE_ID_NR, MEMBER_ID, DATE_TO FROM member__');
 end;
 
 procedure TBasicinfForm.MemberQueryMEMBER_IDGetText(Sender: TField;
   var aText: string; DisplayText: Boolean);
 begin
   aText := Sender.AsString;
+end;
+
+procedure TBasicinfForm.MenuItem2Click(Sender: TObject);
+begin
+  with DataModuleMain do
+  begin
+    BasicinfQuery.Filter := (TPopupMenu(TMenuItem(Sender).GetParentComponent).PopupComponent as TRxDBLookupCombo).DataField
+      + ' = "' + (TPopupMenu(TMenuItem(Sender).GetParentComponent).PopupComponent as TRxDBLookupCombo).Text + '"';
+    ZQueryView.Close;
+    ZQueryView.Open;
+    RecCountLabel.Caption := IntToStr(NrRecords);
+  end;
+end;
+
+procedure TBasicinfForm.MenuItem3Click(Sender: TObject);
+begin
+  with DataModuleMain do
+  begin
+    BasicinfQuery.Filter := '';
+    ZQueryView.Close;
+    ZQueryView.Open;
+    RecCountLabel.Caption := IntToStr(NrRecords);
+  end;
+end;
+
+procedure TBasicinfForm.MenuItem4Click(Sender: TObject);
+begin
+  with DataModuleMain do
+  begin
+    BasicinfQuery.Filter := (TPopupMenu(TMenuItem(Sender).GetParentComponent).PopupComponent as TRxDBLookupCombo).DataField
+      + ' <> "' + (TPopupMenu(TMenuItem(Sender).GetParentComponent).PopupComponent as TRxDBLookupCombo).Text + '"';
+    ZQueryView.Close;
+    ZQueryView.Open;
+    RecCountLabel.Caption := IntToStr(NrRecords);
+  end;
 end;
 
 procedure TBasicinfForm.MenuItemBookMark2Click(Sender: TObject);
@@ -488,6 +531,11 @@ begin
     ZQueryView.GotoBookmark(Bookmark2);
 end;
 
+procedure TBasicinfForm.PopupMenu2Popup(Sender: TObject);
+begin
+  MenuItem3.Enabled := DataModuleMain.BasicinfQuery.Filter <> '';
+end;
+
 procedure TBasicinfForm.RxDBLookupComboMouseMove(Sender: TObject;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -508,8 +556,7 @@ begin
   begin
     if InRange(AnsiIndexStr(Country, LO_Countries), 0, 5) then
     begin
-      if (BasicinfDataSource.DataSet.FieldByName('REGN_TYPE').Value = 'MUN')
-      or ((Country = 'South Africa') and (BasicinfDataSource.DataSet.FieldByName('REGN_TYPE').Value = 'WMA')) then
+      if AnsiMatchStr(BasicinfDataSource.DataSet.FieldByName('REGN_TYPE').Value, ['MUN', 'WMA', 'DIS', 'PRO']) then
         BasicinfDataSource.DataSet.FieldByName('REGN_DESCR').Value := '<AUTOMATIC>'
       else
         BasicinfDataSource.DataSet.FieldByName('REGN_DESCR').Clear;
@@ -521,7 +568,7 @@ end;
 
 procedure TBasicinfForm.RxDBLookupComboSelect(Sender: TObject);
 begin
-  {Change this section in rxlookup ~ line 1255 for this to trigger and work!!!!
+  {Change this section in rxlookup ~ line 1285 for this to trigger and work!!!!
   if AResult and Assigned(FDataLink.DataSource) then
     begin
       FDataLink.Edit;
@@ -545,12 +592,11 @@ begin
     if not BasicinfQuerySITE_TYPE.IsNull then
     begin
       EditBH_DIAM.Enabled := BasicinfQuerySITE_TYPE.AsString[1] IN ['B', 'D', 'H', 'W', 'X'];
-      EditCOLLAR_HI.Enabled := BasicinfQuerySITE_TYPE.AsString[1] IN ['B', 'W'];
+      EditCOLLAR_HI.Enabled := BasicinfQuerySITE_TYPE.AsString[1] IN ['B', 'W', 'D'];
       EditDEPTH.Enabled := BasicinfQuerySITE_TYPE.AsString[1] IN ['B', 'D', 'H', 'W', 'X'];
       DiamLabel.Enabled := EditBH_DIAM.Enabled;
       ColLabel.Enabled := EditCOLLAR_HI.Enabled;
       DepLabel.Enabled := EditDEPTH.Enabled;
-      RecCountLabel.Caption := IntToStr(NrRecords);
       AllDisabled := False;
       for c := 0 to BHGroupBox.ControlCount -1 do
       begin
@@ -591,7 +637,7 @@ procedure TBasicinfForm.EditNOTES_YNDblClick(Sender: TObject);
 begin
   with TNotepadForm.Create(Application) do
   begin
-    DBMemo.DataSource := BasicinfDataSource;
+    DBMemo1.DataSource := BasicinfDataSource;
     Show;
   end;
 end;
@@ -621,6 +667,15 @@ end;
 procedure TBasicinfForm.CloseBitBtnClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TBasicinfForm.SpeedButtonNotesClick(Sender: TObject);
+begin
+  with TNotepadForm.Create(Self) do
+  begin
+    DBMemo1.DataSource := BasicinfDataSource;
+    Show;
+  end;
 end;
 
 procedure TBasicinfForm.ZReadOnlyQueryMapRefBeforeOpen(DataSet: TDataSet);
@@ -687,16 +742,15 @@ begin
   X_CoordLabel.Width := 88;
   Y_CoordLabel.Width := 88;
   if CoordSysNr = OrigCoordSysNr then
-    StatusBar1.SimpleText := 'CRS: ' + CoordSysDescr
+    StatusBar1.SimpleText := 'CRS: ' + CoordSysDescr + ' [' + IntToStr(CoordSysNr) + ']'
   else
-    StatusBar1.SimpleText := 'CRS: ' + CoordSysDescr + ' (converted with PROJ Rel. ' + Proj_Version + ')';
-  MemberQuery.Close;
-  MemberQuery.Open;
+    StatusBar1.SimpleText := 'CRS: ' + CoordSysDescr + ' [' + IntToStr(CoordSysNr) + '], converted with PROJ Rel. ' + Proj_Version + ' from [' + IntToStr(OrigCoordSysNr) + ']';
   if InRange(AnsiIndexStr(Country, LO_Countries), 0, 4) then
   begin
     ZReadOnlyQueryMapRef.Close;
     ZReadOnlyQueryMapRef.Open;
   end;
+  RecCountLabel.Caption := IntToStr(DataModuleMain.NrRecords);
 end;
 
 procedure TBasicinfForm.BitBtnHelpClick(Sender: TObject);

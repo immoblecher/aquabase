@@ -15,7 +15,7 @@ object dbStatForm: TdbStatForm
   Font.Name = 'MS Sans Serif'
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.4.0.0'
   object Panel1: TPanel
     Left = 0
     Height = 42
@@ -24,11 +24,12 @@ object dbStatForm: TdbStatForm
     Align = alBottom
     ClientHeight = 42
     ClientWidth = 600
+    ParentBackground = False
     TabOrder = 0
     object ButtonPanel1: TButtonPanel
       Left = 7
-      Height = 38
-      Top = -3
+      Height = 40
+      Top = -5
       Width = 586
       OKButton.Name = 'OKButton'
       OKButton.DefaultCaption = True
@@ -41,10 +42,10 @@ object dbStatForm: TdbStatForm
       TabOrder = 0
       ShowButtons = [pbClose, pbHelp]
       object BitBtnPrint: TBitBtn
-        Left = 38
-        Height = 30
+        Left = 37
+        Height = 32
         Top = 8
-        Width = 101
+        Width = 102
         Anchors = [akRight]
         AutoSize = True
         Caption = '&Print Statistics'

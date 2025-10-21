@@ -6,16 +6,26 @@ inherited BasicReportSetForm: TBasicReportSetForm
   Caption = 'Site Information Report Settings'
   ClientHeight = 341
   ClientWidth = 490
+  inherited Label1: TLabel
+    Height = 13
+  end
+  inherited Label2: TLabel
+    Height = 13
+    Width = 63
+  end
   inherited RadioGroup1: TRadioGroup
     Width = 156
+    ClientHeight = 52
     ClientWidth = 154
   end
   inherited ViewComboBox: TComboBox
+    Height = 27
     Width = 156
   end
   inherited GroupBox1: TGroupBox
     Left = 172
     Width = 160
+    ClientHeight = 107
     ClientWidth = 158
     inherited CheckBox1: TCheckBox
       Left = 4
@@ -54,9 +64,13 @@ inherited BasicReportSetForm: TBasicReportSetForm
     end
   end
   inherited ButtonPanel1: TButtonPanel
-    Top = 297
+    Height = 40
+    Top = 295
     Width = 478
     OKButton.OnClick = OKButtonClick
+  end
+  inherited CheckBoxFromBasic: TCheckBox
+    Width = 104
   end
   object GroupBox2: TGroupBox[11]
     Left = 340
@@ -69,13 +83,14 @@ inherited BasicReportSetForm: TBasicReportSetForm
     Font.Color = clWindowText
     Font.Height = -12
     Font.Name = 'MS Sans Serif'
+    ParentBackground = False
     ParentFont = False
     TabOrder = 9
     object ConstructionCheckBox: TCheckBox
       Left = 4
       Height = 23
       Top = 4
-      Width = 108
+      Width = 107
       Caption = 'Site Construction'
       Checked = True
       Font.Color = clWindowText
@@ -103,7 +118,7 @@ inherited BasicReportSetForm: TBasicReportSetForm
       Left = 4
       Height = 23
       Top = 54
-      Width = 101
+      Width = 100
       Caption = 'Discharge Rate'
       Checked = True
       Font.Color = clWindowText
@@ -166,6 +181,6 @@ inherited BasicReportSetForm: TBasicReportSetForm
     end
   end
   inherited PopupMenu1: TPopupMenu[12]
-    left = 160
+    Left = 160
   end
 end

@@ -10,7 +10,7 @@ object AboutBoxForm: TAboutBoxForm
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.8.0.0'
   object PageControl1: TPageControl
     Left = 0
     Height = 328
@@ -22,11 +22,11 @@ object AboutBoxForm: TAboutBoxForm
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'General'
-      ClientHeight = 301
+      ClientHeight = 297
       ClientWidth = 448
       object Image1: TImage
         Left = 0
-        Height = 301
+        Height = 297
         Top = 0
         Width = 448
         Align = alClient
@@ -34,11 +34,11 @@ object AboutBoxForm: TAboutBoxForm
     end
     object TabSheet2: TTabSheet
       Caption = 'Information'
-      ClientHeight = 301
+      ClientHeight = 297
       ClientWidth = 448
       object Memo1: TMemo
         Left = 0
-        Height = 301
+        Height = 297
         Top = 0
         Width = 448
         Align = alClient
@@ -47,7 +47,7 @@ object AboutBoxForm: TAboutBoxForm
           ''
           'Since 2006 Aquabase was only barely maintained and further development and bug fixing resumed only in 2014 in the Open Source FreePascal / Lazarus environment by Immo Blecher.'
           ''
-          'This software is therefore Copyright (c) 2021, Immo Blecher, immo@blecher.co.za. Please contact me if you want to contribute to the code or have any suggestions for the improvement and additional functionality.'
+          'This software is therefore Copyright (c) 2015 - 2025, Immo Blecher, immo@blecher.co.za. Please contact me if you want to contribute to the code or have any suggestions for the improvement and additional functionality.'
           ''
           'Aquabase is free software. If you want to use it for free you may do so. But you do not get any support. Support is time and money and you will therefore have to pay for support. Please contact me if you need support with installation or use. Donations are also welcome to continue the development of Aquabase.'
           ''
@@ -61,11 +61,9 @@ object AboutBoxForm: TAboutBoxForm
           ''
           'Most of the icons used are from the Silk Icon set found at http://www.famfamfam.com/lab/icons/silk/, author of which is hereby acknowledged. Well done!'
           ''
-          'Other icons used are from https://www.flaticon.com from various authors (too many to list) under the Creative Commons License.'
+          'Other icons used are from https://www.flaticon.com from various authors (too many to list) under the Creative Commons License. Some of the other icons are from https://icons8.com'
           ''
           'Some 118 lithology bitmaps are from the USGS Federal Geographic Data Committee (Doc. No. FGDC-STD-013-2006), who are herewith acknowledged. Good work and very useful!'
-          ''
-          'The beautiful splash photo on Aquabase startup is by Ulf Blecher. Thank you!'
           ''
           'Please read the Proj tab to obtain more information about the Proj library, which we use extensively for the coordinate conversions.'
         )
@@ -76,11 +74,11 @@ object AboutBoxForm: TAboutBoxForm
     end
     object TabSheet3: TTabSheet
       Caption = 'Readme'
-      ClientHeight = 301
+      ClientHeight = 297
       ClientWidth = 448
       object Memo2: TMemo
         Left = 0
-        Height = 301
+        Height = 297
         Top = 0
         Width = 448
         Align = alClient
@@ -92,11 +90,11 @@ object AboutBoxForm: TAboutBoxForm
     end
     object TabSheet4: TTabSheet
       Caption = 'Proj Library'
-      ClientHeight = 301
+      ClientHeight = 297
       ClientWidth = 448
       object Memo3: TMemo
         Left = 0
-        Height = 301
+        Height = 297
         Top = 0
         Width = 448
         Align = alClient
@@ -125,11 +123,11 @@ object AboutBoxForm: TAboutBoxForm
     end
     object TabSheet5: TTabSheet
       Caption = 'Synapse'
-      ClientHeight = 301
+      ClientHeight = 297
       ClientWidth = 448
       object Memo4: TMemo
         Left = 0
-        Height = 301
+        Height = 297
         Top = 0
         Width = 448
         Align = alClient
@@ -169,6 +167,70 @@ object AboutBoxForm: TAboutBoxForm
         )
         ParentFont = False
         ScrollBars = ssVertical
+        TabOrder = 0
+      end
+    end
+    object TabSheet6: TTabSheet
+      Caption = 'SpatiaLite'
+      ClientHeight = 297
+      ClientWidth = 448
+      object Memo5: TMemo
+        Left = 0
+        Height = 297
+        Top = 0
+        Width = 448
+        Align = alClient
+        Lines.Strings = (
+          'Technically speaking, SpatiaLite simply is an extension module adding Spatial processing capabilities to SQLite. A further complication should be taken in proper debt; libspatialite isn''t a simple stand-alone self-contained library and depends on several further libraries (libgeos, libproj, libxml2 and so on).'
+          ''
+          'SpatiaLite is an open source library intended to extend the SQLite core to support fully fledged Spatial SQL capabilities.'
+          ''
+          'SQLite is intrinsically simple and lightweight:'
+          ''
+          '   - a single lightweight library implementing the full SQL engine'
+          '   - standard SQL implementation: almost complete SQL-92'
+          '   - no complex client/server architecture'
+          '   - a whole database simply corresponds to a single monolithic file (no size limits)'
+          '   - any DB-file can be safely exchanged across different platforms, because the internal architecture is universally portable'
+          '   - no installation, no configuration'
+          ''
+          'SpatiaLite is smoothly integrated into SQLite to provide a complete and powerful Spatial DBMS (mostly OGC-SFS compliant).'
+          'Using SQLite + SpatiaLite you can effectively deploy an alternative open source Spatial DBMS roughly equivalent to PostgreSQL + PostGIS.'
+          ''
+          'SpatiaLite is licensed under the MPL tri-license terms; you are free to choose the best-fit license between:'
+          ''
+          '   - the MPL 1.1'
+          '   - the GPL v2.0 or any subsequent version'
+          '   - the LGPL v2.1 or any subsequent version'
+          ''
+          'SpatiaLite is developed and maintained by Alessandro Furieri a.furieri@lqt.it'
+          ''
+          'If you are a member or voter of the following political parties or agree with their despicable political views, you are NOT WELCOME to use  Alessandro''s (and therefore also this) software.'
+          ''
+          '    AfD (Germany)'
+          '    Werteunion (Germany)'
+          '    Die Heimat (Germany)'
+          '    Die Basis (Germany)'
+          '    Freie Wähler (Germany, Bavaria)'
+          '    BündnisDeutschland (Germany)'
+          '    FPÖ (Austria)'
+          '    Prawo i Sprawiedliwosc (Poland)'
+          '    ITN (Bulgaria)'
+          '    Vazrazhdane (Bulgaria)'
+          '    Republican Party (USA)'
+          '    United Russia / Единая Россия (Russia)'
+          '    Fidesz (Hungary)'
+          '    Fratelli d''Italia (Italy)'
+          '    Lega Nord (Italy)'
+          '    Rassemblement National (France)'
+          '    FVD (Netherlands)'
+          '    PVV (Netherlands)'
+          '    Vox (Spain)'
+          '    AKP (Turkey)'
+          '    Likud (Israel)'
+          '    SD SverigeDemokraterna (Sweden)'
+        )
+        ScrollBars = ssAutoVertical
         TabOrder = 0
       end
     end

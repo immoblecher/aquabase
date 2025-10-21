@@ -1,14 +1,14 @@
 object BasicinfForm: TBasicinfForm
   Tag = 127
-  Left = 693
-  Height = 452
-  Top = 288
+  Left = 2652
+  Height = 444
+  Top = 273
   Width = 541
   ActiveControl = CloseBitBtn
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Basic Site Information'
-  ClientHeight = 452
+  ClientHeight = 444
   ClientWidth = 541
   Color = clBtnFace
   Font.Color = clBlack
@@ -61,26 +61,25 @@ object BasicinfForm: TBasicinfForm
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   PopupMenu = PopupMenu1
-  Position = poDefaultSizeOnly
   SessionProperties = 'Left;Top'
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '3.8.0.0'
   Visible = True
   object GroupBox1: TGroupBox
     Left = 4
     Height = 178
     Top = 38
-    Width = 423
-    Align = alTop
+    Width = 428
     BorderSpacing.Left = 4
     BorderSpacing.Top = 2
     BorderSpacing.Right = 114
     Caption = 'Site Identification:'
-    ClientHeight = 164
-    ClientWidth = 421
-    Font.Color = clBlack
+    ClientHeight = 160
+    ClientWidth = 426
+    Font.Color = clWindowText
     Font.Height = -12
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
+    ParentBackground = False
     ParentFont = False
     TabOrder = 3
     object Label1: TLabel
@@ -92,14 +91,15 @@ object BasicinfForm: TBasicinfForm
       AutoSize = False
       Caption = '&Site Identifier'
       FocusControl = EditSITE_ID_NR
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
+      Font.Name = 'MS Sans Serif'
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
     end
     object Label2: TLabel
-      Left = 96
+      Left = 100
       Height = 13
       Hint = 'Site number'
       Top = 0
@@ -107,14 +107,14 @@ object BasicinfForm: TBasicinfForm
       AutoSize = False
       Caption = '&Number'
       FocusControl = EditNR_ON_MAP
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
     end
     object Label3: TLabel
-      Left = 192
+      Left = 196
       Height = 13
       Hint = 'Regional or boring branch number'
       Top = 0
@@ -122,14 +122,14 @@ object BasicinfForm: TBasicinfForm
       AutoSize = False
       Caption = 'Re&g./BB Nr.'
       FocusControl = EditREGION_BB
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
     end
     object Label4: TLabel
-      Left = 266
+      Left = 270
       Height = 13
       Hint = 'Government number or alternative number 1'
       Top = 0
@@ -137,14 +137,14 @@ object BasicinfForm: TBasicinfForm
       AutoSize = False
       Caption = '&G-Number'
       FocusControl = EditALT_NO_
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
     end
     object Label5: TLabel
-      Left = 332
+      Left = 338
       Height = 13
       Hint = 'Alternative number 2'
       Top = 0
@@ -152,7 +152,7 @@ object BasicinfForm: TBasicinfForm
       AutoSize = False
       Caption = 'Alternati&ve No.'
       FocusControl = EditALT_NO_2
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       ParentFont = False
       ParentShowHint = False
@@ -167,7 +167,7 @@ object BasicinfForm: TBasicinfForm
       AutoSize = False
       Caption = 'District/&Farm Nr.'
       FocusControl = EditFARM_NR
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       ParentFont = False
       ParentShowHint = False
@@ -182,7 +182,7 @@ object BasicinfForm: TBasicinfForm
       AutoSize = False
       Caption = 'Site Name/&Description'
       FocusControl = EditSITE_NAME
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       ParentFont = False
       ParentShowHint = False
@@ -196,7 +196,7 @@ object BasicinfForm: TBasicinfForm
       Width = 84
       AutoSize = False
       Caption = '&X Coordinate'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Default'
       ParentFont = False
@@ -211,7 +211,7 @@ object BasicinfForm: TBasicinfForm
       Width = 84
       AutoSize = False
       Caption = '&Y Coordinate'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Default'
       Font.Pitch = fpVariable
@@ -228,7 +228,7 @@ object BasicinfForm: TBasicinfForm
       Width = 62
       AutoSize = False
       Caption = '&Coor. Acc.'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Default'
       Font.Pitch = fpVariable
@@ -246,7 +246,7 @@ object BasicinfForm: TBasicinfForm
       AutoSize = False
       Caption = '&Altitude'
       FocusControl = EditALTITUDE
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Default'
       Font.Pitch = fpVariable
@@ -256,14 +256,14 @@ object BasicinfForm: TBasicinfForm
       ShowHint = True
     end
     object Label15: TLabel
-      Left = 360
+      Left = 362
       Height = 13
       Hint = 'Method on how the altitude was surveyed'
       Top = 120
       Width = 62
       AutoSize = False
       Caption = 'Surv. &Meth.'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Default'
       Font.Pitch = fpVariable
@@ -281,7 +281,7 @@ object BasicinfForm: TBasicinfForm
       AutoSize = False
       Caption = 'Regn./Auth. Type'
       FocusControl = EditFARM_NR
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       ParentFont = False
       ParentShowHint = False
@@ -296,7 +296,7 @@ object BasicinfForm: TBasicinfForm
       AutoSize = False
       Caption = 'Region/Authority Description'
       FocusControl = EditFARM_NR
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       ParentFont = False
       ParentShowHint = False
@@ -306,22 +306,23 @@ object BasicinfForm: TBasicinfForm
       Left = 6
       Height = 22
       Top = 14
-      Width = 86
+      Width = 90
       HelpContext = 31
       DataField = 'SITE_ID_NR'
       DataSource = BasicinfDataSource
       AutoSize = False
       CharCase = ecUppercase
       Enabled = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
       ParentFont = False
+      ParentShowHint = False
       TabOrder = 0
     end
     object EditNR_ON_MAP: TDBEdit
-      Left = 96
+      Left = 100
       Height = 22
       Top = 14
       Width = 92
@@ -330,7 +331,7 @@ object BasicinfForm: TBasicinfForm
       DataSource = BasicinfDataSource
       AutoSize = False
       CharCase = ecUppercase
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 13
@@ -343,7 +344,7 @@ object BasicinfForm: TBasicinfForm
       OnKeyUp = EditKeyUp
     end
     object EditREGION_BB: TDBEdit
-      Left = 192
+      Left = 196
       Height = 22
       Top = 14
       Width = 70
@@ -352,7 +353,7 @@ object BasicinfForm: TBasicinfForm
       DataSource = BasicinfDataSource
       AutoSize = False
       CharCase = ecUppercase
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 8
@@ -364,16 +365,16 @@ object BasicinfForm: TBasicinfForm
       OnKeyUp = EditKeyUp
     end
     object EditALT_NO_: TDBEdit
-      Left = 266
+      Left = 270
       Height = 22
       Top = 14
-      Width = 62
+      Width = 66
       HelpContext = 31
       DataField = 'ALT_NO_1'
       DataSource = BasicinfDataSource
       AutoSize = False
       CharCase = ecUppercase
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 7
@@ -385,16 +386,16 @@ object BasicinfForm: TBasicinfForm
       OnKeyUp = EditKeyUp
     end
     object EditALT_NO_2: TDBEdit
-      Left = 332
+      Left = 338
       Height = 22
       Top = 14
-      Width = 82
+      Width = 84
       HelpContext = 31
       DataField = 'ALT_NO_2'
       DataSource = BasicinfDataSource
       AutoSize = False
       CharCase = ecUppercase
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 12
@@ -415,7 +416,7 @@ object BasicinfForm: TBasicinfForm
       DataSource = BasicinfDataSource
       AutoSize = False
       CharCase = ecUppercase
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -430,13 +431,12 @@ object BasicinfForm: TBasicinfForm
       Left = 100
       Height = 22
       Top = 54
-      Width = 315
+      Width = 322
       HelpContext = 31
       DataField = 'SITE_NAME'
       DataSource = BasicinfDataSource
       AutoSize = False
-      CharCase = ecUppercase
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -451,12 +451,12 @@ object BasicinfForm: TBasicinfForm
       Left = 298
       Height = 22
       Top = 134
-      Width = 58
+      Width = 60
       HelpContext = 31
       DataField = 'ALTITUDE'
       DataSource = BasicinfDataSource
       AutoSize = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -471,13 +471,12 @@ object BasicinfForm: TBasicinfForm
       Left = 100
       Height = 22
       Top = 94
-      Width = 315
+      Width = 322
       HelpContext = 31
       DataField = 'REGN_DESCR'
       DataSource = BasicinfDataSource
       AutoSize = False
-      CharCase = ecUppercase
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -496,7 +495,7 @@ object BasicinfForm: TBasicinfForm
       Width = 57
       AutoSize = False
       Caption = 'Met&h. obt.'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Default'
       Font.Pitch = fpVariable
@@ -506,8 +505,8 @@ object BasicinfForm: TBasicinfForm
       ShowHint = True
     end
     object RxDBLookupComboAcc: TRxDBLookupCombo
-      Left = 190
-      Height = 25
+      Left = 192
+      Height = 29
       Top = 134
       Width = 38
       HelpKeyword = 'COORDACC'
@@ -522,7 +521,7 @@ object BasicinfForm: TBasicinfForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 220
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Glyph.Data = {
@@ -541,6 +540,7 @@ object BasicinfForm: TBasicinfForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 11
@@ -568,7 +568,7 @@ object BasicinfForm: TBasicinfForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 220
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Arial'
       Glyph.Data = {
@@ -588,6 +588,7 @@ object BasicinfForm: TBasicinfForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 7
@@ -615,7 +616,7 @@ object BasicinfForm: TBasicinfForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 220
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Arial'
       Glyph.Data = {
@@ -635,6 +636,7 @@ object BasicinfForm: TBasicinfForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 12
@@ -646,7 +648,7 @@ object BasicinfForm: TBasicinfForm
       LookupSource = CMethDataSource
     end
     object RxDBLookupComboSurvMeth: TRxDBLookupCombo
-      Left = 360
+      Left = 362
       Height = 26
       Top = 134
       Width = 36
@@ -662,7 +664,7 @@ object BasicinfForm: TBasicinfForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 220
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Arial'
       Glyph.Data = {
@@ -682,6 +684,7 @@ object BasicinfForm: TBasicinfForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 14
@@ -701,7 +704,7 @@ object BasicinfForm: TBasicinfForm
       DataSource = BasicinfDataSource
       AutoSize = False
       CharCase = ecUppercase
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -715,7 +718,7 @@ object BasicinfForm: TBasicinfForm
       OnKeyUp = EditKeyUp
     end
     object DBEditY: TDBEdit
-      Left = 98
+      Left = 100
       Height = 22
       Top = 134
       Width = 88
@@ -723,7 +726,7 @@ object BasicinfForm: TBasicinfForm
       DataSource = BasicinfDataSource
       AutoSize = False
       CharCase = ecUppercase
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -738,11 +741,16 @@ object BasicinfForm: TBasicinfForm
     end
   end
   object FilterLabel: TLabel
-    Left = 431
-    Height = 12
+    Left = 436
+    Height = 16
     Top = 39
     Width = 70
     Caption = 'Sites in View:'
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
   end
   object Panel1: TPanel
     Left = 0
@@ -752,6 +760,7 @@ object BasicinfForm: TBasicinfForm
     Align = alTop
     ClientHeight = 36
     ClientWidth = 541
+    ParentBackground = False
     TabOrder = 0
     object ImageButton: TSpeedButton
       Left = 320
@@ -827,8 +836,9 @@ object BasicinfForm: TBasicinfForm
       Hint = 'Close entry form'
       Top = 4
       Width = 82
+      Color = clBtnFace
       DefaultCaption = True
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Kind = bkClose
@@ -844,8 +854,9 @@ object BasicinfForm: TBasicinfForm
       Top = 4
       Width = 82
       HelpContext = 3
+      Color = clBtnFace
       DefaultCaption = True
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Kind = bkHelp
@@ -879,31 +890,34 @@ object BasicinfForm: TBasicinfForm
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 15
+    Height = 19
     Hint = 'Coordinate system of shown coordinates, possibly converted with the PROJ library (https://proj.org)'
-    Top = 437
+    Top = 425
     Width = 541
     Font.Color = clBlack
-    Font.Height = -11
-    Font.Name = 'Georgia'
+    Font.Height = -12
+    Font.Name = 'Liberation Sans'
     Panels = <>
     ParentFont = False
     ParentShowHint = False
+    SimpleText = 'This is a simple Text'
     SizeGrip = False
+    ShowHint = True
     UseSystemFont = False
   end
   object DBSiteGrid: TDBGrid
-    Left = 431
-    Height = 284
+    Left = 436
+    Height = 280
     Hint = 'Right-Click for menu'
     Top = 54
-    Width = 105
+    Width = 100
     HelpContext = 31
+    AutoEdit = False
     Color = clWindow
     Columns = <>
     DataSource = DataModuleMain.DataSourceView
     FixedCols = 0
-    Font.Color = clBlack
+    Font.Color = clWindowText
     Font.Height = -12
     Font.Name = 'MS Sans Serif'
     Options = [dgTitles, dgColLines, dgRowLines, dgAlwaysShowSelection, dgConfirmDelete]
@@ -919,14 +933,15 @@ object BasicinfForm: TBasicinfForm
     Left = 4
     Height = 60
     Top = 217
-    Width = 423
+    Width = 428
     Caption = 'Site Setting:'
-    ClientHeight = 46
-    ClientWidth = 421
-    Font.Color = clBlack
+    ClientHeight = 42
+    ClientWidth = 426
+    Font.Color = clWindowText
     Font.Height = -12
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
+    ParentBackground = False
     ParentFont = False
     TabOrder = 4
     object Label8: TLabel
@@ -936,8 +951,8 @@ object BasicinfForm: TBasicinfForm
       Top = 0
       Width = 53
       AutoSize = False
-      Caption = '&Topo. Set.'
-      Font.Color = clBlack
+      Caption = '&Topogr. Set.'
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -945,14 +960,14 @@ object BasicinfForm: TBasicinfForm
       ShowHint = True
     end
     object Label13: TLabel
-      Left = 78
+      Left = 82
       Height = 13
       Hint = 'Drainage region / catchment number'
       Top = 0
       Width = 59
       AutoSize = False
-      Caption = 'Drai&n. Reg.'
-      Font.Color = clBlack
+      Caption = 'Drai&n. Region'
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -960,14 +975,14 @@ object BasicinfForm: TBasicinfForm
       ShowHint = True
     end
     object Label17: TLabel
-      Left = 150
+      Left = 162
       Height = 13
       Hint = 'Site selector'
       Top = 0
       Width = 58
       AutoSize = False
       Caption = 'Site Sel&ect.'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -975,14 +990,14 @@ object BasicinfForm: TBasicinfForm
       ShowHint = True
     end
     object Label16: TLabel
-      Left = 223
+      Left = 238
       Height = 13
       Hint = 'Site type'
       Top = 0
       Width = 50
       AutoSize = False
       Caption = 'Site &Type'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -990,14 +1005,14 @@ object BasicinfForm: TBasicinfForm
       ShowHint = True
     end
     object Label28: TLabel
-      Left = 290
+      Left = 304
       Height = 13
       Hint = 'Latest equipment installed'
       Top = 0
       Width = 56
       AutoSize = False
       Caption = 'Equ&ipment'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -1005,14 +1020,14 @@ object BasicinfForm: TBasicinfForm
       ShowHint = True
     end
     object Label29: TLabel
-      Left = 358
+      Left = 370
       Height = 13
       Hint = 'Indication of potability'
       Top = 0
       Width = 49
       AutoSize = False
       Caption = 'Pota&bility'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -1036,7 +1051,7 @@ object BasicinfForm: TBasicinfForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 220
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Arial'
       Glyph.Data = {
@@ -1056,6 +1071,7 @@ object BasicinfForm: TBasicinfForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 0
@@ -1067,7 +1083,7 @@ object BasicinfForm: TBasicinfForm
       LookupSource = TopoDataSource
     end
     object RxDBLookupComboDrain: TRxDBLookupCombo
-      Left = 80
+      Left = 82
       Height = 26
       Top = 15
       Width = 58
@@ -1082,7 +1098,7 @@ object BasicinfForm: TBasicinfForm
       PopUpFormOptions.Columns = <>
       PopUpFormOptions.DropDownWidth = 58
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Arial'
       Glyph.Data = {
@@ -1102,6 +1118,7 @@ object BasicinfForm: TBasicinfForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 1
@@ -1112,7 +1129,7 @@ object BasicinfForm: TBasicinfForm
       LookupSource = DataSourceDrain
     end
     object RxDBLookupComboSelec: TRxDBLookupCombo
-      Left = 151
+      Left = 162
       Height = 26
       Top = 15
       Width = 55
@@ -1128,7 +1145,7 @@ object BasicinfForm: TBasicinfForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 220
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Arial'
       Glyph.Data = {
@@ -1147,6 +1164,7 @@ object BasicinfForm: TBasicinfForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 2
@@ -1158,7 +1176,7 @@ object BasicinfForm: TBasicinfForm
       LookupSource = SlctDataSource
     end
     object RxDBLookupComboType: TRxDBLookupCombo
-      Left = 223
+      Left = 238
       Height = 26
       Top = 15
       Width = 36
@@ -1174,7 +1192,7 @@ object BasicinfForm: TBasicinfForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 220
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Arial'
       Glyph.Data = {
@@ -1194,6 +1212,7 @@ object BasicinfForm: TBasicinfForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 3
@@ -1205,7 +1224,7 @@ object BasicinfForm: TBasicinfForm
       LookupSource = TypeDataSource
     end
     object RxDBLookupComboEquip: TRxDBLookupCombo
-      Left = 290
+      Left = 304
       Height = 26
       Top = 15
       Width = 36
@@ -1221,7 +1240,7 @@ object BasicinfForm: TBasicinfForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 220
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Arial'
       Glyph.Data = {
@@ -1241,6 +1260,7 @@ object BasicinfForm: TBasicinfForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 4
@@ -1252,7 +1272,7 @@ object BasicinfForm: TBasicinfForm
       LookupSource = EqpmDataSource
     end
     object RxDBLookupComboTopoSet5: TRxDBLookupCombo
-      Left = 358
+      Left = 370
       Height = 26
       Top = 15
       Width = 36
@@ -1268,7 +1288,7 @@ object BasicinfForm: TBasicinfForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 260
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Arial'
       Glyph.Data = {
@@ -1288,6 +1308,7 @@ object BasicinfForm: TBasicinfForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 5
@@ -1301,16 +1322,17 @@ object BasicinfForm: TBasicinfForm
   end
   object GroupBox3: TGroupBox
     Left = 4
-    Height = 60
+    Height = 56
     Top = 280
     Width = 190
     Caption = 'Site Use:'
-    ClientHeight = 46
+    ClientHeight = 38
     ClientWidth = 188
-    Font.Color = clBlack
+    Font.Color = clWindowText
     Font.Height = -12
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
+    ParentBackground = False
     ParentFont = False
     TabOrder = 5
     OnEnter = EditEnter
@@ -1322,7 +1344,7 @@ object BasicinfForm: TBasicinfForm
       Width = 33
       AutoSize = False
       Caption = 'Stat&us'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -1337,7 +1359,7 @@ object BasicinfForm: TBasicinfForm
       Width = 43
       AutoSize = False
       Caption = '&Purpose'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -1352,7 +1374,7 @@ object BasicinfForm: TBasicinfForm
       Width = 46
       AutoSize = False
       Caption = 'C&onsum.'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -1367,7 +1389,7 @@ object BasicinfForm: TBasicinfForm
       Width = 47
       AutoSize = False
       Caption = '&Applicat.'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -1391,7 +1413,7 @@ object BasicinfForm: TBasicinfForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 220
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Arial'
       Glyph.Data = {
@@ -1411,6 +1433,7 @@ object BasicinfForm: TBasicinfForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 0
@@ -1438,7 +1461,7 @@ object BasicinfForm: TBasicinfForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 220
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Arial'
       Glyph.Data = {
@@ -1458,6 +1481,7 @@ object BasicinfForm: TBasicinfForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 1
@@ -1485,7 +1509,7 @@ object BasicinfForm: TBasicinfForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 220
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Arial'
       Glyph.Data = {
@@ -1505,6 +1529,7 @@ object BasicinfForm: TBasicinfForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 2
@@ -1532,7 +1557,7 @@ object BasicinfForm: TBasicinfForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 220
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Arial'
       Glyph.Data = {
@@ -1552,6 +1577,7 @@ object BasicinfForm: TBasicinfForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 3
@@ -1565,17 +1591,18 @@ object BasicinfForm: TBasicinfForm
   end
   object BHGroupBox: TGroupBox
     Left = 198
-    Height = 60
+    Height = 56
     Top = 280
-    Width = 158
+    Width = 162
     Caption = 'Borehole/Well:'
-    ClientHeight = 46
-    ClientWidth = 156
+    ClientHeight = 38
+    ClientWidth = 160
     Color = clBtnFace
-    Font.Color = clBlack
+    Font.Color = clWindowText
     Font.Height = -12
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
+    ParentBackground = False
     ParentColor = False
     ParentFont = False
     TabOrder = 6
@@ -1588,7 +1615,7 @@ object BasicinfForm: TBasicinfForm
       AutoSize = False
       Caption = '&Diam.'
       FocusControl = EditBH_DIAM
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -1596,7 +1623,7 @@ object BasicinfForm: TBasicinfForm
       ShowHint = True
     end
     object ColLabel: TLabel
-      Left = 54
+      Left = 56
       Height = 13
       Hint = 'Latest collar or measuring reference'
       Top = 0
@@ -1604,7 +1631,7 @@ object BasicinfForm: TBasicinfForm
       AutoSize = False
       Caption = 'Co&llar'
       FocusControl = EditCOLLAR_HI
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -1612,7 +1639,7 @@ object BasicinfForm: TBasicinfForm
       ShowHint = True
     end
     object DepLabel: TLabel
-      Left = 102
+      Left = 106
       Height = 13
       Hint = 'Latest measured depth of hole'
       Top = 0
@@ -1620,7 +1647,7 @@ object BasicinfForm: TBasicinfForm
       AutoSize = False
       Caption = 'Dept&h'
       FocusControl = EditDEPTH
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -1629,13 +1656,14 @@ object BasicinfForm: TBasicinfForm
     end
     object EditBH_DIAM: TDBEdit
       Left = 4
-      Height = 25
+      Height = 22
       Top = 14
       Width = 40
       HelpContext = 31
       DataField = 'BH_DIAM'
       DataSource = BasicinfDataSource
-      Font.Color = clBlack
+      AutoSize = False
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -1647,14 +1675,15 @@ object BasicinfForm: TBasicinfForm
       OnKeyUp = EditKeyUp
     end
     object EditCOLLAR_HI: TDBEdit
-      Left = 54
-      Height = 25
+      Left = 56
+      Height = 22
       Top = 14
       Width = 36
       HelpContext = 31
       DataField = 'COLLAR_HI'
       DataSource = BasicinfDataSource
-      Font.Color = clBlack
+      AutoSize = False
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -1666,14 +1695,15 @@ object BasicinfForm: TBasicinfForm
       OnKeyUp = EditKeyUp
     end
     object EditDEPTH: TDBEdit
-      Left = 102
-      Height = 25
+      Left = 106
+      Height = 22
       Top = 14
       Width = 50
       HelpContext = 31
       DataField = 'DEPTH'
       DataSource = BasicinfDataSource
-      Font.Color = clBlack
+      AutoSize = False
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -1685,22 +1715,62 @@ object BasicinfForm: TBasicinfForm
       OnKeyUp = EditKeyUp
     end
   end
+  object LabelCompleted: TLabel
+    Left = 364
+    Height = 26
+    Hint = 'Date construction completed or site commissioned'
+    Top = 282
+    Width = 72
+    AutoSize = False
+    Caption = 'Date compl. / commiss.'
+    FocusControl = EditDATE_COMPL
+    Font.Color = clWindowText
+    Font.Height = -12
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    WordWrap = True
+  end
+  object EditDATE_COMPL: TDBEdit
+    Left = 364
+    Height = 22
+    Hint = 'Date site completed or commissioned'
+    Top = 308
+    Width = 64
+    HelpContext = 31
+    DataField = 'DATE_COMPL'
+    DataSource = BasicinfDataSource
+    AutoSize = False
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    MaxLength = 0
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 7
+    OnClick = EditClick
+    OnEnter = EditEnter
+    OnKeyDown = EditKeyDown
+    OnKeyUp = EditKeyUp
+  end
   object GroupBox5: TGroupBox
     Left = 4
     Height = 88
-    Top = 347
+    Top = 335
     Width = 533
     Align = alBottom
     BorderSpacing.Left = 4
     BorderSpacing.Right = 4
     BorderSpacing.Bottom = 2
     Caption = 'Information:'
-    ClientHeight = 74
+    ClientHeight = 70
     ClientWidth = 531
-    Font.Color = clBlack
+    Font.Color = clWindowText
     Font.Height = -12
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
+    ParentBackground = False
     ParentFont = False
     TabOrder = 8
     object Label27: TLabel
@@ -1711,7 +1781,7 @@ object BasicinfForm: TBasicinfForm
       Width = 102
       AutoSize = False
       Caption = '&Reporting Institution'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -1720,13 +1790,13 @@ object BasicinfForm: TBasicinfForm
     end
     object Label22: TLabel
       Left = 12
-      Height = 13
+      Height = 17
       Hint = 'Information source'
       Top = 50
-      Width = 39
+      Width = 42
       Alignment = taRightJustify
       Caption = 'Source:'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -1741,7 +1811,7 @@ object BasicinfForm: TBasicinfForm
       AutoSize = False
       Caption = 'Date entered'
       FocusControl = EditDATE_ENTRY
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -1754,40 +1824,23 @@ object BasicinfForm: TBasicinfForm
       AutoSize = False
       Caption = 'Date updated'
       FocusControl = EditDATE_UPDTD
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
     end
     object RecCountLabel: TLabel
       Left = 434
-      Height = 13
+      Height = 17
       Top = 18
-      Width = 80
+      Width = 79
       Alignment = taCenter
-      AutoSize = False
       Caption = '1 000 000 000'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
       WordWrap = True
-    end
-    object Label32: TLabel
-      Left = 112
-      Height = 13
-      Hint = 'Additional notes on the site'
-      Top = 50
-      Width = 37
-      Alignment = taRightJustify
-      Caption = 'Notes?'
-      FocusControl = EditNOTES_YN
-      Font.Color = clBlack
-      Font.Height = -12
-      Font.Name = 'MS Sans Serif'
-      ParentFont = False
-      ParentShowHint = False
-      ShowHint = True
     end
     object Label9: TLabel
       Left = 434
@@ -1797,7 +1850,7 @@ object BasicinfForm: TBasicinfForm
       Width = 96
       AutoSize = False
       Caption = 'Number of records'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -1814,7 +1867,7 @@ object BasicinfForm: TBasicinfForm
       DataSource = BasicinfDataSource
       AutoSize = False
       Enabled = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -1832,37 +1885,13 @@ object BasicinfForm: TBasicinfForm
       ReadOnly = True
       AutoSize = False
       Enabled = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
       ParentFont = False
-      TabOrder = 4
-      TabStop = False
-    end
-    object EditNOTES_YN: TDBEdit
-      Left = 154
-      Height = 22
-      Hint = 'Double-click to view or enter notes'
-      Top = 44
-      Width = 24
-      HelpContext = 31
-      DataField = 'NOTES_YN'
-      DataSource = BasicinfDataSource
-      AutoSize = False
-      CharCase = ecUppercase
-      Font.Color = clBlack
-      Font.Height = -12
-      Font.Name = 'MS Sans Serif'
-      MaxLength = 0
-      ParentFont = False
-      ParentShowHint = False
-      ShowHint = True
       TabOrder = 2
-      OnClick = EditClick
-      OnDblClick = EditNOTES_YNDblClick
-      OnEnter = EditEnter
-      OnKeyUp = EditKeyUp
+      TabStop = False
     end
     object RxDBLookupComboRep: TRxDBLookupCombo
       Left = 6
@@ -1880,7 +1909,7 @@ object BasicinfForm: TBasicinfForm
       PopUpFormOptions.Columns = <>
       PopUpFormOptions.DropDownWidth = 280
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Arial'
       Glyph.Data = {
@@ -1925,7 +1954,7 @@ object BasicinfForm: TBasicinfForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 240
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Arial'
       Glyph.Data = {
@@ -1945,6 +1974,7 @@ object BasicinfForm: TBasicinfForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 1
@@ -1957,16 +1987,17 @@ object BasicinfForm: TBasicinfForm
     end
     object Label10: TLabel
       Left = 198
-      Height = 13
+      Height = 17
       Hint = 'Member of the lastest group site belongs to'
       Top = 50
-      Width = 64
+      Width = 71
       Alignment = taRightJustify
       Caption = ' Member of: '
       Color = clBtnFace
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
+      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -1981,9 +2012,10 @@ object BasicinfForm: TBasicinfForm
       Color = clBtnFace
       DataField = 'MEMBER_ID'
       DataSource = MemberDataSource
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
+      ParentColor = False
       ParentFont = False
       Transparent = False
     end
@@ -1995,7 +2027,7 @@ object BasicinfForm: TBasicinfForm
       AutoSize = False
       DataField = 'sheet50'
       DataSource = DataSourceMap
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
@@ -2009,51 +2041,59 @@ object BasicinfForm: TBasicinfForm
       Width = 46
       AutoSize = False
       Caption = 'Map ref.:'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
     end
-  end
-  object LabelCompleted: TLabel
-    Left = 360
-    Height = 26
-    Hint = 'Date construction completed or site commissioned'
-    Top = 282
-    Width = 72
-    AutoSize = False
-    Caption = 'Date compl. / commiss.'
-    FocusControl = EditDATE_COMPL
-    Font.Color = clBlack
-    Font.Height = -12
-    ParentFont = False
-    ParentShowHint = False
-    ShowHint = True
-    WordWrap = True
-  end
-  object EditDATE_COMPL: TDBEdit
-    Left = 360
-    Height = 25
-    Hint = 'Date site completed or commissioned'
-    Top = 308
-    Width = 64
-    HelpContext = 31
-    DataField = 'DATE_COMPL'
-    DataSource = BasicinfDataSource
-    Font.Color = clBlack
-    Font.Height = -12
-    Font.Name = 'MS Sans Serif'
-    MaxLength = 0
-    ParentFont = False
-    ParentShowHint = False
-    ShowHint = True
-    TabOrder = 7
-    OnClick = EditClick
-    OnEnter = EditEnter
-    OnKeyDown = EditKeyDown
-    OnKeyUp = EditKeyUp
+    object SpeedButtonNotes: TSpeedButton
+      Left = 140
+      Height = 22
+      Hint = 'Open Notes Form'
+      Top = 44
+      Width = 23
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF008254249F764919E1714415E18254
+        24BAFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00A37642FF9E70
+        3DFF986B38FF936533FF8D602EFF875A29FF825424FF936839FF906536FF7245
+        16FF6D4011FF693C0DFF65380AFF613406FF5E3103FF5B2E01FFAB7E4AFFB38B
+        5DFFB38B5DFFB38B5DFFB38B5DFFB38B5DFFB38B5DFF7D5121FF794C1DFFB38B
+        5DFFB38B5DFFB38B5DFFB38B5DFFB38B5DFFB38B5DFF683C0EFFB0834FFF9E70
+        3DFF986B38FF936533FF8D602EFF875A29FF825424FFAB9074FFAA8F73FF7245
+        16FF6D4011FF693C0DFF65380AFF613406FF5E3103FF6C3F12FFB68854FFA577
+        43FFF9F9F9FFF9F9F9FFF9F9F9FFF8F8F8FFF1F1F1FFE3E3E3FFF3F3F3FFF8F8
+        F8FFF9F9F9FFF8F8F8FFE9E9E9FFF8F8F8FF623507FF704416FFBA8D58FFAB7D
+        49FFF9F9F9FFF1F1F1FFEDEDEDFFE7E7E7FFD3D3D3FFA5A5A5FFD7D7D7FFF4F4
+        F4FFEEEEEEFFEAEAEAFFDCDCDCFFF8F8F8FF66390BFF74481AFFBE915CFFB183
+        4EFFF9F9F9FFCCCCCCFFC9C9C9FFC5C5C5FFD3D3D3FFA6A6A6FFD8D8D8FFF4F4
+        F4FFCACACAFFC6C6C6FFBABABAFFF8F8F8FF6B3E10FF7A4D1EFFC29560FFB789
+        53FFFAFAFAFFF1F1F1FFEDEDEDFFE9E9E9FFD4D4D4FFA6A6A6FFD8D8D8FFF5F5
+        F5FFEFEFEFFFEBEBEBFFDCDCDCFFF8F8F8FF714415FF7F5323FFC69862FFBC8E
+        58FFFAFAFAFFCCCCCCFFCACACAFFC5C5C5FFD4D4D4FFA7A7A7FFD8D8D8FFF5F5
+        F5FFCBCBCBFFC7C7C7FFBBBBBBFFF8F8F8FF774A1AFF845828FFC69963FFC193
+        5CFFFAFAFAFFF2F2F2FFEFEFEFFFEAEAEAFFD5D5D5FFB5B5B5FFDFDFDFFFF5F5
+        F5FFF1F1F1FFECECECFFDEDEDEFFF9F9F9FF7D5020FF8A5E2DFFC69963FFC597
+        60FFFAFAFAFFCDCDCDFFCACACAFFC6C6C6FFF2F2F2FFDDD8D2FFEBE5DFFFFCFC
+        FCFFCCCCCCFFC9C9C9FFBDBDBDFFF9F9F9FF845726FF916333FFC69963FFC89A
+        63FFFAFAFAFFFAFAFAFFFAFAFAFFF8F8F8FFD9C6B1FFB1834EE6AC7E4AE6D7C4
+        AFFFF9F9F9FFF9F9F9FFF9F9F9FFF9F9F9FF8B5D2CFF976938FFC99B6433C99B
+        64FFD3AE82FFD0AC80FFCEA97DFFCBA67BFFC6A074FFB789532DB2844F2DBB95
+        6AFFB8946AFFB49066FFAF8B62FFAB875EFF926432FF996C3933FFFFFF00C99B
+        6433C99B6433C99B6433C6986233C3955F33C0925C33FFFFFF00FFFFFF00B385
+        5033AE804C33A97B4733A37642339E703D33986B3833FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      OnClick = SpeedButtonNotesClick
+      ShowHint = True
+      ParentShowHint = False
+    end
   end
   object BasicinfDataSource: TDataSource
     AutoEdit = False
@@ -2276,7 +2316,7 @@ object BasicinfForm: TBasicinfForm
   object ZReadOnlyQueryCoordAcc: TZReadOnlyQuery
     Connection = DataModuleMain.ZConnectionLanguage
     SQL.Strings = (
-      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''COORDACC'''
+      'SELECT SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''COORDACC'''
       'ORDER BY SEARCH'
     )
     Params = <>
@@ -2728,10 +2768,10 @@ object BasicinfForm: TBasicinfForm
     end
   end
   object MemberQuery: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'DATE_TO'
     SortType = stDescending
     BeforeOpen = MemberQueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     Params = <>
     MasterFields = 'SITE_ID_NR'
     MasterSource = BasicinfDataSource
@@ -2772,8 +2812,8 @@ object BasicinfForm: TBasicinfForm
     end
   end
   object ZReadOnlyQueryMapRef: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionLanguage
     BeforeOpen = ZReadOnlyQueryMapRefBeforeOpen
+    Connection = DataModuleMain.ZConnectionLanguage
     SQL.Strings = (
       'SELECT sheet50 FROM maps50'
     )
@@ -2796,5 +2836,25 @@ object BasicinfForm: TBasicinfForm
     DataSet = ZReadOnlyQueryMapRef
     Left = 480
     Top = 360
+  end
+  object PopupMenu2: TPopupMenu
+    OnPopup = PopupMenu2Popup
+    Left = 314
+    Top = 34
+    object MenuItem2: TMenuItem
+      Caption = '&Filter by this value'
+      OnClick = MenuItem2Click
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Filter by &not this value'
+      OnClick = MenuItem4Click
+    end
+    object Separator1: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem3: TMenuItem
+      Caption = '&Clear filter'
+      OnClick = MenuItem3Click
+    end
   end
 end

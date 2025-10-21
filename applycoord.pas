@@ -1,4 +1,4 @@
-{ Copyright (C) 2023 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -265,14 +265,9 @@ begin
     BasicinfQuery.Next;
   end;
   BasicinfQuery.Close;
-  if Latlong then
   with DataModuleMain.ZConnectionDB do
-  begin
-    if Tag = 1 then
-      ExecuteDirect('update basicinf set geometry = SetSrid(MakePoint(longitude, latitude), 4326);')
-    else
-      ExecuteDirect('update basicinf set geometry = ST_SetSrid(ST_MakePoint(longitude, latitude), 4326);');
-  end;
+    if Latlong and (Tag = 1) then
+      ExecuteDirect('SELECT RecoverSpatialIndex("basicinf", "GEOMETRY");');
   ProgressBoxForm.Finished := True;
   if ProgressBoxForm.CancelPressed then
   begin
@@ -292,10 +287,16 @@ begin
         Free;
       end;
       DataModuleMain.BasicinfQuery.Refresh;
+      ProgressBoxForm.Close;
+      Application.ProcessMessages;
+      MessageDlg('Coordinates applied successfully! If this database is accessed from several different workspaces, please make sure to set the "OrigCoordSysNr" in the workspace.ini of those workspaces to the same number as in this workspace!', mtInformation, [mbOk], 0)
+    end
+    else
+    begin
+      ProgressBoxForm.Close;
+      Application.ProcessMessages;
+      MessageDlg('Longitude/latitude coordinates applied successfully!', mtInformation, [mbOk], 0)
     end;
-    ProgressBoxForm.Close;
-    Application.ProcessMessages;
-    MessageDlg('Coordinates applied successfully!', mtInformation, [mbOk], 0)
   end;
   Close; //close the dialog
 end;

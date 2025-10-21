@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -487,7 +487,6 @@ type
     LAMax, LAMin, RAMax, RAMin: Real;
   public
     { Public declarations }
-    XisDateTime: Boolean;
     TempChart: TChart;
     TempLogAxis: Array[0..3] of TLogarithmAxisTransform;
   end;
@@ -621,7 +620,6 @@ end;
 procedure TChartPropDlg.ButtonDataClick(Sender: TObject);
 var
   p, NrRows: LongWord;
-  DateStr: String;
   Err: Boolean;
 begin
   if TempChart.Series[ComboBoxSeries.ItemIndex] is TLineSeries then
@@ -629,7 +627,6 @@ begin
   else
   if TempChart.Series[ComboBoxSeries.ItemIndex] is TBarSeries then
     NrRows := (TempChart.Series[ComboBoxSeries.ItemIndex] as TBarSeries).Count;
-  XisDateTime := (TempChart.BottomAxis.Marks.Source <> Nil) or (TempChart.AxisList[3].Marks.Source <> Nil);
   with TEditChartDataForm.Create(Self) do
   begin
     StringGrid1.RowCount := NrRows + 1;
@@ -637,13 +634,7 @@ begin
     with (TempChart.Series[ComboBoxSeries.ItemIndex] as TLineSeries) do
     for p := 1 to NrRows do //fill StringGrid
     begin
-      if XisDateTime then
-      begin
-        DateTimeToString(DateStr, 'YYYY/MM/DD hh:nn', FloatToDateTime(XValue[p - 1]));
-        StringGrid1.Cells[1, p] := DateStr;
-      end
-      else
-        StringGrid1.Cells[1, p] := FloatToStr(XValue[p - 1]);
+      StringGrid1.Cells[1, p] := FloatToStr(XValue[p - 1]);
       StringGrid1.Cells[2, p] := FloatToStr(YValue[p - 1]);
       StringGrid1.Cells[3, p] := '';
     end
@@ -652,13 +643,7 @@ begin
     with (TempChart.Series[ComboBoxSeries.ItemIndex] as TBarSeries) do
     for p := 0 to NrRows -1 do //fill StringGrid
     begin
-      if XisDateTime then
-      begin
-        DateTimeToString(DateStr, 'YYYY/MM/DD hh:nn', FloatToDateTime(XValue[p]));
-        StringGrid1.Cells[1, p] := DateStr;
-      end
-      else
-        StringGrid1.Cells[1, p] := FloatToStr(XValue[p]);
+      StringGrid1.Cells[1, p] := FloatToStr(XValue[p]);
       StringGrid1.Cells[2, p] := FloatToStr(YValue[p]);
       StringGrid1.Cells[3, p] := '';
     end;
@@ -672,10 +657,7 @@ begin
         Clear;
         for p := 1 to StringGrid1.RowCount - 1  do
         try
-          if XisDateTime then
-            AddXY(StrToDateTime(StringGrid1.Cells[1, p], FFormatSettings), StrToFloat(StringGrid1.Cells[2, p]), StringGrid1.Cells[3, p])
-          else
-            AddXY(StrToFloat(StringGrid1.Cells[1, p]), StrToFloat(StringGrid1.Cells[2, p]), StringGrid1.Cells[3, p]);
+          AddXY(StrToFloat(StringGrid1.Cells[1, p]), StrToFloat(StringGrid1.Cells[2, p]), StringGrid1.Cells[3, p]);
         except on E: Exception do
           Err := True;
         end;
@@ -687,10 +669,7 @@ begin
         Clear;
         for p := 1 to StringGrid1.RowCount - 1  do
         try
-          if XisDateTime then
-            AddXY(StrToDateTime(StringGrid1.Cells[1, p], FFormatSettings), StrToFloat(StringGrid1.Cells[2, p]), StringGrid1.Cells[3, p])
-          else
-            AddXY(StrToFloat(StringGrid1.Cells[1, p]), StrToFloat(StringGrid1.Cells[2, p]), StringGrid1.Cells[3, p]);
+          AddXY(StrToFloat(StringGrid1.Cells[1, p]), StrToFloat(StringGrid1.Cells[2, p]), StringGrid1.Cells[3, p]);
         except on E: Exception do
           Err := True;
         end;
@@ -1172,30 +1151,16 @@ begin
     with BottomAxis do
     begin
       CheckBoxBottomAxisVisible.Checked := Visible;
-      if XisDateTime then //for time axes
-      begin
-        TabSheetBAScales.TabVisible := False;
-        TabSheetBATimeScales.TabVisible := True;
-        CheckBoxBATScalesAuto.Checked := not Range.UseMax and not Range.UseMin;
-        GroupBoxBATScales.Enabled := not CheckBoxBATScalesAuto.Checked;
-        BAStartDateTimePicker.DateTime := GetTransform.GraphToAxis(ex.a.X);
-        BAEndDateTimePicker.DateTime := GetTransform.GraphToAxis(ex.b.X);
-        TempChart.BottomAxis.Range.Min := GetTransform.GraphToAxis(ex.a.X);
-        TempChart.BottomAxis.Range.Max := GetTransform.GraphToAxis(ex.b.X);
-      end
-      else
-      begin
-        TabSheetBAScales.TabVisible := True;
-        TabSheetBATimeScales.TabVisible := False;
-        CheckBoxBAScalesAuto.Checked := not Range.UseMax and not Range.UseMin;
-        GroupBoxBAScales.Enabled := not CheckBoxBAScalesAuto.Checked;
-        CheckBoxBALog.Enabled := TempLogAxis[1] <> NIL;
-        CheckBoxBALog.Checked := (TempLogAxis[1] <> NIL) and TempLogAxis[1].Enabled;
-        EditBASteps.Text := Intervals.NiceSteps;
-        EditBAMin.Text := FloatToStr(Range.Min);
-        EditBAMax.Text := FloatToStr(Range.Max);
-        CheckBoxBAInverted.Checked := Inverted;
-      end;
+      TabSheetBAScales.TabVisible := True;
+      TabSheetBATimeScales.TabVisible := False;
+      CheckBoxBAScalesAuto.Checked := not Range.UseMax and not Range.UseMin;
+      GroupBoxBAScales.Enabled := not CheckBoxBAScalesAuto.Checked;
+      CheckBoxBALog.Enabled := TempLogAxis[1] <> NIL;
+      CheckBoxBALog.Checked := (TempLogAxis[1] <> NIL) and TempLogAxis[1].Enabled;
+      EditBASteps.Text := Intervals.NiceSteps;
+      EditBAMin.Text := FloatToStr(Range.Min);
+      EditBAMax.Text := FloatToStr(Range.Max);
+      CheckBoxBAInverted.Checked := Inverted;
       EditBATitle.Text := Title.Caption;
       CheckBoxBATitleVisible.Checked := Title.Visible;
       SpinEditBATitleAngle.Value := Title.LabelFont.Orientation/10;
@@ -1231,8 +1196,6 @@ begin
       if Minors.Count > 0 then
         SpinEditBATicksMinorsLength.Value := Minors.Axes[0].TickLength;
     end;
-    if XisDateTime and ((BottomAxis.Marks.Source as TDateTimeIntervalChartSource).DateTimeFormat <> '') then
-      EditDTFormatBot.Text := (BottomAxis.Marks.Source as TDateTimeIntervalChartSource).DateTimeFormat;
     //Right axis settings
     if AxisList.Count > 2 then
     with AxisList[2] do
@@ -1277,27 +1240,15 @@ begin
     with AxisList[3] do
     begin
       CheckBoxTopAxisVisible.Checked := Visible;
-      if XisDateTime then //for time axes
-      begin
-        TabSheetTAScales.TabVisible := False;
-        TabSheetTATimeScales.TabVisible := True;
-        TAStartDateTimePicker.DateTime := BAStartDateTimePicker.DateTime;
-        TAEndDateTimePicker.DateTime := BAEndDateTimePicker.DateTime;
-        Range.Min := TempChart.AxisList[1].Range.Min;
-        Range.Max := TempChart.AxisList[1].Range.Max;
-      end
-      else
-      begin
-        TabSheetTAScales.TabVisible := True;
-        TabSheetTATimeScales.TabVisible := False;
-        CheckBoxTAScalesAuto.Checked := (Range.UseMax = False) and (Range.UseMin = False);
-        CheckBoxTALog.Enabled := TempLogAxis[3] <> NIL;
-        CheckBoxTALog.Checked := (TempLogAxis[3] <> NIL) and TempLogAxis[3].Enabled;
-        EditTASteps.Text := Intervals.NiceSteps;
-        EditTAMin.Text := FloatToStr(Range.Min);
-        EditTAMax.Text := FloatToStr(Range.Max);
-        CheckBoxTAInverted.Checked := Inverted;
-      end;
+      TabSheetTAScales.TabVisible := True;
+      TabSheetTATimeScales.TabVisible := False;
+      CheckBoxTAScalesAuto.Checked := (Range.UseMax = False) and (Range.UseMin = False);
+      CheckBoxTALog.Enabled := TempLogAxis[3] <> NIL;
+      CheckBoxTALog.Checked := (TempLogAxis[3] <> NIL) and TempLogAxis[3].Enabled;
+      EditTASteps.Text := Intervals.NiceSteps;
+      EditTAMin.Text := FloatToStr(Range.Min);
+      EditTAMax.Text := FloatToStr(Range.Max);
+      CheckBoxTAInverted.Checked := Inverted;
       EditTATitle.Text := Title.Caption;
       CheckBoxTATitleVisible.Checked := Title.Visible;
       SpinEditTATitleAngle.Value := Title.LabelFont.Orientation/10;
@@ -1333,8 +1284,6 @@ begin
       if Minors.Count > 0 then
         SpinEditTATicksMinorsLength.Value := Minors.Axes[0].TickLength;
     end;
-    if XisDateTime and ((AxisList[3].Marks.Source as TDateTimeIntervalChartSource).DateTimeFormat <> '') then
-      EditDTFormatTop.Text := (AxisList[3].Marks.Source as TDateTimeIntervalChartSource).DateTimeFormat;
     {Title Settings}
     CheckBoxTitleVisible.Checked := Title.Visible;
     Memo1.Lines.Clear;

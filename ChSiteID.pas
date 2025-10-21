@@ -1,4 +1,4 @@
-{ Copyright (C) 2023 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2024 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free

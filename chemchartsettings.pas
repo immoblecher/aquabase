@@ -76,7 +76,7 @@ var
 
 implementation
 
-uses VARINIT, PieChem, SelParameter, chemcharts, ChemRadial, maindatamodule, stiffdiagram;
+uses VARINIT, PieChem, Selparameter, chemcharts, ChemRadial, maindatamodule, stiffdiagram;
 
 {$R *.lfm}
 

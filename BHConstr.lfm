@@ -1,6 +1,6 @@
 inherited BHConstrForm: TBHConstrForm
-  Left = 667
-  Top = 153
+  Left = 2766
+  Top = 354
   Width = 577
   Caption = 'Borehole Construction Form'
   ClientWidth = 577
@@ -99,27 +99,22 @@ inherited BHConstrForm: TBHConstrForm
     Width = 577
     ClientWidth = 577
     inherited Panel3: TPanel
-      Height = 246
-      Top = 114
       Width = 567
-      ClientHeight = 246
       ClientWidth = 567
       inherited LinkedLabel: TLabel
         Width = 481
         Caption = 'Borehole Construction'
       end
       inherited PageControl: TPageControl
-        Height = 195
         Width = 567
         inherited TabSheet1: TTabSheet
           Hint = 'Diameter Information'
           Caption = 'Hole Diameter'
-          ClientHeight = 169
-          ClientWidth = 559
+          ClientHeight = 162
+          ClientWidth = 557
           inherited DBGrid1: TDBGrid
-            Height = 169
             Hint = 'Diameter Information'
-            Width = 559
+            Width = 557
             AutoFillColumns = True
             OnKeyDown = DBGridKeyDown
             OnMouseDown = DBGridMouseDown
@@ -128,12 +123,11 @@ inherited BHConstrForm: TBHConstrForm
         inherited TabSheet2: TTabSheet
           Hint = 'Casing Information'
           Caption = 'Casing'
-          ClientHeight = 169
-          ClientWidth = 559
+          ClientHeight = 162
+          ClientWidth = 557
           inherited DBGrid2: TDBGrid
-            Height = 169
             Hint = 'Casing Information'
-            Width = 559
+            Width = 557
             OnKeyDown = DBGridKeyDown
             OnMouseDown = DBGridMouseDown
           end
@@ -141,12 +135,11 @@ inherited BHConstrForm: TBHConstrForm
         inherited TabSheet3: TTabSheet
           Hint = 'Piezometer Information'
           Caption = 'Piezometer'
-          ClientHeight = 169
-          ClientWidth = 559
+          ClientHeight = 162
+          ClientWidth = 557
           inherited DBGrid3: TDBGrid
-            Height = 169
             Hint = 'Piezometer Information'
-            Width = 559
+            Width = 557
             OnKeyDown = DBGridKeyDown
             OnMouseDown = DBGridMouseDown
           end
@@ -154,12 +147,11 @@ inherited BHConstrForm: TBHConstrForm
         inherited TabSheet4: TTabSheet
           Hint = 'Fill Material'
           Caption = 'Fill Material'
-          ClientHeight = 169
-          ClientWidth = 559
+          ClientHeight = 162
+          ClientWidth = 557
           inherited DBGrid4: TDBGrid
-            Height = 169
             Hint = 'Fill Material'
-            Width = 559
+            Width = 557
             AutoFillColumns = True
             Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
             OnKeyDown = DBGridKeyDown
@@ -168,7 +160,6 @@ inherited BHConstrForm: TBHConstrForm
         end
       end
       inherited Panel4: TPanel
-        Top = 219
         Width = 567
         ClientWidth = 567
         inherited DetailNavigator: TDBNavigator
@@ -178,15 +169,14 @@ inherited BHConstrForm: TBHConstrForm
           Left = 502
         end
         inherited StaticText1: TStaticText
-          Left = 461
-          Width = 38
+          Left = 457
         end
       end
       object AMSLCheckBox: TCheckBox[3]
-        Left = 501
-        Height = 17
+        Left = 495
+        Height = 23
         Top = 2
-        Width = 61
+        Width = 67
         Anchors = [akTop, akRight]
         Caption = 'a.m.s.l.'
         Font.CharSet = ANSI_CHARSET
@@ -194,25 +184,20 @@ inherited BHConstrForm: TBHConstrForm
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         Font.Style = [fsBold]
-        OnClick = AMSLCheckBoxClick
         ParentFont = False
         TabOrder = 2
         TabStop = False
+        OnClick = AMSLCheckBoxClick
       end
     end
     inherited GroupBox1: TGroupBox
-      Height = 105
       Width = 567
-      ClientHeight = 87
-      ClientWidth = 563
+      ClientWidth = 565
       inherited EditSITE_NAME: TDBEdit
-        Width = 297
+        Width = 299
       end
       inherited EditDATE_UPDTD: TDBEdit
-        Width = 89
-      end
-      inherited RxDBLookupComboType: TRxDBLookupCombo
-        Height = 27
+        Width = 91
       end
     end
   end
@@ -250,6 +235,7 @@ inherited BHConstrForm: TBHConstrForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     IndexFieldNames = 'DEPTH_TOP Asc'
     Left = 24
@@ -260,6 +246,7 @@ inherited BHConstrForm: TBHConstrForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object ZQuery1SITE_ID_NR: TStringField[0]
       DisplayWidth = 44
@@ -358,7 +345,7 @@ inherited BHConstrForm: TBHConstrForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = FieldUpperSetText
+      OnSetText = FieldCOMMENTSetText
       Size = 48
     end
   end
@@ -380,6 +367,7 @@ inherited BHConstrForm: TBHConstrForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     IndexFieldNames = 'DIAMETER Desc,DEPTH_TOP Asc,DEPTH_BOT Asc'
     Top = 248
@@ -389,6 +377,7 @@ inherited BHConstrForm: TBHConstrForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object ZQuery2SITE_ID_NR: TStringField[0]
       DisplayWidth = 44
@@ -518,7 +507,7 @@ inherited BHConstrForm: TBHConstrForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = FieldUpperSetText
+      OnSetText = FieldCOMMENTSetText
       Size = 48
     end
     object ZQuery2OPEN_TYPE: TStringField[9]
@@ -621,7 +610,7 @@ inherited BHConstrForm: TBHConstrForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = FieldUpperSetText
+      OnSetText = FieldCOMMENTSetText
       Size = 48
     end
   end
@@ -641,6 +630,7 @@ inherited BHConstrForm: TBHConstrForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     IndexFieldNames = 'PIEZO_NR Asc,DEPTH_TOP Asc,DEPTH_BOT Asc'
     Left = 256
@@ -651,6 +641,7 @@ inherited BHConstrForm: TBHConstrForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object ZQuery3SITE_ID_NR: TStringField[0]
       DisplayWidth = 44
@@ -775,7 +766,7 @@ inherited BHConstrForm: TBHConstrForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = FieldUpperSetText
+      OnSetText = FieldCOMMENTSetText
       Size = 48
     end
     object ZQuery3OPEN_TYPE: TStringField[9]
@@ -868,7 +859,7 @@ inherited BHConstrForm: TBHConstrForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = FieldUpperSetText
+      OnSetText = FieldCOMMENTSetText
       Size = 48
     end
   end
@@ -888,6 +879,7 @@ inherited BHConstrForm: TBHConstrForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     IndexFieldNames = 'DEPTH_TOP Asc,DEPTH_BOT Asc,OUTDIAM Asc,INDIAM Asc'
     Top = 248
@@ -897,6 +889,7 @@ inherited BHConstrForm: TBHConstrForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object ZQuery4SITE_ID_NR: TStringField[0]
       DisplayWidth = 44
@@ -1011,7 +1004,7 @@ inherited BHConstrForm: TBHConstrForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = FieldUpperSetText
+      OnSetText = FieldCOMMENTSetText
       Size = 48
     end
   end

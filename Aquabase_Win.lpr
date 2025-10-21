@@ -20,30 +20,47 @@ program Aquabase_Win;
 {$mode objfpc}{$H+}
 
 uses
-  {$IFDEF UNIX}
-  cthreads,
-  {$ENDIF}
   {$IFDEF HASAMIGA}
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, controls, main, Splash;
+  Forms, controls, main, Splash, FileInfo, SysUtils,
+  uDarkStyleParams,
+  uDarkStyleSchemes,
+  uMetaDarkStyle,
+  VARINIT;
 
 {$R *.res}
 
+var
+  Info:TVersionInfo;
 begin
   Application.Scaled:=True;
+  if DarkTheme then
+  begin
+    PreferredAppMode := pamForceDark;
+    uMetaDarkStyle.ApplyMetaDarkStyle(DefaultDark);
+  end;
   RequireDerivedFormResource := True;
   Application.Initialize;
   Screen.Cursor := crAppStart;
-  SplashForm := TSplashForm.Create(Application);
+  Info := TVersionInfo.Create;
+  Info.Load(HINSTANCE);
+  // grab just the Build Number
+  with TSplashForm.Create(Application) do
   try
-    SplashForm.Show;
-    while not SplashForm.Completed do
+    Label1.Caption := 'Build: '
+      + IntToStr(Info.FixedInfo.FileVersion[0]) + '.'
+      + IntToStr(Info.FixedInfo.FileVersion[1]) + '.'
+      + IntToStr(Info.FixedInfo.FileVersion[2]) + '.'
+      + IntToStr(Info.FixedInfo.FileVersion[3]);
+    Info.Free;
+    Show;
+    while not Completed do
       Application.ProcessMessages;
-    SplashForm.Hide;
+    Hide;
   finally
-    SplashForm.Free;
+    Free;
   end;
   Screen.Cursor := crDefault;
   Application.CreateForm(TMainForm, MainForm);

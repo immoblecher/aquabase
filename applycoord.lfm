@@ -12,17 +12,17 @@ object ApplyCoordForm: TApplyCoordForm
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   Position = poScreenCenter
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '3.8.0.0'
   object Label1: TLabel
     Left = 9
-    Height = 13
+    Height = 17
     Top = 9
-    Width = 109
+    Width = 127
     Caption = '&Apply coordinates to:'
   end
   object ComboBox1: TComboBox
     Left = 9
-    Height = 25
+    Height = 29
     Top = 25
     Width = 287
     Anchors = [akTop, akLeft, akRight]
@@ -32,16 +32,16 @@ object ApplyCoordForm: TApplyCoordForm
       'Longitude and Latitude (WGS84)'
       'X_Coord and Y_Coord (stored Coordinate system)'
     )
-    OnChange = ComboBox1Change
     Style = csDropDownList
     TabOrder = 0
     Text = 'Longitude and Latitude (WGS84)'
+    OnChange = ComboBox1Change
   end
   object CoordLabel: TLabel
     Left = 9
-    Height = 12
+    Height = 16
     Top = 56
-    Width = 158
+    Width = 173
     Caption = '&Coordinate System to be applied:'
     Font.Color = clWindowText
     Font.Height = -11
@@ -50,7 +50,7 @@ object ApplyCoordForm: TApplyCoordForm
   end
   object ComboBoxCoordSys: TComboBox
     Left = 9
-    Height = 27
+    Height = 33
     Top = 73
     Width = 287
     Anchors = [akTop, akLeft, akRight]
@@ -62,8 +62,8 @@ object ApplyCoordForm: TApplyCoordForm
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 38
-    Top = 106
+    Height = 41
+    Top = 103
     Width = 294
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True

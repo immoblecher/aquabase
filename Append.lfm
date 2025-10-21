@@ -1,7 +1,7 @@
 object AppendForm: TAppendForm
-  Left = 813
+  Left = 1063
   Height = 342
-  Top = 153
+  Top = 173
   Width = 360
   HelpContext = 53
   BorderStyle = bsSingle
@@ -19,7 +19,7 @@ object AppendForm: TAppendForm
   OnKeyDown = FormKeyDown
   Position = poScreenCenter
   SessionProperties = 'GroupBox1.Tag'
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.8.0.0'
   object Label3: TLabel
     Left = 16
     Height = 16
@@ -43,24 +43,25 @@ object AppendForm: TAppendForm
     Top = 6
     Width = 344
     Caption = 'Other Aquabase Database:'
-    ClientHeight = 259
+    ClientHeight = 255
     ClientWidth = 342
     Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
+    ParentBackground = False
     ParentFont = False
     TabOrder = 0
     object Label2: TLabel
       Left = 7
-      Height = 10
+      Height = 16
       Top = 0
-      Width = 58
+      Width = 60
       Caption = 'Workspace:'
       ParentColor = False
     end
     object Edit2: TEdit
       Left = 8
-      Height = 23
+      Height = 33
       Top = 16
       Width = 258
       Enabled = False
@@ -70,11 +71,11 @@ object AppendForm: TAppendForm
     object ButtonSelect: TButton
       Left = 270
       Height = 25
-      Top = 14
+      Top = 18
       Width = 67
       Caption = '&Select...'
-      OnClick = ButtonSelectClick
       TabOrder = 1
+      OnClick = ButtonSelectClick
     end
     object TableListBox: TListBox
       Left = 8
@@ -84,12 +85,12 @@ object AppendForm: TAppendForm
       Items.Strings = (
         '<no selected tables>'
       )
-      ItemHeight = 18
+      ItemHeight = 22
       ItemIndex = 0
       MultiSelect = True
-      OnClick = TableListBoxClick
       ScrollWidth = 127
       TabOrder = 2
+      OnClick = TableListBoxClick
     end
     object Button1: TButton
       Left = 146
@@ -97,12 +98,12 @@ object AppendForm: TAppendForm
       Top = 48
       Width = 97
       Caption = '&Select All'
-      OnClick = Button1Click
       TabOrder = 3
+      OnClick = Button1Click
     end
     object ViewComboBox: TComboBox
       Left = 146
-      Height = 25
+      Height = 28
       Top = 112
       Width = 188
       Enabled = False
@@ -119,11 +120,11 @@ object AppendForm: TAppendForm
       Left = 146
       Height = 23
       Top = 88
-      Width = 129
+      Width = 140
       Caption = 'Use only sites in view:'
       Enabled = False
-      OnClick = CheckBox1Click
       TabOrder = 5
+      OnClick = CheckBox1Click
     end
     object RadioGroup1: TRadioGroup
       Left = 146
@@ -139,7 +140,7 @@ object AppendForm: TAppendForm
       ChildSizing.ShrinkVertical = crsScaleChilds
       ChildSizing.Layout = cclLeftToRightThenTopToBottom
       ChildSizing.ControlsPerLine = 1
-      ClientHeight = 65
+      ClientHeight = 61
       ClientWidth = 186
       ItemIndex = 0
       Items.Strings = (
@@ -148,11 +149,12 @@ object AppendForm: TAppendForm
         'Start with number below'
       )
       OnClick = RadioGroup1Click
+      ParentBackground = False
       TabOrder = 6
     end
     object Edit1: TEdit
       Left = 250
-      Height = 23
+      Height = 33
       Top = 228
       Width = 86
       Alignment = taRightJustify
@@ -163,17 +165,17 @@ object AppendForm: TAppendForm
     end
     object Label1: TLabel
       Left = 152
-      Height = 10
+      Height = 16
       Top = 232
-      Width = 88
+      Width = 93
       Caption = 'Chemistry ref. Nr.:'
       ParentColor = False
     end
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 38
-    Top = 298
+    Height = 40
+    Top = 296
     Width = 348
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -194,7 +196,6 @@ object AppendForm: TAppendForm
     CloseButton.Font.Color = clWindowText
     CloseButton.Font.Height = -11
     CloseButton.Font.Name = 'MS Sans Serif'
-    CloseButton.OnClick = CloseButtonClick
     CancelButton.Name = 'CancelButton'
     CancelButton.DefaultCaption = True
     CancelButton.Font.Color = clWindowText
@@ -203,6 +204,7 @@ object AppendForm: TAppendForm
     CancelButton.OnClick = CancelButtonClick
     TabOrder = 1
     DefaultButton = pbCancel
+    ShowButtons = [pbOK, pbCancel, pbHelp]
   end
   object BasicQuery: TZReadOnlyQuery
     Connection = ZConnectionOtherDB
@@ -219,13 +221,14 @@ object AppendForm: TAppendForm
   end
   object ZConnectionOtherDB: TZConnection
     ControlsCodePage = cCP_UTF8
-    AutoEncodeStrings = True
     Properties.Strings = (
       'codepage='
       'controls_cp=CP_UTF8'
       'AutoEncodeStrings=ON'
     )
     BeforeConnect = ZConnectionOtherDBBeforeConnect
+    AfterConnect = ZConnectionOtherDBAfterConnect
+    DisableSavepoints = False
     Port = 0
     Left = 72
     Top = 96

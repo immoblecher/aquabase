@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2024 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -51,7 +51,6 @@ type
     procedure Button1Click(Sender: TObject);
     procedure CancelButtonClick(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
-    procedure CloseButtonClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -59,11 +58,13 @@ type
     procedure OKButtonClick(Sender: TObject);
     procedure RadioGroup1Click(Sender: TObject);
     procedure TableListBoxClick(Sender: TObject);
+    procedure ZConnectionOtherDBAfterConnect(Sender: TObject);
     procedure ZConnectionOtherDBBeforeConnect(Sender: TObject);
   private
     { Private declarations }
     OtherWSpace: AnsiString;
-    UseOtherSQLitePW: Boolean;
+    OtherOrigCoordSysNr: Longword;
+    CoordSysDiff: Boolean;
     {$IFDEF WINDOWS}
     un, pw: String;
     {$ENDIF}
@@ -86,7 +87,8 @@ var
   TempTableList, SiteIDList: TStringList;
   WSpaceValid: Boolean;
 begin
-  UseOtherSQLitePW := False;
+  ZConnectionOtherDB.Disconnect;
+  WSpaceValid := True;
   if SelectDirectory(OtherWSpace, [], 1) then
   begin
     if (not FileExists(OtherWSpace + DirectorySeparator + 'workspace.ini')) or (OtherWSpace = WSpaceDir) then
@@ -96,7 +98,7 @@ begin
       //Check if it is an old Aquabase workspace
       if FileExistsExt('allsites.db', OtherWSpace) and FileExistsExt('basicinf.dbf', OtherWSpace) and FileExistsExt('workspace.ini', OtherWSpace) then
       begin
-        MessageDlg('This is a previous version Aquabase (< Ver. 7.0) workspace, which cannot be opened with this version of Aquabase! Please create a new workspace and import this old version workspace first and then try again.', mtError, [mbOK], 0);
+        MessageDlg('This is a previous version Aquabase (<= Ver. 6.x) workspace, which cannot be opened with this version of Aquabase! Please create a new workspace and import this old version workspace first and then try again.', mtError, [mbOK], 0);
         WSpaceValid := False;
       end
       else
@@ -215,11 +217,6 @@ begin
   ViewComboBox.Enabled := CheckBox1.Checked;
 end;
 
-procedure TAppendForm.CloseButtonClick(Sender: TObject);
-begin
-  Close;
-end;
-
 procedure TAppendForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   CloseAction := caFree;
@@ -255,6 +252,7 @@ begin
       LibraryLocation := ZConnectionOtherDB.LibraryLocation;
       HostName := ZConnectionOtherDB.HostName;
       Port := ZConnectionOtherDB.Port;
+      Catalog := ZConnectionOtherDB.Catalog;
       {$IFDEF WINDOWS}
       User:= un;
       Password := pw;
@@ -291,7 +289,21 @@ end;
 
 procedure TAppendForm.TableListBoxClick(Sender: TObject);
 begin
-  ButtonPanel1.OKButton.Enabled := TableListBox.SelCount > 0;
+  ButtonPanel1.OKButton.Enabled := (TableListBox.SelCount > 0) and not CoordSysDiff;
+end;
+
+procedure TAppendForm.ZConnectionOtherDBAfterConnect(Sender: TObject);
+begin
+  with ZConnectionOtherDB do
+    if Tag = 4 then
+      ExecuteDirect('SET search_path = "$user", ' + Catalog + ';');
+  if OtherOrigCoordSysNr <> OrigCoordSysNr then
+  begin
+    MessageDlg('The stored coordinates in the selected workspace are not the same as in this workspace! ' +
+      'These should be changed with the "Apply Coordinate System" tool in either of the workspaces first before appending/merging the workspaces. ' +
+      'Appending the selected workspace is therefore not possible.', mtError, [mbOK], 0);
+    CoordSysDiff := True;
+  end;
 end;
 
 procedure TAppendForm.ZConnectionOtherDBBeforeConnect(Sender: TObject);
@@ -303,12 +315,12 @@ begin
   WSpaceIniFile := TIniFile.Create(OtherWSpace + DirectorySeparator + 'workspace.ini');
   with WSpaceIniFile, ZConnectionOtherDB do
   begin
-    HostName := ReadString('Database', 'HostName', '');
-    Port := ReadInteger('Database', 'Port', 0);
+    CoordSysDiff := False;
+    OtherOrigCoordSysNr := ReadInteger('International', 'OrigCoordSysNr', 4326);
     Protocol := ReadString('Database', 'Protocol', '');
-    if Protocol = 'sqlite-3' then
+    if (Protocol = 'sqlite-3') or (Protocol = 'sqlite') then
     begin
-      UseOtherSQLitePW := ReadBool('Database', 'Password', False);
+      Protocol := 'sqlite';
       Spatialite := ReadBool('Database', 'Spatialite', True);
       {$IFDEF WINDOWS}
       Database := ReadString('Database', 'Database', '');
@@ -322,18 +334,15 @@ begin
       Database := ReadString('Database', 'mDatabase', '');
       LibraryLocation := SQLiteLib;
       {$ENDIF}
-      if Database = '' then
-        Database := ReadString('Database', 'Database', '');
-      if Database = '' then
-        Database := ReadString('Database', 'xDatabase', '');
-      if Database = '' then
-        Database := ReadString('Database', 'mDatabase', '');
       Tag := 1;
     end
     else
     if Pos('mysql', Protocol) = 1 then
     begin
+      Protocol := 'mysql';
+      HostName := ReadString('Database', 'HostName', '');
       Database := ReadString('Database', 'Database', '');
+      Port := ReadInteger('Database', 'Port', 3306);
       {$IFDEF WINDOWS}
       LibraryLocation := ProgramDir + '\' + MySQLLib;
       {$ENDIF}
@@ -343,9 +352,12 @@ begin
       Tag := 2
     end
     else
-    if Pos('MariaDB', Protocol) = 1 then
+    if (Pos('MariaDB', Protocol) = 1) or (Protocol = 'mariadb') then //for old Zeos < 8
     begin
+      Protocol := 'mariadb';
+      HostName := ReadString('Database', 'HostName', '');
       Database := ReadString('Database', 'Database', '');
+      Port := ReadInteger('Database', 'Port', 3306);
       {$IFDEF WINDOWS}
       LibraryLocation := ProgramDir + '\' + MariaDBLib;
       {$ENDIF}
@@ -355,22 +367,27 @@ begin
       Tag := 3
     end
     else
-    if Copy(Protocol, 1, 10) = 'postgresql' then
+    if LeftStr(Protocol, 10) = 'postgresql' then
     begin
+      Protocol := 'postgresql'; //for ZEOS < 8
+      HostName := ReadString('Database', 'HostName', '');
       Database := ReadString('Database', 'Database', '');
+      Port := ReadInteger('Database', 'Port', 5432);
       {$IFDEF WINDOWS}
       LibraryLocation := ProgramDir + '\' + PostgreLib;
       {$ENDIF}
       {$IFDEF UNIX}
       LibraryLocation := PostgreLib;
       {$ENDIF}
-      Catalog := 'pg_catalog';
+      Catalog := ReadString('Database', 'Schema', 'public');
       Tag := 4;
     end
     else
-    if Copy(Protocol, 1, 13) = 'FreeTDS_MsSQL' then
+    if Protocol = 'mssql' then
     begin
+      HostName := ReadString('Database', 'HostName', '');
       Database := ReadString('Database', 'Database', '');
+      Port := ReadInteger('Database', 'Port', 1433);
       {$IFDEF WINDOWS}
       LibraryLocation := ProgramDir + '\' + MSsqlLib;
       ClientCodePage := 'WIN1252';
@@ -383,24 +400,16 @@ begin
     end;
   end;
   WSpaceIniFile.Free;
-  if (ZConnectionOtherDB.Tag > 1) or UseOtherSQLitePW then
-  begin //use Login Form
-    {if (ZConnectionOtherDB.User = '') or (ZConnectionOtherDB.Password = '') then
-      ZConnectionOtherDB.LoginPrompt := True
-    else
-      ZConnectionOtherDB.LoginPrompt := False;}
+  with ZConnectionOtherDB do
+  if Tag > 1 then
+  begin
     with TLoginForm.Create(Application) do
     begin
-      SQLitePW := UseSQLitePW;
       ShowModal;
       if ModalResult = mrOK then
       begin
-        ZConnectionOtherDB.User := EditUserName.Text;
-        ZConnectionOtherDB.Password := EditPassword.Text;
-        {$IFDEF WINDOWS}
-        un := EditUserName.Text;
-        pw := EditPassword.Text;
-        {$ENDIF}
+        User := EditUserName.Text;
+        Password := EditPassword.Text;
         Free;
       end
       else

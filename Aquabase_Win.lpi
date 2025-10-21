@@ -17,11 +17,10 @@
     </General>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <MajorVersionNr Value="8"/>
-      <MinorVersionNr Value="5"/>
-      <RevisionNr Value="2"/>
-      <BuildNr Value="402"/>
-      <StringTable CompanyName="Lazarus Projects" InternalName="Aquabase" LegalCopyright="Immo Blecher" ProductName="Aquabase Twenty20" ProductVersion="2020"/>
+      <MajorVersionNr Value="9"/>
+      <RevisionNr Value="6"/>
+      <BuildNr Value="410"/>
+      <StringTable CompanyName="Lazarus Projects" InternalName="Aquabase" LegalCopyright="(c) 2015 - 2025 Immo Blecher" ProductName="Aquabase &apos;25" ProductVersion="&apos;25"/>
     </VersionInfo>
     <BuildModes>
       <Item Name="Default" Default="True"/>
@@ -62,6 +61,40 @@
           </Other>
         </CompilerOptions>
       </Item>
+      <Item Name="Release Win32">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="c:\users\immo\Documents\Aquabase_i386\Aquabase"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="H:\Development\LazarusProjects\output\Aquabase\windows\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <TargetCPU Value="i386"/>
+            <TargetOS Value="win32"/>
+            <Optimizations>
+              <OptimizationLevel Value="3"/>
+            </Optimizations>
+          </CodeGeneration>
+          <Linking>
+            <LinkSmart Value="True"/>
+            <Options>
+              <Win32>
+                <GraphicApplication Value="True"/>
+              </Win32>
+            </Options>
+          </Linking>
+          <Other>
+            <CompilerMessages>
+              <IgnoredMessages idx6058="True" idx3123="True"/>
+            </CompilerMessages>
+          </Other>
+        </CompilerOptions>
+      </Item>
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
@@ -71,6 +104,9 @@
       <FormatVersion Value="2"/>
     </RunParams>
     <RequiredPackages>
+      <Item>
+        <PackageName Value="MetaDarkStyle"/>
+      </Item>
       <Item>
         <PackageName Value="PascalTZ"/>
       </Item>
@@ -187,6 +223,7 @@
         <Filename Value="basicinf.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="BasicinfForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
@@ -494,6 +531,7 @@
         <Filename Value="Imprtdat.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ImportdatDlg"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
@@ -555,6 +593,7 @@
         <Filename Value="login.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LoginForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
@@ -694,10 +733,11 @@
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
-        <Filename Value="Notepad.pas"/>
+        <Filename Value="notepad.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="NotepadForm"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Notepad"/>
       </Unit>
       <Unit>
         <Filename Value="Otherdat.pas"/>
@@ -1038,6 +1078,7 @@
         <Filename Value="sitestatus.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SiteStatusForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
@@ -1056,6 +1097,7 @@
         <Filename Value="Splash.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SplashForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
@@ -1091,6 +1133,7 @@
         <Filename Value="Stream.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="StreamForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
@@ -1219,6 +1262,9 @@
       <UnitOutputDirectory Value="H:\Development\LazarusProjects\output\Aquabase\windows\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
+      <Debugging>
+        <DebugInfoType Value="dsDwarf2"/>
+      </Debugging>
       <Options>
         <Win32>
           <GraphicApplication Value="True"/>
@@ -1244,6 +1290,9 @@
       </Item>
       <Item>
         <Name Value="EZSQLException"/>
+      </Item>
+      <Item>
+        <Name Value="EProcess"/>
       </Item>
     </Exceptions>
   </Debugging>

@@ -1,0 +1,6 @@
+{"version":1,"strings":[
+{"hash":147622221,"name":"taquiferform.caption","sourcebytes":[65,113,117,105,102,101,114,32,70,111,114,109],"value":"Aquifer Form"},
+{"hash":217319588,"name":"taquiferform.chartspeedbutton.hint","sourcebytes":[65,113,117,105,102,101,114,32,121,105,101,108,100],"value":"Aquifer yield"},
+{"hash":153238324,"name":"taquiferform.graphspeedbutton.hint","sourcebytes":[76,105,116,104,111,108,111,103,105,99,97,108,32,108,111,103,32,38,32,111,112,116,105,111,110,97,108,32,121,105,101,108,100],"value":"Lithological log & optional yield"},
+{"hash":84239022,"name":"taquiferform.amslcheckbox.caption","sourcebytes":[97,46,109,46,115,46,108,46],"value":"a.m.s.l."}
+]}

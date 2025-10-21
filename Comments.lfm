@@ -1,7 +1,7 @@
 inherited CommentsForm: TCommentsForm
-  Left = 558
+  Left = 2791
   Height = 372
-  Top = 218
+  Top = 291
   Caption = 'Comments Form'
   ClientHeight = 372
   Icon.Data = {
@@ -35,21 +35,24 @@ inherited CommentsForm: TCommentsForm
     inherited ViewNavigator: TDBNavigator
       Hints.Strings = (      )
     end
+    inherited ChartSpeedButton: TSpeedButton
+      Visible = False
+    end
     inherited BasicDBNavigator: TDBNavigator
       Hints.Strings = (      )
     end
   end
   inherited Panel2: TPanel
-    Height = 228
-    ClientHeight = 228
+    Height = 221
+    ClientHeight = 221
     inherited Panel4: TPanel
-      Top = 198
+      Top = 193
       inherited DetailNavigator: TDBNavigator
         Hints.Strings = (        )
       end
     end
     inherited DBGrid: TDBGrid
-      Height = 173
+      Height = 168
       Width = 170
       Align = alLeft
       AutoFillColumns = True
@@ -57,7 +60,8 @@ inherited CommentsForm: TCommentsForm
     end
     object DBMemo1: TDBMemo[3]
       Left = 179
-      Height = 173
+      Height = 168
+      Hint = 'Add comments here. When adding new comments post data row first end edit again to add text.'
       Top = 23
       Width = 392
       Align = alClient
@@ -86,6 +90,7 @@ inherited CommentsForm: TCommentsForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     IndexFieldNames = 'SITE_ID_NR Asc,DATE_ENTRY Asc'
     Left = 144
@@ -95,6 +100,7 @@ inherited CommentsForm: TCommentsForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryDATE_ENTRY: TStringField[1]
       DisplayLabel = 'Date entered'
@@ -116,6 +122,7 @@ inherited CommentsForm: TCommentsForm
       FieldName = 'REP_INST'
       Index = 2
       LookupCache = False
+      LookupKeyFields = 'REP_INST'
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
@@ -123,8 +130,8 @@ inherited CommentsForm: TCommentsForm
       OnValidate = LinkedQueryREP_INSTValidate
       Size = 4
     end
-    object LinkedQueryNOTE_PAD: TBlobField[3]
-      DisplayWidth = 10
+    object LinkedQueryNOTE_PAD: TWideStringField[3]
+      DisplayLabel = 'Notes'
       FieldKind = fkData
       FieldName = 'NOTE_PAD'
       Index = 3
@@ -133,7 +140,7 @@ inherited CommentsForm: TCommentsForm
       ReadOnly = False
       Required = False
       Visible = False
-      BlobType = ftMemo
+      Size = 1024000
     end
   end
 end

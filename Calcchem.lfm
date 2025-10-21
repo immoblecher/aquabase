@@ -44,7 +44,7 @@ object CalcForm: TCalcForm
   OnCreate = FormCreate
   Position = poDefaultSizeOnly
   SessionProperties = 'Left;Top'
-  LCLVersion = '1.8.4.0'
+  LCLVersion = '3.4.0.0'
   object Bevel1: TBevel
     Left = 0
     Height = 252
@@ -54,9 +54,9 @@ object CalcForm: TCalcForm
   end
   object Label1: TLabel
     Left = 12
-    Height = 15
+    Height = 13
     Top = 8
-    Width = 178
+    Width = 144
     Caption = 'TDS by summation [mg/l]:'
     Font.Color = clWindowText
     Font.Height = -12
@@ -67,9 +67,9 @@ object CalcForm: TCalcForm
   end
   object Label2: TLabel
     Left = 12
-    Height = 15
+    Height = 13
     Top = 28
-    Width = 129
+    Width = 109
     Caption = 'TDS (EC * 7) [mg/l]:'
     Font.Color = clWindowText
     Font.Height = -12
@@ -80,9 +80,9 @@ object CalcForm: TCalcForm
   end
   object Label3: TLabel
     Left = 12
-    Height = 15
+    Height = 13
     Top = 49
-    Width = 192
+    Width = 157
     Caption = 'Sum of major cations [me/l]:'
     Font.Color = clWindowText
     Font.Height = -12
@@ -93,9 +93,9 @@ object CalcForm: TCalcForm
   end
   object Label4: TLabel
     Left = 12
-    Height = 15
+    Height = 13
     Top = 69
-    Width = 188
+    Width = 154
     Caption = 'Sum of major anions [me/l]:'
     Font.Color = clWindowText
     Font.Height = -12
@@ -106,9 +106,9 @@ object CalcForm: TCalcForm
   end
   object Label5: TLabel
     Left = 12
-    Height = 15
+    Height = 13
     Top = 89
-    Width = 147
+    Width = 122
     Caption = 'Ion balance error [%]:'
     Font.Color = clWindowText
     Font.Height = -12
@@ -119,9 +119,9 @@ object CalcForm: TCalcForm
   end
   object Label6: TLabel
     Left = 12
-    Height = 15
+    Height = 13
     Top = 110
-    Width = 196
+    Width = 165
     Caption = 'Total hardness [mg/l CaCO3]:'
     Font.Color = clWindowText
     Font.Height = -12
@@ -132,9 +132,9 @@ object CalcForm: TCalcForm
   end
   object Label7: TLabel
     Left = 12
-    Height = 15
+    Height = 13
     Top = 130
-    Width = 218
+    Width = 183
     Caption = 'Calcium hardness [mg/l CaCO3]:'
     Font.Color = clWindowText
     Font.Height = -12
@@ -145,9 +145,9 @@ object CalcForm: TCalcForm
   end
   object Label8: TLabel
     Left = 12
-    Height = 15
+    Height = 13
     Top = 151
-    Width = 243
+    Width = 202
     Caption = 'Magnesium hardness [mg/l CaCO3]:'
     Font.Color = clWindowText
     Font.Height = -12
@@ -158,9 +158,9 @@ object CalcForm: TCalcForm
   end
   object Label9: TLabel
     Left = 12
-    Height = 15
+    Height = 13
     Top = 171
-    Width = 153
+    Width = 128
     Caption = 'Aggressiveness index:'
     Font.Color = clWindowText
     Font.Height = -12
@@ -171,9 +171,9 @@ object CalcForm: TCalcForm
   end
   object Label10: TLabel
     Left = 12
-    Height = 15
+    Height = 13
     Top = 191
-    Width = 186
+    Width = 148
     Caption = 'Langelier saturation index:'
     Font.Color = clWindowText
     Font.Height = -12
@@ -184,9 +184,9 @@ object CalcForm: TCalcForm
   end
   object Label11: TLabel
     Left = 12
-    Height = 15
+    Height = 13
     Top = 212
-    Width = 174
+    Width = 141
     Caption = 'Corrosion tendency ratio:'
     Font.Color = clWindowText
     Font.Height = -12
@@ -197,9 +197,9 @@ object CalcForm: TCalcForm
   end
   object Label12: TLabel
     Left = 12
-    Height = 15
+    Height = 13
     Top = 232
-    Width = 172
+    Width = 138
     Caption = 'Sodium Adsorption ratio:'
     Font.Color = clWindowText
     Font.Height = -12
@@ -328,9 +328,9 @@ object CalcForm: TCalcForm
     DataField = 'SAR'
     ParentColor = False
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    left = 59
-    top = 82
+    Left = 59
+    Top = 82
   end
 end

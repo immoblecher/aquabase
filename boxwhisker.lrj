@@ -1,0 +1,13 @@
+{"version":1,"strings":[
+{"hash":4077741,"name":"tboxwhiskerform.caption","sourcebytes":[66,111,120,32,38,32,87,104,105,115,107,101,114,32,68,105,97,103,114,97,109],"value":"Box & Whisker Diagram"},
+{"hash":142842946,"name":"tboxwhiskerform.chart1.axislist[0].title.caption","sourcebytes":[80,97,114,97,109,101,116,101,114],"value":"Parameter"},
+{"hash":142842946,"name":"tboxwhiskerform.chart1.axislist[2].title.caption","sourcebytes":[80,97,114,97,109,101,116,101,114],"value":"Parameter"},
+{"hash":204349964,"name":"tboxwhiskerform.statusbar1.simpletext","sourcebytes":[77,111,117,115,101,32,119,104,101,101,108,32,122,111,111,109,115,44,32,67,116,114,108,32,112,97,110,115,44,32,69,83,67,32,99,97,110,99,101,108,115,32,112,97,110,44,32,100,111,117,98,108,101,45,99,108,105,99,107,32,122,111,111,109,115,32,116,111,32,102,117,108,108],"value":"Mouse wheel zooms, Ctrl pans, ESC cancels pan, double-click zooms to full"},
+{"hash":17559920,"name":"tboxwhiskerform.copyasbitmap1.caption","sourcebytes":[38,67,111,112,121,32,97,115,32,98,105,116,109,97,112],"value":"&Copy as bitmap"},
+{"hash":43117950,"name":"tboxwhiskerform.saveas1.caption","sourcebytes":[83,97,118,101,32,38,97,115,46,46,46],"value":"Save &as..."},
+{"hash":257788532,"name":"tboxwhiskerform.quickformat1.caption","sourcebytes":[38,81,117,105,99,107,32,70,111,114,109,97,116],"value":"&Quick Format"},
+{"hash":262898164,"name":"tboxwhiskerform.horizgrid1.caption","sourcebytes":[38,72,111,114,105,122,46,32,71,114,105,100],"value":"&Horiz. Grid"},
+{"hash":120530020,"name":"tboxwhiskerform.vertgrid1.caption","sourcebytes":[38,86,101,114,116,46,32,71,114,105,100],"value":"&Vert. Grid"},
+{"hash":225070894,"name":"tboxwhiskerform.properties1.caption","sourcebytes":[38,80,114,111,112,101,114,116,105,101,115,46,46,46],"value":"&Properties..."},
+{"hash":117772355,"name":"tboxwhiskerform.savedialog.title","sourcebytes":[83,97,118,101,32,99,104,97,114,116,32,97,115],"value":"Save chart as"}
+]}

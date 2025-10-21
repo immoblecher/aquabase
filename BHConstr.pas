@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -99,6 +99,7 @@ type
     procedure AMSLCheckBoxClick(Sender: TObject);
     procedure GraphSpeedButtonClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure FieldCOMMENTSetText(Sender: TField; const aText: string);
     procedure ZQuery4AfterPost(DataSet: TDataSet);
     procedure ZQueryAfterDelete(DataSet: TDataSet);
     procedure ZQuery1AfterPost(DataSet: TDataSet);
@@ -141,6 +142,8 @@ begin
   ZQuery2.Open;
   ZQuery3.Open;
   ZQuery4.Open;
+  if not PageControl.Enabled then
+    ShowMessage('This site type does not seem to allow borehole construction data!');
 end;
 
 procedure TBHConstrForm.BasicinfDataSourceDataChange(Sender: TObject;
@@ -151,11 +154,18 @@ begin
     GraphSpeedButton.Enabled := (ZQuery1.RecordCount > 0) or (ZQuery2.RecordCount > 0);
   LinkedLabel.Caption := 'Borehole/Well - Diameter, thickness and openings ['
     + DiamUnit + ']; depth [' + LengthUnit + ']';
-  PageControl.Enabled := (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'B')
-    or (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'D')
-    or (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'W');
-  LinkedLabel.Enabled := PageControl.Enabled;
-  DetailNavigator.Enabled := PageControl.Enabled;
+  if not (DataModuleMain.BasicinfQuery.State IN [dsInsert, dsEdit]) then
+  begin
+    if not DataModuleMain.BasicinfQuerySITE_TYPE.IsNULL then
+      PageControl.Enabled := (DataModuleMain.BasicinfQuerySITE_TYPE.AsString[1] IN ['B', 'D', 'W']);
+    if PageControl.Enabled = True then
+    begin
+      LinkedLabel.Enabled := True;
+      DetailNavigator.Enabled := True;
+    end
+    else if Showing then
+      ShowMessage('This site type does not seem to allow borehole construction data!');
+  end;
 end;
 
 procedure TBHConstrForm.DEPTH_TOPValidate(Sender: TField);
@@ -273,6 +283,15 @@ begin
   inherited;
   LinkedLabel.Caption := Caption + ' - Diameter, thickness and openings ['
     + DiamUnit + ']; depth [' + LengthUnit + ']';
+end;
+
+procedure TBHConstrForm.FieldCOMMENTSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TBHConstrForm.ZQuery4AfterPost(DataSet: TDataSet);

@@ -1,0 +1,9 @@
+{"version":1,"strings":[
+{"hash":31189093,"name":"taboutboxform.caption","sourcebytes":[65,98,111,117,116,32,65,113,117,97,98,97,115,101],"value":"About Aquabase"},
+{"hash":231000124,"name":"taboutboxform.tabsheet1.caption","sourcebytes":[71,101,110,101,114,97,108],"value":"General"},
+{"hash":157868862,"name":"taboutboxform.tabsheet2.caption","sourcebytes":[73,110,102,111,114,109,97,116,105,111,110],"value":"Information"},
+{"hash":93027125,"name":"taboutboxform.tabsheet3.caption","sourcebytes":[82,101,97,100,109,101],"value":"Readme"},
+{"hash":125883593,"name":"taboutboxform.tabsheet4.caption","sourcebytes":[80,114,111,106,32,76,105,98,114,97,114,121],"value":"Proj Library"},
+{"hash":184846277,"name":"taboutboxform.tabsheet5.caption","sourcebytes":[83,121,110,97,112,115,101],"value":"Synapse"},
+{"hash":183604773,"name":"taboutboxform.tabsheet6.caption","sourcebytes":[83,112,97,116,105,97,76,105,116,101],"value":"SpatiaLite"}
+]}

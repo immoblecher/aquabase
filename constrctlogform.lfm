@@ -1,7 +1,7 @@
 object LogForm: TLogForm
-  Left = 670
+  Left = 847
   Height = 642
-  Top = 98
+  Top = 246
   Width = 582
   HelpContext = 951
   BorderIcons = [biSystemMenu, biMinimize]
@@ -15,11 +15,11 @@ object LogForm: TLogForm
   OnShow = FormShow
   PopupMenu = PopupMenu1
   SessionProperties = 'DTHChart.MarginsExternal;Height;Left;LogChart.MarginsExternal;Top;Width;DTHChart.Width'
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.8.0.0'
   object ButtonPanel1: TButtonPanel
     Left = 10
-    Height = 38
-    Top = 598
+    Height = 41
+    Top = 595
     Width = 562
     BorderSpacing.Left = 4
     BorderSpacing.Right = 4
@@ -42,7 +42,7 @@ object LogForm: TLogForm
   end
   object LogChart: TChart
     Left = 0
-    Height = 592
+    Height = 589
     Top = 0
     Width = 409
     AxisList = <    
@@ -136,6 +136,10 @@ object LogForm: TLogForm
     OnMouseMove = LogChartMouseMove
     object HoleLabels: TLineSeries
       Active = False
+      Title = 'Hole Diameter [mm]'
+      ZPosition = 999
+      LinePen.Style = psClear
+      MarkPositions = lmpNegative
       Marks.Margins.Left = 2
       Marks.Margins.Top = 1
       Marks.Margins.Right = 2
@@ -150,10 +154,6 @@ object LogForm: TLogForm
       Marks.LinkPen.Color = clBlack
       Marks.OverlapPolicy = opHideNeighbour
       Marks.Style = smsLegend
-      Title = 'Hole Diameter [mm]'
-      ZPosition = 999
-      LinePen.Style = psClear
-      MarkPositions = lmpNegative
       Pointer.Brush.Color = 9554175
       Pointer.HorizSize = 2
       Pointer.Style = psCircle
@@ -163,6 +163,10 @@ object LogForm: TLogForm
     end
     object CasingLabels: TLineSeries
       Active = False
+      Title = 'Casing Diameter [mm]'
+      ZPosition = 998
+      LinePen.Style = psClear
+      MarkPositions = lmpNegative
       Marks.Margins.Left = 2
       Marks.Margins.Top = 1
       Marks.Margins.Right = 2
@@ -176,10 +180,6 @@ object LogForm: TLogForm
       Marks.LinkPen.Color = clBlack
       Marks.OverlapPolicy = opHideNeighbour
       Marks.Style = smsLabel
-      Title = 'Casing Diameter [mm]'
-      ZPosition = 998
-      LinePen.Style = psClear
-      MarkPositions = lmpNegative
       Pointer.Brush.Color = 11599871
       Pointer.HorizSize = 2
       Pointer.VertSize = 2
@@ -189,13 +189,19 @@ object LogForm: TLogForm
     object CapSeries: TLineSeries
       Legend.Order = 0
       Active = False
-      Marks.Visible = False
       Title = 'Cap'
       ZPosition = 996
       LinePen.Width = 3
+      Marks.Visible = False
     end
     object WaterlevelLine: TLineSeries
       Active = False
+      Title = 'Water level [m]'
+      ZPosition = 997
+      LinePen.Color = clBlue
+      LinePen.EndCap = pecFlat
+      LinePen.Width = 2
+      MarkPositions = lmpPositive
       Marks.Alignment = taCenter
       Marks.Margins.Left = 2
       Marks.Margins.Top = 1
@@ -214,12 +220,6 @@ object LogForm: TLogForm
       Marks.LinkPen.Color = clBlack
       Marks.LinkPen.EndCap = pecFlat
       Marks.Style = smsLabel
-      Title = 'Water level [m]'
-      ZPosition = 997
-      LinePen.Color = clBlue
-      LinePen.EndCap = pecFlat
-      LinePen.Width = 2
-      MarkPositions = lmpPositive
       Pointer.Brush.Color = clBlue
       Pointer.HorizSize = 10
       Pointer.Style = psDiamond
@@ -227,6 +227,11 @@ object LogForm: TLogForm
     end
     object StrikeLabels: TLineSeries
       Active = False
+      Title = 'Water strike'
+      ZPosition = 995
+      LinePen.Color = clGreen
+      LinePen.Style = psClear
+      MarkPositions = lmpPositive
       Marks.Alignment = taCenter
       Marks.Distance = 2
       Marks.LabelFont.Color = clGreen
@@ -239,11 +244,6 @@ object LogForm: TLogForm
       Marks.LabelBrush.Style = bsClear
       Marks.LinkPen.Visible = False
       Marks.Style = smsLabel
-      Title = 'Water strike'
-      ZPosition = 995
-      LinePen.Color = clGreen
-      LinePen.Style = psClear
-      MarkPositions = lmpPositive
       Pointer.Brush.Color = clGreen
       Pointer.Style = psLeftTriangle
       Pointer.Visible = True
@@ -252,6 +252,9 @@ object LogForm: TLogForm
     object LogLabelLines: TLineSeries
       Legend.Visible = False
       Active = False
+      ZPosition = 900
+      LinePen.Style = psClear
+      MarkPositions = lmpInside
       Marks.Alignment = taCenter
       Marks.Margins.Left = 2
       Marks.Margins.Top = 1
@@ -270,9 +273,6 @@ object LogForm: TLogForm
       Marks.LinkPen.Color = clBlack
       Marks.LinkPen.Visible = False
       Marks.Style = smsLabel
-      ZPosition = 900
-      LinePen.Style = psClear
-      MarkPositions = lmpInside
       Pointer.Brush.Color = clBlack
       Pointer.HorizSize = 1
       Pointer.VertSize = 1
@@ -280,6 +280,12 @@ object LogForm: TLogForm
     object LithLabels: TBarSeries
       Legend.Visible = False
       Active = False
+      AxisIndexX = 0
+      AxisIndexY = 1
+      BarBrush.Color = clNone
+      BarPen.Color = clNone
+      BarPen.Style = psClear
+      BarWidthPercent = 1
       Marks.Attachment = maEdge
       Marks.Distance = 0
       Marks.LabelFont.Height = 9
@@ -289,17 +295,11 @@ object LogForm: TLogForm
       Marks.LabelBrush.Style = bsClear
       Marks.LinkPen.Color = clNone
       Marks.Style = smsLabel
-      AxisIndexX = 0
-      AxisIndexY = 1
-      BarBrush.Color = clNone
-      BarPen.Color = clNone
-      BarPen.Style = psClear
-      BarWidthPercent = 1
     end
   end
   object DTHChart: TChart
     Left = 414
-    Height = 592
+    Height = 589
     Top = 0
     Width = 168
     AxisList = <    
@@ -394,22 +394,22 @@ object LogForm: TLogForm
     OnMouseMove = DTHChartMouseMove
     object TopSeries: TLineSeries
       Active = False
-      Marks.Visible = False
       AxisIndexX = 3
       AxisIndexY = 2
       LinePen.Color = clRed
+      Marks.Visible = False
     end
     object BottomSeries: TLineSeries
       Active = False
-      Marks.Visible = False
       AxisIndexX = 1
       AxisIndexY = 2
       LinePen.Color = clBlue
+      Marks.Visible = False
     end
   end
   object Splitter1: TSplitter
     Left = 409
-    Height = 592
+    Height = 589
     Top = 0
     Width = 5
     Align = alRight
@@ -432,7 +432,7 @@ object LogForm: TLogForm
     Left = 280
     Top = 16
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
     Left = 72
     Top = 16

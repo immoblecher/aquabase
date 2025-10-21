@@ -1,6 +1,11 @@
 {"version":1,"strings":[
 {"hash":129407681,"name":"tlogform.caption","sourcebytes":[67,111,110,115,116,114,117,99,116,105,111,110,44,32,108,105,116,104,111,108,111,103,121,32,97,110,100,32,100,101,112,116,104,32,100,101,112,101,110,100,101,110,116,32,100,97,116,97],"value":"Construction, lithology and depth dependent data"},
 {"hash":87400452,"name":"tlogform.buttonpanel1.okbutton.caption","sourcebytes":[38,83,104,111,119,32,114,101,112,111,114,116],"value":"&Show report"},
+{"hash":128593133,"name":"tlogform.logchart.axislist[0].title.caption","sourcebytes":[68,101,112,116,104,32,91,109,93],"value":"Depth [m]"},
+{"hash":10199594,"name":"tlogform.logchart.axislist[1].title.caption","sourcebytes":[76,69,71,69,78,68,58],"value":"LEGEND:"},
+{"hash":223032793,"name":"tlogform.logchart.axislist[2].title.caption","sourcebytes":[72,111,108,101,32,67,111,110,115,116,114,117,99,116,105,111,110,32,97,110,100,32,76,105,116,104,111,108,111,103,121],"value":"Hole Construction and Lithology"},
+{"hash":243976466,"name":"tlogform.dthchart.axislist[1].title.caption","sourcebytes":[87,104,97,116,101,118,101,114],"value":"Whatever"},
+{"hash":243976466,"name":"tlogform.dthchart.axislist[3].title.caption","sourcebytes":[87,104,97,116,101,118,101,114],"value":"Whatever"},
 {"hash":62115712,"name":"tlogform.menuitemcopyclip.caption","sourcebytes":[38,67,111,112,121,32,116,111,32,99,108,105,112,98,111,97,114,100,32,97,115,32,66,105,116,109,97,112],"value":"&Copy to clipboard as Bitmap"},
 {"hash":117772963,"name":"tlogform.menuitemsave.caption","sourcebytes":[38,83,97,118,101,32,99,104,97,114,116,32,97,115],"value":"&Save chart as"},
 {"hash":148931701,"name":"tlogform.menuitembitmap.caption","sourcebytes":[38,66,105,116,109,97,112,32,73,109,97,103,101],"value":"&Bitmap Image"},

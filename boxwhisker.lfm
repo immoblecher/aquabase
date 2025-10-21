@@ -11,10 +11,10 @@ object BoxWhiskerForm: TBoxWhiskerForm
   OnCreate = FormCreate
   OnShow = FormShow
   SessionProperties = 'Left;Top;Height;Width'
-  LCLVersion = '1.8.4.0'
+  LCLVersion = '3.4.0.0'
   object Chart1: TChart
     Left = 0
-    Height = 325
+    Height = 329
     Top = 0
     Width = 606
     AxisList = <    
@@ -67,40 +67,40 @@ object BoxWhiskerForm: TBoxWhiskerForm
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 19
-    Top = 325
+    Height = 15
+    Top = 329
     Width = 606
     Panels = <>
     ParentShowHint = False
     SimpleText = 'Mouse wheel zooms, Ctrl pans, ESC cancels pan, double-click zooms to full'
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    left = 512
-    top = 24
+    Left = 512
+    Top = 24
   end
   object ZQueryBox: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = ZQueryBoxBeforeOpen
     AfterOpen = ZQueryBoxAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     Params = <>
-    left = 104
-    top = 40
+    Left = 104
+    Top = 40
   end
   object ZReadOnlyQuery1: TZReadOnlyQuery
     Connection = DataModuleMain.ZConnectionDB
     Params = <>
-    left = 344
-    top = 24
+    Left = 344
+    Top = 24
   end
   object ListChartSourceX: TListChartSource
     Sorted = True
-    left = 232
-    top = 240
+    Left = 232
+    Top = 240
   end
   object ChartToolset1: TChartToolset
-    left = 312
-    top = 112
+    Left = 312
+    Top = 112
     object ChartToolset1ZoomMouseWheelTool1: TZoomMouseWheelTool
       ZoomFactor = 1.1
     end
@@ -111,8 +111,8 @@ object BoxWhiskerForm: TBoxWhiskerForm
     end
   end
   object PopupMenuCharts: TPopupMenu
-    left = 188
-    top = 76
+    Left = 188
+    Top = 76
     object Copyasbitmap1: TMenuItem
       Caption = '&Copy as bitmap'
       OnClick = Copyasbitmap1Click
@@ -150,7 +150,7 @@ object BoxWhiskerForm: TBoxWhiskerForm
     DefaultExt = '.jpg'
     Filter = 'JPEG image file (*.jpg)|*.jpg|Bitmap image file (*.bmp)|*.bmp|Portable Network Graphics (*.png)|*.png'
     InitialDir = 'WSpaceDir'
-    left = 424
-    top = 216
+    Left = 424
+    Top = 216
   end
 end

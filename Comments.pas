@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -32,7 +32,7 @@ type
   TCommentsForm = class(TMasterDetailForm)
     DBMemo1: TDBMemo;
     LinkedQueryDATE_ENTRY: TStringField;
-    LinkedQueryNOTE_PAD: TBlobField;
+    LinkedQueryNOTE_PAD: TWideStringField;
     LinkedQueryREP_INST: TStringField;
     procedure LinkedQueryNewRecord(DataSet: TDataSet);
     procedure LinkedQueryREP_INSTSetText(Sender: TField; const aText: string);

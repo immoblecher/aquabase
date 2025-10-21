@@ -1,4 +1,4 @@
-{ Copyright (C) 2019 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2024 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -46,7 +46,7 @@ type
     SaveDialog: TSaveDialog;
     StatusBar1: TStatusBar;
     VertGrid1: TMenuItem;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     ZQueryBox: TZReadOnlyQuery;
     ZReadOnlyQuery1: TZReadOnlyQuery;
     procedure Chart1DblClick(Sender: TObject);
@@ -397,7 +397,7 @@ end;
 
 procedure TBoxWhiskerForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
 end;
 
 procedure TBoxWhiskerForm.FormClose(Sender: TObject;

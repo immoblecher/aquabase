@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -25,8 +25,8 @@ uses
   Classes, SysUtils, FileUtil, TAGraph, TASeries, TACustomSeries,
   TAChartExtentLink, TATransformations, TATextElements, ZDataset, Forms,
   GraphUtil, Controls, Graphics, Dialogs, ButtonPanel, ExtCtrls, XMLPropStorage,
-  DbCtrls, math, TALegend, TAChartUtils, TASources, TATools, FPImage,
-  FPCanvas, StrUtils, IntfGraphics, LCLType, LCLProc, LCLIntf, Menus;
+  DbCtrls, math, TALegend, TAChartUtils, TASources, TATools,
+  FPImage, FPCanvas, StrUtils, IntfGraphics, LCLType, LCLProc, LCLIntf, Menus;
 
 type
 
@@ -81,7 +81,7 @@ type
     GetDataQuery: TZReadOnlyQuery;
     TopSeries: TLineSeries;
     WaterlevelLine: TLineSeries;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     LookupQuery: TZReadOnlyQuery;
     procedure CancelButtonClick(Sender: TObject);
     procedure CloseButtonClick(Sender: TObject);
@@ -369,6 +369,8 @@ begin
       begin
         if GetDataQuery.FieldByName('UNIT_NAME').Value > '' then
           LithDescrList.Add(AnsiProperCase(GetDataQuery.FieldByName('UNIT_NAME').Value, StdWordDelims) + ': ')
+        else
+          LithDescrList.Add(GetDataQuery.FieldByName('LITH_CODE').Value + ': ');
       end;
       //Check if there is any descriptive data after the lithology and add
       if GetDataQuery.FieldByName('SECO_COLOR').Value > '' then
@@ -1450,7 +1452,7 @@ end;
 
 procedure TLogForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   with ButtonPanel1 do
   begin
     OKButton.Font.Name := AppFont.Name;

@@ -94,7 +94,7 @@
 {"hash":157682189,"name":"tchemistryform.dbeditsr.hint","sourcebytes":[83,116,114,111,110,116,105,117,109],"value":"Strontium"},
 {"hash":159072509,"name":"tchemistryform.dbeditcd.hint","sourcebytes":[67,97,100,109,105,117,109],"value":"Cadmium"},
 {"hash":192060403,"name":"tchemistryform.tabsheet3.hint","sourcebytes":[79,114,103,97,110,105,99,47,66,97,99,116,46,32,80,97,114,97,109,101,116,101,114,115],"value":"Organic/Bact. Parameters"},
-{"hash":8632846,"name":"tchemistryform.tabsheet3.caption","sourcebytes":[79,114,103,97,110,105,99,47,66,97,99,116,101,114,105,111,108,46],"value":"Organic/Bacteriol."},
+{"hash":225229644,"name":"tchemistryform.tabsheet3.caption","sourcebytes":[79,114,103,97,110,105,99,47,77,105,99,114,111,98,105,111,108,111,103,105,99,97,108],"value":"Organic/Microbiological"},
 {"hash":174132,"name":"tchemistryform.label301.caption","sourcebytes":[38,67,79,68],"value":"&COD"},
 {"hash":69780985,"name":"tchemistryform.label302.caption","sourcebytes":[67,38,70,82,32,40,67,108,50,41],"value":"C&FR (Cl2)"},
 {"hash":174387,"name":"tchemistryform.label303.caption","sourcebytes":[38,68,79,67],"value":"&DOC"},
@@ -189,7 +189,7 @@
 {"hash":1441,"name":"tchemistryform.label515.caption","sourcebytes":[84,97],"value":"Ta"},
 {"hash":1348,"name":"tchemistryform.label510.caption","sourcebytes":[78,100],"value":"Nd"},
 {"hash":51048685,"name":"tchemistryform.dbeditli.hint","sourcebytes":[76,105,116,104,105,117,109],"value":"Lithium"},
-{"hash":77373629,"name":"tchemistryform.dbeditce.hint","sourcebytes":[67,101,115,105,117,109],"value":"Cesium"},
+{"hash":77369533,"name":"tchemistryform.dbeditce.hint","sourcebytes":[67,101,114,105,117,109],"value":"Cerium"},
 {"hash":321060,"name":"tchemistryform.dbeditau.hint","sourcebytes":[71,111,108,100],"value":"Gold"},
 {"hash":94387394,"name":"tchemistryform.dbeditag.hint","sourcebytes":[83,105,108,118,101,114],"value":"Silver"},
 {"hash":42664141,"name":"tchemistryform.dbeditpt.hint","sourcebytes":[80,108,97,116,105,110,117,109],"value":"Platinum"},
@@ -233,7 +233,7 @@
 {"hash":143129649,"name":"tchemistryform.labelparam21.caption","sourcebytes":[80,97,114,97,109,38,50,49],"value":"Param&21"},
 {"hash":8546819,"name":"tchemistryform.tabsheet6.hint","sourcebytes":[68,101,116,101,99,116,105,111,110,32,76,105,109,105,116,115],"value":"Detection Limits"},
 {"hash":8546819,"name":"tchemistryform.tabsheet6.caption","sourcebytes":[68,101,116,101,99,116,105,111,110,32,76,105,109,105,116,115],"value":"Detection Limits"},
-{"hash":199271454,"name":"tchemistryform.dbgrid.hint","sourcebytes":[83,97,109,112,108,101,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Sample Information"},
+{"hash":231637358,"name":"tchemistryform.dbgrid.hint","sourcebytes":[67,104,101,109,105,115,116,114,121,32,115,97,109,112,108,101,32,105,110,102,111,114,109,97,116,105,111,110],"value":"Chemistry sample information"},
 {"hash":84239022,"name":"tchemistryform.amslcheckbox.caption","sourcebytes":[97,46,109,46,115,46,108,46],"value":"a.m.s.l."},
 {"hash":41726218,"name":"tchemistryform.groupbox1.caption","sourcebytes":[66,97,115,105,99,32,83,105,116,101,32,73,110,102,111,114,109,97,116,105,111,110,58],"value":"Basic Site Information:"},
 {"hash":265916162,"name":"tchemistryform.siteidlabel.caption","sourcebytes":[38,83,105,116,101,32,73,100,101,110,116,105,102,105,101,114],"value":"&Site Identifier"},
@@ -262,5 +262,8 @@
 {"hash":63026322,"name":"tchemistryform.menuitembookmark2.caption","sourcebytes":[66,111,111,107,77,97,114,107,32,38,50],"value":"BookMark &2"},
 {"hash":78834915,"name":"tchemistryform.gotobookmark.caption","sourcebytes":[38,71,111,116,111,32,66,111,111,107,109,97,114,107,115],"value":"&Goto Bookmarks"},
 {"hash":46470689,"name":"tchemistryform.menuitemgotobookmark1.caption","sourcebytes":[71,111,116,111,32,66,111,111,107,109,97,114,107,32,38,49],"value":"Goto Bookmark &1"},
-{"hash":46470690,"name":"tchemistryform.menuitemgotobookmark2.caption","sourcebytes":[71,111,116,111,32,66,111,111,107,109,97,114,107,32,38,50],"value":"Goto Bookmark &2"}
+{"hash":46470690,"name":"tchemistryform.menuitemgotobookmark2.caption","sourcebytes":[71,111,116,111,32,66,111,111,107,109,97,114,107,32,38,50],"value":"Goto Bookmark &2"},
+{"hash":217137669,"name":"tchemistryform.menuitem2.caption","sourcebytes":[38,70,105,108,116,101,114,32,98,121,32,116,104,105,115,32,118,97,108,117,101],"value":"&Filter by this value"},
+{"hash":142824421,"name":"tchemistryform.menuitem4.caption","sourcebytes":[70,105,108,116,101,114,32,98,121,32,38,110,111,116,32,116,104,105,115,32,118,97,108,117,101],"value":"Filter by &not this value"},
+{"hash":208568994,"name":"tchemistryform.menuitem3.caption","sourcebytes":[38,67,108,101,97,114,32,102,105,108,116,101,114],"value":"&Clear filter"}
 ]}

@@ -15,7 +15,7 @@ object ChangeSiteIDForm: TChangeSiteIDForm
   OnActivate = FormActivate
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '3.4.0.0'
   object GroupBox1: TGroupBox
     Left = 8
     Height = 48
@@ -24,19 +24,21 @@ object ChangeSiteIDForm: TChangeSiteIDForm
     Caption = 'Change Site ID'
     ClientHeight = 35
     ClientWidth = 255
+    ParentBackground = False
     TabOrder = 0
     object Label1: TLabel
       Left = 6
       Height = 12
       Top = 10
-      Width = 90
+      Width = 89
       Caption = 'From: Current Site'
     end
     object Edit1: TEdit
       Left = 150
-      Height = 24
+      Height = 29
       Top = 2
       Width = 94
+      AutoSelect = False
       CharCase = ecUppercase
       MaxLength = 11
       TabOrder = 0
@@ -45,8 +47,8 @@ object ChangeSiteIDForm: TChangeSiteIDForm
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 38
-    Top = 60
+    Height = 40
+    Top = 58
     Width = 272
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True

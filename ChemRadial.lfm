@@ -16,7 +16,7 @@ object ChemRadialForm: TChemRadialForm
   OnShow = FormShow
   PopupMenu = PopupMenu1
   SessionProperties = 'Left;Top'
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '3.4.0.0'
   object PolarChart: TChart
     Left = 0
     Height = 385
@@ -49,20 +49,20 @@ object ChemRadialForm: TChemRadialForm
   object aChemRadialQuery: TZQuery
     Connection = DataModuleMain.ZConnectionDB
     Params = <>
-    left = 120
-    top = 200
+    Left = 120
+    Top = 200
   end
   object SaveDialog: TSaveDialog
     DefaultExt = '.tee'
     Filter = 'Aquabase Chart (*.tee)|*.tee'
     InitialDir = 'WSpaceDir'
-    left = 120
-    top = 6
+    Left = 120
+    Top = 6
   end
   object PopupMenu1: TPopupMenu
     OnPopup = PopupMenu1Popup
-    left = 216
-    top = 9
+    Left = 216
+    Top = 9
     object MenuItem1: TMenuItem
       Caption = '&Copy'
       object MenuItem2: TMenuItem
@@ -119,13 +119,13 @@ object ChemRadialForm: TChemRadialForm
       end
     end
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    left = 169
-    top = 99
+    Left = 169
+    Top = 99
   end
   object PrintDialog1: TPrintDialog
-    left = 216
-    top = 176
+    Left = 216
+    Top = 176
   end
 end

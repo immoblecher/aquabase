@@ -1,6 +1,6 @@
 inherited AquiferForm: TAquiferForm
-  Left = 542
-  Top = 263
+  Left = 2801
+  Top = 396
   Caption = 'Aquifer Form'
   OnActivate = FormActivate
   OnCreate = FormCreate
@@ -72,10 +72,10 @@ inherited AquiferForm: TAquiferForm
       TabOrder = 2
     end
     object AMSLCheckBox: TCheckBox[3]
-      Left = 503
-      Height = 24
+      Left = 502
+      Height = 23
       Top = 2
-      Width = 66
+      Width = 67
       Anchors = [akTop, akRight]
       Caption = 'a.m.s.l.'
       Font.CharSet = ANSI_CHARSET
@@ -83,19 +83,16 @@ inherited AquiferForm: TAquiferForm
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      OnClick = AMSLCheckBoxClick
       ParentFont = False
       TabOrder = 1
       TabStop = False
+      OnClick = AMSLCheckBoxClick
     end
-  end
-  inherited GroupBox1: TGroupBox
-    ClientHeight = 88
   end
   inherited BasicinfDataSource: TDataSource
     OnDataChange = BasicinfDataSourceDataChange
-    left = 360
-    top = 32
+    Left = 360
+    Top = 32
   end
   inherited LinkedQuery: TZQuery
     BeforeOpen = LinkedQueryBeforeOpen
@@ -110,14 +107,16 @@ inherited AquiferForm: TAquiferForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
-    left = 32
+    Left = 32
     ParamData = <    
       item
         DataType = ftString
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryDATE_ENTRY: TStringField[1]
       Alignment = taCenter
@@ -196,8 +195,6 @@ inherited AquiferForm: TAquiferForm
       OnGetText = LinkedQueryDEPTHGetText
       OnSetText = LinkedQueryDEPTHSetText
       OnValidate = LinkedQueryDEPTH_TOPValidate
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryDEPTH_BOT: TFloatField[6]
@@ -213,8 +210,6 @@ inherited AquiferForm: TAquiferForm
       OnGetText = LinkedQueryDEPTHGetText
       OnSetText = LinkedQueryDEPTHSetText
       OnValidate = LinkedQueryDEPTH_BOTValidate
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryYIELD: TFloatField[7]
@@ -230,8 +225,6 @@ inherited AquiferForm: TAquiferForm
       OnGetText = LinkedQueryYIELDGetText
       OnSetText = LinkedQueryYIELDSetText
       OnValidate = LinkedQueryYIELDValidate
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryAQUI_TYPE: TStringField[8]
@@ -278,14 +271,14 @@ inherited AquiferForm: TAquiferForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedQueryUpperSetText
+      OnSetText = LinkedQueryCOMMENTSetText
       Size = 180
     end
   end
-  object ValidateYieldQuery: TZReadOnlyQuery[12]
+  object ValidateYieldQuery: TZReadOnlyQuery[13]
     Connection = DataModuleMain.ZConnectionDB
     Params = <>
-    left = 336
-    top = 264
+    Left = 336
+    Top = 264
   end
 end

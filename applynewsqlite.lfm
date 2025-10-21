@@ -1,22 +1,22 @@
 object ApplyNewSQLiteForm: TApplyNewSQLiteForm
-  Left = 984
+  Left = 1190
   Height = 164
-  Top = 149
+  Top = 232
   Width = 305
   BorderIcons = [biMinimize]
   BorderStyle = bsSingle
-  Caption = 'Apply new SQLite format'
+  Caption = 'Apply new database format'
   ClientHeight = 164
   ClientWidth = 305
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.8.0.0'
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 38
-    Top = 120
+    Height = 41
+    Top = 117
     Width = 293
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -47,7 +47,6 @@ object ApplyNewSQLiteForm: TApplyNewSQLiteForm
     Smooth = True
     Step = 1
     TabOrder = 2
-    BarShowText = True
   end
   object Panel1: TPanel
     Left = 6
@@ -55,18 +54,18 @@ object ApplyNewSQLiteForm: TApplyNewSQLiteForm
     Top = 4
     Width = 292
     BevelOuter = bvNone
-    Caption = 'This tool applies a new SQLite format to your present workspace. Click on <OK> to start the conversion. You may continue in Aquabase normally, but do not edit data as the changes may be lost!'
+    Caption = 'This tool applies a new SpatiaLite/Geopackage format to your present workspace. Click on <OK> to start the conversion. You may continue in Aquabase normally, but do not edit data as the changes may be lost!'
     TabOrder = 3
     Wordwrap = True
   end
   object ZConnectionNew: TZConnection
     ControlsCodePage = cCP_UTF8
-    AutoEncodeStrings = True
     Properties.Strings = (
       'AutoEncodeStrings='
     )
+    DisableSavepoints = False
     Port = 0
-    Protocol = 'sqlite-3'
+    Protocol = 'sqlite'
     Left = 120
     Top = 112
   end

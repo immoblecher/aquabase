@@ -1,4 +1,4 @@
-{ Copyright (C) 2018 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2024 Immo Blecher immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -55,7 +55,7 @@ type
     LANGELIERDBText: TDBText;
     CORROSIONDBText: TDBText;
     SARDBText: TDBText;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
   private
@@ -75,7 +75,7 @@ uses VARINIT, maindatamodule;
 
 procedure TCalcForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, True);
 end;
 

@@ -1,13 +1,13 @@
 object ChartPropDlg: TChartPropDlg
   Left = 889
-  Height = 300
+  Height = 329
   Top = 237
-  Width = 379
+  Width = 383
   HelpContext = 99
   BorderStyle = bsSingle
   Caption = 'Chart Properties'
-  ClientHeight = 300
-  ClientWidth = 379
+  ClientHeight = 329
+  ClientWidth = 383
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
@@ -45,54 +45,56 @@ object ChartPropDlg: TChartPropDlg
   OnShow = FormShow
   Position = poScreenCenter
   SessionProperties = 'Left;Top'
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.8.0.0'
   object PageControl1: TPageControl
     Tag = 2
     Left = 0
-    Height = 250
+    Height = 277
     Top = 0
-    Width = 379
+    Width = 383
     ActivePage = TabSheetSeries
     Align = alClient
     TabIndex = 0
     TabOrder = 0
     object TabSheetSeries: TTabSheet
       Caption = 'Series'
-      ClientHeight = 224
-      ClientWidth = 369
+      ClientHeight = 247
+      ClientWidth = 373
       object ComboBoxSeries: TComboBox
         Left = 48
-        Height = 25
+        Height = 32
         Top = 2
         Width = 230
         ItemHeight = 0
-        OnChange = ComboBoxSeriesChange
         Style = csDropDownList
         TabOrder = 1
+        OnChange = ComboBoxSeriesChange
       end
       object PageControlSeries: TPageControl
         Left = 0
-        Height = 186
-        Top = 38
-        Width = 369
+        Height = 199
+        Top = 44
+        Width = 373
         ActivePage = TabSheetSeriesGeneral
         Align = alBottom
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Bottom = 4
         TabIndex = 0
         TabOrder = 0
         object TabSheetSeriesGeneral: TTabSheet
           Caption = 'General'
-          ClientHeight = 160
-          ClientWidth = 359
+          ClientHeight = 169
+          ClientWidth = 363
           object CheckBoxShowInLegend: TCheckBox
             Left = 4
             Height = 23
             Top = 32
-            Width = 103
+            Width = 109
             Caption = '&Show in Legend'
             Checked = True
-            OnChange = CheckBoxShowInLegendChange
             State = cbChecked
             TabOrder = 0
+            OnChange = CheckBoxShowInLegendChange
           end
           object RadioGroupHorAxis: TRadioGroup
             Left = 206
@@ -108,7 +110,7 @@ object ChartPropDlg: TChartPropDlg
             ChildSizing.ShrinkVertical = crsScaleChilds
             ChildSizing.Layout = cclLeftToRightThenTopToBottom
             ChildSizing.ControlsPerLine = 1
-            ClientHeight = 43
+            ClientHeight = 39
             ClientWidth = 148
             ItemIndex = 1
             Items.Strings = (
@@ -132,7 +134,7 @@ object ChartPropDlg: TChartPropDlg
             ChildSizing.ShrinkVertical = crsScaleChilds
             ChildSizing.Layout = cclLeftToRightThenTopToBottom
             ChildSizing.ControlsPerLine = 1
-            ClientHeight = 43
+            ClientHeight = 39
             ClientWidth = 148
             ItemIndex = 0
             Items.Strings = (
@@ -144,100 +146,101 @@ object ChartPropDlg: TChartPropDlg
           end
           object EditSeriesTitle: TEdit
             Left = 4
-            Height = 23
-            Top = 132
-            Width = 242
+            Height = 33
+            Top = 134
+            Width = 240
+            AutoSize = False
             TabOrder = 3
             TextHint = '<Title of the series>'
           end
           object LabelSeriesTitle: TLabel
             Left = 4
-            Height = 10
+            Height = 16
             Top = 120
-            Width = 56
+            Width = 59
             Caption = 'Series Title:'
             ParentColor = False
           end
           object ButtonApplySeriesTitle: TButton
-            Left = 254
-            Height = 26
-            Top = 130
-            Width = 102
+            Left = 248
+            Height = 32
+            Top = 134
+            Width = 111
             AutoSize = True
             Caption = ' &Apply Series Title '
-            OnClick = ButtonApplySeriesTitleClick
             TabOrder = 4
+            OnClick = ButtonApplySeriesTitleClick
           end
           object Label30: TLabel
             Left = 4
-            Height = 10
-            Top = 66
-            Width = 77
+            Height = 16
+            Top = 64
+            Width = 83
             Caption = '&Legend Format:'
             ParentColor = False
           end
           object EditFormatLegend: TEdit
-            Left = 90
-            Height = 23
-            Top = 60
+            Left = 96
+            Height = 33
+            Top = 56
             Width = 108
             TabOrder = 5
           end
           object ButtonApplyFormat: TButton
             Left = 64
-            Height = 26
+            Height = 32
             Top = 88
-            Width = 84
+            Width = 93
             AutoSize = True
             Caption = ' Apply F&ormat '
-            OnClick = ButtonApplyFormatClick
             TabOrder = 6
+            OnClick = ButtonApplyFormatClick
           end
           object CheckBoxShowSeries: TCheckBox
             Left = 4
             Height = 23
             Top = 4
-            Width = 86
+            Width = 88
             Caption = '&Show Series'
-            OnChange = CheckBoxShowSeriesChange
             TabOrder = 7
+            OnChange = CheckBoxShowSeriesChange
           end
         end
         object TabSheetFormatLine: TTabSheet
           Caption = 'Format'
-          ClientHeight = 160
-          ClientWidth = 359
+          ClientHeight = 169
+          ClientWidth = 363
           object GroupBoxPoints: TGroupBox
             Left = 112
             Height = 141
             Top = 4
             Width = 252
             Caption = 'Points:'
-            ClientHeight = 127
+            ClientHeight = 139
             ClientWidth = 250
             TabOrder = 0
             object Label27: TLabel
               Left = 110
-              Height = 10
+              Height = 16
               Top = 5
-              Width = 26
+              Width = 28
               Caption = 'St&yle:'
               ParentColor = False
             end
             object Label28: TLabel
               Left = 6
-              Height = 10
+              Height = 16
               Top = 5
-              Width = 30
+              Width = 34
               Caption = '&Width:'
               FocusControl = PointsWidthSpinEdit
               ParentColor = False
             end
             object Label29: TLabel
               Left = 56
-              Height = 10
+              Height = 16
               Top = 5
-              Width = 34
+              Width = 38
               Caption = '&Height:'
               FocusControl = PointsHeightSpinEdit
               ParentColor = False
@@ -248,12 +251,12 @@ object ChartPropDlg: TChartPropDlg
               Top = 88
               Width = 66
               Caption = 'B&order...'
-              OnClick = PointsBorderButtonClick
               TabOrder = 0
+              OnClick = PointsBorderButtonClick
             end
             object PointsStyleComboBox: TComboBox
               Left = 110
-              Height = 25
+              Height = 28
               Top = 22
               Width = 130
               ItemHeight = 0
@@ -280,14 +283,14 @@ object ChartPropDlg: TChartPropDlg
                 'Hexagon'
                 'FullStar'
               )
-              OnChange = PointsStyleComboBoxChange
               Style = csDropDownList
               TabOrder = 1
               Text = 'None'
+              OnChange = PointsStyleComboBoxChange
             end
             object PointsWidthSpinEdit: TSpinEdit
               Left = 6
-              Height = 23
+              Height = 33
               Top = 22
               Width = 41
               Alignment = taRightJustify
@@ -298,7 +301,7 @@ object ChartPropDlg: TChartPropDlg
             end
             object PointsHeightSpinEdit: TSpinEdit
               Left = 56
-              Height = 23
+              Height = 33
               Top = 22
               Width = 41
               Alignment = taRightJustify
@@ -309,9 +312,9 @@ object ChartPropDlg: TChartPropDlg
             end
             object Label26: TLabel
               Left = 40
-              Height = 10
+              Height = 16
               Top = 64
-              Width = 57
+              Width = 65
               Alignment = taRightJustify
               Caption = '&Point brush:'
               FocusControl = PointsBrushComboBox
@@ -320,7 +323,7 @@ object ChartPropDlg: TChartPropDlg
             end
             object PointsBrushComboBox: TComboBox
               Left = 110
-              Height = 25
+              Height = 28
               Top = 56
               Width = 130
               ItemHeight = 0
@@ -335,10 +338,10 @@ object ChartPropDlg: TChartPropDlg
                 'Cross'
                 'DiagCross'
               )
-              OnChange = PointsBrushComboBoxChange
               Style = csDropDownList
               TabOrder = 4
               Text = 'Solid'
+              OnChange = PointsBrushComboBoxChange
             end
             object ColorButtonPntsBrush: TColorButton
               Left = 110
@@ -361,53 +364,53 @@ object ChartPropDlg: TChartPropDlg
             Top = 24
             Width = 80
             Caption = 'Line &Pen...'
-            OnClick = ButtonLinePenClick
             TabOrder = 1
+            OnClick = ButtonLinePenClick
           end
           object CheckBoxShowPoints: TCheckBox
             Left = 8
             Height = 23
             Top = 64
-            Width = 85
+            Width = 100
             Alignment = taLeftJustify
             Caption = '&Show Points'
-            OnChange = CheckBoxShowPointsChange
             TabOrder = 2
+            OnChange = CheckBoxShowPointsChange
           end
           object CheckBoxShowLines: TCheckBox
             Left = 8
             Height = 23
             Top = 92
-            Width = 81
+            Width = 93
             Alignment = taLeftJustify
             Caption = 'Show &Lines'
-            OnChange = CheckBoxShowLinesChange
             TabOrder = 3
+            OnChange = CheckBoxShowLinesChange
           end
         end
         object TabSheetFormatBar: TTabSheet
           Caption = 'Format'
-          ClientHeight = 160
-          ClientWidth = 359
+          ClientHeight = 169
+          ClientWidth = 363
           object Label60: TLabel
             Left = 176
-            Height = 10
+            Height = 16
             Top = 24
-            Width = 63
+            Width = 67
             Caption = 'Bar &Width %:'
             ParentColor = False
           end
           object Label61: TLabel
             Left = 176
-            Height = 10
+            Height = 16
             Top = 74
-            Width = 64
+            Width = 68
             Caption = 'Bar O&ffset %:'
             ParentColor = False
           end
           object SpinEditBarOffset: TSpinEdit
             Left = 253
-            Height = 21
+            Height = 33
             Top = 67
             Width = 68
             Alignment = taRightJustify
@@ -416,7 +419,7 @@ object ChartPropDlg: TChartPropDlg
           end
           object SpinEditBarWidth: TSpinEdit
             Left = 253
-            Height = 21
+            Height = 33
             Top = 18
             Width = 68
             Alignment = taRightJustify
@@ -429,8 +432,8 @@ object ChartPropDlg: TChartPropDlg
             Top = 68
             Width = 112
             Caption = '&Bar Border...'
-            OnClick = ButtonBarBorderClick
             TabOrder = 2
+            OnClick = ButtonBarBorderClick
           end
           object ColorButtonBarColour: TColorButton
             Left = 8
@@ -449,32 +452,31 @@ object ChartPropDlg: TChartPropDlg
         end
         object TabSheetMarks: TTabSheet
           Caption = 'Marks'
-          ClientHeight = 160
-          ClientWidth = 359
+          ClientHeight = 169
+          ClientWidth = 363
           object GroupBoxArrows: TGroupBox
             Left = 190
             Height = 72
             Top = 80
             Width = 174
             Caption = 'Arrows:'
-            ClientHeight = 58
+            ClientHeight = 70
             ClientWidth = 172
             TabOrder = 0
             object Label32: TLabel
               Left = 8
-              Height = 10
+              Height = 16
               Top = 38
-              Width = 36
+              Width = 40
               Caption = '&Length:'
               ParentColor = False
             end
             object SpinEditArrowLength: TSpinEdit
               Left = 52
-              Height = 21
+              Height = 33
               Top = 32
               Width = 40
               Alignment = taRightJustify
-              MaxValue = 0
               OnChange = SpinEditArrowLengthChange
               TabOrder = 1
               Value = 8
@@ -489,19 +491,18 @@ object ChartPropDlg: TChartPropDlg
             end
             object Label35: TLabel
               Left = 8
-              Height = 10
+              Height = 16
               Top = 12
-              Width = 30
+              Width = 34
               Caption = '&Width:'
               ParentColor = False
             end
             object SpinEditArrowWidth: TSpinEdit
               Left = 52
-              Height = 21
+              Height = 33
               Top = 4
               Width = 40
               Alignment = taRightJustify
-              MaxValue = 0
               OnChange = SpinEditArrowWidthChange
               TabOrder = 0
               Value = 5
@@ -523,15 +524,15 @@ object ChartPropDlg: TChartPropDlg
           end
           object Label8: TLabel
             Left = 4
-            Height = 10
+            Height = 16
             Top = 4
-            Width = 26
+            Width = 28
             Caption = 'Style:'
             ParentColor = False
           end
           object ComboBoxMarksStyle: TComboBox
             Left = 4
-            Height = 27
+            Height = 28
             Top = 18
             Width = 166
             ItemHeight = 0
@@ -548,19 +549,19 @@ object ChartPropDlg: TChartPropDlg
               'Label%Tot.'
               'XValue'
             )
-            OnChange = ComboBoxMarksStyleChange
             Style = csDropDownList
             TabOrder = 1
             Text = 'None'
+            OnChange = ComboBoxMarksStyleChange
           end
           object CheckBoxMarksClipped: TCheckBox
             Left = 4
-            Height = 21
+            Height = 23
             Top = 52
-            Width = 60
+            Width = 71
             Caption = 'C&lipped'
-            OnChange = CheckBoxMarksClippedChange
             TabOrder = 2
+            OnChange = CheckBoxMarksClippedChange
           end
           object ButtonMarksFont: TButton
             Left = 4
@@ -568,8 +569,8 @@ object ChartPropDlg: TChartPropDlg
             Top = 86
             Width = 64
             Caption = 'F&ont...'
-            OnClick = ButtonMarksFontClick
             TabOrder = 3
+            OnClick = ButtonMarksFontClick
           end
           object ButtonMarksBorder: TButton
             Left = 96
@@ -577,8 +578,8 @@ object ChartPropDlg: TChartPropDlg
             Top = 86
             Width = 74
             Caption = 'Bo&rder...'
-            OnClick = ButtonMarksBorderClick
             TabOrder = 4
+            OnClick = ButtonMarksBorderClick
           end
           object ButtonMarksBorder1: TButton
             Left = 96
@@ -586,20 +587,20 @@ object ChartPropDlg: TChartPropDlg
             Top = 52
             Width = 74
             Caption = '&Link Pen...'
-            OnClick = LinkPenBorderClick
             TabOrder = 5
+            OnClick = LinkPenBorderClick
           end
           object Label18: TLabel
             Left = 190
-            Height = 10
+            Height = 16
             Top = 36
-            Width = 45
+            Width = 47
             Caption = 'Distance:'
             ParentColor = False
           end
           object SpinEditMarksDistance: TSpinEdit
             Left = 244
-            Height = 21
+            Height = 33
             Top = 30
             Width = 50
             Alignment = taRightJustify
@@ -609,29 +610,29 @@ object ChartPropDlg: TChartPropDlg
           end
           object CheckBoxArrowsVisible: TCheckBox
             Left = 190
-            Height = 21
+            Height = 23
             Top = 56
-            Width = 91
+            Width = 111
             Caption = 'Arrows &Visible'
-            OnChange = CheckBoxArrowsVisibleChange
             TabOrder = 7
+            OnChange = CheckBoxArrowsVisibleChange
           end
           object CheckBoxMarksVisible: TCheckBox
             Left = 190
-            Height = 21
+            Height = 23
             Top = 6
-            Width = 54
+            Width = 65
             Caption = 'Visible'
-            OnChange = CheckBoxMarksVisibleChange
             TabOrder = 8
+            OnChange = CheckBoxMarksVisibleChange
           end
         end
       end
       object Label1: TLabel
         Left = 8
-        Height = 10
+        Height = 16
         Top = 10
-        Width = 33
+        Width = 34
         Alignment = taRightJustify
         Caption = 'Series:'
         ParentColor = False
@@ -642,20 +643,20 @@ object ChartPropDlg: TChartPropDlg
         Top = 2
         Width = 70
         Caption = '&Edit Data'
-        OnClick = ButtonDataClick
         TabOrder = 2
+        OnClick = ButtonDataClick
       end
     end
     object TabSheetAxes: TTabSheet
       Caption = 'Axes'
-      ClientHeight = 224
-      ClientWidth = 369
+      ClientHeight = 247
+      ClientWidth = 373
       object PageControlAxes: TPageControl
         Tag = 2
         Left = 0
-        Height = 224
+        Height = 247
         Top = 0
-        Width = 369
+        Width = 373
         ActivePage = TabSheetLeft
         Align = alClient
         TabIndex = 0
@@ -663,11 +664,11 @@ object ChartPropDlg: TChartPropDlg
         OnChange = PageControlAxesChange
         object TabSheetLeft: TTabSheet
           Caption = 'Left'
-          ClientHeight = 220
-          ClientWidth = 365
+          ClientHeight = 243
+          ClientWidth = 363
           object LeftAxisPageControl: TPageControl
-            Left = 110
-            Height = 198
+            Left = 114
+            Height = 243
             Top = 0
             Width = 249
             ActivePage = LAScalesTab
@@ -678,36 +679,36 @@ object ChartPropDlg: TChartPropDlg
             object LAScalesTab: TTabSheet
               Hint = 'User Intervals instead of automatic Nice Steps'
               Caption = 'Scales'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object CheckBoxLAScalesAuto: TCheckBox
                 Left = 8
                 Height = 23
                 Top = 4
-                Width = 74
+                Width = 89
                 Caption = '&Automatic'
                 Checked = True
-                OnChange = CheckBoxLAScalesAutoChange
                 State = cbChecked
                 TabOrder = 0
+                OnChange = CheckBoxLAScalesAutoChange
               end
               object CheckBoxLALog: TCheckBox
                 Left = 8
                 Height = 23
                 Top = 138
-                Width = 82
+                Width = 98
                 Caption = 'Logarith&mic'
-                OnChange = CheckBoxLogChange
                 TabOrder = 1
+                OnChange = CheckBoxLogChange
               end
               object CheckBoxLAInverted: TCheckBox
                 Left = 144
                 Height = 23
                 Top = 138
-                Width = 65
+                Width = 75
                 Caption = '&Inverted'
-                OnChange = CheckBoxInvertedChange
                 TabOrder = 2
+                OnChange = CheckBoxInvertedChange
               end
               object GroupBoxLAScales: TGroupBox
                 Left = 8
@@ -715,31 +716,31 @@ object ChartPropDlg: TChartPropDlg
                 Top = 28
                 Width = 230
                 Caption = 'Boundaries:'
-                ClientHeight = 92
+                ClientHeight = 104
                 ClientWidth = 228
                 Enabled = False
                 TabOrder = 3
                 object Label2: TLabel
                   Left = 10
-                  Height = 10
+                  Height = 16
                   Top = 6
-                  Width = 49
+                  Width = 55
                   Alignment = taRightJustify
                   Caption = 'Maximum:'
                   ParentColor = False
                 end
                 object Label3: TLabel
                   Left = 13
-                  Height = 10
+                  Height = 16
                   Top = 34
-                  Width = 46
+                  Width = 53
                   Alignment = taRightJustify
                   Caption = 'Minimum:'
                   ParentColor = False
                 end
                 object EditLAMax: TEdit
                   Left = 70
-                  Height = 23
+                  Height = 33
                   Top = 0
                   Width = 90
                   Alignment = taRightJustify
@@ -748,7 +749,7 @@ object ChartPropDlg: TChartPropDlg
                 end
                 object EditLAMin: TEdit
                   Left = 70
-                  Height = 23
+                  Height = 33
                   Top = 30
                   Width = 90
                   Alignment = taRightJustify
@@ -761,21 +762,21 @@ object ChartPropDlg: TChartPropDlg
                   Top = 58
                   Width = 68
                   Caption = 'Apply...'
-                  OnClick = ButtonLARangesApplyClick
                   TabOrder = 2
+                  OnClick = ButtonLARangesApplyClick
                 end
                 object Label41: TLabel
                   Left = 10
-                  Height = 10
+                  Height = 16
                   Top = 66
-                  Width = 55
+                  Width = 56
                   Alignment = taRightJustify
                   Caption = 'Nice Steps:'
                   ParentColor = False
                 end
                 object EditLASteps: TEdit
                   Left = 70
-                  Height = 23
+                  Height = 33
                   Top = 60
                   Width = 72
                   TabOrder = 3
@@ -784,19 +785,19 @@ object ChartPropDlg: TChartPropDlg
             end
             object LATitleTab: TTabSheet
               Caption = 'Title'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object Label6: TLabel
                 Left = 8
-                Height = 10
+                Height = 16
                 Top = 110
-                Width = 30
+                Width = 33
                 Caption = 'Angle:'
                 ParentColor = False
               end
               object Label7: TLabel
                 Left = 136
-                Height = 10
+                Height = 16
                 Top = 110
                 Width = 23
                 Caption = 'Size:'
@@ -808,12 +809,12 @@ object ChartPropDlg: TChartPropDlg
                 Top = 136
                 Width = 75
                 Caption = 'Font...'
-                OnClick = ButtonAxisTitleFontClick
                 TabOrder = 0
+                OnClick = ButtonAxisTitleFontClick
               end
               object SpinEditLATitleAngle: TSpinEdit
                 Left = 48
-                Height = 23
+                Height = 33
                 Top = 104
                 Width = 60
                 Alignment = taRightJustify
@@ -825,7 +826,7 @@ object ChartPropDlg: TChartPropDlg
               end
               object SpinEditLATitleSize: TSpinEdit
                 Left = 168
-                Height = 23
+                Height = 33
                 Top = 104
                 Width = 49
                 Alignment = taRightJustify
@@ -838,12 +839,12 @@ object ChartPropDlg: TChartPropDlg
                 Top = 4
                 Width = 230
                 Caption = 'Title'
-                ClientHeight = 58
+                ClientHeight = 54
                 ClientWidth = 228
                 TabOrder = 3
                 object EditLATitle: TEdit
                   Left = 8
-                  Height = 23
+                  Height = 33
                   Top = 0
                   Width = 210
                   TabOrder = 0
@@ -854,20 +855,20 @@ object ChartPropDlg: TChartPropDlg
                   Top = 28
                   Width = 75
                   Caption = '&Apply...'
-                  OnClick = ButtonLATitleApplyClick
                   TabOrder = 1
+                  OnClick = ButtonLATitleApplyClick
                 end
               end
               object CheckBoxLATitleVisible: TCheckBox
                 Left = 8
                 Height = 23
                 Top = 80
-                Width = 56
+                Width = 65
                 Caption = 'Visible'
                 Checked = True
-                OnChange = CheckBoxAxisTitleVisibleChange
                 State = cbChecked
                 TabOrder = 4
+                OnChange = CheckBoxAxisTitleVisibleChange
               end
               object ColorButtonLATitleFont: TColorButton
                 Left = 109
@@ -885,19 +886,19 @@ object ChartPropDlg: TChartPropDlg
             end
             object LALabelsTab: TTabSheet
               Caption = 'Marks'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object Label9: TLabel
                 Left = 8
-                Height = 10
+                Height = 16
                 Top = 80
-                Width = 68
+                Width = 72
                 Caption = 'Value For&mat:'
                 ParentColor = False
               end
               object Label10: TLabel
                 Left = 24
-                Height = 10
+                Height = 16
                 Top = 50
                 Width = 23
                 Caption = 'Si&ze:'
@@ -905,9 +906,9 @@ object ChartPropDlg: TChartPropDlg
               end
               object Label11: TLabel
                 Left = 120
-                Height = 10
+                Height = 16
                 Top = 50
-                Width = 30
+                Width = 33
                 Caption = '&Angle:'
                 ParentColor = False
               end
@@ -915,12 +916,12 @@ object ChartPropDlg: TChartPropDlg
                 Left = 8
                 Height = 23
                 Top = 8
-                Width = 56
+                Width = 65
                 Caption = 'V&isible'
                 Checked = True
-                OnClick = CheckBoxMarksVisibleClick
                 State = cbChecked
                 TabOrder = 0
+                OnClick = CheckBoxMarksVisibleClick
               end
               object ButtonAxisFont: TButton
                 Left = 136
@@ -928,22 +929,21 @@ object ChartPropDlg: TChartPropDlg
                 Top = 8
                 Width = 75
                 Caption = 'F&ont...'
-                OnClick = ButtonAxisFontClick
                 TabOrder = 1
+                OnClick = ButtonAxisFontClick
               end
               object SpinEditLAMarksSize: TSpinEdit
                 Left = 56
-                Height = 23
+                Height = 33
                 Top = 44
                 Width = 49
                 Alignment = taRightJustify
-                MaxValue = 0
                 OnChange = SpinEditMarksSizeChange
                 TabOrder = 2
               end
               object SpinEditLAMarksAngle: TSpinEdit
                 Left = 160
-                Height = 23
+                Height = 33
                 Top = 44
                 Width = 49
                 Alignment = taRightJustify
@@ -957,23 +957,23 @@ object ChartPropDlg: TChartPropDlg
                 Left = 8
                 Height = 23
                 Top = 128
-                Width = 82
+                Width = 98
                 Caption = 'At data onl&y'
-                OnChange = CheckBoxMarksAtDataChange
                 TabOrder = 4
+                OnChange = CheckBoxMarksAtDataChange
               end
               object CheckBoxLAMarksClipped: TCheckBox
                 Left = 120
                 Height = 23
                 Top = 128
-                Width = 62
+                Width = 71
                 Caption = 'Clipped'
-                OnChange = CheckBoxMarksClippedChange
                 TabOrder = 5
+                OnChange = CheckBoxMarksClippedChange
               end
               object ComboBoxLAValueFormat: TComboBox
                 Left = 8
-                Height = 25
+                Height = 28
                 Top = 94
                 Width = 82
                 Font.Color = clWindowText
@@ -985,23 +985,23 @@ object ChartPropDlg: TChartPropDlg
                   'General'
                   'Fixed'
                 )
-                OnChange = LAValueFormatChange
                 ParentFont = False
                 Style = csDropDownList
                 TabOrder = 6
                 Text = 'General'
+                OnChange = LAValueFormatChange
               end
               object Label45: TLabel
                 Left = 104
-                Height = 10
+                Height = 16
                 Top = 80
-                Width = 60
+                Width = 64
                 Caption = 'Digits (max.)'
                 ParentColor = False
               end
               object SpinEditLADigits: TSpinEdit
                 Left = 104
-                Height = 23
+                Height = 33
                 Top = 94
                 Width = 50
                 Alignment = taRightJustify
@@ -1012,37 +1012,37 @@ object ChartPropDlg: TChartPropDlg
             end
             object LATicksTab: TTabSheet
               Caption = 'Ticks'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object Label12: TLabel
                 Left = 100
-                Height = 10
+                Height = 16
                 Top = 48
-                Width = 36
+                Width = 40
                 Caption = 'Length:'
                 ParentColor = False
               end
               object Label13: TLabel
                 Left = 100
-                Height = 10
+                Height = 16
                 Top = 78
-                Width = 64
+                Width = 72
                 Caption = 'Inner Length:'
                 ParentColor = False
               end
               object Label14: TLabel
                 Left = 100
-                Height = 10
+                Height = 16
                 Top = 108
-                Width = 36
+                Width = 40
                 Caption = 'Length:'
                 ParentColor = False
               end
               object Label15: TLabel
                 Left = 100
-                Height = 10
+                Height = 16
                 Top = 138
-                Width = 32
+                Width = 35
                 Caption = '&Count:'
                 ParentColor = False
               end
@@ -1052,8 +1052,8 @@ object ChartPropDlg: TChartPropDlg
                 Top = 8
                 Width = 116
                 Caption = 'A&xis Grid Border...'
-                OnClick = ButtonTicksGridBorderClick
                 TabOrder = 0
+                OnClick = ButtonTicksGridBorderClick
               end
               object ButtonLATicksMinors: TButton
                 Left = 8
@@ -1061,12 +1061,12 @@ object ChartPropDlg: TChartPropDlg
                 Top = 110
                 Width = 75
                 Caption = '&Minors...'
-                OnClick = ButtonTicksMinorsClick
                 TabOrder = 1
+                OnClick = ButtonTicksMinorsClick
               end
               object SpinEditLATicksLength: TSpinEdit
                 Left = 180
-                Height = 21
+                Height = 33
                 Top = 40
                 Width = 40
                 Alignment = taRightJustify
@@ -1077,7 +1077,7 @@ object ChartPropDlg: TChartPropDlg
               end
               object SpinEditLATicksInnerLength: TSpinEdit
                 Left = 180
-                Height = 21
+                Height = 33
                 Top = 70
                 Width = 40
                 Alignment = taRightJustify
@@ -1087,7 +1087,7 @@ object ChartPropDlg: TChartPropDlg
               end
               object SpinEditLATicksMinorsLength: TSpinEdit
                 Left = 180
-                Height = 21
+                Height = 33
                 Top = 100
                 Width = 40
                 Alignment = taRightJustify
@@ -1099,7 +1099,7 @@ object ChartPropDlg: TChartPropDlg
               end
               object SpinEditLATicksMinorsCount: TSpinEdit
                 Left = 180
-                Height = 21
+                Height = 33
                 Top = 130
                 Width = 40
                 Alignment = taRightJustify
@@ -1128,12 +1128,12 @@ object ChartPropDlg: TChartPropDlg
             Left = 8
             Height = 23
             Top = 8
-            Width = 56
+            Width = 65
             Caption = '&Visible'
             Checked = True
-            OnChange = CheckBoxAxisVisibleChange
             State = cbChecked
             TabOrder = 1
+            OnChange = CheckBoxAxisVisibleChange
           end
           object ButtonLeftAxisPen: TButton
             Left = 8
@@ -1141,17 +1141,17 @@ object ChartPropDlg: TChartPropDlg
             Top = 40
             Width = 75
             Caption = 'Axis &Pen...'
-            OnClick = ButtonAxisPenClick
             TabOrder = 2
+            OnClick = ButtonAxisPenClick
           end
         end
         object TabSheetBottom: TTabSheet
           Caption = 'Bottom'
-          ClientHeight = 220
-          ClientWidth = 365
+          ClientHeight = 243
+          ClientWidth = 363
           object BottomAxisPageControl: TPageControl
-            Left = 110
-            Height = 198
+            Left = 114
+            Height = 243
             Top = 0
             Width = 249
             ActivePage = TabSheetBATimeScales
@@ -1161,18 +1161,18 @@ object ChartPropDlg: TChartPropDlg
             OnChange = BottomAxisPageControlChange
             object TabSheetBATimeScales: TTabSheet
               Caption = 'Time Scales'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object CheckBoxBATScalesAuto: TCheckBox
                 Left = 8
                 Height = 23
                 Top = 4
-                Width = 74
+                Width = 89
                 Caption = '&Automatic'
                 Checked = True
-                OnChange = CheckBoxBATScalesAutoChange
                 State = cbChecked
                 TabOrder = 0
+                OnChange = CheckBoxBATScalesAutoChange
               end
               object GroupBoxBATScales: TGroupBox
                 Left = 8
@@ -1180,24 +1180,24 @@ object ChartPropDlg: TChartPropDlg
                 Top = 28
                 Width = 230
                 Caption = 'Date/Time Boundaries and Format:'
-                ClientHeight = 126
+                ClientHeight = 138
                 ClientWidth = 228
                 Enabled = False
                 TabOrder = 1
                 object Label33: TLabel
                   Left = 6
-                  Height = 10
+                  Height = 16
                   Top = 4
-                  Width = 79
+                  Width = 84
                   Alignment = taRightJustify
                   Caption = 'Start Date/Time:'
                   ParentColor = False
                 end
                 object Label34: TLabel
                   Left = 6
-                  Height = 10
+                  Height = 16
                   Top = 40
-                  Width = 75
+                  Width = 79
                   Alignment = taRightJustify
                   Caption = 'End Date/Time:'
                   ParentColor = False
@@ -1208,14 +1208,14 @@ object ChartPropDlg: TChartPropDlg
                   Top = 11
                   Width = 60
                   Caption = 'Apply...'
-                  OnClick = ButtonBATRangesApplyClick
                   TabOrder = 0
+                  OnClick = ButtonBATRangesApplyClick
                 end
                 object BAStartDateTimePicker: TDateTimePicker
                   Left = 6
-                  Height = 18
+                  Height = 22
                   Top = 18
-                  Width = 116
+                  Width = 118
                   CenturyFrom = 1941
                   MaxDate = 2958465
                   MinDate = -53780
@@ -1235,9 +1235,9 @@ object ChartPropDlg: TChartPropDlg
                 end
                 object BAEndDateTimePicker: TDateTimePicker
                   Left = 6
-                  Height = 18
+                  Height = 22
                   Top = 54
-                  Width = 116
+                  Width = 118
                   CenturyFrom = 1941
                   MaxDate = 2958465
                   MinDate = -53780
@@ -1257,15 +1257,15 @@ object ChartPropDlg: TChartPropDlg
                 end
                 object Label31: TLabel
                   Left = 6
-                  Height = 10
+                  Height = 16
                   Top = 84
-                  Width = 91
+                  Width = 97
                   Caption = 'Date/Time Format:'
                   ParentColor = False
                 end
                 object EditDTFormatBot: TEdit
                   Left = 6
-                  Height = 23
+                  Height = 33
                   Top = 98
                   Width = 214
                   TabOrder = 3
@@ -1275,38 +1275,38 @@ object ChartPropDlg: TChartPropDlg
             end
             object TabSheetBAScales: TTabSheet
               Caption = 'Scales'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object CheckBoxBAScalesAuto: TCheckBox
                 Left = 8
                 Height = 23
                 Top = 4
-                Width = 74
+                Width = 89
                 Caption = '&Automatic'
                 Checked = True
-                OnChange = CheckBoxBAScalesAutoChange
                 State = cbChecked
                 TabOrder = 0
+                OnChange = CheckBoxBAScalesAutoChange
               end
               object CheckBoxBALog: TCheckBox
                 Tag = 1
                 Left = 8
                 Height = 23
                 Top = 136
-                Width = 82
+                Width = 98
                 Caption = 'Logarith&mic'
-                OnChange = CheckBoxLogChange
                 TabOrder = 1
+                OnChange = CheckBoxLogChange
               end
               object CheckBoxBAInverted: TCheckBox
                 Tag = 1
                 Left = 144
                 Height = 23
                 Top = 136
-                Width = 65
+                Width = 75
                 Caption = '&Inverted'
-                OnChange = CheckBoxInvertedChange
                 TabOrder = 2
+                OnChange = CheckBoxInvertedChange
               end
               object GroupBoxBAScales: TGroupBox
                 Left = 8
@@ -1314,29 +1314,29 @@ object ChartPropDlg: TChartPropDlg
                 Top = 26
                 Width = 230
                 Caption = 'Boundaries:'
-                ClientHeight = 91
+                ClientHeight = 103
                 ClientWidth = 228
                 Enabled = False
                 TabOrder = 3
                 object Label5: TLabel
                   Left = 10
-                  Height = 10
+                  Height = 16
                   Top = 4
-                  Width = 49
+                  Width = 55
                   Caption = 'Maximum:'
                   ParentColor = False
                 end
                 object Label36: TLabel
                   Left = 10
-                  Height = 10
+                  Height = 16
                   Top = 34
-                  Width = 46
+                  Width = 53
                   Caption = 'Minimum:'
                   ParentColor = False
                 end
                 object EditBAMax: TEdit
                   Left = 70
-                  Height = 23
+                  Height = 33
                   Top = 0
                   Width = 90
                   Alignment = taRightJustify
@@ -1345,7 +1345,7 @@ object ChartPropDlg: TChartPropDlg
                 end
                 object EditBAMin: TEdit
                   Left = 70
-                  Height = 23
+                  Height = 33
                   Top = 30
                   Width = 90
                   Alignment = taRightJustify
@@ -1358,20 +1358,20 @@ object ChartPropDlg: TChartPropDlg
                   Top = 58
                   Width = 68
                   Caption = 'Apply...'
-                  OnClick = ButtonBARangesApplyClick
                   TabOrder = 2
+                  OnClick = ButtonBARangesApplyClick
                 end
                 object Label43: TLabel
                   Left = 10
-                  Height = 10
+                  Height = 16
                   Top = 64
-                  Width = 55
+                  Width = 56
                   Caption = 'Nice Steps:'
                   ParentColor = False
                 end
                 object EditBASteps: TEdit
                   Left = 70
-                  Height = 23
+                  Height = 33
                   Top = 60
                   Width = 72
                   TabOrder = 3
@@ -1380,19 +1380,19 @@ object ChartPropDlg: TChartPropDlg
             end
             object TabSheetBATitle: TTabSheet
               Caption = 'Title'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object Label50: TLabel
                 Left = 8
-                Height = 10
+                Height = 16
                 Top = 110
-                Width = 30
+                Width = 33
                 Caption = 'Angle:'
                 ParentColor = False
               end
               object Label51: TLabel
                 Left = 136
-                Height = 10
+                Height = 16
                 Top = 110
                 Width = 23
                 Caption = 'Size:'
@@ -1405,13 +1405,13 @@ object ChartPropDlg: TChartPropDlg
                 Top = 136
                 Width = 75
                 Caption = 'Font...'
-                OnClick = ButtonAxisTitleFontClick
                 TabOrder = 0
+                OnClick = ButtonAxisTitleFontClick
               end
               object SpinEditBATitleAngle: TSpinEdit
                 Tag = 1
                 Left = 48
-                Height = 23
+                Height = 33
                 Top = 104
                 Width = 60
                 Alignment = taRightJustify
@@ -1424,7 +1424,7 @@ object ChartPropDlg: TChartPropDlg
               object SpinEditBATitleSize: TSpinEdit
                 Tag = 1
                 Left = 168
-                Height = 23
+                Height = 33
                 Top = 104
                 Width = 49
                 Alignment = taRightJustify
@@ -1437,12 +1437,12 @@ object ChartPropDlg: TChartPropDlg
                 Top = 4
                 Width = 230
                 Caption = 'Title'
-                ClientHeight = 58
+                ClientHeight = 54
                 ClientWidth = 228
                 TabOrder = 3
                 object EditBATitle: TEdit
                   Left = 7
-                  Height = 23
+                  Height = 33
                   Top = 2
                   Width = 210
                   TabOrder = 0
@@ -1453,8 +1453,8 @@ object ChartPropDlg: TChartPropDlg
                   Top = 28
                   Width = 75
                   Caption = '&Apply...'
-                  OnClick = ButtonBATitleApplyClick
                   TabOrder = 1
+                  OnClick = ButtonBATitleApplyClick
                 end
               end
               object CheckBoxBATitleVisible: TCheckBox
@@ -1462,12 +1462,12 @@ object ChartPropDlg: TChartPropDlg
                 Left = 8
                 Height = 23
                 Top = 80
-                Width = 56
+                Width = 65
                 Caption = 'Visible'
                 Checked = True
-                OnChange = CheckBoxAxisTitleVisibleChange
                 State = cbChecked
                 TabOrder = 4
+                OnChange = CheckBoxAxisTitleVisibleChange
               end
               object ColorButtonBATitleFont: TColorButton
                 Tag = 1
@@ -1486,19 +1486,19 @@ object ChartPropDlg: TChartPropDlg
             end
             object TabSheetBALabels: TTabSheet
               Caption = 'Marks'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object Label53: TLabel
                 Left = 8
-                Height = 10
+                Height = 16
                 Top = 80
-                Width = 68
+                Width = 72
                 Caption = 'Value For&mat:'
                 ParentColor = False
               end
               object Label54: TLabel
                 Left = 24
-                Height = 10
+                Height = 16
                 Top = 50
                 Width = 23
                 Caption = 'Si&ze:'
@@ -1506,9 +1506,9 @@ object ChartPropDlg: TChartPropDlg
               end
               object Label55: TLabel
                 Left = 120
-                Height = 10
+                Height = 16
                 Top = 50
-                Width = 30
+                Width = 33
                 Caption = '&Angle:'
                 ParentColor = False
               end
@@ -1517,12 +1517,12 @@ object ChartPropDlg: TChartPropDlg
                 Left = 8
                 Height = 23
                 Top = 8
-                Width = 56
+                Width = 65
                 Caption = 'V&isible'
                 Checked = True
-                OnClick = CheckBoxMarksVisibleClick
                 State = cbChecked
                 TabOrder = 0
+                OnClick = CheckBoxMarksVisibleClick
               end
               object ButtonBAMarksFont: TButton
                 Tag = 1
@@ -1531,24 +1531,23 @@ object ChartPropDlg: TChartPropDlg
                 Top = 8
                 Width = 75
                 Caption = 'F&ont...'
-                OnClick = ButtonAxisFontClick
                 TabOrder = 1
+                OnClick = ButtonAxisFontClick
               end
               object SpinEditBAMarksSize: TSpinEdit
                 Tag = 1
                 Left = 56
-                Height = 23
+                Height = 33
                 Top = 44
                 Width = 49
                 Alignment = taRightJustify
-                MaxValue = 0
                 OnChange = SpinEditMarksSizeChange
                 TabOrder = 2
               end
               object SpinEditBAMarksAngle: TSpinEdit
                 Tag = 1
                 Left = 160
-                Height = 23
+                Height = 33
                 Top = 44
                 Width = 49
                 Alignment = taRightJustify
@@ -1563,24 +1562,24 @@ object ChartPropDlg: TChartPropDlg
                 Left = 8
                 Height = 23
                 Top = 128
-                Width = 84
+                Width = 99
                 Caption = 'At Data onl&y'
-                OnChange = CheckBoxMarksAtDataChange
                 TabOrder = 4
+                OnChange = CheckBoxMarksAtDataChange
               end
               object CheckBoxBAMarksClipped: TCheckBox
                 Tag = 1
                 Left = 120
                 Height = 23
                 Top = 128
-                Width = 62
+                Width = 71
                 Caption = 'Clipped'
-                OnChange = CheckBoxMarksClippedChange
                 TabOrder = 5
+                OnChange = CheckBoxMarksClippedChange
               end
               object ComboBoxBAValueFormat: TComboBox
                 Left = 8
-                Height = 25
+                Height = 28
                 Top = 94
                 Width = 82
                 ItemHeight = 0
@@ -1589,22 +1588,22 @@ object ChartPropDlg: TChartPropDlg
                   'General'
                   'Fixed'
                 )
-                OnChange = LAValueFormatChange
                 Style = csDropDownList
                 TabOrder = 6
                 Text = 'General'
+                OnChange = LAValueFormatChange
               end
               object Label46: TLabel
                 Left = 104
-                Height = 10
+                Height = 16
                 Top = 80
-                Width = 60
+                Width = 64
                 Caption = 'Digits (max.)'
                 ParentColor = False
               end
               object SpinEditBADigits: TSpinEdit
                 Left = 104
-                Height = 23
+                Height = 33
                 Top = 94
                 Width = 50
                 Alignment = taRightJustify
@@ -1615,37 +1614,37 @@ object ChartPropDlg: TChartPropDlg
             end
             object TabSheetBATicks: TTabSheet
               Caption = 'Ticks'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object Label56: TLabel
                 Left = 100
-                Height = 10
+                Height = 16
                 Top = 48
-                Width = 36
+                Width = 40
                 Caption = 'Length:'
                 ParentColor = False
               end
               object Label57: TLabel
                 Left = 100
-                Height = 10
+                Height = 16
                 Top = 78
-                Width = 64
+                Width = 72
                 Caption = 'Inner Length:'
                 ParentColor = False
               end
               object Label58: TLabel
                 Left = 100
-                Height = 10
+                Height = 16
                 Top = 108
-                Width = 36
+                Width = 40
                 Caption = 'Length:'
                 ParentColor = False
               end
               object Label59: TLabel
                 Left = 100
-                Height = 10
+                Height = 16
                 Top = 138
-                Width = 32
+                Width = 35
                 Caption = '&Count:'
                 ParentColor = False
               end
@@ -1656,8 +1655,8 @@ object ChartPropDlg: TChartPropDlg
                 Top = 8
                 Width = 116
                 Caption = 'A&xis Grid Border...'
-                OnClick = ButtonTicksGridBorderClick
                 TabOrder = 0
+                OnClick = ButtonTicksGridBorderClick
               end
               object ButtonBATicksMinors: TButton
                 Tag = 1
@@ -1666,13 +1665,13 @@ object ChartPropDlg: TChartPropDlg
                 Top = 110
                 Width = 75
                 Caption = '&Minors...'
-                OnClick = ButtonTicksMinorsClick
                 TabOrder = 1
+                OnClick = ButtonTicksMinorsClick
               end
               object SpinEditBATicksLength: TSpinEdit
                 Tag = 1
                 Left = 180
-                Height = 21
+                Height = 33
                 Top = 40
                 Width = 40
                 Alignment = taRightJustify
@@ -1684,7 +1683,7 @@ object ChartPropDlg: TChartPropDlg
               object SpinEditBATicksInnerLength: TSpinEdit
                 Tag = 1
                 Left = 180
-                Height = 21
+                Height = 33
                 Top = 70
                 Width = 40
                 Alignment = taRightJustify
@@ -1695,7 +1694,7 @@ object ChartPropDlg: TChartPropDlg
               object SpinEditBATicksMinorsLength: TSpinEdit
                 Tag = 1
                 Left = 180
-                Height = 21
+                Height = 33
                 Top = 100
                 Width = 40
                 Alignment = taRightJustify
@@ -1707,7 +1706,7 @@ object ChartPropDlg: TChartPropDlg
               object SpinEditBATicksMinorsCount: TSpinEdit
                 Tag = 1
                 Left = 180
-                Height = 21
+                Height = 33
                 Top = 130
                 Width = 40
                 Alignment = taRightJustify
@@ -1738,12 +1737,12 @@ object ChartPropDlg: TChartPropDlg
             Left = 8
             Height = 23
             Top = 8
-            Width = 56
+            Width = 65
             Caption = '&Visible'
             Checked = True
-            OnChange = CheckBoxAxisVisibleChange
             State = cbChecked
             TabOrder = 1
+            OnChange = CheckBoxAxisVisibleChange
           end
           object ButtonBottomAxisPen: TButton
             Tag = 1
@@ -1752,25 +1751,25 @@ object ChartPropDlg: TChartPropDlg
             Top = 40
             Width = 75
             Caption = 'Axis &Pen...'
-            OnClick = ButtonAxisPenClick
             TabOrder = 2
+            OnClick = ButtonAxisPenClick
           end
         end
         object TabSheetRight: TTabSheet
           Caption = 'Right'
-          ClientHeight = 220
-          ClientWidth = 365
+          ClientHeight = 243
+          ClientWidth = 363
           object CheckBoxRightAxisVisible: TCheckBox
             Tag = 2
             Left = 8
             Height = 23
             Top = 8
-            Width = 56
+            Width = 65
             Caption = '&Visible'
             Checked = True
-            OnChange = CheckBoxAxisVisibleChange
             State = cbChecked
             TabOrder = 0
+            OnChange = CheckBoxAxisVisibleChange
           end
           object ButtonRightAxisPen: TButton
             Tag = 2
@@ -1779,12 +1778,12 @@ object ChartPropDlg: TChartPropDlg
             Top = 40
             Width = 75
             Caption = 'Axis &Pen...'
-            OnClick = ButtonAxisPenClick
             TabOrder = 1
+            OnClick = ButtonAxisPenClick
           end
           object RightAxisPageControl: TPageControl
-            Left = 110
-            Height = 198
+            Left = 114
+            Height = 243
             Top = 0
             Width = 249
             ActivePage = RAScalesTab
@@ -1794,38 +1793,38 @@ object ChartPropDlg: TChartPropDlg
             OnChange = RightAxisPageControlChange
             object RAScalesTab: TTabSheet
               Caption = 'Scales'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object CheckBoxRAScalesAuto: TCheckBox
                 Left = 8
                 Height = 23
                 Top = 4
-                Width = 74
+                Width = 89
                 Caption = '&Automatic'
                 Checked = True
-                OnChange = CheckBoxRAScalesAutoChange
                 State = cbChecked
                 TabOrder = 0
+                OnChange = CheckBoxRAScalesAutoChange
               end
               object CheckBoxRALog: TCheckBox
                 Tag = 2
                 Left = 8
                 Height = 23
                 Top = 138
-                Width = 82
+                Width = 98
                 Caption = 'Logarith&mic'
-                OnChange = CheckBoxLogChange
                 TabOrder = 1
+                OnChange = CheckBoxLogChange
               end
               object CheckBoxRAInverted: TCheckBox
                 Tag = 2
                 Left = 144
                 Height = 23
                 Top = 138
-                Width = 65
+                Width = 75
                 Caption = '&Inverted'
-                OnChange = CheckBoxInvertedChange
                 TabOrder = 2
+                OnChange = CheckBoxInvertedChange
               end
               object GroupBoxRAScales: TGroupBox
                 Left = 8
@@ -1833,31 +1832,31 @@ object ChartPropDlg: TChartPropDlg
                 Top = 28
                 Width = 230
                 Caption = 'Boundaries:'
-                ClientHeight = 92
+                ClientHeight = 104
                 ClientWidth = 228
                 Enabled = False
                 TabOrder = 3
                 object Label16: TLabel
                   Left = 10
-                  Height = 10
+                  Height = 16
                   Top = 6
-                  Width = 49
+                  Width = 55
                   Alignment = taRightJustify
                   Caption = 'Maximum:'
                   ParentColor = False
                 end
                 object Label17: TLabel
                   Left = 13
-                  Height = 10
+                  Height = 16
                   Top = 34
-                  Width = 46
+                  Width = 53
                   Alignment = taRightJustify
                   Caption = 'Minimum:'
                   ParentColor = False
                 end
                 object EditRAMax: TEdit
                   Left = 70
-                  Height = 23
+                  Height = 33
                   Top = 0
                   Width = 90
                   Alignment = taRightJustify
@@ -1866,7 +1865,7 @@ object ChartPropDlg: TChartPropDlg
                 end
                 object EditRAMin: TEdit
                   Left = 70
-                  Height = 23
+                  Height = 33
                   Top = 30
                   Width = 90
                   Alignment = taRightJustify
@@ -1879,21 +1878,21 @@ object ChartPropDlg: TChartPropDlg
                   Top = 58
                   Width = 68
                   Caption = 'Apply...'
-                  OnClick = ButtonRAApplyClick
                   TabOrder = 2
+                  OnClick = ButtonRAApplyClick
                 end
                 object Label42: TLabel
                   Left = 10
-                  Height = 10
+                  Height = 16
                   Top = 66
-                  Width = 55
+                  Width = 56
                   Alignment = taRightJustify
                   Caption = 'Nice Steps:'
                   ParentColor = False
                 end
                 object EditRASteps: TEdit
                   Left = 70
-                  Height = 23
+                  Height = 33
                   Top = 60
                   Width = 72
                   TabOrder = 3
@@ -1902,19 +1901,19 @@ object ChartPropDlg: TChartPropDlg
             end
             object RATitleTab: TTabSheet
               Caption = 'Title'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object Label21: TLabel
                 Left = 8
-                Height = 10
+                Height = 16
                 Top = 110
-                Width = 30
+                Width = 33
                 Caption = 'Angle:'
                 ParentColor = False
               end
               object Label22: TLabel
                 Left = 136
-                Height = 10
+                Height = 16
                 Top = 110
                 Width = 23
                 Caption = 'Size:'
@@ -1927,13 +1926,13 @@ object ChartPropDlg: TChartPropDlg
                 Top = 136
                 Width = 75
                 Caption = 'Font...'
-                OnClick = ButtonAxisTitleFontClick
                 TabOrder = 0
+                OnClick = ButtonAxisTitleFontClick
               end
               object SpinEditRATitleAngle: TSpinEdit
                 Tag = 2
                 Left = 48
-                Height = 23
+                Height = 33
                 Top = 104
                 Width = 60
                 Alignment = taRightJustify
@@ -1945,7 +1944,7 @@ object ChartPropDlg: TChartPropDlg
               end
               object SpinEditRATitleSize: TSpinEdit
                 Left = 168
-                Height = 23
+                Height = 33
                 Top = 104
                 Width = 49
                 Alignment = taRightJustify
@@ -1958,12 +1957,12 @@ object ChartPropDlg: TChartPropDlg
                 Top = 4
                 Width = 230
                 Caption = 'Title'
-                ClientHeight = 58
+                ClientHeight = 54
                 ClientWidth = 228
                 TabOrder = 3
                 object EditRATitle: TEdit
                   Left = 8
-                  Height = 23
+                  Height = 33
                   Top = 0
                   Width = 210
                   TabOrder = 0
@@ -1974,8 +1973,8 @@ object ChartPropDlg: TChartPropDlg
                   Top = 28
                   Width = 75
                   Caption = '&Apply...'
-                  OnClick = ButtonRATitleApplyClick
                   TabOrder = 1
+                  OnClick = ButtonRATitleApplyClick
                 end
               end
               object CheckBoxRATitleVisible: TCheckBox
@@ -1983,10 +1982,10 @@ object ChartPropDlg: TChartPropDlg
                 Left = 8
                 Height = 23
                 Top = 80
-                Width = 56
+                Width = 65
                 Caption = 'Visible'
-                OnChange = CheckBoxAxisTitleVisibleChange
                 TabOrder = 4
+                OnChange = CheckBoxAxisTitleVisibleChange
               end
               object ColorButtonRATitleFont: TColorButton
                 Tag = 2
@@ -2005,19 +2004,19 @@ object ChartPropDlg: TChartPropDlg
             end
             object RAMarksTab: TTabSheet
               Caption = 'Marks'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object Label24: TLabel
                 Left = 8
-                Height = 10
+                Height = 16
                 Top = 80
-                Width = 68
+                Width = 72
                 Caption = 'Value For&mat:'
                 ParentColor = False
               end
               object Label25: TLabel
                 Left = 24
-                Height = 10
+                Height = 16
                 Top = 50
                 Width = 23
                 Caption = 'Si&ze:'
@@ -2025,9 +2024,9 @@ object ChartPropDlg: TChartPropDlg
               end
               object Label62: TLabel
                 Left = 120
-                Height = 10
+                Height = 16
                 Top = 50
-                Width = 30
+                Width = 33
                 Caption = '&Angle:'
                 ParentColor = False
               end
@@ -2036,10 +2035,10 @@ object ChartPropDlg: TChartPropDlg
                 Left = 8
                 Height = 23
                 Top = 8
-                Width = 56
+                Width = 65
                 Caption = 'V&isible'
-                OnClick = CheckBoxMarksVisibleClick
                 TabOrder = 0
+                OnClick = CheckBoxMarksVisibleClick
               end
               object ButtonRAMarksFont: TButton
                 Tag = 2
@@ -2048,24 +2047,23 @@ object ChartPropDlg: TChartPropDlg
                 Top = 8
                 Width = 75
                 Caption = 'F&ont...'
-                OnClick = ButtonAxisFontClick
                 TabOrder = 1
+                OnClick = ButtonAxisFontClick
               end
               object SpinEditRAMarksSize: TSpinEdit
                 Tag = 2
                 Left = 56
-                Height = 23
+                Height = 33
                 Top = 44
                 Width = 49
                 Alignment = taRightJustify
-                MaxValue = 0
                 OnChange = SpinEditMarksSizeChange
                 TabOrder = 2
               end
               object SpinEditRAMarksAngle: TSpinEdit
                 Tag = 2
                 Left = 160
-                Height = 23
+                Height = 33
                 Top = 44
                 Width = 49
                 Alignment = taRightJustify
@@ -2080,24 +2078,24 @@ object ChartPropDlg: TChartPropDlg
                 Left = 8
                 Height = 23
                 Top = 128
-                Width = 82
+                Width = 98
                 Caption = 'At data onl&y'
-                OnChange = CheckBoxMarksAtDataChange
                 TabOrder = 4
+                OnChange = CheckBoxMarksAtDataChange
               end
               object CheckBoxRAMarksClipped: TCheckBox
                 Tag = 2
                 Left = 120
                 Height = 23
                 Top = 128
-                Width = 62
+                Width = 71
                 Caption = 'Clipped'
-                OnChange = CheckBoxMarksClippedChange
                 TabOrder = 5
+                OnChange = CheckBoxMarksClippedChange
               end
               object ComboBoxRAValueFormat: TComboBox
                 Left = 8
-                Height = 25
+                Height = 28
                 Top = 94
                 Width = 82
                 ItemHeight = 0
@@ -2106,14 +2104,14 @@ object ChartPropDlg: TChartPropDlg
                   'General'
                   'Fixed'
                 )
-                OnChange = RAValueFormatChange
                 Style = csDropDownList
                 TabOrder = 6
                 Text = 'General'
+                OnChange = RAValueFormatChange
               end
               object SpinEditRADigits: TSpinEdit
                 Left = 104
-                Height = 23
+                Height = 33
                 Top = 94
                 Width = 50
                 Alignment = taRightJustify
@@ -2123,46 +2121,46 @@ object ChartPropDlg: TChartPropDlg
               end
               object Label47: TLabel
                 Left = 104
-                Height = 10
+                Height = 16
                 Top = 80
-                Width = 60
+                Width = 64
                 Caption = 'Digits (max.)'
                 ParentColor = False
               end
             end
             object RATicksTab: TTabSheet
               Caption = 'Ticks'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object Label63: TLabel
                 Left = 100
-                Height = 10
+                Height = 16
                 Top = 48
-                Width = 36
+                Width = 40
                 Caption = 'Length:'
                 ParentColor = False
               end
               object Label64: TLabel
                 Left = 100
-                Height = 10
+                Height = 16
                 Top = 78
-                Width = 64
+                Width = 72
                 Caption = 'Inner Length:'
                 ParentColor = False
               end
               object Label65: TLabel
                 Left = 100
-                Height = 10
+                Height = 16
                 Top = 108
-                Width = 36
+                Width = 40
                 Caption = 'Length:'
                 ParentColor = False
               end
               object Label66: TLabel
                 Left = 100
-                Height = 10
+                Height = 16
                 Top = 138
-                Width = 32
+                Width = 35
                 Caption = '&Count:'
                 ParentColor = False
               end
@@ -2173,8 +2171,8 @@ object ChartPropDlg: TChartPropDlg
                 Top = 8
                 Width = 116
                 Caption = 'A&xis Grid Border...'
-                OnClick = ButtonTicksGridBorderClick
                 TabOrder = 0
+                OnClick = ButtonTicksGridBorderClick
               end
               object Button27: TButton
                 Tag = 2
@@ -2183,13 +2181,13 @@ object ChartPropDlg: TChartPropDlg
                 Top = 110
                 Width = 75
                 Caption = '&Minors...'
-                OnClick = ButtonTicksMinorsClick
                 TabOrder = 1
+                OnClick = ButtonTicksMinorsClick
               end
               object SpinEditRATicksLength: TSpinEdit
                 Tag = 2
                 Left = 180
-                Height = 21
+                Height = 33
                 Top = 40
                 Width = 40
                 Alignment = taRightJustify
@@ -2201,7 +2199,7 @@ object ChartPropDlg: TChartPropDlg
               object SpinEditRATicksInnerLength: TSpinEdit
                 Tag = 2
                 Left = 180
-                Height = 21
+                Height = 33
                 Top = 70
                 Width = 40
                 Alignment = taRightJustify
@@ -2212,7 +2210,7 @@ object ChartPropDlg: TChartPropDlg
               object SpinEditRATicksMinorsLength: TSpinEdit
                 Tag = 2
                 Left = 180
-                Height = 21
+                Height = 33
                 Top = 100
                 Width = 40
                 Alignment = taRightJustify
@@ -2224,7 +2222,7 @@ object ChartPropDlg: TChartPropDlg
               object SpinEditRATicksMinorsCount: TSpinEdit
                 Tag = 2
                 Left = 180
-                Height = 21
+                Height = 33
                 Top = 130
                 Width = 40
                 Alignment = taRightJustify
@@ -2253,19 +2251,19 @@ object ChartPropDlg: TChartPropDlg
         end
         object TabSheetTop: TTabSheet
           Caption = 'Top'
-          ClientHeight = 220
-          ClientWidth = 365
+          ClientHeight = 243
+          ClientWidth = 363
           object CheckBoxTopAxisVisible: TCheckBox
             Tag = 3
             Left = 8
             Height = 23
             Top = 8
-            Width = 56
+            Width = 65
             Caption = '&Visible'
             Checked = True
-            OnChange = CheckBoxAxisVisibleChange
             State = cbChecked
             TabOrder = 0
+            OnChange = CheckBoxAxisVisibleChange
           end
           object ButtonTopAxisPen: TButton
             Tag = 3
@@ -2274,12 +2272,12 @@ object ChartPropDlg: TChartPropDlg
             Top = 40
             Width = 75
             Caption = 'Axis &Pen...'
-            OnClick = ButtonAxisPenClick
             TabOrder = 1
+            OnClick = ButtonAxisPenClick
           end
           object TopAxisPageControl: TPageControl
-            Left = 110
-            Height = 198
+            Left = 114
+            Height = 243
             Top = 0
             Width = 249
             ActivePage = TabSheetTATimeScales
@@ -2289,18 +2287,18 @@ object ChartPropDlg: TChartPropDlg
             OnChange = BottomAxisPageControlChange
             object TabSheetTATimeScales: TTabSheet
               Caption = 'Time Scales'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object CheckBoxTATScalesAuto: TCheckBox
                 Left = 8
                 Height = 23
                 Top = 4
-                Width = 74
+                Width = 89
                 Caption = '&Automatic'
                 Checked = True
-                OnChange = CheckBoxTATScalesAutoChange
                 State = cbChecked
                 TabOrder = 0
+                OnChange = CheckBoxTATScalesAutoChange
               end
               object GroupBoxTATScales: TGroupBox
                 Left = 8
@@ -2308,24 +2306,24 @@ object ChartPropDlg: TChartPropDlg
                 Top = 28
                 Width = 230
                 Caption = 'Date/Time Boundaries and Format:'
-                ClientHeight = 126
+                ClientHeight = 138
                 ClientWidth = 228
                 Enabled = False
                 TabOrder = 1
                 object Label37: TLabel
                   Left = 6
-                  Height = 10
+                  Height = 16
                   Top = 4
-                  Width = 79
+                  Width = 84
                   Alignment = taRightJustify
                   Caption = 'Start Date/Time:'
                   ParentColor = False
                 end
                 object Label38: TLabel
                   Left = 6
-                  Height = 10
+                  Height = 16
                   Top = 40
-                  Width = 75
+                  Width = 79
                   Alignment = taRightJustify
                   Caption = 'End Date/Time:'
                   ParentColor = False
@@ -2336,14 +2334,14 @@ object ChartPropDlg: TChartPropDlg
                   Top = 11
                   Width = 60
                   Caption = 'Apply...'
-                  OnClick = ButtonTATRangesApplyClick
                   TabOrder = 0
+                  OnClick = ButtonTATRangesApplyClick
                 end
                 object TAStartDateTimePicker: TDateTimePicker
                   Left = 6
-                  Height = 18
+                  Height = 22
                   Top = 18
-                  Width = 116
+                  Width = 118
                   CenturyFrom = 1941
                   MaxDate = 2958465
                   MinDate = -53780
@@ -2363,9 +2361,9 @@ object ChartPropDlg: TChartPropDlg
                 end
                 object TAEndDateTimePicker: TDateTimePicker
                   Left = 6
-                  Height = 18
+                  Height = 22
                   Top = 54
-                  Width = 116
+                  Width = 118
                   CenturyFrom = 1941
                   MaxDate = 2958465
                   MinDate = -53780
@@ -2385,15 +2383,15 @@ object ChartPropDlg: TChartPropDlg
                 end
                 object Label40: TLabel
                   Left = 6
-                  Height = 10
+                  Height = 16
                   Top = 84
-                  Width = 91
+                  Width = 97
                   Caption = 'Date/Time Format:'
                   ParentColor = False
                 end
                 object EditDTFormatTop: TEdit
                   Left = 6
-                  Height = 23
+                  Height = 33
                   Top = 98
                   Width = 214
                   TabOrder = 3
@@ -2403,38 +2401,38 @@ object ChartPropDlg: TChartPropDlg
             end
             object TabSheetTAScales: TTabSheet
               Caption = 'Scales'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object CheckBoxTAScalesAuto: TCheckBox
                 Left = 8
-                Height = 24
+                Height = 23
                 Top = 4
-                Width = 74
+                Width = 89
                 Caption = '&Automatic'
                 Checked = True
-                OnChange = CheckBoxTAScalesAutoChange
                 State = cbChecked
                 TabOrder = 0
+                OnChange = CheckBoxTAScalesAutoChange
               end
               object CheckBoxTALog: TCheckBox
                 Tag = 3
                 Left = 8
-                Height = 24
+                Height = 23
                 Top = 136
-                Width = 82
+                Width = 98
                 Caption = 'Logarith&mic'
-                OnChange = CheckBoxLogChange
                 TabOrder = 1
+                OnChange = CheckBoxLogChange
               end
               object CheckBoxTAInverted: TCheckBox
                 Tag = 3
                 Left = 144
-                Height = 24
+                Height = 23
                 Top = 136
-                Width = 65
+                Width = 75
                 Caption = '&Inverted'
-                OnChange = CheckBoxInvertedChange
                 TabOrder = 2
+                OnChange = CheckBoxInvertedChange
               end
               object GroupBoxTAScales: TGroupBox
                 Left = 8
@@ -2442,29 +2440,29 @@ object ChartPropDlg: TChartPropDlg
                 Top = 28
                 Width = 230
                 Caption = 'Boundaries:'
-                ClientHeight = 91
+                ClientHeight = 103
                 ClientWidth = 228
                 Enabled = False
                 TabOrder = 3
                 object Label23: TLabel
                   Left = 10
-                  Height = 10
+                  Height = 16
                   Top = 4
-                  Width = 49
+                  Width = 55
                   Caption = 'Maximum:'
                   ParentColor = False
                 end
                 object Label39: TLabel
                   Left = 10
-                  Height = 10
+                  Height = 16
                   Top = 34
-                  Width = 46
+                  Width = 53
                   Caption = 'Minimum:'
                   ParentColor = False
                 end
                 object EditTAMax: TEdit
                   Left = 70
-                  Height = 21
+                  Height = 33
                   Top = 0
                   Width = 90
                   Alignment = taRightJustify
@@ -2473,7 +2471,7 @@ object ChartPropDlg: TChartPropDlg
                 end
                 object EditTAMin: TEdit
                   Left = 70
-                  Height = 21
+                  Height = 33
                   Top = 30
                   Width = 90
                   Alignment = taRightJustify
@@ -2486,20 +2484,20 @@ object ChartPropDlg: TChartPropDlg
                   Top = 58
                   Width = 68
                   Caption = 'Apply...'
-                  OnClick = ButtonTARangesApplyClick
                   TabOrder = 2
+                  OnClick = ButtonTARangesApplyClick
                 end
                 object Label44: TLabel
                   Left = 10
-                  Height = 10
+                  Height = 16
                   Top = 64
-                  Width = 55
+                  Width = 56
                   Caption = 'Nice Steps:'
                   ParentColor = False
                 end
                 object EditTASteps: TEdit
                   Left = 70
-                  Height = 21
+                  Height = 33
                   Top = 60
                   Width = 72
                   TabOrder = 3
@@ -2508,19 +2506,19 @@ object ChartPropDlg: TChartPropDlg
             end
             object TabSheetTATitle: TTabSheet
               Caption = 'Title'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object Label69: TLabel
                 Left = 8
-                Height = 10
+                Height = 16
                 Top = 110
-                Width = 30
+                Width = 33
                 Caption = 'Angle:'
                 ParentColor = False
               end
               object Label70: TLabel
                 Left = 136
-                Height = 10
+                Height = 16
                 Top = 110
                 Width = 23
                 Caption = 'Size:'
@@ -2533,13 +2531,13 @@ object ChartPropDlg: TChartPropDlg
                 Top = 136
                 Width = 75
                 Caption = 'Font...'
-                OnClick = ButtonAxisTitleFontClick
                 TabOrder = 0
+                OnClick = ButtonAxisTitleFontClick
               end
               object SpinEditTATitleAngle: TSpinEdit
                 Tag = 3
                 Left = 48
-                Height = 23
+                Height = 33
                 Top = 104
                 Width = 60
                 Alignment = taRightJustify
@@ -2552,7 +2550,7 @@ object ChartPropDlg: TChartPropDlg
               object SpinEditTATitleSize: TSpinEdit
                 Tag = 3
                 Left = 176
-                Height = 23
+                Height = 33
                 Top = 104
                 Width = 49
                 Alignment = taRightJustify
@@ -2565,12 +2563,12 @@ object ChartPropDlg: TChartPropDlg
                 Top = 4
                 Width = 230
                 Caption = 'Title'
-                ClientHeight = 60
+                ClientHeight = 56
                 ClientWidth = 228
                 TabOrder = 3
                 object EditTATitle: TEdit
                   Left = 7
-                  Height = 23
+                  Height = 33
                   Top = 2
                   Width = 210
                   TabOrder = 0
@@ -2581,8 +2579,8 @@ object ChartPropDlg: TChartPropDlg
                   Top = 28
                   Width = 75
                   Caption = '&Apply...'
-                  OnClick = ButtonTATitleApplyClick
                   TabOrder = 1
+                  OnClick = ButtonTATitleApplyClick
                 end
               end
               object CheckBoxTATitleVisible: TCheckBox
@@ -2590,10 +2588,10 @@ object ChartPropDlg: TChartPropDlg
                 Left = 8
                 Height = 23
                 Top = 80
-                Width = 56
+                Width = 65
                 Caption = 'Visible'
-                OnChange = CheckBoxAxisTitleVisibleChange
                 TabOrder = 4
+                OnChange = CheckBoxAxisTitleVisibleChange
               end
               object ColorButtonTATitleFont: TColorButton
                 Tag = 3
@@ -2612,19 +2610,19 @@ object ChartPropDlg: TChartPropDlg
             end
             object TabSheetLabels1: TTabSheet
               Caption = 'Marks'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object Label71: TLabel
                 Left = 8
-                Height = 10
+                Height = 16
                 Top = 80
-                Width = 68
+                Width = 72
                 Caption = 'Value For&mat:'
                 ParentColor = False
               end
               object Label72: TLabel
                 Left = 24
-                Height = 10
+                Height = 16
                 Top = 50
                 Width = 23
                 Caption = 'Si&ze:'
@@ -2632,9 +2630,9 @@ object ChartPropDlg: TChartPropDlg
               end
               object Label73: TLabel
                 Left = 120
-                Height = 10
+                Height = 16
                 Top = 50
-                Width = 30
+                Width = 33
                 Caption = '&Angle:'
                 ParentColor = False
               end
@@ -2643,12 +2641,12 @@ object ChartPropDlg: TChartPropDlg
                 Left = 8
                 Height = 23
                 Top = 8
-                Width = 56
+                Width = 65
                 Caption = 'V&isible'
                 Checked = True
-                OnClick = CheckBoxMarksVisibleClick
                 State = cbChecked
                 TabOrder = 0
+                OnClick = CheckBoxMarksVisibleClick
               end
               object ButtonTAMarksFont: TButton
                 Tag = 3
@@ -2657,24 +2655,23 @@ object ChartPropDlg: TChartPropDlg
                 Top = 8
                 Width = 75
                 Caption = 'F&ont...'
-                OnClick = ButtonAxisFontClick
                 TabOrder = 1
+                OnClick = ButtonAxisFontClick
               end
               object SpinEditTAMarksSize: TSpinEdit
                 Tag = 3
                 Left = 56
-                Height = 23
+                Height = 33
                 Top = 44
                 Width = 49
                 Alignment = taRightJustify
-                MaxValue = 0
                 OnChange = SpinEditMarksSizeChange
                 TabOrder = 2
               end
               object SpinEditTAMarksAngle: TSpinEdit
                 Tag = 3
                 Left = 160
-                Height = 23
+                Height = 33
                 Top = 44
                 Width = 49
                 Alignment = taRightJustify
@@ -2689,24 +2686,24 @@ object ChartPropDlg: TChartPropDlg
                 Left = 8
                 Height = 23
                 Top = 128
-                Width = 84
+                Width = 99
                 Caption = 'At Data onl&y'
-                OnChange = CheckBoxMarksAtDataChange
                 TabOrder = 4
+                OnChange = CheckBoxMarksAtDataChange
               end
               object CheckBoxTAMarksClipped: TCheckBox
                 Tag = 3
                 Left = 112
                 Height = 23
                 Top = 128
-                Width = 62
+                Width = 71
                 Caption = 'Clipped'
-                OnChange = CheckBoxMarksClippedChange
                 TabOrder = 5
+                OnChange = CheckBoxMarksClippedChange
               end
               object ComboBoxTAValueFormat: TComboBox
                 Left = 8
-                Height = 25
+                Height = 28
                 Top = 94
                 Width = 82
                 ItemHeight = 0
@@ -2715,14 +2712,14 @@ object ChartPropDlg: TChartPropDlg
                   'General'
                   'Fixed'
                 )
-                OnChange = LAValueFormatChange
                 Style = csDropDownList
                 TabOrder = 6
                 Text = 'General'
+                OnChange = LAValueFormatChange
               end
               object SpinEditTADigits: TSpinEdit
                 Left = 104
-                Height = 23
+                Height = 33
                 Top = 94
                 Width = 50
                 Alignment = taRightJustify
@@ -2732,46 +2729,46 @@ object ChartPropDlg: TChartPropDlg
               end
               object Label48: TLabel
                 Left = 104
-                Height = 10
+                Height = 16
                 Top = 80
-                Width = 60
+                Width = 64
                 Caption = 'Digits (max.)'
                 ParentColor = False
               end
             end
             object TabSheetTicks1: TTabSheet
               Caption = 'Ticks'
-              ClientHeight = 194
-              ClientWidth = 245
+              ClientHeight = 239
+              ClientWidth = 239
               object Label74: TLabel
                 Left = 100
-                Height = 10
+                Height = 16
                 Top = 48
-                Width = 36
+                Width = 40
                 Caption = 'Length:'
                 ParentColor = False
               end
               object Label75: TLabel
                 Left = 100
-                Height = 10
+                Height = 16
                 Top = 78
-                Width = 64
+                Width = 72
                 Caption = 'Inner Length:'
                 ParentColor = False
               end
               object Label76: TLabel
                 Left = 100
-                Height = 10
+                Height = 16
                 Top = 108
-                Width = 36
+                Width = 40
                 Caption = 'Length:'
                 ParentColor = False
               end
               object Label77: TLabel
                 Left = 100
-                Height = 10
+                Height = 16
                 Top = 138
-                Width = 32
+                Width = 35
                 Caption = '&Count:'
                 ParentColor = False
               end
@@ -2782,8 +2779,8 @@ object ChartPropDlg: TChartPropDlg
                 Top = 8
                 Width = 116
                 Caption = 'A&xis Grid Border...'
-                OnClick = ButtonTicksGridBorderClick
                 TabOrder = 0
+                OnClick = ButtonTicksGridBorderClick
               end
               object ButtonTATicksMinors: TButton
                 Tag = 3
@@ -2792,13 +2789,13 @@ object ChartPropDlg: TChartPropDlg
                 Top = 110
                 Width = 75
                 Caption = '&Minors...'
-                OnClick = ButtonTicksMinorsClick
                 TabOrder = 1
+                OnClick = ButtonTicksMinorsClick
               end
               object SpinEditTATicksLength: TSpinEdit
                 Tag = 3
                 Left = 180
-                Height = 21
+                Height = 33
                 Top = 40
                 Width = 40
                 Alignment = taRightJustify
@@ -2810,7 +2807,7 @@ object ChartPropDlg: TChartPropDlg
               object SpinEditTATicksInnerLength: TSpinEdit
                 Tag = 3
                 Left = 180
-                Height = 21
+                Height = 33
                 Top = 70
                 Width = 40
                 Alignment = taRightJustify
@@ -2821,7 +2818,7 @@ object ChartPropDlg: TChartPropDlg
               object SpinEditTATicksMinorsLength: TSpinEdit
                 Tag = 3
                 Left = 180
-                Height = 21
+                Height = 33
                 Top = 100
                 Width = 40
                 Alignment = taRightJustify
@@ -2833,7 +2830,7 @@ object ChartPropDlg: TChartPropDlg
               object SpinEditTATicksMinorsCount: TSpinEdit
                 Tag = 3
                 Left = 180
-                Height = 21
+                Height = 33
                 Top = 130
                 Width = 40
                 Alignment = taRightJustify
@@ -2864,11 +2861,11 @@ object ChartPropDlg: TChartPropDlg
     end
     object TabsheetTitles: TTabSheet
       Caption = 'Titles'
-      ClientHeight = 224
-      ClientWidth = 369
+      ClientHeight = 247
+      ClientWidth = 373
       object ComboBoxTitles: TComboBox
         Left = 8
-        Height = 25
+        Height = 28
         Top = 8
         Width = 73
         ItemHeight = 0
@@ -2877,21 +2874,21 @@ object ChartPropDlg: TChartPropDlg
           'Title'
           'Footer'
         )
-        OnChange = ComboBoxTitlesChange
         Style = csDropDownList
         TabOrder = 0
         Text = 'Title'
+        OnChange = ComboBoxTitlesChange
       end
       object CheckBoxTitleVisible: TCheckBox
         Left = 8
         Height = 23
         Top = 56
-        Width = 56
+        Width = 65
         Caption = '&Visible'
         Checked = True
-        OnChange = CheckBoxTitleVisibleChange
         State = cbChecked
         TabOrder = 1
+        OnChange = CheckBoxTitleVisibleChange
       end
       object ButtonTitleFont: TButton
         Left = 96
@@ -2899,8 +2896,8 @@ object ChartPropDlg: TChartPropDlg
         Top = 8
         Width = 75
         Caption = 'F&ont...'
-        OnClick = ButtonTitleFontClick
         TabOrder = 2
+        OnClick = ButtonTitleFontClick
       end
       object ButtonTitleBorder: TButton
         Left = 184
@@ -2908,8 +2905,8 @@ object ChartPropDlg: TChartPropDlg
         Top = 8
         Width = 75
         Caption = '&Border...'
-        OnClick = ButtonTitleBorderClick
         TabOrder = 3
+        OnClick = ButtonTitleBorderClick
       end
       object RadioGroupTitles: TRadioGroup
         Left = 286
@@ -2925,7 +2922,7 @@ object ChartPropDlg: TChartPropDlg
         ChildSizing.ShrinkVertical = crsScaleChilds
         ChildSizing.Layout = cclLeftToRightThenTopToBottom
         ChildSizing.ControlsPerLine = 1
-        ClientHeight = 67
+        ClientHeight = 63
         ClientWidth = 78
         ItemIndex = 0
         Items.Strings = (
@@ -2951,12 +2948,12 @@ object ChartPropDlg: TChartPropDlg
         Top = 186
         Width = 64
         Caption = 'Apply'
-        OnClick = ButtonTitleApplyClick
         TabOrder = 6
+        OnClick = ButtonTitleApplyClick
       end
       object ComboBoxTitleBrush: TComboBox
         Left = 170
-        Height = 25
+        Height = 28
         Top = 56
         Width = 88
         ItemHeight = 0
@@ -2971,16 +2968,16 @@ object ChartPropDlg: TChartPropDlg
           'Cross'
           'DiagCross'
         )
-        OnChange = ComboBoxTitleBrushChange
         Style = csDropDownList
         TabOrder = 7
         Text = 'Solid'
+        OnChange = ComboBoxTitleBrushChange
       end
       object Label4: TLabel
         Left = 125
-        Height = 10
+        Height = 16
         Top = 63
-        Width = 31
+        Width = 34
         Caption = 'Brush:'
         ParentColor = False
       end
@@ -3012,21 +3009,21 @@ object ChartPropDlg: TChartPropDlg
     end
     object TabsheetLegend: TTabSheet
       Caption = 'Legend'
-      ClientHeight = 224
-      ClientWidth = 369
+      ClientHeight = 247
+      ClientWidth = 373
       object Label19: TLabel
         Left = 8
-        Height = 10
+        Height = 16
         Top = 172
-        Width = 46
+        Width = 49
         Caption = '&X Margin:'
         ParentColor = False
       end
       object Label20: TLabel
         Left = 8
-        Height = 10
+        Height = 16
         Top = 142
-        Width = 46
+        Width = 49
         Caption = '&Y Margin:'
         ParentColor = False
       end
@@ -3034,10 +3031,10 @@ object ChartPropDlg: TChartPropDlg
         Left = 8
         Height = 23
         Top = 8
-        Width = 56
+        Width = 65
         Caption = '&Visible'
-        OnChange = CheckBoxLegendVisibleChange
         TabOrder = 0
+        OnChange = CheckBoxLegendVisibleChange
       end
       object ButtonLegendFont: TButton
         Left = 8
@@ -3045,8 +3042,8 @@ object ChartPropDlg: TChartPropDlg
         Top = 68
         Width = 84
         Caption = 'F&ont...'
-        OnClick = ButtonLegendFontClick
         TabOrder = 1
+        OnClick = ButtonLegendFontClick
       end
       object ButtonBorderLegend: TButton
         Left = 8
@@ -3054,8 +3051,8 @@ object ChartPropDlg: TChartPropDlg
         Top = 100
         Width = 84
         Caption = 'Bo&rder...'
-        OnClick = ButtonBorderLegendClick
         TabOrder = 2
+        OnClick = ButtonBorderLegendClick
       end
       object RadioGroupLegendPos: TRadioGroup
         Left = 144
@@ -3071,7 +3068,7 @@ object ChartPropDlg: TChartPropDlg
         ChildSizing.ShrinkVertical = crsScaleChilds
         ChildSizing.Layout = cclTopToBottomThenLeftToRight
         ChildSizing.ControlsPerLine = 4
-        ClientHeight = 170
+        ClientHeight = 165
         ClientWidth = 222
         ColumnLayout = clVerticalThenHorizontal
         Columns = 2
@@ -3091,7 +3088,7 @@ object ChartPropDlg: TChartPropDlg
       end
       object SpinEditLegendX: TSpinEdit
         Left = 65
-        Height = 23
+        Height = 33
         Top = 168
         Width = 57
         Alignment = taRightJustify
@@ -3101,7 +3098,7 @@ object ChartPropDlg: TChartPropDlg
       end
       object SpinEditLegendY: TSpinEdit
         Left = 65
-        Height = 23
+        Height = 33
         Top = 136
         Width = 57
         Alignment = taRightJustify
@@ -3127,22 +3124,22 @@ object ChartPropDlg: TChartPropDlg
         Left = 8
         Height = 23
         Top = 198
-        Width = 128
+        Width = 153
         Caption = 'Legend on side panel'
-        OnChange = CheckBoxOnSidePanelChange
         TabOrder = 6
+        OnChange = CheckBoxOnSidePanelChange
       end
       object Label49: TLabel
         Left = 152
-        Height = 10
+        Height = 16
         Top = 204
-        Width = 45
+        Width = 49
         Caption = 'Columns:'
         ParentColor = False
       end
       object SpinEditColumns: TSpinEdit
         Left = 203
-        Height = 23
+        Height = 33
         Hint = 'Number of columns (1-4) in which the legend will be displayed'
         Top = 198
         Width = 50
@@ -3158,20 +3155,20 @@ object ChartPropDlg: TChartPropDlg
     end
     object TabSheetGeneral: TTabSheet
       Caption = 'General'
-      ClientHeight = 224
-      ClientWidth = 369
+      ClientHeight = 247
+      ClientWidth = 373
       object GroupBoxMargins: TGroupBox
         Left = 200
         Height = 120
         Top = 16
         Width = 144
         Caption = 'Margins %'
-        ClientHeight = 106
+        ClientHeight = 102
         ClientWidth = 142
         TabOrder = 0
         object SpinEditMarginTop: TSpinEdit
           Left = 48
-          Height = 23
+          Height = 33
           Top = 8
           Width = 41
           Alignment = taRightJustify
@@ -3182,7 +3179,7 @@ object ChartPropDlg: TChartPropDlg
         end
         object SpinEditMarginLeft: TSpinEdit
           Left = 8
-          Height = 23
+          Height = 33
           Top = 40
           Width = 41
           Alignment = taRightJustify
@@ -3193,7 +3190,7 @@ object ChartPropDlg: TChartPropDlg
         end
         object SpinEditMarginBottom: TSpinEdit
           Left = 48
-          Height = 23
+          Height = 33
           Top = 72
           Width = 41
           Alignment = taRightJustify
@@ -3204,7 +3201,7 @@ object ChartPropDlg: TChartPropDlg
         end
         object SpinEditMarginRight: TSpinEdit
           Left = 90
-          Height = 23
+          Height = 33
           Top = 40
           Width = 41
           Alignment = taRightJustify
@@ -3220,8 +3217,8 @@ object ChartPropDlg: TChartPropDlg
         Top = 168
         Width = 100
         Caption = '&Print ...'
-        OnClick = ButtonPrintClick
         TabOrder = 1
+        OnClick = ButtonPrintClick
       end
       object ButtonExport: TButton
         Left = 224
@@ -3230,17 +3227,17 @@ object ChartPropDlg: TChartPropDlg
         Width = 100
         Caption = 'Export...'
         Enabled = False
-        OnClick = ButtonExportClick
         TabOrder = 2
+        OnClick = ButtonExportClick
       end
       object CheckBoxNoBackColour: TCheckBox
         Left = 8
         Height = 23
         Top = 56
-        Width = 103
+        Width = 118
         Caption = 'No B&ack Colour'
-        OnClick = CheckBoxNoBackColourClick
         TabOrder = 3
+        OnClick = CheckBoxNoBackColourClick
       end
       object ColorButtonBack: TColorButton
         Left = 8
@@ -3274,9 +3271,9 @@ object ChartPropDlg: TChartPropDlg
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 38
-    Top = 256
-    Width = 367
+    Height = 40
+    Top = 283
+    Width = 371
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
     HelpButton.Name = 'HelpButton'

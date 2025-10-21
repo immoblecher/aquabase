@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -24,7 +24,7 @@ interface
 uses
   Classes, SysUtils, db, FileUtil, ZDataset, ZConnection, ZSqlProcessor,
   ZDbcSqLite, Forms, Controls, Graphics, Dialogs, ButtonPanel, StdCtrls,
-  ComCtrls, DbCtrls, ExtCtrls;
+  ComCtrls, DbCtrls, ExtCtrls, StrUtils;
 
 type
 
@@ -79,7 +79,7 @@ var OldTableList, TempTableList, TableList, FieldList, OldFieldList, ErrorList: 
     ErrMsg: String;
     loadResult: Word;
 begin
-  if MessageDlg('Are you sure you want to apply a new SQLite format to your workspace?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  if MessageDlg('Are you sure you want to apply the new SpatiaLite/Geopackage format to your workspace?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     BusyNewSQLite := True;
     ErrorList := TStringList.Create;
@@ -87,9 +87,28 @@ begin
     ButtonPanel1.CloseButton.Enabled := False;
     Panel1.Caption := 'Please wait for the conversion process to complete. At the end you will have to close the workspace and open it again to activate the new format.';
     Application.ProcessMessages;
-    //copy the new aquabase.sqlite to the workspace
-    CopyFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite'  + DirectorySeparator + 'aquabase.sqlite',
-      WSpaceDir + DirectorySeparator + 'aquabase_new.sqlite');
+    if RightStr(DataModuleMain.ZConnectionDB.Database, 7) = '.sqlite' then
+    begin
+      //delete aquabase_new if they exist
+      DeleteFile(WSpaceDir + DirectorySeparator + 'aquabase_new.sqlite');
+      DeleteFile(WSpaceDir + DirectorySeparator + 'aquabase_new.sqlite-shm');
+      DeleteFile(WSpaceDir + DirectorySeparator + 'aquabase_new.sqlite-wal');
+      //copy the new aquabase.sqlite to the workspace
+      CopyFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite'  + DirectorySeparator + 'aquabase.sqlite',
+        WSpaceDir + DirectorySeparator + 'aquabase_new.sqlite');
+      ZConnectionNew.Database := WSpaceDir + DirectorySeparator + 'aquabase_new.sqlite';
+    end
+    else
+    if RightStr(DataModuleMain.ZConnectionDB.Database, 5) = '.gpkg' then
+    begin
+      //delete aquabase_new if they exist
+      DeleteFile(WSpaceDir + DirectorySeparator + 'aquabase_new.gpkg');
+      DeleteFile(WSpaceDir + DirectorySeparator + 'aquabase_new.gpkg-shm');
+      DeleteFile(WSpaceDir + DirectorySeparator + 'aquabase_new.gpkg-wal');
+      CopyFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'GeoPackage'  + DirectorySeparator + 'aquabase.gpkg',
+        WSpaceDir + DirectorySeparator + 'aquabase_new.gpkg');
+      ZConnectionNew.Database := WSpaceDir + DirectorySeparator + 'aquabase_new.gpkg';
+    end;
     //set connection parameters
     {$IFDEF WINDOWS}
     ZConnectionNew.LibraryLocation := ProgramDir + '\' + SQLiteLib;
@@ -132,9 +151,12 @@ begin
       Close;
     end;
     //set up new connection
-    ZConnectionNew.Database := WSpaceDir + DirectorySeparator + 'aquabase_new.sqlite';
-    ZConnectionNew.Connect;
-    ZConnectionNew.ExecuteDirect('PRAGMA foreign_keys = ON;'); //Enable foreign keys on sqlite
+    with ZConnectionNew do
+    begin
+      Connect;
+      ExecuteDirect('PRAGMA journal_mode = DELETE;');
+      ExecuteDirect('PRAGMA foreign_keys = ON;'); //Enable foreign keys
+    end;
     //Spatially enable main database
     sc := ZConnectionNew.DbcConnection as TZSQLiteConnection;
     sc.enable_load_extension(True);
@@ -225,24 +247,45 @@ begin
         Application.ProcessMessages;
         ValueString := '(';
         for f := 0 to FieldList.Count -1 do
+        with ZReadOnlyQuery do
         begin
-          if ZReadOnlyQuery.Fields[f].FieldName = '0' then
-            ValueString := ValueString + IntToStr(ZReadOnlyQuery.RecNo) + ', '
+          if Fields[f].FieldName = '0' then
+            ValueString := ValueString + IntToStr(RecNo) + ', '
           else
-          if (ZReadOnlyQuery.Fields[f].FieldName = 'Null') OR (ZReadOnlyQuery.Fields[f].FieldName = 'GEOMETRY') then
-            ValueString := ValueString + 'Null, '
+          if (Fields[f].FieldName = 'NULL') OR (UpperCase(Fields[f].FieldName) = 'GEOMETRY') then
+            ValueString := ValueString + 'NULL, '
           else
-          if ZReadOnlyQuery.Fields[f].DataType = ftLargeInt then
-            ValueString := ValueString + IntToStr(ZReadOnlyQuery.Fields[f].AsInteger) + ', '
+          if Fields[f].DataType = ftLargeInt then
+          begin
+            if Fields[f].IsNull then
+              ValueString := ValueString + 'NULL, '
+            else
+              ValueString := ValueString + IntToStr(Fields[f].AsInteger) + ', '
+          end
           else
-          if ZReadOnlyQuery.Fields[f].DataType = ftString then
-              ValueString := ValueString + QuotedStr(ZReadOnlyQuery.Fields[f].AsString) + ', '
+          if Fields[f].DataType = ftString then
+          begin
+            if Fields[f].IsNull then
+              ValueString := ValueString + 'NULL, '
+            else
+              ValueString := ValueString + QuotedStr(Fields[f].AsString) + ', '
+          end
           else
-          if ZReadOnlyQuery.Fields[f].DataType = ftFloat then
-            ValueString := ValueString + FloatToStr(ZReadOnlyQuery.Fields[f].AsFloat) + ', '
+          if Fields[f].DataType = ftFloat then
+          begin
+            if Fields[f].IsNull then
+              ValueString := ValueString + 'NULL, '
+            else
+              ValueString := ValueString + FloatToStr(Fields[f].AsFloat) + ', '
+          end
           else
-          if ZReadOnlyQuery.Fields[f].DataType = ftInteger then
-            ValueString := ValueString + IntToStr(ZReadOnlyQuery.Fields[f].AsInteger) + ', '
+          if Fields[f].DataType = ftInteger then
+          begin
+            if Fields[f].IsNull then
+              ValueString := ValueString + 'NULL, '
+            else
+              ValueString := ValueString + IntToStr(Fields[f].AsInteger) + ', '
+          end
           else //for BLOB with image
           if (ZQueryNewFields.Fields[f].DataType = ftBlob) and (ZQueryNewFields.Fields[f].FieldName = 'SITE_IMAGE') then
             ValueString := ValueString + ':pBlob, ' //Set to BLOB parameter
@@ -250,7 +293,7 @@ begin
           if (ZQueryNewFields.Fields[f].DataType = ftBlob) and (ZQueryNewFields.Fields[f].FieldName = 'REP_DOC') then
             ValueString := ValueString + ':pBlob, ' //Set to BLOB parameter
           else
-            ValueString := ValueString + QuotedStr(ZReadOnlyQuery.Fields[f].AsString) + ', ';
+            ValueString := ValueString + QuotedStr(Fields[f].AsString) + ', ';
         end;
         //remove last comma and add bracket
         Delete(ValueString, Length(ValueString) - 1, 2);
@@ -266,7 +309,7 @@ begin
               ExeStr := 'INSERT INTO basicimg VALUES ' + ValueString;
               ZQueryImg.SQL.Add(ExeStr);
               ZQueryImg.Params[0].DataType := ftBlob;
-              ZQueryImg.Params[0].LoadFromStream(Stream, ftBlob);
+              ZQueryImg.Params[0].LoadBinaryFromStream(Stream);
               ZQueryImg.ExecSQL;
             except on E: Exception do
               begin
@@ -291,7 +334,7 @@ begin
               ExeStr := 'INSERT INTO rprtdocs VALUES ' + ValueString;
               ZQueryImg.SQL.Add(ExeStr);
               ZQueryImg.Params[0].DataType := ftBlob;
-              ZQueryImg.Params[0].LoadFromStream(Stream, ftBlob);
+              ZQueryImg.Params[0].LoadBinaryFromStream(Stream);
               ZQueryImg.ExecSQL;
             except on E: Exception do
               begin
@@ -321,6 +364,8 @@ begin
         Inc(CurRec);
         ZReadOnlyQuery.Next;
       end;
+      ZConnectionNew.ExecuteDirect('SELECT RecoverSpatialIndex("basicinf", "GEOMETRY");');
+      ZConnectionNew.ExecuteDirect('SELECT RecoverSpatialIndex("profilng", "GEOMETRY");');
       ZReadOnlyQuery.Close;
       ZQueryNewFields.Close;
       ZQueryNewFields.SQL.Clear;
@@ -343,11 +388,11 @@ begin
     ZConnectionNew.Connected := False;
     NewSQLite := True;
     ButtonPanel1.CloseButton.Enabled := True;
-    StaticText2.Caption := 'Finished applying new SQLite database';
+    StaticText2.Caption := 'Finished applying new SpatiaLite/Geopackage database';
     ProgressBar1.Max := 100;
     ProgressBar1.Position := 100;
     Application.ProcessMessages;
-    ShowMessage('Remember to close the workspace now and reopen it to activate the new SQLite database!');
+    ShowMessage('Remember to close the workspace now and immediately reopen it to activate the new SpatiaLite/Geopackage database!');
     BusyNewSQLite := False;
     Close;
   end

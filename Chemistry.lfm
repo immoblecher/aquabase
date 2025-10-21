@@ -1,8 +1,8 @@
 object ChemistryForm: TChemistryForm
   Tag = 127
-  Left = 712
+  Left = 2651
   Height = 465
-  Top = 237
+  Top = 275
   Width = 576
   Caption = 'Chemistry Parameters'
   ClientHeight = 465
@@ -716,9 +716,8 @@ object ChemistryForm: TChemistryForm
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   OnShow = FormShow
-  Position = poDefaultSizeOnly
   SessionProperties = 'Height;Left;Top;Width;EditResults.Text'
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.8.0.0'
   Visible = True
   object Panel3: TPanel
     Left = 0
@@ -734,6 +733,7 @@ object ChemistryForm: TChemistryForm
     Font.Color = clBlack
     Font.Height = -11
     Font.Name = 'Liberation Sans'
+    ParentBackground = False
     ParentFont = False
     TabOrder = 1
     object SamplesLabel: TLabel
@@ -1114,7 +1114,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PH'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Liberation Sans'
@@ -1137,7 +1136,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'EC'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1156,7 +1154,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'TDS'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1175,7 +1172,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'CA'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1194,7 +1190,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'MG'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1213,7 +1208,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'NA'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1232,7 +1226,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'K'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1251,7 +1244,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'SI'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1270,7 +1262,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PALK'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1289,7 +1280,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'MALK'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1308,7 +1298,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PACID'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1327,7 +1316,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'MACID'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1346,7 +1334,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'CL'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1365,7 +1352,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'SO4'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1384,7 +1370,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'N'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1403,7 +1388,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'F'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1422,7 +1406,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'CO3'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1441,7 +1424,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'HCO3'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1460,7 +1442,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'AL'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1479,7 +1460,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'FE'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1498,7 +1478,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'MN'
           DataSource = DataSource1
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1821,7 +1800,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'N_AMONIA'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1840,7 +1818,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'NO2'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1859,7 +1836,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PO4'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1878,7 +1854,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'SULF'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1897,7 +1872,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'CN'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1916,7 +1890,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'B'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1935,7 +1908,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'ARSENIC'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1954,7 +1926,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'SB'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1973,7 +1944,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'BI'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -1992,7 +1962,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'CU'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2011,7 +1980,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PB'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2030,7 +1998,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'ZN'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2049,7 +2016,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'CR'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2068,7 +2034,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'NI'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2087,7 +2052,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'TI'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2106,7 +2070,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'HG'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2125,7 +2088,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'MO'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2144,7 +2106,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'CO'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2163,7 +2124,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'BA'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2182,7 +2142,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'SR'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2201,7 +2160,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'CD'
           DataSource = DataSource2
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2212,7 +2170,7 @@ object ChemistryForm: TChemistryForm
       end
       object TabSheet3: TTabSheet
         Hint = 'Organic/Bact. Parameters'
-        Caption = 'Organic/Bacteriol.'
+        Caption = 'Organic/Microbiological'
         ClientHeight = 119
         ClientWidth = 550
         ImageIndex = 2
@@ -2530,7 +2488,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'COD'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2549,7 +2506,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'CFR'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2568,7 +2524,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'DOC'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2587,7 +2542,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'DOX'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2606,7 +2560,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'H2S'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2625,7 +2578,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PHEN'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2644,7 +2596,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'OIL'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2663,7 +2614,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'SOAP'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2682,7 +2632,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'KJED'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2701,7 +2650,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'ECOL'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2720,7 +2668,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'FAEC_ECOL'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2739,7 +2686,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'SPC'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2758,7 +2704,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'FAEC_STREP'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2777,7 +2722,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'BOD'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2796,7 +2740,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'TOTAL_COL'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2815,7 +2758,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'TVO'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2834,7 +2776,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'ENT_VIRUS'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2853,7 +2794,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PROTO_PARA'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2872,7 +2812,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'SOM_COLI'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2891,7 +2830,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'TOC'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -2910,7 +2848,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'TOT_THM'
           DataSource = DataSource3
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3115,7 +3052,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'COLR'
           DataSource = DataSource4
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3134,7 +3070,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'ODR'
           DataSource = DataSource4
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3153,7 +3088,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'TST'
           DataSource = DataSource4
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3172,7 +3106,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'SPECGRAV'
           DataSource = DataSource4
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3191,7 +3124,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'MBAS'
           DataSource = DataSource4
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3210,7 +3142,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'TEMP'
           DataSource = DataSource4
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3229,7 +3160,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'TUR'
           DataSource = DataSource4
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3248,7 +3178,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'SUSP_SOLID'
           DataSource = DataSource4
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3267,7 +3196,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'DEUTERIUM'
           DataSource = DataSource4
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3286,7 +3214,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'TRITIUM'
           DataSource = DataSource4
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3305,7 +3232,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'OXYGEN18'
           DataSource = DataSource4
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3324,7 +3250,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'RCARBON'
           DataSource = DataSource4
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3357,7 +3282,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'ROX'
           DataSource = DataSource4
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3677,7 +3601,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'LI'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3689,14 +3612,13 @@ object ChemistryForm: TChemistryForm
           Tag = 5005
           Left = 319
           Height = 20
-          Hint = 'Cesium'
+          Hint = 'Cerium'
           Top = 16
           Width = 70
           HelpContext = 312
           DataField = 'CE'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3715,7 +3637,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'AU'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3734,7 +3655,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'AG'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3753,7 +3673,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PT'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3772,7 +3691,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'TE'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3791,7 +3709,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'TL'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3810,7 +3727,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'W'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3829,7 +3745,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'V'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3848,7 +3763,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'U'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3867,7 +3781,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'SE'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3886,7 +3799,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'BE'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3905,7 +3817,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'I'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3924,7 +3835,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'BR'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3941,7 +3851,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'SN'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3960,7 +3869,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'ZR'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3979,7 +3887,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PD'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -3998,7 +3905,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'LA'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4017,7 +3923,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'NB'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4036,7 +3941,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'TA'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4054,7 +3958,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'ND'
           DataSource = DataSource5
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4393,7 +4296,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM1'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Liberation Sans'
@@ -4415,7 +4317,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM2'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4433,7 +4334,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM3'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4451,7 +4351,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM4'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4469,7 +4368,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM5'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4487,7 +4385,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM6'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4505,7 +4402,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM7'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4523,7 +4419,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM8'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4541,7 +4436,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM9'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4559,7 +4453,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM10'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4577,7 +4470,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM11'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4595,7 +4487,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM12'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4613,7 +4504,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM13'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4631,7 +4521,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM14'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4649,7 +4538,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM15'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4667,7 +4555,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM16'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4685,7 +4572,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM17'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4703,7 +4589,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM18'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4721,7 +4606,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM19'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4739,7 +4623,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM20'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4757,7 +4640,6 @@ object ChemistryForm: TChemistryForm
           DataField = 'PARAM21'
           DataSource = DataSource6
           AutoSize = False
-          CharCase = ecNormal
           MaxLength = 0
           ParentShowHint = False
           ShowHint = True
@@ -4801,7 +4683,7 @@ object ChemistryForm: TChemistryForm
     object DBGrid: TDBGrid
       Left = 8
       Height = 91
-      Hint = 'Sample Information'
+      Hint = 'Chemistry sample information'
       Top = 134
       Width = 560
       HelpContext = 31
@@ -4815,6 +4697,7 @@ object ChemistryForm: TChemistryForm
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgCellHints]
       ParentFont = False
       Scrollbars = ssAutoBoth
+      ShowHint = True
       TabOrder = 0
       OnColExit = DBGridColExit
       OnEnter = DBGridEnter
@@ -4825,24 +4708,24 @@ object ChemistryForm: TChemistryForm
       OnTitleClick = DBGridTitleClick
     end
     object AMSLCheckBox: TCheckBox
-      Left = 498
+      Left = 497
       Height = 23
       Top = 114
-      Width = 63
+      Width = 64
       Anchors = [akTop, akRight]
       Caption = 'a.m.s.l.'
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      OnClick = AMSLCheckBoxClick
       ParentFont = False
       TabOrder = 1
       TabStop = False
+      OnClick = AMSLCheckBoxClick
     end
     object GroupBox1: TGroupBox
       Left = 8
-      Height = 100
+      Height = 107
       Top = 8
       Width = 560
       Align = alTop
@@ -4850,20 +4733,20 @@ object ChemistryForm: TChemistryForm
       BorderSpacing.Around = 4
       BorderSpacing.InnerBorder = 1
       Caption = 'Basic Site Information:'
-      ClientHeight = 86
+      ClientHeight = 89
       ClientWidth = 558
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
+      ParentBackground = False
       ParentFont = False
       TabOrder = 2
       object SiteIDLabel: TLabel
         Left = 2
-        Height = 13
+        Height = 17
         Top = 0
-        Width = 67
-        AutoSize = False
+        Width = 75
         BorderSpacing.Left = 2
         Caption = '&Site Identifier'
         FocusControl = EditSITE_ID_NR
@@ -4874,11 +4757,10 @@ object ChemistryForm: TChemistryForm
         ParentFont = False
       end
       object NumberLabel: TLabel
-        Left = 88
-        Height = 13
+        Left = 90
+        Height = 17
         Top = 0
-        Width = 42
-        AutoSize = False
+        Width = 46
         Caption = '&Number'
         FocusControl = EditNR_ON_MAP
         Font.Color = clBlack
@@ -4888,11 +4770,10 @@ object ChemistryForm: TChemistryForm
         ParentFont = False
       end
       object FarmLabel: TLabel
-        Left = 180
-        Height = 13
+        Left = 182
+        Height = 17
         Top = 0
-        Width = 77
-        AutoSize = False
+        Width = 79
         Caption = 'Distr./&Farm Nr.'
         FocusControl = EditFARM_NR
         Font.Color = clBlack
@@ -4902,11 +4783,10 @@ object ChemistryForm: TChemistryForm
         ParentFont = False
       end
       object SiteLabel: TLabel
-        Left = 258
-        Height = 13
+        Left = 262
+        Height = 17
         Top = 0
-        Width = 286
-        AutoSize = False
+        Width = 126
         Caption = 'Site Name/&Description'
         FocusControl = EditSITE_NAME
         Font.Color = clBlack
@@ -4916,7 +4796,7 @@ object ChemistryForm: TChemistryForm
         ParentFont = False
       end
       object Y_CoordLabel: TLabel
-        Left = 92
+        Left = 96
         Height = 13
         Top = 44
         Width = 84
@@ -4970,7 +4850,7 @@ object ChemistryForm: TChemistryForm
         ParentFont = False
       end
       object CollarLabel: TLabel
-        Left = 306
+        Left = 308
         Height = 13
         Top = 44
         Width = 54
@@ -5028,7 +4908,7 @@ object ChemistryForm: TChemistryForm
         Left = 2
         Height = 22
         Top = 15
-        Width = 82
+        Width = 86
         DataField = 'SITE_ID_NR'
         DataSource = BasicinfDataSource
         ReadOnly = True
@@ -5045,10 +4925,10 @@ object ChemistryForm: TChemistryForm
         OnEnter = EditBasicinfEnter
       end
       object EditNR_ON_MAP: TDBEdit
-        Left = 88
+        Left = 90
         Height = 22
         Top = 15
-        Width = 88
+        Width = 90
         HelpContext = 31
         DataField = 'NR_ON_MAP'
         DataSource = BasicinfDataSource
@@ -5066,10 +4946,10 @@ object ChemistryForm: TChemistryForm
         OnKeyUp = EditKeyUp
       end
       object EditFARM_NR: TDBEdit
-        Left = 180
+        Left = 182
         Height = 22
         Top = 15
-        Width = 74
+        Width = 76
         HelpContext = 31
         DataField = 'FARM_NR'
         DataSource = BasicinfDataSource
@@ -5087,16 +4967,15 @@ object ChemistryForm: TChemistryForm
         OnKeyUp = EditKeyUp
       end
       object EditSITE_NAME: TDBEdit
-        Left = 258
+        Left = 262
         Height = 22
         Top = 15
-        Width = 298
+        Width = 292
         HelpContext = 31
         DataField = 'SITE_NAME'
         DataSource = BasicinfDataSource
         Anchors = [akTop, akLeft, akRight]
         AutoSize = False
-        CharCase = ecUppercase
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -5111,12 +4990,11 @@ object ChemistryForm: TChemistryForm
         Left = 250
         Height = 22
         Top = 58
-        Width = 50
+        Width = 54
         HelpContext = 31
         DataField = 'ALTITUDE'
         DataSource = BasicinfDataSource
         AutoSize = False
-        CharCase = ecNormal
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -5129,7 +5007,7 @@ object ChemistryForm: TChemistryForm
         OnKeyUp = EditKeyUp
       end
       object EditCOLLAR_HI: TDBEdit
-        Left = 306
+        Left = 308
         Height = 22
         Top = 58
         Width = 50
@@ -5137,7 +5015,6 @@ object ChemistryForm: TChemistryForm
         DataField = 'COLLAR_HI'
         DataSource = BasicinfDataSource
         AutoSize = False
-        CharCase = ecNormal
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -5158,7 +5035,6 @@ object ChemistryForm: TChemistryForm
         DataField = 'DEPTH'
         DataSource = BasicinfDataSource
         AutoSize = False
-        CharCase = ecNormal
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -5181,7 +5057,6 @@ object ChemistryForm: TChemistryForm
         ReadOnly = True
         Anchors = [akTop, akLeft, akRight]
         AutoSize = False
-        CharCase = ecNormal
         Enabled = False
         Font.Color = clBlack
         Font.Height = -12
@@ -5194,7 +5069,7 @@ object ChemistryForm: TChemistryForm
       end
       object RxDBLookupComboAcc: TRxDBLookupCombo
         Left = 190
-        Height = 25
+        Height = 29
         Top = 58
         Width = 36
         HelpKeyword = 'COORDACC'
@@ -5287,7 +5162,7 @@ object ChemistryForm: TChemistryForm
         LookupSource = TypeDataSource
       end
       object DBEditX: TDBEdit
-        Left = 4
+        Left = 2
         Height = 22
         Top = 58
         Width = 88
@@ -5340,6 +5215,7 @@ object ChemistryForm: TChemistryForm
       BevelOuter = bvNone
       ClientHeight = 29
       ClientWidth = 568
+      ParentBackground = False
       TabOrder = 4
       object DetailNavigator: TDBNavigator
         Left = 172
@@ -5382,9 +5258,9 @@ object ChemistryForm: TChemistryForm
         Anchors = [akTop, akRight]
         BorderSpacing.Around = 4
         NumbersOnly = True
-        OnEditingDone = EditResultsEditingDone
         TabOrder = 2
         Text = '500'
+        OnEditingDone = EditResultsEditingDone
       end
       object StaticText1: TStaticText
         Left = 443
@@ -5408,6 +5284,7 @@ object ChemistryForm: TChemistryForm
     Align = alTop
     ClientHeight = 36
     ClientWidth = 576
+    ParentBackground = False
     TabOrder = 0
     object TimeSpeedButton: TSpeedButton
       Left = 306
@@ -5692,16 +5569,16 @@ object ChemistryForm: TChemistryForm
     Left = 496
     Top = 218
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
     Left = 360
     Top = 40
   end
   object LinkedQuery: TZQuery
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'DATE_SAMPL,TIME_SAMPL,DEPTH_SAMP'
     BeforeOpen = LinkedQueryBeforeOpen
     AfterOpen = LinkedQueryAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     OnPostError = LinkedQueryPostError
     OnNewRecord = LinkedQueryNewRecord
     SQL.Strings = (
@@ -5713,6 +5590,7 @@ object ChemistryForm: TChemistryForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     MasterFields = 'SITE_ID_NR'
     MasterSource = DataModuleMain.DataSourceView
@@ -5726,6 +5604,7 @@ object ChemistryForm: TChemistryForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQuerySITE_ID_NR: TStringField
       DisplayWidth = 44
@@ -5867,7 +5746,7 @@ object ChemistryForm: TChemistryForm
     end
     object LinkedQueryLAB: TStringField
       DisplayLabel = 'Laboratory'
-      DisplayWidth = 56
+      DisplayWidth = 72
       FieldKind = fkData
       FieldName = 'LAB'
       Index = 10
@@ -5875,7 +5754,7 @@ object ChemistryForm: TChemistryForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = UpperSetText
+      OnSetText = LinkedQueryLABSetText
       Size = 56
     end
     object LinkedQueryCOMMENT: TStringField
@@ -5888,7 +5767,7 @@ object ChemistryForm: TChemistryForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = UpperSetText
+      OnSetText = LinkedQueryCOMMENTSetText
       Size = 252
     end
     object LinkedQueryALT_NR_1: TStringField
@@ -5946,9 +5825,9 @@ object ChemistryForm: TChemistryForm
   end
   object ZQuery1: TZQuery
     Tag = 1
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = ZQueryBeforeOpen
     OnCalcFields = ZQuery1CalcFields
+    Connection = DataModuleMain.ZConnectionDB
     AfterPost = ZQuery1AfterPost
     OnPostError = ZQueryPostError
     Params = <>
@@ -6384,8 +6263,8 @@ object ChemistryForm: TChemistryForm
   end
   object ZQuery2: TZQuery
     Tag = 2
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = ZQueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     OnPostError = ZQueryPostError
     Params = <>
     MasterFields = 'CHM_REF_NR'
@@ -6679,8 +6558,8 @@ object ChemistryForm: TChemistryForm
   end
   object ZQuery3: TZQuery
     Tag = 3
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = ZQueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     OnPostError = ZQueryPostError
     SQL.Strings = (
       ''
@@ -6959,8 +6838,8 @@ object ChemistryForm: TChemistryForm
   end
   object ZQuery4: TZQuery
     Tag = 4
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = ZQueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     OnPostError = ZQueryPostError
     SQL.Strings = (
       ''
@@ -7140,8 +7019,8 @@ object ChemistryForm: TChemistryForm
   end
   object ZQuery5: TZQuery
     Tag = 5
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = ZQueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     OnPostError = ZQueryPostError
     SQL.Strings = (
       'select * from chem_005'
@@ -7520,8 +7399,8 @@ object ChemistryForm: TChemistryForm
   end
   object ZQuery6: TZQuery
     Tag = 6
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = ZQueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     OnPostError = ZQueryPostError
     SQL.Strings = (
       ' SELECT * FROM chem_006'
@@ -7787,9 +7666,9 @@ object ChemistryForm: TChemistryForm
     Top = 392
   end
   object ZQuery7: TZQuery
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'CPARAMETER'
     BeforeOpen = ZQuery7BeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     OnNewRecord = ZQuery7NewRecord
     Params = <>
     MasterFields = 'CHM_REF_NR'
@@ -7888,6 +7767,26 @@ object ChemistryForm: TChemistryForm
         ShortCut = 16502
         OnClick = MenuItemGotoBookmark2Click
       end
+    end
+  end
+  object PopupMenu2: TPopupMenu
+    OnPopup = PopupMenu2Popup
+    Left = 370
+    Top = 90
+    object MenuItem2: TMenuItem
+      Caption = '&Filter by this value'
+      OnClick = MenuItem2Click
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Filter by &not this value'
+      OnClick = MenuItem4Click
+    end
+    object Separator1: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem3: TMenuItem
+      Caption = '&Clear filter'
+      OnClick = MenuItem3Click
     end
   end
 end

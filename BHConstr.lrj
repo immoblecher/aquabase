@@ -1,0 +1,18 @@
+{"version":1,"strings":[
+{"hash":6088845,"name":"tbhconstrform.caption","sourcebytes":[66,111,114,101,104,111,108,101,32,67,111,110,115,116,114,117,99,116,105,111,110,32,70,111,114,109],"value":"Borehole Construction Form"},
+{"hash":87695639,"name":"tbhconstrform.graphspeedbutton.hint","sourcebytes":[81,117,105,99,107,32,66,111,114,101,104,111,108,101,32,108,111,103],"value":"Quick Borehole log"},
+{"hash":92397566,"name":"tbhconstrform.linkedlabel.caption","sourcebytes":[66,111,114,101,104,111,108,101,32,67,111,110,115,116,114,117,99,116,105,111,110],"value":"Borehole Construction"},
+{"hash":83176798,"name":"tbhconstrform.tabsheet1.hint","sourcebytes":[68,105,97,109,101,116,101,114,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Diameter Information"},
+{"hash":2211362,"name":"tbhconstrform.tabsheet1.caption","sourcebytes":[72,111,108,101,32,68,105,97,109,101,116,101,114],"value":"Hole Diameter"},
+{"hash":83176798,"name":"tbhconstrform.dbgrid1.hint","sourcebytes":[68,105,97,109,101,116,101,114,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Diameter Information"},
+{"hash":115360638,"name":"tbhconstrform.tabsheet2.hint","sourcebytes":[67,97,115,105,110,103,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Casing Information"},
+{"hash":77111367,"name":"tbhconstrform.tabsheet2.caption","sourcebytes":[67,97,115,105,110,103],"value":"Casing"},
+{"hash":115360638,"name":"tbhconstrform.dbgrid2.hint","sourcebytes":[67,97,115,105,110,103,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Casing Information"},
+{"hash":236078638,"name":"tbhconstrform.tabsheet3.hint","sourcebytes":[80,105,101,122,111,109,101,116,101,114,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Piezometer Information"},
+{"hash":23504146,"name":"tbhconstrform.tabsheet3.caption","sourcebytes":[80,105,101,122,111,109,101,116,101,114],"value":"Piezometer"},
+{"hash":236078638,"name":"tbhconstrform.dbgrid3.hint","sourcebytes":[80,105,101,122,111,109,101,116,101,114,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Piezometer Information"},
+{"hash":95316492,"name":"tbhconstrform.tabsheet4.hint","sourcebytes":[70,105,108,108,32,77,97,116,101,114,105,97,108],"value":"Fill Material"},
+{"hash":95316492,"name":"tbhconstrform.tabsheet4.caption","sourcebytes":[70,105,108,108,32,77,97,116,101,114,105,97,108],"value":"Fill Material"},
+{"hash":95316492,"name":"tbhconstrform.dbgrid4.hint","sourcebytes":[70,105,108,108,32,77,97,116,101,114,105,97,108],"value":"Fill Material"},
+{"hash":84239022,"name":"tbhconstrform.amslcheckbox.caption","sourcebytes":[97,46,109,46,115,46,108,46],"value":"a.m.s.l."}
+]}
