@@ -1,6 +1,6 @@
 inherited HoleConstForm: THoleConstForm
-  Left = 573
-  Top = 256
+  Left = 2878
+  Top = 392
   Caption = 'Hole Finish'
   Icon.Data = {
     FE0200000000010001002020100000000000E802000016000000280000002000
@@ -64,12 +64,9 @@ inherited HoleConstForm: THoleConstForm
     end
   end
   inherited Panel2: TPanel
-    Height = 224
-    Top = 144
-    ClientHeight = 224
     inherited Panel4: TPanel
       Height = 29
-      Top = 194
+      Top = 187
       ClientHeight = 29
       inherited DetailNavigator: TDBNavigator
         Hints.Strings = (        )
@@ -81,21 +78,15 @@ inherited HoleConstForm: THoleConstForm
         Height = 23
       end
       inherited StaticText1: TStaticText
-        Left = 463
         Height = 23
-        Width = 40
       end
     end
     inherited DBGrid: TDBGrid
-      Height = 169
+      Height = 162
     end
   end
-  inherited GroupBox1: TGroupBox
-    Height = 100
-    ClientHeight = 86
-  end
   inherited BasicinfDataSource: TDataSource
-    left = 328
+    Left = 328
   end
   inherited LinkedQuery: TZQuery
     SortedFields = 'SITE_ID_NR,DATE_CONST,DEPTH'
@@ -113,15 +104,17 @@ inherited HoleConstForm: THoleConstForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     IndexFieldNames = 'SITE_ID_NR Asc,DATE_CONST Asc,DEPTH Asc'
-    left = 40
+    Left = 40
     ParamData = <    
       item
         DataType = ftString
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryDATE_ENTRY: TStringField[1]
       Alignment = taCenter
@@ -230,8 +223,6 @@ inherited HoleConstForm: THoleConstForm
       Required = False
       OnGetText = LinkedQueryDEPTHGetText
       OnSetText = LinkedQueryDEPTHSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryCOLLAR_HI: TFloatField[8]
@@ -246,8 +237,6 @@ inherited HoleConstForm: THoleConstForm
       Required = False
       OnGetText = LinkedQueryCOLLAR_HIGetText
       OnSetText = LinkedQueryCOLLAR_HISetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryTYPE_FINIS: TStringField[9]
@@ -322,8 +311,6 @@ inherited HoleConstForm: THoleConstForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryCOMMENT: TStringField[14]
@@ -336,7 +323,7 @@ inherited HoleConstForm: THoleConstForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedQueryUpperSetText
+      OnSetText = LinkedQueryCOMMENTSetText
       Size = 48
     end
   end

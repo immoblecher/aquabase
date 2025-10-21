@@ -11,11 +11,11 @@ object DescrForm: TDescrForm
   OnCloseQuery = FormCloseQuery
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '3.4.0.0'
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 36
-    Top = 64
+    Height = 40
+    Top = 60
     Width = 343
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -48,7 +48,7 @@ object DescrForm: TDescrForm
       'SELECT DISTINCT DESCRIPTION FROM userentr'
     )
     Params = <>
-    left = 135
-    top = 53
+    Left = 135
+    Top = 53
   end
 end

@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -52,7 +52,7 @@ type
     ToolButton6: TToolButton;
     ToolButtonPrint: TToolButton;
     TreeView1: TTreeView;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     ZConnection1: TZConnection;
     ZQueryHelp: TZQuery;
     ZQueryHelpHELP_DESCR: TBlobField;
@@ -169,7 +169,7 @@ end;
 
 procedure THelpForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, True);
   DBNavigator1.Images := DataModuleMain.ImageListNavs;
   MyClipBoard := TClipboard.Create;

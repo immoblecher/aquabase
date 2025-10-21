@@ -1,0 +1,15 @@
+{"version":1,"strings":[
+{"hash":137538025,"name":"texpdewaterform.caption","sourcebytes":[69,120,112,111,114,116,32,45,32,85,116,105,108,105,122,97,116,105,111,110,32,83,117,109,109,97,114,121],"value":"Export - Utilization Summary"},
+{"hash":42177562,"name":"texpdewaterform.groupbox2.caption","sourcebytes":[69,120,112,111,114,116,32,70,105,108,101,58],"value":"Export File:"},
+{"hash":115952286,"name":"texpdewaterform.button1.caption","sourcebytes":[66,114,111,119,115,101,46,46,46],"value":"Browse..."},
+{"hash":11067,"name":"texpdewaterform.okbtn.caption","sourcebytes":[38,79,75],"value":"&OK"},
+{"hash":177752476,"name":"texpdewaterform.bitbtn2.caption","sourcebytes":[38,67,97,110,99,101,108],"value":"&Cancel"},
+{"hash":219386186,"name":"texpdewaterform.groupbox1.caption","sourcebytes":[68,97,116,101,47,116,105,109,101,32,83,101,116,116,105,110,103,115,58],"value":"Date/time Settings:"},
+{"hash":238826005,"name":"texpdewaterform.label7.caption","sourcebytes":[83,116,97,114,116,105,110,103,32,68,97,116,101],"value":"Starting Date"},
+{"hash":81322917,"name":"texpdewaterform.label9.caption","sourcebytes":[69,110,100,105,110,103,32,68,97,116,101],"value":"Ending Date"},
+{"hash":214710129,"name":"texpdewaterform.startdatecombobox.text","sourcebytes":[49,57,57,57,48,49,48,49],"value":"19990101"},
+{"hash":53819185,"name":"texpdewaterform.enddatecombobox.text","sourcebytes":[50,48,48,50,48,49,51,49],"value":"20020131"},
+{"hash":218344474,"name":"texpdewaterform.label2.caption","sourcebytes":[70,105,108,116,101,114,58],"value":"Filter:"},
+{"hash":43347994,"name":"texpdewaterform.label1.caption","sourcebytes":[69,120,112,111,114,116,32,84,121,112,101,58],"value":"Export Type:"},
+{"hash":322608,"name":"texpdewaterform.bitbtn1.caption","sourcebytes":[72,101,108,112],"value":"Help"}
+]}

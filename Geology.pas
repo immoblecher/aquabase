@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2024 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -23,7 +23,7 @@ interface
 
 uses
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs, LCLtype, DBCtrls, Db,
-  Menus, ExtCtrls, Buttons, StdCtrls, DBGrids, MaskEdit, MastDetl;
+  Menus, ExtCtrls, Buttons, StdCtrls, DBGrids, MaskEdit, ZDataset, MastDetl;
 
 type
 
@@ -31,8 +31,8 @@ type
 
   TGeologyForm = class(TMasterDetailForm)
     AMSLCheckBox: TCheckBox;
-    GrainCheckBox: TCheckBox;
     DBMemo1: TDBMemo;
+    GrainCheckBox: TCheckBox;
     LinkedQueryBOULDERS: TLongintField;
     LinkedQueryCLAY: TLongintField;
     LinkedQueryCOBBLY: TLongintField;
@@ -44,7 +44,7 @@ type
     LinkedQueryINFO_SOURC: TStringField;
     LinkedQueryLITH_CODE: TStringField;
     LinkedQueryNOTES_YN: TStringField;
-    LinkedQueryNOTE_PAD: TBlobField;
+    LinkedQueryNOTE_PAD: TWideStringField;
     LinkedQueryPEBBLY: TLongintField;
     LinkedQueryPRIM_COLOR: TStringField;
     LinkedQueryPRIM_FEATR: TStringField;
@@ -158,7 +158,7 @@ end;
 procedure TGeologyForm.LinkedDataSourceDataChange(Sender: TObject; Field: TField);
 begin
   inherited;
-  DBMemo1.Enabled := LinkedQuerySITE_ID_NR.Value > '';
+  DBMemo1.Enabled := not LinkedQuerySITE_ID_NR.IsNull;
 end;
 
 procedure TGeologyForm.LinkedQueryBeforeInsert(DataSet: TDataSet);

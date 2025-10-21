@@ -1,7 +1,7 @@
 inherited DischargeForm: TDischargeForm
-  Left = 756
+  Left = 2838
   Height = 382
-  Top = 162
+  Top = 307
   Caption = 'Discharge Form'
   ClientHeight = 382
   Icon.Data = {
@@ -487,17 +487,17 @@ inherited DischargeForm: TDischargeForm
     end
   end
   inherited Panel2: TPanel
-    Height = 238
+    Height = 231
     Caption = ''
-    ClientHeight = 238
+    ClientHeight = 231
     inherited Panel4: TPanel
-      Top = 208
+      Top = 203
       inherited DetailNavigator: TDBNavigator
         Hints.Strings = (        )
       end
     end
     inherited DBGrid: TDBGrid
-      Height = 183
+      Height = 178
     end
   end
   inherited BasicinfDataSource: TDataSource
@@ -524,6 +524,7 @@ inherited DischargeForm: TDischargeForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     IndexFieldNames = 'SITE_ID_NR Asc, DATE_MEAS Asc, TIME_MEAS Asc'
     Top = 273
@@ -533,6 +534,7 @@ inherited DischargeForm: TDischargeForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryREP_INST: TStringField[1]
       Tag = 1
@@ -654,7 +656,7 @@ inherited DischargeForm: TDischargeForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedQueryUpperSetText
+      OnSetText = LinkedQueryCOMMENTSetText
       Size = 80
     end
   end

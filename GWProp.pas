@@ -1,4 +1,4 @@
-{ Copyright (C) 2018 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -24,7 +24,7 @@ interface
 uses
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs, LCLtype, TabDetl,
   Menus, Db, DBCtrls, StdCtrls, Buttons, ExtCtrls, DBGrids, ComCtrls, MaskEdit,
-  ZDataset;
+  XMLPropStorage, ZDataset;
 
 type
 

@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -42,6 +42,7 @@ type
     procedure EditDATE_UPDTDChange(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure LinkedQueryBeforeInsert(DataSet: TDataSet);
+    procedure LinkedQueryCOMMENTSetText(Sender: TField; const aText: string);
     procedure LinkedQueryDATE_MEASValidate(Sender: TField);
     procedure LinkedQueryDISCH_RATEGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
@@ -97,6 +98,15 @@ begin
   PrevMethod := LinkedQueryMETH_MEAS.Value;
   PrevInfoSource := LinkedQueryINFO_SOURC.Value;
   PrevDate := LinkedQueryDATE_MEAS.Value;
+end;
+
+procedure TDischargeForm.LinkedQueryCOMMENTSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TDischargeForm.LinkedQueryDATE_MEASValidate(Sender: TField);

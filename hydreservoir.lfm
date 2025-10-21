@@ -12,7 +12,7 @@ object HydResForm: THydResForm
   OnCreate = FormCreate
   OnShow = FormShow
   SessionProperties = 'Left;Top;Width;Height'
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '3.8.0.0'
   object GroupBox1: TGroupBox
     Left = 9
     Height = 105
@@ -20,8 +20,8 @@ object HydResForm: THydResForm
     Width = 419
     Anchors = [akTop, akLeft, akRight]
     Caption = 'Search data for current site:'
-    ClientHeight = 88
-    ClientWidth = 415
+    ClientHeight = 87
+    ClientWidth = 417
     TabOrder = 0
     object LabeledEdit1: TLabeledEdit
       Left = 4
@@ -30,10 +30,12 @@ object HydResForm: THydResForm
       Top = 24
       Width = 136
       AutoSize = False
-      EditLabel.Height = 13
+      EditLabel.Height = 17
       EditLabel.Width = 136
       EditLabel.Caption = 'Site Nr. (NR_ON_MAP)'
       EditLabel.ParentColor = False
+      Font.Color = clWindowText
+      ParentFont = False
       ParentShowHint = False
       ReadOnly = True
       ShowHint = True
@@ -49,6 +51,8 @@ object HydResForm: THydResForm
       MaxDate = 2958465
       MinDate = -53780
       AutoSize = False
+      Font.Color = clWindowText
+      ParentFont = False
       TabOrder = 1
       DateSeparator = '-'
       TrailingSeparator = False
@@ -56,28 +60,29 @@ object HydResForm: THydResForm
       LeadingZeros = True
       Kind = dtkDate
       TimeSeparator = ':'
+      DecimalSeparator = '.'
       TimeFormat = tf24
       TimeDisplay = tdHMS
       DateMode = dmComboBox
       Date = 36526
-      Time = 0
+      Time = 0.474913888887386
       UseDefaultSeparators = False
       HideDateTimeParts = [dtpSecond]
       MonthNames = 'Long'
     end
     object Label1: TLabel
       Left = 170
-      Height = 13
+      Height = 17
       Top = 6
-      Width = 59
+      Width = 63
       Caption = 'Start Date:'
       ParentColor = False
     end
     object Label2: TLabel
       Left = 294
-      Height = 13
+      Height = 17
       Top = 6
-      Width = 53
+      Width = 57
       Caption = 'End Date:'
       ParentColor = False
     end
@@ -91,6 +96,8 @@ object HydResForm: THydResForm
       MaxDate = 2958465
       MinDate = -53780
       AutoSize = False
+      Font.Color = clWindowText
+      ParentFont = False
       TabOrder = 2
       DateSeparator = '-'
       TrailingSeparator = False
@@ -98,32 +105,35 @@ object HydResForm: THydResForm
       LeadingZeros = True
       Kind = dtkDate
       TimeSeparator = ':'
+      DecimalSeparator = '.'
       TimeFormat = tf24
       TimeDisplay = tdHMS
       DateMode = dmComboBox
       Date = 36526
-      Time = 0
+      Time = 0.474913888887386
       UseDefaultSeparators = False
       HideDateTimeParts = [dtpSecond]
       MonthNames = 'Long'
     end
     object ComboBox1: TComboBox
       Left = 128
-      Height = 28
+      Height = 33
       Top = 56
-      Width = 276
+      Width = 278
       Anchors = [akTop, akLeft, akRight]
       DropDownCount = 5
+      Font.Color = clWindowText
       ItemHeight = 0
-      OnChange = ComboBox1Change
+      ParentFont = False
       Style = csDropDownList
       TabOrder = 3
+      OnChange = ComboBox1Change
     end
     object Label4: TLabel
       Left = 38
-      Height = 13
+      Height = 17
       Top = 65
-      Width = 76
+      Width = 82
       Caption = 'Data Variable:'
       ParentColor = False
     end
@@ -144,8 +154,8 @@ object HydResForm: THydResForm
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 3
-    ClientHeight = 27
-    ClientWidth = 414
+    ClientHeight = 26
+    ClientWidth = 416
     Columns = 3
     Enabled = False
     ItemIndex = 0
@@ -161,8 +171,8 @@ object HydResForm: THydResForm
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 36
-    Top = 354
+    Height = 41
+    Top = 349
     Width = 422
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -196,9 +206,9 @@ object HydResForm: THydResForm
   end
   object Label3: TLabel
     Left = 8
-    Height = 13
+    Height = 17
     Top = 202
-    Width = 38
+    Width = 40
     Caption = '&Result:'
     FocusControl = Memo1
     ParentColor = False
@@ -251,9 +261,9 @@ object HydResForm: THydResForm
     ShowHint = True
     TabOrder = 4
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    left = 352
-    top = 168
+    Left = 352
+    Top = 168
   end
 end

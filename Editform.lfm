@@ -46,7 +46,7 @@ object EditLookupForm: TEditLookupForm
   ParentFont = True
   SessionProperties = 'Left;Top;Width;Height'
   ShowHint = True
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '3.4.0.0'
   object Panel1: TPanel
     Left = 0
     Height = 36
@@ -55,6 +55,7 @@ object EditLookupForm: TEditLookupForm
     Align = alTop
     ClientHeight = 36
     ClientWidth = 450
+    ParentBackground = False
     TabOrder = 0
     object DBNavigator: TDBNavigator
       Left = 8
@@ -120,6 +121,7 @@ object EditLookupForm: TEditLookupForm
     Caption = 'Panel2'
     ClientHeight = 247
     ClientWidth = 450
+    ParentBackground = False
     TabOrder = 1
     object RxDBGrid: TRxDBGrid
       Left = 6
@@ -195,7 +197,6 @@ object EditLookupForm: TEditLookupForm
       DrawFullLine = False
       FocusColor = clRed
       SelectedColor = clHighlight
-      GridLineStyle = psSolid
       DataSource = EditDataSource
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgHeaderPushedLook, dgDisableDelete, dgRowHighlight]
       ParentShowHint = False
@@ -210,13 +211,13 @@ object EditLookupForm: TEditLookupForm
   end
   object EditDataSource: TDataSource
     OnDataChange = EditDataSourceDataChange
-    left = 200
-    top = 144
+    Left = 200
+    Top = 144
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    left = 360
-    top = 56
+    Left = 360
+    Top = 56
   end
   object LookupQuery: TZQuery
     Connection = DataModuleMain.ZConnectionLanguage
@@ -229,8 +230,8 @@ object EditLookupForm: TEditLookupForm
       'ORDER BY USED_FOR, SEARCH'
     )
     Params = <>
-    left = 64
-    top = 120
+    Left = 64
+    Top = 120
     object LookupQueryUSED_FOR: TStringField
       DisplayLabel = 'Used For'
       DisplayWidth = 12
@@ -277,8 +278,6 @@ object EditLookupForm: TEditLookupForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
     end
     object LookupQueryLEN_CODE: TLongintField
       FieldKind = fkData
@@ -305,8 +304,8 @@ object EditLookupForm: TEditLookupForm
     Connection = DataModuleMain.ZConnectionLanguage
     OnPostError = QueryPostError
     Params = <>
-    left = 69
-    top = 184
+    Left = 69
+    Top = 184
     object UnitQueryUNIT: TStringField
       DisplayLabel = 'Unit'
       DisplayWidth = 6
@@ -340,8 +339,6 @@ object EditLookupForm: TEditLookupForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
     end
   end
   object StandardQuery: TZQuery
@@ -351,8 +348,8 @@ object EditLookupForm: TEditLookupForm
       'select * from SABS'
     )
     Params = <>
-    left = 64
-    top = 62
+    Left = 64
+    Top = 62
     object StandardQueryPARAMETER: TStringField
       DisplayLabel = 'Parameter'
       DisplayWidth = 16
@@ -457,8 +454,8 @@ object EditLookupForm: TEditLookupForm
       'ORDER BY PARAMETER'
     )
     Params = <>
-    left = 214
-    top = 74
+    Left = 214
+    Top = 74
     object ClassQueryPARAMETER: TStringField
       DisplayLabel = 'Parameter'
       DisplayWidth = 12
@@ -505,8 +502,6 @@ object EditLookupForm: TEditLookupForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object ClassQueryCLASS1: TFloatField
@@ -519,8 +514,6 @@ object EditLookupForm: TEditLookupForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object ClassQueryCLASS2: TFloatField
@@ -533,8 +526,6 @@ object EditLookupForm: TEditLookupForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object ClassQueryCLASS3: TFloatField
@@ -547,8 +538,6 @@ object EditLookupForm: TEditLookupForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
   end
@@ -561,8 +550,8 @@ object EditLookupForm: TEditLookupForm
       'SELECT * FROM Chem6Def'
     )
     Params = <>
-    left = 313
-    top = 156
+    Left = 313
+    Top = 156
     object Chem6DefQueryPARAM_FLD: TStringField
       DisplayLabel = 'Parameter Field'
       DisplayWidth = 12
@@ -625,8 +614,8 @@ object EditLookupForm: TEditLookupForm
     end
   end
   object RxSortZeos1: TRxSortZeos
-    left = 174
-    top = 212
+    Left = 174
+    Top = 212
   end
   object RxDBGridExportSpreadSheet1: TRxDBGridExportSpreadSheet
     RxDBGrid = RxDBGrid
@@ -635,8 +624,8 @@ object EditLookupForm: TEditLookupForm
     FileName = 'export.xls'
     PageName = 'Lookup Code Export'
     Options = []
-    left = 313
-    top = 216
+    Left = 313
+    Top = 216
   end
   object RxDBGridExportPDF1: TRxDBGridExportPDF
     RxDBGrid = RxDBGrid
@@ -647,8 +636,8 @@ object EditLookupForm: TEditLookupForm
     PdfOptions.Options = []
     OpenAfterExport = True
     ProducerPdf = 'Aquabase RXNEW'
-    left = 288
-    top = 96
+    Left = 288
+    Top = 96
   end
   object RxDBGridPrint1: TRxDBGridPrint
     RxDBGrid = RxDBGrid
@@ -657,8 +646,8 @@ object EditLookupForm: TEditLookupForm
     Options = [rxpoShowTitle, rxpoShowFooter, rxpoShowGridColor, rxpoShowFooterColor, rxpoShowReportTitle]
     ShowProgress = True
     ReportTitle = 'Lookup Code Report'
-    left = 144
-    top = 104
+    Left = 144
+    Top = 104
   end
   object ChemParamsQuery: TZQuery
     Connection = DataModuleMain.ZConnectionLanguage
@@ -667,7 +656,7 @@ object EditLookupForm: TEditLookupForm
       'SELECT * FROM chemparams'
     )
     Params = <>
-    left = 144
-    top = 48
+    Left = 144
+    Top = 48
   end
 end

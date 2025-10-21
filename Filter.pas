@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -61,7 +61,7 @@ type
     StatusBar1: TStatusBar;
     TableListBox: TListBox;
     UnitListBox: TListBox;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     SearchQuery: TZReadOnlyQuery;
     TableQuery: TZReadOnlyQuery;
     procedure CloseBtnClick(Sender: TObject);
@@ -368,8 +368,11 @@ begin
           Close;
           FilterName := NewViewName;
           Open;
+          ViewChanged := True;
         end;
-      end;
+      end
+      else
+        ViewChanged := False;
     end
     else
       MessageDlg('Create View cancelled! No View created!', mtInformation, [mbOK],0);
@@ -395,7 +398,7 @@ end;
 procedure TFilterForm.FormCreate(Sender: TObject);
 var i: Integer;
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   with DataModuleMain do
   begin
     SetComponentFontAndSize(Sender, True);

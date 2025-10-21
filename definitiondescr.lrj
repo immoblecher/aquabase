@@ -1,0 +1,4 @@
+{"version":1,"strings":[
+{"hash":156067838,"name":"tdescrform.caption","sourcebytes":[68,101,115,99,114,105,112,116,105,111,110],"value":"Description"},
+{"hash":32858542,"name":"tdescrform.labelededit1.editlabel.caption","sourcebytes":[80,114,111,118,105,100,101,32,97,32,100,101,115,99,114,105,112,116,105,111,110,32,102,111,114,32,116,104,105,115,32,100,101,102,105,110,105,116,105,111,110],"value":"Provide a description for this definition"}
+]}

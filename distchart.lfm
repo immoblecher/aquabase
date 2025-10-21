@@ -1,0 +1,445 @@
+object DistChartForm: TDistChartForm
+  Left = 786
+  Height = 417
+  Top = 335
+  Width = 610
+  HelpContext = 93
+  Caption = 'Distance-dependent Chart(s)'
+  ClientHeight = 417
+  ClientWidth = 610
+  FormStyle = fsMDIChild
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  SessionProperties = 'Height;Left;Top;Width'
+  LCLVersion = '3.8.0.0'
+  object ChartTop: TChart
+    Left = 0
+    Height = 198
+    Hint = 'Right-click for menu'
+    Top = 0
+    Width = 610
+    HelpContext = 93
+    AxisList = <    
+      item
+        Visible = False
+        MarginsForMarks = False
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.Visible = True
+        Title.Caption = 'Left Title'
+        Title.LabelBrush.Style = bsClear
+        Transformations = LAxisTransformations
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Marks.OverlapPolicy = opHideNeighbour
+        Minors = <>
+        Title.Visible = True
+        Title.Caption = 'Distance/Station'
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Visible = False
+        Alignment = calRight
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 2700
+        Title.Caption = 'Right Title'
+        Title.LabelBrush.Style = bsClear
+        Transformations = RAxisTransformations
+      end>
+    BackColor = clWhite
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Legend.Alignment = laBottomCenter
+    MarginsExternal.Right = 8
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'Distance-dependent chart'
+    )
+    Title.Visible = True
+    Toolset = ChartToolset1
+    Align = alTop
+    DoubleBuffered = True
+    ParentShowHint = False
+    PopupMenu = PopupMenuCharts
+    ShowHint = True
+    OnClick = ChartTopClick
+    OnDblClick = ChartTopDblClick
+  end
+  object Splitter1: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 5
+    Top = 198
+    Width = 610
+    Align = alTop
+    Anchors = [akTop]
+    Beveled = True
+    ResizeAnchor = akTop
+    Visible = False
+  end
+  object ChartBot: TChart
+    Left = 0
+    Height = 195
+    Hint = 'Right-click for menu'
+    Top = 203
+    Width = 610
+    HelpContext = 93
+    AxisList = <    
+      item
+        Visible = False
+        MarginsForMarks = False
+        Marks.LabelFont.Orientation = 900
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.Visible = True
+        Title.Caption = 'Left Title'
+        Title.LabelBrush.Style = bsClear
+        Transformations = LAxisTransformations
+      end    
+      item
+        Intervals.Count = 6
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Marks.OverlapPolicy = opHideNeighbour
+        Minors = <>
+        Title.Visible = True
+        Title.Caption = 'Distance/Station'
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Visible = False
+        Alignment = calRight
+        Marks.Visible = False
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 2700
+        Title.Caption = 'Right Title'
+        Title.LabelBrush.Style = bsClear
+        Transformations = RAxisTransformations
+      end    
+      item
+        Intervals.Count = 6
+        Visible = False
+        Alignment = calTop
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.Caption = 'Date/Time'
+        Title.LabelBrush.Style = bsClear
+      end>
+    BackColor = clWhite
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Legend.Alignment = laBottomCenter
+    MarginsExternal.Right = 8
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'Distance-dependent chart'
+    )
+    Title.Visible = True
+    Toolset = ChartToolset1
+    Align = alClient
+    DoubleBuffered = True
+    ParentShowHint = False
+    PopupMenu = PopupMenuCharts
+    ShowHint = True
+    Visible = False
+    OnClick = ChartBotClick
+    OnDblClick = ChartBotDblClick
+    object ChartBotFitSeries1: TFitSeries
+    end
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 19
+    Top = 398
+    Width = 610
+    Panels = <>
+    ParentShowHint = False
+    SimpleText = 'Mouse wheel zooms, Ctrl pans, ESC cancels pan, points click shows values, double-click zooms to full'
+  end
+  object ChartExtentLink1: TChartExtentLink
+    Enabled = False
+    LinkedCharts = <    
+      item
+        Chart = ChartTop
+      end    
+      item
+        Chart = ChartBot
+      end>
+    Mode = elmOnlyX
+    Left = 272
+    Top = 248
+  end
+  object QueryXY1: TZReadOnlyQuery
+    Tag = 1
+    AfterOpen = QueryXYAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    Left = 88
+    Top = 40
+  end
+  object XMLPropStorage1: TXMLPropStorage
+    StoredValues = <>
+    Left = 360
+    Top = 32
+  end
+  object QueryXY2: TZReadOnlyQuery
+    Tag = 2
+    AfterOpen = QueryXYAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    Left = 536
+    Top = 40
+  end
+  object QueryXY3: TZReadOnlyQuery
+    Tag = 3
+    AfterOpen = QueryXYAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    Left = 88
+    Top = 272
+  end
+  object QueryXY4: TZReadOnlyQuery
+    Tag = 4
+    AfterOpen = QueryXYAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    Left = 536
+    Top = 272
+  end
+  object SaveDialogImage: TSaveDialog
+    Title = 'Save chart as'
+    DefaultExt = '.jpg'
+    Filter = 'JPEG Image (*.jpg)|*.jpg|Bitmap (*.bmp)|*.bmp|Windows Metafile (*.wmf)|*.wmf|Portable Network Graphics (*.png)|*.png|Scalable Vector Graphics (*.svg)|*.svg'
+    InitialDir = 'WSpaceDir'
+    Left = 176
+    Top = 272
+  end
+  object PopupMenuCharts: TPopupMenu
+    OnPopup = PopupMenuChartsPopup
+    Left = 160
+    Top = 48
+    object Copyasbitmap1: TMenuItem
+      Caption = '&Copy as bitmap'
+      OnClick = Copyasbitmap1Click
+    end
+    object Saveas1: TMenuItem
+      Caption = 'Save &as...'
+      OnClick = Saveas1Click
+    end
+    object MenuItem6: TMenuItem
+      Caption = '-'
+    end
+    object MenuItemRefLine: TMenuItem
+      Caption = 'A&dd a reference line'
+      OnClick = MenuItemRefLineClick
+    end
+    object MenuItemTrendLine: TMenuItem
+      Caption = 'Add a &trendline'
+      OnClick = MenuItemTrendLineClick
+    end
+    object N2: TMenuItem
+      Caption = '-'
+      GroupIndex = 1
+    end
+    object QuickFormat1: TMenuItem
+      Caption = '&Quick Format'
+      GroupIndex = 1
+      object MenuItemOpen: TMenuItem
+        Caption = '&Open template'
+        ShortCut = 16463
+        OnClick = MenuItemOpenClick
+      end
+      object MenuItemSave: TMenuItem
+        Caption = 'Save &template'
+        ShortCut = 16467
+        OnClick = MenuItemSaveClick
+      end
+      object MenuItem1: TMenuItem
+        Caption = '-'
+      end
+      object HorizGrid1: TMenuItem
+        Caption = '&Horizontal grid'
+        Checked = True
+        OnClick = HorizGrid1Click
+      end
+      object VertGrid1: TMenuItem
+        Caption = '&Vertical grid'
+        Checked = True
+        OnClick = VertGrid1Click
+      end
+      object Legend1: TMenuItem
+        Caption = '&Legend'
+        object MenuItemLegendOff: TMenuItem
+          AutoCheck = True
+          Caption = '&Off'
+          Checked = True
+          RadioItem = True
+          ShortCut = 49231
+          OnClick = MenuItemLegendOffClick
+        end
+        object MenuItemLegendRight: TMenuItem
+          AutoCheck = True
+          Caption = 'Top &right'
+          RadioItem = True
+          OnClick = MenuItemLegendRightClick
+        end
+        object MenuItemLegendLeft: TMenuItem
+          AutoCheck = True
+          Caption = 'Top &left'
+          RadioItem = True
+          OnClick = MenuItemLegendLeftClick
+        end
+        object MenuItemLegendBottom: TMenuItem
+          AutoCheck = True
+          Caption = '&Bottom center'
+          RadioItem = True
+          OnClick = MenuItemLegendBottomClick
+        end
+      end
+      object MenuItem5: TMenuItem
+        Caption = '-'
+      end
+      object MenuItemLines: TMenuItem
+        Caption = 'Li&nes'
+        object MenuItemThicker: TMenuItem
+          Caption = '&Thicker'
+          ShortCut = 8304
+          OnClick = MenuItemThickerClick
+        end
+        object MenuItemThinner: TMenuItem
+          Caption = 'Th&inner'
+          ShortCut = 8305
+          OnClick = MenuItemThinnerClick
+        end
+      end
+      object MenuItemPoints: TMenuItem
+        Caption = '&Points'
+        object MenuItemPointsVisible: TMenuItem
+          AutoCheck = True
+          Caption = '&Visible'
+          ShortCut = 24697
+          OnClick = MenuItemPointsVisibleClick
+        end
+        object MenuItemBigger: TMenuItem
+          Caption = '&Bigger'
+          ShortCut = 24688
+          OnClick = MenuItemBiggerClick
+        end
+        object MenuItemSmaller: TMenuItem
+          Caption = '&Smaller'
+          ShortCut = 24689
+          OnClick = MenuItemSmallerClick
+        end
+      end
+      object MenuItemMarks: TMenuItem
+        Caption = '&Marks'
+        object MenuItemShowMarks: TMenuItem
+          AutoCheck = True
+          Caption = 'Sho&w'
+          ShortCut = 16505
+          OnClick = MenuItemShowMarksClick
+        end
+        object MenuItemFontBigger: TMenuItem
+          Caption = '&Font bigger'
+          ShortCut = 16496
+          OnClick = MenuItemFontBiggerClick
+        end
+        object MenuItemFontSmaller: TMenuItem
+          Caption = 'F&ont smaller'
+          ShortCut = 16497
+          OnClick = MenuItemFontSmallerClick
+        end
+      end
+    end
+    object MenuItemLink: TMenuItem
+      Caption = '&Link charts'
+      Enabled = False
+      OnClick = MenuItemLinkClick
+    end
+    object Properties1: TMenuItem
+      Caption = 'Chart &Properties...'
+      GroupIndex = 1
+      OnClick = Properties1Click
+    end
+    object MenuItem2: TMenuItem
+      Caption = '-'
+    end
+    object MenuItemHelp: TMenuItem
+      Caption = '&Help'
+      HelpContext = 93
+      OnClick = MenuItemHelpClick
+    end
+  end
+  object LAxisTransformations: TChartAxisTransformations
+    Left = 64
+    Top = 120
+    object LLogAxisTransform: TLogarithmAxisTransform
+      Enabled = False
+      Base = 10
+    end
+    object LAutoScaleAxisTransform: TAutoScaleAxisTransform
+    end
+  end
+  object ChartToolset1: TChartToolset
+    Left = 272
+    Top = 45
+    object ChartToolset1ZoomMouseWheelTool1: TZoomMouseWheelTool
+      ZoomFactor = 1.1
+    end
+    object ChartToolset1PanDragTool1: TPanDragTool
+      Shift = [ssCtrl]
+      LimitToExtent = [pdLeft, pdUp, pdRight, pdDown]
+      EscapeCancels = True
+    end
+    object ChartToolset1DataPointClickTool1: TDataPointClickTool
+      Shift = [ssLeft]
+      GrabRadius = 5
+      ActiveCursor = crHandPoint
+      OnPointClick = ChartToolset1DataPointClickTool1PointClick
+    end
+  end
+  object RAxisTransformations: TChartAxisTransformations
+    Left = 520
+    Top = 120
+    object RLogAxisTransform: TLogarithmAxisTransform
+      Enabled = False
+      Base = 10
+    end
+    object RAutoScaleAxisTransform: TAutoScaleAxisTransform
+    end
+  end
+  object OpenDialogTemplate: TOpenDialog
+    Title = 'Open existing template file'
+    DefaultExt = '.xml'
+    Filter = 'Chart template (*.xml)|*.XML;*.xml'
+    Options = [ofFileMustExist, ofEnableSizing, ofDontAddToRecent, ofViewDetail]
+    Left = 456
+    Top = 312
+  end
+  object SaveDialogTemplate: TSaveDialog
+    Title = 'Save template file as'
+    DefaultExt = '.xml'
+    Filter = 'Chart template (*.xml)|*.XML;*.xml'
+    Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
+    Left = 296
+    Top = 312
+  end
+  object XMLPropStorage2: TXMLPropStorage
+    StoredValues = <>
+    RootNodePath = 'ChartProperties'
+    Active = False
+    Left = 450
+    Top = 184
+  end
+end

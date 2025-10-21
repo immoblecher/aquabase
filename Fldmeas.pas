@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -24,7 +24,7 @@ interface
 uses
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs, LCLtype, MastDetl,
   StdCtrls, Menus, Db, DBCtrls, ExtCtrls, Buttons, DBGrids, MaskEdit,
-  XMLPropStorage, DateTimePicker, rxlookup, ZDataset;
+  DateTimePicker, rxlookup, ZDataset;
 
 type
 
@@ -48,8 +48,7 @@ type
     procedure LinkedQueryAfterOpen(DataSet: TDataSet);
     procedure LinkedQueryAfterRefresh(DataSet: TDataSet);
     procedure LinkedQueryBeforeInsert(DataSet: TDataSet);
-    procedure LinkedQueryCOMMENTGetText(Sender: TField; var aText: string;
-      DisplayText: Boolean);
+    procedure LinkedQueryCOMMENTSetText(Sender: TField; const aText: string);
     procedure LinkedQueryDATE_MEASValidate(Sender: TField);
     procedure LinkedQueryDEPTH_MEASGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
@@ -88,13 +87,13 @@ begin
   PrevDepth := LinkedQueryDEPTH_MEAS.Value;
 end;
 
-procedure TFldMeasForm.LinkedQueryCOMMENTGetText(Sender: TField;
-  var aText: string; DisplayText: Boolean);
+procedure TFldMeasForm.LinkedQueryCOMMENTSetText(Sender: TField;
+  const aText: string);
 begin
-  if Sender.IsNull then
-    DisplayText := False
+  if AllowSmallChars then
+    Sender.Value := aText
   else
-    aText := UpperCase(Sender.AsString);
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TFldMeasForm.ChartSpeedButtonClick(Sender: TObject);

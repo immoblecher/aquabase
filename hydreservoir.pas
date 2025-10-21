@@ -1,4 +1,4 @@
-{ Copyright (C) 2019 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -23,7 +23,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, ButtonPanel, Buttons, DateTimePicker, XMLPropStorage, httpsend;
+  StdCtrls, ButtonPanel, Buttons, DateTimePicker, XMLPropStorage, fphttpclient;
 
 type
 
@@ -41,7 +41,7 @@ type
     LabeledEdit1: TLabeledEdit;
     Memo1: TMemo;
     RadioGroup1: TRadioGroup;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     DateTimePicker1: TDateTimePicker;
     DateTimePicker2: TDateTimePicker;
     procedure BitBtn1Click(Sender: TObject);
@@ -76,8 +76,6 @@ end;
 
 procedure THydResForm.BitBtn1Click(Sender: TObject);
 var
-  HTTP: THTTPSend;
-  Result: boolean;
   URLString, S: String;
   StartDate, EndDate, SiteType, DataType, Variable: ShortString;
   YY, MM, DD, m: Word;
@@ -97,7 +95,7 @@ begin
     2: DataType := 'Monthly'
   end;//of case
   case DataModuleMain.BasicinfQuerySITE_TYPE.AsString of
-    'R': SiteType := 'RIV';
+    'R': SiteType := 'RES';
     'P': SiteType := 'RES';
     'N': begin
            SiteType := 'MET';
@@ -112,17 +110,14 @@ begin
            end;//of case
          end;
   end; //of case
-  URLString := 'http://www.dwa.gov.za/Hydrology/Verified/HyData.aspx?Station=' + LabeledEdit1.Text + Variable + '&DataType=' + DataType + '&StartDT=' + StartDate + '&EndDT=' + EndDate + '&SiteType=' + SiteType;
+  URLString := 'https://www.dws.gov.za/Hydrology/Verified/HyData.aspx?Station=' + LabeledEdit1.Text + Variable + '&DataType=' + DataType + '&StartDT=' + StartDate + '&EndDT=' + EndDate + '&SiteType=' + SiteType;
   if DataType = 'Monthly' then
     URLString := URLString + '&Format=New'; //for columnar data (not matrix)
+  with TFPHttpClient.Create(Nil) do
   try
-    Memo1.Lines.Clear;
-    HTTP := THTTPSend.Create;
-    Result := HTTP.HTTPMethod('GET', URLString);
-    if Result then
-      Memo1.Lines.LoadFromStream(HTTP.Document);
+    Memo1.Text := Get(URLString);
   finally
-    HTTP.Free;
+    Free;
   end;
   if Memo1.Lines[0].StartsWith('<p>') then
   begin
@@ -155,7 +150,7 @@ end;
 
 procedure THydResForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, True);
   Memo1.Font.Name := 'Courier New';
 end;

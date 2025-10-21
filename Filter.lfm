@@ -51,7 +51,7 @@ object FilterForm: TFilterForm
   OnShow = FormShow
   Position = poScreenCenter
   SessionProperties = 'Height;Left;Top;Width;Panel2.Height;Panel3.Height'
-  LCLVersion = '2.0.4.0'
+  LCLVersion = '3.8.0.0'
   Visible = True
   object Panel1: TPanel
     Left = 0
@@ -61,6 +61,7 @@ object FilterForm: TFilterForm
     Align = alTop
     ClientHeight = 35
     ClientWidth = 422
+    ParentBackground = False
     TabOrder = 0
     object SpeedButton1: TSpeedButton
       Left = 6
@@ -392,8 +393,8 @@ object FilterForm: TFilterForm
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 20
-    Top = 390
+    Height = 19
+    Top = 391
     Width = 422
     Panels = <    
       item
@@ -416,12 +417,13 @@ object FilterForm: TFilterForm
     ClientHeight = 112
     ClientWidth = 422
     Constraints.MinHeight = 80
+    ParentBackground = False
     TabOrder = 2
     object Label1: TLabel
       Left = 9
-      Height = 13
+      Height = 16
       Top = 2
-      Width = 96
+      Width = 90
       Caption = 'Aquabase &Table:'
       ParentColor = False
     end
@@ -436,21 +438,22 @@ object FilterForm: TFilterForm
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       ItemHeight = 0
-      OnClick = TableListBoxClick
-      OnDblClick = TableListBoxDblClick
-      OnMouseMove = ListBoxMouseMove
       ParentShowHint = False
       ParentFont = False
       ScrollWidth = 133
       ShowHint = True
       Sorted = True
       TabOrder = 0
+      TopIndex = -1
+      OnClick = TableListBoxClick
+      OnDblClick = TableListBoxDblClick
+      OnMouseMove = ListBoxMouseMove
     end
     object FieldLabel: TLabel
-      Left = 155
-      Height = 13
+      Left = 157
+      Height = 16
       Top = 2
-      Width = 31
+      Width = 29
       Anchors = [akTop, akRight]
       Caption = '&Field:'
       ParentColor = False
@@ -466,19 +469,20 @@ object FilterForm: TFilterForm
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       ItemHeight = 0
-      OnDblClick = FieldListBoxDblClick
-      OnMouseMove = ListBoxMouseMove
       ParentShowHint = False
       ParentFont = False
       ScrollWidth = 111
       ShowHint = True
       TabOrder = 1
+      TopIndex = -1
+      OnDblClick = FieldListBoxDblClick
+      OnMouseMove = ListBoxMouseMove
     end
     object UnitLabel: TLabel
-      Left = 274
-      Height = 13
+      Left = 275
+      Height = 16
       Top = 2
-      Width = 27
+      Width = 26
       Anchors = [akTop, akRight]
       Caption = '&Unit:'
       ParentColor = False
@@ -502,20 +506,20 @@ object FilterForm: TFilterForm
         'NO3'
         'NH4'
       )
-      ItemHeight = 13
-      OnDblClick = UnitListBoxDblClick
-      OnMouseMove = ListBoxMouseMove
+      ItemHeight = 22
       ParentShowHint = False
       ParentFont = False
       ScrollWidth = 66
       ShowHint = True
       TabOrder = 2
+      OnDblClick = UnitListBoxDblClick
+      OnMouseMove = ListBoxMouseMove
     end
     object OperatorLabel: TLabel
-      Left = 364
-      Height = 13
+      Left = 362
+      Height = 16
       Top = 2
-      Width = 53
+      Width = 55
       Anchors = [akTop, akRight]
       Caption = '&Operator:'
       ParentColor = False
@@ -545,18 +549,19 @@ object FilterForm: TFilterForm
         ')'
         'IN'
         'LIKE'
+        'ILIKE'
         'AND'
         'OR'
         'NOT'
       )
-      ItemHeight = 13
-      OnDblClick = OperatorListBoxDblClick
-      OnMouseMove = ListBoxMouseMove
+      ItemHeight = 22
       ParentShowHint = False
       ParentFont = False
       ScrollWidth = 42
       ShowHint = True
       TabOrder = 3
+      OnDblClick = OperatorListBoxDblClick
+      OnMouseMove = ListBoxMouseMove
     end
   end
   object Splitter1: TSplitter
@@ -578,12 +583,13 @@ object FilterForm: TFilterForm
     ClientHeight = 104
     ClientWidth = 422
     Constraints.MinHeight = 60
+    ParentBackground = False
     TabOrder = 4
     object Label5: TLabel
       Left = 9
-      Height = 13
+      Height = 16
       Top = 2
-      Width = 87
+      Width = 83
       Caption = 'Search for site:'
       ParentColor = False
     end
@@ -609,12 +615,12 @@ object FilterForm: TFilterForm
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
-      OnChange = EditTablesChange
-      OnDragDrop = EditTablesDragDrop
-      OnDragOver = EditTablesDragOver
       ParentFont = False
       ScrollBars = ssVertical
       TabOrder = 0
+      OnChange = EditTablesChange
+      OnDragDrop = EditTablesDragDrop
+      OnDragOver = EditTablesDragOver
     end
     object DropTableBitBtn: TBitBtn
       Left = 271
@@ -681,40 +687,41 @@ object FilterForm: TFilterForm
   end
   object Panel4: TPanel
     Left = 0
-    Height = 129
+    Height = 130
     Top = 261
     Width = 422
     Align = alClient
     BevelOuter = bvNone
-    ClientHeight = 129
+    ClientHeight = 130
     ClientWidth = 422
     Constraints.MinHeight = 80
+    ParentBackground = False
     TabOrder = 6
     object Label4: TLabel
       Left = 8
-      Height = 13
+      Height = 16
       Top = -1
-      Width = 34
+      Width = 35
       Caption = 'where'
       ParentColor = False
     end
     object Memo1: TMemo
       Left = 8
-      Height = 109
+      Height = 110
       Top = 14
       Width = 409
       Anchors = [akTop, akLeft, akRight, akBottom]
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
-      OnChange = Memo1Change
-      OnDragDrop = Memo1DragDrop
-      OnDragOver = Memo1DragOver
-      OnKeyDown = Memo1KeyDown
       ParentFont = False
       ScrollBars = ssVertical
       TabOrder = 0
       TabStop = False
+      OnChange = Memo1Change
+      OnDragDrop = Memo1DragDrop
+      OnDragOver = Memo1DragOver
+      OnKeyDown = Memo1KeyDown
     end
   end
   object OpenQueryDialog: TOpenDialog
@@ -722,34 +729,34 @@ object FilterForm: TFilterForm
     DefaultExt = '.sql'
     Filter = 'Filter Query File (*.sql)|*.sql'
     Options = [ofHideReadOnly, ofShowHelp, ofExtensionDifferent, ofPathMustExist]
-    left = 96
-    top = 296
+    Left = 96
+    Top = 296
   end
   object SaveQueryDialog: TSaveDialog
     Title = 'Save Filter Query File'
     DefaultExt = '.sql'
     Filter = 'Filter Query File (*.sql)|*.sql'
     Options = [ofHideReadOnly, ofShowHelp, ofExtensionDifferent, ofPathMustExist]
-    left = 240
-    top = 296
+    Left = 240
+    Top = 296
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    left = 304
-    top = 216
+    Left = 304
+    Top = 216
   end
   object SearchQuery: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = SearchQueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     Params = <>
-    left = 208
-    top = 186
+    Left = 208
+    Top = 186
   end
   object TableQuery: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = TableQueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     Params = <>
-    left = 72
-    top = 186
+    Left = 72
+    Top = 186
   end
 end

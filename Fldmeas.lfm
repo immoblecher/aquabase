@@ -1,6 +1,6 @@
 inherited FldMeasForm: TFldMeasForm
-  Left = 570
-  Top = 247
+  Left = 2813
+  Top = 328
   Caption = 'Field Measurement'
   Icon.Data = {
     BF3C00000000010001000000000001002000A93C00001600000089504E470D0A
@@ -517,10 +517,10 @@ inherited FldMeasForm: TFldMeasForm
       Width = 234
     end
     object AMSLCheckBox: TCheckBox[3]
-      Left = 503
+      Left = 502
       Height = 23
       Top = 0
-      Width = 66
+      Width = 67
       Anchors = [akTop, akRight]
       Caption = 'a.m.s.l.'
       Font.CharSet = ANSI_CHARSET
@@ -528,26 +528,26 @@ inherited FldMeasForm: TFldMeasForm
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      OnClick = AMSLCheckBoxClick
       ParentFont = False
       TabOrder = 1
       TabStop = False
+      OnClick = AMSLCheckBoxClick
     end
     object Label8: TLabel[4]
-      Left = 387
-      Height = 10
+      Left = 384
+      Height = 16
       Top = 5
-      Width = 29
+      Width = 32
       Alignment = taRightJustify
       Anchors = [akTop, akRight]
       Caption = 'Go to:'
       ParentColor = False
     end
     object DateTimePicker1: TDateTimePicker[5]
-      Left = 420
-      Height = 18
+      Left = 418
+      Height = 22
       Top = 0
-      Width = 77
+      Width = 79
       CenturyFrom = 1941
       DateDisplayOrder = ddoYMD
       MaxDate = 2958465
@@ -592,6 +592,7 @@ inherited FldMeasForm: TFldMeasForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     IndexFieldNames = 'SITE_ID_NR Asc, DATE_MEAS Asc, TIME_MEAS Asc, PARM_MEAS Asc, DEPTH_MEAS Asc'
     Top = 280
@@ -601,6 +602,7 @@ inherited FldMeasForm: TFldMeasForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryDATE_ENTRY: TStringField[1]
       Alignment = taCenter
@@ -730,15 +732,14 @@ inherited FldMeasForm: TFldMeasForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnGetText = LinkedQueryCOMMENTGetText
-      OnSetText = LinkedQueryUpperSetText
+      OnSetText = LinkedQueryCOMMENTSetText
       Size = 48
     end
   end
-  inherited ZReadOnlyQuerySiteType: TZReadOnlyQuery
-    Top = 184
-  end
   inherited TypeDataSource: TDataSource
     Top = 248
+  end
+  inherited ZReadOnlyQuerySiteType: TZReadOnlyQuery
+    Top = 184
   end
 end

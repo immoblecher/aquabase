@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -23,8 +23,7 @@ interface
 
 uses
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs, Db, Menus, DBCtrls,
-  ExtCtrls, Buttons, StdCtrls, DBGrids, MaskEdit, XMLPropStorage, rxlookup,
-  ZDataset, MastDetl;
+  ExtCtrls, Buttons, StdCtrls, DBGrids, MaskEdit, ZDataset, MastDetl;
 
 type
 
@@ -52,6 +51,7 @@ type
     procedure LinkedQueryCOLLAR_HIGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
     procedure LinkedQueryCOLLAR_HISetText(Sender: TField; const aText: string);
+    procedure LinkedQueryCOMMENTSetText(Sender: TField; const aText: string);
     procedure LinkedQueryDATE_CONSTValidate(Sender: TField);
     procedure LinkedQueryDEPTHGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
@@ -140,6 +140,15 @@ begin
     LatestCollar := -999999;
 end;
 
+procedure THoleConstForm.LinkedQueryCOMMENTSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
+end;
+
 procedure THoleConstForm.LinkedQueryDATE_CONSTValidate(Sender: TField);
 begin
   ValidFound := not Sender.IsNull and ValidDate(Sender.Value);
@@ -211,7 +220,7 @@ end;
 procedure THoleConstForm.FormActivate(Sender: TObject);
 begin
   inherited;
-  LinkedLabel.Caption := Caption + ' - Depth, collar [' + LengthUnit + ']';
+  LinkedLabel.Caption := Caption + ' - Depth, collar [' + LengthUnit + '], duration [min.]';
 end;
 
 end.

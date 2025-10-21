@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":231093673,"name":"tgeologyform.caption","sourcebytes":[71,101,111,108,111,103,121],"value":"Geology"},
+{"hash":84239022,"name":"tgeologyform.amslcheckbox.caption","sourcebytes":[97,46,109,46,115,46,108,46],"value":"a.m.s.l."},
+{"hash":264081230,"name":"tgeologyform.graincheckbox.caption","sourcebytes":[83,104,111,119,32,103,114,97,105,110,32,100,105,115,116,114,105,98,117,116,105,111,110],"value":"Show grain distribution"}
+]}
