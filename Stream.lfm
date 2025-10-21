@@ -1,6 +1,6 @@
 inherited StreamForm: TStreamForm
-  Left = 601
-  Top = 161
+  Left = 2783
+  Top = 360
   Caption = 'Stream Discharge/Flow Velocity/Intake'
   Icon.Data = {
     737B000000000100010000000000010020005D7B00001600000089504E470D0A
@@ -1050,83 +1050,87 @@ inherited StreamForm: TStreamForm
       ParentShowHint = False
     end
   end
-  inherited Panel3: TPanel
-    inherited LinkedLabel: TLabel
-      Width = 278
-      Caption = 'Stream/Spillway Discharge, Flow Velocity, Intake'
+  inherited Panel2: TPanel
+    inherited Panel3: TPanel
+      inherited LinkedLabel: TLabel
+        Height = 17
+        Width = 278
+        AutoSize = True
+        Caption = 'Stream/Spillway Discharge, Flow Velocity, Intake'
+        Enabled = False
+      end
+      inherited PageControl: TPageControl
+        Enabled = False
+        OnChange = PageControlChange
+        inherited TabSheet1: TTabSheet
+          Hint = 'Stream Discharge'
+          Caption = 'Discharge [l/s]'
+          ClientHeight = 162
+          inherited DBGrid1: TDBGrid
+            Hint = 'Discharge Information'
+            AutoFillColumns = True
+            Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
+            OnEnter = DBGridEnter
+            OnKeyDown = DBGridKeyDown
+            OnMouseDown = DBGridMouseDown
+            OnMouseMove = DBGridMouseMove
+            OnTitleClick = DBGridTitleClick
+          end
+        end
+        inherited TabSheet2: TTabSheet
+          Hint = 'Flow velocity'
+          Caption = 'Flow velocity [m/s]'
+          ClientHeight = 162
+          inherited DBGrid2: TDBGrid
+            Hint = 'Flow velocity'
+            AutoFillColumns = True
+            Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
+            OnKeyDown = DBGridKeyDown
+            OnMouseDown = DBGridMouseDown
+          end
+        end
+        inherited TabSheet3: TTabSheet
+          Caption = 'Intake [l/s]'
+          ClientHeight = 162
+          inherited DBGrid3: TDBGrid
+            AutoFillColumns = True
+            Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
+            OnKeyDown = DBGridKeyDown
+            OnMouseDown = DBGridMouseDown
+          end
+        end
+        inherited TabSheet4: TTabSheet
+          ClientHeight = 162
+          TabVisible = False
+        end
+      end
+      inherited Panel4: TPanel
+        inherited DetailNavigator: TDBNavigator
+          Enabled = False
+          Hints.Strings = (          )
+        end
+        inherited EditResults: TEdit
+          Tag = 500
+        end
+      end
     end
     inherited GroupBox1: TGroupBox
-      Width = 556
-      ClientHeight = 90
-      ClientWidth = 552
       inherited EditSITE_NAME: TDBEdit
-        Width = 284
+        Width = 296
       end
       inherited EditDATE_UPDTD: TDBEdit
-        Width = 59
-      end
-    end
-    inherited PageControl: TPageControl
-      OnChange = PageControlChange
-      inherited TabSheet1: TTabSheet
-        Hint = 'Stream Discharge'
-        Caption = 'Discharge [l/s]'
-        ClientHeight = 162
-        inherited DBGrid1: TDBGrid
-          Hint = 'Discharge Information'
-          AutoFillColumns = True
-          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
-          OnEnter = DBGridEnter
-          OnKeyDown = DBGridKeyDown
-          OnMouseDown = DBGridMouseDown
-          OnMouseMove = DBGridMouseMove
-          OnTitleClick = DBGridTitleClick
-        end
-      end
-      inherited TabSheet2: TTabSheet
-        Hint = 'Flow velocity'
-        Caption = 'Flow velocity [m/s]'
-        ClientHeight = 162
-        inherited DBGrid2: TDBGrid
-          Hint = 'Flow velocity'
-          AutoFillColumns = True
-          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
-          OnKeyDown = DBGridKeyDown
-          OnMouseDown = DBGridMouseDown
-        end
-      end
-      inherited TabSheet3: TTabSheet
-        Caption = 'Intake [l/s]'
-        ClientHeight = 162
-        inherited DBGrid3: TDBGrid
-          AutoFillColumns = True
-          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
-          OnKeyDown = DBGridKeyDown
-          OnMouseDown = DBGridMouseDown
-        end
-      end
-      inherited TabSheet4: TTabSheet
-        ClientHeight = 162
-        TabVisible = False
-      end
-    end
-    inherited Panel2: TPanel
-      inherited DetailNavigator: TDBNavigator
-        Hints.Strings = (        )
-      end
-      inherited EditResults: TEdit
-        Tag = 500
+        Width = 71
       end
     end
   end
   inherited BasicinfDataSource: TDataSource
     OnDataChange = BasicinfDataSourceDataChange
-    left = 432
-    top = 48
+    Left = 432
+    Top = 48
   end
   inherited DataSource1: TDataSource
     DataSet = ZQuery1
-    left = 25
+    Left = 25
   end
   inherited DataSource2: TDataSource
     DataSet = ZQuery2
@@ -1140,7 +1144,7 @@ inherited StreamForm: TStreamForm
   inherited ZQuery1: TZQuery
     AfterOpen = ZQueryAfterDelete
     AfterRefresh = ZQueryAfterRefresh
-    BeforeInsert = ZQuery1_3BeforeInsert
+    BeforeInsert = ZQueryBeforeInsert
     AfterPost = ZQuerysAfterPost
     AfterDelete = ZQueryAfterDelete
     OnNewRecord = ZQueryNewRecord
@@ -1154,6 +1158,7 @@ inherited StreamForm: TStreamForm
         Name = 'SiteID'
         ParamType = ptInput
         Size = 13
+        SQLType = stString
       end>
     ParamData = <    
       item
@@ -1161,6 +1166,7 @@ inherited StreamForm: TStreamForm
         Name = 'SiteID'
         ParamType = ptInput
         Size = 13
+        SQLType = stString
       end>
     object ZQuery1SITE_ID_NR: TStringField[0]
       FieldKind = fkData
@@ -1185,7 +1191,7 @@ inherited StreamForm: TStreamForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = TableUpperSetText
+      OnSetText = QueryUpperSetText
       OnValidate = TableINFO_SOURCValidate
       Size = 4
     end
@@ -1225,8 +1231,6 @@ inherited StreamForm: TStreamForm
       Required = False
       OnGetText = ZQuery1DIS_FLOWGetText
       OnSetText = ZQuery1DIS_FLOWSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object ZQuery1COMMENTS: TStringField[5]
@@ -1238,7 +1242,7 @@ inherited StreamForm: TStreamForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = TableUpperSetText
+      OnSetText = QueryCOMMENTSSetText
       Size = 80
     end
   end
@@ -1258,14 +1262,16 @@ inherited StreamForm: TStreamForm
         Name = 'SiteID'
         ParamType = ptInput
         Size = 13
+        SQLType = stString
       end>
-    left = 120
+    Left = 120
     ParamData = <    
       item
         DataType = ftString
         Name = 'SiteID'
         ParamType = ptInput
         Size = 13
+        SQLType = stString
       end>
     object ZQuery2SITE_ID_NR: TStringField[0]
       FieldKind = fkData
@@ -1290,7 +1296,7 @@ inherited StreamForm: TStreamForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = TableUpperSetText
+      OnSetText = QueryUpperSetText
       OnValidate = ZQuery2REP_INSTValidate
       Size = 4
     end
@@ -1331,8 +1337,6 @@ inherited StreamForm: TStreamForm
       Required = False
       OnGetText = ZQuery2READINGGetText
       OnSetText = ZQuery2READINGSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object ZQuery2COMMENT: TStringField[5]
@@ -1344,13 +1348,13 @@ inherited StreamForm: TStreamForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = TableUpperSetText
+      OnSetText = QueryCOMMENTSSetText
       Size = 12
     end
   end
   inherited ZQuery3: TZQuery
     AfterRefresh = ZQueryAfterRefresh
-    BeforeInsert = ZQuery1_3BeforeInsert
+    BeforeInsert = ZQueryBeforeInsert
     AfterPost = ZQuerysAfterPost
     AfterDelete = ZQueryAfterDelete
     OnNewRecord = ZQueryNewRecord
@@ -1364,14 +1368,16 @@ inherited StreamForm: TStreamForm
         Name = 'SiteID'
         ParamType = ptInput
         Size = 13
+        SQLType = stString
       end>
-    top = 199
+    Top = 199
     ParamData = <    
       item
         DataType = ftString
         Name = 'SiteID'
         ParamType = ptInput
         Size = 13
+        SQLType = stString
       end>
     object ZQuery3SITE_ID_NR: TStringField[0]
       FieldKind = fkData
@@ -1396,7 +1402,7 @@ inherited StreamForm: TStreamForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = TableUpperSetText
+      OnSetText = QueryUpperSetText
       OnValidate = TableINFO_SOURCValidate
       Size = 4
     end
@@ -1437,8 +1443,6 @@ inherited StreamForm: TStreamForm
       Required = False
       OnGetText = ZQuery3INTAK_FLOWGetText
       OnSetText = ZQuery3INTAK_FLOWSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object ZQuery3COMMENTS: TStringField[5]
@@ -1450,7 +1454,7 @@ inherited StreamForm: TStreamForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = TableUpperSetText
+      OnSetText = QueryCOMMENTSSetText
       Size = 80
     end
   end

@@ -1,0 +1,67 @@
+object FormStoredCoords: TFormStoredCoords
+  Left = 1052
+  Height = 150
+  Top = 277
+  Width = 320
+  BorderStyle = bsDialog
+  Caption = 'Change Coordinate System'
+  ClientHeight = 150
+  ClientWidth = 320
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '3.8.0.0'
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 41
+    Top = 103
+    Width = 308
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.Enabled = False
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 0
+    ShowButtons = [pbOK, pbCancel, pbHelp]
+  end
+  object CoordLabel: TLabel
+    Left = 6
+    Height = 16
+    Top = 48
+    Width = 236
+    Caption = '&Stored Coordinates are in Coordinate System:'
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    ParentFont = False
+  end
+  object ComboBoxCoordSys: TComboBox
+    Left = 6
+    Height = 28
+    Top = 64
+    Width = 300
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    DropDownCount = 12
+    ItemHeight = 0
+    Sorted = True
+    Style = csDropDownList
+    TabOrder = 1
+    OnChange = ComboBoxCoordSysChange
+  end
+  object Label1: TLabel
+    Left = 6
+    Height = 32
+    Top = 8
+    Width = 300
+    AutoSize = False
+    Caption = 'This function will change the coordinate reference system of the stored coordinates in the workspace settings.'
+    Font.Height = -11
+    ParentFont = False
+    WordWrap = True
+  end
+end

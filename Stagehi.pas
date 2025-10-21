@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2024 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -24,7 +24,7 @@ interface
 uses
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs, LCLtype, MastDetl,
   StdCtrls, Buttons, Menus, Db, DBCtrls, ExtCtrls, DBGrids, MaskEdit,
-  XMLPropStorage, DateTimePicker, rxlookup, ZDataset;
+  DateTimePicker, rxlookup, ZDataset;
 
 type
 
@@ -43,9 +43,11 @@ type
     procedure ChartSpeedButtonClick(Sender: TObject);
     procedure DateTimePicker1Change(Sender: TObject);
     procedure DBGridKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure FormCreate(Sender: TObject);
     procedure LinkedQueryAfterOpen(DataSet: TDataSet);
     procedure LinkedQueryAfterRefresh(DataSet: TDataSet);
     procedure LinkedQueryBeforeInsert(DataSet: TDataSet);
+    procedure LinkedQueryCOMMENTSSetText(Sender: TField; const aText: string);
     procedure LinkedQueryDATE_MEASValidate(Sender: TField);
     procedure LinkedQueryINFO_SOURCValidate(Sender: TField);
     procedure LinkedQueryNewRecord(DataSet: TDataSet);
@@ -80,10 +82,34 @@ begin
   PrevInfoSource := LinkedQueryINFO_SOURC.Value;
 end;
 
+procedure TStageHiForm.LinkedQueryCOMMENTSSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
+end;
+
 procedure TStageHiForm.DBGridKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   inherited;
+end;
+
+procedure TStageHiForm.FormCreate(Sender: TObject);
+begin
+  inherited;
+  if not DataModuleMain.BasicinfQuerySITE_TYPE.IsNULL then
+    DBGrid.Enabled := DataModuleMain.BasicinfQuerySITE_TYPE.AsString[1]
+      IN ['C', 'G', 'P', 'R', 'S', 'X'];
+  if DBGrid.Enabled = True then
+  begin
+    LinkedLabel.Enabled := True;
+    DetailNavigator.Enabled := True;
+  end
+  else
+    ShowMessage('This site type does not seem to allow stage height readings!');
 end;
 
 procedure TStageHiForm.LinkedQueryAfterOpen(DataSet: TDataSet);
@@ -132,12 +158,19 @@ procedure TStageHiForm.BasicinfDataSourceDataChange(Sender: TObject;
   Field: TField);
 begin
   inherited;
-  DBGrid.Enabled := DataModuleMain.BasicinfQuerySITE_TYPE.AsString[1]
-    IN ['C', 'G', 'P', 'R', 'S', 'X'];
-  LinkedLabel.Enabled := DBGrid.Enabled;
-  DetailNavigator.Enabled := DBGrid.Enabled;
-  if not DetailNavigator.Enabled then
-    ShowMessage('This site type does not seem to allow Stage Height readings!');
+  if not (DataModuleMain.BasicinfQuery.State IN [dsInsert, dsEdit]) then
+  begin
+    if not DataModuleMain.BasicinfQuerySITE_TYPE.IsNULL then
+      DBGrid.Enabled := DataModuleMain.BasicinfQuerySITE_TYPE.AsString[1]
+        IN ['C', 'G', 'P', 'R', 'S', 'X'];
+    if DBGrid.Enabled = True then
+    begin
+      LinkedLabel.Enabled := True;
+      DetailNavigator.Enabled := True;
+    end
+    else if Showing then
+      ShowMessage('This site type does not seem to allow stage height readings!');
+  end;
 end;
 
 procedure TStageHiForm.LinkedQueryDATE_MEASValidate(Sender: TField);

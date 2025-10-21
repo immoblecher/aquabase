@@ -21,10 +21,6 @@ inherited SiteStatusForm: TSiteStatusForm
       AutoFillColumns = True
     end
   end
-  inherited XMLPropStorage: TXMLPropStorage
-    left = 464
-    top = 272
-  end
   inherited LinkedQuery: TZQuery
     SortedFields = 'DATE_UPDTD'
     BeforeOpen = LinkedQueryBeforeOpen
@@ -38,6 +34,7 @@ inherited SiteStatusForm: TSiteStatusForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     IndexFieldNames = 'DATE_UPDTD Asc'
     ParamData = <    
@@ -46,6 +43,7 @@ inherited SiteStatusForm: TSiteStatusForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryDATE_ENTRY: TStringField[1]
       Alignment = taCenter
@@ -96,6 +94,7 @@ inherited SiteStatusForm: TSiteStatusForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      OnSetText = LinkedQueryCOMMENTSSetText
       Size = 24
     end
   end

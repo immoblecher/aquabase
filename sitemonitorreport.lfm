@@ -212,10 +212,10 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
       end
     end
     inherited FooterBand: TRLBand
-      Top = 813
+      Top = 823
     end
     inherited SubDetail1: TRLSubDetail
-      Top = 313
+      Top = 323
       AllowedBands = [btColumnHeader, btDetail]
       DataSource = OwnerDataSource
       inherited SubHeaderBand: TRLBand
@@ -427,7 +427,7 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
     object SubDetail2: TRLSubDetail[4]
       Left = 39
       Height = 56
-      Top = 369
+      Top = 379
       Width = 716
       AllowedBands = [btColumnHeader, btDetail]
       Borders.Sides = sdCustom
@@ -564,7 +564,7 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
     object WaterlevSubDetail: TRLSubDetail[5]
       Left = 39
       Height = 56
-      Top = 645
+      Top = 655
       Width = 716
       AllowedBands = [btColumnHeader]
       Borders.Sides = sdCustom
@@ -828,7 +828,7 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
     object FldMeasSubDetail: TRLSubDetail[6]
       Left = 39
       Height = 56
-      Top = 701
+      Top = 711
       Width = 716
       AllowedBands = [btColumnHeader]
       Borders.Sides = sdCustom
@@ -1116,7 +1116,7 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
     object RLSubDetailCharts: TRLSubDetail[8]
       Left = 39
       Height = 220
-      Top = 425
+      Top = 435
       Width = 716
       DataSource = BasicinfDataSource
       AfterPrint = RLSubDetailChartsAfterPrint
@@ -1167,7 +1167,7 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
     object ChemSubDetail: TRLSubDetail[9]
       Left = 39
       Height = 56
-      Top = 757
+      Top = 767
       Width = 716
       AllowedBands = [btColumnHeader]
       Borders.Sides = sdCustom
@@ -1501,9 +1501,9 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
     end
   end
   inherited BasicinfQuery: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionDB
     AfterOpen = BasicinfQueryAfterOpen
-    object BasicinfQueryNOTE_PAD: TBlobField[26]
+    Connection = DataModuleMain.ZConnectionDB
+    object BasicinfQueryNOTE_PAD: TWideStringField[26]
       FieldKind = fkData
       FieldName = 'NOTE_PAD'
       Index = 26
@@ -1511,13 +1511,14 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      Size = 4096
     end
   end
   object ChemQuery: TZReadOnlyQuery[5]
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'SITE_ID_NR, DATE_SAMPL,TIME_SAMPL'
     BeforeOpen = ChemQueryBeforeOpen
     AfterOpen = ChemQueryAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     Params = <>
     MasterFields = 'SITE_ID_NR'
     MasterSource = ViewDataSource
@@ -1631,9 +1632,9 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
     end
   end
   object BasicImgQuery: TZReadOnlyQuery[6]
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = BasicImgQueryBeforeOpen
     AfterOpen = BasicImgQueryAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       'SELECT site_id_nr, MAX(date_creat) as date_creat, time_creat , site_image FROM basicimg'
       'WHERE site_id_nr = :SiteID '
@@ -1647,12 +1648,14 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
         Name = 'SiteID'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end    
       item
         DataType = ftString
         Name = 'ImgDescr'
         ParamType = ptInput
         Size = 48
+        SQLType = stString
       end>
     MasterFields = 'SITE_ID_NR'
     MasterSource = BasicinfDataSource
@@ -1665,12 +1668,14 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
         Name = 'SiteID'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end    
       item
         DataType = ftString
         Name = 'ImgDescr'
         ParamType = ptInput
         Size = 48
+        SQLType = stString
       end>
     object BasicImgQuerySITE_ID_NR: TStringField
       FieldKind = fkData
@@ -1718,8 +1723,8 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
     Top = 8
   end
   object InstallaQuery: TZReadOnlyQuery[8]
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = InstallaQueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       'SELECT site_id_nr, MAX(date_instl) AS date_instl, depth_intk FROM installa'
       'WHERE site_id_nr = :SiteID'
@@ -1732,6 +1737,7 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
         Name = 'SiteID'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     MasterFields = 'SITE_ID_NR'
     MasterSource = BasicinfDataSource
@@ -1744,6 +1750,7 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
         Name = 'SiteID'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object InstallaQuerySITE_ID_NR: TStringField
       FieldKind = fkData
@@ -1782,9 +1789,9 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
     Top = 240
   end
   object CommentsQuery: TZReadOnlyQuery[10]
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'SITE_ID_NR, DATE_ENTRY'
     BeforeOpen = CommentsQueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       'SELECT * FROM comments WHERE site_id_nr = :SiteID'
       'ORDER BY site_id_nr, date_entry'
@@ -1795,6 +1802,7 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
         Name = 'SiteID'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     MasterFields = 'SITE_ID_NR'
     MasterSource = ViewDataSource
@@ -1808,6 +1816,7 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
         Name = 'SiteID'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object CommentsQuerySITE_ID_NR: TStringField
       FieldKind = fkData
@@ -1843,7 +1852,7 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
       OnGetText = LookupsGetText
       Size = 4
     end
-    object CommentsQueryNOTE_PAD: TBlobField
+    object CommentsQueryNOTE_PAD: TWideStringField
       FieldKind = fkData
       FieldName = 'NOTE_PAD'
       Index = 3
@@ -1851,6 +1860,7 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      Size = 4096
     end
   end
   object CommentsDataSource: TDataSource[11]
@@ -1859,9 +1869,9 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
     Top = 376
   end
   object OwnerQuery: TZReadOnlyQuery[12]
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'SITE_ID_NR, DATE_FROM,DATE_TO'
     BeforeOpen = OwnerQueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       'SELECT * FROM nameownr WHERE site_id_nr = :SiteID'
       'ORDER BY site_id_nr, date_from, date_to'
@@ -1872,6 +1882,7 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
         Name = 'SiteID'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     MasterFields = 'SITE_ID_NR'
     MasterSource = ViewDataSource
@@ -1885,6 +1896,7 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
         Name = 'SiteID'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object OwnerQuerySITE_ID_NR: TStringField
       FieldKind = fkData
@@ -1991,9 +2003,9 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
     Top = 432
   end
   object WaterlevQuery: TZReadOnlyQuery[15]
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = WaterlevQueryBeforeOpen
     AfterOpen = WaterlevQueryAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       ''
     )
@@ -2128,10 +2140,10 @@ inherited SiteMonitoringReportForm: TSiteMonitoringReportForm
     end
   end
   object FldMeasQuery: TZReadOnlyQuery[16]
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'PARM_MEAS,DATE_MEAS,TIME_MEAS'
     BeforeOpen = FldMeasQueryBeforeOpen
     AfterOpen = FldMeasQueryAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     Params = <>
     MasterFields = 'SITE_ID_NR'
     MasterSource = ViewDataSource

@@ -1,6 +1,6 @@
 inherited SiteReportDetailForm: TSiteReportDetailForm
-  Left = 561
-  Top = 237
+  Left = 2670
+  Top = 421
   Caption = 'Site-Linked Reports'
   OnActivate = FormActivate
   OnShow = FormShow
@@ -30,7 +30,7 @@ inherited SiteReportDetailForm: TSiteReportDetailForm
           PickList.Strings = (          )
           SizePriority = 0
           Title.Caption = 'Date entered'
-          Width = 100
+          Width = 82
           FieldName = 'DATE_ENTRY'
         end      
         item
@@ -39,22 +39,21 @@ inherited SiteReportDetailForm: TSiteReportDetailForm
           PickList.Strings = (          )
           SizePriority = 0
           Title.Caption = 'Rep. Institution'
-          Width = 80
+          Width = 96
           FieldName = 'REP_INST'
         end      
         item
           MinSize = 100
           PickList.Strings = (          )
           Title.Caption = 'Report Number'
-          Width = 186
+          Width = 187
           FieldName = 'REPORT_NR'
         end      
         item
           MinSize = 100
           PickList.Strings = (          )
-          SizePriority = 1
           Title.Caption = 'Comment'
-          Width = 186
+          Width = 187
           FieldName = 'COMMENTS'
         end>
     end
@@ -63,7 +62,6 @@ inherited SiteReportDetailForm: TSiteReportDetailForm
     end
   end
   inherited GroupBox1: TGroupBox
-    ClientHeight = 86
     inherited Label3: TLabel
       Left = 179
     end
@@ -82,9 +80,6 @@ inherited SiteReportDetailForm: TSiteReportDetailForm
     inherited AltLabel: TLabel
       Left = 240
     end
-    inherited DepLabel: TLabel
-      Left = 356
-    end
     inherited Label6: TLabel
       Left = 412
     end
@@ -96,7 +91,6 @@ inherited SiteReportDetailForm: TSiteReportDetailForm
     end
     inherited EditSITE_NAME: TDBEdit
       Left = 256
-      Width = 304
     end
     inherited EditDATE_UPDTD: TDBEdit
       Left = 464
@@ -108,8 +102,8 @@ inherited SiteReportDetailForm: TSiteReportDetailForm
   end
   inherited LinkedDataSource: TDataSource
     OnDataChange = LinkedDataSourceDataChange
-    left = 144
-    top = 280
+    Left = 144
+    Top = 280
   end
   inherited LinkedQuery: TZQuery
     BeforeOpen = LinkedQueryBeforeOpen
@@ -123,14 +117,16 @@ inherited SiteReportDetailForm: TSiteReportDetailForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
-    top = 280
+    Top = 280
     ParamData = <    
       item
         DataType = ftString
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryDATE_ENTRY: TStringField[1]
       DisplayLabel = 'Date entered'
@@ -166,7 +162,7 @@ inherited SiteReportDetailForm: TSiteReportDetailForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      OnSetText = LinkedQueryUpperSetText
+      OnSetText = LinkedQueryREPORT_NRSetText
       OnValidate = LinkedQueryREPORT_NRValidate
       Size = 96
     end
@@ -180,17 +176,17 @@ inherited SiteReportDetailForm: TSiteReportDetailForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedQueryUpperSetText
+      OnSetText = LinkedQueryCOMMENTSSetText
       Size = 24
     end
   end
-  inherited ZReadOnlyQueryCoordAcc: TZReadOnlyQuery
-    top = 120
-  end
   inherited AccuDataSource: TDataSource
-    top = 208
+    Top = 208
   end
-  object PickListQuery: TZReadOnlyQuery[12]
+  inherited ZReadOnlyQueryCoordAcc: TZReadOnlyQuery
+    Top = 120
+  end
+  object PickListQuery: TZReadOnlyQuery[13]
     Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       'SELECT REPORT_NR FROM rprtdocs'
@@ -203,15 +199,17 @@ inherited SiteReportDetailForm: TSiteReportDetailForm
         Name = 'TheInst'
         ParamType = ptInput
         Size = 4
+        SQLType = stString
       end>
-    left = 304
-    top = 240
+    Left = 304
+    Top = 240
     ParamData = <    
       item
         DataType = ftString
         Name = 'TheInst'
         ParamType = ptInput
         Size = 4
+        SQLType = stString
       end>
   end
 end

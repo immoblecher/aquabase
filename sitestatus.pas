@@ -1,4 +1,4 @@
-{ Copyright (C) 2018 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -34,6 +34,7 @@ type
     LinkedQueryDATE_ENTRY: TStringField;
     LinkedQueryDATE_UPDTD: TStringField;
     LinkedQuerySITE_STATU: TStringField;
+    procedure LinkedQueryCOMMENTSSetText(Sender: TField; const aText: string);
     procedure LinkedQueryNewRecord(DataSet: TDataSet);
     procedure LinkedQuerySITE_STATUSetText(Sender: TField; const aText: string);
     procedure LinkedQuerySITE_STATUValidate(Sender: TField);
@@ -61,6 +62,15 @@ begin
   LinkedQueryDATE_ENTRY.Value := FormatDateTime('YYYYMMDD', Date);
   LinkedQueryDATE_ENTRY.ReadOnly := True;
   LinkedQueryDATE_UPDTD.Value := FormatDateTime('YYYYMMDD', Date);
+end;
+
+procedure TSiteStatusForm.LinkedQueryCOMMENTSSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TSiteStatusForm.LinkedQuerySITE_STATUSetText(Sender: TField;

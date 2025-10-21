@@ -7,12 +7,11 @@ object FormSelSiteID: TFormSelSiteID
   ClientHeight = 214
   ClientWidth = 222
   KeyPreview = True
-  OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
   Position = poScreenCenter
   SessionProperties = 'Height;Width'
-  LCLVersion = '2.0.4.0'
+  LCLVersion = '3.8.0.0'
   object RxDBGrid: TRxDBGrid
     Left = 0
     Height = 214
@@ -89,7 +88,6 @@ object FormSelSiteID: TFormSelSiteID
     DrawFullLine = False
     FocusColor = clRed
     SelectedColor = clHighlight
-    GridLineStyle = psSolid
     DataSource = DataSource1
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgHeaderPushedLook, dgDisableInsert, dgRowHighlight]
     ParentShowHint = False
@@ -101,15 +99,16 @@ object FormSelSiteID: TFormSelSiteID
     OnKeyDown = RxDBGridKeyDown
   end
   object SiteIDQuery: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'SITE_ID_NR'
+    AfterOpen = SiteIDQueryAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       'SELECT SITE_ID_NR, NR_ON_MAP FROM basicinf'
     )
     Params = <>
     IndexFieldNames = 'SITE_ID_NR Asc'
-    left = 120
-    top = 72
+    Left = 120
+    Top = 72
     object SiteIDQuerySITE_ID_NR: TStringField
       DisplayLabel = 'Site Identifier'
       FieldKind = fkData
@@ -136,16 +135,16 @@ object FormSelSiteID: TFormSelSiteID
   object DataSource1: TDataSource
     AutoEdit = False
     DataSet = SiteIDQuery
-    left = 88
-    top = 8
+    Left = 88
+    Top = 8
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    left = 40
-    top = 96
+    Left = 40
+    Top = 96
   end
   object RxSortZeos1: TRxSortZeos
-    left = 32
-    top = 40
+    Left = 32
+    Top = 40
   end
 end

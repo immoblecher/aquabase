@@ -1,4 +1,4 @@
-{ Copyright (C) 2019 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -25,7 +25,7 @@ uses
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs, DBGrids,
   ZAbstractRODataset, ExtCtrls, StdCtrls, Buttons, ComCtrls, Db, fpstdexports,
   ZDataset, Menus, DBCtrls, XMLPropStorage, fpdataexporter, Clipbrd, Grids,
-  RxDBGridPrintGrid, rxdbgrid, RxDBGridExportPdf, LCLType,
+  RxDBGridPrintGrid, RxDBGrid, RxDBGridExportPdf, LCLType,
   RxSortZeos, RxDBGridExportSpreadSheet;
 
 type
@@ -38,7 +38,7 @@ type
     MenuItem2: TMenuItem;
     Panel1: TPanel;
     PopupMenu1: TPopupMenu;
-    RxDBGrid: TRxDBGrid;
+    RxDBGrid1: TRxDBGrid;
     RxDBGridExportPDF1: TRxDBGridExportPDF;
     RxDBGridExportSpreadSheet1: TRxDBGridExportSpreadSheet;
     RxDBGridPrint1: TRxDBGridPrint;
@@ -74,9 +74,8 @@ type
     SpeedButton3: TSpeedButton;
     SpeedButton4: TSpeedButton;
     DBNavigator1: TDBNavigator;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     TableQuery: TZReadOnlyQuery;
-    procedure DBGrid1CellClick(Column: TColumn);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -91,6 +90,7 @@ type
     procedure MenuItem2Click(Sender: TObject);
     procedure PopupMenu1Popup(Sender: TObject);
     procedure QueryDataSourceDataChange(Sender: TObject; Field: TField);
+    procedure RxDBGrid1CellClick(Column: TColumn);
     procedure SearchQueryAfterOpen(DataSet: TDataSet);
     procedure SpeedButtonNotesClick(Sender: TObject);
     procedure ListBoxMouseMove(Sender: TObject; Shift: TShiftState; X,
@@ -137,7 +137,7 @@ var
   i: Byte;
   ViewList, TempTableList: TStringList;
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, True);
   TempTableList := TStringList.Create;
   ViewList := TStringList.Create;
@@ -159,11 +159,6 @@ begin
   TableQuery.Open;
   TableQuery.GetFieldNames(FieldListBox.Items);
   TableQuery.Close;
-end;
-
-procedure TSQLQueryForm.DBGrid1CellClick(Column: TColumn);
-begin
-  TheValue := Column.Field.AsString;
 end;
 
 procedure TSQLQueryForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -270,8 +265,8 @@ end;
 
 procedure TSQLQueryForm.PopupMenu1Popup(Sender: TObject);
 begin
-  MenuItem1.Enabled := RxDBGrid.DataSource.DataSet.FindField('SITE_ID_NR') <> NIL;
-  MenuItem2.Enabled := RxDBGrid.SelectedField <> NIL;
+  MenuItem1.Enabled := RxDBGrid1.DataSource.DataSet.FindField('SITE_ID_NR') <> NIL;
+  MenuItem2.Enabled := RxDBGrid1.SelectedField <> NIL;
 end;
 
 procedure TSQLQueryForm.QueryDataSourceDataChange(Sender: TObject; Field: TField);
@@ -288,11 +283,16 @@ begin
   end;
 end;
 
+procedure TSQLQueryForm.RxDBGrid1CellClick(Column: TColumn);
+begin
+  TheValue := Column.Field.AsString;
+end;
+
 procedure TSQLQueryForm.SearchQueryAfterOpen(DataSet: TDataSet);
 var
   f: Integer;
 begin
-  RxDBGrid.Enabled := SearchQuery.Active;
+  RxDBGrid1.Enabled := SearchQuery.Active;
   for f := 0 to SearchQuery.FieldCount -1 do
     if SearchQuery.Fields[f].DataType = ftFloat then
       TFloatField(SearchQuery.Fields[f]).DisplayFormat := '0.#####';
@@ -302,8 +302,8 @@ procedure TSQLQueryForm.SpeedButtonNotesClick(Sender: TObject);
 begin
   with TNotepadForm.Create(Application) do
   begin
-    DBMemo.DataSource := QueryDataSource;
-    DBMemo.ReadOnly := True;
+    DBMemo1.DataSource := QueryDataSource;
+    DBMemo1.ReadOnly := True;
     Show;
   end;
 end;
@@ -433,7 +433,7 @@ begin
   StatusBar1.Panels[2].Text := '';
   SearchQuery.Close;
   SearchQuery.SortedFields := '';
-  RxDBGrid.SortColumns.Clear;
+  RxDBGrid1.SortColumns.Clear;
   StatusBar1.Panels[1].Text := '';
   try
     SearchQuery.Connection := DataModuleMain.ZConnectionDB;
@@ -455,7 +455,6 @@ begin
       if SearchQuery.FindField('NOTE_PAD') <> NIL then
       begin
         SpeedButtonNotes.Enabled := True;
-        (SearchQuery.FieldByName('NOTE_PAD') as TBlobField).BlobType := ftMemo;
       end
       else
       begin
@@ -487,9 +486,9 @@ begin
       StatusBar1.Panels[0].Text := 'Error in SQL query statement!';
     end;
   end; //of try
-  if RxDBGrid.Columns.Count > 0 then
-  for c := 0 to RxDBGrid.Columns.Count - 1 do
-    RxDBGrid.Columns[c].Title.Alignment:= taLeftJustify;
+  if RxDBGrid1.Columns.Count > 0 then
+  for c := 0 to RxDBGrid1.Columns.Count - 1 do
+    RxDBGrid1.Columns[c].Title.Alignment:= taLeftJustify;
   Screen.Cursor := crDefault;
 end;
 

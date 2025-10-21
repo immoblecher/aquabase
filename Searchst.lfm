@@ -27,10 +27,6 @@ inherited SearchStatusForm: TSearchStatusForm
     left = 160
     top = 288
   end
-  inherited XMLPropStorage: TXMLPropStorage
-    left = 464
-    top = 272
-  end
   inherited LinkedQuery: TZQuery
     BeforeOpen = LinkedQueryBeforeOpen
     BeforeInsert = LinkedQueryBeforeInsert

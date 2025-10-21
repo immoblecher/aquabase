@@ -36,6 +36,8 @@
 {"hash":171540478,"name":"tsitemonitoringreportform.rllabel216.caption","sourcebytes":[68,101,112,116,104,32,109,101,97,115,46],"value":"Depth meas."},
 {"hash":19463173,"name":"tsitemonitoringreportform.rllabel217.caption","sourcebytes":[73,110,102,111,114,109,97,116,105,111,110,32,115,111,117,114,99,101],"value":"Information source"},
 {"hash":81820506,"name":"tsitemonitoringreportform.rllabel214.caption","sourcebytes":[80,97,114,97,109,101,116,101,114,32,109,101,97,115,117,114,101,100,58],"value":"Parameter measured:"},
+{"hash":72304252,"name":"tsitemonitoringreportform.chart1.axislist[0].title.caption","sourcebytes":[87,97,116,101,114,32,108,101,118,101,108],"value":"Water level"},
+{"hash":176481973,"name":"tsitemonitoringreportform.chart1.axislist[1].title.caption","sourcebytes":[68,97,116,101,47,84,105,109,101],"value":"Date/Time"},
 {"hash":254571418,"name":"tsitemonitoringreportform.rllabel218.caption","sourcebytes":[83,69,76,69,67,84,69,68,32,67,72,69,77,73,83,84,82,89,58],"value":"SELECTED CHEMISTRY:"},
 {"hash":234726046,"name":"tsitemonitoringreportform.rllabel219.caption","sourcebytes":[68,97,116,101,47,84,105,109,101,32,115,97,109,112,46],"value":"Date/Time samp."},
 {"hash":90736641,"name":"tsitemonitoringreportform.rllabelparam1.caption","sourcebytes":[80,97,114,97,109,49],"value":"Param1"},
@@ -43,5 +45,8 @@
 {"hash":174341140,"name":"tsitemonitoringreportform.rllabel222.caption","sourcebytes":[67,111,109,109,101,110,116],"value":"Comment"},
 {"hash":54279246,"name":"tsitemonitoringreportform.rllabel223.caption","sourcebytes":[68,101,112,116,104,32,115,97,109,112,108,46],"value":"Depth sampl."},
 {"hash":119729422,"name":"tsitemonitoringreportform.rllabel224.caption","sourcebytes":[83,97,109,112,108,101,32,78,114,46],"value":"Sample Nr."},
-{"hash":90736642,"name":"tsitemonitoringreportform.rllabelparam2.caption","sourcebytes":[80,97,114,97,109,50],"value":"Param2"}
+{"hash":90736642,"name":"tsitemonitoringreportform.rllabelparam2.caption","sourcebytes":[80,97,114,97,109,50],"value":"Param2"},
+{"hash":138003665,"name":"tsitemonitoringreportform.chart2.axislist[0].title.caption","sourcebytes":[80,97,114,97,109,101,116,101,114,49],"value":"Parameter1"},
+{"hash":176481973,"name":"tsitemonitoringreportform.chart2.axislist[1].title.caption","sourcebytes":[68,97,116,101,47,84,105,109,101],"value":"Date/Time"},
+{"hash":138003666,"name":"tsitemonitoringreportform.chart2.axislist[2].title.caption","sourcebytes":[80,97,114,97,109,101,116,101,114,50],"value":"Parameter2"}
 ]}

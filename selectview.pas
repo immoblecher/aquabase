@@ -1,4 +1,4 @@
-{ Copyright (C) 2019 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2024 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -37,7 +37,7 @@ type
     PairSplitter1: TPairSplitter;
     PairSplitterSide1: TPairSplitterSide;
     PairSplitterSide2: TPairSplitterSide;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     DefinitionQuery: TZReadOnlyQuery;
     ViewQuery: TZReadOnlyQuery;
     procedure FormCreate(Sender: TObject);
@@ -67,7 +67,7 @@ procedure TSelectViewForm.FormCreate(Sender: TObject);
 var
   TheViews: TStringList;
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, True);
   TheViews := TStringList.Create;
   DataModuleMain.GetAllViews(DataModuleMain.ZConnectionDB, TheViews);

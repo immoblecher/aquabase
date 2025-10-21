@@ -1,4 +1,4 @@
-{ Copyright (C) 2019 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -40,11 +40,12 @@ type
     HelpButton: TBitBtn;
     DataSource1: TDataSource;
     OpenPictureDialog1: TOpenPictureDialog;
+    Panel2: TPanel;
     SavePictureDialog1: TSavePictureDialog;
     SpeedButtonLoad: TSpeedButton;
     SpeedButtonSave: TSpeedButton;
     Splitter1: TSplitter;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     ZQuery1: TZQuery;
     ZQuery1DATE_CREAT: TStringField;
     ZQuery1IMG_DESCRI: TStringField;
@@ -244,7 +245,7 @@ end;
 
 procedure TSiteImageForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, False);
   ValidFound := True;
   ZQuery1.Open;

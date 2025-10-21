@@ -66,7 +66,7 @@ object SiteImageForm: TSiteImageForm
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   SessionProperties = 'Height;Left;Top;Width;DBImage1.Height'
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.8.0.0'
   Visible = True
   object Panel1: TPanel
     Left = 0
@@ -76,6 +76,7 @@ object SiteImageForm: TSiteImageForm
     Align = alTop
     ClientHeight = 36
     ClientWidth = 570
+    ParentBackground = False
     TabOrder = 0
     object SpeedButtonLoad: TSpeedButton
       Left = 320
@@ -250,10 +251,10 @@ object SiteImageForm: TSiteImageForm
   end
   object DBGrid1: TDBGrid
     Left = 3
-    Height = 106
+    Height = 100
     Top = 39
     Width = 564
-    Align = alClient
+    Align = alTop
     AutoFillColumns = True
     BorderSpacing.Left = 3
     BorderSpacing.Top = 3
@@ -264,21 +265,22 @@ object SiteImageForm: TSiteImageForm
         Alignment = taCenter
         SizePriority = 0
         Title.Caption = 'Date created'
-        Width = 78
+        Width = 80
         FieldName = 'DATE_CREAT'
       end    
       item
         Alignment = taCenter
         SizePriority = 0
         Title.Caption = 'Time created'
-        Width = 79
+        Width = 81
         FieldName = 'TIME_CREAT'
       end    
       item
         Title.Caption = 'Image Description'
-        Width = 380
+        Width = 376
         FieldName = 'IMG_DESCRI'
       end>
+    Constraints.MinHeight = 100
     DataSource = DataSource1
     Options = [dgEditing, dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
     TabOrder = 1
@@ -292,27 +294,35 @@ object SiteImageForm: TSiteImageForm
     Cursor = crVSplit
     Left = 0
     Height = 5
-    Top = 145
+    Top = 139
     Width = 570
-    Align = alBottom
+    Align = alTop
     Beveled = True
-    ResizeAnchor = akBottom
+    ResizeAnchor = akTop
   end
-  object DBImage1: TDBImage
-    Left = 3
-    Height = 323
-    Top = 150
-    Width = 564
-    Align = alBottom
-    BorderSpacing.Left = 3
-    BorderSpacing.Right = 3
-    BorderSpacing.Bottom = 3
-    Center = True
-    DataField = 'SITE_IMAGE'
-    DataSource = DataSource1
-    ParentShowHint = False
-    Proportional = True
-    WriteHeader = False
+  object Panel2: TPanel
+    Left = 0
+    Height = 332
+    Top = 144
+    Width = 570
+    Align = alClient
+    ClientHeight = 332
+    ClientWidth = 570
+    ParentBackground = False
+    TabOrder = 3
+    object DBImage1: TDBImage
+      Left = 4
+      Height = 324
+      Top = 4
+      Width = 562
+      Align = alClient
+      BorderSpacing.Around = 3
+      Center = True
+      DataField = 'SITE_IMAGE'
+      DataSource = DataSource1
+      ParentShowHint = False
+      Proportional = True
+    end
   end
   object DataSource1: TDataSource
     AutoEdit = False
@@ -335,15 +345,15 @@ object SiteImageForm: TSiteImageForm
     Left = 512
     Top = 56
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
     Left = 395
     Top = 144
   end
   object ZQuery1: TZQuery
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'SITE_ID_NR, DATE_CREAT, TIME_CREAT'
     BeforeOpen = ZQuery1BeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     AfterPost = ZQuery1AfterPost
     OnNewRecord = ZQuery1NewRecord
     Params = <>

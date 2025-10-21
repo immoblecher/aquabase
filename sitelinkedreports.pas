@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -37,7 +37,9 @@ type
     PickListQuery: TZReadOnlyQuery;
     procedure FormActivate(Sender: TObject);
     procedure LinkedDataSourceDataChange(Sender: TObject; Field: TField);
+    procedure LinkedQueryCOMMENTSSetText(Sender: TField; const aText: string);
     procedure LinkedQueryNewRecord(DataSet: TDataSet);
+    procedure LinkedQueryREPORT_NRSetText(Sender: TField; const aText: string);
     procedure LinkedQueryREPORT_NRValidate(Sender: TField);
     procedure LinkedQueryUpperSetText(Sender: TField; const aText: string);
   private
@@ -77,6 +79,15 @@ begin
   end;
 end;
 
+procedure TSiteReportDetailForm.LinkedQueryCOMMENTSSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
+end;
+
 procedure TSiteReportDetailForm.FormActivate(Sender: TObject);
 begin
   DBGrid.Columns[2].PickList.Clear;
@@ -99,6 +110,15 @@ begin
   LinkedQueryDATE_ENTRY.ReadOnly := False;
   LinkedQueryDATE_ENTRY.Value := FormatDateTime('YYYYMMDD', Date);
   LinkedQueryDATE_ENTRY.ReadOnly := True;
+end;
+
+procedure TSiteReportDetailForm.LinkedQueryREPORT_NRSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TSiteReportDetailForm.LinkedQueryREPORT_NRValidate(Sender: TField);

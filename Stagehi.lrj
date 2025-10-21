@@ -1,5 +1,6 @@
 {"version":1,"strings":[
 {"hash":141618829,"name":"tstagehiform.caption","sourcebytes":[83,116,97,103,101,32,72,101,105,103,104,116,32,70,111,114,109],"value":"Stage Height Form"},
+{"hash":8855981,"name":"tstagehiform.linkedlabel.caption","sourcebytes":[83,116,97,103,101,32,72,101,105,103,104,116,32,91,109,93],"value":"Stage Height [m]"},
 {"hash":84239022,"name":"tstagehiform.amslcheckbox.caption","sourcebytes":[97,46,109,46,115,46,108,46],"value":"a.m.s.l."},
 {"hash":81885994,"name":"tstagehiform.label8.caption","sourcebytes":[71,111,32,116,111,58],"value":"Go to:"},
 {"hash":342540,"name":"tstagehiform.datetimepicker1.textfornulldate","sourcebytes":[78,85,76,76],"value":"NULL"}

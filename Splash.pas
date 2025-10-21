@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2024 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -23,7 +23,7 @@ interface
 
 uses
   SysUtils, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls;
+  Dialogs, ExtCtrls, StdCtrls;
 
 type
 
@@ -31,9 +31,11 @@ type
 
   TSplashForm = class(TForm)
     Image1: TImage;
+    Label1: TLabel;
     Timer1: TTimer;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure Image1PictureChanged(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
     { Private declarations }
@@ -70,6 +72,11 @@ begin
   Completed := False;
   Timer1.Interval := 3000; // 3s minimum time to show splash screen
   Timer1.Enabled := True;
+end;
+
+procedure TSplashForm.Image1PictureChanged(Sender: TObject);
+begin
+
 end;
 
 procedure TSplashForm.Timer1Timer(Sender: TObject);

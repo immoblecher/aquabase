@@ -40,16 +40,16 @@ inherited SiteSelectionForm: TSiteSelectionForm
     end
   end
   inherited Panel2: TPanel
-    Height = 219
-    ClientHeight = 219
+    Height = 222
+    ClientHeight = 222
     inherited Panel4: TPanel
-      Top = 189
+      Top = 194
       inherited DetailNavigator: TDBNavigator
         Hints.Strings = (        )
       end
     end
     inherited DBGrid: TDBGrid
-      Height = 164
+      Height = 169
       Width = 90
       Align = alLeft
       AutoFillColumns = True
@@ -57,7 +57,7 @@ inherited SiteSelectionForm: TSiteSelectionForm
     end
     object DBMemo1: TDBMemo[3]
       Left = 99
-      Height = 164
+      Height = 169
       Top = 23
       Width = 472
       Align = alClient
@@ -69,8 +69,8 @@ inherited SiteSelectionForm: TSiteSelectionForm
     end
   end
   inherited LinkedDataSource: TDataSource
-    left = 232
-    top = 256
+    Left = 232
+    Top = 256
   end
   inherited LinkedQuery: TZQuery
     BeforeOpen = LinkedQueryBeforeOpen
@@ -83,15 +83,17 @@ inherited SiteSelectionForm: TSiteSelectionForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
-    left = 144
-    top = 256
+    Left = 144
+    Top = 256
     ParamData = <    
       item
         DataType = ftString
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryREP_INST: TStringField[1]
       Tag = 1
@@ -110,8 +112,7 @@ inherited SiteSelectionForm: TSiteSelectionForm
       OnValidate = LinkedQueryREP_INSTValidate
       Size = 16
     end
-    object LinkedQueryNOTE_PAD: TBlobField[2]
-      DisplayWidth = 10
+    object LinkedQueryNOTE_PAD: TWideStringField[2]
       FieldKind = fkData
       FieldName = 'NOTE_PAD'
       Index = 2
@@ -119,7 +120,7 @@ inherited SiteSelectionForm: TSiteSelectionForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      Visible = False
+      Size = 4096
     end
   end
 end

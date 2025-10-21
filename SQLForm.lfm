@@ -59,7 +59,7 @@ object SQLQueryForm: TSQLQueryForm
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   SessionProperties = 'Height;Left;Memo1.Height;Top;Width;Panel2.Height'
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '3.8.0.0'
   Visible = True
   object SplitterTop: TSplitter
     Cursor = crVSplit
@@ -78,6 +78,7 @@ object SQLQueryForm: TSQLQueryForm
     Align = alTop
     ClientHeight = 35
     ClientWidth = 550
+    ParentBackground = False
     TabOrder = 0
     object SpeedButtonRunQuery: TSpeedButton
       Left = 6
@@ -364,37 +365,20 @@ object SQLQueryForm: TSQLQueryForm
       Top = 4
       Width = 77
       Anchors = [akTop, akRight]
-      Caption = '&Close'
+      DefaultCaption = True
       Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      Glyph.Data = {
-        DE010000424DDE01000000000000760000002800000024000000120000000100
-        0400000000006801000000000000000000001000000000000000000000000000
-        80000080000000808000800000008000800080800000C0C0C000808080000000
-        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
-        333333333333333333333333000033338833333333333333333F333333333333
-        0000333911833333983333333388F333333F3333000033391118333911833333
-        38F38F333F88F33300003339111183911118333338F338F3F8338F3300003333
-        911118111118333338F3338F833338F3000033333911111111833333338F3338
-        3333F8330000333333911111183333333338F333333F83330000333333311111
-        8333333333338F3333383333000033333339111183333333333338F333833333
-        00003333339111118333333333333833338F3333000033333911181118333333
-        33338333338F333300003333911183911183333333383338F338F33300003333
-        9118333911183333338F33838F338F33000033333913333391113333338FF833
-        38F338F300003333333333333919333333388333338FFF830000333333333333
-        3333333333333333333888330000333333333333333333333333333333333333
-        0000
-      }
-      NumGlyphs = 2
+      Kind = bkClose
+      ModalResult = 11
       OnClick = BitBtn1Click
       ParentFont = False
       Spacing = 3
       TabOrder = 0
     end
     object HelpButton: TBitBtn
-      Left = 462
+      Left = 464
       Height = 27
       Hint = 'Help on SQL and filters'
       Top = 4
@@ -490,8 +474,8 @@ object SQLQueryForm: TSQLQueryForm
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 15
-    Top = 383
+    Height = 19
+    Top = 379
     Width = 550
     Panels = <    
       item
@@ -515,12 +499,13 @@ object SQLQueryForm: TSQLQueryForm
     BevelWidth = 2
     ClientHeight = 108
     ClientWidth = 550
+    ParentBackground = False
     TabOrder = 2
     object TableLabel: TLabel
       Left = 116
-      Height = 13
+      Height = 17
       Top = 4
-      Width = 95
+      Width = 97
       Caption = 'Aquabase &Table:'
       Font.Color = clWindowText
       Font.Height = -12
@@ -529,10 +514,10 @@ object SQLQueryForm: TSQLQueryForm
       ParentFont = False
     end
     object FieldLabel: TLabel
-      Left = 281
-      Height = 13
+      Left = 279
+      Height = 17
       Top = 4
-      Width = 31
+      Width = 33
       Anchors = [akTop, akRight]
       Caption = '&Field:'
       Font.Color = clWindowText
@@ -542,10 +527,10 @@ object SQLQueryForm: TSQLQueryForm
       ParentFont = False
     end
     object UnitLabel: TLabel
-      Left = 402
-      Height = 13
+      Left = 399
+      Height = 17
       Top = 4
-      Width = 26
+      Width = 29
       Anchors = [akTop, akRight]
       Caption = '&Unit:'
       Font.Color = clWindowText
@@ -555,10 +540,10 @@ object SQLQueryForm: TSQLQueryForm
       ParentFont = False
     end
     object OperatorLabel: TLabel
-      Left = 494
-      Height = 13
+      Left = 491
+      Height = 17
       Top = 4
-      Width = 54
+      Width = 57
       Anchors = [akTop, akRight]
       Caption = '&Operator:'
       Font.Color = clWindowText
@@ -569,9 +554,9 @@ object SQLQueryForm: TSQLQueryForm
     end
     object Label4: TLabel
       Left = 8
-      Height = 13
+      Height = 17
       Top = 4
-      Width = 62
+      Width = 66
       Caption = 'Statement:'
       Font.Color = clWindowText
       Font.Height = -12
@@ -586,13 +571,13 @@ object SQLQueryForm: TSQLQueryForm
       Width = 151
       Anchors = [akTop, akLeft, akRight, akBottom]
       ItemHeight = 0
-      OnClick = TableListBoxClick
-      OnDblClick = TableListBoxDblClick
-      OnMouseMove = ListBoxMouseMove
       ScrollWidth = 149
       Sorted = True
       TabOrder = 0
       TopIndex = -1
+      OnClick = TableListBoxClick
+      OnDblClick = TableListBoxDblClick
+      OnMouseMove = ListBoxMouseMove
     end
     object FieldListBox: TListBox
       Left = 274
@@ -602,11 +587,11 @@ object SQLQueryForm: TSQLQueryForm
       Width = 113
       Anchors = [akTop, akRight, akBottom]
       ItemHeight = 0
-      OnDblClick = FieldListBoxDblClick
-      OnMouseMove = ListBoxMouseMove
       ScrollWidth = 111
       TabOrder = 1
       TopIndex = -1
+      OnDblClick = FieldListBoxDblClick
+      OnMouseMove = ListBoxMouseMove
     end
     object UnitListBox: TListBox
       Left = 394
@@ -623,11 +608,11 @@ object SQLQueryForm: TSQLQueryForm
         'NO3'
         'NH4'
       )
-      ItemHeight = 18
-      OnDblClick = UnitListBoxDblClick
-      OnMouseMove = ListBoxMouseMove
+      ItemHeight = 22
       ScrollWidth = 66
       TabOrder = 2
+      OnDblClick = UnitListBoxDblClick
+      OnMouseMove = ListBoxMouseMove
     end
     object OperatorListBox: TListBox
       Left = 482
@@ -651,15 +636,17 @@ object SQLQueryForm: TSQLQueryForm
         ')'
         'IN'
         'LIKE'
+        'ILIKE'
+        'ILIKE'
         'AND'
         'OR'
         'NOT'
       )
-      ItemHeight = 18
-      OnDblClick = OperatorListBoxDblClick
-      OnMouseMove = ListBoxMouseMove
+      ItemHeight = 22
       ScrollWidth = 45
       TabOrder = 3
+      OnDblClick = OperatorListBoxDblClick
+      OnMouseMove = ListBoxMouseMove
     end
     object StatementListBox: TListBox
       Left = 8
@@ -686,11 +673,11 @@ object SQLQueryForm: TSQLQueryForm
         'SUM('
         'UPPER('
       )
-      ItemHeight = 18
-      OnDblClick = StatementListBoxDblClick
-      OnMouseMove = ListBoxMouseMove
+      ItemHeight = 22
       ScrollWidth = 85
       TabOrder = 4
+      OnDblClick = StatementListBoxDblClick
+      OnMouseMove = ListBoxMouseMove
     end
   end
   object Memo1: TMemo
@@ -706,16 +693,16 @@ object SQLQueryForm: TSQLQueryForm
     Font.Color = clWindowText
     Font.Height = -12
     Font.Name = 'Arial'
-    OnChange = Memo1Change
-    OnClick = Memo1Click
-    OnDragDrop = Memo1DragDrop
-    OnDragOver = Memo1DragOver
-    OnKeyDown = Memo1KeyDown
     ParentFont = False
     ParentShowHint = False
     ScrollBars = ssAutoBoth
     ShowHint = True
     TabOrder = 3
+    OnChange = Memo1Change
+    OnClick = Memo1Click
+    OnDragDrop = Memo1DragDrop
+    OnDragOver = Memo1DragOver
+    OnKeyDown = Memo1KeyDown
   end
   object SplitterBottom: TSplitter
     Cursor = crVSplit
@@ -726,9 +713,9 @@ object SQLQueryForm: TSQLQueryForm
     Align = alTop
     ResizeAnchor = akTop
   end
-  object RxDBGrid: TRxDBGrid
+  object RxDBGrid1: TRxDBGrid
     Left = 8
-    Height = 152
+    Height = 148
     Hint = 'Click up/down arrow for menu'
     Top = 231
     Width = 534
@@ -814,11 +801,12 @@ object SQLQueryForm: TSQLQueryForm
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'MS Sans Serif'
+    OnCellClick = RxDBGrid1CellClick
   end
   object SearchQuery: TZQuery
-    Connection = DataModuleMain.ZConnectionDB
     AfterOpen = SearchQueryAfterOpen
     AfterClose = SearchQueryAfterClose
+    Connection = DataModuleMain.ZConnectionDB
     ReadOnly = True
     ParamCheck = False
     Params = <>
@@ -859,7 +847,7 @@ object SQLQueryForm: TSQLQueryForm
     Left = 360
     Top = 312
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
     Left = 64
     Top = 296
@@ -888,7 +876,7 @@ object SQLQueryForm: TSQLQueryForm
     Top = 264
   end
   object RxDBGridExportPDF1: TRxDBGridExportPDF
-    RxDBGrid = RxDBGrid
+    RxDBGrid = RxDBGrid1
     Caption = 'Export to PDF file'
     ShowSetupForm = True
     Options = []
@@ -898,7 +886,7 @@ object SQLQueryForm: TSQLQueryForm
     Top = 160
   end
   object RxDBGridPrint1: TRxDBGridPrint
-    RxDBGrid = RxDBGrid
+    RxDBGrid = RxDBGrid1
     Caption = 'Print grid'
     ShowSetupForm = True
     Options = [rxpoShowTitle, rxpoShowFooter, rxpoShowGridColor, rxpoShowFooterColor, rxpoShowReportTitle]
@@ -909,7 +897,7 @@ object SQLQueryForm: TSQLQueryForm
     Top = 160
   end
   object RxDBGridExportSpreadSheet1: TRxDBGridExportSpreadSheet
-    RxDBGrid = RxDBGrid
+    RxDBGrid = RxDBGrid1
     Caption = 'Export to spreadsheet'
     ShowSetupForm = True
     PageName = 'Aquabase Export'

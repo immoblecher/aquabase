@@ -90,7 +90,10 @@ end;
 procedure TSiteVisitorForm.LinkedQueryUpperSetText(Sender: TField;
   const aText: string);
 begin
-  Sender.Value := UpperCase(aText);
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 end.

@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -37,13 +37,13 @@ type
     SiteIDQuery: TZReadOnlyQuery;
     SiteIDQueryNR_ON_MAP: TStringField;
     SiteIDQuerySITE_ID_NR: TStringField;
-    XMLPropStorage: TXMLPropStorage;
-    procedure FormActivate(Sender: TObject);
+    XMLPropStorage1: TXMLPropStorage;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure RxDBGridDblClick(Sender: TObject);
     procedure RxDBGridKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
+    procedure SiteIDQueryAfterOpen(DataSet: TDataSet);
   private
 
   public
@@ -64,7 +64,7 @@ uses VARINIT, maindatamodule;
 procedure TFormSelSiteID.FormCreate(Sender: TObject);
 begin
   Screen.Cursor := crSQLWait;
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, True);
   SiteIDQuery.Open;
   Screen.Cursor := crDefault;
@@ -73,18 +73,27 @@ end;
 procedure TFormSelSiteID.RxDBGridDblClick(Sender: TObject);
 begin
   LookupSite := SiteIDQuerySITE_ID_NR.Value;
+  ModalResult := mrOK;
 end;
 
 procedure TFormSelSiteID.RxDBGridKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   case Key of
-    VK_ESCAPE: ModalResult := mrCancel;
     VK_RETURN: begin
                  LookupSite := SiteIDQuerySITE_ID_NR.Value;
                  ModalResult := mrOK;
                end;
-  end; //of case
+    VK_ESCAPE: ModalResult := mrCancel;
+  end;
+end;
+
+procedure TFormSelSiteID.SiteIDQueryAfterOpen(DataSet: TDataSet);
+begin
+  if LookupSite = '' then
+    SiteIDQuery.Locate('SITE_ID_NR', CurrentSite, [])
+  else
+    SiteIDQuery.Locate('SITE_ID_NR', LookupSite, []);
 end;
 
 procedure TFormSelSiteID.FormClose(Sender: TObject;
@@ -92,11 +101,6 @@ procedure TFormSelSiteID.FormClose(Sender: TObject;
 begin
   SiteIDQuery.Close;
   CloseAction := caFree;
-end;
-
-procedure TFormSelSiteID.FormActivate(Sender: TObject);
-begin
-  SiteIDQuery.Locate('SITE_ID_NR', LookupSite, []);
 end;
 
 end.

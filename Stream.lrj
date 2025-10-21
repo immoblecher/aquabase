@@ -1,0 +1,12 @@
+{"version":1,"strings":[
+{"hash":192126597,"name":"tstreamform.caption","sourcebytes":[83,116,114,101,97,109,32,68,105,115,99,104,97,114,103,101,47,70,108,111,119,32,86,101,108,111,99,105,116,121,47,73,110,116,97,107,101],"value":"Stream Discharge/Flow Velocity/Intake"},
+{"hash":222941429,"name":"tstreamform.chartspeedbutton.hint","sourcebytes":[84,105,109,101,32,100,101,112,101,110,100,101,110,116,32,99,104,97,114,116,32,111,102,32,83,116,114,101,97,109,32,68,105,115,99,104,97,114,103,101],"value":"Time dependent chart of Stream Discharge"},
+{"hash":36578117,"name":"tstreamform.linkedlabel.caption","sourcebytes":[83,116,114,101,97,109,47,83,112,105,108,108,119,97,121,32,68,105,115,99,104,97,114,103,101,44,32,70,108,111,119,32,86,101,108,111,99,105,116,121,44,32,73,110,116,97,107,101],"value":"Stream/Spillway Discharge, Flow Velocity, Intake"},
+{"hash":48523861,"name":"tstreamform.tabsheet1.hint","sourcebytes":[83,116,114,101,97,109,32,68,105,115,99,104,97,114,103,101],"value":"Stream Discharge"},
+{"hash":249509213,"name":"tstreamform.tabsheet1.caption","sourcebytes":[68,105,115,99,104,97,114,103,101,32,91,108,47,115,93],"value":"Discharge [l/s]"},
+{"hash":132792558,"name":"tstreamform.dbgrid1.hint","sourcebytes":[68,105,115,99,104,97,114,103,101,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Discharge Information"},
+{"hash":119740217,"name":"tstreamform.tabsheet2.hint","sourcebytes":[70,108,111,119,32,118,101,108,111,99,105,116,121],"value":"Flow velocity"},
+{"hash":209908157,"name":"tstreamform.tabsheet2.caption","sourcebytes":[70,108,111,119,32,118,101,108,111,99,105,116,121,32,91,109,47,115,93],"value":"Flow velocity [m/s]"},
+{"hash":119740217,"name":"tstreamform.dbgrid2.hint","sourcebytes":[70,108,111,119,32,118,101,108,111,99,105,116,121],"value":"Flow velocity"},
+{"hash":40132253,"name":"tstreamform.tabsheet3.caption","sourcebytes":[73,110,116,97,107,101,32,91,108,47,115,93],"value":"Intake [l/s]"}
+]}

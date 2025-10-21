@@ -10,7 +10,7 @@ object StiffForm: TStiffForm
   OnCreate = FormCreate
   OnShow = FormShow
   SessionProperties = 'Left;Top;Height;Width'
-  LCLVersion = '2.0.4.0'
+  LCLVersion = '3.4.0.0'
   object StiffChart: TChart
     Left = 0
     Height = 304
@@ -79,13 +79,13 @@ object StiffForm: TStiffForm
     PopupMenu = PopupMenu1
     ShowHint = True
     object StiffSeries1: TAreaSeries
+      AreaBrush.Color = clSkyBlue
+      AreaLinesPen.Style = psClear
       Marks.Visible = False
       Marks.Format = '%2:s'
       Marks.LabelBrush.Color = clSilver
       Marks.LinkPen.Color = clBlack
       Marks.Style = smsLabel
-      AreaBrush.Color = clSkyBlue
-      AreaLinesPen.Style = psClear
       UseZeroLevel = True
       ZeroLevel = 3
     end
@@ -96,8 +96,8 @@ object StiffForm: TStiffForm
       '0|2|?|Ca'
       '0|1|?|Mg'
     )
-    left = 104
-    top = 80
+    Left = 104
+    Top = 80
   end
   object ListChartSourceRight: TListChartSource
     DataPoints.Strings = (
@@ -105,23 +105,23 @@ object StiffForm: TStiffForm
       '0|2|?|HCO3'
       '0|1|?|SO4'
     )
-    left = 264
-    top = 80
+    Left = 264
+    Top = 80
   end
   object ListChartSourceTopBot: TListChartSource
-    left = 224
-    top = 184
+    Left = 224
+    Top = 184
   end
   object StiffQuery: TZReadOnlyQuery
     BeforeOpen = StiffQueryBeforeOpen
     AfterOpen = StiffQueryAfterOpen
     Params = <>
-    left = 296
-    top = 136
+    Left = 296
+    Top = 136
   end
   object PrintDialog1: TPrintDialog
-    left = 336
-    top = 192
+    Left = 336
+    Top = 192
   end
   object SaveDialog: TSaveDialog
     Title = 'Save diagram as'
@@ -129,13 +129,13 @@ object StiffForm: TStiffForm
     Filter = 'JPEG Image (*.jpg)|*.jpg|Bitmap (*.bmp)|*.bmp|Windows Metafile (*.wmf)|*.wmf|Portable Network Graphics (*.png)|*.png|Scalable Vector Graphics (*.svg)|*.svg'
     FilterIndex = 2
     InitialDir = 'WSpaceDir'
-    left = 168
-    top = 48
+    Left = 168
+    Top = 48
   end
   object PopupMenu1: TPopupMenu
     OnPopup = PopupMenu1Popup
-    left = 372
-    top = 52
+    Left = 372
+    Top = 52
     object MenuItem5: TMenuItem
       Caption = '&Copy to Clipboard'
       OnClick = MenuItem5Click
@@ -247,12 +247,12 @@ object StiffForm: TStiffForm
   end
   object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    left = 48
-    top = 168
+    Left = 48
+    Top = 168
   end
   object ChartToolset1: TChartToolset
-    left = 136
-    top = 136
+    Left = 136
+    Top = 136
     object ChartToolset1DataPointHintTool1: TDataPointHintTool
       ActiveCursor = crHandPoint
     end

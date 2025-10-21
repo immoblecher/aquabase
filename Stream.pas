@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -50,12 +50,14 @@ type
     ZQuery3SITE_ID_NR: TStringField;
     ZQuery3TIME_MEAS: TStringField;
     procedure BasicinfDataSourceDataChange(Sender: TObject; Field: TField);
+    procedure FormCreate(Sender: TObject);
+    procedure QueryCOMMENTSSetText(Sender: TField; const aText: string);
     procedure ZQuerysAfterPost(DataSet: TDataSet);
     procedure ZQueryAfterRefresh(DataSet: TDataSet);
     procedure ZQueryAfterDelete(DataSet: TDataSet);
-    procedure ZQuery1_3BeforeInsert(DataSet: TDataSet);
+    procedure ZQueryBeforeInsert(DataSet: TDataSet);
     procedure ZQuery2REP_INSTValidate(Sender: TField);
-    procedure TableUpperSetText(Sender: TField; const aText: string);
+    procedure QueryUpperSetText(Sender: TField; const aText: string);
     procedure TableINFO_SOURCValidate(Sender: TField);
     procedure TableDATEValidate(Sender: TField);
     procedure TableTIMEValidate(Sender: TField);
@@ -91,7 +93,7 @@ uses Strdatetime, Varinit, Timedept, MainDataModule;
 var
   PrevDate, PrevInfoSource, PrevRepInst: ShortString;
 
-procedure TStreamForm.ZQuery1_3BeforeInsert(DataSet: TDataSet);
+procedure TStreamForm.ZQueryBeforeInsert(DataSet: TDataSet);
 begin
   inherited;
   if DataSet.FieldByName('DATE_MEAS').IsNull then
@@ -108,11 +110,41 @@ procedure TStreamForm.BasicinfDataSourceDataChange(Sender: TObject;
   Field: TField);
 begin
   inherited;
-  PageControl.Enabled := (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'R')
-    or (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'C')
-    or (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'G');
-  LinkedLabel.Enabled := PageControl.Enabled;
-  DetailNavigator.Enabled := PageControl.Enabled;
+  if not (DataModuleMain.BasicinfQuery.State IN [dsInsert, dsEdit]) then
+  begin
+    if not DataModuleMain.BasicinfQuerySITE_TYPE.IsNULL then
+      PageControl.Enabled := (DataModuleMain.BasicinfQuerySITE_TYPE.AsString[1] IN ['R', 'C', 'G']);
+    if PageControl.Enabled = True then
+    begin
+      LinkedLabel.Enabled := True;
+      DetailNavigator.Enabled := True;
+    end
+    else if Showing then
+      MessageDlg('This site type does not seem to allow stream discharge/flow readings!', mtWarning, [mbOK], 0);
+  end;
+end;
+
+procedure TStreamForm.FormCreate(Sender: TObject);
+begin
+  inherited;
+  if not DataModuleMain.BasicinfQuerySITE_TYPE.IsNULL then
+    PageControl.Enabled := (DataModuleMain.BasicinfQuerySITE_TYPE.AsString[1] IN ['R', 'C', 'G']);
+  if PageControl.Enabled = True then
+  begin
+    LinkedLabel.Enabled := True;
+    DetailNavigator.Enabled := True;
+  end
+  else
+    MessageDlg('This site type does not seem to allow stream discharge/flow readings!', mtWarning, [mbOK], 0);
+end;
+
+procedure TStreamForm.QueryCOMMENTSSetText(Sender: TField; const aText: string
+  );
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TStreamForm.ZQuerysAfterPost(DataSet: TDataSet);
@@ -136,7 +168,7 @@ begin
   ValidFound := DataModuleMain.LookupValidFound('REP_INST', Sender.AsString);
 end;
 
-procedure TStreamForm.TableUpperSetText(Sender: TField;
+procedure TStreamForm.QueryUpperSetText(Sender: TField;
   const aText: string);
 begin
   Sender.AsString := UpperCase(aText);
@@ -305,13 +337,14 @@ begin
   inherited;
   if DataSet.FindField('INFO_SOURC') <> NIL then
     DataSet.FieldByName('INFO_SOURC').Value := PrevInfoSource;
-  if (DataSet.FindField('REP_INST') <> NIL) and(PrevRepInst = '') then
+  if DataSet.FindField('REP_INST') <> NIL then
   begin
-    if DataModuleMain.BasicinfQueryREP_INST.Value <> '' then
-      Dataset.FieldByName('REP_INST').Value := DataModuleMain.BasicinfQueryREP_INST.Value;
-  end
-  else
-    Dataset.FieldByName('REP_INST').Value := PrevRepInst;
+    if (PrevRepInst = '') then
+       if DataModuleMain.BasicinfQueryREP_INST.Value <> '' then
+         Dataset.FieldByName('REP_INST').Value := DataModuleMain.BasicinfQueryREP_INST.Value
+       else
+         Dataset.FieldByName('REP_INST').Value := PrevRepInst;
+  end;
   if PrevDate = '' then
     DataSet.FieldByName('DATE_MEAS').Value := FormatDateTime('YYYYMMDD', Date)
   else

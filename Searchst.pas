@@ -22,8 +22,8 @@ unit Searchst;
 interface
 
 uses
-  SysUtils, Classes, Graphics, Controls, Forms, Dialogs, MastDetl,
-  Menus, Db, DBCtrls, ExtCtrls, Buttons, StdCtrls, DBGrids, ZDataset;
+  SysUtils, Classes, Graphics, Controls, Forms, Dialogs, MastDetl, Menus, Db,
+  DBCtrls, ExtCtrls, Buttons, StdCtrls, DBGrids;
 
 type
 

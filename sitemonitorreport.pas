@@ -35,7 +35,7 @@ type
     BasicImgQuerySITE_ID_NR: TStringField;
     BasicImgQuerySITE_IMAGE: TBlobField;
     BasicImgQueryTIME_CREAT: TStringField;
-    BasicinfQueryNOTE_PAD: TBlobField;
+    BasicinfQueryNOTE_PAD: TWideStringField;
     Chart1: TChart;
     Chart2: TChart;
     ChemQuery: TZReadOnlyQuery;
@@ -52,7 +52,7 @@ type
     ChemQueryTIME_SAMPL: TStringField;
     CommentsDataSource: TDataSource;
     CommentsQueryDATE_ENTRY: TStringField;
-    CommentsQueryNOTE_PAD: TBlobField;
+    CommentsQueryNOTE_PAD: TWideStringField;
     CommentsQueryREP_INST: TStringField;
     CommentsQuerySITE_ID_NR: TStringField;
     ChemDataSource: TDataSource;

@@ -1,4 +1,4 @@
-{ Copyright (C) 2023 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -32,6 +32,7 @@ type
 
   TSysSetDlgForm = class(TForm)
     ButtonPanel1: TButtonPanel;
+    CheckBoxSmallChars: TCheckBox;
     CheckBoxWSpace: TCheckBox;
     CheckBoxUpdates: TCheckBox;
     FontBtn: TBitBtn;
@@ -46,6 +47,7 @@ type
     EditSettingsDir: TEdit;
     Label16: TLabel;
     Label6: TLabel;
+    Label9: TLabel;
     PageControl1: TPageControl;
     SelectDirectoryDialog: TSelectDirectoryDialog;
     SpeedButton3: TSpeedButton;
@@ -126,7 +128,7 @@ type
     Image2: TImage;
     SpeedButton2: TSpeedButton;
     Bevel3: TBevel;
-    CountryTable: TZTable;
+    ZQueryCountries: TZReadOnlyQuery;
     procedure CheckBoxUpdatesChange(Sender: TObject);
     procedure ComboBoxCountryChange(Sender: TObject);
     procedure CountryTableAfterClose(DataSet: TDataSet);
@@ -157,6 +159,8 @@ type
     procedure SysBackClrClick(Sender: TObject);
     procedure Button7Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
+    procedure ZQueryCountriesAfterOpen(DataSet: TDataSet);
+    procedure ZQueryCountriesBeforeOpen(DataSet: TDataSet);
   private
     { Private declarations }
     UpdateMessage, MoveSettings, DeleteSettings: Boolean;
@@ -240,12 +244,12 @@ end;
 
 procedure TSysSetDlgForm.CountryTableAfterClose(DataSet: TDataSet);
 begin
-  CountryTable.Connection.Disconnect;
+
 end;
 
 procedure TSysSetDlgForm.CountryTableBeforeOpen(DataSet: TDataSet);
 begin
-  CountryTable.Connection.Connect;
+
 end;
 
 procedure TSysSetDlgForm.Edit1Click(Sender: TObject);
@@ -341,17 +345,8 @@ begin
     CheckBoxUpdates.Enabled := False;
     CheckBoxUpdates.Checked := False;
   {$ENDIF}
-  with CountryTable do
-  begin
-    Open;
-    while not EOF do
-    begin
-      ComboBoxCountry.Items.Append(FieldByName('C_NAME').AsString);
-      Next;
-    end;
-    ComboBoxCountry.ItemIndex := ComboBoxCountry.Items.IndexOf(Country);
-    Close;
-  end;
+  ZQueryCountries.Open;
+  ComboBoxCountry.ItemIndex := ComboBoxCountry.Items.IndexOf(Country);
   with DataModuleMain.ZQueryProj do
   begin
     Open;
@@ -386,6 +381,7 @@ begin
   NewNrSpinEdit.Value := AutoNumber;
   EditQGISExe.Text := QGISExe;
   EditSettingsDir.Text := SettingsDir;
+  CheckBoxSmallChars.Enabled := AllowSmallChars;
   if FileExistsExt('userinfo.txt', WSpaceDir) then
     Memo1.Lines.LoadFromFile(GetFileNameOnDisk('userinfo.txt', WSpaceDir ));
   if FileExistsExt('userlogo.jpg', WSpaceDir) then
@@ -555,14 +551,14 @@ begin
     begin
       with ZConnectionCountries do
       begin
-        Database := ProgramDir + DirectorySeparator + 'countries.db3';
+        Database := ProgramDir + DirectorySeparator + 'international.gpkg';
         LibraryLocation := SQLiteLib;
         Connect;
         with CheckQuery do
         begin
           Connection := ZConnectionCountries;
           SQL.Clear;
-          SQL.Add('SELECT * FROM Countries WHERE C_NAME = ' + QuotedStr(Country));
+          SQL.Add('SELECT * FROM Countries WHERE name_en = ' + QuotedStr(Country));
           Open;
           CountryDB := FieldByName('LANG_1').AsString;
           Close;
@@ -797,6 +793,8 @@ begin
   end
   else
     WSpaceIniFile.WriteBool('Reports', 'UseSettings', False);
+  AllowSmallChars := CheckBoxSmallChars.Checked;
+  WSpaceIniFile.WriteBool('System', 'AllowSmallChars', AllowSmallChars);
   WSpaceIniFile.Free;
   Application.ProcessMessages;
   SaveSettings := True;
@@ -873,9 +871,15 @@ begin
   with OpenDialog do
   begin
     InitialDir := GetUserDir;
-    FileName := 'qgis';
     Title := 'Select QGIS Executable';
-    Filter := 'Executable File (*.*)|*.*';
+    {$IFDEF WINDOWS}
+    FileName := 'qgis.bat';
+    Filter := 'QGIS executable File (*.bat)|*.bat';
+    {$ENDIF}
+    {$IFDEF UNIX}
+    FileName := 'qgis';
+    Filter := 'QGIS executable File (*.*)|*.*';
+    {$ENDIF}
     if Execute then
     begin
       EditQGISExe.Text := FileName;
@@ -947,6 +951,43 @@ begin
         end;
   except
     MessageDlg('File format is invalid or file is corrupt!', mtError, [mbOk], 0);
+  end;
+end;
+
+procedure TSysSetDlgForm.ZQueryCountriesAfterOpen(DataSet: TDataSet);
+var
+  lang: String;
+begin
+  lang := DataModuleMain.GetOSLanguage;
+  with ZQueryCountries do
+  begin
+    Open;
+    //Fill Country combobox
+    if FindField('name_' + lang) <> NIL then
+    while not EOF do
+    begin
+      if not FieldByName('name_' + lang).IsNULL then
+        ComboBoxCountry.Items.Add(FieldByName('name_' + lang).AsString)
+      else
+        ComboBoxCountry.Items.Add(FindField('name_en').AsString);
+      Next;
+    end
+    else
+    while not EOF do
+    begin
+      ComboBoxCountry.Items.Add(FindField('name_en').AsString);
+      Next;
+    end;
+    Close;
+  end;
+end;
+
+procedure TSysSetDlgForm.ZQueryCountriesBeforeOpen(DataSet: TDataSet);
+begin
+  with ZQueryCountries do
+  begin
+    SQL.Clear;
+    SQL.Add('select * from countries');
   end;
 end;
 

@@ -1,4 +1,4 @@
-{ Copyright (C) 2018 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2024 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -30,9 +30,8 @@ type
   { TSiteSelectionForm }
 
   TSiteSelectionForm = class(TMasterDetailForm)
-    DBMemo: TDBMemo;
     DBMemo1: TDBMemo;
-    LinkedQueryNOTE_PAD: TBlobField;
+    LinkedQueryNOTE_PAD: TWideStringField;
     LinkedQueryREP_INST: TStringField;
     procedure FormActivate(Sender: TObject);
     procedure LinkedQueryREP_INSTSetText(Sender: TField; const aText: string);

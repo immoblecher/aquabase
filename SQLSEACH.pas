@@ -1,3 +1,20 @@
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
+
+  This source is free software; you can redistribute it and/or modify it under
+  the terms of the GNU General Public License as published by the Free
+  Software Foundation; either version 2 of the License, or (at your option)
+  any later version.
+
+  This code is distributed in the hope that it will be useful, but WITHOUT ANY
+  WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  details.
+
+  A copy of the GNU General Public License is available on the World Wide Web
+  at <http://www.gnu.org/copyleft/gpl.html>. You can also obtain it by writing
+  to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+  MA 02111-1307, USA.
+}
 unit SQLSEACH;
 
 {$mode objfpc}{$H+}
@@ -45,7 +62,7 @@ type
     SearchQuery: TZReadOnlyQuery;
     TableListBox: TListBox;
     UnitListBox: TListBox;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     TableQuery: TZReadOnlyQuery;
     procedure EditTablesDragDrop(Sender, Source: TObject; X, Y: Integer);
     procedure EditTablesDragOver(Sender, Source: TObject; X, Y: Integer;
@@ -133,7 +150,7 @@ procedure TSQLSearchForm.FormCreate(Sender: TObject);
 var
   i: Word;
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   with DataModuleMain do
   begin
     ZConnectionDB.DbcConnection.GetMetadata.ClearCache;
