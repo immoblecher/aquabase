@@ -17,23 +17,24 @@ object InsCharForm: TInsCharForm
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   Position = poScreenCenter
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '3.4.0.0'
   object GroupBox1: TGroupBox
     Left = 6
     Height = 97
     Top = 7
     Width = 246
     Caption = 'Insert Character in Site Identifier:'
-    ClientHeight = 83
-    ClientWidth = 242
+    ClientHeight = 84
+    ClientWidth = 244
     Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
+    ParentBackground = False
     ParentFont = False
     TabOrder = 0
     object Label1: TLabel
       Left = 8
-      Height = 10
+      Height = 12
       Top = 2
       Width = 23
       Caption = 'View'
@@ -41,15 +42,15 @@ object InsCharForm: TInsCharForm
     end
     object Label2: TLabel
       Left = 8
-      Height = 10
+      Height = 12
       Top = 58
-      Width = 93
+      Width = 92
       Caption = 'Character to insert:'
       ParentColor = False
     end
     object EditChar: TEdit
       Left = 120
-      Height = 21
+      Height = 29
       Top = 52
       Width = 22
       Alignment = taCenter
@@ -60,7 +61,7 @@ object InsCharForm: TInsCharForm
     end
     object ComboBoxView: TComboBox
       Left = 8
-      Height = 25
+      Height = 28
       Top = 19
       Width = 228
       ItemHeight = 0
@@ -70,8 +71,8 @@ object InsCharForm: TInsCharForm
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 36
-    Top = 108
+    Height = 40
+    Top = 104
     Width = 248
     HelpContext = 73
     OKButton.Name = 'OKButton'
@@ -101,7 +102,7 @@ object InsCharForm: TInsCharForm
   object ViewQuery: TZReadOnlyQuery
     BeforeOpen = ViewQueryBeforeOpen
     Params = <>
-    left = 181
-    top = 56
+    Left = 181
+    Top = 56
   end
 end

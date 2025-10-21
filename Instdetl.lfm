@@ -1,6 +1,6 @@
 inherited AddinstallForm: TAddinstallForm
-  Left = 688
-  Top = 207
+  Left = 2744
+  Top = 307
   Caption = 'Pump and Engine Details Form'
   Icon.Data = {
     873A00000000010001000000000001002000713A00001600000089504E470D0A
@@ -490,11 +490,11 @@ inherited AddinstallForm: TAddinstallForm
     end
   end
   inherited BasicinfDataSource: TDataSource
-    left = 328
+    Left = 328
   end
   inherited LinkedDataSource: TDataSource
-    left = 144
-    top = 273
+    Left = 144
+    Top = 273
   end
   inherited LinkedQuery: TZQuery
     BeforeOpen = LinkedQueryBeforeOpen
@@ -508,15 +508,17 @@ inherited AddinstallForm: TAddinstallForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
-    left = 40
-    top = 273
+    Left = 40
+    Top = 273
     ParamData = <    
       item
         DataType = ftString
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryDATE_ENTRY: TStringField[1]
       Alignment = taCenter
@@ -557,8 +559,6 @@ inherited AddinstallForm: TAddinstallForm
       Required = False
       OnGetText = LinkedQueryDIAMGetText
       OnSetText = LinkedQueryDIAMSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryP_RPM: TFloatField[4]
@@ -571,8 +571,6 @@ inherited AddinstallForm: TAddinstallForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryTYPE_RISER: TStringField[5]
@@ -617,8 +615,6 @@ inherited AddinstallForm: TAddinstallForm
       Required = False
       OnGetText = LinkedQueryDIAMGetText
       OnSetText = LinkedQueryDIAMSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryE_MANUF: TStringField[8]
@@ -676,8 +672,6 @@ inherited AddinstallForm: TAddinstallForm
       Required = False
       OnGetText = LinkedQueryDIAMGetText
       OnSetText = LinkedQueryDIAMSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryTYPE_ENCL: TStringField[12]
@@ -724,8 +718,6 @@ inherited AddinstallForm: TAddinstallForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryCOMMENT: TStringField[15]
@@ -738,7 +730,7 @@ inherited AddinstallForm: TAddinstallForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedQueryUpperSetText
+      OnSetText = LinkedQueryCOMMENTSetText
       Size = 48
     end
   end

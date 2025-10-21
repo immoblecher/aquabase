@@ -516,6 +516,7 @@ begin
     Screen.Cursor := crSQLWait;
     with DataModuleMain.ZConnectionDB do
     begin
+      //to do: -1 must be NULL
       ExecuteDirect('DELETE FROM chem_001 WHERE CHM_REF_NR >= '
         + IntToStr(SpinEdit1.Value)
         + ' AND PH = -1 AND EC = -1 AND TDS = -1 AND CA = -1 AND MG = -1 AND NA = -1 AND K = -1 AND SI = -1 AND MALK = -1 AND CL = -1 AND SO4 = -1 AND F = -1 AND AL = -1 AND FE = -1 AND MN = -1');

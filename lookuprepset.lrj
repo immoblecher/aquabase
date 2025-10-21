@@ -1,0 +1,9 @@
+{"version":1,"strings":[
+{"hash":64051587,"name":"tlookuprepsetform.caption","sourcebytes":[76,111,111,107,117,112,32,67,111,100,101,115,32,82,101,112,111,114,116,32,83,101,116,116,105,110,103,115],"value":"Lookup Codes Report Settings"},
+{"hash":142284330,"name":"tlookuprepsetform.label1.caption","sourcebytes":[76,111,111,107,117,112,32,67,97,116,101,103,111,114,121,58],"value":"Lookup Category:"},
+{"hash":1831589,"name":"tlookuprepsetform.checkbox1.caption","sourcebytes":[83,104,111,119,32,114,101,112,111,114,116,32,100,97,116,101],"value":"Show report date"},
+{"hash":2743010,"name":"tlookuprepsetform.checkbox2.caption","sourcebytes":[83,104,111,119,32,112,97,103,101,32,110,117,109,98,101,114],"value":"Show page number"},
+{"hash":19076367,"name":"tlookuprepsetform.checkbox3.caption","sourcebytes":[83,104,111,119,32,99,111,109,112,97,110,121,32,105,110,102,111,32,97,110,100,32,108,111,103,111],"value":"Show company info and logo"},
+{"hash":232076202,"name":"tlookuprepsetform.checkbox4.caption","sourcebytes":[83,104,111,119,32,99,111,109,109,101,110,116,58],"value":"Show comment:"},
+{"hash":48432533,"name":"tlookuprepsetform.listbox1.hint","sourcebytes":[83,101,108,101,99,116,32,99,97,116,101,103,111,114,105,101,115,59,32,60,83,104,105,102,116,62,32,97,110,100,32,60,67,116,114,108,62,32,102,111,114,32,109,117,108,116,105,112,108,101],"value":"Select categories; <Shift> and <Ctrl> for multiple"}
+]}

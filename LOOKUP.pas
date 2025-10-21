@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2024 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -37,7 +37,7 @@ type
   LookupQueryUSED_FOR: TStringField;
   RxDBGrid: TRxDBGrid;
   LookupQuery: TZReadOnlyQuery;
-  XMLPropStorage: TXMLPropStorage;
+  XMLPropStorage1: TXMLPropStorage;
   procedure RxDBGridDblClick(Sender: TObject);
   procedure FormActivate(Sender: TObject);
   procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -80,7 +80,7 @@ end;
 
 procedure TLookupForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, True);
 end;
 

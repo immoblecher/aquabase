@@ -10,7 +10,7 @@ object ImportRainForm: TImportRainForm
   OnClose = FormClose
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.4.0.0'
   object RadioGroup1: TRadioGroup
     Left = 8
     Height = 65
@@ -37,7 +37,7 @@ object ImportRainForm: TImportRainForm
   end
   object Label1: TLabel
     Left = 8
-    Height = 11
+    Height = 13
     Top = 78
     Width = 29
     Caption = 'View:'
@@ -50,7 +50,7 @@ object ImportRainForm: TImportRainForm
   end
   object ViewComboBox: TComboBox
     Left = 8
-    Height = 25
+    Height = 27
     Top = 94
     Width = 208
     Enabled = False
@@ -59,17 +59,17 @@ object ImportRainForm: TImportRainForm
     Items.Strings = (
       '<No View>'
     )
-    OnChange = ViewComboBoxChange
     Sorted = True
     Style = csDropDownList
     TabOrder = 1
     Text = '<No View>'
+    OnChange = ViewComboBoxChange
   end
   object Label2: TLabel
     Left = 232
-    Height = 11
+    Height = 13
     Top = 8
-    Width = 55
+    Width = 53
     Caption = 'Start Date:'
     ParentColor = False
   end
@@ -93,6 +93,7 @@ object ImportRainForm: TImportRainForm
     ParentShowHint = False
     Kind = dtkDate
     TimeSeparator = ':'
+    DecimalSeparator = '.'
     TimeFormat = tf24
     TimeDisplay = tdHMS
     DateMode = dmComboBox
@@ -104,9 +105,9 @@ object ImportRainForm: TImportRainForm
   end
   object Label3: TLabel
     Left = 356
-    Height = 11
+    Height = 13
     Top = 8
-    Width = 51
+    Width = 49
     Caption = 'End Date:'
     ParentColor = False
   end
@@ -127,6 +128,7 @@ object ImportRainForm: TImportRainForm
     LeadingZeros = True
     Kind = dtkDate
     TimeSeparator = ':'
+    DecimalSeparator = '.'
     TimeFormat = tf24
     TimeDisplay = tdHMS
     DateMode = dmComboBox
@@ -138,8 +140,8 @@ object ImportRainForm: TImportRainForm
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 38
-    Top = 177
+    Height = 40
+    Top = 175
     Width = 464
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -159,7 +161,7 @@ object ImportRainForm: TImportRainForm
     Height = 23
     Hint = 'If e.g. monthly data has been stored before'
     Top = 60
-    Width = 221
+    Width = 219
     Caption = 'Delete other stored data for this period'
     Checked = True
     ParentShowHint = False
@@ -172,7 +174,7 @@ object ImportRainForm: TImportRainForm
     Height = 23
     Hint = 'Keep them to speed up future downloads'
     Top = 88
-    Width = 192
+    Width = 185
     Caption = 'Delete temporary download files'
     ParentShowHint = False
     ShowHint = True
@@ -194,14 +196,14 @@ object ImportRainForm: TImportRainForm
     Left = 8
     Height = 23
     Top = 128
-    Width = 350
+    Width = 339
     Caption = 'Store monthly cumulative (total) instead of daily rainfall on day:'
-    OnChange = CheckBox3Change
     TabOrder = 8
+    OnChange = CheckBox3Change
   end
   object SpinEdit1: TSpinEdit
     Left = 360
-    Height = 24
+    Height = 30
     Hint = '31 will store rainfall on last day of the month'
     Top = 124
     Width = 56
@@ -218,7 +220,7 @@ object ImportRainForm: TImportRainForm
     Left = 8
     Height = 23
     Top = 150
-    Width = 272
+    Width = 266
     Caption = 'Add "0" (zero) rainfall for months with no rainfall'
     Enabled = False
     ParentShowHint = False

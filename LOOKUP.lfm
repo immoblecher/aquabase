@@ -88,12 +88,12 @@ object LookupForm: TLookupForm
   OnCreate = FormCreate
   Position = poScreenCenter
   SessionProperties = 'Height;Width'
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.4.0.0'
   object Label1: TLabel
     Left = 8
-    Height = 12
+    Height = 14
     Top = 6
-    Width = 92
+    Width = 91
     Caption = 'Available codes:'
     Font.Color = clWindowText
     Font.Height = -13
@@ -210,7 +210,6 @@ object LookupForm: TLookupForm
     DrawFullLine = False
     FocusColor = clRed
     SelectedColor = clHighlight
-    GridLineStyle = psSolid
     DataSource = DataSourceLookup
     Font.Color = clWindowText
     Font.Height = -13
@@ -274,7 +273,7 @@ object LookupForm: TLookupForm
       Size = 48
     end
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
     Left = 218
     Top = 12

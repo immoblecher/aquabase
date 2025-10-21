@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -735,7 +735,7 @@ begin
     if Sender.AsFloat * LengthFactor > 100 then
       aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 0)
     else
-    if Sender.AsFloat * LengthFactor < 0.01 then
+    if (Sender.AsFloat > 0) and (Sender.AsFloat * LengthFactor < 0.01) then
       aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 5)
     else
       aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 2);
@@ -750,7 +750,7 @@ begin
     if Sender.Value * LengthFactor > 1000 then
       aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 0)
     else
-    if Sender.Value * LengthFactor < 0.01 then
+    if (Sender.AsFloat > 0) and (Sender.Value * LengthFactor < 0.01) then
       aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 5)
     else
       aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 2);
@@ -888,7 +888,7 @@ begin
     if Sender.AsFloat * LengthFactor > 100 then
       aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 0)
     else
-    if Sender.AsFloat * LengthFactor < 0.01 then
+    if (Sender.AsFloat > 0) and (Sender.AsFloat * LengthFactor < 0.01) then
       aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 5)
     else
       aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 2);
@@ -905,7 +905,7 @@ begin
     if Sender.Value * LengthFactor > 1000 then
       aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 0)
     else
-    if Sender.Value * LengthFactor < 0.01 then
+    if (Sender.AsFloat > 0) and (Sender.Value * LengthFactor < 0.01) then
       aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 5)
     else
       aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 2);

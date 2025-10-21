@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -36,7 +36,7 @@ type
     Label1: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -44,7 +44,6 @@ type
     { private declarations }
   public
     { public declarations }
-    SQLitePW: Boolean
   end;
 
 var
@@ -67,7 +66,7 @@ procedure TLoginForm.FormCreate(Sender: TObject);
 var
   i: Word;
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   for i := 0 to ComponentCount-1 do
   begin
     if (Components[i] is TControl) then
@@ -86,19 +85,10 @@ end;
 
 procedure TLoginForm.FormShow(Sender: TObject);
 begin
-  if SQLitePW then
-  begin
-    EditUserName.Text := '';
-    Label3.Enabled := False;
-    EditUserName.Enabled := False;
-    EditPassword.SetFocus;
-  end
-  else
-  begin
-    Label3.Enabled := True;
-    EditUserName.Enabled := True;
-    if EditUserName.Text > '' then EditPassword.SetFocus;
-  end;
+  Screen.Cursor := crDefault;
+  Label3.Enabled := True;
+  EditUserName.Enabled := True;
+  if EditUserName.Text > '' then EditPassword.SetFocus;
 end;
 
 end.

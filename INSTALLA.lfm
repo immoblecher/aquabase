@@ -1,6 +1,6 @@
 inherited InstallForm: TInstallForm
-  Left = 565
-  Top = 279
+  Left = 2687
+  Top = 280
   Caption = 'Installation Form'
   OnActivate = FormActivate
   inherited Panel1: TPanel
@@ -18,14 +18,11 @@ inherited InstallForm: TInstallForm
       end
     end
   end
-  inherited GroupBox1: TGroupBox
-    ClientHeight = 86
-  end
   inherited BasicinfDataSource: TDataSource
-    left = 328
+    Left = 328
   end
   inherited LinkedDataSource: TDataSource
-    left = 80
+    Left = 80
   end
   inherited LinkedQuery: TZQuery
     BeforeOpen = LinkedQueryBeforeOpen
@@ -33,7 +30,7 @@ inherited InstallForm: TInstallForm
     AfterPost = LinkedQueryAfterPost
     AfterDelete = LinkedQueryAfterDelete
     OnNewRecord = LinkedQueryNewRecord
-    left = 216
+    Left = 216
     object LinkedQueryDATE_ENTRY: TStringField[1]
       Alignment = taCenter
       DisplayLabel = 'Date entered'
@@ -124,8 +121,6 @@ inherited InstallForm: TInstallForm
       Required = False
       OnGetText = LinkedQueryDEPTH_INTKGetText
       OnSetText = LinkedQueryDEPTH_INTKSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryTYPE_POWER: TStringField[7]
@@ -156,8 +151,6 @@ inherited InstallForm: TInstallForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.00'
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryMANUFACTUR: TStringField[9]
@@ -250,8 +243,6 @@ inherited InstallForm: TInstallForm
       Required = False
       OnGetText = LinkedQuerySIZE_RESERGetText
       OnSetText = LinkedQuerySIZE_RESERSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryCOMMENT: TStringField[15]
@@ -264,7 +255,7 @@ inherited InstallForm: TInstallForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedQueryUpperSetText
+      OnSetText = LinkedQueryCOMMENTSetText
       Size = 48
     end
   end

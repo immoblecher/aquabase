@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -51,6 +51,7 @@ type
     procedure LinkedQueryAfterPost(DataSet: TDataSet);
     procedure LinkedQueryBeforeInsert(DataSet: TDataSet);
     procedure LinkedQueryBeforeOpen(DataSet: TDataSet);
+    procedure LinkedQueryCOMMENTSetText(Sender: TField; const aText: string);
     procedure LinkedQueryDATE_INSTLValidate(Sender: TField);
     procedure LinkedQueryDEPTH_INTKGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
@@ -125,6 +126,15 @@ procedure TInstallForm.LinkedQueryBeforeOpen(DataSet: TDataSet);
 begin
   LinkedQuery.SQL.Clear;
   LinkedQuery.SQL.Add('SELECT * FROM installa WHERE SITE_ID_NR = ' + QuotedStr(CurrentSite));
+end;
+
+procedure TInstallForm.LinkedQueryCOMMENTSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TInstallForm.LinkedQueryDATE_INSTLValidate(Sender: TField);

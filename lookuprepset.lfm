@@ -13,11 +13,11 @@ object LookupRepSetForm: TLookupRepSetForm
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   Position = poScreenCenter
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '3.4.0.0'
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 36
-    Top = 198
+    Height = 40
+    Top = 194
     Width = 315
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -38,15 +38,15 @@ object LookupRepSetForm: TLookupRepSetForm
     Left = 8
     Height = 13
     Top = 4
-    Width = 96
+    Width = 89
     Caption = 'Lookup Category:'
     ParentColor = False
   end
   object CheckBox1: TCheckBox
     Left = 120
-    Height = 24
+    Height = 23
     Top = 10
-    Width = 122
+    Width = 113
     Caption = 'Show report date'
     Checked = True
     State = cbChecked
@@ -54,9 +54,9 @@ object LookupRepSetForm: TLookupRepSetForm
   end
   object CheckBox2: TCheckBox
     Left = 120
-    Height = 24
+    Height = 23
     Top = 40
-    Width = 131
+    Width = 125
     Caption = 'Show page number'
     Checked = True
     State = cbChecked
@@ -64,9 +64,9 @@ object LookupRepSetForm: TLookupRepSetForm
   end
   object CheckBox3: TCheckBox
     Left = 120
-    Height = 24
+    Height = 23
     Top = 70
-    Width = 181
+    Width = 171
     Caption = 'Show company info and logo'
     Checked = True
     State = cbChecked
@@ -74,9 +74,9 @@ object LookupRepSetForm: TLookupRepSetForm
   end
   object CheckBox4: TCheckBox
     Left = 120
-    Height = 24
+    Height = 23
     Top = 100
-    Width = 112
+    Width = 108
     Caption = 'Show comment:'
     TabOrder = 4
   end
@@ -99,12 +99,12 @@ object LookupRepSetForm: TLookupRepSetForm
     Width = 100
     ItemHeight = 0
     MultiSelect = True
-    OnSelectionChange = ListBox1SelectionChange
     ParentShowHint = False
     ScrollWidth = 98
     ShowHint = True
     TabOrder = 0
     TopIndex = -1
+    OnSelectionChange = ListBox1SelectionChange
   end
   object ZReadOnlyQuery1: TZReadOnlyQuery
     Connection = DataModuleMain.ZConnectionLanguage
@@ -113,8 +113,8 @@ object LookupRepSetForm: TLookupRepSetForm
       '  ORDER BY USED_FOR'
     )
     Params = <>
-    left = 40
-    top = 32
+    Left = 40
+    Top = 32
     object ZReadOnlyQuery1USED_FOR: TStringField
       FieldKind = fkData
       FieldName = 'USED_FOR'

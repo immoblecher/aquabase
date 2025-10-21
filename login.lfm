@@ -14,12 +14,12 @@ object LoginForm: TLoginForm
   OnShow = FormShow
   Position = poScreenCenter
   SessionProperties = 'EditUserName.Text'
-  LCLVersion = '1.8.4.0'
+  LCLVersion = '3.4.0.0'
   object Label3: TLabel
     Left = 8
-    Height = 15
+    Height = 14
     Top = 36
-    Width = 63
+    Width = 61
     Caption = 'User Name:'
     ParentColor = False
   end
@@ -33,7 +33,7 @@ object LoginForm: TLoginForm
   end
   object Label4: TLabel
     Left = 8
-    Height = 15
+    Height = 14
     Top = 68
     Width = 54
     Caption = 'Password:'
@@ -52,16 +52,16 @@ object LoginForm: TLoginForm
   end
   object Label1: TLabel
     Left = 8
-    Height = 15
+    Height = 14
     Top = 10
-    Width = 262
+    Width = 260
     Caption = 'Please provide user name and password to login'
     ParentColor = False
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 36
-    Top = 104
+    Height = 34
+    Top = 106
     Width = 259
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -74,9 +74,9 @@ object LoginForm: TLoginForm
     TabOrder = 2
     ShowButtons = [pbOK, pbCancel]
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    left = 120
-    top = 48
+    Left = 120
+    Top = 48
   end
 end

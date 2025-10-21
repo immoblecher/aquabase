@@ -1,7 +1,7 @@
 inherited LogReportSetForm: TLogReportSetForm
   Left = 685
   Height = 338
-  Top = 166
+  Top = 165
   Width = 544
   HelpContext = 83
   Caption = 'Construction and Lithology Report Settings'
@@ -12,25 +12,26 @@ inherited LogReportSetForm: TLogReportSetForm
   OnKeyDown = FormKeyDown
   inherited Label1: TLabel
     Left = 16
+    Height = 17
     Top = 216
     Visible = False
   end
   inherited Label2: TLabel
-    Height = 10
-    Width = 59
+    Height = 16
     Font.Height = -11
   end
   inherited RadioGroup1: TRadioGroup
     Left = 144
     Top = 200
     Width = 160
-    ClientHeight = 52
+    ClientHeight = 48
     ClientWidth = 158
     Enabled = False
     Visible = False
   end
   inherited ViewComboBox: TComboBox
     Left = 16
+    Height = 28
     Top = 232
     Width = 160
     Visible = False
@@ -38,12 +39,22 @@ inherited LogReportSetForm: TLogReportSetForm
   inherited GroupBox1: TGroupBox
     Left = 172
     Width = 176
-    ClientHeight = 107
+    ClientHeight = 103
     ClientWidth = 174
+    inherited CheckBox1: TCheckBox
+      Width = 128
+    end
     inherited CheckBox2: TCheckBox
+      Width = 106
       Checked = False
       Enabled = False
       State = cbUnchecked
+    end
+    inherited CheckBox3: TCheckBox
+      Width = 80
+    end
+    inherited cbPageBreak: TCheckBox
+      Width = 158
     end
   end
   inherited TitleEdit: TEdit
@@ -59,7 +70,7 @@ inherited LogReportSetForm: TLogReportSetForm
     Height = 73
     Top = 208
     Width = 184
-    ClientHeight = 60
+    ClientHeight = 56
     ClientWidth = 182
     inherited RecordsButton: TButton
       Left = 16
@@ -67,15 +78,23 @@ inherited LogReportSetForm: TLogReportSetForm
     end
     inherited ConstrCheckBox: TCheckBox
       Top = 2
+      Width = 123
     end
   end
+  inherited CheckBox4: TCheckBox
+    Width = 85
+  end
   inherited ButtonPanel1: TButtonPanel
-    Top = 294
+    Height = 40
+    Top = 292
     Width = 532
     OKButton.OnClick = OKButtonClick
     HelpButton.HelpContext = 83
     HelpButton.OnClick = HelpButtonClick
     CancelButton.OnClick = CancelButtonClick
+  end
+  inherited CheckBoxFromBasic: TCheckBox
+    Width = 110
   end
   object GroupBox2: TGroupBox[11]
     Left = 352
@@ -83,18 +102,19 @@ inherited LogReportSetForm: TLogReportSetForm
     Top = 8
     Width = 184
     Caption = 'Show Information for: '
-    ClientHeight = 181
+    ClientHeight = 177
     ClientWidth = 182
     Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
+    ParentBackground = False
     ParentFont = False
     TabOrder = 9
     object ConstructionCheckBox: TCheckBox
       Left = 8
       Height = 23
       Top = 4
-      Width = 108
+      Width = 116
       Caption = 'Site Construction'
       Checked = True
       State = cbChecked
@@ -104,7 +124,7 @@ inherited LogReportSetForm: TLogReportSetForm
       Left = 8
       Height = 23
       Top = 29
-      Width = 117
+      Width = 132
       Caption = 'Aquifer Information'
       Checked = True
       State = cbChecked
@@ -114,7 +134,7 @@ inherited LogReportSetForm: TLogReportSetForm
       Left = 8
       Height = 23
       Top = 54
-      Width = 148
+      Width = 163
       Caption = 'Lithology, colours, texture'
       Checked = True
       State = cbChecked
@@ -124,7 +144,7 @@ inherited LogReportSetForm: TLogReportSetForm
       Left = 8
       Height = 23
       Top = 79
-      Width = 134
+      Width = 146
       Caption = 'Sorting and roundness'
       TabOrder = 3
     end
@@ -132,7 +152,7 @@ inherited LogReportSetForm: TLogReportSetForm
       Left = 8
       Height = 23
       Top = 104
-      Width = 106
+      Width = 119
       Caption = 'Grain distribution'
       TabOrder = 4
     end
@@ -140,7 +160,7 @@ inherited LogReportSetForm: TLogReportSetForm
       Left = 8
       Height = 23
       Top = 129
-      Width = 80
+      Width = 87
       Caption = 'Fill material'
       TabOrder = 5
     end
@@ -148,7 +168,7 @@ inherited LogReportSetForm: TLogReportSetForm
       Left = 8
       Height = 23
       Top = 154
-      Width = 85
+      Width = 90
       Caption = 'Piezometers'
       TabOrder = 6
     end
@@ -158,19 +178,19 @@ inherited LogReportSetForm: TLogReportSetForm
     Height = 23
     Hint = 'This will split the charts over the first two pages of the report. This may be necessary for logs with a lot of detail'
     Top = 8
-    Width = 152
+    Width = 159
     Caption = 'Split chart(s) over 2 pages'
     Enabled = False
-    OnClick = CheckBoxSplitChartsClick
     ParentShowHint = False
     ShowHint = True
     TabOrder = 10
+    OnClick = CheckBoxSplitChartsClick
   end
   object CheckBoxBasicInfo: TCheckBox[13]
     Left = 8
     Height = 23
     Top = 40
-    Width = 136
+    Width = 146
     Caption = 'Basic Info. on all pages'
     Checked = True
     State = cbChecked
@@ -181,12 +201,12 @@ inherited LogReportSetForm: TLogReportSetForm
     Height = 23
     Hint = 'Saves the chart(s) as bitmaps in the workspace (Chart*.bmp)'
     Top = 72
-    Width = 158
+    Width = 163
     Caption = 'Save chart(s) in workspace'
-    OnClick = CheckBoxSaveClick
     ParentShowHint = False
     ShowHint = True
     TabOrder = 12
+    OnClick = CheckBoxSaveClick
   end
   inherited PopupMenu1: TPopupMenu[15]
     Left = 208

@@ -4,33 +4,6 @@ inherited InstrumentForm: TInstrumentForm
   Top = 264
   Caption = 'Instrumentation Form'
   ClientHeight = 395
-  Icon.Data = {
-    FE0200000000010001002020100000000000E802000016000000280000002000
-    0000400000000100040000000000800200000000000000000000000000000000
-    0000000000000000800000800000008080008000000080008000808000008080
-    8000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
-    FF00333333333333333333333333333333333333333333333333333333333333
-    3333333333333333333333333333333333333333333333333333333333333333
-    3333333333333333333333333333333333333333333333333333333333333333
-    3333333333333333333333333333333333333333333333333333333333333333
-    3333333333333333333333333333333333333333333333333333333333333333
-    333300000000000000000000000000000000000000000000000000CCCCCCCCCC
-    C000000000000000000000CCCCCCCCCCC000000000000000000000CCCCCCCCCC
-    C000000000000000000000CCCCCCCCCCC000000000000000000000CCCCCCCCCC
-    C00000000000000000000000C0000000000000000000000000000000C0000000
-    000000000000000000000000C0000000000000000000000000000000C0000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    00000000000000000000DFEF8003DFEF8003E01F8003ECDF8003EB5F8003F03F
-    8003F7BFB7FBF7BFB7FBFB7FF7FFFB0007FFFB7FFFFFECDFFFFFCCCFFFFF8487
-    FFFFF33FFFFFFCFFFFFFFCFFFFFFF33FFFFFC30FFFFFE7CFFFFFF7DFFFFFFFFF
-    FFFF
-  }
   OnCreate = FormCreate
   OnMouseDown = DBGridMouseDown
   SessionProperties = 'Height;Left;Top;Width;DBMemo1.Height'
@@ -43,49 +16,55 @@ inherited InstrumentForm: TInstrumentForm
     end
   end
   inherited Panel2: TPanel
-    Height = 251
-    ClientHeight = 251
+    Height = 244
+    Top = 151
+    ClientHeight = 244
     inherited Panel4: TPanel
-      Top = 221
+      Top = 216
       inherited DetailNavigator: TDBNavigator
         Hints.Strings = (        )
       end
+      inherited StaticText1: TStaticText
+        Left = 461
+        Width = 42
+      end
     end
     inherited DBGrid: TDBGrid
-      Height = 157
+      Height = 146
       AutoFillColumns = True
     end
-    object DBMemo1: TDBMemo[3]
+    object Splitter1: TSplitter[3]
+      Cursor = crVSplit
+      Left = 1
+      Height = 5
+      Top = 169
+      Width = 574
+      Align = alBottom
+      ResizeAnchor = akBottom
+    end
+    object DBMemo1: TDBMemo[4]
       Left = 5
-      Height = 34
-      Top = 185
+      Height = 40
+      Top = 174
       Width = 566
       Align = alBottom
       BorderSpacing.Left = 4
       BorderSpacing.Right = 4
       DataField = 'NOTE_PAD'
       DataSource = LinkedDataSource
-      OnEnter = DBMemo1Enter
-      OnExit = DBMemo1Exit
-      TabOrder = 2
+      TabOrder = 3
     end
-    object Splitter1: TSplitter[4]
-      Cursor = crVSplit
-      Left = 1
-      Height = 5
-      Top = 180
-      Width = 574
-      Align = alBottom
-      ResizeAnchor = akBottom
+  end
+  inherited GroupBox1: TGroupBox
+    Height = 107
+    ClientHeight = 89
+    inherited RxDBLookupComboAcc: TRxDBLookupCombo
+      Height = 29
     end
   end
   inherited LinkedDataSource: TDataSource
     OnDataChange = LinkedDataSourceDataChange
     Top = 248
-  end
-  inherited XMLPropStorage: TXMLPropStorage
-    Left = 456
-    Top = 264
   end
   inherited LinkedQuery: TZQuery
     SortedFields = 'SITE_ID_NR,DATE_INST'
@@ -103,6 +82,7 @@ inherited InstrumentForm: TInstrumentForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     IndexFieldNames = 'SITE_ID_NR Asc,DATE_INST Asc'
     Top = 248
@@ -112,6 +92,7 @@ inherited InstrumentForm: TInstrumentForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryDATE_ENTRY: TStringField[1]
       Alignment = taCenter
@@ -263,8 +244,8 @@ inherited InstrumentForm: TInstrumentForm
       Visible = False
       Size = 4
     end
-    object LinkedQueryNOTE_PAD: TBlobField[11]
-      DisplayWidth = 10
+    object LinkedQueryNOTE_PAD: TWideStringField[11]
+      DisplayLabel = 'Notes'
       FieldKind = fkData
       FieldName = 'NOTE_PAD'
       Index = 11
@@ -273,7 +254,7 @@ inherited InstrumentForm: TInstrumentForm
       ReadOnly = False
       Required = False
       Visible = False
-      BlobType = ftMemo
+      Size = 4096
     end
   end
 end

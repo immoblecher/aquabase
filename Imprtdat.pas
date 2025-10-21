@@ -1,4 +1,4 @@
-{ Copyright (C) 2023 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -169,7 +169,8 @@ var
   sc: IZSQLiteConnection;
   loadResult: Word;
 begin
-  if ZConnection1.Tag = 1 then
+  with ZConnection1 do
+  if Tag = 1 then
   begin
     //Spatially enable main database
     ErrMsg := '';
@@ -187,7 +188,9 @@ begin
       {$IFDEF UNIX}
       MessageDlg('Could not load "mod_spatialite" for this database! ' + ErrMsg + 'Please make sure it is installed and possibly sym-linked to "mod_spatialite" without the ".so".', mtError, [mbOK], 0);
       {$ENDIF}
-  end;
+  end
+  else if Tag = 4 then
+    ExecuteDirect('SET search_path = "$user", ' + Catalog + ';');
 end;
 
 procedure TImportdatDlg.ZConnection1BeforeConnect(Sender: TObject);
@@ -202,13 +205,8 @@ begin
     begin
       ZConnection1.HostName := HostName;
       ZConnection1.Port := Port;
-      {$IFDEF WINDOWS}
-      ZConnection1.User := DataModuleMain.un;
-      ZConnection1.Password := DataModuleMain.pw;
-      {$ELSE}
       ZConnection1.User := User;
       ZConnection1.Password := Password;
-      {$ENDIF}
       if ZConnection1.Tag = 4 then
         ZConnection1.Catalog := Catalog;
     end;

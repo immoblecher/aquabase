@@ -364,7 +364,6 @@ begin
   ButtonPanel1.CancelButton.Enabled := False;
   DataModuleMain.BasicinfQuery.Refresh;
   DataModuleMain.ZQueryView.Refresh;
-  DataModuleMain.NrRecords := DataModuleMain.ZQueryView.RecordCount;
 end;
 
 end.

@@ -1,4 +1,4 @@
-{ Copyright (C) 2019 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -46,6 +46,7 @@ type
     LinkedQueryTYPE_ENCL: TStringField;
     LinkedQueryTYPE_RISER: TStringField;
     procedure FormActivate(Sender: TObject);
+    procedure LinkedQueryCOMMENTSetText(Sender: TField; const aText: string);
     procedure LinkedQueryDATE_INSTLValidate(Sender: TField);
     procedure LinkedQueryDIAMGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
@@ -72,6 +73,15 @@ procedure TAddinstallForm.FormActivate(Sender: TObject);
 begin
   inherited;
   LinkedLabel.Caption := Caption + ' - Diameter [' + DiamUnit + ']';
+end;
+
+procedure TAddinstallForm.LinkedQueryCOMMENTSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TAddinstallForm.LinkedQueryDATE_INSTLValidate(Sender: TField);

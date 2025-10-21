@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -23,8 +23,8 @@ interface
 
 uses
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs, LCLtype, Db, Menus,
-  DBCtrls, ExtCtrls, Buttons, StdCtrls, MaskEdit, DBGrids, XMLPropStorage,
-  rxlookup, ZDataset, MastDetl;
+  DBCtrls, ExtCtrls, Buttons, StdCtrls, MaskEdit, DBGrids, rxlookup, ZDataset,
+  MastDetl;
 
 type
 
@@ -38,7 +38,7 @@ type
     LinkedQueryINFO_SOURC: TStringField;
     LinkedQueryMANUFACTUR: TStringField;
     LinkedQueryNOTES_YN: TStringField;
-    LinkedQueryNOTE_PAD: TBlobField;
+    LinkedQueryNOTE_PAD: TWideStringField;
     LinkedQueryPARAM_MEAS: TStringField;
     LinkedQueryREP_INST: TStringField;
     LinkedQuerySERIAL_NR: TStringField;

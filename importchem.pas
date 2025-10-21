@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -39,7 +39,7 @@ type
     OpenDialog: TOpenDialog;
     SdfDataSet: TSdfDataSet;
     StringGrid1: TStringGrid;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     ChemQuery: TZReadOnlyQuery;
     ChemTable: TZTable;
     RefNrQuery: TZReadOnlyQuery;
@@ -172,7 +172,7 @@ end;
 
 procedure TImportChemForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage.FileName := GetUserDir + '/.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + '/.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, False);
 end;
 
@@ -299,13 +299,14 @@ begin
                   ValueFound := True;
                 except on E: EVariantError do //weird other text in import field
                   begin
+                    //to do: -1 must be NULL
                     TheValue := -1;
                     MessageDlg('Could not transfer field "' + ImportField.FieldName +'" value into "' + ChemTable.TableName + '" table for Ref. Nr. ' + IntToStr(RefNr) + ': ' + E.Message + '!', mtError, [mbOK], 0);
                     ErrorLog.Add('Could not transfer field "' + ImportField.FieldName +'" value into "' + ChemTable.TableName + '" table for Ref. Nr. ' + IntToStr(RefNr) + ': ' + E.Message);
                   end;
                 end;
-                if TheValue = -1 then
-                  AquabaseField.Value := TheValue
+                if (TheValue = -1) or (TheValue = NULL) then
+                  AquabaseField.Value := NULL
                 else
                   AquabaseField.Value := TheValue * TheFactor;
               end
@@ -346,8 +347,8 @@ begin
                     ErrorLog.Add('Could not transfer field "' + ImportField.FieldName +'" value into "' + ChemTable.TableName + '" table for Ref. Nr. ' + IntToStr(RefNr) + ': ' + E.Message);
                   end;
                 end;
-                if TheInt = -1 then
-                  AquabaseField.AsInteger := TheInt
+                if (TheInt = -1) or (TheInt = NULL) then
+                  AquabaseField.Value := NULL
                 else
                   AquabaseField.AsInteger := Round(TheInt * TheFactor);
               end

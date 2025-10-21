@@ -16,11 +16,11 @@ object ImportChemForm: TImportChemForm
   OnKeyDown = FormKeyDown
   Position = poScreenCenter
   SessionProperties = 'Left;Top;Width;Height'
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.8.0.0'
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 38
-    Top = 256
+    Height = 41
+    Top = 253
     Width = 438
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -40,9 +40,9 @@ object ImportChemForm: TImportChemForm
   end
   object Label1: TLabel
     Left = 6
-    Height = 11
+    Height = 17
     Top = 8
-    Width = 70
+    Width = 79
     Caption = 'Import Table:'
     ParentColor = False
   end
@@ -71,15 +71,15 @@ object ImportChemForm: TImportChemForm
     Font.Color = clBlack
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
-    OnClick = ButtonBrowseClick
     ParentFont = False
     ParentShowHint = False
     ShowHint = True
     TabOrder = 2
+    OnClick = ButtonBrowseClick
   end
   object StringGrid1: TStringGrid
     Left = 4
-    Height = 178
+    Height = 175
     Hint = 'Select "Into Field" by clicking dropdown on right side of column'
     Top = 72
     Width = 442
@@ -141,9 +141,9 @@ object ImportChemForm: TImportChemForm
   end
   object Label2: TLabel
     Left = 6
-    Height = 11
+    Height = 17
     Top = 54
-    Width = 85
+    Width = 94
     Caption = 'Field Mappings:'
     ParentColor = False
   end
@@ -406,7 +406,7 @@ object ImportChemForm: TImportChemForm
     Left = 152
     Top = 184
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
     Left = 40
     Top = 184
