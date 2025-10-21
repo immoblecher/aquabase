@@ -44,16 +44,24 @@ inherited RecommendForm: TRecommendForm
     end
   end
   inherited Panel2: TPanel
-    Height = 248
-    ClientHeight = 248
+    Height = 244
+    Top = 151
+    ClientHeight = 244
     inherited Panel4: TPanel
-      Top = 218
+      Top = 216
       inherited DetailNavigator: TDBNavigator
         Hints.Strings = (        )
       end
+      inherited RecordText: TStaticText
+        Width = 156
+      end
+      inherited StaticText1: TStaticText
+        Left = 461
+        Width = 42
+      end
     end
     inherited DBGrid: TDBGrid
-      Height = 154
+      Height = 146
       Constraints.MinHeight = 80
       TabOrder = 2
     end
@@ -61,24 +69,11 @@ inherited RecommendForm: TRecommendForm
       Top = 4
       Width = 480
     end
-    object DBMemo1: TDBMemo[3]
-      Left = 5
-      Height = 34
-      Top = 182
-      Width = 566
-      Align = alBottom
-      BorderSpacing.Left = 4
-      BorderSpacing.Right = 4
-      Constraints.MinHeight = 34
-      DataField = 'NOTE_PAD'
-      DataSource = LinkedDataSource
-      TabOrder = 3
-    end
-    object AMSLCheckBox: TCheckBox[4]
-      Left = 503
-      Height = 24
+    object AMSLCheckBox: TCheckBox[3]
+      Left = 502
+      Height = 23
       Top = 2
-      Width = 66
+      Width = 67
       Anchors = [akTop, akRight]
       Caption = 'a.m.s.l.'
       Font.CharSet = ANSI_CHARSET
@@ -86,28 +81,50 @@ inherited RecommendForm: TRecommendForm
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      OnClick = AMSLCheckBoxClick
       ParentFont = False
       TabOrder = 1
       TabStop = False
+      OnClick = AMSLCheckBoxClick
     end
-    object Splitter1: TSplitter[5]
+    object Splitter1: TSplitter[4]
       Cursor = crVSplit
       Left = 1
       Height = 5
-      Top = 177
+      Top = 169
       Width = 574
       Align = alBottom
       ResizeAnchor = akBottom
     end
+    object DBMemo1: TDBMemo[5]
+      Left = 5
+      Height = 40
+      Hint = 'Enter additional comments and notes here'
+      Top = 174
+      Width = 566
+      Align = alBottom
+      BorderSpacing.Left = 4
+      BorderSpacing.Right = 4
+      DataField = 'NOTE_PAD'
+      DataSource = LinkedDataSource
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 4
+    end
+  end
+  inherited GroupBox1: TGroupBox
+    Height = 107
+    ClientHeight = 89
+    inherited RxDBLookupComboAcc: TRxDBLookupCombo
+      Height = 29
+    end
   end
   inherited BasicinfDataSource: TDataSource
-    left = 328
+    Left = 328
   end
   inherited LinkedDataSource: TDataSource
     OnDataChange = LinkedDataSourceDataChange
-    left = 144
-    top = 248
+    Left = 136
+    Top = 200
   end
   inherited LinkedQuery: TZQuery
     BeforeOpen = LinkedQueryBeforeOpen
@@ -124,14 +141,16 @@ inherited RecommendForm: TRecommendForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
-    top = 248
+    Top = 208
     ParamData = <    
       item
         DataType = ftString
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryREP_INST: TStringField[1]
       Tag = 1
@@ -206,8 +225,6 @@ inherited RecommendForm: TRecommendForm
       Required = False
       OnGetText = LinkedQueryDEPTH_INTKGetText
       OnSetText = LinkedQueryDEPTH_INTKSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryTYPE_POWER: TStringField[6]
@@ -239,8 +256,6 @@ inherited RecommendForm: TRecommendForm
       Required = False
       OnGetText = LinkedQueryDISCH_RATEGetText
       OnSetText = LinkedQueryDISCH_RATESetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryDUTY_CYCLE: TFloatField[8]
@@ -253,8 +268,6 @@ inherited RecommendForm: TRecommendForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryWATER_QUAL: TStringField[9]
@@ -282,8 +295,6 @@ inherited RecommendForm: TRecommendForm
       Required = False
       OnGetText = LinkedQueryWLEVGetText
       OnSetText = LinkedQueryWLEVSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryCRIT_WLEV: TFloatField[11]
@@ -298,8 +309,6 @@ inherited RecommendForm: TRecommendForm
       Required = False
       OnGetText = LinkedQueryWLEVGetText
       OnSetText = LinkedQueryWLEVSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryNOTES_YN: TStringField[12]
@@ -314,8 +323,8 @@ inherited RecommendForm: TRecommendForm
       Visible = False
       Size = 4
     end
-    object LinkedQueryNOTE_PAD: TBlobField[13]
-      DisplayWidth = 10
+    object LinkedQueryNOTE_PAD: TWideStringField[13]
+      DisplayLabel = 'Notes'
       FieldKind = fkData
       FieldName = 'NOTE_PAD'
       Index = 13
@@ -324,7 +333,15 @@ inherited RecommendForm: TRecommendForm
       ReadOnly = False
       Required = False
       Visible = False
-      BlobType = ftMemo
+      Size = 4096
     end
+  end
+  inherited AccuDataSource: TDataSource
+    DataSet = nil
+  end
+  inherited TypeDataSource: TDataSource
+    DataSet = nil
+    Left = 424
+    Top = 137
   end
 end

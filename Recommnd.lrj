@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":173685933,"name":"trecommendform.caption","sourcebytes":[82,101,99,111,109,109,101,110,100,97,116,105,111,110,115,32,70,111,114,109],"value":"Recommendations Form"},
+{"hash":84239022,"name":"trecommendform.amslcheckbox.caption","sourcebytes":[97,46,109,46,115,46,108,46],"value":"a.m.s.l."},
+{"hash":48256277,"name":"trecommendform.dbmemo1.hint","sourcebytes":[69,110,116,101,114,32,97,100,100,105,116,105,111,110,97,108,32,99,111,109,109,101,110,116,115,32,97,110,100,32,110,111,116,101,115,32,104,101,114,101],"value":"Enter additional comments and notes here"}
+]}

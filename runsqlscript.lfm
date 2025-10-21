@@ -1,15 +1,15 @@
 object SQLScriptForm: TSQLScriptForm
-  Left = 848
-  Height = 257
-  Top = 391
-  Width = 422
+  Left = 783
+  Height = 250
+  Top = 294
+  Width = 450
   HelpContext = 71
   ActiveControl = ButtonPanel1
   Caption = 'Run SQL Script'
-  ClientHeight = 257
-  ClientWidth = 422
-  Constraints.MinHeight = 130
-  Constraints.MinWidth = 270
+  ClientHeight = 250
+  ClientWidth = 450
+  Constraints.MinHeight = 250
+  Constraints.MinWidth = 450
   FormStyle = fsMDIChild
   Icon.Data = {
     7E04000000000100010010100000010020006804000016000000280000001000
@@ -54,13 +54,13 @@ object SQLScriptForm: TSQLScriptForm
   OnClose = FormClose
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
-  SessionProperties = 'Left;Top;Width;Height'
-  LCLVersion = '2.0.12.0'
+  SessionProperties = 'Left;Top;Height;Width'
+  LCLVersion = '3.8.0.0'
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 38
-    Top = 213
-    Width = 410
+    Height = 41
+    Top = 203
+    Width = 438
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
     HelpButton.Name = 'HelpButton'
@@ -80,10 +80,10 @@ object SQLScriptForm: TSQLScriptForm
     Left = 0
     Height = 34
     Top = 0
-    Width = 422
+    Width = 450
     Align = alTop
     ClientHeight = 34
-    ClientWidth = 422
+    ClientWidth = 450
     TabOrder = 1
     object SpeedButton1: TSpeedButton
       Left = 6
@@ -225,7 +225,7 @@ object SQLScriptForm: TSQLScriptForm
       ParentShowHint = False
     end
     object SaveSpeedButton: TSpeedButton
-      Left = 104
+      Left = 336
       Height = 25
       Hint = 'Save script to file'
       Top = 5
@@ -273,10 +273,11 @@ object SQLScriptForm: TSQLScriptForm
     end
     object ComboBox1: TComboBox
       Left = 208
-      Height = 25
+      Height = 28
       Hint = 'The statement delimiter to separate multi-line statements'
-      Top = 7
-      Width = 40
+      Top = 4
+      Width = 46
+      AutoSize = False
       ItemHeight = 0
       ItemIndex = 0
       Items.Strings = (
@@ -302,10 +303,10 @@ object SQLScriptForm: TSQLScriptForm
   end
   inline SynEdit1: TSynEdit
     Left = 0
-    Height = 173
+    Height = 163
     Hint = 'Insert condition. Ctrl-Space for fields, Shift+Space for tables'
     Top = 34
-    Width = 422
+    Width = 450
     Align = alClient
     Font.Height = -12
     Font.Name = 'Courier New'
@@ -833,7 +834,7 @@ object SQLScriptForm: TSQLScriptForm
     Left = 96
     Top = 104
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
     Left = 280
     Top = 64

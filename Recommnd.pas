@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -39,7 +39,7 @@ type
     LinkedQueryDUTY_CYCLE: TFloatField;
     LinkedQueryDYN_WLEV: TFloatField;
     LinkedQueryNOTES_YN: TStringField;
-    LinkedQueryNOTE_PAD: TBlobField;
+    LinkedQueryNOTE_PAD: TWideStringField;
     LinkedQueryPRIORITY: TLongintField;
     LinkedQueryREC_EQUIPM: TStringField;
     LinkedQueryREP_INST: TStringField;

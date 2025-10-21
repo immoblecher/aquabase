@@ -1,3 +1,4 @@
 {"version":1,"strings":[
-{"hash":10242733,"name":"treferencesform.caption","sourcebytes":[82,101,102,101,114,101,110,99,101,115,32,70,111,114,109],"value":"References Form"}
+{"hash":10242733,"name":"treferencesform.caption","sourcebytes":[82,101,102,101,114,101,110,99,101,115,32,70,111,114,109],"value":"References Form"},
+{"hash":234195646,"name":"treferencesform.dbmemo1.hint","sourcebytes":[65,100,100,32,114,101,102,101,114,101,110,99,101,115,32,116,101,120,116,32,104,101,114,101,46,32,87,104,101,110,32,97,100,100,105,110,103,32,110,101,119,32,114,101,102,101,114,101,110,99,101,115,32,112,111,115,116,32,100,97,116,97,32,114,111,119,32,102,105,114,115,116,32,101,110,100,32,101,100,105,116,32,97,103,97,105,110,32,116,111,32,97,100,100,32,116,101,120,116,46],"value":"Add references text here. When adding new references post data row first end edit again to add text."}
 ]}

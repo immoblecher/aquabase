@@ -1,3 +1,20 @@
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
+
+  This source is free software; you can redistribute it and/or modify it under
+  the terms of the GNU General Public License as published by the Free
+  Software Foundation; either version 2 of the License, or (at your option)
+  any later version.
+
+  This code is distributed in the hope that it will be useful, but WITHOUT ANY
+  WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  details.
+
+  A copy of the GNU General Public License is available on the World Wide Web
+  at <http://www.gnu.org/copyleft/gpl.html>. You can also obtain it by writing
+  to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+  MA 02111-1307, USA.
+}
 unit reportdocuments;
 
 {$mode objfpc}{$H+}
@@ -27,7 +44,7 @@ type
     RxDBGrid: TRxDBGrid;
     RxSortZeos1: TRxSortZeos;
     SaveDialog1: TSaveDialog;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     ReportQuery: TZQuery;
     ReportQueryID: TLargeintField;
     ReportQueryPRIM_AUTH: TStringField;
@@ -58,13 +75,18 @@ type
     procedure ReportQueryUpperSetText(Sender: TField; const aText: string);
     procedure RxDBGridColEnter(Sender: TObject);
     procedure RxDBGridColExit(Sender: TObject);
+    procedure RxDBGridGetCellHint(Sender: TObject; Column: TColumn;
+      var AText: String);
     procedure RxDBGridKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
     procedure RxDBGridMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure RxDBGridMouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
   private
     ValidFound, ColExitAborted: Boolean;
     SelFieldName, OldReportNr, NewReportNr: ShortString;
+    row, col: LongInt;
   public
 
   end;
@@ -172,7 +194,7 @@ end;
 procedure TReportDocsForm.FormCreate(Sender: TObject);
 begin
   Screen.Cursor := crSQLWait;
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, True);
   ValidFound := True;
   Screen.Cursor := crDefault;
@@ -279,6 +301,16 @@ begin
   end;
 end;
 
+procedure TReportDocsForm.RxDBGridGetCellHint(Sender: TObject; Column: TColumn;
+  var AText: String);
+begin
+  //use the LookupKeyFields property for the code translation, which is not used otherwise
+  if (col > 0) and (Column.Field.LookupKeyFields > '') then
+    AText := DataModuleMain.TranslateCode(Column.Field.LookupKeyFields, Column.Field.AsString)
+  else
+    AText := 'Report documents';
+end;
+
 procedure TReportDocsForm.RxDBGridKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
@@ -326,6 +358,12 @@ begin
       end;
     end;
   end;
+end;
+
+procedure TReportDocsForm.RxDBGridMouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  TDBGrid(Sender).MouseToCell(X, Y, col, row);
 end;
 
 end.

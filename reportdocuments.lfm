@@ -16,7 +16,7 @@ object ReportDocsForm: TReportDocsForm
   OnShow = FormShow
   Position = poDefaultPosOnly
   SessionProperties = 'Height;Left;Top;Width'
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '3.8.0.0'
   object Panel1: TPanel
     Left = 0
     Height = 36
@@ -169,7 +169,7 @@ object ReportDocsForm: TReportDocsForm
   object RxDBGrid: TRxDBGrid
     Left = 0
     Height = 332
-    Hint = 'Click up/down arrow for menu'
+    Hint = 'Report documents'
     Top = 36
     Width = 636
     ColumnDefValues.BlobText = '(blob)'
@@ -342,10 +342,9 @@ object ReportDocsForm: TReportDocsForm
     DrawFullLine = False
     FocusColor = clRed
     SelectedColor = clHighlight
-    GridLineStyle = psSolid
     DataSource = DataSource1
     DefaultRowHeight = 19
-    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgHeaderPushedLook, dgDisableInsert, dgRowHighlight]
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgHeaderPushedLook, dgDisableInsert, dgCellHints, dgRowHighlight]
     ParentShowHint = False
     Scrollbars = ssAutoBoth
     ShowHint = True
@@ -355,20 +354,22 @@ object ReportDocsForm: TReportDocsForm
     TitleFont.Name = 'MS Sans Serif'
     OnColEnter = RxDBGridColEnter
     OnColExit = RxDBGridColExit
+    OnGetCellHint = RxDBGridGetCellHint
     OnKeyDown = RxDBGridKeyDown
     OnMouseDown = RxDBGridMouseDown
+    OnMouseMove = RxDBGridMouseMove
   end
   object DataSource1: TDataSource
     DataSet = ReportQuery
     OnDataChange = DataSource1DataChange
-    left = 377
-    top = 112
+    Left = 377
+    Top = 112
   end
   object ReportQuery: TZQuery
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'REP_INST, REPORT_NR'
     BeforeOpen = ReportQueryBeforeOpen
     OnCalcFields = ReportQueryCalcFields
+    Connection = DataModuleMain.ZConnectionDB
     BeforeEdit = ReportQueryBeforeEdit
     BeforePost = ReportQueryBeforePost
     AfterPost = ReportQueryAfterPost
@@ -381,8 +382,8 @@ object ReportDocsForm: TReportDocsForm
     )
     Params = <>
     IndexFieldNames = 'REP_INST Asc, REPORT_NR Asc'
-    left = 248
-    top = 112
+    Left = 248
+    Top = 112
     object ReportQueryID: TLargeintField
       FieldKind = fkData
       FieldName = 'ID'
@@ -402,7 +403,6 @@ object ReportDocsForm: TReportDocsForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = ReportQueryREPORT_NRSetText
       Size = 96
     end
     object ReportQueryREP_TITLE: TStringField
@@ -414,7 +414,6 @@ object ReportDocsForm: TReportDocsForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = ReportQueryUpperSetText
       Size = 512
     end
     object ReportQueryPRIM_AUTH: TStringField
@@ -426,7 +425,6 @@ object ReportDocsForm: TReportDocsForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = ReportQueryUpperSetText
       Size = 96
     end
     object ReportQuerySEC_AUTH: TStringField
@@ -438,7 +436,6 @@ object ReportDocsForm: TReportDocsForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = ReportQueryUpperSetText
       Size = 96
     end
     object ReportQueryREP_INST: TStringField
@@ -480,21 +477,21 @@ object ReportDocsForm: TReportDocsForm
     end
   end
   object RxSortZeos1: TRxSortZeos
-    left = 495
-    top = 114
+    Left = 495
+    Top = 114
   end
   object OpenDialog1: TOpenDialog
-    left = 75
-    top = 144
+    Left = 75
+    Top = 144
   end
   object SaveDialog1: TSaveDialog
-    left = 75
-    top = 197
+    Left = 75
+    Top = 197
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    left = 305
-    top = 193
+    Left = 305
+    Top = 193
   end
   object SaveQuery: TZQuery
     Connection = DataModuleMain.ZConnectionDB
@@ -506,15 +503,15 @@ object ReportDocsForm: TReportDocsForm
       item
         DataType = ftInteger
         Name = 'TheID'
-        ParamType = ptUnknown
+        SQLType = stInteger
       end>
-    left = 456
-    top = 248
+    Left = 456
+    Top = 248
     ParamData = <    
       item
         DataType = ftInteger
         Name = 'TheID'
-        ParamType = ptUnknown
+        SQLType = stInteger
       end>
   end
   object LoadQuery: TZQuery
@@ -527,35 +524,35 @@ object ReportDocsForm: TReportDocsForm
       item
         DataType = ftString
         Name = 'FName'
-        ParamType = ptUnknown
+        SQLType = stString
       end    
       item
         DataType = ftBlob
         Name = 'Doc'
-        ParamType = ptUnknown
+        SQLType = stBinaryStream
       end    
       item
         DataType = ftInteger
         Name = 'TheID'
-        ParamType = ptUnknown
+        SQLType = stInteger
       end>
-    left = 213
-    top = 277
+    Left = 213
+    Top = 277
     ParamData = <    
       item
         DataType = ftString
         Name = 'FName'
-        ParamType = ptUnknown
+        SQLType = stString
       end    
       item
         DataType = ftBlob
         Name = 'Doc'
-        ParamType = ptUnknown
+        SQLType = stBinaryStream
       end    
       item
         DataType = ftInteger
         Name = 'TheID'
-        ParamType = ptUnknown
+        SQLType = stInteger
       end>
   end
 end

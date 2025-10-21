@@ -1,7 +1,7 @@
 inherited ReferencesForm: TReferencesForm
-  Left = 557
+  Left = 2770
   Height = 354
-  Top = 218
+  Top = 202
   Caption = 'References Form'
   ClientHeight = 354
   Icon.Data = {
@@ -40,23 +40,24 @@ inherited ReferencesForm: TReferencesForm
     end
   end
   inherited Panel2: TPanel
-    Height = 210
-    ClientHeight = 210
+    Height = 203
+    ClientHeight = 203
     inherited Panel4: TPanel
-      Top = 180
+      Top = 175
       inherited DetailNavigator: TDBNavigator
         Hints.Strings = (        )
       end
     end
     inherited DBGrid: TDBGrid
-      Height = 155
+      Height = 150
       Width = 100
       Align = alLeft
       AutoFillColumns = True
     end
     object DBMemo1: TDBMemo[3]
       Left = 109
-      Height = 155
+      Height = 150
+      Hint = 'Add references text here. When adding new references post data row first end edit again to add text.'
       Top = 23
       Width = 462
       Align = alClient
@@ -65,6 +66,8 @@ inherited ReferencesForm: TReferencesForm
       BorderSpacing.Bottom = 2
       DataField = 'NOTE_PAD'
       DataSource = LinkedDataSource
+      ParentShowHint = False
+      ShowHint = True
       TabOrder = 2
     end
   end
@@ -79,6 +82,7 @@ inherited ReferencesForm: TReferencesForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     ParamData = <    
       item
@@ -86,6 +90,7 @@ inherited ReferencesForm: TReferencesForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryREP_INST: TStringField[1]
       Tag = 1
@@ -95,6 +100,7 @@ inherited ReferencesForm: TReferencesForm
       FieldName = 'REP_INST'
       Index = 1
       LookupCache = False
+      LookupKeyFields = 'REP_INST'
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
@@ -102,8 +108,8 @@ inherited ReferencesForm: TReferencesForm
       OnValidate = LinkedQueryREP_INSTValidate
       Size = 16
     end
-    object LinkedQueryNOTE_PAD: TBlobField[2]
-      DisplayWidth = 10
+    object LinkedQueryNOTE_PAD: TWideStringField[2]
+      DisplayLabel = 'Notes'
       FieldKind = fkData
       FieldName = 'NOTE_PAD'
       Index = 2
@@ -112,7 +118,7 @@ inherited ReferencesForm: TReferencesForm
       ReadOnly = False
       Required = False
       Visible = False
-      BlobType = ftMemo
+      Size = 1024000
     end
   end
 end

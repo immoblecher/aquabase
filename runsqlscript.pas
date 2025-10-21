@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -53,7 +53,7 @@ type
     SynCompletion2: TSynCompletion;
     SynEdit1: TSynEdit;
     SynSQLSyn1: TSynSQLSyn;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     ZSQLProcessor1: TZSQLProcessor;
     procedure CloseButtonClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -121,7 +121,7 @@ var
   TempList: TStringList;
   t: Word;
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   TempList := TStringList.Create;
   with DataModuleMain do
   begin

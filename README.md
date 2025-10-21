@@ -19,7 +19,6 @@ What is needed to compile?
 * For photo EXIF functionality the DExif component https://github.com/cutec-chris/dexif
 * For spreadsheet functionalities the FPSpreadsheet components https://sourceforge.net/projects/lazarus-ccr/files/FPSpreadsheet/OPM/update_FPSpreadsheet.json/download
 * Synapse for online (ftp) functions for Aquabase update download http://www.ararat.cz/synapse/doku.php/start
-* PascalTZ for the SYNOP/BUFR weather import
 
 The additional requirements on top of Lazarus/FreePascal above should be installed/updated through the Online Package Manager in Lazarus. If you want to cross-compile under Windows you need to install the cross-compile packages for Lazarus as well.
 
