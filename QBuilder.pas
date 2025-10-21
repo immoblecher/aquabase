@@ -722,7 +722,7 @@ begin
   end;
 
   TOQBForm(GetParentForm(Self)).QBGrid.Refresh; // StringGrid bug
-end; }
+end;}
 
 procedure TOQBLbx.ItemClick(const AIndex: Integer);
 var

@@ -1,8 +1,8 @@
 object ProjManForm: TProjManForm
   Tag = 128
-  Left = 557
+  Left = 2742
   Height = 404
-  Top = 207
+  Top = 342
   Width = 576
   ActiveControl = CloseBitBtn
   Caption = 'Project Information'
@@ -48,7 +48,7 @@ object ProjManForm: TProjManForm
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   SessionProperties = 'Left;Top;Width;Height'
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '3.8.0.0'
   Visible = True
   object Panel1: TPanel
     Left = 0
@@ -58,6 +58,7 @@ object ProjManForm: TProjManForm
     Align = alTop
     ClientHeight = 41
     ClientWidth = 576
+    ParentBackground = False
     TabOrder = 0
     object CloseBitBtn: TBitBtn
       Left = 402
@@ -70,25 +71,8 @@ object ProjManForm: TProjManForm
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
-      Glyph.Data = {
-        DE010000424DDE01000000000000760000002800000024000000120000000100
-        0400000000006801000000000000000000001000000000000000000000000000
-        80000080000000808000800000008000800080800000C0C0C000808080000000
-        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
-        333333333333333333333333000033338833333333333333333F333333333333
-        0000333911833333983333333388F333333F3333000033391118333911833333
-        38F38F333F88F33300003339111183911118333338F338F3F8338F3300003333
-        911118111118333338F3338F833338F3000033333911111111833333338F3338
-        3333F8330000333333911111183333333338F333333F83330000333333311111
-        8333333333338F3333383333000033333339111183333333333338F333833333
-        00003333339111118333333333333833338F3333000033333911181118333333
-        33338333338F333300003333911183911183333333383338F338F33300003333
-        9118333911183333338F33838F338F33000033333913333391113333338FF833
-        38F338F300003333333333333919333333388333338FFF830000333333333333
-        3333333333333333333888330000333333333333333333333333333333333333
-        0000
-      }
-      NumGlyphs = 2
+      Kind = bkClose
+      ModalResult = 11
       OnClick = CloseBitBtnClick
       ParentFont = False
       ParentShowHint = False
@@ -156,7 +140,7 @@ object ProjManForm: TProjManForm
     end
     object CurrentComboBox: TComboBox
       Left = 284
-      Height = 25
+      Height = 29
       Top = 10
       Width = 108
       Font.Color = clBlack
@@ -168,10 +152,10 @@ object ProjManForm: TProjManForm
         'Current Traverse'
         'Current Project'
       )
-      OnChange = CurrentComboBoxChange
       ParentFont = False
       Style = csDropDownList
       TabOrder = 4
+      OnChange = CurrentComboBoxChange
     end
   end
   object Panel3: TPanel
@@ -185,6 +169,7 @@ object ProjManForm: TProjManForm
     BorderWidth = 4
     ClientHeight = 363
     ClientWidth = 576
+    ParentBackground = False
     TabOrder = 1
     object PageControl1: TPageControl
       Left = 6
@@ -202,14 +187,14 @@ object ProjManForm: TProjManForm
       TabOrder = 0
       object SitingTabSheet: TTabSheet
         Caption = 'Siting - Depth [m]'
-        ClientHeight = 218
-        ClientWidth = 560
+        ClientHeight = 214
+        ClientWidth = 554
         object DBGrid: TDBGrid
           Left = 0
-          Height = 218
+          Height = 214
           Hint = 'Siting Information'
           Top = 0
-          Width = 560
+          Width = 554
           Align = alClient
           Color = clWindow
           Columns = <>
@@ -227,37 +212,37 @@ object ProjManForm: TProjManForm
       end
       object TaskTabSheet: TTabSheet
         Caption = 'Tasks'
-        ClientHeight = 218
-        ClientWidth = 560
+        ClientHeight = 214
+        ClientWidth = 554
         object Label4: TLabel
           Left = 32
-          Height = 14
+          Height = 17
           Top = 32
-          Width = 390
+          Width = 355
           Caption = 'Watch this and other tabs in forthcoming Aquabase updates for:'
           ParentColor = False
         end
         object Label5: TLabel
           Left = 32
-          Height = 14
+          Height = 17
           Top = 56
-          Width = 134
+          Width = 124
           Caption = '- Tasks to be comleted'
           ParentColor = False
         end
         object Label6: TLabel
           Left = 32
-          Height = 14
+          Height = 17
           Top = 72
-          Width = 126
+          Width = 114
           Caption = '- Scheduling of tasks'
           ParentColor = False
         end
         object Label7: TLabel
           Left = 32
-          Height = 14
+          Height = 17
           Top = 88
-          Width = 136
+          Width = 123
           Caption = '- Expenditure on tasks'
           ParentColor = False
         end
@@ -270,21 +255,22 @@ object ProjManForm: TProjManForm
       Width = 556
       Anchors = [akTop, akLeft, akRight]
       Caption = 'Project Information:'
-      ClientHeight = 90
-      ClientWidth = 552
+      ClientHeight = 87
+      ClientWidth = 554
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
+      ParentBackground = False
       ParentFont = False
       PopupMenu = PopupMenu1
       TabOrder = 1
       OnClick = GroupBox1Click
       object Label16: TLabel
         Left = 6
-        Height = 11
+        Height = 17
         Top = 4
-        Width = 81
+        Width = 88
         Caption = '&Project Number'
         FocusControl = EditPROJ_NR
         Font.Color = clBlack
@@ -295,9 +281,9 @@ object ProjManForm: TProjManForm
       end
       object Label17: TLabel
         Left = 88
-        Height = 11
+        Height = 17
         Top = 4
-        Width = 71
+        Width = 76
         Caption = 'Project &Name'
         FocusControl = EditPROJ_NAME
         Font.Color = clBlack
@@ -308,9 +294,9 @@ object ProjManForm: TProjManForm
       end
       object Label3: TLabel
         Left = 234
-        Height = 11
+        Height = 17
         Top = 4
-        Width = 30
+        Width = 32
         Caption = '&Client'
         FocusControl = EditDATE_END
         Font.Color = clBlack
@@ -321,9 +307,9 @@ object ProjManForm: TProjManForm
       end
       object Label18: TLabel
         Left = 356
-        Height = 11
+        Height = 17
         Top = 4
-        Width = 105
+        Width = 112
         Caption = '&Geohydr. Consultant'
         FocusControl = EditGEOHYD_CON
         Font.Color = clBlack
@@ -334,9 +320,9 @@ object ProjManForm: TProjManForm
       end
       object LongitudeLabel: TLabel
         Left = 470
-        Height = 11
+        Height = 17
         Top = 4
-        Width = 38
+        Width = 35
         Caption = '&Job Nr.'
         FocusControl = EditJOB_NR
         Font.Color = clBlack
@@ -347,9 +333,9 @@ object ProjManForm: TProjManForm
       end
       object LatitudeLabel: TLabel
         Left = 6
-        Height = 11
+        Height = 17
         Top = 46
-        Width = 82
+        Width = 87
         Caption = '&Eng. Consultant'
         FocusControl = EditENG_CON
         Font.Color = clBlack
@@ -360,9 +346,9 @@ object ProjManForm: TProjManForm
       end
       object AltitudeLabel: TLabel
         Left = 118
-        Height = 11
+        Height = 17
         Top = 46
-        Width = 91
+        Width = 96
         Caption = '&Social Consultant'
         FocusControl = EditSOC_CON
         Font.Color = clBlack
@@ -373,9 +359,9 @@ object ProjManForm: TProjManForm
       end
       object CollarLabel: TLabel
         Left = 234
-        Height = 11
+        Height = 17
         Top = 46
-        Width = 63
+        Width = 70
         Caption = 'Date &started'
         FocusControl = EditDATE_START
         Font.Color = clBlack
@@ -386,9 +372,9 @@ object ProjManForm: TProjManForm
       end
       object DepthLabel: TLabel
         Left = 298
-        Height = 11
+        Height = 17
         Top = 46
-        Width = 59
+        Width = 65
         Caption = 'Date &ended'
         FocusControl = EditDATE_END
         Font.Color = clBlack
@@ -399,9 +385,9 @@ object ProjManForm: TProjManForm
       end
       object Label1: TLabel
         Left = 362
-        Height = 11
+        Height = 17
         Top = 46
-        Width = 52
+        Width = 58
         Caption = 'Date &verif.'
         FocusControl = EditDATE_END
         Font.Color = clBlack
@@ -412,9 +398,9 @@ object ProjManForm: TProjManForm
       end
       object Label2: TLabel
         Left = 424
-        Height = 11
+        Height = 17
         Top = 46
-        Width = 55
+        Width = 61
         Caption = 'Date enter.'
         FocusControl = EditDATE_END
         Font.Color = clBlack
@@ -425,9 +411,9 @@ object ProjManForm: TProjManForm
       end
       object Label26: TLabel
         Left = 486
-        Height = 11
+        Height = 17
         Top = 46
-        Width = 60
+        Width = 65
         Caption = 'Date updtd.'
         Font.Color = clBlack
         Font.Height = -12
@@ -442,6 +428,7 @@ object ProjManForm: TProjManForm
         Width = 76
         DataField = 'PROJ_NR'
         DataSource = ProjManDataSource
+        AutoSize = False
         CharCase = ecUppercase
         Font.Color = clBlack
         Font.Height = -12
@@ -458,7 +445,7 @@ object ProjManForm: TProjManForm
         Width = 140
         DataField = 'PROJ_NAME'
         DataSource = ProjManDataSource
-        CharCase = ecUppercase
+        AutoSize = False
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -474,7 +461,7 @@ object ProjManForm: TProjManForm
         Width = 116
         DataField = 'CLIENT'
         DataSource = ProjManDataSource
-        CharCase = ecUppercase
+        AutoSize = False
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -490,7 +477,7 @@ object ProjManForm: TProjManForm
         Width = 108
         DataField = 'GEOHYD_CON'
         DataSource = ProjManDataSource
-        CharCase = ecUppercase
+        AutoSize = False
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -503,10 +490,11 @@ object ProjManForm: TProjManForm
         Left = 470
         Height = 22
         Top = 19
-        Width = 77
+        Width = 79
         DataField = 'JOB_NR'
         DataSource = ProjManDataSource
         Anchors = [akTop, akLeft, akRight]
+        AutoSize = False
         CharCase = ecUppercase
         Font.Color = clBlack
         Font.Height = -12
@@ -523,7 +511,7 @@ object ProjManForm: TProjManForm
         Width = 108
         DataField = 'ENG_CON'
         DataSource = ProjManDataSource
-        CharCase = ecUppercase
+        AutoSize = False
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -539,7 +527,7 @@ object ProjManForm: TProjManForm
         Width = 108
         DataField = 'SOC_CON'
         DataSource = ProjManDataSource
-        CharCase = ecUppercase
+        AutoSize = False
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -555,6 +543,7 @@ object ProjManForm: TProjManForm
         Width = 57
         DataField = 'DATE_START'
         DataSource = ProjManDataSource
+        AutoSize = False
         CharCase = ecUppercase
         Font.Color = clBlack
         Font.Height = -12
@@ -571,6 +560,7 @@ object ProjManForm: TProjManForm
         Width = 57
         DataField = 'DATE_END'
         DataSource = ProjManDataSource
+        AutoSize = False
         CharCase = ecUppercase
         Font.Color = clBlack
         Font.Height = -12
@@ -587,6 +577,7 @@ object ProjManForm: TProjManForm
         Width = 57
         DataField = 'DATE_VERIF'
         DataSource = ProjManDataSource
+        AutoSize = False
         CharCase = ecUppercase
         Font.Color = clBlack
         Font.Height = -12
@@ -603,6 +594,7 @@ object ProjManForm: TProjManForm
         Width = 57
         DataField = 'DATE_ENTRY'
         DataSource = ProjManDataSource
+        AutoSize = False
         CharCase = ecUppercase
         Enabled = False
         Font.Color = clBlack
@@ -618,11 +610,12 @@ object ProjManForm: TProjManForm
         Left = 486
         Height = 22
         Top = 61
-        Width = 59
+        Width = 61
         DataField = 'DATE_UPDTD'
         DataSource = ProjManDataSource
         ReadOnly = True
         Anchors = [akTop, akLeft, akRight]
+        AutoSize = False
         CharCase = ecUppercase
         Enabled = False
         Font.Color = clBlack
@@ -640,25 +633,25 @@ object ProjManForm: TProjManForm
     AutoEdit = False
     DataSet = ProjManTable
     OnDataChange = ProjManDataSourceDataChange
-    left = 48
-    top = 288
+    Left = 48
+    Top = 288
   end
   object LinkedDataSource: TDataSource
     AutoEdit = False
     DataSet = LinkedTable
     OnDataChange = LinkedDataSourceDataChange
-    left = 496
-    top = 272
+    Left = 496
+    Top = 272
   end
   object ProjManTable: TZTable
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'PRO_REF_NR'
+    Connection = DataModuleMain.ZConnectionDB
     BeforePost = ProjManTableBeforePost
     OnNewRecord = ProjManTableNewRecord
     TableName = 'proj_man'
     IndexFieldNames = 'PRO_REF_NR Asc'
-    left = 288
-    top = 32
+    Left = 288
+    Top = 32
     object ProjManTablePRO_REF_NR: TStringField
       DisplayWidth = 8
       FieldKind = fkData
@@ -807,17 +800,17 @@ object ProjManForm: TProjManForm
     end
   end
   object LinkedTable: TZTable
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'PRO_REF_NR, TRAV_NR, SITE_ID_NR'
     AfterOpen = LinkedTableAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     OnNewRecord = LinkedTableNewRecord
     TableName = 'bhsiting'
     MasterFields = 'PRO_REF_NR'
     MasterSource = ProjManDataSource
     LinkedFields = 'PRO_REF_NR'
     IndexFieldNames = 'PRO_REF_NR Asc, TRAV_NR Asc, SITE_ID_NR Asc'
-    left = 496
-    top = 184
+    Left = 496
+    Top = 184
     object LinkedTablePRO_REF_NR: TStringField
       DisplayWidth = 8
       FieldKind = fkData
@@ -840,7 +833,7 @@ object ProjManForm: TProjManForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedTableSetText
+      OnSetText = LinkedTableCAPSSetText
       Size = 24
     end
     object LinkedTableSITE_REFER: TStringField
@@ -853,7 +846,7 @@ object ProjManForm: TProjManForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedTableSetText
+      OnSetText = LinkedTableCAPSSetText
       Size = 16
     end
     object LinkedTableTRAV_NR: TStringField
@@ -879,7 +872,7 @@ object ProjManForm: TProjManForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedTableSetText
+      OnSetText = LinkedTableCAPSSetText
       Size = 16
     end
     object LinkedTableALT_PEG_NR: TStringField
@@ -892,7 +885,7 @@ object ProjManForm: TProjManForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedTableSetText
+      OnSetText = LinkedTableCAPSSetText
       Size = 16
     end
     object LinkedTablePRIORITY: TSmallintField
@@ -1032,8 +1025,6 @@ object ProjManForm: TProjManForm
       Required = False
       OnGetText = LinkedTableREC_DEPTHGetText
       OnSetText = LinkedTableREC_DEPTHSetText
-      MaxValue = 0
-      MinValue = 0
     end
     object LinkedTableTARGET: TStringField
       Alignment = taCenter
@@ -1047,7 +1038,7 @@ object ProjManForm: TProjManForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedTableSetText
+      OnSetText = LinkedTableCAPSSetText
       Size = 2
     end
     object LinkedTableMARKED: TBooleanField
@@ -1073,14 +1064,14 @@ object ProjManForm: TProjManForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedTableSetText
+      OnSetText = LinkedTableCAPSSetText
       Size = 12
     end
   end
   object PopupMenu1: TPopupMenu
     OnPopup = PopupMenu1Popup
-    left = 312
-    top = 240
+    Left = 312
+    Top = 240
     object GotoBookmark: TMenuItem
       Caption = '&Goto Bookmark'
       ShortCut = 117
@@ -1111,20 +1102,20 @@ object ProjManForm: TProjManForm
     end
   end
   object LookupTable: TZTable
-    Connection = DataModuleMain.ZConnectionLanguage
     SortedFields = 'used_for;search'
+    Connection = DataModuleMain.ZConnectionLanguage
     TableName = 'Lookup'
     IndexFieldNames = 'used_for Asc;search Asc'
-    left = 496
-    top = 336
+    Left = 496
+    Top = 336
   end
   object FindTable: TZTable
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'SITE_ID_NR'
+    Connection = DataModuleMain.ZConnectionDB
     TableName = 'bhsiting'
     IndexFieldNames = 'SITE_ID_NR Asc'
-    left = 408
-    top = 240
+    Left = 408
+    Top = 240
     object FindTablePRO_REF_NR: TStringField
       DisplayWidth = 8
       FieldKind = fkData
@@ -1160,18 +1151,18 @@ object ProjManForm: TProjManForm
     end
   end
   object SiteTable: TZTable
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'SITE_ID_NR'
     BeforeOpen = SiteTableBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     TableName = 'basicinf'
     MasterSource = ProjManDataSource
     IndexFieldNames = 'SITE_ID_NR Asc'
-    left = 408
-    top = 168
+    Left = 408
+    Top = 168
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    left = 360
-    top = 32
+    Left = 408
+    Top = 32
   end
 end

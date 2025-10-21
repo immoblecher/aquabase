@@ -1,6 +1,6 @@
 inherited PenetrationForm: TPenetrationForm
-  Left = 564
-  Top = 231
+  Left = 2822
+  Top = 358
   Caption = 'Penetration Form'
   OnActivate = FormActivate
   inherited Panel1: TPanel
@@ -15,21 +15,12 @@ inherited PenetrationForm: TPenetrationForm
     end
   end
   inherited Panel2: TPanel
-    Height = 217
-    Top = 151
-    ClientHeight = 217
     inherited Panel4: TPanel
-      Top = 189
       inherited DetailNavigator: TDBNavigator
         Hints.Strings = (        )
       end
-      inherited StaticText1: TStaticText
-        Left = 465
-        Width = 38
-      end
     end
     inherited DBGrid: TDBGrid
-      Height = 164
       TabOrder = 2
     end
     inherited LinkedLabel: TLabel
@@ -37,63 +28,57 @@ inherited PenetrationForm: TPenetrationForm
       Width = 274
     end
     object AMSLCheckBox: TCheckBox[3]
-      Left = 508
-      Height = 17
-      Top = 2
-      Width = 61
+      Left = 502
+      Height = 23
+      Top = 0
+      Width = 67
       Anchors = [akTop, akRight]
       Caption = 'a.m.s.l.'
       Font.CharSet = ANSI_CHARSET
-      Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      OnClick = AMSLCheckBoxClick
       ParentFont = False
       TabOrder = 1
       TabStop = False
+      OnClick = AMSLCheckBoxClick
     end
     object lblRate: TLabel[4]
       Left = 292
-      Height = 13
+      Height = 16
       Top = 4
-      Width = 144
+      Width = 145
       Alignment = taRightJustify
       Caption = 'Default depth interval [m]'
-      Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       ParentColor = False
       ParentFont = False
     end
-    object FloatSpinEdit1: TFloatSpinEdit[5]
-      Left = 440
-      Height = 21
-      Top = 1
-      Width = 50
-      Alignment = taRightJustify
+    object FloatSpinEditEx1: TFloatSpinEditEx[5]
+      Left = 442
+      Height = 22
+      Top = 0
+      Width = 56
+      AutoSize = False
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 3
       DecimalPlaces = 1
       Increment = 0.5
-      MinValue = 0
-      TabOrder = 3
       Value = 1
-    end
-  end
-  inherited GroupBox1: TGroupBox
-    Height = 107
-    ClientHeight = 89
-    inherited RxDBLookupComboType: TRxDBLookupCombo
-      Height = 27
     end
   end
   inherited BasicinfDataSource: TDataSource
     OnDataChange = BasicinfDataSourceDataChange
-    left = 280
+    Left = 280
   end
   inherited LinkedDataSource: TDataSource
-    left = 160
-    top = 288
+    Left = 160
+    Top = 288
   end
   inherited LinkedQuery: TZQuery
     BeforeOpen = LinkedQueryBeforeOpen
@@ -108,15 +93,17 @@ inherited PenetrationForm: TPenetrationForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
-    left = 56
-    top = 288
+    Left = 56
+    Top = 288
     ParamData = <    
       item
         DataType = ftString
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryDATE_ENTRY: TStringField[1]
       Alignment = taCenter
@@ -178,8 +165,6 @@ inherited PenetrationForm: TPenetrationForm
       OnGetText = LinkedQueryDEPTH_TOPGetText
       OnSetText = LinkedQueryDEPTH_TOPSetText
       OnValidate = LinkedQueryDEPTH_TOPValidate
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryDEPTH_BOT: TFloatField[5]
@@ -195,8 +180,6 @@ inherited PenetrationForm: TPenetrationForm
       OnGetText = LinkedQueryDEPTH_BOTGetText
       OnSetText = LinkedQueryDEPTH_BOTSetText
       OnValidate = LinkedQueryDEPTH_BOTValidate
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryDIAMETER: TFloatField[6]
@@ -211,8 +194,6 @@ inherited PenetrationForm: TPenetrationForm
       Required = False
       OnGetText = LinkedQueryDIAMETERGetText
       OnSetText = LinkedQueryDIAMETERSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryPENET_RATE: TFloatField[7]
@@ -227,8 +208,6 @@ inherited PenetrationForm: TPenetrationForm
       Required = False
       OnGetText = LinkedQueryPENET_RATEGetText
       OnSetText = LinkedQueryPENET_RATESetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryCOMMENT: TStringField[8]
@@ -246,13 +225,13 @@ inherited PenetrationForm: TPenetrationForm
     end
   end
   inherited AccuDataSource: TDataSource
-    top = 200
-  end
-  inherited ZReadOnlyQuerySiteType: TZReadOnlyQuery
-    left = 392
-    top = 96
+    Top = 200
   end
   inherited TypeDataSource: TDataSource
-    top = 248
+    Top = 248
+  end
+  inherited ZReadOnlyQuerySiteType: TZReadOnlyQuery
+    Left = 392
+    Top = 96
   end
 end

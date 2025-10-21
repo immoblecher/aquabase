@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -120,13 +120,14 @@ type
     EditDATE_ENTRY: TDBEdit;
     EditDATE_UPDTD: TDBEdit;
     SiteTable: TZTable;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     procedure DBGridMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormActivate(Sender: TObject);
     procedure LinkedTableAfterOpen(DataSet: TDataSet);
+    procedure LinkedTableCAPSSetText(Sender: TField; const aText: string);
     procedure ProjManDataSourceDataChange(Sender: TObject; Field: TField);
     procedure ProjManTableBeforePost(DataSet: TDataset);
     procedure LinkedTableNewRecord(DataSet: TDataset);
@@ -179,7 +180,7 @@ uses VARINIT, Lookup, strdatetime, selectSiteID, MainDataModule;
 
 procedure TProjManForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, True);
   ProjManTable.Open;
   LinkedTable.Connection := DataModuleMain.ZConnectionDB;
@@ -271,6 +272,15 @@ end;
 procedure TProjManForm.LinkedTableAfterOpen(DataSet: TDataSet);
 begin
   LinkedDataSource.AutoEdit := AutoEditData;
+end;
+
+procedure TProjManForm.LinkedTableCAPSSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TProjManForm.ProjManDataSourceDataChange(Sender: TObject;

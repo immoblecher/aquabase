@@ -1,8 +1,8 @@
 object ProfilingForm: TProfilingForm
   Tag = 129
-  Left = 622
+  Left = 2647
   Height = 393
-  Top = 259
+  Top = 344
   Width = 576
   ActiveControl = CloseBitBtn
   Caption = 'Ground Geophysics - Profiling'
@@ -46,9 +46,10 @@ object ProfilingForm: TProfilingForm
   OnClose = FormClose
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
+  OnShow = FormShow
   Position = poDefaultSizeOnly
-  SessionProperties = 'Left;Top;Width;Height'
-  LCLVersion = '2.0.12.0'
+  SessionProperties = 'Height;Left;Top;Width;EditResults.Text'
+  LCLVersion = '3.8.0.0'
   Visible = True
   object Panel1: TPanel
     Left = 0
@@ -58,6 +59,7 @@ object ProfilingForm: TProfilingForm
     Align = alTop
     ClientHeight = 41
     ClientWidth = 576
+    ParentBackground = False
     TabOrder = 0
     object GraphSpeedButton: TSpeedButton
       Left = 372
@@ -156,7 +158,7 @@ object ProfilingForm: TProfilingForm
       ChildSizing.ControlsPerLine = 100
       ClientHeight = 25
       ClientWidth = 156
-      DataSource = MagDataSource
+      DataSource = DataSource1
       Options = []
       ParentShowHint = False
       ShowHint = True
@@ -186,7 +188,7 @@ object ProfilingForm: TProfilingForm
     end
     object CurrentComboBox: TComboBox
       Left = 277
-      Height = 25
+      Height = 29
       Top = 8
       Width = 91
       Font.Color = clWindowText
@@ -197,32 +199,33 @@ object ProfilingForm: TProfilingForm
         'Current Site'
         'Curr. Traverse'
       )
-      OnChange = CurrentComboBoxChange
       ParentFont = False
       Style = csDropDownList
       TabOrder = 4
+      OnChange = CurrentComboBoxChange
     end
   end
-  object Panel3: TPanel
+  object Panel2: TPanel
     Left = 0
-    Height = 352
-    Top = 41
+    Height = 242
+    Top = 151
     Width = 576
-    Align = alClient
-    Alignment = taLeftJustify
-    BevelInner = bvLowered
-    BorderWidth = 4
-    ClientHeight = 352
+    Align = alBottom
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BevelOuter = bvNone
+    Caption = 'Panel2'
+    ClientHeight = 242
     ClientWidth = 576
+    ParentBackground = False
     TabOrder = 1
     object SitingLabel: TLabel
-      Left = 12
-      Height = 11
-      Top = 118
-      Width = 116
+      Left = 6
+      Height = 16
+      Top = 2
+      Width = 117
       Caption = 'Profiling Information'
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
       ParentColor = False
@@ -230,552 +233,689 @@ object ProfilingForm: TProfilingForm
       ParentShowHint = False
       ShowHint = True
     end
-    object Label1: TLabel
-      Left = 415
-      Height = 10
-      Top = 113
-      Width = 86
-      Alignment = taRightJustify
-      Anchors = [akTop, akRight]
-      Caption = 'Default spacing:'
-      ParentColor = False
-    end
-    object SpacingSpinEdit: TSpinEdit
-      Left = 508
-      Height = 26
-      Top = 108
-      Width = 54
-      Alignment = taRightJustify
-      Anchors = [akTop, akRight]
-      AutoSize = False
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Increment = 2
-      MaxValue = 1000
-      MinValue = 1
-      ParentFont = False
-      TabOrder = 0
-      Value = 10
-    end
     object ProfilePageControl: TPageControl
-      Left = 6
-      Height = 210
-      Top = 136
-      Width = 564
+      Left = 0
+      Height = 193
+      Top = 20
+      Width = 576
       ActivePage = Magnetics
       Align = alBottom
       Anchors = [akTop, akLeft, akRight, akBottom]
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -11
       Font.Name = 'MS Sans Serif'
       ParentFont = False
       TabIndex = 0
-      TabOrder = 1
+      TabOrder = 0
       OnChange = ProfilePageControlChange
+      OnEnter = ProfilePageControlEnter
       object Magnetics: TTabSheet
+        Tag = 1
         Caption = 'Magnetics'
-        ClientHeight = 183
-        ClientWidth = 554
-        object MagDBGrid: TDBGrid
+        ClientHeight = 163
+        ClientWidth = 566
+        object DBGrid1: TDBGrid
+          Tag = 1
           Left = 0
-          Height = 183
+          Height = 163
           Top = 0
-          Width = 554
+          Width = 566
           Align = alClient
           AutoFillColumns = True
           Color = clWindow
           Columns = <>
-          DataSource = MagDataSource
-          Scrollbars = ssAutoBoth
+          DataSource = DataSource1
+          Scrollbars = ssAutoVertical
           TabOrder = 0
           TitleFont.Color = clWindowText
           TitleFont.Height = -12
           TitleFont.Name = 'MS Sans Serif'
-          OnEnter = MagDBGridEnter
-          OnExit = MagDBGridExit
-          OnKeyDown = MagDBGridKeyDown
+          OnEnter = DBGridEnter
+          OnExit = DBGridExit
+          OnKeyDown = DBGridKeyDown
         end
       end
       object EM34: TTabSheet
+        Tag = 2
         Caption = 'EM-34'
-        ClientHeight = 183
-        ClientWidth = 554
-        object EMDBGrid: TDBGrid
+        ClientHeight = 163
+        ClientWidth = 566
+        object DBGrid2: TDBGrid
+          Tag = 2
           Left = 0
-          Height = 181
+          Height = 163
           Top = 0
-          Width = 554
+          Width = 566
           Align = alClient
           AutoFillColumns = True
           Color = clWindow
           Columns = <>
-          DataSource = EMDataSource
-          Scrollbars = ssAutoBoth
+          DataSource = DataSource2
+          Scrollbars = ssAutoVertical
           TabOrder = 0
           TitleFont.Color = clWindowText
           TitleFont.Height = -12
           TitleFont.Name = 'MS Sans Serif'
-          OnEnter = EMDBGridEnter
-          OnKeyDown = EMDBGridKeyDown
+          OnEnter = DBGridEnter
+          OnExit = DBGridExit
+          OnKeyDown = DBGridKeyDown
         end
       end
       object Genie: TTabSheet
+        Tag = 3
         Caption = 'Genie'
-        ClientHeight = 183
-        ClientWidth = 554
-        object GenieDBGrid: TDBGrid
+        ClientHeight = 163
+        ClientWidth = 566
+        object DBGrid3: TDBGrid
+          Tag = 3
           Left = 0
-          Height = 181
+          Height = 163
           Top = 0
-          Width = 554
+          Width = 566
           Align = alClient
           AutoFillColumns = True
           Color = clWindow
           Columns = <>
-          DataSource = GenieDataSource
-          Scrollbars = ssAutoBoth
+          DataSource = DataSource3
+          Scrollbars = ssAutoVertical
           TabOrder = 0
           TitleFont.Color = clWindowText
           TitleFont.Height = -12
           TitleFont.Name = 'MS Sans Serif'
-          OnEnter = GenieDBGridEnter
-          OnKeyDown = GenieDBGridKeyDown
+          OnEnter = DBGridEnter
+          OnExit = DBGridExit
+          OnKeyDown = DBGridKeyDown
         end
       end
       object Resistivity: TTabSheet
+        Tag = 4
         Caption = 'Resistivity'
-        ClientHeight = 183
-        ClientWidth = 554
-        object ResDBGrid: TDBGrid
+        ClientHeight = 163
+        ClientWidth = 566
+        object DBGrid4: TDBGrid
+          Tag = 4
           Left = 0
-          Height = 181
+          Height = 163
           Top = 0
-          Width = 554
+          Width = 566
           Align = alClient
           AutoFillColumns = True
           Color = clWindow
           Columns = <>
-          DataSource = ResDataSource
-          Scrollbars = ssAutoBoth
+          DataSource = DataSource4
+          Scrollbars = ssAutoVertical
           TabOrder = 0
           TitleFont.Color = clWindowText
           TitleFont.Height = -12
           TitleFont.Name = 'MS Sans Serif'
-          OnEnter = ResDBGridEnter
-          OnKeyDown = ResDBGridKeyDown
+          OnEnter = DBGridEnter
+          OnExit = DBGridExit
+          OnKeyDown = DBGridKeyDown
+        end
+      end
+      object VLFTabSheet: TTabSheet
+        Tag = 5
+        Caption = 'VLF'
+        ClientHeight = 163
+        ClientWidth = 566
+        ImageIndex = 5
+        object DBGrid5: TDBGrid
+          Tag = 5
+          Left = 0
+          Height = 163
+          Top = 0
+          Width = 566
+          Align = alClient
+          AutoFillColumns = True
+          Color = clWindow
+          Columns = <>
+          DataSource = DataSource5
+          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
+          Scrollbars = ssAutoVertical
+          TabOrder = 0
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -12
+          TitleFont.Name = 'MS Sans Serif'
+          OnEnter = DBGridEnter
+          OnExit = DBGridExit
+          OnKeyDown = DBGridKeyDown
+        end
+      end
+      object GraviTabSheet: TTabSheet
+        Tag = 6
+        Caption = 'Gravimetry'
+        ClientHeight = 163
+        ClientWidth = 566
+        object DBGrid6: TDBGrid
+          Tag = 6
+          Left = 0
+          Height = 163
+          Top = 0
+          Width = 566
+          Align = alClient
+          AutoFillColumns = True
+          Color = clWindow
+          Columns = <>
+          DataSource = DataSource6
+          Scrollbars = ssAutoVertical
+          TabOrder = 0
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -12
+          TitleFont.Name = 'MS Sans Serif'
+          OnEnter = DBGridEnter
+          OnExit = DBGridExit
+          OnKeyDown = DBGridKeyDown
         end
       end
       object TabSheet1: TTabSheet
-        Caption = 'VLF'
-        ClientHeight = 183
-        ClientWidth = 554
-        ImageIndex = 5
-        object VLFDBGrid: TDBGrid
-          Left = 0
-          Height = 181
-          Top = 0
-          Width = 554
-          Align = alClient
-          AutoFillColumns = True
-          Color = clWindow
-          Columns = <>
-          DataSource = VLFDataSource
-          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns]
-          Scrollbars = ssAutoBoth
-          TabOrder = 0
-          TitleFont.Color = clWindowText
-          TitleFont.Height = -12
-          TitleFont.Name = 'MS Sans Serif'
-          OnEnter = VLFDBGridEnter
-          OnKeyDown = VLFDBGridKeyDown
-        end
-      end
-      object TabSheetRecSites: TTabSheet
         Caption = 'Recommended Sites'
-        ClientHeight = 183
-        ClientWidth = 554
-        ImageIndex = 4
-        object RecDBGrid: TDBGrid
+        ClientHeight = 163
+        ClientWidth = 566
+        object DBGrid7: TDBGrid
           Left = 0
-          Height = 181
+          Height = 163
           Top = 0
-          Width = 554
+          Width = 566
           Align = alClient
           Color = clWindow
           Columns = <>
-          DataSource = RecSitesDataSource
-          Scrollbars = ssAutoBoth
+          DataSource = DataSource7
+          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
+          Scrollbars = ssAutoVertical
+          ShowHint = True
           TabOrder = 0
-          TitleFont.Color = clWindowText
-          TitleFont.Height = -12
-          TitleFont.Name = 'MS Sans Serif'
-          OnColEnter = RecDBGridColEnter
-          OnDblClick = RecDBGridDblClick
-          OnEnter = RecDBGridEnter
-          OnKeyDown = RecDBGridKeyDown
+          OnColEnter = DBGrid7ColEnter
+          OnDblClick = DBGrid7DblClick
+          OnEnter = DBGrid7Enter
+          OnExit = DBGridExit
+          OnGetCellHint = DBGrid7GetCellHint
+          OnKeyDown = DBGridKeyDown
         end
       end
     end
-    object GroupBox1: TGroupBox
-      Left = 10
-      Height = 98
+    object Panel4: TPanel
+      Left = 0
+      Height = 27
+      Top = 215
+      Width = 576
+      Align = alBottom
+      BorderSpacing.Top = 2
+      BevelOuter = bvNone
+      ClientHeight = 27
+      ClientWidth = 576
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 1
+      object DetailNavigator: TDBNavigator
+        Left = 170
+        Height = 25
+        Top = 0
+        Width = 262
+        BeforeAction = DetailNavigatorBeforeAction
+        BevelOuter = bvNone
+        ChildSizing.EnlargeHorizontal = crsScaleChilds
+        ChildSizing.EnlargeVertical = crsScaleChilds
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclLeftToRightThenTopToBottom
+        ChildSizing.ControlsPerLine = 100
+        ClientHeight = 25
+        ClientWidth = 262
+        DataSource = DataSource1
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        OnClick = DetailNavigatorClick
+        Options = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        Images = DataModuleMain.ImageListNavs
+      end
+      object RecordText: TStaticText
+        Left = 0
+        Height = 21
+        Top = 6
+        Width = 164
+        Align = alLeft
+        BorderSpacing.Top = 6
+        Caption = 'Record'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        ParentFont = False
+        TabOrder = 1
+      end
+      object EditResults: TEdit
+        Tag = 500
+        Left = 511
+        Height = 21
+        Top = 3
+        Width = 62
+        HelpContext = 32
+        Align = alRight
+        Alignment = taRightJustify
+        AutoSize = False
+        BorderSpacing.Around = 3
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        NumbersOnly = True
+        ParentFont = False
+        TabOrder = 2
+        Text = '500'
+        OnEditingDone = EditResultsEditingDone
+      end
+      object StaticText1: TStaticText
+        Left = 466
+        Height = 21
+        Top = 6
+        Width = 42
+        Align = alRight
+        Alignment = taRightJustify
+        Anchors = [akTop, akRight]
+        AutoSize = True
+        BorderSpacing.Top = 6
+        Caption = 'Results:'
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        ParentFont = False
+        TabOrder = 3
+      end
+    end
+    object Label1: TLabel
+      Left = 417
+      Height = 16
       Top = 8
-      Width = 558
-      Anchors = [akTop, akLeft, akRight]
-      Caption = 'Geophysical Traverse Information:'
-      ClientHeight = 84
-      ClientWidth = 556
+      Width = 84
+      Alignment = taRightJustify
+      Anchors = [akTop, akRight]
+      Caption = 'Default spacing:'
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object SpacingSpinEdit: TSpinEditEx
+      Left = 508
+      Height = 22
+      Top = 2
+      Width = 60
+      AutoSize = False
+      Anchors = [akTop, akRight]
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 2
+      NullValue = 0
+      Value = 10
+    end
+  end
+  object GroupBox1: TGroupBox
+    Left = 6
+    Height = 100
+    Top = 46
+    Width = 564
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Geophysical Traverse Information:'
+    ClientHeight = 83
+    ClientWidth = 562
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    PopupMenu = PopupMenu1
+    TabOrder = 2
+    OnClick = GroupBox1Click
+    object Label16: TLabel
+      Left = 6
+      Height = 16
+      Top = 0
+      Width = 90
+      Caption = '&Traverse Number'
+      FocusControl = EditTRAV_NR
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label17: TLabel
+      Left = 136
+      Height = 16
+      Top = 0
+      Width = 52
+      Caption = 'Site &Name'
+      FocusControl = EditSITE_NAME
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label18: TLabel
+      Left = 400
+      Height = 16
+      Top = 0
+      Width = 69
+      Caption = '&Siting Leader'
+      FocusControl = EditSITING_LEAD
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object X_CoordLabel: TLabel
+      Left = 6
+      Height = 16
+      Top = 40
+      Width = 70
+      Caption = 'L&ongitude [°]'
+      FocusControl = EditX_Coord
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Y_CoordLabel: TLabel
+      Left = 86
+      Height = 16
+      Top = 40
+      Width = 59
+      Caption = '&Latitude [°]'
+      FocusControl = EditY_Coord
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object LongitudeLabel: TLabel
+      Left = 164
+      Height = 16
+      Top = 40
+      Width = 47
+      Caption = '&Direction'
+      FocusControl = EditDIRECTION
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object LengthLabel: TLabel
+      Left = 220
+      Height = 16
+      Top = 40
+      Width = 58
+      Caption = '&Length [m]'
+      FocusControl = EditLENGTH
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object CollarLabel: TLabel
+      Left = 284
+      Height = 16
+      Top = 40
+      Width = 64
+      Caption = 'Date &started'
+      FocusControl = EditDATE_START
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object DepthLabel: TLabel
+      Left = 352
+      Height = 16
+      Top = 40
+      Width = 60
+      Caption = 'Date &ended'
+      FocusControl = EditDATE_END
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 420
+      Height = 16
+      Top = 40
+      Width = 56
+      Caption = 'Date enter.'
+      FocusControl = EditDATE_END
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label26: TLabel
+      Left = 488
+      Height = 16
+      Top = 40
+      Width = 62
+      Caption = 'Date updtd.'
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object EditTRAV_NR: TDBEdit
+      Left = 6
+      Height = 21
+      Top = 15
+      Width = 120
+      DataField = 'TRAV_NR'
+      DataSource = TraverseDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Enabled = False
       Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      Font.Style = [fsBold]
+      MaxLength = 0
       ParentFont = False
-      PopupMenu = PopupMenu1
+      TabOrder = 0
+    end
+    object EditSITE_NAME: TDBEdit
+      Left = 136
+      Height = 21
+      Top = 15
+      Width = 260
+      DataField = 'SITE_NAME'
+      DataSource = TraverseDataSource
+      AutoSize = False
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 1
+      OnClick = EditSITE_NAMEClick
+    end
+    object EditSITING_LEAD: TDBEdit
+      Left = 400
+      Height = 21
+      Top = 15
+      Width = 158
+      DataField = 'SITE_LEAD'
+      DataSource = TraverseDataSource
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = False
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
       TabOrder = 2
-      OnClick = GroupBox1Click
-      object Label16: TLabel
-        Left = 8
-        Height = 11
-        Top = 0
-        Width = 92
-        Caption = '&Traverse Number'
-        FocusControl = EditTRAV_NR
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        ParentColor = False
-        ParentFont = False
-      end
-      object Label17: TLabel
-        Left = 124
-        Height = 11
-        Top = 0
-        Width = 55
-        Caption = 'Site &Name'
-        FocusControl = EditSITE_NAME
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        ParentColor = False
-        ParentFont = False
-      end
-      object Label18: TLabel
-        Left = 400
-        Height = 11
-        Top = 0
-        Width = 70
-        Caption = '&Siting Leader'
-        FocusControl = EditSITING_LEAD
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        ParentColor = False
-        ParentFont = False
-      end
-      object X_CoordLabel: TLabel
-        Left = 8
-        Height = 11
-        Top = 40
-        Width = 67
-        Caption = 'L&ongitude [°]'
-        FocusControl = EditX_Coord
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        ParentColor = False
-        ParentFont = False
-      end
-      object Y_CoordLabel: TLabel
-        Left = 82
-        Height = 11
-        Top = 40
-        Width = 58
-        Caption = '&Latitude [°]'
-        FocusControl = EditY_Coord
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        ParentColor = False
-        ParentFont = False
-      end
-      object LongitudeLabel: TLabel
-        Left = 156
-        Height = 11
-        Top = 40
-        Width = 45
-        Caption = '&Direction'
-        FocusControl = EditDIRECTION
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        ParentColor = False
-        ParentFont = False
-      end
-      object LengthLabel: TLabel
-        Left = 224
-        Height = 11
-        Top = 40
-        Width = 54
-        Caption = '&Length [m]'
-        FocusControl = EditLENGTH
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        ParentColor = False
-        ParentFont = False
-      end
-      object CollarLabel: TLabel
-        Left = 290
-        Height = 11
-        Top = 40
-        Width = 63
-        Caption = 'Date &started'
-        FocusControl = EditDATE_START
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        ParentColor = False
-        ParentFont = False
-      end
-      object DepthLabel: TLabel
-        Left = 356
-        Height = 11
-        Top = 40
-        Width = 59
-        Caption = 'Date &ended'
-        FocusControl = EditDATE_END
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        ParentColor = False
-        ParentFont = False
-      end
-      object Label2: TLabel
-        Left = 422
-        Height = 11
-        Top = 40
-        Width = 55
-        Caption = 'Date enter.'
-        FocusControl = EditDATE_END
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        ParentColor = False
-        ParentFont = False
-      end
-      object Label26: TLabel
-        Left = 486
-        Height = 11
-        Top = 40
-        Width = 60
-        Caption = 'Date updtd.'
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        ParentColor = False
-        ParentFont = False
-      end
-      object EditTRAV_NR: TDBEdit
-        Left = 8
-        Height = 21
-        Top = 15
-        Width = 110
-        DataField = 'TRAV_NR'
-        DataSource = TraverseDataSource
-        AutoSize = False
-        CharCase = ecUppercase
-        Enabled = False
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        MaxLength = 0
-        ParentFont = False
-        TabOrder = 0
-      end
-      object EditSITE_NAME: TDBEdit
-        Left = 124
-        Height = 21
-        Top = 15
-        Width = 272
-        DataField = 'SITE_NAME'
-        DataSource = TraverseDataSource
-        AutoSize = False
-        CharCase = ecUppercase
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        MaxLength = 0
-        ParentFont = False
-        TabOrder = 1
-        OnClick = EditSITE_NAMEClick
-      end
-      object EditSITING_LEAD: TDBEdit
-        Left = 400
-        Height = 21
-        Top = 15
-        Width = 152
-        DataField = 'SITE_LEAD'
-        DataSource = TraverseDataSource
-        Anchors = [akTop, akLeft, akRight]
-        AutoSize = False
-        CharCase = ecUppercase
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        MaxLength = 0
-        ParentFont = False
-        TabOrder = 2
-        OnClick = EditSITE_NAMEClick
-      end
-      object EditX_Coord: TDBEdit
-        Left = 8
-        Height = 21
-        Top = 55
-        Width = 66
-        DataField = 'LONGITUDE'
-        DataSource = TraverseDataSource
-        AutoSize = False
-        CharCase = ecUppercase
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        MaxLength = 0
-        ParentFont = False
-        TabOrder = 3
-        OnClick = EditSITE_NAMEClick
-      end
-      object EditY_Coord: TDBEdit
-        Left = 82
-        Height = 21
-        Top = 55
-        Width = 66
-        DataField = 'LATITUDE'
-        DataSource = TraverseDataSource
-        AutoSize = False
-        CharCase = ecUppercase
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        MaxLength = 0
-        ParentFont = False
-        TabOrder = 4
-        OnClick = EditSITE_NAMEClick
-      end
-      object EditDIRECTION: TDBEdit
-        Left = 156
-        Height = 21
-        Top = 55
-        Width = 60
-        DataField = 'DIRECTION'
-        DataSource = TraverseDataSource
-        AutoSize = False
-        CharCase = ecUppercase
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        MaxLength = 0
-        ParentFont = False
-        TabOrder = 5
-        OnClick = EditSITE_NAMEClick
-      end
-      object EditLENGTH: TDBEdit
-        Left = 224
-        Height = 21
-        Top = 55
-        Width = 57
-        DataField = 'LENGTH'
-        DataSource = TraverseDataSource
-        AutoSize = False
-        CharCase = ecUppercase
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        MaxLength = 0
-        ParentFont = False
-        TabOrder = 6
-        OnClick = EditSITE_NAMEClick
-      end
-      object EditDATE_START: TDBEdit
-        Left = 290
-        Height = 21
-        Top = 55
-        Width = 57
-        DataField = 'DATE_START'
-        DataSource = TraverseDataSource
-        AutoSize = False
-        CharCase = ecUppercase
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        MaxLength = 0
-        ParentFont = False
-        TabOrder = 7
-        OnClick = EditSITE_NAMEClick
-      end
-      object EditDATE_END: TDBEdit
-        Left = 356
-        Height = 21
-        Top = 55
-        Width = 57
-        DataField = 'DATE_END'
-        DataSource = TraverseDataSource
-        AutoSize = False
-        CharCase = ecUppercase
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        MaxLength = 0
-        ParentFont = False
-        TabOrder = 8
-        OnClick = EditSITE_NAMEClick
-      end
-      object EditDATE_ENTRY: TDBEdit
-        Left = 422
-        Height = 21
-        Top = 55
-        Width = 57
-        DataField = 'DATE_ENTER'
-        DataSource = TraverseDataSource
-        ReadOnly = True
-        AutoSize = False
-        CharCase = ecUppercase
-        Enabled = False
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        MaxLength = 0
-        ParentFont = False
-        TabOrder = 9
-        OnClick = EditSITE_NAMEClick
-      end
-      object EditDATE_UPDTD: TDBEdit
-        Cursor = crArrow
-        Left = 486
-        Height = 21
-        Top = 55
-        Width = 63
-        DataField = 'DATE_UPDTD'
-        DataSource = TraverseDataSource
-        ReadOnly = True
-        Anchors = [akTop, akLeft, akRight]
-        AutoSize = False
-        CharCase = ecUppercase
-        Enabled = False
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'MS Sans Serif'
-        MaxLength = 0
-        ParentFont = False
-        TabOrder = 10
-        TabStop = False
-        OnClick = EditSITE_NAMEClick
-      end
+      OnClick = EditSITE_NAMEClick
+    end
+    object EditX_Coord: TDBEdit
+      Left = 6
+      Height = 21
+      Top = 55
+      Width = 74
+      DataField = 'LONGITUDE'
+      DataSource = TraverseDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 3
+      OnClick = EditSITE_NAMEClick
+    end
+    object EditY_Coord: TDBEdit
+      Left = 86
+      Height = 21
+      Top = 55
+      Width = 74
+      DataField = 'LATITUDE'
+      DataSource = TraverseDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 4
+      OnClick = EditSITE_NAMEClick
+    end
+    object EditDIRECTION: TDBEdit
+      Left = 164
+      Height = 21
+      Top = 55
+      Width = 50
+      DataField = 'DIRECTION'
+      DataSource = TraverseDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 5
+      OnClick = EditSITE_NAMEClick
+    end
+    object EditLENGTH: TDBEdit
+      Left = 220
+      Height = 21
+      Top = 55
+      Width = 57
+      DataField = 'LENGTH'
+      DataSource = TraverseDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 6
+      OnClick = EditSITE_NAMEClick
+    end
+    object EditDATE_START: TDBEdit
+      Left = 284
+      Height = 21
+      Top = 55
+      Width = 66
+      DataField = 'DATE_START'
+      DataSource = TraverseDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 7
+      OnClick = EditSITE_NAMEClick
+    end
+    object EditDATE_END: TDBEdit
+      Left = 352
+      Height = 21
+      Top = 55
+      Width = 66
+      DataField = 'DATE_END'
+      DataSource = TraverseDataSource
+      AutoSize = False
+      CharCase = ecUppercase
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 8
+      OnClick = EditSITE_NAMEClick
+    end
+    object EditDATE_ENTRY: TDBEdit
+      Left = 420
+      Height = 21
+      Top = 55
+      Width = 66
+      DataField = 'DATE_ENTER'
+      DataSource = TraverseDataSource
+      ReadOnly = True
+      AutoSize = False
+      CharCase = ecUppercase
+      Enabled = False
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 9
+      OnClick = EditSITE_NAMEClick
+    end
+    object EditDATE_UPDTD: TDBEdit
+      Cursor = crArrow
+      Left = 488
+      Height = 21
+      Top = 55
+      Width = 70
+      DataField = 'DATE_UPDTD'
+      DataSource = TraverseDataSource
+      ReadOnly = True
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = False
+      CharCase = ecUppercase
+      Enabled = False
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      TabOrder = 10
+      TabStop = False
+      OnClick = EditSITE_NAMEClick
     end
   end
   object TraverseTable: TZTable
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'TRAV_NR'
+    Connection = DataModuleMain.ZConnectionDB
     BeforePost = TraverseTableBeforePost
     OnNewRecord = TraverseTableNewRecord
     TableName = 'profilng'
@@ -912,11 +1052,11 @@ object ProfilingForm: TProfilingForm
     Top = 56
   end
   object MagTable: TZTable
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'TRAV_NR,STATION'
     AfterOpen = MagTableAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     BeforeInsert = GeophysicsTableBeforeInsert
-    OnNewRecord = MagTableNewRecord
+    OnNewRecord = TableNewRecord
     TableName = 'grndmagn'
     MasterFields = 'TRAV_NR'
     MasterSource = TraverseDataSource
@@ -937,7 +1077,7 @@ object ProfilingForm: TProfilingForm
       Size = 16
     end
     object MagTablePEG_NR: TStringField
-      DisplayLabel = 'Geoph. Peg Nr.'
+      DisplayLabel = 'Peg Number'
       DisplayWidth = 18
       FieldKind = fkData
       FieldName = 'PEG_NR'
@@ -981,16 +1121,16 @@ object ProfilingForm: TProfilingForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = GeophTableSetText
+      OnSetText = GeophTableCOMMENTSetText
       Size = 12
     end
   end
   object EMTable: TZTable
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'TRAV_NR,STATION,SPACING'
     AfterOpen = EMTableAfterOpen
-    BeforeInsert = EMTableBeforeInsert
-    OnNewRecord = EMTableNewRecord
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeInsert = GeophysicsTableBeforeInsert
+    OnNewRecord = TableNewRecord
     TableName = 'grndem34'
     MasterFields = 'TRAV_NR'
     MasterSource = TraverseDataSource
@@ -1069,7 +1209,7 @@ object ProfilingForm: TProfilingForm
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
-      Required = False
+      Required = True
     end
     object EMTableCOMMENT: TStringField
       DisplayLabel = 'Comment'
@@ -1081,16 +1221,16 @@ object ProfilingForm: TProfilingForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = GeophTableSetText
+      OnSetText = GeophTableCOMMENTSetText
       Size = 12
     end
   end
   object GenieTable: TZTable
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'TRAV_NR,STATION,SPACING'
     AfterOpen = GenieTableAfterOpen
-    BeforeInsert = GenieTableBeforeInsert
-    OnNewRecord = GenieTableNewRecord
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeInsert = GeophysicsTableBeforeInsert
+    OnNewRecord = TableNewRecord
     TableName = 'grndgeni'
     MasterFields = 'TRAV_NR'
     MasterSource = TraverseDataSource
@@ -1154,7 +1294,7 @@ object ProfilingForm: TProfilingForm
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
-      Required = False
+      Required = True
     end
     object GenieTableCOMMENT: TStringField
       DisplayLabel = 'Comment'
@@ -1166,16 +1306,16 @@ object ProfilingForm: TProfilingForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = GeophTableSetText
+      OnSetText = GeophTableCOMMENTSetText
       Size = 12
     end
   end
   object ResTable: TZTable
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'TRAV_NR,STATION'
     AfterOpen = ResTableAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     BeforeInsert = GeophysicsTableBeforeInsert
-    OnNewRecord = ResTableNewRecord
+    OnNewRecord = TableNewRecord
     TableName = 'grndresi'
     MasterFields = 'TRAV_NR'
     MasterSource = TraverseDataSource
@@ -1240,41 +1380,45 @@ object ProfilingForm: TProfilingForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = GeophTableSetText
+      OnSetText = GeophTableCOMMENTSetText
       Size = 12
     end
   end
-  object MagDataSource: TDataSource
+  object DataSource1: TDataSource
     AutoEdit = False
     DataSet = MagTable
+    OnDataChange = DataSourceDataChange
     Left = 32
     Top = 287
   end
-  object EMDataSource: TDataSource
+  object DataSource2: TDataSource
     AutoEdit = False
     DataSet = EMTable
+    OnDataChange = DataSourceDataChange
     Left = 104
     Top = 263
   end
-  object GenieDataSource: TDataSource
+  object DataSource3: TDataSource
     AutoEdit = False
     DataSet = GenieTable
+    OnDataChange = DataSourceDataChange
     Left = 184
     Top = 287
   end
-  object ResDataSource: TDataSource
+  object DataSource4: TDataSource
     AutoEdit = False
     DataSet = ResTable
+    OnDataChange = DataSourceDataChange
     Left = 264
     Top = 263
   end
   object FindTable: TZTable
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'SITE_ID_NR'
+    Connection = DataModuleMain.ZConnectionDB
     TableName = 'recgeoph'
     IndexFieldNames = 'SITE_ID_NR Asc'
     Left = 384
-    Top = 152
+    Top = 128
     object FindTableTRAV_NR: TStringField
       DisplayWidth = 16
       FieldKind = fkData
@@ -1332,9 +1476,9 @@ object ProfilingForm: TProfilingForm
     end
   end
   object RecSitesTable: TZTable
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'TRAV_NR,PRIORITY'
     AfterOpen = MagTableAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     BeforeInsert = RecSitesTableBeforeInsert
     AfterPost = RecSitesTableAfterPost
     AfterDelete = RecSitesTableAfterPost
@@ -1413,6 +1557,7 @@ object ProfilingForm: TProfilingForm
       Size = 8
     end
     object RecSitesTableSITE_ID_NR: TStringField
+      Alignment = taCenter
       DisplayLabel = 'Site identifier'
       DisplayWidth = 14
       FieldKind = fkData
@@ -1440,19 +1585,19 @@ object ProfilingForm: TProfilingForm
       Size = 12
     end
   end
-  object RecSitesDataSource: TDataSource
+  object DataSource6: TDataSource
     AutoEdit = False
-    DataSet = RecSitesTable
-    OnDataChange = RecSitesDataSourceDataChange
-    Left = 504
-    Top = 279
+    DataSet = ZQueryGravi
+    OnDataChange = DataSource6DataChange
+    Left = 424
+    Top = 264
   end
   object VLFTable: TZTable
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'TRAV_NR,STATION'
     AfterOpen = VLFTableAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     BeforeInsert = GeophysicsTableBeforeInsert
-    OnNewRecord = VLFTableNewRecord
+    OnNewRecord = TableNewRecord
     TableName = 'grndvlfr'
     MasterFields = 'TRAV_NR'
     MasterSource = TraverseDataSource
@@ -1545,28 +1690,116 @@ object ProfilingForm: TProfilingForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = GeophTableSetText
+      OnSetText = GeophTableCOMMENTSetText
       Size = 12
     end
   end
-  object VLFDataSource: TDataSource
+  object DataSource5: TDataSource
     AutoEdit = False
     DataSet = VLFTable
+    OnDataChange = DataSourceDataChange
     Left = 344
     Top = 287
   end
   object SiteTable: TZTable
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'SITE_ID_NR'
     BeforeOpen = SiteTableBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     TableName = 'basicinf'
     IndexFieldNames = 'SITE_ID_NR Asc'
     Left = 280
-    Top = 152
+    Top = 128
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
     Left = 368
     Top = 40
+  end
+  object ZQueryGravi: TZQuery
+    SortedFields = 'TRAV_NR,STATION'
+    AfterOpen = ZQueryGraviAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
+    BeforeInsert = GeophysicsTableBeforeInsert
+    OnNewRecord = TableNewRecord
+    SQL.Strings = (
+      'SELECT * FROM grndgrav'
+    )
+    Params = <>
+    MasterFields = 'TRAV_NR'
+    MasterSource = TraverseDataSource
+    LinkedFields = 'TRAV_NR'
+    IndexFieldNames = 'TRAV_NR Asc,STATION Asc'
+    Left = 416
+    Top = 208
+    object ZQueryGraviTRAV_NR: TZRawCLobField
+      DisplayLabel = 'Traverse Nr.'
+      FieldKind = fkData
+      FieldName = 'TRAV_NR'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Visible = False
+      OnSetText = GeophTableSetText
+      BlobType = ftMemo
+      Transliterate = False
+    end
+    object ZQueryGraviPEG_NR: TStringField
+      DisplayLabel = 'Peg Number'
+      FieldKind = fkData
+      FieldName = 'PEG_NR'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = GeophTableSetText
+      Size = 10
+    end
+    object ZQueryGraviSTATION: TZInt64Field
+      DisplayLabel = 'Station'
+      FieldKind = fkData
+      FieldName = 'STATION'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ZQueryGraviREADING: TZDoubleField
+      DisplayLabel = 'Reading'
+      FieldKind = fkData
+      FieldName = 'READING'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 2
+    end
+    object ZQueryGraviCOMMENTS: TStringField
+      DisplayLabel = 'Comment'
+      FieldKind = fkData
+      FieldName = 'COMMENTS'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = GeophTableCOMMENTSetText
+      Size = 12
+    end
+  end
+  object DataSource7: TDataSource
+    DataSet = RecSitesTable
+    Left = 504
+    Top = 288
+  end
+  object DBMetadata: TZSQLMetadata
+    Connection = DataModuleMain.ZConnectionDB
+    MetadataType = mdTables
+    Left = 485
+    Top = 187
   end
 end

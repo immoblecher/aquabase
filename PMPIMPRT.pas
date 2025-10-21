@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -23,8 +23,8 @@ interface
 
 uses
   SysUtils, Classes, Graphics, Controls, Clipbrd, ZDataset, StdCtrls, Forms,
-  DBCtrls, DB, DBGrids, ExtCtrls, LCLType, Buttons, Menus, Dialogs, Spin,
-  XMLPropStorage, rxlookup;
+  DBCtrls, DB, DBGrids, ExtCtrls, LCLType, Buttons, Menus, Dialogs,
+  XMLPropStorage, EditBtn, DateTimePicker, SpinEx, rxlookup;
 
 type
 
@@ -32,6 +32,8 @@ type
 
   TPmpimprtForm = class(TForm)
     AccuDataSource: TDataSource;
+    DateTimePicker1: TDateTimePicker;
+    DateTimePicker2: TDateTimePicker;
     DBEditX: TDBEdit;
     DBEditY: TDBEdit;
     DBGrid: TDBGrid;
@@ -39,6 +41,8 @@ type
     GroupBox2: TGroupBox;
     GroupBox3: TGroupBox;
     Label11: TLabel;
+    Label3: TLabel;
+    Label6: TLabel;
     LinkedTableINFO_SOURC: TStringField;
     Panel1: TPanel;
     BasicinfDataSource: TDataSource;
@@ -78,12 +82,6 @@ type
     PmpigenTableTIME_START: TStringField;
     PmpigenTableDATE_END: TStringField;
     PmpigenTableTIME_END: TStringField;
-    GroupBox4: TGroupBox;
-    Label6: TLabel;
-    Label7: TLabel;
-    GroupBox5: TGroupBox;
-    Label8: TLabel;
-    Label9: TLabel;
     LinkedTableWATER_LEV: TFloatField;
     GroupBox6: TGroupBox;
     CheckBoxDD: TCheckBox;
@@ -93,6 +91,7 @@ type
     RxDBLookupComboAcc: TRxDBLookupCombo;
     RxDBLookupComboContr: TRxDBLookupCombo;
     RxDBLookupComboType: TRxDBLookupCombo;
+    SpinEditEx1: TSpinEditEx;
     WLLabel: TLabel;
     TypeDataSource: TDataSource;
     WLEdit: TEdit;
@@ -106,7 +105,7 @@ type
     EditFARM_NR: TDBEdit;
     Label18: TLabel;
     EditSITE_NAME: TDBEdit;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     Y_CoordLabel: TLabel;
     X_CoordLabel: TLabel;
     Label22: TLabel;
@@ -119,16 +118,12 @@ type
     Label25: TLabel;
     Label26: TLabel;
     EditDATE_UPDTD: TDBEdit;
-    DBEditDate: TDBEdit;
-    DBEditTime: TDBEdit;
-    DBEditDateEnd: TDBEdit;
-    DBEditTimeEnd: TDBEdit;
     MethTestDataSource: TDataSource;
     RepInstDataSource: TDataSource;
-    SpinEdit1: TSpinEdit;
     Label4: TLabel;
     Label10: TLabel;
     ImportQuery: TZQuery;
+    DateQuery: TZReadOnlyQuery;
     ZReadOnlyQueryMethTest: TZReadOnlyQuery;
     ZReadOnlyQueryMethTestDESCRIBE: TStringField;
     ZReadOnlyQueryMethTestSEARCH: TStringField;
@@ -147,6 +142,9 @@ type
     ZTablePumpTest: TZTable;
     procedure BasicinfDataSourceDataChange(Sender: TObject; Field: TField);
     procedure CheckBoxDDChange(Sender: TObject);
+    procedure DateTimePicker1Change(Sender: TObject);
+    procedure DateTimePickerEnter(Sender: TObject);
+    procedure DateTimePicker2Change(Sender: TObject);
     procedure EditKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure EditKeyDown(Sender: TObject; var Key: Word;
@@ -191,7 +189,9 @@ type
     procedure EditXChange(Sender: TObject);
     procedure EditKeyPress(Sender: TObject; var Key: char);
     procedure DBGridEnter(Sender: TObject);
+    procedure PmpigenTableAfterCancel(DataSet: TDataSet);
     procedure PmpigenTableAfterDelete(DataSet: TDataSet);
+    procedure PmpigenTableAfterPost(DataSet: TDataSet);
     procedure PmpigenTableBeforeEdit(DataSet: TDataSet);
     procedure PmpigenTableBeforePost(DataSet: TDataSet);
     procedure PmpigenTablePostError(DataSet: TDataSet; E: EDatabaseError;
@@ -210,8 +210,8 @@ type
       X, Y: Integer);
     procedure RxDBLookupComboTypeClick(Sender: TObject);
     procedure RxDBLookupComboBasicSelect(Sender: TObject);
-    procedure SpinEdit1Change(Sender: TObject);
-    procedure SpinEdit1Enter(Sender: TObject);
+    procedure SpinEditEx1Change(Sender: TObject);
+    procedure SpinEditEx1Enter(Sender: TObject);
     procedure WLEditExit(Sender: TObject);
     procedure PmpigenTableNewRecord(DataSet: TDataset);
     procedure LinkedTableWATER_LEVGetText(Sender: TField;
@@ -229,10 +229,6 @@ type
       var aText: String; DisplayText: Boolean);
     procedure PmpigenTableDEPTH_INTKSetText(Sender: TField;
       const aText: String);
-    procedure PmpigenTableDATE_STARTValidate(Sender: TField);
-    procedure PmpigenTableDATE_ENDValidate(Sender: TField);
-    procedure PmpigenTableTIME_STARTValidate(Sender: TField);
-    procedure PmpigenTableTIME_ENDValidate(Sender: TField);
     procedure DBEditDateExit(Sender: TObject);
     procedure DBEditTimeExit(Sender: TObject);
     procedure DBEditDateEndExit(Sender: TObject);
@@ -246,13 +242,14 @@ type
     PrevDateTime: TDateTime; //, PrevTime,
     PrevMethod, PrevStatus, PrevPiez: ShortString;
     PrevType, PrevMethD: ShortString;
-    ValidFound, PopupClosed, Validate: Boolean;
+    ValidFound, PopupClosed: Boolean;
     StaticWl: Double;
     JumpFieldNr: Byte;
     col, row: LongInt;
     SelFieldName: ShortString;
     TheActiveDBEdit: TDBEdit;
     TheActiveRxDB: TRxDBLookupCombo;
+    OldDateTime: TDateTime;
   public
     { public declarations }
   end;
@@ -264,11 +261,11 @@ implementation
 
 {$R *.lfm}
 
-uses VARINIT, Lookup, strdatetime, MainDataModule;
+uses VARINIT, lookup, strdatetime, MainDataModule;
 
 procedure TPmpimprtForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, False);
   //hardcode taborder
   EditCOLLAR_HI.TabOrder := 8;
@@ -281,7 +278,6 @@ begin
   ZReadOnlyQueryContractor.Open;
   ZReadOnlyQueryRepInst.Open;
   ZReadOnlyQueryMethTest.Open;
-  SpinEdit1.Hint := 'Time increment when adding new record. Change also ' + #13 + 'with <F11> for up or <F12> for down while in grid.';
   ValidFound := True;
 end;
 
@@ -425,6 +421,40 @@ begin
   LinkedTable.Refresh;
 end;
 
+procedure TPmpimprtForm.DateTimePicker1Change(Sender: TObject);
+begin
+  if DateTimePicker1.DateTime < DateTimePicker2.DateTime then
+  begin
+    if PmpigenTable.State IN [dsInsert, dsEdit] then
+    begin
+      PmpigenTableDATE_START.Value := FormatDateTime('YYYYMMDD', DateTimePicker1.Date);
+      PmpigenTableTIME_START.Value := FormatDateTime('hhnn', DateTimePicker1.Time);
+    end;
+    DateTimePicker2.MinDate := DateTimePicker1.Date;
+    OldDateTime := DateTimePicker1.DateTime;
+  end
+  else
+  begin
+    MessageDlg('Date/Time started must be before Date/Time ended!', mtError, [mbOK], 0);
+    DateTimePicker1.DateTime := OldDateTime;
+  end;
+end;
+
+procedure TPmpimprtForm.DateTimePickerEnter(Sender: TObject);
+begin
+  OldDateTime := DateTimePicker1.DateTime;
+  EditNavigator.DataSource := PmpigenDataSource;
+end;
+
+procedure TPmpimprtForm.DateTimePicker2Change(Sender: TObject);
+begin
+  if PmpigenTable.State IN [dsInsert, dsEdit] then
+  begin
+    PmpigenTableDATE_END.Value := FormatDateTime('YYYYMMDD', DateTimePicker2.Date);
+    PmpigenTableTIME_END.Value := FormatDateTime('hhnn', DateTimePicker2.Time);
+  end;
+end;
+
 procedure TPmpimprtForm.EditKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
@@ -506,16 +536,16 @@ begin
   if JumpFieldNr = 0 then
   begin
     Column.Color := clBtnFace;
-    JumpFieldNr := Column.Field.Index;
+    JumpFieldNr := Column.Index;
   end
   else
   begin
     for c := 0 to DBGrid.Columns.Count - 1 do //reset all to white
       DBGrid.Columns[c].Color := clWindow;
-    if Column.Field.Index <> JumpFieldNr then //set to grey
+    if Column.Index <> JumpFieldNr then //set to grey
     begin
       Column.Color := clBtnFace;
-      JumpFieldNr := Column.Field.Index;
+      JumpFieldNr := Column.Index;
     end
     else JumpFieldNr := 0;
   end;
@@ -745,7 +775,7 @@ begin
   CollarLabel.Caption := 'Co&llar [' + LengthUnit + ']';
   DepthLabel.Caption :=  'Dept&h [' + LengthUnit + ']';
   Groupbox1.Caption := 'Discharge Rate ' + DisUnit;
-  WLLabel.Caption := 'Static WL [' + LengthUnit + ']';
+  WLLabel.Caption := 'Static water lvl. [' + LengthUnit + ']';
   LabelDepth.Caption := 'Depth to intake [' + LengthUnit + ']';
   //set correct label sizes according to content (autosize not working properly)
   for i := 0 to ComponentCount-1 do
@@ -828,9 +858,28 @@ begin
 end;
 
 procedure TPmpimprtForm.FormShow(Sender: TObject);
+var
+  y, m, d, h, n: Word;
 begin
   if PmpigenTable.RecordCount = 0 then //clear the drawdown mode
-    CheckBoxDD.Checked := False;
+    CheckBoxDD.Checked := False
+  else //set date/time of DateTimePickers
+  begin
+    y := StrToInt(LeftStr(PmpigenTableDATE_START.Value, 4));
+    m := StrToInt(Copy(PmpigenTableDATE_START.Value, 5, 2));
+    d := StrToInt(RightStr(PmpigenTableDATE_START.Value, 2));
+    h := StrToInt(LeftStr(PmpigenTableTIME_START.Value, 2));
+    n := StrToInt(RightStr(PmpigenTableTIME_START.Value, 2));
+    DateTimePicker1.Date := EncodeDate(y, m, d);
+    DateTimePicker1.Time := EncodeTime(h, n, 0, 0);
+    y := StrToInt(LeftStr(PmpigenTableDATE_END.Value, 4));
+    m := StrToInt(Copy(PmpigenTableDATE_END.Value, 5, 2));
+    d := StrToInt(RightStr(PmpigenTableDATE_END.Value, 2));
+    h := StrToInt(LeftStr(PmpigenTableTIME_END.Value, 2));
+    n := StrToInt(RightStr(PmpigenTableTIME_END.Value, 2));
+    DateTimePicker2.Date := EncodeDate(y, m, d);
+    DateTimePicker2.Time := EncodeTime(h, n, 0, 0);
+  end;
   if LinkedTable.RecordCount > 0 then //go to the last record in the grid
   begin
     EditNavigator.DataSource := LinkedDataSource;
@@ -925,9 +974,9 @@ begin
   else
   begin
     LinkedTableTIME_MEAS.Value := FormatDateTime('hhnn', PrevDateTime
-                + 1/1440 * SpinEdit1.Value);
+                + 1/1440 * SpinEditEx1.Value);
     LinkedTableDATE_MEAS.Value := FormatDateTime('YYYYMMDD', PrevDateTime
-                + 1/1440 * SpinEdit1.Value);
+                + 1/1440 * SpinEditEx1.Value);
     LinkedTableTIME_SEC.Value := 0;
     LinkedTableMETH_MEAS.Value := PrevMethod;
     LinkedTableLEVEL_STAT.Value := PrevStatus;
@@ -935,10 +984,6 @@ begin
     LinkedTableDISCH_TYPE.Value := PrevType;
     LinkedTableMETH_MEASD.Value := PrevMethD;
   end;
-  if JumpFieldNr > 0 then
-    DBGrid.SelectedIndex := JumpFieldNr - 1
-  else
-    DBGrid.SelectedIndex := 0;
 end;
 
 procedure TPmpimprtForm.LinkedTableDISCH_RATEGetText(Sender: TField;
@@ -981,7 +1026,10 @@ end;
 procedure TPmpimprtForm.LinkedTableCOMMENTSetText(Sender: TField;
   const aText: String);
 begin
-  LinkedTableCOMMENT.Value := UpperCase(aText);
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TPmpimprtForm.LinkedTablePostError(DataSet: TDataSet;
@@ -1021,14 +1069,32 @@ begin
   end;
 end;
 
+procedure TPmpimprtForm.PmpigenTableAfterCancel(DataSet: TDataSet);
+begin
+  DateTimePicker1.ReadOnly := True;
+  DateTimePicker2.ReadOnly := True;
+end;
+
 procedure TPmpimprtForm.PmpigenTableAfterDelete(DataSet: TDataSet);
 begin
   LinkedTable.Refresh;
+  DateTimePicker1.Date := now;
+  DateTimePicker1.Time := StrToTime('06:00');
+  DateTimePicker2.Date := now;
+  DateTimePicker2.Time := StrToTime('12:00');
+end;
+
+procedure TPmpimprtForm.PmpigenTableAfterPost(DataSet: TDataSet);
+begin
+  Dataset.Refresh;
+  DateTimePicker1.ReadOnly := True;
+  DateTimePicker2.ReadOnly := True;
 end;
 
 procedure TPmpimprtForm.PmpigenTableBeforeEdit(DataSet: TDataSet);
 begin
-  Validate := True;
+  DateTimePicker1.ReadOnly := False;
+  DateTimePicker2.ReadOnly := False;
 end;
 
 procedure TPmpimprtForm.PmpigenTableBeforePost(DataSet: TDataSet);
@@ -1105,8 +1171,32 @@ begin
                Close;
              end;
            end;
-    VK_F11: SpinEdit1.Value := SpinEdit1.Value + SpinEdit1.Increment;
-    VK_F12: SpinEdit1.Value := SpinEdit1.Value - SpinEdit1.Increment;
+    VK_F11: SpinEditEx1.Value := SpinEditEx1.Value + SpinEditEx1.Increment;
+    VK_F12: SpinEditEx1.Value := SpinEditEx1.Value - SpinEditEx1.Increment;
+    VK_TAB: if not (ssShift in Shift) and (DBGrid.SelectedIndex = 10) and (LinkedTable.State IN [dsInsert, dsEdit]) then
+      LinkedTable.Post;
+    VK_RETURN: if (DBGrid.SelectedIndex = DBGrid.Columns.Count - 1) then //is at the last visible column
+               begin
+                 LinkedTable.Append;
+                 if JumpFieldNr > 0 then
+                   DBGrid.SelectedIndex := JumpFieldNr
+                 else
+                   DBGrid.SelectedIndex := 1;
+                 Key := 0;
+               end
+               else
+               if JumpFieldNr > 0 then
+               begin
+                 LinkedTable.Append;
+                 DBGrid.SelectedIndex := JumpFieldNr;
+                 Key := 0;
+               end;
+      VK_DOWN: if JumpFieldNr > 0 then
+               begin
+                 LinkedTable.Append;
+                 DBGrid.SelectedIndex := JumpFieldNr;
+                 Key := 0;
+               end;
   end; {of case}
 end;
 
@@ -1147,28 +1237,28 @@ begin
         (Sender as TRxDBLookupCombo).Text := (Sender as TRxDBLookupCombo).DataSource.DataSet.FieldByName((Sender as TRxDBLookupCombo).DataField).Value;
 end;
 
-procedure TPmpimprtForm.SpinEdit1Change(Sender: TObject);
+procedure TPmpimprtForm.SpinEditEx1Change(Sender: TObject);
 begin
-  if SpinEdit1.Value < 10 then
-    SpinEdit1.Increment := 1
+  if SpinEditEx1.Value < 10 then
+    SpinEditEx1.Increment := 1
   else
-  if SpinEdit1.Value < 100 then
-    SpinEdit1.Increment := 5
+  if SpinEditEx1.Value < 100 then
+    SpinEditEx1.Increment := 5
   else
-  if SpinEdit1.Value >= 100 then
-    SpinEdit1.Increment := 10;
+  if SpinEditEx1.Value >= 100 then
+    SpinEditEx1.Increment := 10;
 end;
 
-procedure TPmpimprtForm.SpinEdit1Enter(Sender: TObject);
+procedure TPmpimprtForm.SpinEditEx1Enter(Sender: TObject);
 begin
-  if SpinEdit1.Value < 10 then
-    SpinEdit1.Increment := 1
+  if SpinEditEx1.Value < 10 then
+    SpinEditEx1.Increment := 1
   else
-  if SpinEdit1.Value < 100 then
-    SpinEdit1.Increment := 5
+  if SpinEditEx1.Value < 100 then
+    SpinEditEx1.Increment := 5
   else
-  if SpinEdit1.Value >= 100 then
-    SpinEdit1.Increment := 10;
+  if SpinEditEx1.Value >= 100 then
+    SpinEditEx1.Increment := 10;
 end;
 
 procedure TPmpimprtForm.WLEditExit(Sender: TObject);
@@ -1188,14 +1278,18 @@ end;
 
 procedure TPmpimprtForm.PmpigenTableNewRecord(DataSet: TDataset);
 begin
-  Validate := False;
   PmpigenTableREP_INST.Value := DataModuleMain.BasicinfQueryREP_INST.Value;
-  PmpigenTableDATE_ENTRY.Value := FormatDateTime('YYYYMMDD', Date);
-  PmpigenTableDATE_START.Value := FormatDateTime('YYYYMMDD', Date);
+  DateTimePicker1.Date := now;
+  DateTimePicker1.Time := StrToTime('06:00');
+  DateTimePicker2.Date := now;
+  DateTimePicker2.Time := StrToTime('12:00');
+  DateTimePicker1.ReadOnly := False;
+  DateTimePicker2.ReadOnly := False;
+  PmpigenTableDATE_ENTRY.Value := FormatDateTime('YYYYMMDD', now);
+  PmpigenTableDATE_START.Value := FormatDateTime('YYYYMMDD', now);
   PmpigenTableTIME_START.Value := '0600';
-  PmpigenTableDATE_END.Value := FormatDateTime('YYYYMMDD', Date);
-  PmpigenTableTIME_END.Value := '2359';
-  Validate := True;
+  PmpigenTableDATE_END.Value := FormatDateTime('YYYYMMDD', now);
+  PmpigenTableTIME_END.Value := '1200';
 end;
 
 procedure TPmpimprtForm.LinkedTableWATER_LEVGetText(Sender: TField;
@@ -1270,88 +1364,6 @@ procedure TPmpimprtForm.PmpigenTableDEPTH_INTKSetText(Sender: TField;
 begin
   if aText <> '' then
     PmpigenTableDEPTH_INTK.Value := StrToFloat(aText)/LengthFactor;
-end;
-
-procedure TPmpimprtForm.PmpigenTableDATE_STARTValidate(Sender: TField);
-begin
-  if ValidDate(Sender.Value) then
-  begin
-    ValidFound := True;
-    if PmpigenTableDATE_END.Value = FormatDateTime('YYYYMMDD', Date) then
-      PmpigenTableDATE_END.Value := Sender.Value;
-    if Validate and (Sender.Value + PmpigenTableTIME_START.Value > PmpigenTableDATE_END.Value + PmpigenTableTIME_END.Value) then
-    begin
-      MessageDlg('Date/Time started must be before Date/Time ended!', mtError, [mbOK], 0);
-      ValidFound := False;
-    end;
-  end
-  else
-  begin
-    MessageDlg('Invalid date entered!', mtError, [mbOK], 0);
-    ValidFound := False;
-  end;
-  if not ValidFound then
-    Sender.FocusControl;
-end;
-
-procedure TPmpimprtForm.PmpigenTableDATE_ENDValidate(Sender: TField);
-begin
-  if ValidDate(PmpigenTableDATE_END.Value) then
-  begin
-    ValidFound := True;
-    if Validate and (PmpigenTableDATE_START.Value + PmpigenTableTIME_START.Value > Sender.Value + PmpigenTableTIME_END.Value) then
-    begin
-      MessageDlg('Date/Time ended must be after Date/Time started!', mtError, [mbOK], 0);
-      ValidFound := False;
-    end;
-  end
-  else
-  begin
-    MessageDlg('Invalid date entered!', mtError, [mbOK], 0);
-    ValidFound := False;
-  end;
-  if not ValidFound then
-    Sender.FocusControl;
-end;
-
-procedure TPmpimprtForm.PmpigenTableTIME_STARTValidate(Sender: TField);
-begin
-  if ValidTime(Sender.Value) then
-  begin
-     ValidFound := True;
-    if Validate and (PmpigenTableDATE_START.Value + Sender.Value > PmpigenTableDATE_END.Value + PmpigenTableTIME_END.Value) then
-    begin
-      MessageDlg('Date/Time started must be before Date/Time ended!', mtError, [mbOK], 0);
-      ValidFound := False;
-    end;
-  end
-  else
-  begin
-    MessageDlg('Invalid time entered!', mtError, [mbOK], 0);
-    ValidFound := False;
-  end;
-  if not ValidFound then
-    Sender.FocusControl;
-end;
-
-procedure TPmpimprtForm.PmpigenTableTIME_ENDValidate(Sender: TField);
-begin
-  if ValidTime(PmpigenTableTIME_END.Value) then
-  begin
-    ValidFound := True;
-    if Validate and (PmpigenTableDATE_START.Value + PmpigenTableTIME_START.Value > PmpigenTableDATE_END.Value + Sender.Value) then
-    begin
-      MessageDlg('Date/Time ended must be after Date/Time started!', mtError, [mbOK], 0);
-      ValidFound := False;
-    end;
-  end
-  else
-  begin
-    MessageDlg('Invalid time entered!', mtError, [mbOK], 0);
-    ValidFound := False;
-  end;
-  if not ValidFound then
-    Sender.FocusControl;
 end;
 
 procedure TPmpimprtForm.DBEditDateExit(Sender: TObject);

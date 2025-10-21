@@ -53,13 +53,13 @@ object ProgressBoxForm: TProgressBoxForm
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.8.0.0'
   object CancelBitBtn: TBitBtn
-    Left = 160
-    Height = 30
+    Left = 156
+    Height = 33
     Hint = 'Cancel the process'
     Top = 70
-    Width = 71
+    Width = 75
     Anchors = [akTop, akRight]
     AutoSize = True
     Cancel = True
@@ -79,9 +79,9 @@ object ProgressBoxForm: TProgressBoxForm
     TabOrder = 1
     object Label1: TLabel
       Left = 6
-      Height = 11
+      Height = 17
       Top = 4
-      Width = 59
+      Width = 66
       Caption = 'Busy with...'
       ParentColor = False
       ParentFont = False
@@ -96,7 +96,6 @@ object ProgressBoxForm: TProgressBoxForm
       Smooth = True
       Step = 1
       TabOrder = 0
-      BarShowText = True
     end
   end
 end

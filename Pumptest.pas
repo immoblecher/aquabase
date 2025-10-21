@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -30,8 +30,9 @@ type
   { TPumpTestForm }
 
   TPumpTestForm = class(TMasterDetailForm)
-    ObsBhsCheckBox: TCheckBox;
     DBMemo1: TDBMemo;
+    LinkedQueryNOTE_PAD: TWideStringField;
+    ObsBhsCheckBox: TCheckBox;
     LinkedQueryCONTRACTOR: TStringField;
     LinkedQueryDATE_END: TStringField;
     LinkedQueryDATE_ENTRY: TStringField;
@@ -45,7 +46,6 @@ type
     LinkedQueryDIST_HOLE6: TFloatField;
     LinkedQueryMETH_TESTD: TStringField;
     LinkedQueryNOTES_YN: TStringField;
-    LinkedQueryNOTE_PAD: TBlobField;
     LinkedQueryOBS_HOLE_1: TStringField;
     LinkedQueryOBS_HOLE_2: TStringField;
     LinkedQueryOBS_HOLE_3: TStringField;
@@ -167,7 +167,7 @@ procedure TPumpTestForm.LinkedDataSourceDataChange(Sender: TObject;
   Field: TField);
 begin
   inherited;
-  DBMemo1.Enabled := LinkedQuerySITE_ID_NR.Value > '';
+  DBMemo1.Enabled := not LinkedQuerySITE_ID_NR.IsNull;
 end;
 
 procedure TPumpTestForm.LinkedQueryBeforeEdit(DataSet: TDataSet);

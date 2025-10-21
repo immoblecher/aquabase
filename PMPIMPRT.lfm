@@ -1,17 +1,18 @@
 object PmpimprtForm: TPmpimprtForm
-  Left = 620
-  Height = 475
-  Top = 183
+  Left = 2658
+  Height = 480
+  Top = 278
   Width = 570
   HelpContext = 51
   ActiveControl = CloseBitBtn
   BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
   Caption = 'Pumping Test Import'
-  ClientHeight = 475
+  ClientHeight = 480
   ClientWidth = 570
   Color = clBtnFace
   Constraints.MaxWidth = 570
-  Constraints.MinHeight = 400
+  Constraints.MinHeight = 480
   Constraints.MinWidth = 570
   Font.Color = clBlack
   Font.Height = -11
@@ -51,9 +52,8 @@ object PmpimprtForm: TPmpimprtForm
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   OnShow = FormShow
-  Position = poDefaultSizeOnly
   SessionProperties = 'EditSITE_ID_NR.Hint;Height;Left;Top;Width;WLEdit.Text;CheckBoxDD.Checked'
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.8.0.0'
   Visible = True
   object Panel1: TPanel
     Left = 0
@@ -66,16 +66,18 @@ object PmpimprtForm: TPmpimprtForm
     Font.Color = clBlack
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
+    ParentBackground = False
     ParentFont = False
     TabOrder = 1
     object CloseBitBtn: TBitBtn
       Left = 392
       Height = 27
       Hint = 'Close entry form'
-      Top = 4
+      Top = 3
       Width = 82
+      Color = clBtnFace
       DefaultCaption = True
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Kind = bkClose
@@ -90,11 +92,12 @@ object PmpimprtForm: TPmpimprtForm
       Left = 480
       Height = 27
       Hint = 'Help on discharge rate'
-      Top = 4
+      Top = 3
       Width = 82
       HelpContext = 51
+      Color = clBtnFace
       DefaultCaption = True
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Kind = bkHelp
@@ -135,27 +138,27 @@ object PmpimprtForm: TPmpimprtForm
   end
   object Panel3: TPanel
     Left = 0
-    Height = 206
+    Height = 218
     Top = 36
     Width = 570
     Align = alTop
     Alignment = taLeftJustify
     BevelOuter = bvNone
-    ClientHeight = 206
+    ClientHeight = 218
     ClientWidth = 570
     Font.Color = clBlack
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
+    ParentBackground = False
     ParentFont = False
     TabOrder = 0
     object Label1: TLabel
-      Left = 10
-      Height = 13
-      Top = 124
-      Width = 79
-      AutoSize = False
+      Left = 8
+      Height = 17
+      Top = 112
+      Width = 83
       Caption = 'Pumping Test'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'System'
       Font.Style = [fsBold]
@@ -163,26 +166,26 @@ object PmpimprtForm: TPmpimprtForm
       ParentFont = False
     end
     object Label2: TLabel
-      Left = 115
-      Height = 10
-      Top = 124
-      Width = 63
+      Left = 8
+      Height = 16
+      Top = 132
+      Width = 67
       Caption = 'Date entered'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       ParentColor = False
       ParentFont = False
     end
     object LabelMeth: TLabel
-      Left = 138
-      Height = 26
-      Top = 146
+      Left = 222
+      Height = 30
+      Top = 116
       Width = 36
       Alignment = taCenter
       AutoSize = False
       Caption = '&Meth. tested'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       ParentColor = False
@@ -190,14 +193,14 @@ object PmpimprtForm: TPmpimprtForm
       WordWrap = True
     end
     object LabelDepth: TLabel
-      Left = 184
-      Height = 26
-      Top = 146
+      Left = 270
+      Height = 30
+      Top = 116
       Width = 60
       AutoSize = False
       Caption = 'Depth to &intake [m]'
       FocusControl = DBEditDepth
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       ParentColor = False
@@ -205,292 +208,143 @@ object PmpimprtForm: TPmpimprtForm
       WordWrap = True
     end
     object Label5: TLabel
-      Left = 76
-      Height = 13
-      Top = 158
-      Width = 46
-      AutoSize = False
+      Left = 157
+      Height = 16
+      Top = 132
+      Width = 49
       Caption = '&Rep. Inst.'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       ParentColor = False
       ParentFont = False
     end
     object Label4: TLabel
-      Left = 246
-      Height = 10
-      Top = 124
-      Width = 52
-      Caption = 'Time Incr.:'
-      Font.Color = clBlack
+      Left = 334
+      Height = 16
+      Top = 196
+      Width = 84
+      Caption = 'Time Increment:'
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       ParentColor = False
       ParentFont = False
     end
     object Label10: TLabel
-      Left = 358
-      Height = 10
-      Top = 124
-      Width = 20
+      Left = 488
+      Height = 16
+      Top = 196
+      Width = 23
       Caption = 'min.'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       ParentColor = False
       ParentFont = False
     end
-    object GroupBox5: TGroupBox
-      Left = 362
-      Height = 55
-      Top = 146
-      Width = 113
-      Caption = 'Test ended'
-      ClientHeight = 42
-      ClientWidth = 111
-      Font.Color = clBlack
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      ParentFont = False
-      TabOrder = 8
-      object Label8: TLabel
-        Left = 4
-        Height = 10
-        Top = 1
-        Width = 23
-        Caption = 'Date'
-        Font.Color = clBlack
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        ParentColor = False
-        ParentFont = False
-      end
-      object Label9: TLabel
-        Left = 68
-        Height = 10
-        Top = 1
-        Width = 24
-        Caption = 'Time'
-        Font.Color = clBlack
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        ParentColor = False
-        ParentFont = False
-      end
-      object DBEditDateEnd: TDBEdit
-        Tag = 2
-        Left = 2
-        Height = 23
-        Top = 14
-        Width = 60
-        HelpContext = 51
-        DataField = 'DATE_END'
-        DataSource = PmpigenDataSource
-        CharCase = ecNormal
-        Font.Color = clBlack
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        MaxLength = 0
-        ParentFont = False
-        TabOrder = 0
-        OnEnter = DBPmpIgenEnter
-        OnExit = DBEditDateEndExit
-      end
-      object DBEditTimeEnd: TDBEdit
-        Tag = 2
-        Left = 68
-        Height = 23
-        Top = 14
-        Width = 38
-        HelpContext = 51
-        DataField = 'TIME_END'
-        DataSource = PmpigenDataSource
-        CharCase = ecNormal
-        Font.Color = clBlack
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        MaxLength = 0
-        ParentFont = False
-        TabOrder = 1
-        OnEnter = DBPmpIgenEnter
-        OnExit = DBEditTimeEndExit
-      end
-    end
-    object GroupBox4: TGroupBox
-      Left = 246
-      Height = 55
-      Top = 146
-      Width = 113
-      Caption = 'Test started'
-      ClientHeight = 42
-      ClientWidth = 111
-      Font.Color = clBlack
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      ParentFont = False
-      TabOrder = 7
-      object Label6: TLabel
-        Left = 4
-        Height = 10
-        Top = 1
-        Width = 23
-        Caption = 'Date'
-        Font.Color = clBlack
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        ParentColor = False
-        ParentFont = False
-      end
-      object Label7: TLabel
-        Left = 68
-        Height = 10
-        Top = 1
-        Width = 24
-        Caption = 'Time'
-        Font.Color = clBlack
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        ParentColor = False
-        ParentFont = False
-      end
-      object DBEditDate: TDBEdit
-        Tag = 2
-        Left = 4
-        Height = 23
-        Top = 14
-        Width = 60
-        HelpContext = 51
-        DataField = 'DATE_START'
-        DataSource = PmpigenDataSource
-        CharCase = ecNormal
-        Font.Color = clBlack
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        MaxLength = 0
-        ParentFont = False
-        TabOrder = 0
-        OnEnter = DBPmpIgenEnter
-        OnExit = DBEditDateExit
-      end
-      object DBEditTime: TDBEdit
-        Tag = 2
-        Left = 68
-        Height = 23
-        Top = 14
-        Width = 38
-        HelpContext = 51
-        DataField = 'TIME_START'
-        DataSource = PmpigenDataSource
-        CharCase = ecNormal
-        Font.Color = clBlack
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        MaxLength = 0
-        ParentFont = False
-        TabOrder = 1
-        OnEnter = DBPmpIgenEnter
-        OnExit = DBEditTimeExit
-      end
-    end
     object DBEdit1: TDBEdit
       Cursor = crArrow
-      Left = 184
-      Height = 24
-      Top = 117
-      Width = 57
+      Left = 8
+      Height = 22
+      Top = 148
+      Width = 66
       DataField = 'DATE_ENTRY'
       DataSource = PmpigenDataSource
-      CharCase = ecNormal
+      ReadOnly = True
+      AutoSize = False
       Enabled = False
-      Font.Color = clSilver
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
       ParentFont = False
-      TabOrder = 2
+      TabOrder = 1
     end
     object DBEditDepth: TDBEdit
       Tag = 2
-      Left = 184
-      Height = 23
-      Top = 174
+      Left = 270
+      Height = 22
+      Top = 148
       Width = 57
       HelpContext = 51
       DataField = 'DEPTH_INTK'
       DataSource = PmpigenDataSource
-      CharCase = ecNormal
-      Font.Color = clBlack
+      Alignment = taRightJustify
+      AutoSize = False
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
       ParentFont = False
-      TabOrder = 6
+      TabOrder = 5
       OnEnter = DBPmpIgenEnter
     end
     object GroupBox6: TGroupBox
-      Left = 478
-      Height = 83
-      Top = 118
-      Width = 86
+      Left = 342
+      Height = 58
+      Top = 116
+      Width = 214
       Caption = 'Mode'
-      ClientHeight = 70
-      ClientWidth = 84
-      Font.Color = clBlack
+      ClientHeight = 41
+      ClientWidth = 212
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
+      ParentBackground = False
       ParentFont = False
-      TabOrder = 9
+      TabOrder = 8
       object WLLabel: TLabel
-        Left = 4
-        Height = 10
-        Top = 24
-        Width = 64
-        Caption = 'Static WL [m]'
-        Font.Color = clBlack
+        Left = 106
+        Height = 16
+        Top = 0
+        Width = 100
+        Caption = 'Static water lvl. [m]'
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         ParentColor = False
         ParentFont = False
       end
       object CheckBoxDD: TCheckBox
-        Left = 2
+        Left = 8
         Height = 23
-        Top = 0
-        Width = 78
+        Top = 14
+        Width = 82
         Caption = 'Drawdown'
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
-        OnChange = CheckBoxDDChange
         ParentFont = False
         TabOrder = 0
+        OnChange = CheckBoxDDChange
       end
       object WLEdit: TEdit
-        Left = 4
-        Height = 23
+        Left = 104
+        Height = 22
         Hint = 'Enter the static water level for the start of the test'
-        Top = 40
-        Width = 70
+        Top = 14
+        Width = 102
         HelpContext = 51
         Alignment = taRightJustify
+        AutoSize = False
         Enabled = False
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         MaxLength = 7
-        OnExit = WLEditExit
-        OnKeyPress = WLEditKeyPress
         ParentFont = False
         ParentShowHint = False
         ShowHint = True
         TabOrder = 1
         Text = '0.00'
+        OnExit = WLEditExit
+        OnKeyPress = WLEditKeyPress
       end
     end
     object BasicinfGroupBox7: TGroupBox
       Left = 4
-      Height = 100
+      Height = 107
       Top = 4
       Width = 562
       Align = alTop
@@ -498,24 +352,24 @@ object PmpimprtForm: TPmpimprtForm
       BorderSpacing.Around = 4
       BorderSpacing.InnerBorder = 1
       Caption = 'Basic Site Information:'
-      ClientHeight = 86
+      ClientHeight = 89
       ClientWidth = 560
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
+      ParentBackground = False
       ParentFont = False
-      TabOrder = 1
+      TabOrder = 0
       object Label15: TLabel
         Left = 2
-        Height = 13
+        Height = 17
         Top = 0
-        Width = 67
-        AutoSize = False
+        Width = 75
         BorderSpacing.Left = 2
         Caption = '&Site Identifier'
         FocusControl = EditSITE_ID_NR
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         ParentColor = False
@@ -523,13 +377,12 @@ object PmpimprtForm: TPmpimprtForm
       end
       object Label16: TLabel
         Left = 92
-        Height = 13
+        Height = 17
         Top = 0
-        Width = 42
-        AutoSize = False
+        Width = 46
         Caption = '&Number'
         FocusControl = EditNR_ON_MAP
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         ParentColor = False
@@ -537,13 +390,12 @@ object PmpimprtForm: TPmpimprtForm
       end
       object Label17: TLabel
         Left = 178
-        Height = 13
+        Height = 17
         Top = 0
-        Width = 77
-        AutoSize = False
+        Width = 79
         Caption = 'Distr./&Farm Nr.'
         FocusControl = EditFARM_NR
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         ParentColor = False
@@ -551,13 +403,12 @@ object PmpimprtForm: TPmpimprtForm
       end
       object Label18: TLabel
         Left = 260
-        Height = 13
+        Height = 17
         Top = 0
-        Width = 294
-        AutoSize = False
+        Width = 126
         Caption = 'Site Name/&Description'
         FocusControl = EditSITE_NAME
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         ParentColor = False
@@ -570,7 +421,7 @@ object PmpimprtForm: TPmpimprtForm
         Width = 84
         AutoSize = False
         Caption = '&Y Coordinate'
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         ParentColor = False
@@ -584,7 +435,7 @@ object PmpimprtForm: TPmpimprtForm
         AutoSize = False
         BorderSpacing.Left = 2
         Caption = '&X Coordinate'
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         ParentColor = False
@@ -597,7 +448,7 @@ object PmpimprtForm: TPmpimprtForm
         Width = 61
         AutoSize = False
         Caption = '&Coor. Acc.'
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         ParentColor = False
@@ -611,7 +462,7 @@ object PmpimprtForm: TPmpimprtForm
         AutoSize = False
         Caption = '&Altitude'
         FocusControl = EditALTITUDE
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         ParentColor = False
@@ -625,7 +476,7 @@ object PmpimprtForm: TPmpimprtForm
         AutoSize = False
         Caption = 'Co&llar'
         FocusControl = EditCOLLAR_HI
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         ParentColor = False
@@ -639,7 +490,7 @@ object PmpimprtForm: TPmpimprtForm
         AutoSize = False
         Caption = 'Dept&h'
         FocusControl = EditDEPTH
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         ParentColor = False
@@ -652,7 +503,7 @@ object PmpimprtForm: TPmpimprtForm
         Width = 50
         AutoSize = False
         Caption = 'Site &Type'
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         ParentColor = False
@@ -665,7 +516,7 @@ object PmpimprtForm: TPmpimprtForm
         Width = 78
         AutoSize = False
         Caption = 'Date Info updtd'
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         ParentColor = False
@@ -674,16 +525,17 @@ object PmpimprtForm: TPmpimprtForm
       object EditSITE_ID_NR: TDBEdit
         Cursor = crArrow
         Left = 2
-        Height = 24
+        Height = 22
         Top = 15
-        Width = 83
+        Width = 86
         DataField = 'SITE_ID_NR'
         DataSource = BasicinfDataSource
         ReadOnly = True
+        AutoSize = False
         BorderSpacing.Left = 2
         CharCase = ecUppercase
         Enabled = False
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         MaxLength = 0
@@ -694,14 +546,15 @@ object PmpimprtForm: TPmpimprtForm
       object EditNR_ON_MAP: TDBEdit
         Tag = 1
         Left = 92
-        Height = 24
+        Height = 22
         Top = 15
-        Width = 80
+        Width = 82
         HelpContext = 31
         DataField = 'NR_ON_MAP'
         DataSource = BasicinfDataSource
+        AutoSize = False
         CharCase = ecUppercase
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         MaxLength = 0
@@ -721,7 +574,7 @@ object PmpimprtForm: TPmpimprtForm
         DataSource = BasicinfDataSource
         AutoSize = False
         CharCase = ecUppercase
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         MaxLength = 0
@@ -732,15 +585,16 @@ object PmpimprtForm: TPmpimprtForm
       object EditSITE_NAME: TDBEdit
         Tag = 1
         Left = 262
-        Height = 24
+        Height = 22
         Top = 15
         Width = 294
         HelpContext = 31
         DataField = 'SITE_NAME'
         DataSource = BasicinfDataSource
         Anchors = [akTop, akRight]
+        AutoSize = False
         CharCase = ecUppercase
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         MaxLength = 0
@@ -753,14 +607,14 @@ object PmpimprtForm: TPmpimprtForm
       object EditALTITUDE: TDBEdit
         Tag = 1
         Left = 246
-        Height = 24
+        Height = 22
         Top = 58
         Width = 50
         HelpContext = 31
         DataField = 'ALTITUDE'
         DataSource = BasicinfDataSource
-        CharCase = ecNormal
-        Font.Color = clBlack
+        AutoSize = False
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         MaxLength = 0
@@ -773,14 +627,14 @@ object PmpimprtForm: TPmpimprtForm
       object EditCOLLAR_HI: TDBEdit
         Tag = 1
         Left = 303
-        Height = 24
+        Height = 22
         Top = 58
         Width = 50
         HelpContext = 31
         DataField = 'COLLAR_HI'
         DataSource = BasicinfDataSource
-        CharCase = ecNormal
-        Font.Color = clBlack
+        AutoSize = False
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         MaxLength = 0
@@ -793,14 +647,14 @@ object PmpimprtForm: TPmpimprtForm
       object EditDEPTH: TDBEdit
         Tag = 1
         Left = 360
-        Height = 24
+        Height = 22
         Top = 58
         Width = 50
         HelpContext = 31
         DataField = 'DEPTH'
         DataSource = BasicinfDataSource
-        CharCase = ecNormal
-        Font.Color = clBlack
+        AutoSize = False
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         MaxLength = 0
@@ -823,9 +677,8 @@ object PmpimprtForm: TPmpimprtForm
         ReadOnly = True
         Anchors = [akTop, akRight]
         AutoSize = False
-        CharCase = ecNormal
         Enabled = False
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         MaxLength = 0
@@ -837,7 +690,7 @@ object PmpimprtForm: TPmpimprtForm
       object RxDBLookupComboAcc: TRxDBLookupCombo
         Tag = 1
         Left = 190
-        Height = 25
+        Height = 29
         Top = 58
         Width = 36
         HelpKeyword = 'COORDACC'
@@ -852,7 +705,7 @@ object PmpimprtForm: TPmpimprtForm
         PopUpFormOptions.DropDownCount = 5
         PopUpFormOptions.DropDownWidth = 220
         Flat = False
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         Glyph.Data = {
@@ -900,7 +753,7 @@ object PmpimprtForm: TPmpimprtForm
         PopUpFormOptions.DropDownCount = 5
         PopUpFormOptions.DropDownWidth = 220
         Flat = False
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'Arial'
         Glyph.Data = {
@@ -939,7 +792,7 @@ object PmpimprtForm: TPmpimprtForm
         DataSource = BasicinfDataSource
         AutoSize = False
         CharCase = ecUppercase
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         MaxLength = 0
@@ -960,7 +813,7 @@ object PmpimprtForm: TPmpimprtForm
         DataSource = BasicinfDataSource
         AutoSize = False
         CharCase = ecUppercase
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
         MaxLength = 0
@@ -973,31 +826,11 @@ object PmpimprtForm: TPmpimprtForm
         OnKeyUp = EditKeyUp
       end
     end
-    object SpinEdit1: TSpinEdit
-      Left = 304
-      Height = 23
-      Top = 117
-      Width = 50
-      HelpContext = 51
-      Alignment = taRightJustify
-      Font.Color = clBlack
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      MaxValue = 3600
-      MinValue = 1
-      OnChange = SpinEdit1Change
-      OnEnter = SpinEdit1Enter
-      ParentFont = False
-      ParentShowHint = False
-      ShowHint = True
-      TabOrder = 0
-      Value = 1
-    end
     object RxDBLookupComboMethTest: TRxDBLookupCombo
       Tag = 2
-      Left = 140
-      Height = 24
-      Top = 174
+      Left = 224
+      Height = 28
+      Top = 148
       Width = 38
       HelpKeyword = 'PUMPMETH'
       HelpContext = 4
@@ -1011,56 +844,8 @@ object PmpimprtForm: TPmpimprtForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 240
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Glyph.Data = {
-        C2000000424DC200000000000000360000002800000007000000050000000100
-        2000000000008C00000064000000640000000000000000000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000FF0000000000000000000000000000000000000000000000FF0000
-        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
-        00FF000000FF0000000000000000000000000000000000000000000000000000
-        000000000000
-      }
-      NumGlyphs = 1
-      OnClosePopup = RxDBLookupComboClosePopup
-      OnEnter = DBPmpIgenEnter
-      OnMouseMove = RxDBLookupComboMouseMove
-      OnSelect = RxDBLookupComboSelect
-      ParentColor = False
-      ParentFont = False
-      ParentShowHint = False
-      ReadOnly = False
-      ShowHint = True
-      TabOrder = 5
-      TabStop = True
-      DropDownCount = 5
-      DropDownWidth = 240
-      LookupDisplay = 'SEARCH;DESCRIBE'
-      LookupField = 'SEARCH'
-      LookupSource = MethTestDataSource
-    end
-    object RxDBLookupComboRepInst: TRxDBLookupCombo
-      Tag = 2
-      Left = 76
-      Height = 25
-      Top = 174
-      Width = 60
-      HelpKeyword = 'REP_INST'
-      HelpContext = 4
-      AutoSize = True
-      ButtonOnlyWhenFocused = False
-      ButtonWidth = 15
-      Color = clWindow
-      DataField = 'REP_INST'
-      DataSource = PmpigenDataSource
-      PopUpFormOptions.Columns = <>
-      PopUpFormOptions.DropDownCount = 10
-      PopUpFormOptions.DropDownWidth = 240
-      Flat = False
-      Font.Color = clBlack
-      Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Glyph.Data = {
         C2000000424DC200000000000000360000002800000007000000050000000100
@@ -1083,45 +868,31 @@ object PmpimprtForm: TPmpimprtForm
       ShowHint = True
       TabOrder = 4
       TabStop = True
-      DropDownCount = 10
+      DropDownCount = 5
       DropDownWidth = 240
       LookupDisplay = 'SEARCH;DESCRIBE'
       LookupField = 'SEARCH'
-      LookupSource = RepInstDataSource
+      LookupSource = MethTestDataSource
     end
-    object Label11: TLabel
-      Left = 10
-      Height = 13
-      Top = 158
-      Width = 52
-      AutoSize = False
-      Caption = '&Contractor'
-      Font.Color = clBlack
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      ParentColor = False
-      ParentFont = False
-    end
-    object RxDBLookupComboContr: TRxDBLookupCombo
+    object RxDBLookupComboRepInst: TRxDBLookupCombo
       Tag = 2
-      Left = 10
-      Height = 25
-      Hint = 'The Contractor'
-      Top = 174
+      Left = 157
+      Height = 29
+      Top = 148
       Width = 62
-      HelpKeyword = 'CONTRACT'
+      HelpKeyword = 'REP_INST'
       HelpContext = 4
       AutoSize = True
       ButtonOnlyWhenFocused = False
       ButtonWidth = 15
       Color = clWindow
-      DataField = 'CONTRACTOR'
+      DataField = 'REP_INST'
       DataSource = PmpigenDataSource
       PopUpFormOptions.Columns = <>
       PopUpFormOptions.DropDownCount = 10
       PopUpFormOptions.DropDownWidth = 240
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Glyph.Data = {
@@ -1149,20 +920,184 @@ object PmpimprtForm: TPmpimprtForm
       DropDownWidth = 240
       LookupDisplay = 'SEARCH;DESCRIBE'
       LookupField = 'SEARCH'
+      LookupSource = RepInstDataSource
+    end
+    object Label11: TLabel
+      Left = 80
+      Height = 16
+      Top = 132
+      Width = 56
+      Caption = '&Contractor'
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentColor = False
+      ParentFont = False
+    end
+    object RxDBLookupComboContr: TRxDBLookupCombo
+      Tag = 2
+      Left = 80
+      Height = 29
+      Hint = 'The Contractor'
+      Top = 147
+      Width = 64
+      HelpKeyword = 'CONTRACT'
+      HelpContext = 4
+      AutoSize = True
+      ButtonOnlyWhenFocused = False
+      ButtonWidth = 15
+      Color = clWindow
+      DataField = 'CONTRACTOR'
+      DataSource = PmpigenDataSource
+      PopUpFormOptions.Columns = <>
+      PopUpFormOptions.DropDownCount = 10
+      PopUpFormOptions.DropDownWidth = 240
+      Flat = False
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'MS Sans Serif'
+      Glyph.Data = {
+        C2000000424DC200000000000000360000002800000007000000050000000100
+        2000000000008C00000064000000640000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000FF0000000000000000000000000000000000000000000000FF0000
+        00FF000000FF000000000000000000000000000000FF000000FF000000FF0000
+        00FF000000FF0000000000000000000000000000000000000000000000000000
+        000000000000
+      }
+      NumGlyphs = 1
+      OnClosePopup = RxDBLookupComboClosePopup
+      OnEnter = DBPmpIgenEnter
+      OnMouseMove = RxDBLookupComboMouseMove
+      OnSelect = RxDBLookupComboSelect
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ReadOnly = False
+      ShowHint = True
+      TabOrder = 2
+      TabStop = True
+      DropDownCount = 10
+      DropDownWidth = 240
+      LookupDisplay = 'SEARCH;DESCRIBE'
+      LookupField = 'SEARCH'
       LookupSource = ContractDataSource
+    end
+    object SpinEditEx1: TSpinEditEx
+      Left = 424
+      Height = 22
+      Hint = 'Time increment when adding new record. Change also '' + #13 + ''with <F11> for up or <F12> for down while in grid.'
+      Top = 192
+      Width = 60
+      AutoSize = False
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      MaxLength = 0
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 9
+      OnChange = SpinEditEx1Change
+      OnEnter = SpinEditEx1Enter
+      NullValue = 0
+      Value = 1
+    end
+    object Label3: TLabel
+      Left = 10
+      Height = 16
+      Top = 176
+      Width = 60
+      Caption = 'Test started'
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 159
+      Height = 16
+      Top = 176
+      Width = 56
+      Caption = 'Test ended'
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+    end
+    object DateTimePicker1: TDateTimePicker
+      Left = 10
+      Height = 22
+      Top = 192
+      Width = 133
+      CenturyFrom = 1941
+      DateDisplayOrder = ddoYMD
+      MaxDate = 2958465
+      MinDate = -53780
+      ReadOnly = True
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      TabOrder = 6
+      TrailingSeparator = False
+      TextForNullDate = 'NULL'
+      LeadingZeros = True
+      Kind = dtkDateTime
+      TimeFormat = tf24
+      TimeDisplay = tdHMS
+      DateMode = dmComboBox
+      Date = 45831
+      Time = 0.700505555556447
+      UseDefaultSeparators = True
+      HideDateTimeParts = []
+      MonthNames = 'Long'
+      OnChange = DateTimePicker1Change
+      OnEnter = DateTimePickerEnter
+    end
+    object DateTimePicker2: TDateTimePicker
+      Left = 159
+      Height = 22
+      Top = 192
+      Width = 133
+      CenturyFrom = 1941
+      DateDisplayOrder = ddoYMD
+      MaxDate = 2958465
+      MinDate = -53780
+      ReadOnly = True
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
+      TabOrder = 7
+      TrailingSeparator = False
+      TextForNullDate = 'NULL'
+      LeadingZeros = True
+      Kind = dtkDateTime
+      TimeFormat = tf24
+      TimeDisplay = tdHMS
+      DateMode = dmComboBox
+      Date = 45831
+      Time = 0.700589236112137
+      UseDefaultSeparators = True
+      HideDateTimeParts = []
+      MonthNames = 'Long'
+      OnChange = DateTimePicker2Change
+      OnEnter = DateTimePickerEnter
     end
   end
   object Panel2: TPanel
     Left = 0
-    Height = 233
-    Top = 242
+    Height = 226
+    Top = 254
     Width = 570
     Align = alClient
-    ClientHeight = 233
+    ClientHeight = 226
     ClientWidth = 570
     Font.Color = clBlack
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
+    ParentBackground = False
     ParentFont = False
     TabOrder = 2
     object GroupBox3: TGroupBox
@@ -1171,9 +1106,10 @@ object PmpimprtForm: TPmpimprtForm
       Top = 6
       Width = 202
       Caption = 'General'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
+      ParentBackground = False
       ParentFont = False
       TabOrder = 0
     end
@@ -1183,9 +1119,10 @@ object PmpimprtForm: TPmpimprtForm
       Top = 6
       Width = 175
       Caption = 'Water Level [m]'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
+      ParentBackground = False
       ParentFont = False
       TabOrder = 1
     end
@@ -1195,22 +1132,22 @@ object PmpimprtForm: TPmpimprtForm
       Top = 6
       Width = 148
       Caption = 'Discharge Rate [l/s]'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
+      ParentBackground = False
       ParentFont = False
       TabOrder = 2
     end
     object DBGrid: TDBGrid
       Left = 6
-      Height = 203
+      Height = 196
       Hint = 'Pumping Test Information'
       Top = 24
       Width = 558
       HelpContext = 51
       Align = alBottom
       Anchors = [akTop, akLeft, akRight, akBottom]
-      AutoAdvance = aaDown
       BorderSpacing.Around = 5
       Color = clWindow
       Columns = <      
@@ -1270,7 +1207,7 @@ object PmpimprtForm: TPmpimprtForm
           FieldName = 'DISCH_RATE'
         end>
       DataSource = LinkedDataSource
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Options = [dgEditing, dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
@@ -1302,9 +1239,9 @@ object PmpimprtForm: TPmpimprtForm
     Top = 272
   end
   object LinkedTable: TZTable
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'SITE_ID_NR, PIEZOM_NR, DATE_MEAS, TIME_MEAS, TIME_SEC'
     AfterOpen = LinkedTableAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     BeforeInsert = LinkedTableBeforeInsert
     AfterInsert = LinkedTableAfterInsert
     BeforePost = LinkedTableBeforePost
@@ -1317,8 +1254,8 @@ object PmpimprtForm: TPmpimprtForm
     MasterSource = DataModuleMain.DataSourceView
     LinkedFields = 'SITE_ID_NR'
     IndexFieldNames = 'SITE_ID_NR Asc, PIEZOM_NR Asc, DATE_MEAS Asc, TIME_MEAS Asc, TIME_SEC Asc'
-    Left = 400
-    Top = 272
+    Left = 384
+    Top = 288
     object LinkedTableSITE_ID_NR: TStringField
       DisplayLabel = 'Site Identifier'
       DisplayWidth = 11
@@ -1513,6 +1450,8 @@ object PmpimprtForm: TPmpimprtForm
     Connection = DataModuleMain.ZConnectionDB
     BeforeEdit = PmpigenTableBeforeEdit
     BeforePost = PmpigenTableBeforePost
+    AfterPost = PmpigenTableAfterPost
+    AfterCancel = PmpigenTableAfterCancel
     AfterDelete = PmpigenTableAfterDelete
     OnPostError = PmpigenTablePostError
     OnNewRecord = PmpigenTableNewRecord
@@ -1602,7 +1541,6 @@ object PmpimprtForm: TPmpimprtForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      OnValidate = PmpigenTableDATE_STARTValidate
       Size = 8
     end
     object PmpigenTableTIME_START: TStringField
@@ -1615,7 +1553,6 @@ object PmpimprtForm: TPmpimprtForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      OnValidate = PmpigenTableTIME_STARTValidate
       Size = 4
     end
     object PmpigenTableDATE_END: TStringField
@@ -1628,7 +1565,6 @@ object PmpimprtForm: TPmpimprtForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      OnValidate = PmpigenTableDATE_ENDValidate
       Size = 8
     end
     object PmpigenTableTIME_END: TStringField
@@ -1641,7 +1577,6 @@ object PmpimprtForm: TPmpimprtForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      OnValidate = PmpigenTableTIME_ENDValidate
       Size = 4
     end
   end
@@ -1664,7 +1599,7 @@ object PmpimprtForm: TPmpimprtForm
     Left = 48
     Top = 312
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
     Left = 496
     Top = 329
@@ -1677,8 +1612,8 @@ object PmpimprtForm: TPmpimprtForm
     Top = 307
   end
   object ZReadOnlyQueryCoordAcc: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionLanguage
     SortedFields = 'SEARCH'
+    Connection = DataModuleMain.ZConnectionLanguage
     SQL.Strings = (
       'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''COORDACC'''
     )
@@ -1716,8 +1651,8 @@ object PmpimprtForm: TPmpimprtForm
     Top = 96
   end
   object ZReadOnlyQuerySiteType: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionLanguage
     SortedFields = 'SEARCH'
+    Connection = DataModuleMain.ZConnectionLanguage
     SQL.Strings = (
       'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''SITETYPE'''
     )
@@ -1755,8 +1690,8 @@ object PmpimprtForm: TPmpimprtForm
     Top = 96
   end
   object ZReadOnlyQueryRepInst: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionLanguage
     SortedFields = 'SEARCH'
+    Connection = DataModuleMain.ZConnectionLanguage
     SQL.Strings = (
       'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''REP_INST'''
     )
@@ -1786,8 +1721,8 @@ object PmpimprtForm: TPmpimprtForm
     end
   end
   object ZReadOnlyQueryMethTest: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionLanguage
     SortedFields = 'SEARCH'
+    Connection = DataModuleMain.ZConnectionLanguage
     SQL.Strings = (
       'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''PUMPMETH'''
     )
@@ -1825,8 +1760,8 @@ object PmpimprtForm: TPmpimprtForm
     Top = 381
   end
   object ZReadOnlyQueryContractor: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionLanguage
     SortedFields = 'SEARCH'
+    Connection = DataModuleMain.ZConnectionLanguage
     SQL.Strings = (
       'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''CONTRACT'''
     )
@@ -1860,5 +1795,11 @@ object PmpimprtForm: TPmpimprtForm
     TableName = 'pumptest'
     Left = 384
     Top = 362
+  end
+  object DateQuery: TZReadOnlyQuery
+    Connection = DataModuleMain.ZConnectionDB
+    Params = <>
+    Left = 64
+    Top = 392
   end
 end

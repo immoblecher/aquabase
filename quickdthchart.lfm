@@ -11,10 +11,10 @@ object QuickDTHChartForm: TQuickDTHChartForm
   OnCreate = FormCreate
   OnShow = FormShow
   SessionProperties = 'Left;Top;Width;Height'
-  LCLVersion = '1.8.0.6'
+  LCLVersion = '3.4.0.0'
   object DTHChart: TChart
     Left = 0
-    Height = 458
+    Height = 460
     Top = 0
     Width = 355
     AxisList = <    
@@ -22,29 +22,37 @@ object QuickDTHChartForm: TQuickDTHChartForm
         Arrow.Inverted = True
         Inverted = True
         Marks.LabelFont.Height = -11
+        Marks.LabelBrush.Style = bsClear
         Minors = <>
         Range.UseMin = True
         Title.LabelFont.Orientation = 900
         Title.Visible = True
         Title.Caption = 'Depth'
+        Title.LabelBrush.Style = bsClear
       end    
       item
         Visible = False
         Alignment = calBottom
         Marks.LabelFont.Height = -11
+        Marks.LabelBrush.Style = bsClear
         Marks.Source = ListChartSourceBottom
         Minors = <>
+        Title.LabelBrush.Style = bsClear
       end    
       item
         Visible = False
         Alignment = calRight
+        Marks.LabelBrush.Style = bsClear
         Minors = <>
+        Title.LabelBrush.Style = bsClear
       end    
       item
         Alignment = calTop
         Marks.LabelFont.Height = -11
+        Marks.LabelBrush.Style = bsClear
         Minors = <>
         Title.Visible = True
+        Title.LabelBrush.Style = bsClear
       end>
     BackColor = clWhite
     Foot.Brush.Color = clBtnFace
@@ -64,8 +72,8 @@ object QuickDTHChartForm: TQuickDTHChartForm
   end
   object ButtonPanel1: TButtonPanel
     Left = 6
-    Height = 42
-    Top = 479
+    Height = 40
+    Top = 481
     Width = 343
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -83,7 +91,7 @@ object QuickDTHChartForm: TQuickDTHChartForm
   object StatusBar1: TStatusBar
     Left = 0
     Height = 15
-    Top = 458
+    Top = 460
     Width = 355
     Panels = <>
     ParentShowHint = False
@@ -92,29 +100,29 @@ object QuickDTHChartForm: TQuickDTHChartForm
   object GetDataQuery: TZReadOnlyQuery
     Connection = DataModuleMain.ZConnectionDB
     Params = <>
-    left = 168
-    top = 144
+    Left = 168
+    Top = 144
   end
   object ListChartSourceDepth: TListChartSource
-    left = 88
-    top = 224
+    Left = 88
+    Top = 224
   end
   object ListChartSourceBottom: TListChartSource
-    left = 160
-    top = 392
+    Left = 160
+    Top = 392
   end
   object ListChartSourceTop: TListChartSource
-    left = 160
-    top = 48
+    Left = 160
+    Top = 48
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    left = 184
-    top = 312
+    Left = 184
+    Top = 312
   end
   object PopupMenuCharts: TPopupMenu
-    left = 216
-    top = 208
+    Left = 216
+    Top = 208
     object Copyasbitmap1: TMenuItem
       Caption = '&Copy as bitmap'
       OnClick = Copyasbitmap1Click
@@ -180,12 +188,12 @@ object QuickDTHChartForm: TQuickDTHChartForm
     DefaultExt = '.jpg'
     Filter = 'JPEG image file (*.jpg)|*.jpg|Bitmap image file (*.bmp)|*.bmp|Portable Network Graphics (*.png)|*.png'
     InitialDir = 'WSpaceDir'
-    left = 56
-    top = 312
+    Left = 56
+    Top = 312
   end
   object ChartToolset1: TChartToolset
-    left = 264
-    top = 104
+    Left = 264
+    Top = 104
     object ChartToolset1ZoomMouseWheelTool1: TZoomMouseWheelTool
       ZoomFactor = 1.1
     end

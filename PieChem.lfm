@@ -17,7 +17,7 @@ object PieForm: TPieForm
   OnShow = FormShow
   PopupMenu = PopupMenu1
   SessionProperties = 'Left;Top;Width;Height'
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '3.4.0.0'
   object PieChart: TChart
     Left = 0
     Height = 352
@@ -60,23 +60,23 @@ object PieForm: TPieForm
     end
   end
   object ChemPieQuery: TZQuery
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = ChemPieQueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     Params = <>
-    left = 48
-    top = 80
+    Left = 48
+    Top = 80
   end
   object SaveDialog: TSaveDialog
     DefaultExt = '.tee'
     Filter = 'Aquabase Chart (*.tee)|*.tee'
     InitialDir = 'WSpaceDir'
-    left = 120
-    top = 16
+    Left = 120
+    Top = 16
   end
   object PopupMenu1: TPopupMenu
     OnPopup = PopupMenu1Popup
-    left = 216
-    top = 16
+    Left = 216
+    Top = 16
     object MenuItem2: TMenuItem
       Caption = '&Copy as bitmap'
       OnClick = Copyasbitmap1Click
@@ -115,13 +115,13 @@ object PieForm: TPieForm
       end
     end
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    left = 80
-    top = 184
+    Left = 80
+    Top = 184
   end
   object PrintDialog1: TPrintDialog
-    left = 176
-    top = 88
+    Left = 176
+    Top = 88
   end
 end

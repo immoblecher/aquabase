@@ -1,0 +1,95 @@
+object FormQFieldImport: TFormQFieldImport
+  Left = 1021
+  Height = 120
+  Top = 449
+  Width = 432
+  BorderStyle = bsDialog
+  Caption = 'QField Project Creation Progress'
+  ClientHeight = 120
+  ClientWidth = 432
+  OnActivate = FormActivate
+  OnCloseQuery = FormCloseQuery
+  Position = poScreenCenter
+  LCLVersion = '3.8.0.0'
+  object TableListBox: TListBox
+    Left = 192
+    Height = 48
+    Top = 7
+    Width = 76
+    ItemHeight = 0
+    TabOrder = 0
+    TopIndex = -1
+    Visible = False
+  end
+  object BitBtn1: TBitBtn
+    Left = 179
+    Height = 32
+    Hint = 'Transfer will only be cancelled once the current table has been completely imported!'
+    Top = 80
+    Width = 75
+    Cancel = True
+    Default = True
+    DefaultCaption = True
+    Kind = bkCancel
+    ModalResult = 2
+    OnClick = BitBtn1Click
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+  end
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 68
+    Top = 6
+    Width = 416
+    Caption = 'Please wait...'
+    ClientHeight = 50
+    ClientWidth = 414
+    TabOrder = 2
+    object ProgressBar1: TProgressBar
+      Left = 8
+      Height = 20
+      Top = 24
+      Width = 400
+      Anchors = [akTop, akLeft, akRight]
+      Smooth = True
+      Step = 1
+      TabOrder = 0
+    end
+    object Label2: TLabel
+      Left = 8
+      Height = 17
+      Top = 4
+      Width = 77
+      Caption = 'Transferring '
+    end
+  end
+  object ZConnectionQField: TZConnection
+    ControlsCodePage = cCP_UTF8
+    Properties.Strings = (
+      'RawStringEncoding=DB_CP'
+    )
+    BeforeConnect = ZConnectionQFieldBeforeConnect
+    AfterConnect = ZConnectionQFieldAfterConnect
+    DisableSavepoints = False
+    Port = 0
+    Protocol = 'sqlite'
+    Left = 336
+    Top = 72
+  end
+  object ZReadOnlyQueryIn: TZReadOnlyQuery
+    SQL.Strings = (
+      'SELECT * FROM BASICINF t'
+      'join bella_vista_2022 v on v.site_id_nr = t.site_id_nr'
+      'where t.site_id_nr is not null'
+    )
+    Params = <>
+    Left = 32
+    Top = 72
+  end
+  object ZTableOut: TZTable
+    Connection = ZConnectionQField
+    Left = 128
+    Top = 72
+  end
+end

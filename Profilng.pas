@@ -1,4 +1,4 @@
-{ Copyright (C) 2019 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -22,24 +22,65 @@ unit Profilng;
 interface
 
 uses
-  SysUtils, Classes, Graphics, Controls, Forms, Dialogs, LCLType,
-  StdCtrls, DBCtrls, ExtCtrls, Buttons, DBGrids, ComCtrls, ZDataset,
-  Spin, Db, Menus, Clipbrd, XMLPropStorage;
+  SysUtils, Classes, Graphics, Controls, Forms, Dialogs, LCLType, StdCtrls,
+  DBCtrls, ExtCtrls, Buttons, DBGrids, ComCtrls, ZDataset, ZSqlMetadata,
+  ZAbstractRODataset, Db, Menus, Clipbrd, XMLPropStorage, SpinEx;
 
 type
 
   { TProfilingForm }
 
   TProfilingForm = class(TForm)
+    CollarLabel: TLabel;
+    DataSource7: TDataSource;
+    DBGrid6: TDBGrid;
+    DBGrid7: TDBGrid;
+    DepthLabel: TLabel;
+    DetailNavigator: TDBNavigator;
+    EditDATE_END: TDBEdit;
+    EditDATE_ENTRY: TDBEdit;
+    EditDATE_START: TDBEdit;
+    EditDATE_UPDTD: TDBEdit;
+    EditDIRECTION: TDBEdit;
+    EditLENGTH: TDBEdit;
+    EditResults: TEdit;
+    EditSITE_NAME: TDBEdit;
+    EditSITING_LEAD: TDBEdit;
+    EditTRAV_NR: TDBEdit;
+    EditX_Coord: TDBEdit;
+    EditY_Coord: TDBEdit;
+    EM34: TTabSheet;
+    DBGrid2: TDBGrid;
+    Genie: TTabSheet;
+    DBGrid3: TDBGrid;
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    DBGrid1: TDBGrid;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label2: TLabel;
+    Label26: TLabel;
+    LengthLabel: TLabel;
+    LongitudeLabel: TLabel;
+    Magnetics: TTabSheet;
     Panel1: TPanel;
     CloseBitBtn: TBitBtn;
     HelpBitBtn: TBitBtn;
     EditNavigator: TDBNavigator;
-    TraverseNavigator: TDBNavigator;
-    Panel3: TPanel;
+    Panel2: TPanel;
+    Panel4: TPanel;
+    ProfilePageControl: TPageControl;
+    RecordText: TStaticText;
+    DBGrid4: TDBGrid;
+    Resistivity: TTabSheet;
     SitingLabel: TLabel;
-    SpacingSpinEdit: TSpinEdit;
-    Label1: TLabel;
+    SpacingSpinEdit: TSpinEditEx;
+    StaticText1: TStaticText;
+    GraviTabSheet: TTabSheet;
+    TabSheet1: TTabSheet;
+    VLFTabSheet: TTabSheet;
+    TraverseNavigator: TDBNavigator;
     CurrentComboBox: TComboBox;
     TraverseTable: TZTable;
     TraverseDataSource: TDataSource;
@@ -47,10 +88,10 @@ type
     EMTable: TZTable;
     GenieTable: TZTable;
     ResTable: TZTable;
-    MagDataSource: TDataSource;
-    EMDataSource: TDataSource;
-    GenieDataSource: TDataSource;
-    ResDataSource: TDataSource;
+    DataSource1: TDataSource;
+    DataSource2: TDataSource;
+    DataSource3: TDataSource;
+    DataSource4: TDataSource;
     TraverseTableTRAV_NR: TStringField;
     TraverseTableSITE_NAME: TStringField;
     TraverseTableSITE_LEAD: TStringField;
@@ -91,42 +132,9 @@ type
     ResTablePEG_NR: TStringField;
     ResTableREADING: TFloatField;
     ResTableCOMMENT: TStringField;
-    ProfilePageControl: TPageControl;
-    Magnetics: TTabSheet;
-    MagDBGrid: TDBGrid;
-    EM34: TTabSheet;
-    EMDBGrid: TDBGrid;
-    Genie: TTabSheet;
-    GenieDBGrid: TDBGrid;
-    Resistivity: TTabSheet;
-    ResDBGrid: TDBGrid;
     GraphSpeedButton: TSpeedButton;
-    GroupBox1: TGroupBox;
-    Label16: TLabel;
-    Label17: TLabel;
-    Label18: TLabel;
-    EditTRAV_NR: TDBEdit;
-    EditSITE_NAME: TDBEdit;
-    EditSITING_LEAD: TDBEdit;
-    XMLPropStorage: TXMLPropStorage;
-    X_CoordLabel: TLabel;
-    Y_CoordLabel: TLabel;
-    LongitudeLabel: TLabel;
-    LengthLabel: TLabel;
-    CollarLabel: TLabel;
-    DepthLabel: TLabel;
-    Label2: TLabel;
-    Label26: TLabel;
-    EditX_Coord: TDBEdit;
-    EditY_Coord: TDBEdit;
-    EditDIRECTION: TDBEdit;
-    EditLENGTH: TDBEdit;
-    EditDATE_START: TDBEdit;
-    EditDATE_END: TDBEdit;
-    EditDATE_ENTRY: TDBEdit;
-    EditDATE_UPDTD: TDBEdit;
-    TabSheetRecSites: TTabSheet;
-    RecDBGrid: TDBGrid;
+    DBGrid5: TDBGrid;
+    XMLPropStorage1: TXMLPropStorage;
     RecSitesTable: TZTable;
     RecSitesTableTRAV_NR: TStringField;
     RecSitesTableDIST_ORIG: TFloatField;
@@ -135,11 +143,9 @@ type
     RecSitesTableDATE_PRIOR: TStringField;
     RecSitesTableSITE_ID_NR: TStringField;
     RecSitesTableCOMMENT: TStringField;
-    RecSitesDataSource: TDataSource;
-    TabSheet1: TTabSheet;
-    VLFDBGrid: TDBGrid;
+    DataSource6: TDataSource;
     VLFTable: TZTable;
-    VLFDataSource: TDataSource;
+    DataSource5: TDataSource;
     VLFTableTRAV_NR: TStringField;
     VLFTablePEG_NR: TStringField;
     VLFTableIN_PHASE: TFloatField;
@@ -152,15 +158,34 @@ type
     ResTableSTATION: TFloatField;
     VLFTableSTATION: TFloatField;
     MagTableSTATION: TFloatField;
+    X_CoordLabel: TLabel;
+    Y_CoordLabel: TLabel;
+    ZQueryGravi: TZQuery;
+    DBMetadata: TZSQLMetadata;
+    ZQueryGraviCOMMENTS: TStringField;
+    ZQueryGraviPEG_NR: TStringField;
+    ZQueryGraviREADING: TZDoubleField;
+    ZQueryGraviSTATION: TZInt64Field;
+    ZQueryGraviTRAV_NR: TZRawCLobField;
+    procedure DataSourceDataChange(Sender: TObject; Field: TField);
+    procedure DBGrid7GetCellHint(Sender: TObject; Column: TColumn;
+      var AText: String);
+    procedure DetailNavigatorBeforeAction(Sender: TObject;
+      Button: TDBNavButtonType);
+    procedure DetailNavigatorClick(Sender: TObject; Button: TDBNavButtonType);
+    procedure EditResultsEditingDone(Sender: TObject);
     procedure EMTableAfterOpen(DataSet: TDataSet);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormShow(Sender: TObject);
     procedure GenieTableAfterOpen(DataSet: TDataSet);
     procedure MagTableAfterOpen(DataSet: TDataSet);
+    procedure GeophTableCOMMENTSetText(Sender: TField; const aText: string);
     procedure PopupMenu1Popup(Sender: TObject);
     procedure GotoBookmarkClick(Sender: TObject);
+    procedure ProfilePageControlEnter(Sender: TObject);
     procedure ResTableAfterOpen(DataSet: TDataSet);
     procedure SetBookmarkClick(Sender: TObject);
     procedure CutMenuClick(Sender: TObject);
@@ -171,25 +196,11 @@ type
     procedure TraverseTableDATEValidate(Sender: TField);
     procedure TraverseTableNewRecord(DataSet: TDataSet);
     procedure TraverseTableBeforePost(DataSet: TDataSet);
-    procedure MagTableNewRecord(DataSet: TDataSet);
-    procedure EMTableNewRecord(DataSet: TDataSet);
+    procedure TableNewRecord(DataSet: TDataSet);
     procedure GeophysicsTableBeforeInsert(DataSet: TDataSet);
-    procedure EMTableBeforeInsert(DataSet: TDataSet);
-    procedure GenieTableNewRecord(DataSet: TDataSet);
-    procedure GenieTableBeforeInsert(DataSet: TDataSet);
-    procedure ResTableNewRecord(DataSet: TDataSet);
     procedure EditSITE_NAMEClick(Sender: TObject);
-    procedure MagDBGridEnter(Sender: TObject);
-    procedure EMDBGridEnter(Sender: TObject);
-    procedure GenieDBGridEnter(Sender: TObject);
-    procedure ResDBGridEnter(Sender: TObject);
-    procedure MagDBGridKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure EMDBGridKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure GenieDBGridKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure ResDBGridKeyDown(Sender: TObject; var Key: Word;
+    procedure DBGridEnter(Sender: TObject);
+    procedure DBGridKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure TraverseTableLENGTHGetText(Sender: TField; var aText: String;
       DisplayText: Boolean);
@@ -199,10 +210,8 @@ type
     procedure CurrentComboBoxChange(Sender: TObject);
     procedure GraphSpeedButtonClick(Sender: TObject);
     procedure GroupBox1Click(Sender: TObject);
-    procedure RecDBGridKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure RecDBGridEnter(Sender: TObject);
-    procedure RecDBGridDblClick(Sender: TObject);
+    procedure DBGrid7Enter(Sender: TObject);
+    procedure DBGrid7DblClick(Sender: TObject);
     procedure RecSitesTableSITE_ID_NRSetText(Sender: TField;
       const aText: String);
     procedure RecSitesTableAfterPost(DataSet: TDataSet);
@@ -221,23 +230,20 @@ type
     procedure RecSitesTableDATE_PRIORValidate(Sender: TField);
     procedure RecSitesTableCOMMENTSetText(Sender: TField;
       const aText: String);
-    procedure RecSitesDataSourceDataChange(Sender: TObject; Field: TField);
-    procedure VLFDBGridEnter(Sender: TObject);
-    procedure VLFDBGridKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure DataSource6DataChange(Sender: TObject; Field: TField);
     procedure VLFTableAfterOpen(DataSet: TDataSet);
-    procedure VLFTableNewRecord(DataSet: TDataSet);
-    procedure MagDBGridExit(Sender: TObject);
+    procedure DBGridExit(Sender: TObject);
     procedure ProfilePageControlChange(Sender: TObject);
     procedure HelpBitBtnClick(Sender: TObject);
     procedure SiteTableBeforeOpen(DataSet: TDataSet);
     procedure RecSitesTableSITE_ID_NRValidate(Sender: TField);
-    procedure RecDBGridColEnter(Sender: TObject);
+    procedure DBGrid7ColEnter(Sender: TObject);
+    procedure ZQueryGraviAfterOpen(DataSet: TDataSet);
   private
     { Private declarations }
     BookMark: TBookmark;
     PrevPeg, PrevDate: ShortString;
-    PrevSpacing, PrevStation, ColNr: Integer;
+    PrevSpacing, PrevStation, ColNr: LongWord;
     ValidFound: Boolean;
   public
     { Public declarations }
@@ -254,15 +260,8 @@ uses VARINIT, Strdatetime, DistanceDepSettings, selectSiteID, MainDataModule;
 
 procedure TProfilingForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, False);
-  TraverseTable.Open;
-  MagTable.Open;
-  EMTable.Open;
-  GenieTable.Open;
-  ResTable.Open;
-  VLFTable.Open;
-  RecSitesTable.Open;
   CurrentComboBox.ItemIndex := 0;
   ValidFound := True;
 end;
@@ -334,6 +333,13 @@ begin
          if EditNavigator.DataSource = TraverseDataSource then
            Editing := 'Editing: Traverse information'
          else
+           Editing := 'Editing: Gravimetry information';
+         if RecSitesTable.Active then RecSitesTable.Refresh;
+       end;
+    6: begin
+         if EditNavigator.DataSource = TraverseDataSource then
+           Editing := 'Editing: Traverse information'
+         else
            Editing := 'Editing: Recommended sites';
          if RecSitesTable.Active then RecSitesTable.Refresh;
        end;
@@ -357,14 +363,80 @@ begin
   CloseAction := caFree;
 end;
 
+procedure TProfilingForm.FormShow(Sender: TObject);
+begin
+  try
+    TraverseTable.Open;
+    with MagTable do
+    begin
+      FetchRow := EditResults.Tag;
+      Open;
+    end;
+    with EMTable do
+    begin
+      FetchRow := EditResults.Tag;
+      Open;
+    end;
+    with GenieTable do
+    begin
+      FetchRow := EditResults.Tag;
+      Open;
+    end;
+    with ResTable do
+    begin
+      FetchRow := EditResults.Tag;
+      Open;
+    end;
+    with VLFTable do
+    begin
+      FetchRow := EditResults.Tag;
+      Open;
+    end;
+    //check for Gravimetry table
+    with DBMetadata do
+    begin
+      Connection := DataModuleMain.ZConnectionDB;
+      MetaDataType := mdTables;
+      TableName := 'grndgrav';
+      Open;
+    end;
+    if DBMetaData.RecordCount > 0 then //there is a gravimetry table
+    with ZQueryGravi do
+    begin
+      FetchRow := EditResults.Tag;
+      Open;
+    end;
+    DBMetaData.Close;
+    with RecSitesTable do
+    begin
+      FetchRow := EditResults.Tag;
+      Open;
+    end;
+  except on E: Exception do
+    MessageDlg(E.Message + ' - You may have to contact your database administrator to resolve this error.', mtError, [mbOK], 0);
+  end;
+  DetailNavigator.DataSource := TDataSource(FindComponent('DataSource' + IntToStr(ProfilePageControl.ActivePageIndex + 1)));
+  RecordText.Caption := 'Record ' + IntToStr(DetailNavigator.DataSource.DataSet.RecNo) + ' out of ' + IntToStr(DetailNavigator.DataSource.DataSet.RecordCount);
+  EditResults.Tag := StrToInt(EditResults.Text);
+end;
+
 procedure TProfilingForm.GenieTableAfterOpen(DataSet: TDataSet);
 begin
-  GenieDataSource.AutoEdit := AutoEditData;
+  DataSource3.AutoEdit := AutoEditData;
 end;
 
 procedure TProfilingForm.MagTableAfterOpen(DataSet: TDataSet);
 begin
-  MagDataSource.AutoEdit := AutoEditData;
+  DataSource1.AutoEdit := AutoEditData;
+end;
+
+procedure TProfilingForm.GeophTableCOMMENTSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TProfilingForm.PopupMenu1Popup(Sender: TObject);
@@ -389,9 +461,21 @@ begin
   TraverseTable.GotoBookmark(Bookmark);
 end;
 
+procedure TProfilingForm.ProfilePageControlEnter(Sender: TObject);
+begin
+  if TDBGrid(FindComponent('DBGrid' + IntToStr(ProfilePageControl.ActivePage.PageIndex + 1))).DataSource.DataSet.Active then
+  begin
+    TDBGrid(FindComponent('DBGrid' + IntToStr(ProfilePageControl.ActivePage.PageIndex + 1))).SetFocus;
+    DetailNavigator.DataSource := TDataSource(FindComponent('DataSource' + IntToStr(ProfilePageControl.ActivePage.PageIndex + 1)));
+  end
+  else
+    MessageDlg('This table does not yet exist in your database! You may have to upgrade your database to the newest version.', mtWarning, [mbOK], 0);
+  RecordText.Caption := 'Record ' + IntToStr(DetailNavigator.DataSource.DataSet.RecNo) + ' out of ' + IntToStr(DetailNavigator.DataSource.DataSet.RecordCount);
+end;
+
 procedure TProfilingForm.ResTableAfterOpen(DataSet: TDataSet);
 begin
-  ResDataSource.AutoEdit := AutoEditData;
+  DataSource4.AutoEdit := AutoEditData;
 end;
 
 procedure TProfilingForm.SetBookmarkClick(Sender: TObject);
@@ -402,11 +486,11 @@ end;
 
 procedure TProfilingForm.CutMenuClick(Sender: TObject);
 begin
-  if ActiveControl is TDBEdit then
+  if (ActiveControl is TDBEdit) and (TDBEdit(ActiveControl).DataSource.DataSet.State IN [dsEdit, dsInsert]) then
     TDBEdit(ActiveControl).CutToClipboard
   else
-  if ActiveControl is TDBGrid then
-    {TDBGrid(ActiveControl).CutToClipboard;}
+  if (ActiveControl is TDBGrid) and (TDBGrid(ActiveControl).DataSource.DataSet.State IN [dsEdit, dsInsert]) then
+    TDBGrid(ActiveControl).SelectedField.Value.CutToClipboard;
 end;
 
 procedure TProfilingForm.CopyMenuClick(Sender: TObject);
@@ -415,7 +499,7 @@ begin
     TDBEdit(ActiveControl).CopyToClipboard
   else
   if ActiveControl is TDBGrid then
-    {TDBGrid(ActiveControl).CopyToClipboard;}
+    TDBGrid(ActiveControl).SelectedField.Value.CopyToClipboard;
 end;
 
 procedure TProfilingForm.PasteMenuClick(Sender: TObject);
@@ -423,8 +507,8 @@ begin
   if ActiveControl is TDBEdit then
     TDBEdit(ActiveControl).PasteFromClipboard
   else
-  if ActiveControl is TDBGrid then
-    {TDBGrid(ActiveControl).PasteFromClipboard;}
+  if (ActiveControl is TDBGrid) and (TDBGrid(ActiveControl).DataSource.DataSet.State IN [dsEdit, dsInsert]) then
+    TDBGrid(ActiveControl).SelectedField.Value.PasteFromClipboard;
 end;
 
 procedure TProfilingForm.GeophTableSetText(Sender: TField;
@@ -466,7 +550,7 @@ begin
       Open;
       if not Fields[0].IsNull then
       begin
-        NumberStr := Copy(Fields[0].AsString, 13, 4);
+        NumberStr := RightStr(Fields[0].AsString, 4);
         NewNumber := StrToInt(NumberStr) + 1;
         NumberStr := Format('%4.4d', [NewNumber]);
       end
@@ -477,54 +561,21 @@ begin
   end;
 end;
 
-procedure TProfilingForm.MagTableNewRecord(DataSet: TDataSet);
+procedure TProfilingForm.TableNewRecord(DataSet: TDataSet);
 begin
-  MagTablePEG_NR.Value := PrevPeg;
-  if MagTable.RecordCount = 0 then MagTableSTATION.Value := 0 else
-    MagTableSTATION.Value := PrevStation + SpacingSpinEdit.Value;
-end;
-
-procedure TProfilingForm.EMTableNewRecord(DataSet: TDataSet);
-begin
-  EMTablePEG_NR.Value := PrevPeg;
-  if EMTable.RecordCount = 0 then EMTableSTATION.Value := 0 else
-    EMTableSTATION.Value := PrevStation + SpacingSpinEdit.Value;
-  EMTableSPACING.Value := PrevSpacing;
+  DataSet.FieldByName('PEG_NR').Value := PrevPeg;
+  if DataSet.RecordCount = 0 then DataSet.FieldByName('STATION').Value := 0 else
+    DataSet.FieldByName('STATION').Value := PrevStation + SpacingSpinEdit.Value;
+  if DataSet.FindField('SPACING') <> NIL then
+    DataSet.FieldByName('SPACING').Value := PrevSpacing;
 end;
 
 procedure TProfilingForm.GeophysicsTableBeforeInsert(DataSet: TDataSet);
 begin
   PrevPeg := Dataset.Fields[1].AsString;
   PrevStation := Dataset.Fields[2].AsInteger;
-end;
-
-procedure TProfilingForm.EMTableBeforeInsert(DataSet: TDataSet);
-begin
-  PrevPeg := Dataset.Fields[1].AsString;
-  PrevStation := Dataset.Fields[2].AsInteger;
-  PrevSpacing := EMTableSPACING.AsInteger;
-end;
-
-procedure TProfilingForm.GenieTableNewRecord(DataSet: TDataSet);
-begin
-  GenieTablePEG_NR.Value := PrevPeg;
-  if GenieTable.RecordCount = 0 then GenieTableSTATION.Value := 0 else
-    GenieTableSTATION.Value := PrevStation + SpacingSpinEdit.Value;
-  GenieTableSPACING.Value := PrevSpacing;
-end;
-
-procedure TProfilingForm.GenieTableBeforeInsert(DataSet: TDataSet);
-begin
-  PrevPeg := Dataset.Fields[1].AsString;
-  PrevStation := Dataset.Fields[2].AsInteger;
-  PrevSpacing := GenieTableSPACING.AsInteger;
-end;
-
-procedure TProfilingForm.ResTableNewRecord(DataSet: TDataSet);
-begin
-  ResTablePEG_NR.Value := PrevPeg;
-  if ResTable.RecordCount = 0 then ResTableSTATION.Value := 0 else
-    ResTableSTATION.Value := PrevStation + SpacingSpinEdit.Value;
+  if DataSet.FindField('SPACING') <> NIL then
+    PrevSpacing := DataSet.FieldByName('SPACING').Value;
 end;
 
 procedure TProfilingForm.EditSITE_NAMEClick(Sender: TObject);
@@ -534,104 +585,44 @@ begin
   Editing := 'Editing: Traverse information';
 end;
 
-procedure TProfilingForm.MagDBGridEnter(Sender: TObject);
+procedure TProfilingForm.DBGridEnter(Sender: TObject);
 begin
   if TraverseTable.RecordCount > 0 then
   begin
-    EditNavigator.DataSource := MagDataSource;
-    Editing := 'Editing: Magnetics information';
+    EditNavigator.DataSource := TDBGrid(Sender).DataSource;
+    Editing := 'Editing: profiling information';
   end
   else
   EditNavigator.Enabled := False;
 end;
 
-procedure TProfilingForm.EMDBGridEnter(Sender: TObject);
-begin
-  if TraverseTable.RecordCount > 0 then
-  begin
-    EditNavigator.DataSource := EMDataSource;
-    Editing := 'Editing: EM-34 information';
-  end
-  else
-  EditNavigator.Enabled := False;
-end;
-
-procedure TProfilingForm.GenieDBGridEnter(Sender: TObject);
-begin
-  if TraverseTable.RecordCount > 0 then
-  begin
-    EditNavigator.DataSource := GenieDataSource;
-    Editing := 'Editing: Genie information';
-  end
-  else
-  EditNavigator.Enabled := False;
-end;
-
-procedure TProfilingForm.ResDBGridEnter(Sender: TObject);
-begin
-  if TraverseTable.RecordCount > 0 then
-  begin
-    EditNavigator.DataSource := ResDataSource;
-    Editing := 'Editing: Resistivity information';
-  end
-  else
-  EditNavigator.Enabled := False;
-end;
-
-procedure TProfilingForm.MagDBGridKeyDown(Sender: TObject; var Key: Word;
+procedure TProfilingForm.DBGridKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-  if (ssAlt in Shift) then
+  with TDBGrid(Sender) do
   begin
-    if (Key = VK_F8) then MagTable.Edit;
-  end
-  else
-  case Key of
-    VK_F5: MagTable.Refresh;
-    VK_F8: MagTable.Post;
-  end; {of case}
-end;
-
-procedure TProfilingForm.EMDBGridKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
-begin
-  if (ssAlt in Shift) then
-  begin
-    if (Key = VK_F8) then EMTable.Edit;
-  end
-  else
-  case Key of
-    VK_F5: EMTable.Refresh;
-    VK_F8: EMTable.Post;
-  end; {of case}
-end;
-
-procedure TProfilingForm.GenieDBGridKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
-begin
-  if (ssAlt in Shift) then
-  begin
-    if (Key = VK_F8) then GenieTable.Edit;
-  end
-  else
-  case Key of
-    VK_F5: GenieTable.Refresh;
-    VK_F8: GenieTable.Post;
-  end; {of case}
-end;
-
-procedure TProfilingForm.ResDBGridKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
-begin
-  if (ssAlt in Shift) then
-  begin
-    if (Key = VK_F8) then ResTable.Edit;
-  end
-  else
-  case Key of
-    VK_F5: ResTable.Refresh;
-    VK_F8: ResTable.Post;
-  end; {of case}
+    if (ssCtrl in Shift) then
+    begin
+      if (Key = VK_F8) then DataSource.Dataset.Edit;
+    end
+    else
+    case Key of
+      VK_F5: DataSource.Dataset.Refresh;
+      VK_F8: if DataSource.Dataset.State IN [dsEdit, dsInsert] then DataSource.Dataset.Post;
+      VK_F9: if (ProfilePageControl.PageIndex = 6) and (SelectedIndex = 5) then
+             begin
+               with TFormSelSiteID.Create(Application) do
+               begin
+                 ShowModal;
+                 if (ModalResult = mrOK) and (DataSource.Dataset.State IN [dsInsert, dsEdit]) then
+                   DataSource.Dataset.FieldByName('SITE_ID_NR').AsString := LookupSite;
+                 Close;
+               end;
+             end;
+      VK_TAB: if (SelectedIndex = LastColumn.Index) and (DataSource.Dataset.State IN [dsInsert, dsEdit]) then
+                DataSource.Dataset.Post;
+    end; {of case}
+  end;
 end;
 
 procedure TProfilingForm.TraverseTableLENGTHGetText(Sender: TField;
@@ -714,6 +705,13 @@ begin
          if EditNavigator.DataSource = TraverseDataSource then
            Editing := 'Editing: Traverse information'
          else
+           Editing := 'Editing: Gravimetry information';
+         if RecSitesTable.Active then RecSitesTable.Refresh;
+       end;
+    6: begin
+         if EditNavigator.DataSource = TraverseDataSource then
+           Editing := 'Editing: Traverse information'
+         else
            Editing := 'Editing: Recommended sites';
          if RecSitesTable.Active then RecSitesTable.Refresh;
        end;
@@ -723,14 +721,11 @@ begin
 end;
 
 procedure TProfilingForm.GraphSpeedButtonClick(Sender: TObject);
-
-var  SpecDistanceDepSettingsForm : TDistanceDepSettingsForm ;
-
 begin
-  SpecDistanceDepSettingsForm := TDistanceDepSettingsForm.Create(Application) ;
-  with SpecDistanceDepSettingsForm do
+  with TDistanceDepSettingsForm.Create(Application) do
   begin
     MethIndex := ProfilePageControl.ActivePage.TabIndex;
+    TravNr := TraverseTableTRAV_NR.Value;
     Caption := ProfilePageControl.ActivePage.Caption + ' chart settings';
     ShowModal;
   end;
@@ -744,43 +739,30 @@ begin
   EditSITE_NAME.SetFocus;
 end;
 
-procedure TProfilingForm.RecDBGridKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
-begin
-  if (ssAlt in Shift) then
-  begin
-    if (Key = VK_F8) then RecSitesTable.Edit;
-  end
-  else
-  case Key of
-    VK_F5: RecSitesTable.Refresh;
-    VK_F8: RecSitesTable.Post;
-  end; {of case}
-end;
-
-procedure TProfilingForm.RecDBGridEnter(Sender: TObject);
+procedure TProfilingForm.DBGrid7Enter(Sender: TObject);
 begin
   if TraverseTable.RecordCount > 0 then
   begin
-    EditNavigator.DataSource := RecSitesDataSource;
+    EditNavigator.DataSource := DataSource6;
     Editing := 'Editing: Recommended sites';
   end
   else
   EditNavigator.Enabled := False;
 end;
 
-procedure TProfilingForm.RecDBGridDblClick(Sender: TObject);
+procedure TProfilingForm.DBGrid7DblClick(Sender: TObject);
 begin
-  case RecDBGrid.SelectedIndex of
-    4: begin
-      with TFormSelSiteID.Create(Application) do
-      begin
-        ShowModal;
-        if ModalResult = mrOK then
-        if RecSitesTable.State IN [dsInsert, dsEdit] then
-          RecSitesTable.FieldByName(RecDBGrid.SelectedField.FieldName).AsString := SiteIDQuerySITE_ID_NR.Value;
-        Close;
-      end;
+  case DBGrid7.SelectedIndex of
+    5: begin
+         with TFormSelSiteID.Create(Application) do
+         begin
+           LookupSite := RecSitesTableSITE_ID_NR.AsString;
+           ShowModal;
+           if ModalResult = mrOK then
+             if RecSitesTable.State IN [dsInsert, dsEdit] then
+               RecSitesTableSITE_ID_NR.AsString := LookupSite;
+           Close;
+         end;
        end;
   else exit;
   end; {of CASE}
@@ -812,6 +794,7 @@ begin
     RecSitesTableDATE_PRIOR.Value := FormatDateTime('YYYYMMDD', Date)
   else
     RecSitesTableDATE_PRIOR.Value := PrevDate;
+  RecSitesTableSITE_ID_NR.Value := CurrentSite;
 end;
 
 procedure TProfilingForm.RecSitesTableDIST_ORIGGetText(Sender: TField;
@@ -856,7 +839,7 @@ procedure TProfilingForm.RecSitesTableDATE_PRIORSetText(Sender: TField;
   const aText: String);
 begin
   RecSitesTableDATE_PRIOR.Value := aText;
-  ColNr := RecDBGrid.SelectedIndex;
+  ColNr := DBGrid7.SelectedIndex;
 end;
 
 procedure TProfilingForm.RecSitesTableDATE_PRIORValidate(Sender: TField);
@@ -869,71 +852,53 @@ end;
 procedure TProfilingForm.RecSitesTableCOMMENTSetText(Sender: TField;
   const aText: String);
 begin
-  RecSitesTableCOMMENT.Value := UpperCase(aText);
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
-procedure TProfilingForm.RecSitesDataSourceDataChange(Sender: TObject;
+procedure TProfilingForm.DataSource6DataChange(Sender: TObject;
   Field: TField);
 begin
   if RecSitesTableSITE_ID_NR.Value <> '' then
     CurrentSite := RecSitesTableSITE_ID_NR.Value;
   if RecSitesTableTRAV_NR.Value <> '' then
     CurrentTraverse := RecSitesTableTRAV_NR.Value;
-end;
-
-procedure TProfilingForm.VLFDBGridEnter(Sender: TObject);
-begin
-  if TraverseTable.RecordCount > 0 then
-  begin
-    EditNavigator.DataSource := VLFDataSource;
-    Editing := 'Editing: VLF information';
-  end
-  else
-  EditNavigator.Enabled := False;
-end;
-
-procedure TProfilingForm.VLFDBGridKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
-begin
-  if (ssAlt in Shift) then
-  begin
-    if (Key = VK_F8) then VLFTable.Edit;
-  end
-  else
-  case Key of
-    VK_F5: VLFTable.Refresh;
-    VK_F8: VLFTable.Post;
-  end; {of case}
+  if RecSitesTable.Active then
+    RecordText.Caption := 'Record ' + IntToStr(RecSitesTable.RecNo) + ' out of ' + IntToStr(RecSitesTable.RecordCount);
 end;
 
 procedure TProfilingForm.VLFTableAfterOpen(DataSet: TDataSet);
 begin
-  VLFDataSource.AutoEdit := AutoEditData;
+  DataSource5.AutoEdit := AutoEditData;
 end;
 
-procedure TProfilingForm.VLFTableNewRecord(DataSet: TDataSet);
+procedure TProfilingForm.DBGridExit(Sender: TObject);
 begin
-  VLFTablePEG_NR.Value := PrevPeg;
-  if VLFTable.RecordCount = 0 then VLFTableSTATION.Value := 0 else
-    VLFTableSTATION.Value := PrevStation + SpacingSpinEdit.Value;
-end;
-
-procedure TProfilingForm.MagDBGridExit(Sender: TObject);
-begin
-  if MagTable.State IN [dsInsert, dsEdit] then
+  with TDBGrid(Sender).DataSource.DataSet do
+  if State IN [dsInsert, dsEdit] then
   begin
     if MessageDlg('Changes to current record have not been posted and will be lost! Post record now?',
-      mtConfirmation, [mbYes, mbNo], 0) = mrYes then MagTable.Post
-    else MagTable.Cancel;
+      mtConfirmation, [mbYes, mbNo], 0) = mrYes then Post
+    else Cancel;
   end;
 end;
 
 procedure TProfilingForm.ProfilePageControlChange(Sender: TObject);
 begin
-  GraphSpeedButton.Enabled := ProfilePageControl.ActivePage.TabIndex < 5;
-  if ProfilePageControl.ActivePage.TabIndex < 5 then
+  GraphSpeedButton.Enabled := ProfilePageControl.ActivePageIndex < ProfilePageControl.PageCount;
+  if ProfilePageControl.ActivePageIndex < ProfilePageControl.PageCount then
     GraphSpeedButton.Hint := 'QuickGraph ' + ProfilePageControl.ActivePage.Caption
   else GraphSpeedButton.Hint := '';
+  if TDBGrid(FindComponent('DBGrid' + IntToStr(ProfilePageControl.ActivePage.PageIndex + 1))).DataSource.DataSet.Active then
+  begin
+    TDBGrid(FindComponent('DBGrid' + IntToStr(ProfilePageControl.ActivePage.PageIndex + 1))).SetFocus;
+    DetailNavigator.DataSource := TDataSource(FindComponent('DataSource' + IntToStr(ProfilePageControl.ActivePage.PageIndex + 1)));
+  end
+  else
+    MessageDlg('This table does not yet exist in your database! You may have to upgrade your database to the newest version.', mtWarning, [mbOK], 0);
+  RecordText.Caption := 'Record ' + IntToStr(DetailNavigator.DataSource.DataSet.RecNo) + ' out of ' + IntToStr(DetailNavigator.DataSource.DataSet.RecordCount);
 end;
 
 procedure TProfilingForm.HelpBitBtnClick(Sender: TObject);
@@ -962,12 +927,17 @@ begin
   end;
 end;
 
-procedure TProfilingForm.RecDBGridColEnter(Sender: TObject);
+procedure TProfilingForm.DBGrid7ColEnter(Sender: TObject);
 begin
   if not ValidFound then
   begin
-    RecDBGrid.SelectedIndex := ColNr;
+    DBGrid7.SelectedIndex := ColNr;
   end;
+end;
+
+procedure TProfilingForm.ZQueryGraviAfterOpen(DataSet: TDataSet);
+begin
+  DataSource6.AutoEdit := AutoEditData;
 end;
 
 procedure TProfilingForm.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -991,7 +961,57 @@ end;
 
 procedure TProfilingForm.EMTableAfterOpen(DataSet: TDataSet);
 begin
-  EMDataSource.AutoEdit := AutoEditData;
+  DataSource2.AutoEdit := AutoEditData;
+end;
+
+procedure TProfilingForm.DetailNavigatorClick(Sender: TObject; Button: TDBNavButtonType);
+begin
+  TDBGrid(FindComponent('DBGrid' + IntToStr(ProfilePageControl.ActivePageIndex + 1))).SetFocus;
+  try
+    case Button of
+      nbNext: (Sender as TDBNavigator).DataSource.DataSet.MoveBy(EditResults.Tag - 1); //it moves 1 anyway
+      nbPrior: begin
+                 if (Sender as TDBNavigator).DataSource.DataSet.RecNo <= EditResults.Tag + 1 then
+                   (Sender as TDBNavigator).DataSource.DataSet.First
+                 else
+                   (Sender as TDBNavigator).DataSource.DataSet.RecNo := (Sender as TDBNavigator).DataSource.DataSet.RecNo - EditResults.Tag + 1; //it moves 1 anyway
+               end;
+    end; //of case
+  finally
+    Screen.Cursor := crDefault;
+  end;
+end;
+
+procedure TProfilingForm.DetailNavigatorBeforeAction(Sender: TObject;
+  Button: TDBNavButtonType);
+begin
+  case Button of
+    nbNext, nbPrior, nbFirst, nbLast: Screen.Cursor := crSQLWait;
+  end; //of case
+end;
+
+procedure TProfilingForm.DataSourceDataChange(Sender: TObject; Field: TField);
+begin
+  with Sender as TDataSource do
+    if DataSet.Active then RecordText.Caption := 'Record ' + IntToStr(DataSet.RecNo) + ' out of ' + IntToStr(DataSet.RecordCount);
+end;
+
+procedure TProfilingForm.DBGrid7GetCellHint(Sender: TObject; Column: TColumn;
+  var AText: String);
+begin
+  if Column.FieldName = 'SITE_ID_NR' then
+    AText := 'Dbl-click or F9 to select Site Identifier';
+end;
+
+procedure TProfilingForm.EditResultsEditingDone(Sender: TObject);
+begin
+  EditResults.Tag := StrToInt(EditResults.Text);
+  MagTable.FetchRow := EditResults.Tag;
+  EMTable.FetchRow := EditResults.Tag;
+  GenieTable.FetchRow := EditResults.Tag;
+  ResTable.FetchRow := EditResults.Tag;
+  VLFTable.FetchRow := EditResults.Tag;
+  DetailNavigator.DataSource.DataSet.Refresh;
 end;
 
 end.

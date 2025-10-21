@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -23,14 +23,15 @@ interface
 
 uses
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs, LCLtype, MastDetl,
-  Menus, Db, StdCtrls, DBCtrls, ExtCtrls, Buttons, Spin, DBGrids, MaskEdit;
+  Menus, Db, StdCtrls, DBCtrls, ExtCtrls, Buttons, Spin, DBGrids, MaskEdit,
+  SpinEx;
 
 type
 
   { TPenetrationForm }
 
   TPenetrationForm = class(TMasterDetailForm)
-    FloatSpinEdit1: TFloatSpinEdit;
+    FloatSpinEditEx1: TFloatSpinEditEx;
     lblRate: TLabel;
     LinkedQueryCOMMENT: TStringField;
     LinkedQueryDATE_ENTRY: TStringField;
@@ -116,7 +117,7 @@ begin
   LinkedQueryREP_INST.Value := PrevRepInst;
   LinkedQueryINFO_SOURC.Value := PrevInfoSource;
   LinkedQueryDEPTH_TOP.Value := PrevDepthBot;
-  LinkedQueryDEPTH_BOT.Value := PrevDepthBot + FloatSpinEdit1.Value;
+  LinkedQueryDEPTH_BOT.Value := PrevDepthBot + FloatSpinEditEx1.Value;
   LinkedQueryDIAMETER.Value := PrevDiameter;
   if PrevDepthBot > 0 then //there are previous penetrations added
     DBGrid.SelectedField := LinkedQuery.Fields.Fields[7] //goto the rate field
@@ -307,8 +308,10 @@ end;
 procedure TPenetrationForm.LinkedQueryCOMMENTSetText(Sender: TField;
   const aText: String);
 begin
-  inherited;
-  Sender.Value := UpperCase(aText);
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TPenetrationForm.FormActivate(Sender: TObject);

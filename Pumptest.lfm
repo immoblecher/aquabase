@@ -1,7 +1,7 @@
 inherited PumpTestForm: TPumpTestForm
-  Left = 639
+  Left = 873
   Height = 395
-  Top = 153
+  Top = 272
   Caption = 'Pumping Test Form'
   ClientHeight = 395
   Icon.Data = {
@@ -401,67 +401,75 @@ inherited PumpTestForm: TPumpTestForm
     end
   end
   inherited Panel2: TPanel
-    Height = 250
-    ClientHeight = 250
+    Height = 244
+    Top = 151
+    ClientHeight = 244
     inherited Panel4: TPanel
-      Top = 222
+      Top = 216
       inherited DetailNavigator: TDBNavigator
         Hints.Strings = (        )
       end
+      inherited StaticText1: TStaticText
+        Left = 461
+        Width = 42
+      end
     end
     inherited DBGrid: TDBGrid
-      Height = 158
+      Height = 126
       Constraints.MinHeight = 80
     end
     inherited LinkedLabel: TLabel
       Width = 385
       Constraints.MinWidth = 380
     end
-    object DBMemo1: TDBMemo[3]
-      Left = 5
-      Height = 34
-      Top = 186
-      Width = 566
-      Align = alBottom
-      BorderSpacing.Left = 4
-      BorderSpacing.Right = 4
-      Constraints.MinHeight = 34
-      DataField = 'NOTE_PAD'
-      DataSource = LinkedDataSource
-      TabOrder = 2
-    end
-    object Splitter1: TSplitter[4]
+    object Splitter1: TSplitter[3]
       Cursor = crVSplit
       Left = 1
       Height = 5
-      Top = 181
+      Top = 149
       Width = 574
       Align = alBottom
       ResizeAnchor = akBottom
     end
-    object ObsBhsCheckBox: TCheckBox[5]
-      Left = 410
-      Height = 24
+    object ObsBhsCheckBox: TCheckBox[4]
+      Left = 408
+      Height = 23
       Top = 2
-      Width = 154
+      Width = 156
       Anchors = [akTop, akRight]
       Caption = 'Show observation holes'
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      OnClick = ObsBhsCheckBoxClick
       ParentFont = False
+      TabOrder = 3
+      OnClick = ObsBhsCheckBoxClick
+    end
+    object DBMemo1: TDBMemo[5]
+      Left = 5
+      Height = 60
+      Top = 154
+      Width = 566
+      Align = alBottom
+      BorderSpacing.Left = 4
+      BorderSpacing.Right = 4
+      DataField = 'NOTE_PAD'
+      DataSource = LinkedDataSource
       TabOrder = 4
     end
   end
   inherited GroupBox1: TGroupBox
-    ClientHeight = 86
+    Height = 107
+    ClientHeight = 89
+    inherited RxDBLookupComboAcc: TRxDBLookupCombo
+      Height = 29
+    end
   end
   inherited LinkedDataSource: TDataSource
     OnDataChange = LinkedDataSourceDataChange
-    left = 176
-    top = 248
+    Left = 176
+    Top = 248
   end
   inherited LinkedQuery: TZQuery
     SortedFields = 'SITE_ID_NR, DATE_START, TIME_START'
@@ -481,16 +489,18 @@ inherited PumpTestForm: TPumpTestForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     IndexFieldNames = 'SITE_ID_NR Asc, DATE_START Asc, TIME_START Asc'
-    left = 32
-    top = 240
+    Left = 32
+    Top = 240
     ParamData = <    
       item
         DataType = ftString
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryDATE_ENTRY: TStringField[1]
       Alignment = taCenter
@@ -567,8 +577,6 @@ inherited PumpTestForm: TPumpTestForm
       Required = False
       OnGetText = LinkedQueryDEPTH_INTKGetText
       OnSetText = LinkedQueryDEPTH_INTKSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryDATE_START: TStringField[6]
@@ -643,8 +651,6 @@ inherited PumpTestForm: TPumpTestForm
       Required = False
       OnGetText = LinkedQueryTRANSMISGetText
       OnSetText = LinkedQueryTRANSMISSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQuerySTORATIV_0: TFloatField[11]
@@ -657,8 +663,6 @@ inherited PumpTestForm: TPumpTestForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryRECC_ABSTR: TFloatField[12]
@@ -673,8 +677,6 @@ inherited PumpTestForm: TPumpTestForm
       Required = False
       OnGetText = LinkedQueryRECC_ABSTRGetText
       OnSetText = LinkedQueryRECC_ABSTRSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryNOTES_YN: TStringField[13]
@@ -688,8 +690,7 @@ inherited PumpTestForm: TPumpTestForm
       Visible = False
       Size = 1
     end
-    object LinkedQueryNOTE_PAD: TBlobField[14]
-      DisplayWidth = 10
+    object LinkedQueryNOTE_PAD: TWideStringField[14]
       FieldKind = fkData
       FieldName = 'NOTE_PAD'
       Index = 14
@@ -698,7 +699,7 @@ inherited PumpTestForm: TPumpTestForm
       ReadOnly = False
       Required = False
       Visible = False
-      BlobType = ftMemo
+      Size = 4096
     end
     object LinkedQueryOBS_HOLE_1: TStringField[15]
       Tag = 100
@@ -730,8 +731,6 @@ inherited PumpTestForm: TPumpTestForm
       Visible = False
       OnGetText = LinkedQueryDIST_HOLEGetText
       OnSetText = LinkedQueryDIST_HOLESetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryTRANSMIS_1: TFloatField[17]
@@ -747,8 +746,6 @@ inherited PumpTestForm: TPumpTestForm
       Visible = False
       OnGetText = LinkedQueryTRANSMISGetText
       OnSetText = LinkedQueryTRANSMISSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQuerySTORATIV_1: TFloatField[18]
@@ -762,8 +759,6 @@ inherited PumpTestForm: TPumpTestForm
       ReadOnly = False
       Required = False
       Visible = False
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryOBS_HOLE_2: TStringField[19]
@@ -796,8 +791,6 @@ inherited PumpTestForm: TPumpTestForm
       Visible = False
       OnGetText = LinkedQueryDIST_HOLEGetText
       OnSetText = LinkedQueryDIST_HOLESetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryTRANSMIS_2: TFloatField[21]
@@ -813,8 +806,6 @@ inherited PumpTestForm: TPumpTestForm
       Visible = False
       OnGetText = LinkedQueryTRANSMISGetText
       OnSetText = LinkedQueryTRANSMISSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQuerySTORATIV_2: TFloatField[22]
@@ -828,8 +819,6 @@ inherited PumpTestForm: TPumpTestForm
       ReadOnly = False
       Required = False
       Visible = False
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryOBS_HOLE_3: TStringField[23]
@@ -862,8 +851,6 @@ inherited PumpTestForm: TPumpTestForm
       Visible = False
       OnGetText = LinkedQueryDIST_HOLEGetText
       OnSetText = LinkedQueryDIST_HOLESetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryTRANSMIS_3: TFloatField[25]
@@ -879,8 +866,6 @@ inherited PumpTestForm: TPumpTestForm
       Visible = False
       OnGetText = LinkedQueryTRANSMISGetText
       OnSetText = LinkedQueryTRANSMISSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQuerySTORATIV_3: TFloatField[26]
@@ -894,8 +879,6 @@ inherited PumpTestForm: TPumpTestForm
       ReadOnly = False
       Required = False
       Visible = False
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryOBS_HOLE_4: TStringField[27]
@@ -928,8 +911,6 @@ inherited PumpTestForm: TPumpTestForm
       Visible = False
       OnGetText = LinkedQueryDIST_HOLEGetText
       OnSetText = LinkedQueryDIST_HOLESetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryTRANSMIS_4: TFloatField[29]
@@ -945,8 +926,6 @@ inherited PumpTestForm: TPumpTestForm
       Visible = False
       OnGetText = LinkedQueryTRANSMISGetText
       OnSetText = LinkedQueryTRANSMISSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQuerySTORATIV_4: TFloatField[30]
@@ -960,8 +939,6 @@ inherited PumpTestForm: TPumpTestForm
       ReadOnly = False
       Required = False
       Visible = False
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryOBS_HOLE_5: TStringField[31]
@@ -994,8 +971,6 @@ inherited PumpTestForm: TPumpTestForm
       Visible = False
       OnGetText = LinkedQueryDIST_HOLEGetText
       OnSetText = LinkedQueryDIST_HOLESetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryTRANSMIS_5: TFloatField[33]
@@ -1011,8 +986,6 @@ inherited PumpTestForm: TPumpTestForm
       Visible = False
       OnGetText = LinkedQueryTRANSMISGetText
       OnSetText = LinkedQueryTRANSMISSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQuerySTORATIV_5: TFloatField[34]
@@ -1026,8 +999,6 @@ inherited PumpTestForm: TPumpTestForm
       ReadOnly = False
       Required = False
       Visible = False
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryOBS_HOLE_6: TStringField[35]
@@ -1060,8 +1031,6 @@ inherited PumpTestForm: TPumpTestForm
       Visible = False
       OnGetText = LinkedQueryDIST_HOLEGetText
       OnSetText = LinkedQueryDIST_HOLESetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQueryTRANSMIS_6: TFloatField[37]
@@ -1077,8 +1046,6 @@ inherited PumpTestForm: TPumpTestForm
       Visible = False
       OnGetText = LinkedQueryTRANSMISGetText
       OnSetText = LinkedQueryTRANSMISSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
     object LinkedQuerySTORATIV_6: TFloatField[38]
@@ -1092,8 +1059,6 @@ inherited PumpTestForm: TPumpTestForm
       ReadOnly = False
       Required = False
       Visible = False
-      MaxValue = 0
-      MinValue = 0
       Precision = 2
     end
   end
