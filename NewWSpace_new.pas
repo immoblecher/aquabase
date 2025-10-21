@@ -1,4 +1,4 @@
-{ Copyright (C) 2025 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2024 Immo Blecher immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -35,10 +35,11 @@ type
     ButtonRetrieveMaria: TButton;
     ButtonRetrieveMSsql: TButton;
     ButtonPanel1: TButtonPanel;
-    ComboBoxPostgresSchemas: TComboBox;
     ComboBoxDBMaria: TComboBox;
     ComboBoxDBPostgre: TComboBox;
     ComboBoxDBMSsql: TComboBox;
+    ComboBoxProtocolMaria: TComboBox;
+    ComboBoxProtocolMSsql: TComboBox;
     DirectoryEdit1: TDirectoryEdit;
     EditHostMSsql: TEdit;
     EditPasswordMSsql: TEdit;
@@ -48,17 +49,18 @@ type
     EditPortMaria: TEdit;
     EditUserNameMaria: TEdit;
     EditUserNameMSsql: TEdit;
-    FileNameEditSqlite: TFileNameEdit;
+    FileNameEdit: TFileNameEdit;
     ImageList1: TImageList;
     Label1: TLabel;
-    LabelPostgresSchema: TLabel;
     Label16: TLabel;
     Label17: TLabel;
+    Label18: TLabel;
     Label19: TLabel;
     Label20: TLabel;
     Label21: TLabel;
     Label22: TLabel;
     Label23: TLabel;
+    Label24: TLabel;
     Label25: TLabel;
     Label26: TLabel;
     Label27: TLabel;
@@ -66,7 +68,9 @@ type
     ButtonRetrievePostgre: TButton;
     ComboBoxCountry: TComboBox;
     ComboBoxCoordSys: TComboBox;
+    ComboBoxProtocolMySQL: TComboBox;
     ComboBoxDBMySQL: TComboBox;
+    ComboBoxProtocolPostgre: TComboBox;
     EditPortMySQL: TEdit;
     EditPortPostgre: TEdit;
     EditHostMySQL: TEdit;
@@ -78,6 +82,8 @@ type
     Label10: TLabel;
     Label11: TLabel;
     Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
@@ -90,8 +96,6 @@ type
     Label15: TLabel;
     CoordLabel: TLabel;
     PageControl1: TPageControl;
-    RadioGroup1: TRadioGroup;
-    TabSheetGpkg: TTabSheet;
     TabSheetSQLite: TTabSheet;
     TabSheetMySQL: TTabSheet;
     TabSheetPostgre: TTabSheet;
@@ -104,10 +108,9 @@ type
     procedure ButtonRetrieveMariaClick(Sender: TObject);
     procedure ButtonRetrieveMSsqlClick(Sender: TObject);
     procedure ComboBoxCountryChange(Sender: TObject);
-    procedure ComboBoxDBPostgreChange(Sender: TObject);
     procedure DirectoryEdit1AcceptDirectory(Sender: TObject; var Value: String);
     procedure DirectoryEdit1ButtonClick(Sender: TObject);
-    procedure FileNameEditSqliteFolderChange(Sender: TObject);
+    procedure FileNameEditFolderChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -116,7 +119,6 @@ type
     procedure ButtonRetrieveMySQLClick(Sender: TObject);
     procedure ButtonRetrievePostgreClick(Sender: TObject);
     procedure PageControl1Change(Sender: TObject);
-    procedure RadioGroup1SelectionChanged(Sender: TObject);
     procedure TestButtonClick(Sender: TObject);
     procedure ZQueryCountriesAfterOpen(DataSet: TDataSet);
     procedure ZQueryCountriesBeforeOpen(DataSet: TDataSet);
@@ -142,6 +144,7 @@ begin
   begin
     HostName := EditHostMySQL.Text;
     Port := StrToInt(EditPortMySQL.Text);
+    Protocol := ComboBoxProtocolMySQL.Text;
     {$IFDEF WINDOWS}
       LibraryLocation := ProgramDir + '\libmysql.dll';
     {$ENDIF}
@@ -179,6 +182,7 @@ begin
   begin
     HostName := EditHostPostgre.Text;
     Port := StrToInt(EditPortPostgre.Text);
+    Protocol := ComboBoxProtocolPostgre.Text;
     {$IFDEF WINDOWS}
       LibraryLocation := ProgramDir + '\libpq.dll';
     {$ENDIF}
@@ -191,39 +195,21 @@ begin
     try
       Screen.Cursor := crSQLWait;
       Connect;
-      with PostgreDBQuery do //get databases
+      with PostgreDBQuery do
       begin
-        SQL.Clear;
-        SQL.Add('SELECT datname FROM pg_database where datname not in (''postgres'', ''template0'', ''template1'');');
         Open;
         ComboBoxDBPostgre.Clear;
         while not EOF do
         begin
-          ComboBoxDBPostgre.Items.Add(Fields[0].AsString);
+          if (Fields[0].AsString <> 'postgres') and (Pos('template', Fields[0].AsString) = 0) then
+            ComboBoxDBPostgre.Items.Add(Fields[0].AsString);
           Next;
         end;
         Close;
       end;
       Screen.Cursor := crDefault;
       ComboBoxDBPostgre.ItemIndex := 0;
-      MessageDlg('Connection to PostgreSQL server successful and databases retrieved!', mtInformation, [mbOK], mrOK);
-      Disconnect;
-      Database := ComboBoxDBPostgre.Items[0];
-      Connect;
-      with PostgreDBQuery do //get schemas
-      begin
-        SQL.Clear;
-        SQL.Add('SELECT schema_name FROM information_schema.schemata where schema_name not in (''information_schema'', ''pg_catalog'', ''pg_toast'');');
-        Open;
-        ComboBoxPostgresSchemas.Clear;
-        while not EOF do
-        begin
-          ComboBoxPostgresSchemas.Items.Add(Fields[0].AsString);
-          Next;
-        end;
-        ComboBoxPostgresSchemas.ItemIndex := 0;
-        Close;
-      end;
+      MessageDlg('Connection to PostgreSQL server successful and databases/schemas retrieved!', mtInformation, [mbOK], mrOK);
       Disconnect;
     except on E: Exception do
       begin
@@ -239,16 +225,6 @@ procedure TNewWSpaceForm.PageControl1Change(Sender: TObject);
 begin
   ConnectionSuccess := False;
   ButtonPanel1.OKButton.Enabled := False;
-  ZConnection1.Protocol := PageControl1.ActivePage.Hint;
-end;
-
-procedure TNewWSpaceForm.RadioGroup1SelectionChanged(Sender: TObject);
-begin
-  if FileNameEditSQlite.Text > '' then
-    if (RadioGroup1.ItemIndex = 0) then //sqlite
-      FileNameEditSQlite.Text := WSpaceDir + DirectorySeparator + ExtractFilename(WSpaceDir) + '.sqlite'
-    else //gpkg
-      FileNameEditSQlite.Text := WSpaceDir + DirectorySeparator + ExtractFilename(WSpaceDir) + '.gpkg'
 end;
 
 procedure TNewWSpaceForm.ComboBoxCountryChange(Sender: TObject);
@@ -284,31 +260,6 @@ begin
     ComboBoxCoordSys.ItemIndex := 0;
 end;
 
-procedure TNewWSpaceForm.ComboBoxDBPostgreChange(Sender: TObject);
-begin
-  with ZConnection1 do
-  begin
-    Disconnect;
-    Database := ComboBoxDBPostgre.Text;
-    Connect;
-    with PostgreDBQuery do //get schemas
-    begin
-      SQL.Clear;
-      SQL.Add('SELECT schema_name FROM information_schema.schemata where schema_name not in (''information_schema'', ''pg_catalog'', ''pg_toast'');');
-      Open;
-      ComboBoxPostgresSchemas.Clear;
-      while not EOF do
-      begin
-        ComboBoxPostgresSchemas.Items.Add(Fields[0].AsString);
-        Next;
-      end;
-      ComboBoxPostgresSchemas.ItemIndex := 0;
-      Close;
-    end;
-    Disconnect;
-  end;
-end;
-
 procedure TNewWSpaceForm.DirectoryEdit1AcceptDirectory(Sender: TObject;
   var Value: String);
 begin
@@ -325,14 +276,10 @@ begin
     and not FileExistsExt('aquabase', Value) then
   begin
     WSpaceDir := Value;
-    if FileNameEditSQlite.Text = '' then //database is not selected yet
-      if (RadioGroup1.ItemIndex = 0) then //sqlite
-        FileNameEditSQlite.Text := WSpaceDir + DirectorySeparator + ExtractFilename(WSpaceDir) + '.sqlite'
-      else //gpkg
-        FileNameEditSQlite.Text := WSpaceDir + DirectorySeparator + ExtractFilename(WSpaceDir) + '.gpkg';
+    if FileNameEdit.Text = '' then //database is not selected yet
+      FileNameEdit.Text := WSpaceDir + DirectorySeparator + ExtractFilename(WSpaceDir) + '.sqlite';
     BitBtnTest.Enabled := True;
   end;
-  FileNameEditSqlite.Enabled := BitBtnTest.Enabled;
 end;
 
 procedure TNewWSpaceForm.DirectoryEdit1ButtonClick(Sender: TObject);
@@ -340,23 +287,23 @@ begin
   DirectoryEdit1.RootDir := GetUserDir;
 end;
 
-procedure TNewWSpaceForm.FileNameEditSqliteFolderChange(Sender: TObject);
+procedure TNewWSpaceForm.FileNameEditFolderChange(Sender: TObject);
 begin
-  if FileNameEditSqlite.Text > '' then
-    FileNameEditSQlite.InitialDir := ExtractFilePath(FileNameEditSQlite.Text)
+  if FileNameEdit.Text > '' then
+    FileNameEdit.InitialDir := ExtractFilePath(FileNameEdit.Text)
   else
-    FileNameEditSQlite.InitialDir := GetUserDir;
+    FileNameEdit.InitialDir := GetUserDir;
   //check if it is a valid Aquabase SQLite database
   with ZConnection1 do
   begin
-    Database := FileNameEditSQlite.FileName;
+    Database := FileNameEdit.FileName;
     Protocol := 'sqlite';
     Connect;
     try
-      ExecuteDirect('select site_id_nr from basicinf');
-      //FileNameEditSQlite.Text := FileNameEditSQlite.FileName;
+      ExecuteDirect('select site_id_nr from basicinf where 1 <> 1');
+      //FileNameEdit.Text := FileNameEdit.FileName;
     except on E: Exception do
-      MessageDlg('This does not seem to be a valid Aquabase SpatiaLite/Geopackage database!', mtError, [mbOK], 0);
+      MessageDlg('This does not seem to be a valid Aquabase SQLite database!', mtError, [mbOK], 0);
     end;
     Disconnect;
     Database := '';
@@ -376,24 +323,16 @@ end;
 
 procedure TNewWSpaceForm.FormCreate(Sender: TObject);
 begin
+  Screen.Cursor := crSQLWait;
   DataModuleMain.SetComponentFontAndSize(Sender, True);
   BitBtnTest.Width := 120;
   BitBtnTest.Height := 26;
   DataModuleMain.ZConnectionLanguage.Connect;
-  with ZQueryCountries do
-  begin
-    Open;
-    //Fill Country combobox
-    while not EOF do
-    begin
-      ComboBoxCountry.Items.Add(Fields[0].AsString);
-      Next;
-    end;
-    Close;
-  end;
+  ZQueryCountries.Open;
   DataModuleMain.ZConnectionProj.Connect;
-  ComboBoxCountry.ItemIndex := ComboBoxCountry.Items.IndexOf('South Africa');
+  ComboBoxCountry.ItemIndex := 209;
   ComboBoxCountry.OnChange(Sender);
+  Screen.Cursor := crDefault;
 end;
 
 procedure TNewWSpaceForm.FormKeyDown(Sender: TObject; var Key: Word;
@@ -414,6 +353,7 @@ begin
   begin
     HostName := EditHostMaria.Text;
     Port := StrToInt(EditPortMaria.Text);
+    Protocol := ComboBoxProtocolMaria.Text;
     {$IFDEF WINDOWS}
       LibraryLocation := ProgramDir + '\' + MariaDBLib;
     {$ENDIF}
@@ -450,7 +390,8 @@ begin
   begin
     HostName := EditHostMSsql.Text;
     Port := StrToInt(EditPortMSsql.Text);
-    if Protocol = 'mssql' then
+    Protocol := ComboBoxProtocolMSsql.Text;
+    if Copy(Protocol, 1, 13) = 'FreeTDS_MsSQL' then
     begin
       {$IFDEF UNIX}
       LibraryLocation := MSsqlLib;
@@ -545,29 +486,28 @@ begin
     or InRange(OrigCoordSysNr, 22275, 22293) //all RSA LOs
     or InRange(OrigCoordSysNr, 29371, 29385); //all Nam LOs
   dstLO := srcLO;
-  with DataModuleMain.ZConnectionDB do
   case PageControl1.ActivePage.Tag of
     1: begin //sqlite
          WSpaceIniFile.WriteString('Database', 'Protocol', 'sqlite');
          {$IFDEF WINDOWS}
-           WSpaceIniFile.WriteString('Database', 'Database', FileNameEditSQlite.Text);
+           WSpaceIniFile.WriteString('Database', 'Database', FileNameEdit.Text);
          {$ENDIF}
          {$IFDEF LINUX}
-           WSpaceIniFile.WriteString('Database', 'xDatabase', FileNameEditSQlite.Text);
+           WSpaceIniFile.WriteString('Database', 'xDatabase', FileNameEdit.Text);
          {$ENDIF}
          {$IFDEF DARWIN}
-           WSpaceIniFile.WriteString('Database', 'mDatabase', FileNameEditSQlite.Text);
+           WSpaceIniFile.WriteString('Database', 'mDatabase', FileNameEdit.Text);
          {$ENDIF}
-         Database := FileNameEditSQlite.Text;
-         Tag := 1;
+         DataModuleMain.ZConnectionDB.Database := FileNameEdit.Text;
+         DataModuleMain.ZConnectionDB.Tag := 1;
        end;
     2: begin //Mysql
-         User := EditUserNameMySQL.Text;
-         Password := EditPasswordMySQL.Text;
-         Tag := 2;
+         DataModuleMain.ZConnectionDB.User := EditUserNameMySQL.Text;
+         DataModuleMain.ZConnectionDB.Password := EditPasswordMySQL.Text;
+         DataModuleMain.ZConnectionDB.Tag := 2;
          with WSpaceIniFile do
          begin
-           WriteString('Database', 'Protocol', ZConnection1.Protocol);
+           WriteString('Database', 'Protocol', ComboBoxProtocolMySQL.Text);
            WriteString('Database', 'Database', ComboBoxDBMySQL.Text);
            WriteString('Database', 'HostName', EditHostMySQL.Text);
            WriteInteger('Database', 'Port', StrToInt(EditPortMySQL.Text));
@@ -575,12 +515,12 @@ begin
          end;
        end;
     3: begin //MariaDB
-         User := EditUserNameMaria.Text;
-         Password := EditPasswordMaria.Text;
-         Tag := 3;
+         DataModuleMain.ZConnectionDB.User := EditUserNameMaria.Text;
+         DataModuleMain.ZConnectionDB.Password := EditPasswordMaria.Text;
+         DataModuleMain.ZConnectionDB.Tag := 3;
          with WSpaceIniFile do
          begin
-           WriteString('Database', 'Protocol', ZConnection1.Protocol);
+           WriteString('Database', 'Protocol', ComboBoxProtocolMaria.Text);
            WriteString('Database', 'Database', ComboBoxDBMaria.Text);
            WriteString('Database', 'HostName', EditHostMaria.Text);
            WriteInteger('Database', 'Port', StrToInt(EditPortMaria.Text));
@@ -588,27 +528,25 @@ begin
          end;
        end;
     4: begin //Postgresl
-         User := EditUserNamePostgre.Text;
-         Password := EditPasswordPostgre.Text;
-         Catalog := ComboBoxPostgresSchemas.Text;
-         Tag := 4;
+         DataModuleMain.ZConnectionDB.User := EditUserNamePostgre.Text;
+         DataModuleMain.ZConnectionDB.Password := EditPasswordPostgre.Text;
+         DataModuleMain.ZConnectionDB.Tag := 4;
          with WSpaceIniFile do
          begin
-           WriteString('Database', 'Protocol', ZConnection1.Protocol);
+           WriteString('Database', 'Protocol', ComboBoxProtocolPostgre.Text);
            WriteString('Database', 'Database', ComboBoxDBPostgre.Text);
            WriteString('Database', 'HostName', EditHostPostgre.Text);
            WriteInteger('Database', 'Port', StrToInt(EditPortPostgre.Text));
            WriteString('Database', 'LibraryLocation', ZConnection1.LibraryLocation);
-           WriteString('Database', 'Schema', ComboBoxPostgresSchemas.Text);
          end;
        end;
     5: begin //SQLServer
-         User := EditUserNameMSsql.Text;
-         Password := EditPasswordMSsql.Text;
-         Tag := 5;
+         DataModuleMain.ZConnectionDB.User := EditUserNameMSsql.Text;
+         DataModuleMain.ZConnectionDB.Password := EditPasswordMSsql.Text;
+         DataModuleMain.ZConnectionDB.Tag := 5;
          with WSpaceIniFile do
          begin
-           WriteString('Database', 'Protocol', ZConnection1.Protocol);
+           WriteString('Database', 'Protocol', ComboBoxProtocolMSsql.Text);
            WriteString('Database', 'Database', ComboBoxDBMSsql.Text);
            WriteString('Database', 'HostName', EditHostMSsql.Text);
            WriteInteger('Database', 'Port', StrToInt(EditPortMSsql.Text));
@@ -624,14 +562,11 @@ begin
   ConnectionSuccess := False;
   if PageControl1.ActivePage.Tag = 1 then
   begin
-    if not FileExists(FileNameEditSQlite.Text) then
+    if not FileExists(FileNameEdit.Text) then
     begin
-      MessageDlg('The SpatiaLite/Geopackage database does not yet exist! It will now be created in your workspace folder.',
+      MessageDlg('The SQLite/SpatiaLite database does not yet exist! It will now be created in your workspace folder.',
         mtInformation, [mbOK], mrOK);
-      if RightStr(FileNameEditSQlite.Text, 6) = 'sqlite' then
-        CopyFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'aquabase.sqlite', WSpaceDir + DirectorySeparator + ExtractFileName(WSpaceDir) + '.sqlite')
-      else
-        CopyFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'GeoPackage' + DirectorySeparator + 'aquabase.gpkg', WSpaceDir + DirectorySeparator + ExtractFileName(WSpaceDir) + '.gpkg');
+      CopyFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'aquabase.sqlite', WSpaceDir + DirectorySeparator + ExtractFileName(WSpaceDir) + '.sqlite');
     end;
     with ZConnection1 do
     begin
@@ -642,14 +577,14 @@ begin
       {$IFDEF UNIX}
         LibraryLocation := SQLiteLib;
       {$ENDIF}
-      Database := FileNameEditSQlite.Text;
+      Database := FileNameEdit.Text;
       try
         Connect;
         //check if it is a valid Aquabase database
-        ConnectionSuccess := ExecuteDirect('select site_id_nr from basicinf');
-        MessageDlg('Connection to SpatiaLite/Geopackage database successful.', mtInformation, [mbOK], mrOK);
+        ConnectionSuccess := ExecuteDirect('select site_id_nr from basicinf where 1 <> 1');
+        MessageDlg('Connection to SQLite/SpatiaLite database successful!', mtInformation, [mbOK], mrOK);
       except on E: Exception do
-        MessageDlg(E. Message + ': Could not connect to SpatiaLite/Geopackage database with current settings or this is not a valid Aquabase database!', mtError, [mbOK], mrOK);
+        MessageDlg(E. Message + ': Could not connect to SQLite/SpatiaLite database with current settings or this is not a valid Aquabase database!', mtError, [mbOK], mrOK);
       end;
     end;
   end
@@ -658,6 +593,7 @@ begin
   begin
     HostName := EditHostMySQL.Text;
     Port := StrToInt(EditPortMySQL.Text);
+    Protocol := ComboBoxProtocolMySQL.Text;
     {$IFDEF WINDOWS}
       LibraryLocation := ProgramDir + '\' + MySQLLib;
     {$ENDIF}
@@ -670,8 +606,8 @@ begin
     try
       Connect;
       //check if it is a valid Aquabase database
-      ConnectionSuccess := ExecuteDirect('select site_id_nr from basicinf');
-      MessageDlg('Connection to MySQL server successful.', mtInformation, [mbOK], mrOK);
+      ConnectionSuccess := ExecuteDirect('select site_id_nr from basicinf where 1 <> 1');
+      MessageDlg('Connection to MySQL server successful!', mtInformation, [mbOK], mrOK);
     except on E: Exception do
       MessageDlg(E.Message + ': Could not connect to MySQL server with current settings or this is not a valid Aquabase database!', mtError, [mbOK], mrOK);
     end
@@ -681,6 +617,7 @@ begin
   begin
     HostName := EditHostMaria.Text;
     Port := StrToInt(EditPortMaria.Text);
+    Protocol := ComboBoxProtocolMaria.Text;
     {$IFDEF WINDOWS}
       LibraryLocation := ProgramDir + '\' + MariaDBLib;
     {$ENDIF}
@@ -693,8 +630,8 @@ begin
     try
       Connect;
       //check if it is a valid Aquabase database
-      ConnectionSuccess := ExecuteDirect('select site_id_nr from basicinf');
-      MessageDlg('Connection to MariaDB server successful.', mtInformation, [mbOK], mrOK);
+      ConnectionSuccess := ExecuteDirect('select site_id_nr from basicinf where 1 <> 1');
+      MessageDlg('Connection to MariaDB server successful!', mtInformation, [mbOK], mrOK);
     except on E: Exception do
       MessageDlg(E.Message + ': Could not connect to MariaDB server with current settings or this is not a valid Aquabase database!', mtError, [mbOK], mrOK);
     end
@@ -705,22 +642,22 @@ begin
     begin
       HostName := EditHostPostgre.Text;
       Port := StrToInt(EditPortPostgre.Text);
+      Protocol := ComboBoxProtocolPostgre.Text;
       {$IFDEF WINDOWS}
         LibraryLocation := ProgramDir + '\libpq.dll';
       {$ENDIF}
       {$IFDEF UNIX}
         LibraryLocation := PostgreLib;
       {$ENDIF}
-      Catalog := ComboBoxPostgresSchemas.Text;
+      Catalog := 'public';
       User := EditUserNamePostgre.Text;
       Password := EditPasswordPostgre.Text;
       Database := ComboBoxDBPostgre.Text;
       try
         Connect;
         //check if it is a valid Aquabase database
-        ExecuteDirect('SET search_path to "$user", ' + Catalog + ', public;');
-        ConnectionSuccess := ExecuteDirect('select site_id_nr from basicinf');
-        MessageDlg('Connection to PostgreSQL server successful. Make sure to select the required schema before testing the connection!', mtInformation, [mbOK], mrOK);
+        ConnectionSuccess := ExecuteDirect('select site_id_nr from basicinf where 1 <> 1');
+        MessageDlg('Connection to PostgreSQL server successful!', mtInformation, [mbOK], mrOK);
       except on E: Exception do
         MessageDlg(E.Message + ': Could not connect to PostgreSQL server with current settings or this is not a valid Aquabase database!', mtError, [mbOK], mrOK);
       end;
@@ -732,6 +669,7 @@ begin
     begin
       HostName := EditHostMSsql.Text;
       Port := StrToInt(EditPortMSsql.Text);
+      Protocol := ComboBoxProtocolMSsql.Text;
       {$IFDEF WINDOWS}
       LibraryLocation := ProgramDir + '\' + MSsqlLib;
       ClientCodePage := 'WIN1252';
@@ -746,8 +684,8 @@ begin
       try
         Connect;
         //check if it is a valid Aquabase database
-        ConnectionSuccess := ExecuteDirect('select site_id_nr from basicinf');
-        MessageDlg('Connection to MS SQLServer successful.', mtInformation, [mbOK], mrOK);
+        ConnectionSuccess := ExecuteDirect('select site_id_nr from basicinf where 1 <> 1');
+        MessageDlg('Connection to MS SQLServer successful!', mtInformation, [mbOK], mrOK);
       except on E: Exception do
         MessageDlg(E.Message + ': Could not connect to MS SQLServer with current settings or this is not a valid Aquabase database!', mtError, [mbOK], mrOK);
       end

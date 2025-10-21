@@ -1,6 +1,6 @@
 inherited MaintainForm: TMaintainForm
-  Left = 431
-  Top = 277
+  Left = 2791
+  Top = 410
   Caption = 'Maintenance Form'
   Icon.Data = {
     FE0200000000010001002020100000000000E802000016000000280000002000
@@ -48,10 +48,10 @@ inherited MaintainForm: TMaintainForm
     end
   end
   inherited BasicinfDataSource: TDataSource
-    left = 328
+    Left = 328
   end
   inherited LinkedDataSource: TDataSource
-    left = 128
+    Left = 128
   end
   inherited LinkedQuery: TZQuery
     BeforeOpen = LinkedQueryBeforeOpen
@@ -65,14 +65,16 @@ inherited MaintainForm: TMaintainForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
-    left = 32
+    Left = 32
     ParamData = <    
       item
         DataType = ftString
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryDATE_ENTRY: TStringField[1]
       Alignment = taCenter
@@ -259,8 +261,6 @@ inherited MaintainForm: TMaintainForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryCOMMENT: TStringField[13]
@@ -273,7 +273,7 @@ inherited MaintainForm: TMaintainForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedQueryUpperSetText
+      OnSetText = LinkedQueryCOMMENTSetText
       Size = 48
     end
   end

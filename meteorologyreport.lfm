@@ -1261,10 +1261,20 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
   end
   inherited BasicinfQuery: TZReadOnlyQuery
     AfterOpen = BasicinfQueryAfterOpen
+    object BasicinfQueryNOTE_PAD: TWideStringField[26]
+      FieldKind = fkData
+      FieldName = 'NOTE_PAD'
+      Index = 26
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 4096
+    end
   end
   object rainfall: TZReadOnlyQuery[5]
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = QueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       'SELECT * FROM rainfall'
     )
@@ -1350,8 +1360,8 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
     Top = 648
   end
   object pan_evap: TZReadOnlyQuery[7]
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = QueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       'SELECT * FROM pan_evap'
     )
@@ -1437,8 +1447,8 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
     Top = 648
   end
   object humidity: TZReadOnlyQuery[9]
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = QueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       'SELECT * FROM humidity'
     )
@@ -1523,8 +1533,8 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
     Top = 648
   end
   object air_temp: TZReadOnlyQuery[11]
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = QueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       'SELECT * FROM air_temp'
     )
@@ -1622,8 +1632,8 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
     Top = 648
   end
   object pressure: TZReadOnlyQuery[13]
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = QueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       'SELECT * FROM pressure'
     )
@@ -1709,8 +1719,8 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
     Top = 648
   end
   object solaradi: TZReadOnlyQuery[15]
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = QueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       'SELECT * FROM solaradi'
     )
@@ -1795,8 +1805,8 @@ inherited MeteorologyReportForm: TMeteorologyReportForm
     Top = 648
   end
   object windvdir: TZReadOnlyQuery[17]
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = QueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       'SELECT * FROM windvdir'
     )

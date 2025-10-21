@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -1612,8 +1612,11 @@ begin
     aText := ''
   else
   begin
-    if Sender.AsFloat * LengthFactor > 1000 then
+    if Sender.AsFloat * LengthFactor >= 1000 then
       aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 0)
+    else
+    if Sender.AsFloat = 0 then
+      aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 2)
     else
     if Sender.AsFloat * LengthFactor < 0.01 then
       aText := FloatToStrF(Sender.AsFloat * LengthFactor, ffFixed, 15, 5)
@@ -1635,6 +1638,9 @@ begin
       TheValue := Sender.AsFloat;
     if TheValue * LengthFactor >= 1000 then
       aText := FloatToStrF(TheValue * LengthFactor, ffFixed, 15, 1)
+    else
+    if TheValue = 0 then
+      aText := FloatToStrF(TheValue * LengthFactor, ffFixed, 15, 2)
     else
     if TheValue * LengthFactor < 0.01 then
       aText := FloatToStrF(TheValue * LengthFactor, ffFixed, 15, 5)

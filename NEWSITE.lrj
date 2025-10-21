@@ -1,5 +1,6 @@
 {"version":1,"strings":[
 {"hash":119520613,"name":"tnewsiteform.caption","sourcebytes":[67,114,101,97,116,101,32,110,101,119,32,83,105,116,101],"value":"Create new Site"},
+{"hash":256564341,"name":"tnewsiteform.combobox1.text","sourcebytes":[77,97,112,32,114,101,102,101,114,101,110,99,101],"value":"Map reference"},
 {"hash":12208533,"name":"tnewsiteform.groupbox1.caption","sourcebytes":[80,114,111,118,105,100,101,32,97,32,109,97,112,32,114,101,102,101,114,101,110,99,101],"value":"Provide a map reference"},
 {"hash":239484026,"name":"tnewsiteform.label1.caption","sourcebytes":[54,32,67,104,97,114,97,99,116,101,114,32,82,101,102,101,114,101,110,99,101,58],"value":"6 Character Reference:"},
 {"hash":179603065,"name":"tnewsiteform.maprefedit.hint","sourcebytes":[80,114,111,118,105,100,101,32,97,32,109,97,112,32,114,101,102,101,114,101,110,99,101,32,40,109,105,110,46,32,54,32,99,104,97,114,97,99,116,101,114,115,41],"value":"Provide a map reference (min. 6 characters)"},
@@ -10,8 +11,8 @@
 {"hash":99720473,"name":"tnewsiteform.addcodeedit.hint","sourcebytes":[84,121,112,101,32,105,110,32,97,110,32,97,100,100,105,116,105,111,110,97,108,32,99,111,100,101,32,40,48,58,32,100,101,102,97,117,108,116,41],"value":"Type in an additional code (0: default)"},
 {"hash":48,"name":"tnewsiteform.addcodeedit.text","sourcebytes":[48],"value":"0"},
 {"hash":86806624,"name":"tnewsiteform.checkboxdefaulttocentre.caption","sourcebytes":[68,101,102,97,117,108,116,32,99,111,111,114,100,46,32,116,111,32,99,101,110,116,114,101,32,111,102,32,109,97,112],"value":"Default coord. to centre of map"},
-{"hash":239523410,"name":"tnewsiteform.groupbox2.caption","sourcebytes":[70,114,101,101,45,70,111,114,109,32,73,100,101,110,116,105,102,105,101,114,32,47,32,65,117,116,111,109,97,116,105,99,32,78,117,109,98,101,114],"value":"Free-Form Identifier / Automatic Number"},
-{"hash":172069379,"name":"tnewsiteform.editfreeform.hint","sourcebytes":[85,115,101,32,97,32,109,97,120,105,109,117,109,32,111,102,32,49,49,32,97,110,100,32,112,114,101,102,101,114,97,98,108,121,32,97,32,109,105,110,105,109,117,109,32,111,102,32,53,32,99,104,97,114,97,99,116,101,114,115,47,110,117,109,98,101,114,115],"value":"Use a maximum of 11 and preferably a minimum of 5 characters/numbers"},
+{"hash":227263028,"name":"tnewsiteform.groupbox2.caption","sourcebytes":[70,114,101,101,45,102,111,114,109,32,105,100,101,110,116,105,102,105,101,114,32,47,32,97,117,116,111,109,97,116,105,99,32,78,114,46,32,47,32,85,85,73,68],"value":"Free-form identifier / automatic Nr. / UUID"},
+{"hash":172069379,"name":"tnewsiteform.editsiteid.hint","sourcebytes":[85,115,101,32,97,32,109,97,120,105,109,117,109,32,111,102,32,49,49,32,97,110,100,32,112,114,101,102,101,114,97,98,108,121,32,97,32,109,105,110,105,109,117,109,32,111,102,32,53,32,99,104,97,114,97,99,116,101,114,115,47,110,117,109,98,101,114,115],"value":"Use a maximum of 11 and preferably a minimum of 5 characters/numbers"},
 {"hash":266039042,"name":"tnewsiteform.label3.caption","sourcebytes":[83,105,116,101,32,73,100,101,110,116,105,102,105,101,114],"value":"Site Identifier"},
-{"hash":24843349,"name":"tnewsiteform.radiogroup1.caption","sourcebytes":[70,111,114,32,116,104,101,32,110,101,119,32,83,105,116,101,32,73,100,101,110,116,105,102,105,101,114,32,117,115,101],"value":"For the new Site Identifier use"}
+{"hash":24843349,"name":"tnewsiteform.label4.caption","sourcebytes":[70,111,114,32,116,104,101,32,110,101,119,32,83,105,116,101,32,73,100,101,110,116,105,102,105,101,114,32,117,115,101],"value":"For the new Site Identifier use"}
 ]}

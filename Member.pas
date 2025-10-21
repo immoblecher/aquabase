@@ -43,6 +43,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure LinkedQueryAfterPost(DataSet: TDataSet);
     procedure LinkedQueryBeforeEdit(DataSet: TDataSet);
+    procedure LinkedQueryCOMMENTSetText(Sender: TField; const aText: string);
     procedure LinkedQueryDATEValidate(Sender: TField);
     procedure LinkedQueryNewRecord(DataSet: TDataSet);
     procedure LinkedQueryUpperSetText(Sender: TField; const aText: string);
@@ -108,6 +109,15 @@ begin
   DBGrid.Columns[2].PickList.AddStrings(MemberList);
   DBGrid.Columns[3].PickList.Clear;
   DBGrid.Columns[3].PickList.AddStrings(DescrList);
+end;
+
+procedure TMemberForm.LinkedQueryCOMMENTSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TMemberForm.LinkedQueryDATEValidate(Sender: TField);

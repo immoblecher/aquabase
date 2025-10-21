@@ -30,6 +30,7 @@ type
   { TMeteorologyReportForm }
 
   TMeteorologyReportForm = class(TReportTemplateForm)
+    BasicinfQueryNOTE_PAD: TWideStringField;
     windvdir: TZReadOnlyQuery;
     solaradiREADING: TFloatField;
     windvdirREADING: TFloatField;
@@ -308,7 +309,7 @@ begin
     begin
       RLCommentMemo.Lines.Clear;
       RLCommentMemo.Lines.Add('NOTES:');
-      RLCommentMemo.Lines.Add(BasicinfQuery.FieldByname('NOTE_PAD').Value);
+      RLCommentMemo.Lines.Add(BasicinfQueryNOTE_PAD.Value);
     end;
     rainfall.Close;
     rainfall.Active := SubDetail1.Visible;

@@ -1,12 +1,12 @@
 object ManRecForm: TManRecForm
   Left = 479
   Height = 691
-  Top = 27
+  Top = 29
   Width = 795
   Caption = 'ManRecForm'
   ClientHeight = 691
   ClientWidth = 795
-  LCLVersion = '2.0.4.0'
+  LCLVersion = '3.8.0.0'
   object ManRecReport: TRLReport
     Left = 0
     Height = 1123
@@ -26,17 +26,13 @@ object ManRecForm: TManRecForm
     ForcePrepare = False
     PreviewOptions.Caption = 'Preview Management Recommendations'
     PrintEmpty = False
-    RealBounds.Left = 0
-    RealBounds.Top = 0
-    RealBounds.Width = 0
-    RealBounds.Height = 0
     Title = 'Management Recommendations'
     AfterPrint = ManRecReportAfterPrint
     BeforePrint = ManRecReportBeforePrint
     object RLBandHeader: TRLBand
       Left = 39
       Height = 40
-      Top = 39
+      Top = 49
       Width = 716
       BandType = btHeader
       Borders.Sides = sdCustom
@@ -46,10 +42,6 @@ object ManRecForm: TManRecForm
       Borders.DrawBottom = True
       Color = clBtnFace
       ParentColor = False
-      RealBounds.Left = 0
-      RealBounds.Top = 0
-      RealBounds.Width = 0
-      RealBounds.Height = 0
       Transparent = False
       object RLLabel1: TRLLabel
         Tag = 1
@@ -63,10 +55,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         Transparent = False
       end
       object RLSystemInfo1: TRLSystemInfo
@@ -76,10 +64,6 @@ object ManRecForm: TManRecForm
         Top = 12
         Width = 132
         Alignment = taRightJustify
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         Text = 'Date Compiled: '
         Transparent = False
       end
@@ -87,7 +71,7 @@ object ManRecForm: TManRecForm
     object RLBand1: TRLBand
       Left = 39
       Height = 118
-      Top = 79
+      Top = 89
       Width = 716
       Borders.Sides = sdCustom
       Borders.DrawLeft = False
@@ -95,10 +79,6 @@ object ManRecForm: TManRecForm
       Borders.DrawRight = False
       Borders.DrawBottom = True
       PageBreaking = pbBeforePrint
-      RealBounds.Left = 0
-      RealBounds.Top = 0
-      RealBounds.Width = 0
-      RealBounds.Height = 0
       object RLLabel2: TRLLabel
         Tag = 1
         Left = 8
@@ -112,10 +92,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel3: TRLLabel
         Left = 192
@@ -129,10 +105,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText1: TRLDBText
         Left = 276
@@ -147,10 +119,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel4: TRLLabel
         Left = 360
@@ -163,10 +131,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText2: TRLDBText
         Left = 414
@@ -180,10 +144,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel5: TRLLabel
         Left = 496
@@ -196,10 +156,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText3: TRLDBText
         Left = 558
@@ -213,10 +169,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel6: TRLLabel
         Left = 8
@@ -229,10 +181,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText4: TRLDBText
         Left = 100
@@ -246,10 +194,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel7: TRLLabel
         Left = 184
@@ -262,10 +206,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText5: TRLDBText
         Left = 248
@@ -279,10 +219,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object X_CoordLabel: TRLLabel
         Left = 8
@@ -295,10 +231,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel10: TRLLabel
         Left = 8
@@ -311,10 +243,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextX_COORD: TRLDBText
         Left = 112
@@ -328,10 +256,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText8: TRLDBText
         Left = 80
@@ -346,10 +270,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel11: TRLLabel
         Left = 180
@@ -362,10 +282,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText9: TRLDBText
         Left = 240
@@ -379,10 +295,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel12: TRLLabel
         Left = 180
@@ -395,10 +307,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText10: TRLDBText
         Left = 240
@@ -412,10 +320,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel13: TRLLabel
         Left = 180
@@ -428,10 +332,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText11: TRLDBText
         Left = 240
@@ -445,10 +345,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel14: TRLLabel
         Left = 410
@@ -461,10 +357,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText12: TRLDBText
         Left = 460
@@ -479,10 +371,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel15: TRLLabel
         Left = 410
@@ -495,10 +383,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText13: TRLDBText
         Left = 460
@@ -513,10 +397,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel16: TRLLabel
         Left = 410
@@ -529,10 +409,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText14: TRLDBText
         Left = 460
@@ -547,10 +423,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel17: TRLLabel
         Left = 530
@@ -563,10 +435,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText15: TRLDBText
         Left = 664
@@ -581,10 +449,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel19: TRLLabel
         Left = 530
@@ -597,10 +461,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText17: TRLDBText
         Left = 630
@@ -614,10 +474,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object CoordLabel: TRLLabel
         Left = 8
@@ -629,10 +485,6 @@ object ManRecForm: TManRecForm
         Font.Height = -9
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object Y_CoordLabel: TRLLabel
         Left = 8
@@ -645,10 +497,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextY_COORD: TRLDBText
         Left = 112
@@ -662,10 +510,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel18: TRLLabel
         Left = 530
@@ -678,10 +522,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText80: TRLDBText
         Left = 630
@@ -695,16 +535,12 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
     end
     object RLBand2: TRLBand
       Left = 39
       Height = 110
-      Top = 197
+      Top = 207
       Width = 716
       Borders.Sides = sdCustom
       Borders.DrawLeft = False
@@ -712,10 +548,6 @@ object ManRecForm: TManRecForm
       Borders.DrawRight = False
       Borders.DrawBottom = True
       GroupIndex = 1
-      RealBounds.Left = 0
-      RealBounds.Top = 0
-      RealBounds.Width = 0
-      RealBounds.Height = 0
       object RLLabel20: TRLLabel
         Tag = 1
         Left = 8
@@ -729,10 +561,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel21: TRLLabel
         Tag = 1
@@ -747,10 +575,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel22: TRLLabel
         Left = 482
@@ -763,10 +587,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText18: TRLDBText
         Left = 556
@@ -780,10 +600,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel23: TRLLabel
         Left = 482
@@ -796,10 +612,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText19: TRLDBText
         Left = 556
@@ -813,10 +625,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel24: TRLLabel
         Left = 482
@@ -829,10 +637,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText20: TRLDBText
         Left = 556
@@ -846,10 +650,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel25: TRLLabel
         Left = 482
@@ -862,10 +662,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText21: TRLDBText
         Left = 556
@@ -879,10 +675,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel27: TRLLabel
         Left = 10
@@ -895,10 +687,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText22: TRLDBText
         Left = 120
@@ -912,10 +700,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel28: TRLLabel
         Left = 10
@@ -928,10 +712,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText23: TRLDBText
         Left = 120
@@ -945,10 +725,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel30: TRLLabel
         Left = 10
@@ -961,10 +737,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText25: TRLDBText
         Left = 120
@@ -978,10 +750,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel29: TRLLabel
         Left = 10
@@ -994,10 +762,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         Transparent = False
       end
       object RLLabel31: TRLLabel
@@ -1011,10 +775,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         Transparent = False
       end
       object RLLabel32: TRLLabel
@@ -1028,10 +788,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText24: TRLDBText
         Left = 356
@@ -1045,10 +801,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel33: TRLLabel
         Left = 242
@@ -1061,10 +813,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText26: TRLDBText
         Left = 356
@@ -1078,10 +826,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel34: TRLLabel
         Left = 242
@@ -1094,10 +838,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText27: TRLDBText
         Left = 356
@@ -1111,10 +851,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDraw3: TRLDraw
         Left = 474
@@ -1123,16 +859,12 @@ object ManRecForm: TManRecForm
         Width = 1
         Angle = 90
         DrawKind = dkLine
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
     end
     object RLBand3: TRLBand
       Left = 39
       Height = 188
-      Top = 307
+      Top = 317
       Width = 716
       Borders.Sides = sdCustom
       Borders.DrawLeft = False
@@ -1140,10 +872,6 @@ object ManRecForm: TManRecForm
       Borders.DrawRight = False
       Borders.DrawBottom = True
       GroupIndex = 2
-      RealBounds.Left = 0
-      RealBounds.Top = 0
-      RealBounds.Width = 0
-      RealBounds.Height = 0
       object RLLabel26: TRLLabel
         Tag = 1
         Left = 8
@@ -1157,10 +885,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel35: TRLLabel
         Left = 8
@@ -1174,10 +898,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText28: TRLDBText
         Left = 80
@@ -1192,10 +912,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel36: TRLLabel
         Left = 176
@@ -1208,10 +924,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText29: TRLDBText
         Left = 262
@@ -1225,10 +937,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel37: TRLLabel
         Left = 339
@@ -1241,10 +949,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText30: TRLDBText
         Left = 448
@@ -1258,10 +962,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel38: TRLLabel
         Left = 520
@@ -1274,10 +974,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText31: TRLDBText
         Left = 584
@@ -1291,10 +987,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel39: TRLLabel
         Left = 8
@@ -1308,10 +1000,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextPH: TRLDBText
         Left = 74
@@ -1327,10 +1015,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel40: TRLLabel
         Left = 8
@@ -1343,10 +1027,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         Transparent = False
       end
       object RLLabelEC: TRLLabel
@@ -1361,10 +1041,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextEC: TRLDBText
         Left = 74
@@ -1380,10 +1056,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel42: TRLLabel
         Left = 8
@@ -1397,10 +1069,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextTDS: TRLDBText
         Left = 74
@@ -1416,10 +1084,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel43: TRLLabel
         Left = 8
@@ -1433,10 +1097,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextMALK: TRLDBText
         Left = 74
@@ -1452,10 +1112,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel44: TRLLabel
         Left = 8
@@ -1469,10 +1125,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextCA: TRLDBText
         Left = 74
@@ -1488,10 +1140,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel45: TRLLabel
         Left = 8
@@ -1505,10 +1153,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextMG: TRLDBText
         Left = 74
@@ -1524,10 +1168,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel46: TRLLabel
         Left = 140
@@ -1541,10 +1181,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextNA: TRLDBText
         Left = 172
@@ -1560,10 +1196,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel47: TRLLabel
         Left = 140
@@ -1577,10 +1209,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextK: TRLDBText
         Left = 172
@@ -1596,10 +1224,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel48: TRLLabel
         Left = 140
@@ -1613,10 +1237,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextSI: TRLDBText
         Left = 172
@@ -1632,10 +1252,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel49: TRLLabel
         Left = 140
@@ -1649,10 +1265,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextAL: TRLDBText
         Left = 172
@@ -1668,10 +1280,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel50: TRLLabel
         Left = 140
@@ -1685,10 +1293,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextFE: TRLDBText
         Left = 172
@@ -1704,10 +1308,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel51: TRLLabel
         Left = 140
@@ -1721,10 +1321,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextMN: TRLDBText
         Left = 172
@@ -1740,10 +1336,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel52: TRLLabel
         Left = 240
@@ -1757,10 +1349,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextCL: TRLDBText
         Left = 300
@@ -1776,10 +1364,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel53: TRLLabel
         Left = 240
@@ -1793,10 +1377,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextN: TRLDBText
         Left = 300
@@ -1812,10 +1392,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel54: TRLLabel
         Left = 240
@@ -1829,10 +1405,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextSO4: TRLDBText
         Left = 300
@@ -1848,10 +1420,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel55: TRLLabel
         Left = 240
@@ -1865,10 +1433,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextF: TRLDBText
         Left = 300
@@ -1884,10 +1448,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel56: TRLLabel
         Left = 536
@@ -1900,10 +1460,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         Transparent = False
       end
       object RLLabel57: TRLLabel
@@ -1917,10 +1473,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         Transparent = False
       end
       object RLLabel58: TRLLabel
@@ -1935,10 +1487,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel59: TRLLabel
         Left = 536
@@ -1952,10 +1500,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel60: TRLLabel
         Left = 536
@@ -1969,10 +1513,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel61: TRLLabel
         Left = 536
@@ -1986,10 +1526,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel62: TRLLabel
         Left = 384
@@ -2003,10 +1539,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel63: TRLLabel
         Left = 384
@@ -2020,10 +1552,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel64: TRLLabel
         Left = 384
@@ -2037,10 +1565,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel65: TRLLabel
         Left = 384
@@ -2054,10 +1578,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextECOL: TRLDBText
         Left = 450
@@ -2073,10 +1593,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextFAEC_ECOL: TRLDBText
         Left = 450
@@ -2092,10 +1608,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextTOTAL_COL: TRLDBText
         Left = 450
@@ -2111,10 +1623,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBTextSPC: TRLDBText
         Left = 450
@@ -2130,10 +1638,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLMemoConcentrations: TRLMemo
         Left = 240
@@ -2149,10 +1653,6 @@ object ManRecForm: TManRecForm
           'Bacteriological parameters in [counts/100ml]'
         )
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText52: TRLDBText
         Left = 625
@@ -2168,10 +1668,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText53: TRLDBText
         Left = 625
@@ -2187,10 +1683,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText54: TRLDBText
         Left = 625
@@ -2206,10 +1698,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText55: TRLDBText
         Left = 625
@@ -2225,10 +1713,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabel67: TRLLabel
         Left = 536
@@ -2242,10 +1726,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLDBText88: TRLDBText
         Left = 625
@@ -2261,10 +1741,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLLabelAddParam: TRLLabel
         Left = 240
@@ -2278,10 +1754,6 @@ object ManRecForm: TManRecForm
         Font.Style = [fsBold, fsItalic]
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         Visible = False
       end
       object RLLabelAnal: TRLLabel
@@ -2295,10 +1767,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         Visible = False
       end
       object RLDBTextLab: TRLDBText
@@ -2313,10 +1781,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         Visible = False
       end
       object RLLabelOn: TRLLabel
@@ -2330,10 +1794,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Font.Style = [fsBold, fsItalic]
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         Visible = False
       end
       object RLDBTextDate: TRLDBText
@@ -2348,10 +1808,6 @@ object ManRecForm: TManRecForm
         Font.Height = -11
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         Visible = False
       end
       object RLDBTextAddParam: TRLDBText
@@ -2368,10 +1824,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         HoldStyle = hsVertically
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         Visible = False
       end
       object RLLabelStandard: TRLLabel
@@ -2384,16 +1836,12 @@ object ManRecForm: TManRecForm
         Font.Height = -9
         Font.Name = 'Arial'
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
     end
     object AquiferSubDetail: TRLSubDetail
       Left = 39
       Height = 56
-      Top = 495
+      Top = 505
       Width = 716
       AllowedBands = [btColumnHeader]
       Borders.Sides = sdCustom
@@ -2402,10 +1850,6 @@ object ManRecForm: TManRecForm
       Borders.DrawRight = False
       Borders.DrawBottom = True
       DataSource = AquiferDataSource
-      RealBounds.Left = 0
-      RealBounds.Top = 0
-      RealBounds.Width = 0
-      RealBounds.Height = 0
       object AquiferBand: TRLBand
         Left = 0
         Height = 40
@@ -2414,10 +1858,6 @@ object ManRecForm: TManRecForm
         BandType = btColumnHeader
         FriendlyName = 'AquiferHeader'
         GroupIndex = 3
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         object RLLabel71: TRLLabel
           Tag = 1
           Left = 8
@@ -2431,10 +1871,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel72: TRLLabel
@@ -2449,10 +1885,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel73: TRLLabel
@@ -2467,10 +1899,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel74: TRLLabel
@@ -2485,10 +1913,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel75: TRLLabel
@@ -2503,10 +1927,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel76: TRLLabel
@@ -2521,10 +1941,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel77: TRLLabel
@@ -2539,10 +1955,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
       end
@@ -2551,10 +1963,6 @@ object ManRecForm: TManRecForm
         Height = 16
         Top = 40
         Width = 716
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         object RLDBText56: TRLDBText
           Left = 21
           Height = 13
@@ -2567,10 +1975,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText57: TRLDBText
           Left = 146
@@ -2584,10 +1988,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText58: TRLDBText
           Left = 268
@@ -2601,10 +2001,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText59: TRLDBText
           Left = 310
@@ -2617,10 +2013,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText60: TRLDBText
           Left = 438
@@ -2633,10 +2025,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText61: TRLDBText
           Left = 552
@@ -2649,17 +2037,13 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
       end
     end
     object CasingSubDetail: TRLSubDetail
       Left = 39
       Height = 56
-      Top = 551
+      Top = 561
       Width = 716
       AllowedBands = [btColumnHeader]
       Borders.Sides = sdCustom
@@ -2668,10 +2052,6 @@ object ManRecForm: TManRecForm
       Borders.DrawRight = False
       Borders.DrawBottom = True
       DataSource = CasingDataSource
-      RealBounds.Left = 0
-      RealBounds.Top = 0
-      RealBounds.Width = 0
-      RealBounds.Height = 0
       object CasingBand: TRLBand
         Left = 0
         Height = 40
@@ -2679,10 +2059,6 @@ object ManRecForm: TManRecForm
         Width = 716
         BandType = btColumnHeader
         GroupIndex = 4
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         object RLLabel78: TRLLabel
           Tag = 1
           Left = 8
@@ -2696,10 +2072,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel79: TRLLabel
@@ -2714,10 +2086,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel80: TRLLabel
@@ -2732,10 +2100,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel81: TRLLabel
@@ -2750,10 +2114,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel82: TRLLabel
@@ -2768,10 +2128,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel83: TRLLabel
@@ -2786,10 +2142,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel84: TRLLabel
@@ -2804,10 +2156,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel85: TRLLabel
@@ -2822,10 +2170,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel86: TRLLabel
@@ -2840,10 +2184,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel87: TRLLabel
@@ -2858,10 +2198,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel88: TRLLabel
@@ -2876,10 +2212,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel89: TRLLabel
@@ -2894,10 +2226,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel90: TRLLabel
@@ -2912,10 +2240,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel91: TRLLabel
@@ -2930,10 +2254,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel92: TRLLabel
@@ -2948,10 +2268,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel93: TRLLabel
@@ -2966,10 +2282,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
       end
@@ -2978,10 +2290,6 @@ object ManRecForm: TManRecForm
         Height = 16
         Top = 40
         Width = 716
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         object RLDBText62: TRLDBText
           Left = 10
           Height = 13
@@ -2994,10 +2302,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText63: TRLDBText
           Left = 99
@@ -3011,10 +2315,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText64: TRLDBText
           Left = 171
@@ -3028,10 +2328,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText65: TRLDBText
           Left = 240
@@ -3045,10 +2341,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText66: TRLDBText
           Left = 360
@@ -3063,10 +2355,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText67: TRLDBText
           Left = 400
@@ -3080,10 +2368,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText68: TRLDBText
           Left = 536
@@ -3098,10 +2382,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText69: TRLDBText
           Left = 580
@@ -3116,10 +2396,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText70: TRLDBText
           Left = 619
@@ -3134,10 +2410,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText71: TRLDBText
           Left = 659
@@ -3152,17 +2424,13 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
       end
     end
     object TestingSubDetail: TRLSubDetail
       Left = 39
       Height = 56
-      Top = 607
+      Top = 617
       Width = 716
       AllowedBands = [btColumnHeader]
       Borders.Sides = sdCustom
@@ -3171,10 +2439,6 @@ object ManRecForm: TManRecForm
       Borders.DrawRight = False
       Borders.DrawBottom = True
       DataSource = TestingDataSource
-      RealBounds.Left = 0
-      RealBounds.Top = 0
-      RealBounds.Width = 0
-      RealBounds.Height = 0
       object TestingBand: TRLBand
         Left = 0
         Height = 40
@@ -3182,10 +2446,6 @@ object ManRecForm: TManRecForm
         Width = 716
         BandType = btColumnHeader
         GroupIndex = 5
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         object RLLabel94: TRLLabel
           Tag = 1
           Left = 8
@@ -3199,10 +2459,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel95: TRLLabel
@@ -3217,10 +2473,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel96: TRLLabel
@@ -3235,10 +2487,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel97: TRLLabel
@@ -3253,10 +2501,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel98: TRLLabel
@@ -3271,10 +2515,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel99: TRLLabel
@@ -3289,10 +2529,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel100: TRLLabel
@@ -3307,10 +2543,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel101: TRLLabel
@@ -3325,10 +2557,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel102: TRLLabel
@@ -3343,10 +2571,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel103: TRLLabel
@@ -3361,10 +2585,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel104: TRLLabel
@@ -3379,10 +2599,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel108: TRLLabel
@@ -3397,10 +2613,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel109: TRLLabel
@@ -3415,10 +2627,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel105: TRLLabel
@@ -3433,10 +2641,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel107: TRLLabel
@@ -3451,10 +2655,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel110: TRLLabel
@@ -3469,10 +2669,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel111: TRLLabel
@@ -3487,10 +2683,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel106: TRLLabel
@@ -3505,10 +2697,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel115: TRLLabel
@@ -3523,10 +2711,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel116: TRLLabel
@@ -3541,10 +2725,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
       end
@@ -3553,10 +2733,6 @@ object ManRecForm: TManRecForm
         Height = 16
         Top = 40
         Width = 716
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         object RLDBText72: TRLDBText
           Left = 8
           Height = 14
@@ -3569,10 +2745,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText73: TRLDBText
           Left = 148
@@ -3586,10 +2758,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText74: TRLDBText
           Left = 204
@@ -3604,10 +2772,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText76: TRLDBText
           Left = 248
@@ -3622,10 +2786,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText78: TRLDBText
           Left = 298
@@ -3640,10 +2800,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText81: TRLDBText
           Left = 344
@@ -3658,10 +2814,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText77: TRLDBText
           Left = 386
@@ -3676,10 +2828,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText82: TRLDBText
           Left = 428
@@ -3694,10 +2842,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText83: TRLDBText
           Left = 462
@@ -3712,10 +2856,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText79: TRLDBText
           Left = 504
@@ -3730,10 +2870,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText84: TRLDBText
           Left = 552
@@ -3748,10 +2884,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText75: TRLDBText
           Left = 640
@@ -3765,10 +2897,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText87: TRLDBText
           Left = 597
@@ -3783,17 +2911,13 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
       end
     end
     object RecommendSubDetail: TRLSubDetail
       Left = 39
       Height = 78
-      Top = 663
+      Top = 673
       Width = 716
       AllowedBands = [btColumnHeader]
       Borders.Sides = sdCustom
@@ -3802,10 +2926,6 @@ object ManRecForm: TManRecForm
       Borders.DrawRight = False
       Borders.DrawBottom = True
       DataSource = RecommendDataSource
-      RealBounds.Left = 0
-      RealBounds.Top = 0
-      RealBounds.Width = 0
-      RealBounds.Height = 0
       object RecommendBand: TRLBand
         Left = 0
         Height = 40
@@ -3813,10 +2933,6 @@ object ManRecForm: TManRecForm
         Width = 716
         BandType = btColumnHeader
         GroupIndex = 6
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         object RLLabel112: TRLLabel
           Tag = 1
           Left = 8
@@ -3830,10 +2946,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel113: TRLLabel
@@ -3848,10 +2960,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel114: TRLLabel
@@ -3866,10 +2974,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel117: TRLLabel
@@ -3884,10 +2988,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel119: TRLLabel
@@ -3902,10 +3002,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel120: TRLLabel
@@ -3920,10 +3016,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel121: TRLLabel
@@ -3939,10 +3031,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel123: TRLLabel
@@ -3957,10 +3045,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel126: TRLLabel
@@ -3975,10 +3059,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel127: TRLLabel
@@ -3993,10 +3073,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel129: TRLLabel
@@ -4012,10 +3088,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel124: TRLLabel
@@ -4030,10 +3102,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel125: TRLLabel
@@ -4048,10 +3116,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel122: TRLLabel
@@ -4066,10 +3130,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
         object RLLabel128: TRLLabel
@@ -4084,10 +3144,6 @@ object ManRecForm: TManRecForm
           Font.Style = [fsBold, fsItalic]
           HoldStyle = hsVertically
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
           Transparent = False
         end
       end
@@ -4097,10 +3153,6 @@ object ManRecForm: TManRecForm
         Top = 40
         Width = 716
         AutoSize = True
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         object RLDBText85: TRLDBText
           Left = 18
           Height = 14
@@ -4114,10 +3166,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText86: TRLDBText
           Left = 56
@@ -4131,10 +3179,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText89: TRLDBText
           Left = 194
@@ -4149,10 +3193,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText93: TRLDBText
           Left = 242
@@ -4166,10 +3206,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText92: TRLDBText
           Left = 376
@@ -4184,10 +3220,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText91: TRLDBText
           Left = 434
@@ -4202,10 +3234,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText94: TRLDBText
           Left = 478
@@ -4219,10 +3247,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText97: TRLDBText
           Left = 600
@@ -4237,10 +3261,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLDBText96: TRLDBText
           Left = 664
@@ -4255,10 +3275,6 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object RLLabel66: TRLLabel
           Left = 18
@@ -4271,10 +3287,6 @@ object ManRecForm: TManRecForm
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsItalic]
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
         object NotesRLDBMemo: TRLDBMemo
           Left = 56
@@ -4288,17 +3300,13 @@ object ManRecForm: TManRecForm
           Font.Height = -11
           Font.Name = 'Arial'
           ParentFont = False
-          RealBounds.Left = 0
-          RealBounds.Top = 0
-          RealBounds.Width = 0
-          RealBounds.Height = 0
         end
       end
     end
     object FooterBand: TRLBand
       Left = 39
       Height = 119
-      Top = 741
+      Top = 751
       Width = 716
       BandType = btFooter
       Borders.Sides = sdCustom
@@ -4306,10 +3314,6 @@ object ManRecForm: TManRecForm
       Borders.DrawTop = True
       Borders.DrawRight = False
       Borders.DrawBottom = False
-      RealBounds.Left = 0
-      RealBounds.Top = 0
-      RealBounds.Width = 0
-      RealBounds.Height = 0
       object RLSystemInfo2: TRLSystemInfo
         Tag = 1
         Left = 8
@@ -4321,10 +3325,6 @@ object ManRecForm: TManRecForm
         Font.Name = 'Arial'
         Info = itPageNumber
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         Text = 'Page '
       end
       object CommentMemo: TRLMemo
@@ -4341,10 +3341,6 @@ object ManRecForm: TManRecForm
           'Comments:'
         )
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
       object RLImageLogo: TRLImage
         Left = 240
@@ -4352,10 +3348,6 @@ object ManRecForm: TManRecForm
         Top = 8
         Width = 193
         Center = True
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
         Scaled = True
       end
       object RLMemoUserDetails: TRLMemo
@@ -4372,23 +3364,19 @@ object ManRecForm: TManRecForm
           'Reporting Institution Details:'
         )
         ParentFont = False
-        RealBounds.Left = 0
-        RealBounds.Top = 0
-        RealBounds.Width = 0
-        RealBounds.Height = 0
       end
     end
   end
   object BasicinfDataSource: TDataSource
     DataSet = BasicinfQuery
-    left = 464
-    top = 8
+    Left = 464
+    Top = 8
   end
   object ZTableViewReport: TZTable
     BeforeOpen = TableBeforeOpen
     TableName = 'allsites'
-    left = 32
-    top = 9
+    Left = 32
+    Top = 9
     object ZTableViewReportSITE_ID_NR: TStringField
       DisplayWidth = 44
       FieldKind = fkData
@@ -4404,13 +3392,13 @@ object ManRecForm: TManRecForm
   object DataSourceView: TDataSource
     DataSet = ZTableViewReport
     OnDataChange = DataSourceViewDataChange
-    left = 112
-    top = 9
+    Left = 112
+    Top = 9
   end
   object WaterlevDataSource: TDataSource
     DataSet = WaterlevQuery
-    left = 664
-    top = 8
+    Left = 664
+    Top = 8
   end
   object InstallaTable: TZTable
     SortedFields = 'DATE_INSTL'
@@ -4421,8 +3409,8 @@ object ManRecForm: TManRecForm
     MasterSource = DataSourceView
     LinkedFields = 'SITE_ID_NR'
     IndexFieldNames = 'DATE_INSTL Desc'
-    left = 8
-    top = 184
+    Left = 8
+    Top = 184
     object InstallaTableSITE_ID_NR: TStringField
       DisplayWidth = 44
       FieldKind = fkData
@@ -4467,8 +3455,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = InstallaTableDEPTH_INTKGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object InstallaTableTYPE_POWER: TStringField
@@ -4492,8 +3478,6 @@ object ManRecForm: TManRecForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object InstallaTableMANUFACTUR: TStringField
@@ -4511,8 +3495,8 @@ object ManRecForm: TManRecForm
   end
   object EquipDataSource: TDataSource
     DataSet = InstallaTable
-    left = 8
-    top = 248
+    Left = 8
+    Top = 248
   end
   object InstDetlTable: TZTable
     SortedFields = 'DATE_INSTL'
@@ -4523,8 +3507,8 @@ object ManRecForm: TManRecForm
     MasterSource = DataSourceView
     LinkedFields = 'SITE_ID_NR'
     IndexFieldNames = 'DATE_INSTL Desc'
-    left = 752
-    top = 184
+    Left = 752
+    Top = 184
     object InstDetlTableSITE_ID_NR: TStringField
       DisplayWidth = 44
       FieldKind = fkData
@@ -4562,18 +3546,18 @@ object ManRecForm: TManRecForm
   end
   object InstDetlDataSource: TDataSource
     DataSet = InstDetlTable
-    left = 752
-    top = 248
+    Left = 752
+    Top = 248
   end
   object Chem000DataSource: TDataSource
     DataSet = Chem0Query
-    left = 4
-    top = 367
+    Left = 4
+    Top = 367
   end
   object Chem001DataSource: TDataSource
     DataSet = Chem1Query
-    left = 304
-    top = 288
+    Left = 304
+    Top = 288
   end
   object Chem003Table: TZTable
     BeforeOpen = TableBeforeOpen
@@ -4581,8 +3565,8 @@ object ManRecForm: TManRecForm
     MasterFields = 'CHM_REF_NR'
     MasterSource = Chem000DataSource
     LinkedFields = 'CHM_REF_NR'
-    left = 416
-    top = 344
+    Left = 416
+    Top = 344
     object Chem003TableCHM_REF_NR: TLongintField
       DisplayWidth = 10
       FieldKind = fkData
@@ -4603,8 +3587,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemNoFactorGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object Chem003TableFAEC_ECOL: TFloatField
@@ -4617,8 +3599,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemNoFactorGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object Chem003TableTOTAL_COL: TFloatField
@@ -4631,8 +3611,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemNoFactorGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object Chem003TableSPC: TFloatField
@@ -4645,20 +3623,18 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemNoFactorGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
   end
   object Chem003DataSource: TDataSource
     DataSet = Chem003Table
-    left = 535
-    top = 344
+    Left = 535
+    Top = 344
   end
   object AquiferDataSource: TDataSource
     DataSet = AquiferTable
-    left = 763
-    top = 496
+    Left = 763
+    Top = 496
   end
   object AquiferTable: TZTable
     BeforeOpen = TableBeforeOpen
@@ -4666,8 +3642,8 @@ object ManRecForm: TManRecForm
     MasterFields = 'SITE_ID_NR'
     MasterSource = DataSourceView
     LinkedFields = 'SITE_ID_NR'
-    left = 4
-    top = 496
+    Left = 4
+    Top = 496
     object AquiferTableSITE_ID_NR: TStringField
       DisplayWidth = 44
       FieldKind = fkData
@@ -4690,8 +3666,6 @@ object ManRecForm: TManRecForm
       Required = False
       OnGetText = DEPTHGetText
       DisplayFormat = '0.00'
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object AquiferTableDEPTH_BOT: TFloatField
@@ -4705,8 +3679,6 @@ object ManRecForm: TManRecForm
       Required = False
       OnGetText = DEPTHGetText
       DisplayFormat = '0.00'
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object AquiferTableYIELD: TFloatField
@@ -4720,8 +3692,6 @@ object ManRecForm: TManRecForm
       Required = False
       OnGetText = AquiferTableYIELDGetText
       DisplayFormat = '0.00'
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object AquiferTableMETH_MEAS: TStringField
@@ -4766,8 +3736,8 @@ object ManRecForm: TManRecForm
     MasterFields = 'SITE_ID_NR'
     MasterSource = DataSourceView
     LinkedFields = 'SITE_ID_NR'
-    left = 8
-    top = 544
+    Left = 8
+    Top = 544
     object CasingTableSITE_ID_NR: TStringField
       DisplayWidth = 44
       FieldKind = fkData
@@ -4790,8 +3760,6 @@ object ManRecForm: TManRecForm
       Required = False
       OnGetText = DEPTHGetText
       DisplayFormat = '0.00'
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object CasingTableDEPTH_BOT: TFloatField
@@ -4805,8 +3773,6 @@ object ManRecForm: TManRecForm
       Required = False
       OnGetText = DEPTHGetText
       DisplayFormat = '0.00'
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object CasingTableDIAMETER: TFloatField
@@ -4819,8 +3785,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = DIAM_OPENGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object CasingTableMATERIAL: TStringField
@@ -4845,8 +3809,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = DIAM_OPENGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object CasingTableOPEN_TYPE: TStringField
@@ -4871,8 +3833,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = DIAM_OPENGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object CasingTableOPEN_WIDTH: TFloatField
@@ -4885,8 +3845,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = DIAM_OPENGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object CasingTableOP_HOR_DIS: TFloatField
@@ -4899,8 +3857,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = DIAM_OPENGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object CasingTableOP_VER_DIS: TFloatField
@@ -4913,15 +3869,13 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = DIAM_OPENGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
   end
   object CasingDataSource: TDataSource
     DataSet = CasingTable
-    left = 768
-    top = 544
+    Left = 768
+    Top = 544
   end
   object TestingTable: TZTable
     SortedFields = 'SITE_ID_NR, DATE_START, TIME_START'
@@ -4931,8 +3885,8 @@ object ManRecForm: TManRecForm
     MasterSource = DataSourceView
     LinkedFields = 'SITE_ID_NR'
     IndexFieldNames = 'SITE_ID_NR Asc, DATE_START Asc, TIME_START Asc'
-    left = 8
-    top = 608
+    Left = 8
+    Top = 608
     object TestingTableSITE_ID_NR: TStringField
       DisplayWidth = 44
       FieldKind = fkData
@@ -4987,8 +3941,6 @@ object ManRecForm: TManRecForm
       Required = False
       OnGetText = DEPTHGetText
       DisplayFormat = '0.00'
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object TestingTableDURATION: TLongintField
@@ -5012,8 +3964,6 @@ object ManRecForm: TManRecForm
       Required = False
       OnGetText = TestingTableDISCH_RATEGetText
       DisplayFormat = '0.00'
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object TestingTableDRAWDOWN: TFloatField
@@ -5026,8 +3976,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = TestingTableDRAWDOWNGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object TestingTableRECOVERY: TFloatField
@@ -5040,8 +3988,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = TestingTableRECOVERYGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object TestingTablePERC_RECOV: TLongintField
@@ -5075,8 +4021,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.00'
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object TestingTableSTORAGE: TFloatField
@@ -5089,8 +4033,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object TestingTableSPEC_CAP: TFloatField
@@ -5103,8 +4045,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object TestingTableCOMMENT: TStringField
@@ -5121,22 +4061,24 @@ object ManRecForm: TManRecForm
   end
   object TestingDataSource: TDataSource
     DataSet = TestingTable
-    left = 763
-    top = 608
+    Left = 763
+    Top = 608
   end
   object RecommendDataSource: TDataSource
     DataSet = RecommendTable
-    left = 760
-    top = 662
+    Left = 760
+    Top = 662
   end
   object RecommendTable: TZTable
+    SortedFields = 'SITE_ID_NR,PRIORITY'
     BeforeOpen = TableBeforeOpen
     TableName = 'recommnd'
     MasterFields = 'SITE_ID_NR'
     MasterSource = DataSourceView
     LinkedFields = 'SITE_ID_NR'
-    left = 8
-    top = 655
+    IndexFieldNames = 'SITE_ID_NR Asc,PRIORITY Asc'
+    Left = 8
+    Top = 655
     object RecommendTableSITE_ID_NR: TStringField
       DisplayWidth = 44
       FieldKind = fkData
@@ -5180,8 +4122,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.00'
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object RecommendTableTYPE_POWER: TStringField
@@ -5206,8 +4146,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.00'
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object RecommendTableDUTY_CYCLE: TFloatField
@@ -5219,8 +4157,6 @@ object ManRecForm: TManRecForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object RecommendTableWATER_QUAL: TStringField
@@ -5244,8 +4180,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.00'
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object RecommendTableCRIT_WLEV: TFloatField
@@ -5258,8 +4192,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.00'
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object RecommendTableNOTE_PAD: TBlobField
@@ -5285,8 +4217,8 @@ object ManRecForm: TManRecForm
     MasterSource = DataSourceView
     LinkedFields = 'SITE_ID_NR'
     IndexFieldNames = 'SITE_ID_NR Desc, DATE_MEAS Desc'
-    left = 564
-    top = 9
+    Left = 564
+    Top = 9
     object WaterlevQuerySITE_ID_NR: TStringField
       DisplayWidth = 44
       FieldKind = fkData
@@ -5330,8 +4262,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = WaterlevQueryWATER_LEVGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
   end
@@ -5345,8 +4275,8 @@ object ManRecForm: TManRecForm
     MasterFields = 'CHM_REF_NR'
     MasterSource = Chem000DataSource
     LinkedFields = 'CHM_REF_NR'
-    left = 184
-    top = 288
+    Left = 184
+    Top = 288
     object Chem1QueryCHM_REF_NR: TLargeintField
       DisplayWidth = 10
       FieldKind = fkData
@@ -5367,8 +4297,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemNoFactorGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryEC: TFloatField
@@ -5381,8 +4309,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = Chem1QueryECGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryTDS: TFloatField
@@ -5395,8 +4321,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryCA: TFloatField
@@ -5409,8 +4333,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryMG: TFloatField
@@ -5423,8 +4345,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryNA: TFloatField
@@ -5437,8 +4357,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryK: TFloatField
@@ -5451,8 +4369,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QuerySI: TFloatField
@@ -5465,8 +4381,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryPALK: TFloatField
@@ -5479,8 +4393,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryMALK: TFloatField
@@ -5493,8 +4405,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryMACID: TFloatField
@@ -5507,8 +4417,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryPACID: TFloatField
@@ -5521,8 +4429,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryCL: TFloatField
@@ -5535,8 +4441,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QuerySO4: TFloatField
@@ -5549,8 +4453,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryN: TFloatField
@@ -5563,8 +4465,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemQueryAsNGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryF: TFloatField
@@ -5577,8 +4477,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryCO3: TFloatField
@@ -5591,8 +4489,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryHCO3: TFloatField
@@ -5605,8 +4501,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryAL: TFloatField
@@ -5619,8 +4513,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryFE: TFloatField
@@ -5633,8 +4525,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryMN: TFloatField
@@ -5647,8 +4537,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ChemGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem1QueryLANGELIER: TFloatField
@@ -5661,8 +4549,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
     end
     object Chem1QueryAggressive: TFloatField
       DisplayWidth = 10
@@ -5674,8 +4560,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
     end
     object Chem1QueryBError: TFloatField
       DisplayWidth = 10
@@ -5687,8 +4571,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
     end
     object Chem1QueryTHard: TFloatField
       DisplayWidth = 10
@@ -5700,8 +4582,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
     end
     object Chem1QueryCations: TFloatField
       DisplayWidth = 10
@@ -5713,8 +4593,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
     end
     object Chem1QueryAnions: TFloatField
       DisplayWidth = 10
@@ -5726,8 +4604,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
     end
     object Chem1QueryCaHard: TFloatField
       DisplayWidth = 10
@@ -5739,8 +4615,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
     end
     object Chem1QueryMgHard: TFloatField
       DisplayWidth = 10
@@ -5752,8 +4626,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
     end
     object Chem1QueryCorrosion: TFloatField
       DisplayWidth = 10
@@ -5765,8 +4637,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
     end
     object Chem1QuerySAR: TFloatField
       DisplayWidth = 10
@@ -5778,8 +4648,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
     end
     object Chem1QuerySumTDS: TFloatField
       DisplayWidth = 10
@@ -5791,8 +4659,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
     end
     object Chem1QueryTDS7: TFloatField
       DisplayWidth = 10
@@ -5804,8 +4670,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       DisplayFormat = '0.000'
-      MaxValue = 0
-      MinValue = 0
     end
   end
   object Chem0Query: TZReadOnlyQuery
@@ -5817,8 +4681,8 @@ object ManRecForm: TManRecForm
     MasterSource = DataSourceView
     LinkedFields = 'SITE_ID_NR'
     IndexFieldNames = 'DATE_SAMPL Desc,TIME_SAMPL Desc'
-    left = 4
-    top = 312
+    Left = 4
+    Top = 312
     object Chem0QuerySITE_ID_NR: TStringField
       DisplayWidth = 44
       FieldKind = fkData
@@ -5874,8 +4738,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = Chem0QueryDEPTH_SAMPGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object Chem0QueryLAB: TStringField
@@ -5927,8 +4789,8 @@ object ManRecForm: TManRecForm
     MasterFields = 'SITE_ID_NR'
     MasterSource = DataSourceView
     LinkedFields = 'SITE_ID_NR'
-    left = 344
-    top = 8
+    Left = 344
+    Top = 8
     object BasicinfQuerySITE_ID_NR: TStringField
       DisplayWidth = 44
       FieldKind = fkData
@@ -5996,8 +4858,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = BasicinfQueryX_COORDGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object BasicinfQueryY_COORD: TFloatField
@@ -6010,8 +4870,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = BasicinfQueryY_COORDGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object BasicinfQueryALTITUDE: TFloatField
@@ -6024,8 +4882,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = BasicinfQueryALTITUDEGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object BasicinfQueryALT_NO_1: TStringField
@@ -6072,8 +4928,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = BasicinfQueryBH_DIAMGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object BasicinfQueryDEPTH: TFloatField
@@ -6086,8 +4940,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = BasicinfQueryDEPTHGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object BasicinfQueryCOLLAR_HI: TFloatField
@@ -6100,8 +4952,6 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = BasicinfQueryCOLLAR_HIGetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 30
     end
     object BasicinfQuerySITE_STATU: TStringField
@@ -6159,8 +5009,8 @@ object ManRecForm: TManRecForm
     MasterFields = 'CHM_REF_NR'
     MasterSource = Chem000DataSource
     LinkedFields = 'CHM_REF_NR'
-    left = 632
-    top = 368
+    Left = 632
+    Top = 368
     object ExtractAddParamQueryCHM_REF_NR: TLargeintField
       FieldKind = fkData
       FieldName = 'CHM_REF_NR'
@@ -6179,19 +5029,17 @@ object ManRecForm: TManRecForm
       ReadOnly = False
       Required = False
       OnGetText = ExtractAddParamQueryADD_PARAMGetText
-      MaxValue = 0
-      MinValue = 0
     end
   end
   object DataSourceAddParam: TDataSource
     DataSet = ExtractAddParamQuery
-    left = 712
-    top = 368
+    Left = 712
+    Top = 368
   end
   object FindParamQuery: TZReadOnlyQuery
     Params = <>
-    left = 745
-    top = 311
+    Left = 745
+    Top = 311
   end
   object LimitsQuery: TZQuery
     SortedFields = 'CPARAMETER'
@@ -6204,8 +5052,8 @@ object ManRecForm: TManRecForm
     MasterSource = Chem000DataSource
     LinkedFields = 'CHM_REF_NR'
     IndexFieldNames = 'CPARAMETER Asc'
-    left = 744
-    top = 64
+    Left = 744
+    Top = 64
     object LimitsQueryCHM_REF_NR: TLongintField
       FieldKind = fkData
       FieldName = 'CHM_REF_NR'

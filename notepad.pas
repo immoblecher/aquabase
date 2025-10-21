@@ -1,4 +1,4 @@
-{ Copyright (C) 2024 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -15,31 +15,23 @@
   to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
   MA 02111-1307, USA.
 }
-unit maplegend;
+unit Notepad;
 
-{$mode objfpc}{$H+}
+{$mode ObjFPC}{$H+}
 
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, Buttons;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, DBCtrls,
+  XMLPropStorage, IDEWindowIntf;
 
 type
 
-  { TLegendForm }
+  { TNotepadForm }
 
-  TLegendForm = class(TForm)
-    BitBtn1: TBitBtn;
-    LabelOther: TLabel;
-    LabelTheme: TLabel;
-    LabelTop: TLabel;
-    LabelMid: TLabel;
-    LabelBot: TLabel;
-    ShapeOther: TShape;
-    ShapeTop: TShape;
-    ShapeMid: TShape;
-    ShapeBot: TShape;
+  TNotepadForm = class(TForm)
+    DBMemo1: TDBMemo;
+    XMLPropStorage1: TXMLPropStorage;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
   private
@@ -49,22 +41,21 @@ type
   end;
 
 var
-  LegendForm: TLegendForm;
+  NotepadForm: TNotepadForm;
 
 implementation
 
 {$R *.lfm}
 
-uses VARINIT, MainDataModule;
+{ TNotepadForm }
 
-{ TLegendForm }
-
-procedure TLegendForm.FormCreate(Sender: TObject);
+procedure TNotepadForm.FormCreate(Sender: TObject);
 begin
-  DataModuleMain.SetComponentFontAndSize(Sender, True);
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
 end;
 
-procedure TLegendForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+procedure TNotepadForm.FormClose(Sender: TObject; var CloseAction: TCloseAction
+  );
 begin
   CloseAction := caFree;
 end;

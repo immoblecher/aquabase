@@ -1,6 +1,6 @@
 inherited MemberForm: TMemberForm
-  Left = 603
-  Top = 218
+  Left = 2767
+  Top = 305
   Caption = 'Member Form'
   OnActivate = FormActivate
   OnClose = FormClose
@@ -30,7 +30,7 @@ inherited MemberForm: TMemberForm
           PickList.Strings = (          )
           SizePriority = 0
           Title.Caption = 'Date from'
-          Width = 90
+          Width = 67
           FieldName = 'DATE_FROM'
         end      
         item
@@ -38,7 +38,7 @@ inherited MemberForm: TMemberForm
           PickList.Strings = (          )
           SizePriority = 0
           Title.Caption = 'Date to'
-          Width = 90
+          Width = 53
           FieldName = 'DATE_TO'
         end      
         item
@@ -46,34 +46,30 @@ inherited MemberForm: TMemberForm
           PickList.Strings = (          )
           SizePriority = 0
           Title.Caption = 'Member identifier'
-          Width = 90
+          Width = 110
           FieldName = 'MEMBER_ID'
         end      
         item
           PickList.Strings = (          )
-          SizePriority = 1
           Title.Caption = 'Description or URL'
-          Width = 192
+          Width = 256
           FieldName = 'DESCRIPTN'
         end      
         item
           PickList.Strings = (          )
           SizePriority = 0
           Title.Caption = 'Comment'
-          Width = 90
+          Width = 66
           FieldName = 'COMMENT'
         end>
     end
   end
-  inherited GroupBox1: TGroupBox
-    ClientHeight = 86
-  end
   inherited BasicinfDataSource: TDataSource
-    left = 328
+    Left = 328
   end
   inherited LinkedDataSource: TDataSource
-    left = 136
-    top = 272
+    Left = 136
+    Top = 272
   end
   inherited LinkedQuery: TZQuery
     BeforeOpen = LinkedQueryBeforeOpen
@@ -89,15 +85,17 @@ inherited MemberForm: TMemberForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
-    left = 40
-    top = 272
+    Left = 40
+    Top = 272
     ParamData = <    
       item
         DataType = ftString
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryDATE_FROM: TStringField[1]
       Alignment = taCenter
@@ -163,18 +161,18 @@ inherited MemberForm: TMemberForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedQueryUpperSetText
+      OnSetText = LinkedQueryCOMMENTSetText
       Size = 48
     end
   end
-  object MemberListQuery: TZReadOnlyQuery[12]
+  object MemberListQuery: TZReadOnlyQuery[13]
     Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       'SELECT MEMBER_ID, DESCRIPTN FROM member__'
     )
     Params = <>
-    left = 317
-    top = 167
+    Left = 317
+    Top = 167
     object MemberListQueryMEMBER_ID: TStringField
       DisplayWidth = 40
       FieldKind = fkData

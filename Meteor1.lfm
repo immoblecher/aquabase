@@ -640,16 +640,20 @@ inherited MeteorologyForm1: TMeteorologyForm1
   inherited Panel2: TPanel
     inherited Panel3: TPanel
       inherited LinkedLabel: TLabel
+        Height = 17
         Width = 156
+        AutoSize = True
         Caption = 'Hydrologic Parameters'
+        Enabled = False
       end
       inherited PageControl: TPageControl
+        Enabled = False
         OnChange = PageControlChange
         OnEnter = PageControlEnter
         inherited TabSheet1: TTabSheet
           Hint = 'Rainfall'
           Caption = 'Rainfall [mm]'
-          ClientHeight = 173
+          ClientHeight = 162
           inherited DBGrid1: TDBGrid
             Hint = 'Rainfall Information'
             AutoFillColumns = True
@@ -661,9 +665,8 @@ inherited MeteorologyForm1: TMeteorologyForm1
         inherited TabSheet2: TTabSheet
           Hint = 'Pan Evaporation'
           Caption = 'Pan Evaporation [mm]'
-          ClientHeight = 173
+          ClientHeight = 162
           inherited DBGrid2: TDBGrid
-            Height = 164
             Hint = 'Pan Evapor. Information'
             AutoFillColumns = True
             Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgCellHints]
@@ -674,26 +677,21 @@ inherited MeteorologyForm1: TMeteorologyForm1
         inherited TabSheet3: TTabSheet
           Hint = 'Humidity'
           Caption = 'Humidity [%] and Weather Conditions'
-          ClientHeight = 173
+          ClientHeight = 162
           inherited DBGrid3: TDBGrid
-            Height = 173
             Hint = 'Humidity Information'
-            Width = 556
             OnKeyDown = DBGridKeyDown
             OnMouseDown = DBGridMouseDown
           end
         end
         inherited TabSheet4: TTabSheet
-          ClientHeight = 173
+          ClientHeight = 162
           TabVisible = False
-          inherited DBGrid4: TDBGrid
-            Height = 173
-            Width = 556
-          end
         end
       end
       inherited Panel4: TPanel
         inherited DetailNavigator: TDBNavigator
+          Enabled = False
           Hints.Strings = (          )
         end
       end
@@ -740,16 +738,12 @@ inherited MeteorologyForm1: TMeteorologyForm1
     )
     Params = <    
       item
-        DataType = ftUnknown
         Name = 'SiteID'
-        ParamType = ptUnknown
       end>
     IndexFieldNames = 'SITE_ID_NR Asc, DATE_MEAS Asc, TIME_MEAS Asc'
     ParamData = <    
       item
-        DataType = ftUnknown
         Name = 'SiteID'
-        ParamType = ptUnknown
       end>
     object ZQuery1SITE_ID_NR: TStringField[0]
       FieldKind = fkData
@@ -847,16 +841,12 @@ inherited MeteorologyForm1: TMeteorologyForm1
     )
     Params = <    
       item
-        DataType = ftUnknown
         Name = 'SiteID'
-        ParamType = ptUnknown
       end>
     IndexFieldNames = 'SITE_ID_NR Asc, DATE_MEAS Asc, TIME_MEAS Asc'
     ParamData = <    
       item
-        DataType = ftUnknown
         Name = 'SiteID'
-        ParamType = ptUnknown
       end>
     object ZQuery2SITE_ID_NR: TStringField[0]
       FieldKind = fkData
@@ -955,16 +945,12 @@ inherited MeteorologyForm1: TMeteorologyForm1
     )
     Params = <    
       item
-        DataType = ftUnknown
         Name = 'SiteID'
-        ParamType = ptUnknown
       end>
     IndexFieldNames = 'SITE_ID_NR Asc, DATE_MEAS Asc, TIME_MEAS Asc'
     ParamData = <    
       item
-        DataType = ftUnknown
         Name = 'SiteID'
-        ParamType = ptUnknown
       end>
     object ZQuery3SITE_ID_NR: TStringField[0]
       FieldKind = fkData

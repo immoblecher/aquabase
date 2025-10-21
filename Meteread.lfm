@@ -1,6 +1,6 @@
 inherited MeterReadingForm: TMeterReadingForm
-  Left = 546
-  Top = 223
+  Left = 2757
+  Top = 296
   Caption = 'Meter Reading'
   Icon.Data = {
     2F3800000000010001000000000001002000193800001600000089504E470D0A
@@ -473,11 +473,11 @@ inherited MeterReadingForm: TMeterReadingForm
     end
   end
   inherited BasicinfDataSource: TDataSource
-    left = 296
+    Left = 296
   end
   inherited LinkedDataSource: TDataSource
-    left = 128
-    top = 272
+    Left = 128
+    Top = 272
   end
   inherited LinkedQuery: TZQuery
     BeforeOpen = LinkedQueryBeforeOpen
@@ -493,15 +493,17 @@ inherited MeterReadingForm: TMeterReadingForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
-    left = 40
-    top = 272
+    Left = 40
+    Top = 272
     ParamData = <    
       item
         DataType = ftString
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryDATE_ENTRY: TStringField[1]
       Alignment = taCenter
@@ -619,8 +621,6 @@ inherited MeterReadingForm: TMeterReadingForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryCOMMENT: TStringField[9]
@@ -633,13 +633,13 @@ inherited MeterReadingForm: TMeterReadingForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedQuerySetText
+      OnSetText = LinkedQueryCOMMENTSetText
       Size = 48
     end
   end
-  object MeterQuery: TZReadOnlyQuery[12]
-    Connection = DataModuleMain.ZConnectionDB
+  object MeterQuery: TZReadOnlyQuery[13]
     BeforeOpen = MeterQueryBeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       'SELECT * FROM mreading WHERE SITE_ID_NR = :CurSite'
     )
@@ -649,18 +649,20 @@ inherited MeterReadingForm: TMeterReadingForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     MasterFields = 'SITE_ID_NR'
     MasterSource = BasicinfDataSource
     LinkedFields = 'SITE_ID_NR'
-    left = 277
-    top = 253
+    Left = 277
+    Top = 253
     ParamData = <    
       item
         DataType = ftString
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object MeterQuerySITE_ID_NR: TStringField
       FieldKind = fkData
@@ -680,8 +682,6 @@ inherited MeterReadingForm: TMeterReadingForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      MaxValue = 0
-      MinValue = 0
     end
   end
 end

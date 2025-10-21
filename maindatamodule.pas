@@ -1,4 +1,4 @@
-{ Copyright (C) 2023 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -23,9 +23,13 @@ interface
 
 uses
   Forms, Classes, sysutils, db, FileUtil, ZConnection, ZDataset, Dialogs,
-  DBGrids, Controls, maskedit, IniFiles, Process, StrUtils, Graphics, ExtCtrls,
-  rxlookup, Menus, ZSqlProcessor, ZSqlMetadata, ZSqlMonitor, ZDbcSqLite, math,
-  rxDBGrid, ComCtrls, StdCtrls, help, ZScriptParser;
+  Buttons, DBGrids, Controls, maskedit, IniFiles, Process, StrUtils, Graphics,
+  ExtCtrls, rxlookup, Menus, ZSqlProcessor, ZSqlMetadata, ZSqlMonitor,
+  ZDbcSqLite, math, rxDBGrid, ComCtrls, StdCtrls, help, ZScriptParser
+  {$IFDEF MSWINDOWS}
+  , Windows
+  {$ENDIF}
+  , ZAbstractConnection;
 
 type
 
@@ -53,9 +57,8 @@ type
     BasicinfQueryLONGITUDE: TFloatField;
     BasicinfQueryNGDB_FLAG: TLongintField;
     BasicinfQueryNOTES_YN: TStringField;
-    BasicinfQueryNOTE_PAD: TBlobField;
+    BasicinfQueryNOTE_PAD: TWideStringField;
     BasicinfQueryNR_ON_MAP: TStringField;
-    BasicinfQueryOGR_FID: TLargeintField;
     BasicinfQueryPOTABILITY: TStringField;
     BasicinfQueryREGION_BB: TStringField;
     BasicinfQueryREGN_DESCR: TStringField;
@@ -127,13 +130,13 @@ type
     ZQueryViewSITE_ID_NR: TStringField;
     ZQueryDefaultLookup: TZReadOnlyQuery;
     ZQueryMap: TZReadOnlyQuery;
-    ZQueryMapsheet50: TStringField;
     DBMetadata: TZSQLMetadata;
     SRIDQuery: TZReadOnlyQuery;
     ZSQLMonitor1: TZSQLMonitor;
     ZSQLProcessorDB: TZSQLProcessor;
     ZSQLProcessorLookup: TZSQLProcessor;
     procedure BasicinfQueryAfterCancel(DataSet: TDataSet);
+    procedure BasicinfQueryAfterClose(DataSet: TDataSet);
     procedure BasicinfQueryAfterDelete(DataSet: TDataSet);
     procedure BasicinfQueryAfterOpen(DataSet: TDataSet);
     procedure BasicinfQueryAfterPost(DataSet: TDataSet);
@@ -156,9 +159,13 @@ type
       DisplayText: Boolean);
     procedure BasicinfQueryDEPTHSetText(Sender: TField; const aText: string);
     procedure BasicinfQueryNewRecord(DataSet: TDataSet);
+    procedure BasicinfQuerySetText(Sender: TField; const aText: string
+      );
     procedure BasicinfQueryPostError(DataSet: TDataSet; E: EDatabaseError;
       var DataAction: TDataAction);
     procedure BasicinfQueryREGN_TYPEValidate(Sender: TField);
+    procedure BasicinfQueryCHARSetText(Sender: TField; const aText: string
+      );
     procedure BasicinfQueryX_COORDGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
     procedure BasicinfQueryX_COORDSetText(Sender: TField; const aText: string);
@@ -186,6 +193,7 @@ type
     procedure ZConnectionDBAfterConnect(Sender: TObject);
     procedure ZConnectionDBAfterDisconnect(Sender: TObject);
     procedure ZConnectionDBBeforeConnect(Sender: TObject);
+    procedure ZConnectionDBBeforeDisconnect(Sender: TObject);
     procedure ZConnectionDBLogin(Sender: TObject; var Username: string;
       var Password: string);
     procedure ZConnectionDefaultsAfterConnect(Sender: TObject);
@@ -214,14 +222,11 @@ type
     function GetParamUnit(const Parameter: ShortString): ShortString;
   public
     { public declarations }
-    {$IFDEF WINDOWS}
-    un, pw: String;
-    {$ENDIF}
+    NrRecords: LongWord;
     Bookmark1, Bookmark2: TBookmark;
     EditX, EditY: ShortString;
     CoordsEdited: Boolean;
     BasicValidFound: Boolean;
-    NrRecords: LongWord;
     SpecHelpForm: THelpForm;
     CountryDB: ShortString;
     function GetChemStdFileName: ShortString;
@@ -238,6 +243,7 @@ type
     procedure UpdateCoordsWithCs2cs(const Longitude, Latitude, SiteID: ShortString); //after moving point in GIS
     procedure SetComponentFontAndSize(Sender: TObject; SetLabels: Boolean);
     function GetValidATables(const InList: TStringList): TStringList;
+    function GetOSLanguage: string;
   end;
 
 const                            {Ca       Mg       Na       K        HCO3}
@@ -272,7 +278,7 @@ ResourceString
   NrLabel = '&Number';
   DistrLabel = 'Distr./&Farm Nr.';
   SiteNameLabel = 'Site Name/&Description';
-  CoordAccLabel = '&Coord. Acc.';
+  CoordAccLabel = '&Coor. Acc.';
   AltitudeLabel = '&Altitude';
   CollarLabel = 'Co&llar';
   DepthLabel = 'Dept&h';
@@ -323,6 +329,36 @@ begin
   else
     Result := DecD + DecM + DecS;
 end;
+
+{$IFDEF MSWINDOWS}
+function GetLocaleInformation(Flag: integer): string;
+var
+ pcLCA: array[0..20] of char;
+begin
+ if (GetLocaleInfo(LOCALE_SYSTEM_DEFAULT, Flag, pcLCA, 19) <= 0) then
+ begin
+   pcLCA[0] := #0;
+ end;
+ Result := pcLCA;
+end;
+{$ENDIF}
+
+//get the OS language
+function TDataModuleMain.GetOSLanguage: string;
+  {platform-independent method to read the language of the user interface}
+begin
+  {$IFDEF DARWIN}
+  result := NSLocale.currentLocale.localeIdentifier.UTF8String;
+  {$ELSE}
+  {$IFDEF UNIX}
+  result := LeftStr(GetEnvironmentVariable('LANG'), 2);
+  {$ELSE}
+  result := GetLocaleInformation(LOCALE_SENGLANGUAGE);
+  {$ENDIF}
+  {$ENDIF}
+end;
+
+
 
 function TDataModuleMain.cs2cs(const fromX, fromY, MapRef: ShortString; srcSRID, dstSRID: LongWord; out toX, toY: ShortString): Boolean;
 var
@@ -404,38 +440,32 @@ begin
       else
         LO := StrToInt(Copy(MapRef, 3,2));
       if LO and 1 <> 1 then Inc(LO); //find nearest uneven LO and replace LO
-      begin
-        if srcSRID IN [1,3,5] then //Hartebeesthoek
-          srcSRID := 2046 + Round((LO - 15)/2) //difference between LO and 15 (lowest LO)
-        else
-        if srcSRID IN [2,4,6] then //Cape
-          srcSRID := 22260 + LO
-        else
-        if srcSRID = 7 then //Schwarzeck
-          srcSRID := 29360 + LO;
-        if dstSRID IN [1,3,5] then //Hartebeesthoek
-          dstSRID := 2046 + Round((LO - 15)/2) //difference between LO and 15 (lowest LO)
-        else
-        if dstSRID IN [2,4,6] then //Cape
-          dstSRID := 22260 + LO
-        else
-        if dstSRID = 7 then //Schwarzeck
-          dstSRID := 29360 + LO;
-      end;
+      if srcSRID IN [1,3,5] then //Hartebeesthoek
+        srcSRID := 2046 + Round((LO - 15)/2) //difference between LO and 15 (lowest LO)
+      else
+      if srcSRID IN [2,4,6] then //Cape
+        srcSRID := 22260 + LO
+      else
+      if srcSRID = 7 then //Schwarzeck
+        srcSRID := 29360 + LO;
+      if dstSRID IN [1,3,5] then //Hartebeesthoek
+        dstSRID := 2046 + Round((LO - 15)/2) //difference between LO and 15 (lowest LO)
+      else
+      if dstSRID IN [2,4,6] then //Cape
+        dstSRID := 22260 + LO
+      else
+      if dstSRID = 7 then //Schwarzeck
+        dstSRID := 29360 + LO;
     end;
     //check for SA LO systems to swap coordinates
     if InRange(srcSRID, 2046, 2055)
       or InRange(srcSRID, 22275, 22293) //all RSA LOs
       or InRange(srcSRID, 29371, 29385) then //all Nam LOs
-    begin
       //setup the command to send to cs2cs and swap X and Y
-      cmd := 'echo ' + FloatToStr(yValue) + ' ' + FloatToStr(xValue) + ' | cs2cs ';
-    end
+      cmd := 'echo ' + FloatToStr(yValue) + ' ' + FloatToStr(xValue) + ' | cs2cs '
     else
-    begin
       //setup the command to send to cs2cs
       cmd := 'echo ' + FloatToStr(xValue) + ' ' + FloatToStr(yValue) + ' | cs2cs ';
-    end;
     if dstSRIDgeogr then //is lat/long, so have 7 decimals after comma
       cmd := cmd + '-f %.7f ';
     if Proj_Version < '8.0.0' then
@@ -465,7 +495,7 @@ begin
     begin
       //return the output from cs2cs as two unformatted strings
       OutStr := OutStrList[0]; //it's only one line
-      outDMS := Pos('d', OutStr) > 0; //if inverse the output is in DMS
+      outDMS := Pos('d', OutStr) > 0; //the output is in DMS?
       if InRange(dstSRID, 2046, 2055)
         or InRange(dstSRID, 22275, 22293) //all RSA LOs
         or InRange(dstSRID, 29371, 29385) then //all Nam LOs
@@ -754,7 +784,9 @@ begin
         begin
           Name := AppFont.Name;
           Size := AppFont.Size;
+          Color := clDefault;
         end;//Done with Font
+        Color := clDefault;
       end;//Done with TControl
       if (Components[i] is TDBGrid) then
       begin
@@ -794,6 +826,12 @@ begin
         (Components[i] as TLabeledEdit).EditLabel.Font.Assign(AppFont);
         (Components[i] as TLabeledEdit).Font.Assign(AppFont);
       {$IFDEF LINUX}
+      end
+      else
+      if (Components[i] is TBitBtn) then
+      begin
+        (Components[i] as TBitBtn).Height := 32;
+        (Components[i] as TBitBtn).Top := (Components[i] as TBitBtn).Top - 2;
       end
       else
       if (Components[i] is TLabel) and SetLabels then
@@ -1140,12 +1178,34 @@ begin
 end;
 
 procedure TDataModuleMain.ZConnectionCountriesAfterConnect(Sender: TObject);
+var
+  sc: IZSQLiteConnection;
+  ErrMsg: String;
+  loadResult: Word;
 begin
+  //Spatially enable international Geopackage for spatial queries on countries
+  ErrMsg := '';
+  Screen.Cursor := crSQLWait;
+  sc := ZConnectionCountries.DbcConnection as TZSQLiteConnection;
+  sc.enable_load_extension(True);
+  {$IFDEF DARWIN}
+  loadResult := sc.load_extension('mod_spatialite.dylib', '', ErrMsg);
+  {$ELSE}
+  loadResult := sc.load_extension('mod_spatialite', '', ErrMsg);
+  {$ENDIF}
+  if loadResult > 0 then
+    {$IFDEF WINDOWS}
+    MessageDlg('Could not load "mod_spatialite" for "international" database! ' + ErrMsg + 'Please make sure it is installed (should be with Aquabase).', mtError, [mbOK], 0);
+    {$ENDIF}
+    {$IFDEF UNIX}
+    MessageDlg('Could not load "mod_spatialite" for "international" database! ' + ErrMsg + 'Please make sure it is installed and (on Linux) possibly sym-linked to "mod_spatialite" without the ".so".', mtError, [mbOK], 0);
+    {$ENDIF}
+  ZConnectionCountries.ExecuteDirect('Select EnableGpkgAmphibiousMode();');
   with CheckQuery do
   begin
     Connection := ZConnectionCountries;
     SQL.Clear;
-    SQL.Add('SELECT * FROM Countries WHERE C_NAME = ' + QuotedStr(Country));
+    SQL.Add('SELECT * FROM Countries WHERE name_en = ' + QuotedStr(Country));
     Open;
     CountryDB := FieldByName('LANG_1').AsString;
     Close;
@@ -1157,7 +1217,7 @@ procedure TDataModuleMain.ZConnectionCountriesBeforeConnect(Sender: TObject);
 begin
   with ZConnectionCountries do
   begin
-    Database := ProgramDir + DirectorySeparator + 'countries.db3';
+    Database := ProgramDir + DirectorySeparator + 'international.gpkg';
     LibraryLocation := SQLiteLib;
   end;
 end;
@@ -1169,7 +1229,17 @@ var
   MySQLOld: Boolean;
   HoleLogList: TStringList;
   ErrMsg: String;
+  m, n: Integer;
 begin
+  with ZConnectionDB do
+  begin
+    //for sqlite
+    if Tag = 1 then
+      ExecuteDirect('PRAGMA journal_mode = WAL;');
+    //for PostgreSQL
+    if Tag = 4 then
+      ExecuteDirect('SET search_path to "$user", ' + Catalog + ', public;');
+  end;
   //check if this is a valid Aquabase database
   with DBMetadata do
   begin
@@ -1231,7 +1301,10 @@ begin
       ZQueryView.Locate('SITE_ID_NR', LastSiteID, []);
     if ZConnectionDB.Tag = 1 then //sqlite
     begin
-      ZConnectionDB.ExecuteDirect('PRAGMA foreign_keys = ON;'); //Enable foreign keys on sqlite
+      //Enable a few PRAGMA settings on sqlite
+      ZConnectionDB.ExecuteDirect('PRAGMA foreign_keys = ON;');
+      ZConnectionDB.ExecuteDirect('PRAGMA journal_mode=WAL;');
+      ZConnectionDB.ExecuteDirect('PRAGMA threads=4;');
       //Check SQLite database user version and take action
       with CheckQuery do
       begin
@@ -1248,31 +1321,25 @@ begin
         Application.ProcessMessages;
         if FieldByName('user_version').Value < SQLiteDBVer then
         begin
-          if FieldByName('user_version').Value <= 5 then
+          if FieldByName('user_version').Value <= 8 then
           begin
             Screen.Cursor := crDefault;
             MessageDlg('Your SQLite database Ver. ' + FieldByName('user_version').AsString
             + '.' + IntToStr(SchemaVer) + ' is older than Ver. '
-              + IntToStr(SQLiteDBVer) + '.x! Your database should therefore be updated as a matter of urgency under "Tools|SQLite Database" to take advantage of the latest features and prevent errors or data corruption!', mtWarning, [mbOK], 0);
+              + IntToStr(SQLiteDBVer) + '.x! Your database should therefore be updated as a matter of urgency under "Tools|SpatiaLite/Geopackage Database" to take advantage of the latest features and prevent errors or data corruption!', mtWarning, [mbOK], 0);
           end
           else
           begin
             Screen.Cursor := crDefault;
             MessageDlg('Your SQLite database Ver. ' + FieldByName('user_version').AsString
             + '.' + IntToStr(SchemaVer) + ' is older than Ver. '
-              + IntToStr(SQLiteDBVer) + '.x! Your database should therefore be updated under "Tools|SQLite Database" to take advantage of the latest features and prevent errors or data corruption!', mtWarning, [mbOK], 0);
+              + IntToStr(SQLiteDBVer) + '.x! Your database should therefore be updated under "Tools|SpatiaLite/Geopackage Database" to take advantage of the latest features and prevent errors or data corruption!', mtWarning, [mbOK], 0);
           end;
           Close;
           SQL.Clear;
         end
         else
         if FieldByName('user_version').Value = 7 then
-        //fix basicinf spatial triggers
-        begin
-          ZSQLProcessorDB.Script.Clear;
-          ZSQLProcessorDB.Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'fix_basicinf_triggers.sql');
-          ZSQLProcessorDB.Execute;
-        end;
       end;
       //check deteclim for ID primary key and create if not there
       Screen.Cursor := crSQLWait;
@@ -1477,6 +1544,32 @@ begin
       end;
       SQL.Clear;
     end;
+    //add new fields to nameownr
+    with CheckQuery do
+    begin
+      Screen.Cursor := crSQLWait;
+      Connection := ZConnectionDB;
+      SQL.Clear;
+      SQL.Add('SELECT DISTINCT CNTCT_PERS FROM nameownr WHERE 1 <> 1');
+      try
+        Open;
+        Close;
+        Screen.Cursor := crDefault;
+      except on E: Exception do
+        begin
+          Close;
+          Screen.Cursor := crDefault;
+          MessageDlg('The new fields "CNTCT_PERS" for "Contact person" and "ALTN_TELEF" for "Alternative telephone number" in nameownr table not found, but will be created now! Please make sure you have database permissions to change tables.', mtInformation, [mbOK], 0);
+          try
+            DataModuleMain.ZConnectionDB.ExecuteDirect('ALTER TABLE nameownr ADD COLUMN CNTCT_PERS VARCHAR (24)');
+            DataModuleMain.ZConnectionDB.ExecuteDirect('ALTER TABLE nameownr ADD COLUMN ALTN_TELEF VARCHAR (15)');
+          except on Ex: Exception do
+            MessageDlg(Ex.Message + ' - New field not created. Make sure you have database permissions to change tables!', mtError, [mbOK], 0);
+          end;
+        end;
+      end;
+      SQL.Clear;
+    end;
     //check time measured field in DTH tables
     with CheckQuery do
     begin
@@ -1597,7 +1690,7 @@ begin
           Screen.Cursor := crDefault;
           MessageDlg('The new field "ROX" for "Redox" in CHEM_004 table was not found, but will be created now! Please make sure you have database permissions to change tables.', mtInformation, [mbOK], 0);
           try
-            DataModuleMain.ZConnectionDB.ExecuteDirect('ALTER TABLE chem_004 ADD COLUMN ROX DOUBLE DEFAULT ( -1)');
+            DataModuleMain.ZConnectionDB.ExecuteDirect('ALTER TABLE chem_004 ADD COLUMN ROX DOUBLE');
           except on Ex: Exception do
             MessageDlg(Ex.Message + ' - New field not created. Make sure you have database permissions to change tables!', mtError, [mbOK], 0);
           end;
@@ -1605,7 +1698,91 @@ begin
       end;
       SQL.Clear;
     end;
-    //check for CONDITION field in humidity
+
+    //check for -1 in chemistry tables and set to NULL
+    with CheckQuery do
+    begin
+      Screen.Cursor := crSQLWait;
+      Connection := ZConnectionDB;
+      SQL.Clear;
+      SQL.Add('SELECT PACID FROM chem_001 WHERE PACID = -1');
+      try
+        Open;
+        Screen.Cursor := crDefault;
+        if RecordCount > 0 then
+        begin
+          if MessageDlg('Chemistry parameter values of -1 are a thing of the past! Modern database processes require these to change to NULL values. Do you want to implement the change, which may take a few seconds, for this database now?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+          for m := 1 to 6 do
+          begin
+            with CheckQuery do
+            begin
+              Screen.Cursor := crSQLWait;
+              Connection := ZConnectionDB;
+              SQL.Clear;
+              SQL.Add('SELECT * FROM chem_00' + IntToStr(m) + ' WHERE 1<>1');
+              try
+                Open;
+                for n := 1 to FieldDefs.Count - 1 do //ignore CHM_REF_NR
+                  DataModuleMain.ZConnectionDB.ExecuteDirect('UPDATE chem_00' + IntToStr(m) + ' SET ' + Fields[n].FieldName + ' = NULL WHERE ' + Fields[n].FieldName + ' = -1');
+                Close;
+              except on E: Exception do
+                begin
+                  MessageDlg(E.Message + ' - Error updating table with NULL values!', mtError, [mbOK], 0);
+                  Close;
+                end;
+              end;
+            end;
+          end;
+        end;
+      finally
+        close;
+      end;
+    end;
+    Screen.Cursor := crDefault;
+
+    //check for 0 in SQLite/Geopackage chemistry tables and set to NULL
+    if ZConnectionDB.Tag = 1 then
+    with CheckQuery do
+    begin
+      Screen.Cursor := crSQLWait;
+      Connection := ZConnectionDB;
+      SQL.Clear;
+      SQL.Add('SELECT PACID FROM chem_001 WHERE PACID = 0'); //nobody uses PACID, so if there are chemistry entries then fix
+      try
+        Open;
+        Screen.Cursor := crDefault;
+        if RecordCount > 0 then
+        begin
+          if MessageDlg('Your chemistry parameter values of 0 in all fields are due to a previous SQLite/Geopackage database update AFTER changing the -1 value to NULL. This will be fixed now, but you will lose any "real" 0 values (e.g. in microbiology)! Do you want to implement the change, which may take a few seconds, for this database now? Alternatively you can change the 0.00 values of PACID manually to NULL or use a backup made before the database update.', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+          for m := 1 to 6 do
+          begin
+            with CheckQuery do
+            begin
+              Screen.Cursor := crSQLWait;
+              Connection := ZConnectionDB;
+              SQL.Clear;
+              SQL.Add('SELECT * FROM chem_00' + IntToStr(m) + ' WHERE 1<>1');
+              try
+                Open;
+                for n := 1 to FieldDefs.Count - 1 do //ignore CHM_REF_NR
+                  DataModuleMain.ZConnectionDB.ExecuteDirect('UPDATE chem_00' + IntToStr(m) + ' SET ' + Fields[n].FieldName + ' = NULL WHERE ' + Fields[n].FieldName + ' = 0');
+                Close;
+              except on E: Exception do
+                begin
+                  MessageDlg(E.Message + ' - Error updating table with NULL values!', mtError, [mbOK], 0);
+                  Close;
+                end;
+              end;
+            end;
+          end;
+        end;
+      finally
+        close;
+      end;
+    end;
+    Screen.Cursor := crDefault;
+
+    //check for CONDITIONS field in humidity
     with CheckQuery do
     begin
       Screen.Cursor := crSQLWait;
@@ -1659,7 +1836,7 @@ begin
       (MessageDlg('Your SQL monitor file in your Workspace ("ZSQLMonitor.log") is > 100MB and is growing fast! Do you want to clear it now? (It is safe to do so, but if you want to save it, exit Aquabase and rename it first. A new one will be created then.)', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
     begin
       ZSQLMonitor1.Active := False;
-      DeleteFile(ZSQLMonitor1.FileName);
+      sysutils.DeleteFile(ZSQLMonitor1.FileName);
       ZSQLMonitor1.Active := True;
     end;
   end;
@@ -1688,17 +1865,14 @@ procedure TDataModuleMain.ZConnectionDBBeforeConnect(Sender: TObject);
 var
   SQLiteDBExists: Boolean;
 begin
-  //start the Monitor
-  ZSQLMonitor1.FileName := WSpaceDir + DirectorySeparator + 'ZSQLMonitor.log';
-  ZSQLMonitor1.Active := True;
+  Screen.Cursor := crDefault;
   //login if required
-  if (ZConnectionDB.Tag > 1) or UseSQLitePW then
+  if (ZConnectionDB.Tag > 1) then
   begin //use Login Form
     if (DataModuleMain.ZConnectionDB.User = '') or (DataModuleMain.ZConnectionDB.Password = '') then
       ZConnectionDB.LoginPrompt := True
     else
       ZConnectionDB.LoginPrompt := False;
-    Screen.Cursor := crDefault;
   end
   else //do not use Login Form (for sqlite)
   begin
@@ -1715,6 +1889,7 @@ begin
           SQLiteDBExists := FileExists(OpenDialog1.FileName);
           if SQLiteDBExists then
           begin
+            WSpaceDir := ExtractFilePath(OpenDialog1.FileName);
             ZConnectionDB.Database := OpenDialog1.FileName;
             with TIniFile.Create(WSpaceDir + DirectorySeparator + 'workspace.ini') do
             begin
@@ -1734,7 +1909,16 @@ begin
       end;
     until SQLiteDBExists;
   end;
+  //start the Monitor
+  ZSQLMonitor1.FileName := WSpaceDir + DirectorySeparator + 'ZSQLMonitor.log';
+  ZSQLMonitor1.Active := True;
   Screen.Cursor := crSQLWait;
+end;
+
+procedure TDataModuleMain.ZConnectionDBBeforeDisconnect(Sender: TObject);
+begin
+  if ZConnectionDB.Tag = 1 then
+    ZConnectionDB.ExecuteDirect('PRAGMA optimize;');
 end;
 
 procedure TDataModuleMain.ZConnectionDBLogin(Sender: TObject;
@@ -1742,16 +1926,11 @@ procedure TDataModuleMain.ZConnectionDBLogin(Sender: TObject;
 begin
   with TLoginForm.Create(Application) do
   begin
-    SQLitePW := UseSQLitePW;
     ShowModal;
     if ModalResult = mrOK then
     begin
       Username := EditUserName.Text;
       Password := EditPassword.Text;
-      {$IFDEF WINDOWS}
-      un := EditUserName.Text;
-      pw := EditPassword.Text;
-      {$ENDIF}
       Free;
     end
     else
@@ -1838,7 +2017,6 @@ var
   sc: IZSQLiteConnection;
   ErrMsg: String;
   loadResult: Word;
-  UpDateTag: Byte;
 begin
   //Spatially enable language database for spatial queries on catchments and maps50
   ErrMsg := '';
@@ -1900,79 +2078,6 @@ begin
   //update Countries and map tables if settings are not in the program dir
   if ZConnectionDB.Connected and (SettingsDir <> ProgramDir) then //only do when workspace is active
   begin
-    with CheckQuery do
-    begin
-      Connection := ZConnectionCountries;
-      SQL.Clear;
-      SQL.Add('select C_NAME from Countries where C_NAME = ' + QuotedStr('Congo (DRC)')); //random selection to check whether the table is old
-      Open;
-      if RecordCount > 0 then //it is the old country table
-      begin //update to a new version with script
-        with ZSQLProcessorDB do
-        begin
-          Clear;
-          Connection := ZConnectionLanguage;
-          Delimiter := ';';
-          Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'create_countries.sql');
-          Execute;
-          Clear;
-          Delimiter := '$$';
-          Connection := ZConnectionDB;
-        end;
-      end;
-      Close;
-      Connection := ZConnectionDB;
-    end;
-    ZConnectionCountries.Disconnect; //close the countries database
-    //check if the map lookup tables exist, otherwise create them
-    UpdateTag := 0;
-    with DBMetadata do
-    begin
-      Connection := ZConnectionLanguage;
-      MetaDataType := mdTables;
-      TableName := 'municipalities';
-      Open;
-      if RecordCount = 0 then
-        UpdateTag := 2; //if not found update the last 2 map tables
-      Close;
-    end;
-    with DBMetadata do
-    begin
-      Connection := ZConnectionLanguage;
-      MetaDataType := mdTables;
-      TableName := 'catchments';
-      Open;
-      if RecordCount = 0 then
-        UpdateTag := 3; //if not found update the all 3 map tables
-      Close;
-    end;
-    if UpdateTag > 0 then
-    begin
-      Screen.Cursor := crDefault;
-      MessageDlg('Your Aquabase Settings Databases in your non-default location seem to be outdated and will be upgraded now.', mtInformation, [mbOK], 0);
-      Screen.Cursor := crSQLWait;
-      with ZSQLProcessorDB do
-      begin
-        Connection := ZConnectionLanguage;
-        Delimiter := ';';
-        if UpdateTag >= 2 then
-        begin
-          Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'create_municipalities.sql');
-          Execute;
-          Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'create_wmas.sql');
-          Execute;
-        end;
-        if UpdateTag = 3 then
-        begin
-          Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'create_catchments.sql');
-          Execute;
-        end;
-        Connection := ZConnectionDB;
-        Delimiter := '$$';
-      end;
-      Screen.Cursor := crDefault;
-      ShowMessage('Aquabase Settings Databases in non-default location successfully updated!');
-    end;
     //check if SANS241 exists if it is non-default settings
     if InRange(AnsiIndexStr(Country, LO_Countries), 0, 4) then
     begin
@@ -2155,10 +2260,10 @@ begin
           ExecuteDirect('BEGIN TRANSACTION;');
           ExecuteDirect('ALTER TABLE Ustddesc RENAME TO Ustddesc_old;');
           ExecuteDirect('CREATE TABLE Ustddesc (ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, STAND_DESCR VARCHAR (32), TABLE_NAME VARCHAR (12));');
-          ExecuteDirect('INSERT INTO Ustddesc VALUES(0, "SABS for human consumption", "SABS");');
-          ExecuteDirect('INSERT INTO Ustddesc VALUES(NULL, "WHO for human consumption", "WHO");');
-          ExecuteDirect('INSERT INTO Ustddesc VALUES(NULL, "SA Domestic Water Quality Guide", "chmclass");');
-          ExecuteDirect('INSERT INTO Ustddesc VALUES(NULL, "SANS 241:2015", "SANS241");');
+          ExecuteDirect('INSERT INTO Ustddesc VALUES(0, ''SABS for human consumption'', ''SABS'');');
+          ExecuteDirect('INSERT INTO Ustddesc VALUES(NULL, ''WHO for human consumption'', ''WHO'');');
+          ExecuteDirect('INSERT INTO Ustddesc VALUES(NULL, ''SA Domestic Water Quality Guide'', ''chmclass'');');
+          ExecuteDirect('INSERT INTO Ustddesc VALUES(NULL, ''SANS 241:2015'', ''SANS241'');');
           ExecuteDirect('INSERT INTO Ustddesc SELECT NULL,* FROM Ustddesc_old;');
           ExecuteDirect('DROP TABLE Ustddesc_old;');
           ExecuteDirect('COMMIT;');
@@ -2166,30 +2271,43 @@ begin
       end;
     end;
   end;
-  //update Aquasort table
+  //update Aquasort table; check if AquaSort table is old in non-default folders and replace
   if ExtractFilePath(ZConnectionSettings.Database) <> ProgramDir + DirectorySeparator then
-  with CheckQuery do //check if AquaSort table is old in non-default folders and replace
   begin
-    SQL.Clear;
-    SQL.Add('SELECT UNITYVAL_TIME FROM Aquasort WHERE TIME_ID = 1'); //check if it is the new table
-    Open;
-    if Fields[0].Value <> '°C' then
+    with CheckQuery do
     begin
-      AquaSortProcessor := TZSQLProcessor.Create(Self);
-      with AquaSortProcessor do
+      Connection := ZConnectionSettings;
+      SQL.Clear;
+      SQL.Add('SELECT UNITYVAL_TIME FROM Aquasort WHERE TIME_ID = 1'); //check if it is the new table
+      Open;
+      if Fields[0].Value <> '°C' then
       begin
-        Connection := ZConnectionSettings;
-        DelimiterType := dtDelimiter;
-        Delimiter := ';';
-        Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases'
-          + DirectorySeparator + 'SQLite' + DirectorySeparator +  'create_aquasort.sql');
-        Execute;
-        Free;
+        AquaSortProcessor := TZSQLProcessor.Create(Self);
+        with AquaSortProcessor do
+        begin
+          Connection := ZConnectionSettings;
+          DelimiterType := dtDelimiter;
+          Delimiter := ';';
+          Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases'
+            + DirectorySeparator + 'SQLite' + DirectorySeparator +  'create_aquasort.sql');
+          Execute;
+          Free;
+        end;
       end;
+      Close;
+      SQL.Clear;
     end;
-    Close;
-    Connection := ZConnectionDB;
-    SQL.Clear;
+    with CheckQuery do
+    begin
+      SQL.Clear;
+      SQL.Add('SELECT FILE_NAME FROM Aquasort WHERE FILE_NAME = ' + QuotedStr('GRNDGRAV')); //check if it is the new table
+      Open;
+      if RecordCount = 0 then
+        ZConnectionSettings.ExecuteDirect('INSERT INTO Aquasort (FILE_NAME, SORTORDER, INDEX1, DESCRIPTION) VALUES(''GRNDGRAV'', ''TRAV_NR, STATION'', ''TRAV_NR'', ''Ground Gravimetry geophysics'')');
+      Close;
+      Connection := ZConnectionDB;
+      SQL.Clear;
+    end;
   end;
 end;
 
@@ -2251,7 +2369,13 @@ begin
   begin
     Connection := ZConnectionDB;
     SQL.Clear;
-    SQL.Add('SELECT DISTINCT site_id_nr FROM ' + FilterName);
+    if BasicinfQuery.Filter > '' then
+    begin
+      SQL.Add('SELECT f.site_id_nr FROM ' + FilterName + ' f');
+      SQL.Add('join basicinf b on b.site_id_nr = f.site_id_nr and b.' + BasicinfQuery.Filter)
+    end
+    else
+      SQL.Add('SELECT DISTINCT site_id_nr FROM ' + FilterName);
   end;
 end;
 
@@ -2277,6 +2401,7 @@ begin
     ZQueryView.Close;
     FilterName := 'allsites';
     ZQueryView.Open;
+    NrRecords := ZQueryView.RecordCount;
   end;
 end;
 
@@ -2289,7 +2414,14 @@ procedure TDataModuleMain.BasicinfQueryAfterCancel(DataSet: TDataSet);
 begin
   CoordsEdited := False;
   if DataSet.RecordCount = 0 then
-    CurrentSite := '';
+    CurrentSite := ''
+  else
+    CurrentSite := BasicinfQuerySITE_ID_NR.Value;
+end;
+
+procedure TDataModuleMain.BasicinfQueryAfterClose(DataSet: TDataSet);
+begin
+  BasicinfQuery.Filter := '';
 end;
 
 procedure TDataModuleMain.BasicinfQueryAfterDelete(DataSet: TDataSet);
@@ -2407,7 +2539,10 @@ begin
       SQL.Clear;
       if DataModuleMain.ZConnectionDB.Tag = 1 then //sqlite
       begin
-        SQL.Add('SELECT ogr_fid, site_id_nr, nr_on_map, site_type, 1000 * ( 6371 * acos( cos( radians(' + BasicinfQueryLATITUDE.AsString + ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' + BasicinfQueryLONGITUDE.AsString + ') ) + sin( radians(' + BasicinfQueryLATITUDE.AsString + ') ) * sin(radians(latitude)) ) ) AS distance_m');
+        //first fix spatial index
+        with DataModuleMain.ZConnectionDB do
+          ExecuteDirect('SELECT RecoverSpatialIndex(' + QuotedStr('basicinf') + ', ' + QuotedStr('GEOMETRY') + ')');
+        SQL.Add('SELECT site_id_nr, nr_on_map, site_type, 1000 * ( 6371 * acos( cos( radians(' + BasicinfQueryLATITUDE.AsString + ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' + BasicinfQueryLONGITUDE.AsString + ') ) + sin( radians(' + BasicinfQueryLATITUDE.AsString + ') ) * sin(radians(latitude)) ) ) AS distance_m');
         SQL.Add('FROM basicinf');
         SQL.Add('WHERE distance_m <= ' + IntToStr(radius));
         SQL.Add('AND site_id_nr <> ' + QuotedStr(BasicinfQuerySITE_ID_NR.AsString));
@@ -2418,7 +2553,7 @@ begin
       else
       if DataModuleMain.ZConnectionDB.Tag in [2, 3] then //mysql, mariadb
       begin
-        SQL.Add('SELECT ogr_fid, site_id_nr, nr_on_map, site_type, 1000 * ( 6371 * acos( cos( radians(' + BasicinfQueryLATITUDE.AsString + ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' + BasicinfQueryLONGITUDE.AsString + ') ) + sin( radians(' + BasicinfQueryLATITUDE.AsString + ') ) * sin(radians(latitude)) ) ) AS distance_m');
+        SQL.Add('SELECT site_id_nr, nr_on_map, site_type, 1000 * ( 6371 * acos( cos( radians(' + BasicinfQueryLATITUDE.AsString + ') ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(' + BasicinfQueryLONGITUDE.AsString + ') ) + sin( radians(' + BasicinfQueryLATITUDE.AsString + ') ) * sin(radians(latitude)) ) ) AS distance_m');
         SQL.Add('FROM basicinf');
         SQL.Add('WHERE site_id_nr <> ' + QuotedStr(BasicinfQuerySITE_ID_NR.AsString));
         SQL.Add('AND site_type = ' + QuotedStr(BasicinfQuerySITE_TYPE.AsString));
@@ -2519,7 +2654,7 @@ var
 const
    MapChars = ['A', 'B', 'C', 'D'];
 begin
-  if UpperCase(FilterName) = 'ALLSITES' then
+  if (UpperCase(FilterName) = 'ALLSITES') and (BasicinfQuery.Filter = '') then
   begin
     with TNewSiteForm.Create(Application) do
     begin
@@ -2528,7 +2663,7 @@ begin
         //check if we are dealing with a proper map reference, if LO
         if InRange(AnsiIndexStr(Country, LO_Countries), 0, 5) then
         begin
-          if (RadioGroup1.ItemIndex = 0) then
+          if (ComboBox1.ItemIndex = 0) then
           begin
             try
               MapRef := (Copy(CurrentSite, 1, 6));
@@ -2544,6 +2679,7 @@ begin
             if MapRefValid then
             begin
               MapRefEdit.Text := MapRef;
+              MapReference := MapRef;
               AddCodeEdit.Text := Copy(CurrentSite, 7, 1);
             end
             else
@@ -2556,10 +2692,11 @@ begin
         end //LO Countries
         else //other countries
         begin
-          RadioGroup1.ItemIndex := 1;
+          if ComboBox1.ItemIndex = 0 then
+            ComboBox1.ItemIndex := 3;
           GroupBox1.Visible := False;
-          GroupBox2.Top := 90;
-          Height := 190;
+          GroupBox2.Top := 48;
+          Height := 155;
         end;
       end
       else //there are no sites yet
@@ -2570,21 +2707,35 @@ begin
       end
       else
       begin
-        RadioGroup1.ItemIndex := 1;
+        ComboBox1.ItemIndex := 1;
         GroupBox1.Visible := False;
         GroupBox2.Top := 90;
         Height := 190;
-        EditFreeForm.Text := '00000000001';
+        EditSiteID.Text := '00000000001';
       end;
       ShowModal;
       if ModalResult = mrOK then
       begin
         AddNewSite := True;
-        NewX_COORD := 0;
-        NewY_COORD := 0;
+        with ZQueryMap do
+        begin
+          Connection := ZConnectionCountries;
+          with SQL do
+          begin
+            Clear;
+            Add('SELECT ST_X(ST_Transform(ST_Centroid(geom), 4326)) as X, ST_Y(ST_Transform(ST_Centroid(geom), 4326)) as Y FROM countries ');
+            Add('WHERE name_en = ' + QuotedStr(country) + ';');
+          end;
+          Open;
+          NewX_COORD := RoundTo(FieldByName('Y').AsFloat, -7);
+          NewY_COORD := RoundTo(FieldByName('X').AsFloat, -7);
+          Close;
+          Connection := ZConnectionLanguage;
+        end;
+        Screen.Cursor := crDefault;
         XStr := '';
         YStr := '';
-        if RadioGroup1.ItemIndex = 0 then //use map reference
+        if ComboBox1.ItemIndex = 0 then //use map reference
         begin
           MapRef := MapRefEdit.Text;
           if (MapRef <> '0000ZZ') and CheckBoxDefaultToCentre.Checked then //if it is a valid map reference
@@ -2652,16 +2803,34 @@ begin
           NewSiteID := SiteIDCode + NumberStr;
           CoordsEdited := True;
         end
-        else //use site identifier from EditFreeForm edit control
+        else //use site identifier from EditSiteID edit control
         begin
-          NewSiteID := EditFreeForm.Text;
+          NewSiteID := EditSiteID.Text;
           if dstLO then
-            MessageDlg('Your currently set coordinate system does not allow the calculation of the coordinates from the Map Reference, which will therefore be incorrect. Please set your coordinates to a system not dependent on the Map Reference after posting and then enter the correct coordinates by editing the record again!', mtWarning, [mbOK], 0);
+          begin
+            {MessageDlg('Your currently set coordinate system does not allow the calculation of the coordinates from the Map Reference! Please set your coordinates to a system not dependent on the Map Reference and try adding a new site again!', mtWarning, [mbOK], 0);
+            AddNewSite := False;
+            Free;
+            Abort;}
+            if not cs2cs(FloatToStr(NewY_Coord), FloatToStr(NewX_Coord), '2925AA', 4326, CoordSysNr, YStr, XStr) then
+              ShowMessage(CoordMsg);
+            NewX_Coord := StrToFloat(XStr);
+            NewY_Coord := StrToFloat(YStr);
+          end
+          else
+          if CoordSysNr <> 4326 then //don't covert as already in 4326
+          begin
+            if not cs2cs(FloatToStr(NewY_Coord), FloatToStr(NewX_Coord), '', 4326, CoordSysNr, YStr, XStr) then
+              ShowMessage(CoordMsg);
+            NewX_Coord := StrToFloat(XStr);
+            NewY_Coord := StrToFloat(YStr);
+          end;
         end;
         Free;
       end
       else
       begin
+        AddNewSite := False;
         Free;
         Abort;
       end;
@@ -2669,7 +2838,7 @@ begin
   end
   else
   begin
-    MessageDlg('Please use the "allsites" view when adding new sites!', mtError, [mbOk], 0);
+    MessageDlg('Please use the "allsites" view and clear the view filters when adding new sites!', mtError, [mbOk], 0);
     AddNewSite := False;
     Abort;
   end;
@@ -2798,12 +2967,12 @@ begin
     end;
     Close;
   end;
-  //LO countries only for municipalities...for now
+  //countries with municipalities
   with DBMetadata do
   begin
     TableName := 'municipalities';
     Open;
-    if (RecordCount > 0) and InRange(AnsiIndexStr(Country, LO_Countries), 0, 5) then
+    if RecordCount > 0 then
     begin
       if BasicinfQueryREGN_TYPE.AsString = 'MUN' then //check the municipality
       begin
@@ -2820,7 +2989,7 @@ begin
           begin
             if RecordCount > 0 then
             begin
-              BasicinfQueryREGN_DESCR.Value := UpperCase(FieldByName('map_title').AsString);
+              BasicinfQueryREGN_DESCR.Value := FieldByName('map_title').AsString;
               Close;
               SQL.Clear;
             end
@@ -2828,7 +2997,7 @@ begin
             begin
               Close;
               SQL.Clear;
-              if MessageDlg('Please confirm', 'Your coordinates do not fall within any of the South African municipalities! Do you want to correct the coordinates and try again?', mtWarning, [mbYes, mbNo], 0) = mrYes then
+              if MessageDlg('Please confirm', 'Your coordinates do not fall within any of the municipalities in ' + Country + '! Do you want to correct the coordinates and try again?', mtWarning, [mbYes, mbNo], 0) = mrYes then
                 Abort;
             end;
           end;
@@ -2840,7 +3009,111 @@ begin
             if (RecordCount > 0) and (BasicinfQueryREGN_DESCR.Value <> UpperCase(FieldByName('map_title').AsString)) then
             begin
               if MessageDlg('The municipality name inserted does not correspond with the coordinates of the site. Do you want to correct the municipality name automatically?', mtConfirmation, [mbYes, mbNo],0) = mrYes then
-                BasicinfQueryREGN_DESCR.AsString := UpperCase(FieldByName('map_title').AsString);
+                BasicinfQueryREGN_DESCR.AsString := FieldByName('map_title').AsString;
+            end;
+            Close;
+            SQL.Clear;
+          end;
+        end;
+      end;
+    end;
+    Close;
+  end;
+  //countries with districts
+  with DBMetadata do
+  begin
+    TableName := 'districts';
+    Open;
+    if RecordCount > 0 then
+    begin
+      if BasicinfQueryREGN_TYPE.AsString = 'DIS' then //check the district
+      begin
+        with ZQueryMapLookup do
+        begin
+          SQL.Clear;
+          SQL.Add('SELECT district_name FROM districts ');
+          SQL.Add('WHERE ST_WITHIN(GeomFromText(''POINT(' + BasicinfQueryLONGITUDE.AsString + ' ' + BasicinfQueryLATITUDE.AsString + ')'', 4326), GEOMETRY)');
+          Open;
+        end;
+        if BasicinfQueryREGN_DESCR.Value = '<AUTOMATIC>' then
+        begin
+          with ZQueryMapLookup do
+          begin
+            if RecordCount > 0 then
+            begin
+              BasicinfQueryREGN_DESCR.Value := FieldByName('district_name').AsString;
+              Close;
+              SQL.Clear;
+            end
+            else
+            begin
+              Close;
+              SQL.Clear;
+              if MessageDlg('Please confirm', 'Your coordinates do not fall within any of the districts in ' + Country + '! Do you want to correct the coordinates and try again?', mtWarning, [mbYes, mbNo], 0) = mrYes then
+                Abort;
+            end;
+          end;
+        end
+        else
+        begin
+          with ZQueryMapLookup do
+          begin
+            if (RecordCount > 0) and (BasicinfQueryREGN_DESCR.Value <> UpperCase(FieldByName('district_name').AsString)) then
+            begin
+              if MessageDlg('The district name inserted does not correspond with the coordinates of the site. Do you want to correct the district name automatically?', mtConfirmation, [mbYes, mbNo],0) = mrYes then
+                BasicinfQueryREGN_DESCR.AsString := FieldByName('district_name').AsString;
+            end;
+            Close;
+            SQL.Clear;
+          end;
+        end;
+      end;
+    end;
+    Close;
+  end;
+  //countries with provinces
+  with DBMetadata do
+  begin
+    TableName := 'provinces';
+    Open;
+    if RecordCount > 0 then
+    begin
+      if BasicinfQueryREGN_TYPE.AsString = 'PRO' then //check the province
+      begin
+        with ZQueryMapLookup do
+        begin
+          SQL.Clear;
+          SQL.Add('SELECT name FROM provinces ');
+          SQL.Add('WHERE ST_WITHIN(GeomFromText(''POINT(' + BasicinfQueryLONGITUDE.AsString + ' ' + BasicinfQueryLATITUDE.AsString + ')'', 4326), GEOMETRY)');
+          Open;
+        end;
+        if BasicinfQueryREGN_DESCR.Value = '<AUTOMATIC>' then
+        begin
+          with ZQueryMapLookup do
+          begin
+            if RecordCount > 0 then
+            begin
+              BasicinfQueryREGN_DESCR.Value := FieldByName('name').AsString;
+              Close;
+              SQL.Clear;
+            end
+            else
+            begin
+              Close;
+              SQL.Clear;
+              if MessageDlg('Please confirm', 'Your coordinates do not fall within any of the provinces in ' + Country + '! Do you want to correct the coordinates and try again?', mtWarning, [mbYes, mbNo], 0) = mrYes then
+                Abort;
+            end;
+          end;
+        end
+        else
+        begin
+          with ZQueryMapLookup do
+          begin
+            if (RecordCount > 0) and (BasicinfQueryREGN_DESCR.Value <> UpperCase(FieldByName('name').AsString)) then
+            begin
+              if MessageDlg('The province name inserted does not correspond with the coordinates of the site. Do you want to correct the province name automatically?', mtConfirmation, [mbYes, mbNo],0) = mrYes then
+                BasicinfQueryREGN_DESCR.AsString := FieldByName('name').AsString;
             end;
             Close;
             SQL.Clear;
@@ -2873,7 +3146,7 @@ begin
           begin
             if RecordCount > 0 then
             begin
-              BasicinfQueryREGN_DESCR.Value := UpperCase(FieldByName('waterman_n').AsString);
+              BasicinfQueryREGN_DESCR.Value := FieldByName('waterman_n').AsString;
               Close;
               SQL.Clear;
             end
@@ -2893,7 +3166,7 @@ begin
             if (RecordCount > 0) and (BasicinfQueryREGN_DESCR.Value <> UpperCase(FieldByName('waterman_n').AsString)) then
             begin
               if MessageDlg('The Water Management Area inserted does not correspond with the coordinates of the site. Do you want to correct the Water Management Area automatically?', mtConfirmation, [mbYes, mbNo],0) = mrYes then
-                BasicinfQueryREGN_DESCR.AsString := UpperCase(FieldByName('waterman_n').AsString);
+                BasicinfQueryREGN_DESCR.AsString := FieldByName('waterman_n').AsString;
             end;
             Close;
             SQL.Clear;
@@ -2906,10 +3179,15 @@ begin
   //finally insert the site
   if DataSet.State = dsInsert then
     BasicinfQuerySITE_ID_NR.Value := NewSiteID;
+  BasicinfQueryNOTES_YN.ReadOnly := False;
   if BasicinfQueryNOTE_PAD.IsNull or (BasicinfQueryNOTE_PAD.Value = '') then
-    BasicinfQueryNOTES_YN.AsString := 'N'
+  begin
+    BasicinfQueryNOTES_YN.AsString := 'N';
+    BasicinfQueryNOTE_PAD.Clear;
+  end
   else
     BasicinfQueryNOTES_YN.AsString := 'Y';
+  BasicinfQueryNOTES_YN.ReadOnly := True;
   if not BasicValidFound then
     Abort;
 end;
@@ -3028,10 +3306,17 @@ begin
     //Set other default field values
     BasicinfQueryCOORD_ACC.Value := '4';
     BasicinfQuerySITE_TYPE.Value := 'B';
+    BasicinfQueryREGN_TYPE.Value := '';
     BasicinfQueryNR_ON_MAP.FocusControl;
     CurrentSite := NewSiteID;
   end
   else BasicinfQuery.Cancel;
+end;
+
+procedure TDataModuleMain.BasicinfQuerySetText(Sender: TField;
+  const aText: string);
+begin
+  Sender.Value := UpperCase(aText);
 end;
 
 procedure TDataModuleMain.BasicinfQueryPostError(DataSet: TDataSet;
@@ -3043,9 +3328,18 @@ end;
 
 procedure TDataModuleMain.BasicinfQueryREGN_TYPEValidate(Sender: TField);
 begin
-  if (Country = 'South Africa') and (Sender.DataSet.State IN [dsEdit, dsInsert]) then
-  if ((Sender.AsString = 'MUN') or (Sender.AsString = 'WMA')) and (BasicinfQueryREGN_DESCR.IsNull or (BasicinfQueryREGN_DESCR.AsString = '')) then
-    BasicinfQueryREGN_DESCR.AsString := '<AUTOMATIC>';
+  if (Sender.DataSet.State IN [dsEdit, dsInsert]) and not Sender.IsNull then
+    if ((Sender.AsString = 'MUN') or (Sender.AsString = 'WMA')) and (BasicinfQueryREGN_DESCR.IsNull or (BasicinfQueryREGN_DESCR.AsString = '')) then
+      BasicinfQueryREGN_DESCR.AsString := '<AUTOMATIC>';
+end;
+
+procedure TDataModuleMain.BasicinfQueryCHARSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TDataModuleMain.BasicinfQueryX_COORDGetText(Sender: TField;

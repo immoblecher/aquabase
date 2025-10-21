@@ -2,33 +2,6 @@ inherited MagneticSusForm: TMagneticSusForm
   Left = 734
   Top = 175
   Caption = 'Magnetic Susceptibility'
-  Icon.Data = {
-    FE0200000000010001002020100000000000E802000016000000280000002000
-    0000400000000100040000000000800200000000000000000000000000000000
-    0000000000000000800000800000008080008000000080008000808000008080
-    8000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
-    FF00000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    000000000000000000000000F00000000000000000000F000000F00F00000F00
-    00000000000000FF0000F0FF0000FF00000000000000000F000FF0F0000FF000
-    0000000000F0000FF00F00F000F000000000000000FFF000FF0F00000F000FF0
-    000000000000F0000F0000000000F00000000000000000000F00000000000000
-    0000000000099999999000000000009999990000000999999990000000000099
-    9999000000099999999000000000009999990000000999999990000000000099
-    9999000000099999999000000000009999990000000999999990000000000099
-    99990000000000000000000000000000000000000000FF00000000000000FF00
-    0000000000FFF0000F000000F0000FF00000000000F00000FF000F00FF000000
-    000000000000000FF0000F000FF0000000000000000000FF00000F0000F00000
-    0000000000000F0000000F0000FF0000000000000000000000000F0000000000
-    000000000000000000000F000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7FFFFBF
-    6FBFFFCF4F3FFFEE5E7FFDE6DDFFFC72FB9FFF7BFF7FFFFBFFFF0001C0000001
-    C0000001C0000001C0000001C0000001C000FFFFFFFFFF3FFF3FFC7BF79FFDF3
-    B3FFFFE7B9FFFFCFBDFFFFBFBCFFFFFFBFFFFFFFBFFFFFFFFFFFFFFFFFFFFFFF
-    FFFF
-  }
   OnActivate = FormActivate
   OnCreate = FormCreate
   inherited Panel1: TPanel
@@ -47,17 +20,17 @@ inherited MagneticSusForm: TMagneticSusForm
     Top = 151
     ClientHeight = 217
     inherited Panel4: TPanel
-      Top = 187
+      Top = 189
       inherited DetailNavigator: TDBNavigator
         Hints.Strings = (        )
       end
       inherited StaticText1: TStaticText
         Left = 461
-        Width = 38
+        Width = 42
       end
     end
     inherited DBGrid: TDBGrid
-      Height = 162
+      Height = 164
       AutoFillColumns = True
       TabOrder = 2
     end
@@ -65,10 +38,10 @@ inherited MagneticSusForm: TMagneticSusForm
       Top = 4
     end
     object AMSLCheckBox: TCheckBox[3]
-      Left = 508
-      Height = 17
+      Left = 502
+      Height = 23
       Top = 2
-      Width = 61
+      Width = 67
       Anchors = [akTop, akRight]
       Caption = 'a.m.s.l.'
       Font.CharSet = ANSI_CHARSET
@@ -76,29 +49,25 @@ inherited MagneticSusForm: TMagneticSusForm
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      OnClick = AMSLCheckBoxClick
       ParentFont = False
       TabOrder = 1
       TabStop = False
+      OnClick = AMSLCheckBoxClick
     end
   end
   inherited GroupBox1: TGroupBox
     Height = 107
     ClientHeight = 89
-    inherited RxDBLookupComboType: TRxDBLookupCombo
-      Height = 27
+    inherited RxDBLookupComboAcc: TRxDBLookupCombo
+      Height = 29
     end
   end
   inherited BasicinfDataSource: TDataSource
-    left = 328
+    Left = 328
   end
   inherited LinkedDataSource: TDataSource
-    left = 144
-    top = 273
-  end
-  inherited XMLPropStorage: TXMLPropStorage
-    left = 464
-    top = 272
+    Left = 144
+    Top = 273
   end
   inherited LinkedQuery: TZQuery
     BeforeOpen = LinkedQueryBeforeOpen
@@ -113,14 +82,16 @@ inherited MagneticSusForm: TMagneticSusForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
-    top = 273
+    Top = 273
     ParamData = <    
       item
         DataType = ftString
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryREP_INST: TStringField[1]
       Tag = 1
@@ -180,8 +151,6 @@ inherited MagneticSusForm: TMagneticSusForm
       Required = False
       OnGetText = LinkedQueryDEPTHGetText
       OnSetText = LinkedQueryDEPTHSetText
-      MaxValue = 0
-      MinValue = 0
       Precision = 22
     end
     object LinkedQueryREADING: TLongintField[5]

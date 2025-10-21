@@ -1,60 +1,63 @@
 object DataModuleMain: TDataModuleMain
   OldCreateOrder = False
   Height = 477
-  HorizontalOffset = 1057
-  VerticalOffset = 503
+  HorizontalOffset = 2925
+  VerticalOffset = 234
   Width = 413
   object ZConnectionDB: TZConnection
     ControlsCodePage = cCP_UTF8
-    AutoEncodeStrings = True
     Properties.Strings = (
       'codepage='
       'controls_cp=CP_UTF8'
       'AutoEncodeStrings=ON'
+      'RawStringEncoding=DB_CP'
     )
     BeforeConnect = ZConnectionDBBeforeConnect
     AfterConnect = ZConnectionDBAfterConnect
+    BeforeDisconnect = ZConnectionDBBeforeDisconnect
     AfterDisconnect = ZConnectionDBAfterDisconnect
     OnLogin = ZConnectionDBLogin
+    DisableSavepoints = False
     Port = 0
     Left = 48
     Top = 16
   end
   object ZConnectionSettings: TZConnection
     ControlsCodePage = cCP_UTF8
-    AutoEncodeStrings = True
     Properties.Strings = (
       'AutoEncodeStrings='
     )
     BeforeConnect = ZConnectionSettingsBeforeConnect
     AfterConnect = ZConnectionSettingsAfterConnect
+    DisableSavepoints = False
     Port = 0
-    Protocol = 'sqlite-3'
+    Protocol = 'sqlite'
     Left = 48
     Top = 88
   end
   object ZConnectionLanguage: TZConnection
     ControlsCodePage = cCP_UTF8
-    AutoEncodeStrings = True
     Properties.Strings = (
       'AutoEncodeStrings=ON'
     )
     BeforeConnect = ZConnectionLanguageBeforeConnect
     AfterConnect = ZConnectionLanguageAfterConnect
+    DisableSavepoints = False
     Port = 0
-    Protocol = 'sqlite-3'
+    Protocol = 'sqlite'
     Left = 48
     Top = 159
   end
   object DataSourceView: TDataSource
+    AutoEdit = False
     DataSet = ZQueryView
     OnDataChange = DataSourceViewDataChange
     Left = 264
     Top = 16
   end
   object AquaSortTable: TZTable
-    Connection = ZConnectionSettings
     SortedFields = 'FILE_NAME'
+    Connection = ZConnectionSettings
     ReadOnly = True
     TableName = 'Aquasort'
     IndexFieldNames = 'FILE_NAME Asc'
@@ -62,9 +65,9 @@ object DataModuleMain: TDataModuleMain
     Top = 160
   end
   object LookupTable: TZTable
-    Connection = ZConnectionLanguage
     SortedFields = 'USED_FOR,SEARCH'
     BeforeOpen = LookupTableBeforeOpen
+    Connection = ZConnectionLanguage
     OnPostError = LookupTablePostError
     TableName = 'Lookup'
     IndexFieldNames = 'USED_FOR Asc,SEARCH Asc'
@@ -234,8 +237,8 @@ object DataModuleMain: TDataModuleMain
     end
   end
   object StandardTable: TZTable
-    Connection = ZConnectionLanguage
     BeforeOpen = StandardTableBeforeOpen
+    Connection = ZConnectionLanguage
     TableName = 'SABS'
     Left = 160
     Top = 224
@@ -326,10 +329,11 @@ object DataModuleMain: TDataModuleMain
     Top = 224
   end
   object BasicinfQuery: TZQuery
-    Connection = ZConnectionDB
     SortedFields = 'SITE_ID_NR'
     AfterOpen = BasicinfQueryAfterOpen
+    AfterClose = BasicinfQueryAfterClose
     AfterRefresh = BasicinfQueryAfterRefresh
+    Connection = ZConnectionDB
     BeforeInsert = BasicinfQueryBeforeInsert
     BeforePost = BasicinfQueryBeforePost
     AfterPost = BasicinfQueryAfterPost
@@ -339,12 +343,7 @@ object DataModuleMain: TDataModuleMain
     OnPostError = BasicinfQueryPostError
     OnNewRecord = BasicinfQueryNewRecord
     SQL.Strings = (
-      'SELECT OGR_FID, SITE_ID_NR, NR_ON_MAP, REGION_BB, ALT_NO_1, ALT_NO_2, FARM_NR, SITE_NAME, TOPO_SETTG, '
-      'Y_COORD, X_COORD, COORD_ACC, COORD_METH, ALTITUDE, SURV_METH, DRAINAGE_R, SITE_TYPE, '
-      'SITE_SELEC, BH_DIAM, COLLAR_HI, DEPTH, DATE_COMPL, INFO_SOURC, SITE_STATU, SITE_PURPS, USE_CONSUM, '
-      'USE_APPLIC, REP_INST, EQUIPMENT, POTABILITY, REGN_TYPE, REGN_DESCR, DATE_ENTRY, DATE_UPDTD, '
-      'NOTES_YN, NOTE_PAD, LONGITUDE, LATITUDE, NGDB_FLAG'
-      'FROM basicinf'
+      'SELECT * FROM basicinf'
     )
     Params = <>
     MasterFields = 'SITE_ID_NR'
@@ -353,21 +352,11 @@ object DataModuleMain: TDataModuleMain
     IndexFieldNames = 'SITE_ID_NR Asc'
     Left = 158
     Top = 88
-    object BasicinfQueryOGR_FID: TLargeintField
-      FieldKind = fkData
-      FieldName = 'OGR_FID'
-      Index = 0
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Visible = False
-    end
     object BasicinfQuerySITE_ID_NR: TStringField
       DisplayWidth = 64
       FieldKind = fkData
       FieldName = 'SITE_ID_NR'
-      Index = 1
+      Index = 0
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -378,73 +367,79 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 48
       FieldKind = fkData
       FieldName = 'NR_ON_MAP'
-      Index = 2
+      Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      OnSetText = BasicinfQuerySetText
       Size = 48
     end
     object BasicinfQueryREGION_BB: TStringField
       DisplayWidth = 32
       FieldKind = fkData
       FieldName = 'REGION_BB'
-      Index = 3
+      Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      OnSetText = BasicinfQuerySetText
       Size = 32
     end
     object BasicinfQueryALT_NO_1: TStringField
       DisplayWidth = 28
       FieldKind = fkData
       FieldName = 'ALT_NO_1'
-      Index = 4
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      OnSetText = BasicinfQuerySetText
       Size = 28
     end
     object BasicinfQueryALT_NO_2: TStringField
       DisplayWidth = 28
       FieldKind = fkData
       FieldName = 'ALT_NO_2'
-      Index = 5
+      Index = 4
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      OnSetText = BasicinfQuerySetText
       Size = 28
     end
     object BasicinfQueryFARM_NR: TStringField
       DisplayWidth = 32
       FieldKind = fkData
       FieldName = 'FARM_NR'
-      Index = 6
+      Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      OnSetText = BasicinfQuerySetText
       Size = 8
     end
     object BasicinfQuerySITE_NAME: TStringField
       DisplayWidth = 240
       FieldKind = fkData
       FieldName = 'SITE_NAME'
-      Index = 7
+      Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      OnSetText = BasicinfQueryCHARSetText
       Size = 240
     end
     object BasicinfQueryTOPO_SETTG: TStringField
       DisplayWidth = 4
       FieldKind = fkData
       FieldName = 'TOPO_SETTG'
-      Index = 8
+      Index = 7
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -455,7 +450,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'Y_COORD'
-      Index = 9
+      Index = 8
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -468,7 +463,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'X_COORD'
-      Index = 10
+      Index = 9
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -481,7 +476,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 4
       FieldKind = fkData
       FieldName = 'COORD_ACC'
-      Index = 11
+      Index = 10
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -492,7 +487,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 4
       FieldKind = fkData
       FieldName = 'COORD_METH'
-      Index = 12
+      Index = 11
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -503,7 +498,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'ALTITUDE'
-      Index = 13
+      Index = 12
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -516,7 +511,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 4
       FieldKind = fkData
       FieldName = 'SURV_METH'
-      Index = 14
+      Index = 13
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -527,7 +522,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 16
       FieldKind = fkData
       FieldName = 'DRAINAGE_R'
-      Index = 15
+      Index = 14
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -538,7 +533,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 4
       FieldKind = fkData
       FieldName = 'SITE_TYPE'
-      Index = 16
+      Index = 15
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -549,7 +544,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 12
       FieldKind = fkData
       FieldName = 'SITE_SELEC'
-      Index = 17
+      Index = 16
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -560,7 +555,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'BH_DIAM'
-      Index = 18
+      Index = 17
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -573,7 +568,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'COLLAR_HI'
-      Index = 19
+      Index = 18
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -586,7 +581,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'DEPTH'
-      Index = 20
+      Index = 19
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -599,7 +594,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 32
       FieldKind = fkData
       FieldName = 'DATE_COMPL'
-      Index = 21
+      Index = 20
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -611,7 +606,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 4
       FieldKind = fkData
       FieldName = 'INFO_SOURC'
-      Index = 22
+      Index = 21
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -622,7 +617,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 4
       FieldKind = fkData
       FieldName = 'SITE_STATU'
-      Index = 23
+      Index = 22
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -633,7 +628,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 4
       FieldKind = fkData
       FieldName = 'SITE_PURPS'
-      Index = 24
+      Index = 23
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -644,7 +639,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 4
       FieldKind = fkData
       FieldName = 'USE_CONSUM'
-      Index = 25
+      Index = 24
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -655,7 +650,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 8
       FieldKind = fkData
       FieldName = 'USE_APPLIC'
-      Index = 26
+      Index = 25
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -666,7 +661,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 140
       FieldKind = fkData
       FieldName = 'REP_INST'
-      Index = 27
+      Index = 26
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -677,7 +672,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 4
       FieldKind = fkData
       FieldName = 'EQUIPMENT'
-      Index = 28
+      Index = 27
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -688,7 +683,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 4
       FieldKind = fkData
       FieldName = 'POTABILITY'
-      Index = 29
+      Index = 28
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -699,7 +694,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 12
       FieldKind = fkData
       FieldName = 'REGN_TYPE'
-      Index = 30
+      Index = 29
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -711,18 +706,19 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 144
       FieldKind = fkData
       FieldName = 'REGN_DESCR'
-      Index = 31
+      Index = 30
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      OnSetText = BasicinfQueryCHARSetText
       Size = 144
     end
     object BasicinfQueryDATE_ENTRY: TStringField
       DisplayWidth = 32
       FieldKind = fkData
       FieldName = 'DATE_ENTRY'
-      Index = 32
+      Index = 31
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -733,7 +729,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 32
       FieldKind = fkData
       FieldName = 'DATE_UPDTD'
-      Index = 33
+      Index = 32
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -744,28 +740,28 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 4
       FieldKind = fkData
       FieldName = 'NOTES_YN'
+      Index = 33
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = True
+      Size = 1
+    end
+    object BasicinfQueryNOTE_PAD: TWideStringField
+      FieldKind = fkData
+      FieldName = 'NOTE_PAD'
       Index = 34
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
-      Required = True
-      Size = 1
-    end
-    object BasicinfQueryNOTE_PAD: TBlobField
-      FieldKind = fkData
-      FieldName = 'NOTE_PAD'
-      Index = 35
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
       Required = False
-      BlobType = ftMemo
+      Size = 1024000
     end
     object BasicinfQueryLONGITUDE: TFloatField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'LONGITUDE'
-      Index = 36
+      Index = 35
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -777,7 +773,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'LATITUDE'
-      Index = 37
+      Index = 36
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -789,7 +785,7 @@ object DataModuleMain: TDataModuleMain
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'NGDB_FLAG'
-      Index = 38
+      Index = 37
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -799,9 +795,10 @@ object DataModuleMain: TDataModuleMain
   end
   object OpenDialog1: TOpenDialog
     HelpContext = 12
-    Title = 'Locate SQLite database'
+    Title = 'Locate SpatiaLite/Geopackage database'
     DefaultExt = '.sqlite'
-    Filter = 'SQLite database (*.sqlite)|*.sqlite|*.sqlite'
+    Filter = 'SpatiaLite database (*.sqlite)|*.sqlite|GeoPacklage (*.gpkg)|*.gpkg'
+    FilterIndex = 2
     Options = [ofShowHelp, ofEnableSizing, ofViewDetail]
     Left = 352
     Top = 16
@@ -896,20 +893,10 @@ object DataModuleMain: TDataModuleMain
     Params = <>
     Left = 352
     Top = 159
-    object ZQueryMapsheet50: TStringField
-      FieldKind = fkData
-      FieldName = 'sheet50'
-      Index = 0
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 6
-    end
   end
   object ZQueryDefaultLookup: TZReadOnlyQuery
-    Connection = ZConnectionDefaults
     AfterClose = ZQueryDefaultLookupAfterClose
+    Connection = ZConnectionDefaults
     SQL.Strings = (
       'SELECT * FROM Lookup'
     )
@@ -919,20 +906,20 @@ object DataModuleMain: TDataModuleMain
   end
   object ZConnectionDefaults: TZConnection
     ControlsCodePage = cCP_UTF8
-    AutoEncodeStrings = True
     Properties.Strings = (
       'AutoEncodeStrings='
     )
     BeforeConnect = ZConnectionDefaultsBeforeConnect
     AfterConnect = ZConnectionDefaultsAfterConnect
+    DisableSavepoints = False
     Port = 0
-    Protocol = 'sqlite-3'
+    Protocol = 'sqlite'
     Left = 48
     Top = 293
   end
   object ZQueryLookup: TZQuery
-    Connection = ZConnectionLanguage
     SortedFields = 'U_CODE'
+    Connection = ZConnectionLanguage
     SQL.Strings = (
       'SELECT USED_FOR || SEARCH AS U_CODE, DESCRIBE FROM Lookup'
     )
@@ -998,21 +985,21 @@ object DataModuleMain: TDataModuleMain
   end
   object ZConnectionProj: TZConnection
     ControlsCodePage = cCP_UTF8
-    AutoEncodeStrings = True
     Properties.Strings = (
       'AutoEncodeStrings=ON'
       'controls_cp=CP_UTF8'
     )
     BeforeConnect = ZConnectionProjBeforeConnect
     AfterConnect = ZConnectionProjAfterConnect
+    DisableSavepoints = False
     Port = 0
-    Protocol = 'sqlite-3'
+    Protocol = 'sqlite'
     Left = 248
     Top = 88
   end
   object ZQueryProj: TZReadOnlyQuery
-    Connection = ZConnectionProj
     BeforeOpen = ZQueryProjBeforeOpen
+    Connection = ZConnectionProj
     Params = <>
     Left = 296
     Top = 128
@@ -1024,11 +1011,11 @@ object DataModuleMain: TDataModuleMain
     Top = 64
   end
   object ZQueryView: TZReadOnlyQuery
-    Connection = ZConnectionDB
     SortedFields = 'SITE_ID_NR'
     BeforeOpen = ZQueryViewBeforeOpen
     AfterOpen = ZQueryViewAfterOpen
     AfterRefresh = ZQueryViewAfterRefresh
+    Connection = ZConnectionDB
     SQL.Strings = (
       'SELECT site_id_nr FROM allsites'
     )
@@ -1174,14 +1161,14 @@ object DataModuleMain: TDataModuleMain
   end
   object ZConnectionCountries: TZConnection
     ControlsCodePage = cCP_UTF8
-    AutoEncodeStrings = True
     Properties.Strings = (
       'AutoEncodeStrings=ON'
     )
     BeforeConnect = ZConnectionCountriesBeforeConnect
     AfterConnect = ZConnectionCountriesAfterConnect
+    DisableSavepoints = False
     Port = 0
-    Protocol = 'sqlite-3'
+    Protocol = 'sqlite'
     Left = 128
     Top = 280
   end

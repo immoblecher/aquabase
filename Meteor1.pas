@@ -24,7 +24,7 @@ interface
 uses
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs, TabDetl, Menus, Db,
   DBCtrls, LCLtype, Buttons, ExtCtrls, StdCtrls, MaskEdit, ComCtrls, DBGrids,
-  XMLPropStorage, ZDataset, rxlookup;
+  ZDataset;
 
 type
 
@@ -52,6 +52,7 @@ type
     ZQuery3SITE_ID_NR: TStringField;
     ZQuery3TIME_MEAS: TStringField;
     procedure BasicinfDataSourceDataChange(Sender: TObject; Field: TField);
+    procedure FormCreate(Sender: TObject);
     procedure PageControlEnter(Sender: TObject);
     procedure TableREP_INSTValidate(Sender: TField);
     procedure TableINFO_SOURCValidate(Sender: TField);
@@ -104,11 +105,35 @@ procedure TMeteorologyForm1.BasicinfDataSourceDataChange(Sender: TObject;
   Field: TField);
 begin
   inherited;
-  PageControl.Enabled := (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'N');
-  LinkedLabel.Enabled := PageControl.Enabled;
-  DetailNavigator.Enabled := PageControl.Enabled;
-  if not DetailNavigator.Enabled then
-    ShowMessage('This Site Type does not suggest Meteorology readings!');
+  if not (DataModuleMain.BasicinfQuery.State IN [dsInsert, dsEdit]) then
+  begin
+    if not DataModuleMain.BasicinfQuerySITE_TYPE.IsNULL then
+    PageControl.Enabled := (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'N');
+    if PageControl.Enabled = True then
+    begin
+      LinkedLabel.Enabled := True;
+      DetailNavigator.Enabled := True;
+    end
+    else if Showing then
+      ShowMessage('This site type does not seem to allow meteorology readings!');
+  end;
+end;
+
+procedure TMeteorologyForm1.FormCreate(Sender: TObject);
+begin
+  inherited;
+  if not (DataModuleMain.BasicinfQuery.State IN [dsInsert, dsEdit]) then
+  begin
+    if not DataModuleMain.BasicinfQuerySITE_TYPE.IsNULL then
+    PageControl.Enabled := (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'N');
+    if PageControl.Enabled = True then
+    begin
+      LinkedLabel.Enabled := True;
+      DetailNavigator.Enabled := True;
+    end
+    else
+      ShowMessage('This site type does not seem to allow meteorology readings!');
+  end;
 end;
 
 procedure TMeteorologyForm1.PageControlEnter(Sender: TObject);

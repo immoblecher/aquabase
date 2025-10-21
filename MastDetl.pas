@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -7,7 +7,7 @@
 
   This code is distributed in the hope that it will be useful, but WITHOUT ANY
   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
   details.
 
   A copy of the GNU General Public License is available on the World Wide Web
@@ -59,6 +59,9 @@ type
     Label6: TLabel;
     Label7: TLabel;
     LinkedLabel: TLabel;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
     MenuItemSetBookmark1: TMenuItem;
     MenuItemSetBookMark2: TMenuItem;
     MenuItemGotoBookmark1: TMenuItem;
@@ -67,9 +70,11 @@ type
     Panel2: TPanel;
     Panel4: TPanel;
     PopupMenu1: TPopupMenu;
+    PopupMenu2: TPopupMenu;
     RecordText: TStaticText;
     RxDBLookupComboAcc: TRxDBLookupCombo;
     RxDBLookupComboType: TRxDBLookupCombo;
+    Separator1: TMenuItem;
     StaticText1: TStaticText;
     ViewNavigator: TDBNavigator;
     ChartSpeedButton: TSpeedButton;
@@ -80,7 +85,7 @@ type
     CloseBitBtn: TBitBtn;
     BitBtnHelp: TBitBtn;
     TypeDataSource: TDataSource;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     LinkedQuery: TZQuery;
     X_CoordLabel: TLabel;
     Y_CoordLabel: TLabel;
@@ -134,10 +139,14 @@ type
       var DataAction: TDataAction);
     procedure EditKeyPress(Sender: TObject; var Key: char);
     procedure EditXChange(Sender: TObject);
+    procedure MenuItem2Click(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem4Click(Sender: TObject);
     procedure MenuItemSetBookMark2Click(Sender: TObject);
     procedure MenuItemGotoBookmark2Click(Sender: TObject);
     procedure PopupMenu1Popup(Sender: TObject);
     procedure MenuItemGotoBookmark1Click(Sender: TObject);
+    procedure PopupMenu2Popup(Sender: TObject);
     procedure RxDBLookupComboClick(Sender: TObject);
     procedure RxDBLookupComboMouseMove(Sender: TObject; Shift: TShiftState;
       X, Y: Integer);
@@ -175,7 +184,7 @@ uses VARINIT, MainDataModule, LOOKUP, selectSiteID;
 procedure TMasterDetailForm.FormCreate(Sender: TObject);
 begin
   Screen.Cursor := crHourGlass;
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   TDBNavigatorEx(ViewNavigator).Buttons[nbRefresh].Enabled := TRUE ;
   Label1.Caption := SiteIDLabel;
   Label2.Caption := NrLabel;
@@ -332,17 +341,17 @@ end;
 procedure TMasterDetailForm.FormShow(Sender: TObject);
 begin
   //open all the tables
+  Screen.Cursor := crSQLWait;
   try
-    Screen.Cursor := crSQLWait;
     ZReadOnlyQueryCoordAcc.Open;
     ZReadOnlyQuerySiteType.Open;
-  finally
-    Screen.Cursor := crDefault;
-  end;
-  try
     LinkedQuery.Open;
+    Screen.Cursor := crDefault;
   except on E: Exception do
-    MessageDlg(E.Message + ' - You may have to contact your database administrator to resolve this error.', mtError, [mbOK], 0);
+    begin
+      Screen.Cursor := crDefault;
+      MessageDlg(E.Message + ' - You may have to contact your database administrator to resolve this error.', mtError, [mbOK], 0);
+    end
   end;
 end;
 
@@ -461,13 +470,12 @@ end;
 
 procedure TMasterDetailForm.LinkedQueryNewRecord(DataSet: TDataSet);
 begin
-  LinkedQuerySITE_ID_NR.Value := CurrentSite;
   if LinkedQuery.FindField('REP_INST') <> NIL then
     LinkedQuery.FieldByName('REP_INST').Value := DataModuleMain.BasicinfQueryREP_INST.Value;
   if JumpFieldNr > 0 then
-    DBGrid.SelectedField := LinkedQuery.Fields.Fields[JumpFieldNr]
+    DBGrid.SelectedIndex := JumpFieldNr
   else
-    DBGrid.SelectedField := LinkedQuery.Fields.Fields[1];
+    DBGrid.SelectedIndex := 1;
 end;
 
 procedure TMasterDetailForm.LinkedQueryPostError(DataSet: TDataSet;
@@ -490,6 +498,38 @@ begin
     (Sender as TDBEdit).EditMask := '900°00''00.00">L;1;_'
   else
     (Sender as TDBEdit).EditMask := '';
+end;
+
+procedure TMasterDetailForm.MenuItem2Click(Sender: TObject);
+begin
+  with DataModuleMain do
+  begin
+    BasicinfQuery.Filter := (TPopupMenu(TMenuItem(Sender).GetParentComponent).PopupComponent as TRxDBLookupCombo).DataField
+      + ' = "' + (TPopupMenu(TMenuItem(Sender).GetParentComponent).PopupComponent as TRxDBLookupCombo).Text + '"';
+    ZQueryView.Close;
+    ZQueryView.Open;
+  end;
+end;
+
+procedure TMasterDetailForm.MenuItem3Click(Sender: TObject);
+begin
+  with DataModuleMain do
+  begin
+    BasicinfQuery.Filter := '';
+    ZQueryView.Close;
+    ZQueryView.Open;
+  end;
+end;
+
+procedure TMasterDetailForm.MenuItem4Click(Sender: TObject);
+begin
+  with DataModuleMain do
+  begin
+    BasicinfQuery.Filter := (TPopupMenu(TMenuItem(Sender).GetParentComponent).PopupComponent as TRxDBLookupCombo).DataField
+      + ' <> "' + (TPopupMenu(TMenuItem(Sender).GetParentComponent).PopupComponent as TRxDBLookupCombo).Text + '"';
+    ZQueryView.Close;
+    ZQueryView.Open;
+  end;
 end;
 
 procedure TMasterDetailForm.MenuItemSetBookMark2Click(Sender: TObject);
@@ -517,6 +557,11 @@ procedure TMasterDetailForm.MenuItemGotoBookmark1Click(Sender: TObject);
 begin
   with DataModuleMain do
     ZQueryView.GotoBookmark(Bookmark1);
+end;
+
+procedure TMasterDetailForm.PopupMenu2Popup(Sender: TObject);
+begin
+  MenuItem3.Enabled := DataModuleMain.BasicinfQuery.Filter <> '';
 end;
 
 procedure TMasterDetailForm.RxDBLookupComboClick(Sender: TObject);
@@ -983,15 +1028,9 @@ procedure TMasterDetailForm.DBGridGetCellHint(Sender: TObject; Column: TColumn;
 begin
   //use the LookupKeyFields property for the code translation, which is not used otherwise
   if (col > 0) and (Column.Field.LookupKeyFields > '') then
-  begin
-    AText := DataModuleMain.TranslateCode(Column.Field.LookupKeyFields, Column.Field.AsString);
-    (Sender as TDBGrid).ShowHint := True;
-  end
+    AText := DataModuleMain.TranslateCode(Column.Field.LookupKeyFields, Column.Field.AsString)
   else
-  begin
     AText := Caption + ' Information';
-    (Sender as TDBGrid).ShowHint := False;
-  end;
 end;
 
 end.

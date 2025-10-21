@@ -1,0 +1,4 @@
+{"version":1,"strings":[
+{"hash":267115769,"name":"tmagneticsusform.caption","sourcebytes":[77,97,103,110,101,116,105,99,32,83,117,115,99,101,112,116,105,98,105,108,105,116,121],"value":"Magnetic Susceptibility"},
+{"hash":84239022,"name":"tmagneticsusform.amslcheckbox.caption","sourcebytes":[97,46,109,46,115,46,108,46],"value":"a.m.s.l."}
+]}

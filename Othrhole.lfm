@@ -1,6 +1,6 @@
 inherited OtherHoleForm: TOtherHoleForm
-  Left = 627
-  Top = 149
+  Left = 2801
+  Top = 274
   Caption = 'Other Hole'
   inherited Panel1: TPanel
     inherited ViewNavigator: TDBNavigator
@@ -18,15 +18,11 @@ inherited OtherHoleForm: TOtherHoleForm
     end
   end
   inherited BasicinfDataSource: TDataSource
-    left = 304
+    Left = 304
   end
   inherited LinkedDataSource: TDataSource
-    left = 144
-    top = 273
-  end
-  inherited XMLPropStorage: TXMLPropStorage
-    left = 464
-    top = 272
+    Left = 144
+    Top = 273
   end
   inherited LinkedQuery: TZQuery
     BeforeOpen = LinkedQueryBeforeOpen
@@ -41,15 +37,17 @@ inherited OtherHoleForm: TOtherHoleForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
-    left = 40
-    top = 273
+    Left = 40
+    Top = 273
     ParamData = <    
       item
         DataType = ftString
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryDATE_ENTRY: TStringField[1]
       Alignment = taCenter
@@ -182,18 +180,18 @@ inherited OtherHoleForm: TOtherHoleForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedQueryUpperSetText
+      OnSetText = LinkedQueryCOMMENTSetText
       Size = 48
     end
   end
-  object AllsitesQuery: TZReadOnlyQuery[12]
+  object AllsitesQuery: TZReadOnlyQuery[13]
     Connection = DataModuleMain.ZConnectionDB
     SQL.Strings = (
       'SELECT * FROM allsites'
     )
     Params = <>
-    left = 304
-    top = 216
+    Left = 304
+    Top = 216
     object AllsitesQuerySITE_ID_NR: TStringField
       DisplayWidth = 44
       FieldKind = fkData

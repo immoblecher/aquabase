@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher immo@blecher.co.za
+{ Copyright (C) 2024 Immo Blecher immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -69,6 +69,7 @@ type
     LookupTablesearch: TStringField;
     SpeedButtonWind: TSpeedButton;
     procedure BasicinfDataSourceDataChange(Sender: TObject; Field: TField);
+    procedure FormCreate(Sender: TObject);
     procedure PageControlEnter(Sender: TObject);
     procedure ZQueryAfterRefresh(DataSet: TDataSet);
     procedure ZQueryAfterInsert(DataSet: TDataSet);
@@ -133,11 +134,35 @@ procedure TMeteorologyForm2.BasicinfDataSourceDataChange(Sender: TObject;
   Field: TField);
 begin
   inherited;
-  PageControl.Enabled := (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'N');
-  LinkedLabel.Enabled := PageControl.Enabled;
-  DetailNavigator.Enabled := PageControl.Enabled;
-  if not DetailNavigator.Enabled then
-    ShowMessage('This site type does not seem to allow Meteorology readings!');
+  if not (DataModuleMain.BasicinfQuery.State IN [dsInsert, dsEdit]) then
+  begin
+    if not DataModuleMain.BasicinfQuerySITE_TYPE.IsNULL then
+    PageControl.Enabled := (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'N');
+    if PageControl.Enabled = True then
+    begin
+      LinkedLabel.Enabled := True;
+      DetailNavigator.Enabled := True;
+    end
+    else if Showing then
+      ShowMessage('This site type does not seem to allow meteorology readings!');
+  end;
+end;
+
+procedure TMeteorologyForm2.FormCreate(Sender: TObject);
+begin
+  inherited;
+  if not (DataModuleMain.BasicinfQuery.State IN [dsInsert, dsEdit]) then
+  begin
+    if not DataModuleMain.BasicinfQuerySITE_TYPE.IsNULL then
+    PageControl.Enabled := (DataModuleMain.BasicinfQuerySITE_TYPE.Value = 'N');
+    if PageControl.Enabled = True then
+    begin
+      LinkedLabel.Enabled := True;
+      DetailNavigator.Enabled := True;
+    end
+    else
+      ShowMessage('This site type does not seem to allow meteorology readings!');
+  end;
 end;
 
 procedure TMeteorologyForm2.PageControlEnter(Sender: TObject);

@@ -13,7 +13,7 @@ object LegendForm: TLegendForm
   OnClose = FormClose
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '2.0.4.0'
+  LCLVersion = '3.4.0.0'
   object BitBtn1: TBitBtn
     Left = 56
     Height = 30
@@ -36,9 +36,9 @@ object LegendForm: TLegendForm
   end
   object LabelTop: TLabel
     Left = 34
-    Height = 15
+    Height = 13
     Top = 30
-    Width = 49
+    Width = 50
     BorderSpacing.Left = 32
     BorderSpacing.Top = 30
     Caption = 'LabelTop'
@@ -46,9 +46,9 @@ object LegendForm: TLegendForm
   end
   object LabelTheme: TLabel
     Left = 14
-    Height = 15
+    Height = 13
     Top = 8
-    Width = 62
+    Width = 64
     BorderSpacing.Left = 14
     BorderSpacing.Top = 8
     BorderSpacing.Right = 14
@@ -68,9 +68,9 @@ object LegendForm: TLegendForm
   end
   object LabelMid: TLabel
     Left = 34
-    Height = 15
+    Height = 13
     Top = 60
-    Width = 49
+    Width = 50
     BorderSpacing.Left = 32
     BorderSpacing.Top = 30
     Caption = 'LabelMid'
@@ -87,9 +87,9 @@ object LegendForm: TLegendForm
   end
   object LabelBot: TLabel
     Left = 34
-    Height = 15
+    Height = 13
     Top = 90
-    Width = 49
+    Width = 47
     BorderSpacing.Left = 32
     BorderSpacing.Top = 30
     Caption = 'LabelBot'
@@ -107,9 +107,9 @@ object LegendForm: TLegendForm
   end
   object LabelOther: TLabel
     Left = 34
-    Height = 15
+    Height = 13
     Top = 120
-    Width = 62
+    Width = 58
     BorderSpacing.Left = 32
     BorderSpacing.Top = 30
     BorderSpacing.Bottom = 50

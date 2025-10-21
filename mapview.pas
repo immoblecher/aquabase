@@ -717,12 +717,12 @@ begin
   else
   if IsThemed then //colour according to value from query = ELE
   begin
-    if (APoint.Ele = NO_ELE) and ShowNoValue then
+    if (APoint.Elevation = NO_ELE) and ShowNoValue then
         ADrawer.BrushColor := ColorButtonPoints.ButtonColor //also the default colour
     else
     begin
       ColorToHLS(HiColor, H, L, S);
-      ADrawer.BrushColor := HLSToColor(H, Round((MaxValue - APoint.Ele) * LDiff) + L, S);
+      ADrawer.BrushColor := HLSToColor(H, Round((MaxValue - APoint.Elevation) * LDiff) + L, S);
     end;
   end
   else
@@ -845,16 +845,16 @@ begin
         for i:=0 to gpsList.Count-1 do
           if gpsList[i] is TGpsPoint then
             with TGpsPoint(gpsList[i]) do
-              if Ele > NO_ELE then //format according to value
+              if Elevation > NO_ELE then //format according to value
               begin
-                if Ele >= 1000 then
-                  L.Add(Format('%s: %s ' + TheUnit, [Name, FloatToStrF(Ele, ffFixed, 15, 1)]))
-                else if Ele >= 10 then
-                  L.Add(Format('%s: %s ' + TheUnit, [Name, FloatToStrF(Ele, ffFixed, 15, 2)]))
-                else if Ele >= 1 then
-                  L.Add(Format('%s: %s ' + TheUnit, [Name, FloatToStrF(Ele, ffFixed, 15, 3)]))
+                if Elevation >= 1000 then
+                  L.Add(Format('%s: %s ' + TheUnit, [Name, FloatToStrF(Elevation, ffFixed, 15, 1)]))
+                else if Elevation >= 10 then
+                  L.Add(Format('%s: %s ' + TheUnit, [Name, FloatToStrF(Elevation, ffFixed, 15, 2)]))
+                else if Elevation >= 1 then
+                  L.Add(Format('%s: %s ' + TheUnit, [Name, FloatToStrF(Elevation, ffFixed, 15, 3)]))
                 else
-                  L.Add(Format('%s: %s ' + TheUnit, [Name, FloatToStrF(Ele, ffFixed, 15, 5)]))
+                  L.Add(Format('%s: %s ' + TheUnit, [Name, FloatToStrF(Elevation, ffFixed, 15, 5)]))
               end
               else
                 L.Add(Format('%s: ' + 'no value', [Name]));

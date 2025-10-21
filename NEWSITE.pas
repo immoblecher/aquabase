@@ -1,4 +1,4 @@
-{ Copyright (C) 2023 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -33,17 +33,21 @@ type
     ButtonPanel1: TButtonPanel;
     CheckBoxAutoLocation: TCheckBox;
     CheckBoxDefaultToCentre: TCheckBox;
-    EditFreeForm: TEdit;
+    ComboBox1: TComboBox;
+    EditSiteID: TEdit;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
+    Image1: TImage;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+    Label4: TLabel;
     MapRefEdit: TEdit;
-    RadioGroup1: TRadioGroup;
+    XMLPropStorage1: TXMLPropStorage;
     procedure CancelButtonClick(Sender: TObject);
     procedure CheckBoxAutoLocationChange(Sender: TObject);
-    procedure EditFreeFormChange(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure EditSiteIDChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -52,12 +56,12 @@ type
     procedure FormShow(Sender: TObject);
     procedure HelpButtonClick(Sender: TObject);
     procedure OKButtonClick(Sender: TObject);
-    procedure RadioGroup1Click(Sender: TObject);
   private
     { Private declarations }
     NewIDValid: Boolean;
   public
     { Public declarations }
+    MapReference: ShortString;
   end;
 
 
@@ -69,6 +73,7 @@ uses VARINIT, maindatamodule;
 
 procedure TNewSiteForm.FormCreate(Sender: TObject);
 begin
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   DataModuleMain.SetComponentFontAndSize(Sender, True);
 end;
 
@@ -79,14 +84,77 @@ begin
   CheckBoxDefaultToCentre.Checked := not CheckBoxAutoLocation.Checked;
 end;
 
+procedure TNewSiteForm.ComboBox1Change(Sender: TObject);
+var
+  uuid: TGUID;
+begin
+  if Showing then
+    begin
+      if ComboBox1.ItemIndex = 0 then
+      begin
+        if InRange(AnsiIndexStr(Country, LO_Countries), 0, 5) then
+        begin
+          GroupBox1.Enabled := True;
+          GroupBox2.Enabled := False;
+          if MapReference <> '' then
+            MapRefEdit.Text := MapReference
+          else MapRefEdit.Text := '2527AA';
+          MapRefEdit.SetFocus;
+          ButtonPanel1.OKButton.Enabled := (MapRefEdit.Text <> '') and (Length(MapRefEdit.Text) = 6) and (AddCodeEdit.Text <> '');
+        end
+        else
+        begin
+          MessageDlg('You cannot use "Map reference" outside LO countries yet!', mtError, [mbOK], 0);
+          ComboBox1.ItemIndex := 1;
+        end;
+      end
+      else
+      if ComboBox1.ItemIndex = 1 then
+      begin
+        GroupBox1.Enabled := False;
+        GroupBox2.Enabled := True;
+        if Showing then
+          EditSiteID.SetFocus;
+        ButtonPanel1.OKButton.Enabled := (EditSiteID.Text <> '');
+      end
+      else
+      if ComboBox1.ItemIndex = 2 then
+      begin
+        GroupBox1.Enabled := False;
+        with DataModuleMain.CheckQuery do
+        begin
+         Connection := DataModuleMain.ZConnectionDB;
+         SQL.Clear;
+         SQL.Add('select max(ogr_fid) from basicinf');
+         Open;
+         if not Fields[0].IsNull then
+           EditSiteID.Text := Format('%.11d', [Fields[0].AsInteger + 1])
+         else
+           EditSiteID.Text := '00000000001';
+         Close;
+         SQL.Clear;
+         GroupBox2.Enabled := False;
+       end;
+     end
+     else
+     if ComboBox1.ItemIndex = 3 then
+     begin
+       GroupBox1.Enabled := False;
+       GroupBox2.Enabled := False;
+       if CreateGUID(uuid) = 0 then
+         EditSiteID.Text := RightStr(StringReplace(GUIDToString(uuid), '}', '', []), 11);
+     end;
+   end;
+end;
+
 procedure TNewSiteForm.CancelButtonClick(Sender: TObject);
 begin
   NewIDValid := True;
 end;
 
-procedure TNewSiteForm.EditFreeFormChange(Sender: TObject);
+procedure TNewSiteForm.EditSiteIDChange(Sender: TObject);
 begin
-  ButtonPanel1.OKButton.Enabled := (EditFreeForm.Text <> '');
+  ButtonPanel1.OKButton.Enabled := (EditSiteID.Text <> '');
 end;
 
 procedure TNewSiteForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
@@ -113,6 +181,8 @@ begin
 end;
 
 procedure TNewSiteForm.FormShow(Sender: TObject);
+var
+  uuid: TGUID;
 begin
   if InRange(AnsiIndexStr(Country, LO_Countries), 0, 5) and (CoordSysNr > 7) then
     CheckBoxAutoLocation.Enabled := True
@@ -122,17 +192,24 @@ begin
     CheckBoxDefaultToCentre.Enabled := False;
     CheckBoxDefaultToCentre.Checked := False;
   end;
-  if RadioGroup1.ItemIndex = 0 then
+  if ComboBox1.ItemIndex = 0 then
   begin
     GroupBox1.Enabled := True;
     GroupBox2.Enabled := False;
     MapRefEdit.SetFocus;
   end
+  else if ComboBox1.ItemIndex = 3 then
+  begin
+    GroupBox1.Enabled := False;
+    GroupBox2.Enabled := False;
+    if CreateGUID(uuid) = 0 then
+      EditSiteID.Text := RightStr(StringReplace(GUIDToString(uuid), '}', '', []), 11);
+  end
   else
   begin
     GroupBox1.Enabled := False;
     GroupBox2.Enabled := True;
-    EditFreeForm.SetFocus;
+    EditSiteID.SetFocus;
   end;
 end;
 
@@ -147,7 +224,7 @@ var
 const
    MapChars = ['A', 'B', 'C', 'D'];
 begin
-  if InRange(AnsiIndexStr(Country, LO_Countries), 0, 4) and (RadioGroup1.ItemIndex = 0) then
+  if InRange(AnsiIndexStr(Country, LO_Countries), 0, 4) and (ComboBox1.ItemIndex = 0) then
   begin
     if CheckBoxAutoLocation.Checked then
     begin
@@ -194,69 +271,18 @@ begin
     begin
       Connection := DataModuleMain.ZConnectionDB;
       SQL.Clear;
-      SQL.Add('select site_id_nr from basicinf where site_id_nr = ' + QuotedStr(EditFreeForm.Text));
+      SQL.Add('select site_id_nr from basicinf where site_id_nr = ' + QuotedStr(EditSiteID.Text));
       Open;
       if RecordCount > 0 then
       begin
-        MessageDlg('The Site Identifier "' + EditFreeForm.Text + '" exists already! Please choose a unique Site identifier.', mtError, [mbRetry], 0);
+        MessageDlg('The Site Identifier "' + EditSiteID.Text + '" exists already! Please choose a unique Site identifier.', mtError, [mbRetry], 0);
         NewIDValid := False;
-        EditFreeForm.SetFocus;
+        EditSiteID.SetFocus;
       end
       else
         NewIDValid := True;
       Close;
       SQL.Clear;
-    end;
-  end;
-end;
-
-procedure TNewSiteForm.RadioGroup1Click(Sender: TObject);
-begin
-  if Showing then
-  begin
-    if RadioGroup1.ItemIndex = 0 then
-    begin
-      if InRange(AnsiIndexStr(Country, LO_Countries), 0, 5) then
-      begin
-        GroupBox1.Enabled := True;
-        GroupBox2.Enabled := False;
-        if Showing then
-          MapRefEdit.SetFocus;
-        ButtonPanel1.OKButton.Enabled := (MapRefEdit.Text <> '') and (Length(MapRefEdit.Text) = 6) and (AddCodeEdit.Text <> '');
-      end
-      else
-      begin
-        MessageDlg('You cannot use "Map reference" outside LO countries yet!', mtError, [mbOK], 0);
-        RadioGroup1.ItemIndex := 1;
-      end;
-    end
-    else
-    if RadioGroup1.ItemIndex = 1 then
-    begin
-      GroupBox1.Enabled := False;
-      GroupBox2.Enabled := True;
-      if Showing then
-        EditFreeForm.SetFocus;
-      ButtonPanel1.OKButton.Enabled := (EditFreeForm.Text <> '');
-    end
-    else
-    if RadioGroup1.ItemIndex = 2 then
-    begin
-      GroupBox1.Enabled := False;
-      with DataModuleMain.CheckQuery do
-      begin
-       Connection := DataModuleMain.ZConnectionDB;
-       SQL.Clear;
-        SQL.Add('select max(ogr_fid) from basicinf');
-        Open;
-        if not Fields[0].IsNull then
-          EditFreeForm.Text := Format('%.11d', [Fields[0].AsInteger + 1])
-        else
-          EditFreeForm.Text := '00000000001';
-        Close;
-        SQL.Clear;
-        GroupBox2.Enabled := False;
-      end;
     end;
   end;
 end;

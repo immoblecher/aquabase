@@ -44,6 +44,7 @@ type
     LinkedQueryMAINTAINED: TStringField;
     LinkedQueryREP_INST: TStringField;
     procedure FormActivate(Sender: TObject);
+    procedure LinkedQueryCOMMENTSetText(Sender: TField; const aText: string);
     procedure LinkedQueryDATE_VISITValidate(Sender: TField);
     procedure LinkedQueryMAINTAINEDValidate(Sender: TField);
     procedure LinkedQueryNewRecord(DataSet: TDataSet);
@@ -68,6 +69,15 @@ procedure TMaintainForm.FormActivate(Sender: TObject);
 begin
   inherited;
   LinkedLabel.Caption := Caption;
+end;
+
+procedure TMaintainForm.LinkedQueryCOMMENTSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TMaintainForm.LinkedQueryDATE_VISITValidate(Sender: TField);

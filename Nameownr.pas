@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -34,6 +34,8 @@ type
     LinkedQueryADDRESS_2: TStringField;
     LinkedQueryADDRESS_3: TStringField;
     LinkedQueryADDRESS_4: TStringField;
+    LinkedQueryALTTELF: TStringField;
+    LinkedQueryCNTCTPER: TStringField;
     LinkedQueryDATE_FROM: TStringField;
     LinkedQueryDATE_TO: TStringField;
     LinkedQueryNAME_OWNER: TStringField;
@@ -92,7 +94,10 @@ end;
 procedure TNameOwnerForm.LinkedQueryUpperSetText(Sender: TField;
   const aText: string);
 begin
-  Sender.Value := UpperCase(aText);
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 end.

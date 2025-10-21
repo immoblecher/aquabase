@@ -1,7 +1,7 @@
 object NotepadForm: TNotepadForm
-  Left = 821
+  Left = 1220
   Height = 210
-  Top = 152
+  Top = 261
   Width = 274
   Caption = 'Notepad'
   ClientHeight = 210
@@ -40,21 +40,20 @@ object NotepadForm: TNotepadForm
   OnClose = FormClose
   OnCreate = FormCreate
   SessionProperties = 'Height;Left;Top;Width'
-  LCLVersion = '1.6.0.4'
+  LCLVersion = '3.4.0.0'
   Visible = True
-  object DBMemo: TDBMemo
+  object DBMemo1: TDBMemo
     Left = 0
     Height = 210
     Top = 0
     Width = 274
     Align = alClient
     DataField = 'NOTE_PAD'
-    ScrollBars = ssAutoBoth
     TabOrder = 0
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
-    left = 82
-    top = 32
+    Left = 82
+    Top = 32
   end
 end

@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2024 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -47,6 +47,7 @@ type
     procedure FormActivate(Sender: TObject);
     procedure LinkedQueryAfterPost(DataSet: TDataSet);
     procedure LinkedQueryBeforeInsert(DataSet: TDataSet);
+    procedure LinkedQueryCOMMENTSetText(Sender: TField; const aText: string);
     procedure LinkedQueryDATE_MEASSetText(Sender: TField; const aText: string);
     procedure LinkedQueryDATE_MEASValidate(Sender: TField);
     procedure LinkedQueryNewRecord(DataSet: TDataSet);
@@ -160,6 +161,15 @@ begin
   PrevInfoSource := LinkedQuerySOURCE.Value;
   PrevDate := LinkedQueryDATE_MEAS.Value;
   PrevTime := LinkedQueryTIME_MEAS.Value;
+end;
+
+procedure TMeterReadingForm.LinkedQueryCOMMENTSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TMeterReadingForm.LinkedQueryDATE_MEASSetText(Sender: TField;

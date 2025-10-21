@@ -1,34 +1,7 @@
 inherited NameOwnerForm: TNameOwnerForm
-  Left = 669
-  Top = 168
+  Left = 2827
+  Top = 301
   Caption = 'Site Owner Form'
-  Icon.Data = {
-    FE0200000000010001002020100000000000E802000016000000280000002000
-    0000400000000100040000000000800200000000000000000000000000000000
-    0000000000000000800000800000008080008000000080008000808000008080
-    8000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
-    FF00000000000000000000000000000000000000000000000000000000000000
-    0000000000000008888088880000000000000000000000088880888800000000
-    0000000000000008888088880000000000000000000000088880888800000000
-    0000000000000008888088880000000000000000000000088880888800000000
-    0000000000000008888088880000000000000000000000088800888800000000
-    0000000000000008880088880000000000000000000000088800888800000000
-    0000000000000900000000000900000000000000000000000000000000000000
-    0000000000008808888888880880000000000000000088088880888808800000
-    0000000000008808888008880880000000000000000088088880088808800000
-    0000000000008808888008880880000000000000000088888880088888800000
-    0000000000008888888008888880000000000000000088888880008888800000
-    00000000000008888809F008880000000000000000000000000B900000000000
-    0000000000000000000000000000000000000000000000000B9B9B0000000000
-    000000000000000009F0F9F00000000000000000000000009B9B9B9000000000
-    0000000000000000090909000000000000000000000000000B9B9B0000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000FF8007FFFF8007FFFFC007FFFFC007FFFFC007FFFFC007FFFFC007FFFFC0
-    07FFFFC007FFFFC007FFFFC007FFFF8003FFFF0001FFFE0000FFFE0000FFFE00
-    00FFFE0000FFFE0000FFFE0000FFFE0000FFFE0000FFFE0000FFFF0000FFFF80
-    01FFFFF81FFFFFF00FFFFFE00FFFFFE00FFFFFE00FFFFFE00FFFFFF01FFFFFF8
-    3FFF
-  }
   inherited Panel1: TPanel
     inherited ViewNavigator: TDBNavigator
       Hints.Strings = (      )
@@ -45,14 +18,11 @@ inherited NameOwnerForm: TNameOwnerForm
     end
   end
   inherited BasicinfDataSource: TDataSource
-    left = 328
+    Left = 328
   end
   inherited LinkedDataSource: TDataSource
-    left = 136
-    top = 272
-  end
-  inherited XMLPropStorage: TXMLPropStorage
-    top = 272
+    Left = 136
+    Top = 272
   end
   inherited LinkedQuery: TZQuery
     BeforeOpen = LinkedQueryBeforeOpen
@@ -66,15 +36,17 @@ inherited NameOwnerForm: TNameOwnerForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
-    left = 40
-    top = 272
+    Left = 40
+    Top = 272
     ParamData = <    
       item
         DataType = ftString
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryDATE_FROM: TStringField[1]
       DisplayLabel = 'Date from'
@@ -155,7 +127,7 @@ inherited NameOwnerForm: TNameOwnerForm
       Size = 40
     end
     object LinkedQueryADDRESS_4: TStringField[7]
-      DisplayLabel = 'Address 4 / Email'
+      DisplayLabel = 'Address 4 / email'
       DisplayWidth = 40
       FieldKind = fkData
       FieldName = 'ADDRESS_4'
@@ -168,12 +140,36 @@ inherited NameOwnerForm: TNameOwnerForm
       OnSetText = LinkedQueryUpperSetText
       Size = 40
     end
-    object LinkedQueryTELEPHONE: TStringField[8]
-      DisplayLabel = 'Tel./Mobile Nr.'
+    object LinkedQueryCNTCTPER: TStringField[8]
+      DisplayLabel = 'Contact person'
+      DisplayWidth = 40
+      FieldKind = fkData
+      FieldName = 'CNTCT_PERS'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnSetText = LinkedQueryUpperSetText
+      Size = 24
+    end
+    object LinkedQueryTELEPHONE: TStringField[9]
+      DisplayLabel = 'Tel./mobile number'
       DisplayWidth = 15
       FieldKind = fkData
       FieldName = 'TELEPHONE'
-      Index = 8
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object LinkedQueryALTTELF: TStringField[10]
+      DisplayLabel = 'Altern. tel. number'
+      FieldKind = fkData
+      FieldName = 'ALTN_TELEF'
+      Index = 10
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False

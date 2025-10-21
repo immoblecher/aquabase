@@ -1,8 +1,8 @@
 object MasterDetailForm: TMasterDetailForm
   Tag = 127
-  Left = 766
+  Left = 2660
   Height = 368
-  Top = 167
+  Top = 228
   Width = 576
   ActiveControl = CloseBitBtn
   Caption = 'Master Detail Form'
@@ -49,9 +49,8 @@ object MasterDetailForm: TMasterDetailForm
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   OnShow = FormShow
-  Position = poDefaultSizeOnly
   SessionProperties = 'Height;Left;Top;Width;EditResults.Text'
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.8.0.0'
   object Panel1: TPanel
     Left = 0
     Height = 36
@@ -64,6 +63,7 @@ object MasterDetailForm: TMasterDetailForm
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
+    ParentBackground = False
     ParentFont = False
     TabOrder = 0
     object ViewNavigator: TDBNavigator
@@ -100,6 +100,7 @@ object MasterDetailForm: TMasterDetailForm
       Top = 4
       Width = 82
       Anchors = [akTop, akRight]
+      Color = clBtnFace
       DefaultCaption = True
       Font.Color = clBlack
       Font.Height = -11
@@ -118,6 +119,7 @@ object MasterDetailForm: TMasterDetailForm
       Width = 82
       HelpContext = 3
       Anchors = [akTop, akRight]
+      Color = clBtnFace
       DefaultCaption = True
       Font.Color = clBlack
       Font.Height = -11
@@ -207,32 +209,33 @@ object MasterDetailForm: TMasterDetailForm
   end
   object Panel2: TPanel
     Left = 0
-    Height = 224
-    Top = 144
+    Height = 217
+    Top = 151
     Width = 576
     Align = alClient
     Caption = 'PanelGrid'
-    ClientHeight = 224
+    ClientHeight = 217
     ClientWidth = 576
     Font.Color = clBlack
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
+    ParentBackground = False
     ParentFont = False
     TabOrder = 1
     object Panel4: TPanel
       Left = 1
-      Height = 30
-      Top = 193
+      Height = 27
+      Top = 189
       Width = 574
       Align = alBottom
-      AutoSize = True
       BorderSpacing.Top = 2
       BevelOuter = bvNone
-      ClientHeight = 30
+      ClientHeight = 27
       ClientWidth = 574
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
+      ParentBackground = False
       ParentFont = False
       TabOrder = 0
       object DetailNavigator: TDBNavigator
@@ -265,14 +268,14 @@ object MasterDetailForm: TMasterDetailForm
       end
       object RecordText: TStaticText
         Left = 4
-        Height = 24
+        Height = 21
         Top = 6
         Width = 164
         Align = alLeft
         BorderSpacing.Left = 4
         BorderSpacing.Top = 6
         Caption = 'Record'
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         ParentFont = False
@@ -280,7 +283,7 @@ object MasterDetailForm: TMasterDetailForm
       end
       object EditResults: TEdit
         Left = 506
-        Height = 24
+        Height = 21
         Top = 3
         Width = 62
         HelpContext = 32
@@ -289,26 +292,26 @@ object MasterDetailForm: TMasterDetailForm
         AutoSize = False
         BorderSpacing.Right = 3
         BorderSpacing.Around = 3
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         NumbersOnly = True
-        OnEditingDone = EditResultsEditingDone
         ParentFont = False
         TabOrder = 2
         Text = '500'
+        OnEditingDone = EditResultsEditingDone
       end
       object StaticText1: TStaticText
-        Left = 463
-        Height = 24
+        Left = 461
+        Height = 21
         Top = 6
-        Width = 40
+        Width = 42
         Align = alRight
         Alignment = taRightJustify
         AutoSize = True
         BorderSpacing.Top = 6
         Caption = 'Results:'
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         ParentFont = False
@@ -317,7 +320,7 @@ object MasterDetailForm: TMasterDetailForm
     end
     object DBGrid: TDBGrid
       Left = 5
-      Height = 168
+      Height = 164
       Hint = 'Detail Information'
       Top = 23
       Width = 566
@@ -330,7 +333,7 @@ object MasterDetailForm: TMasterDetailForm
       Color = clWindow
       Columns = <>
       DataSource = LinkedDataSource
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgCellHints, dgCellEllipsis]
@@ -356,17 +359,16 @@ object MasterDetailForm: TMasterDetailForm
       AutoSize = False
       Caption = 'LinkedLabel'
       FocusControl = DBGrid
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      ParentColor = False
       ParentFont = False
     end
   end
   object GroupBox1: TGroupBox
     Left = 4
-    Height = 100
+    Height = 107
     Top = 40
     Width = 568
     Align = alTop
@@ -374,12 +376,13 @@ object MasterDetailForm: TMasterDetailForm
     BorderSpacing.Around = 4
     BorderSpacing.InnerBorder = 1
     Caption = 'Basic Site Information:'
-    ClientHeight = 86
+    ClientHeight = 89
     ClientWidth = 566
-    Font.Color = clBlack
+    Font.Color = clWindowText
     Font.Height = -12
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
+    ParentBackground = False
     ParentFont = False
     TabOrder = 2
     object Label1: TLabel
@@ -391,10 +394,9 @@ object MasterDetailForm: TMasterDetailForm
       BorderSpacing.Left = 2
       Caption = '&Site Identifier'
       FocusControl = EditSITE_ID_NR
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
     end
     object Label2: TLabel
@@ -405,10 +407,9 @@ object MasterDetailForm: TMasterDetailForm
       AutoSize = False
       Caption = '&Number'
       FocusControl = EditNR_ON_MAP
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
     end
     object Label3: TLabel
@@ -419,10 +420,9 @@ object MasterDetailForm: TMasterDetailForm
       AutoSize = False
       Caption = 'Distr./&Farm Nr.'
       FocusControl = EditFARM_NR
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
     end
     object Label4: TLabel
@@ -433,23 +433,21 @@ object MasterDetailForm: TMasterDetailForm
       AutoSize = False
       Caption = 'Site Name/&Description'
       FocusControl = EditSITE_NAME
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
     end
     object Y_CoordLabel: TLabel
-      Left = 96
+      Left = 88
       Height = 13
       Top = 44
       Width = 84
       AutoSize = False
       Caption = '&Y Coordinate'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
     end
     object X_CoordLabel: TLabel
@@ -460,65 +458,60 @@ object MasterDetailForm: TMasterDetailForm
       AutoSize = False
       BorderSpacing.Left = 2
       Caption = '&X Coordinate'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
     end
     object Label5: TLabel
-      Left = 190
+      Left = 176
       Height = 13
       Top = 44
       Width = 61
       AutoSize = False
       Caption = '&Coor. Acc.'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
     end
     object AltLabel: TLabel
-      Left = 250
+      Left = 234
       Height = 13
       Top = 44
       Width = 54
       AutoSize = False
       Caption = '&Altitude'
       FocusControl = EditALTITUDE
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
     end
     object ColLabel: TLabel
-      Left = 306
+      Left = 300
       Height = 13
       Top = 44
       Width = 54
       AutoSize = False
       Caption = 'Co&llar'
       FocusControl = EditCOLLAR_HI
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
     end
     object DepLabel: TLabel
-      Left = 360
+      Left = 356
       Height = 13
       Top = 44
       Width = 54
       AutoSize = False
       Caption = 'Dept&h'
       FocusControl = EditDEPTH
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
     end
     object Label6: TLabel
@@ -528,10 +521,9 @@ object MasterDetailForm: TMasterDetailForm
       Width = 50
       AutoSize = False
       Caption = 'Site &Type'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
     end
     object Label7: TLabel
@@ -541,10 +533,9 @@ object MasterDetailForm: TMasterDetailForm
       Width = 90
       AutoSize = False
       Caption = 'Date Info updated'
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
-      ParentColor = False
       ParentFont = False
     end
     object EditSITE_ID_NR: TDBEdit
@@ -560,7 +551,7 @@ object MasterDetailForm: TMasterDetailForm
       BorderSpacing.Left = 2
       CharCase = ecUppercase
       Enabled = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -578,7 +569,7 @@ object MasterDetailForm: TMasterDetailForm
       DataSource = BasicinfDataSource
       AutoSize = False
       CharCase = ecUppercase
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -599,7 +590,7 @@ object MasterDetailForm: TMasterDetailForm
       DataSource = BasicinfDataSource
       AutoSize = False
       CharCase = ecUppercase
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -620,8 +611,7 @@ object MasterDetailForm: TMasterDetailForm
       DataSource = BasicinfDataSource
       Anchors = [akTop, akLeft, akRight]
       AutoSize = False
-      CharCase = ecUppercase
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -633,16 +623,16 @@ object MasterDetailForm: TMasterDetailForm
       OnKeyUp = EditKeyUp
     end
     object EditALTITUDE: TDBEdit
-      Left = 250
+      Left = 234
       Height = 22
       Top = 58
-      Width = 50
+      Width = 60
       HelpContext = 31
       DataField = 'ALTITUDE'
       DataSource = BasicinfDataSource
+      Alignment = taRightJustify
       AutoSize = False
-      CharCase = ecNormal
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -654,16 +644,16 @@ object MasterDetailForm: TMasterDetailForm
       OnKeyUp = EditKeyUp
     end
     object EditCOLLAR_HI: TDBEdit
-      Left = 306
+      Left = 300
       Height = 22
       Top = 58
       Width = 50
       HelpContext = 31
       DataField = 'COLLAR_HI'
       DataSource = BasicinfDataSource
+      Alignment = taRightJustify
       AutoSize = False
-      CharCase = ecNormal
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -675,16 +665,16 @@ object MasterDetailForm: TMasterDetailForm
       OnKeyUp = EditKeyUp
     end
     object EditDEPTH: TDBEdit
-      Left = 360
+      Left = 356
       Height = 22
       Top = 58
-      Width = 50
+      Width = 52
       HelpContext = 31
       DataField = 'DEPTH'
       DataSource = BasicinfDataSource
+      Alignment = taRightJustify
       AutoSize = False
-      CharCase = ecNormal
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -707,9 +697,8 @@ object MasterDetailForm: TMasterDetailForm
       ReadOnly = True
       Anchors = [akTop, akLeft, akRight]
       AutoSize = False
-      CharCase = ecNormal
       Enabled = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -719,10 +708,10 @@ object MasterDetailForm: TMasterDetailForm
       OnEnter = EditBasicinfEnter
     end
     object RxDBLookupComboAcc: TRxDBLookupCombo
-      Left = 190
-      Height = 25
+      Left = 176
+      Height = 29
       Top = 58
-      Width = 36
+      Width = 38
       HelpKeyword = 'COORDACC'
       HelpContext = 4
       AutoSize = True
@@ -735,7 +724,7 @@ object MasterDetailForm: TMasterDetailForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 220
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Glyph.Data = {
@@ -755,6 +744,7 @@ object MasterDetailForm: TMasterDetailForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 6
@@ -769,7 +759,7 @@ object MasterDetailForm: TMasterDetailForm
       Left = 416
       Height = 26
       Top = 58
-      Width = 36
+      Width = 38
       HelpKeyword = 'SITETYPE'
       HelpContext = 4
       AutoSize = True
@@ -782,7 +772,7 @@ object MasterDetailForm: TMasterDetailForm
       PopUpFormOptions.DropDownCount = 5
       PopUpFormOptions.DropDownWidth = 220
       Flat = False
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Arial'
       Glyph.Data = {
@@ -802,6 +792,7 @@ object MasterDetailForm: TMasterDetailForm
       ParentColor = False
       ParentFont = False
       ParentShowHint = False
+      PopupMenu = PopupMenu2
       ReadOnly = False
       ShowHint = True
       TabOrder = 10
@@ -816,12 +807,13 @@ object MasterDetailForm: TMasterDetailForm
       Left = 4
       Height = 22
       Top = 58
-      Width = 88
+      Width = 80
       DataField = 'X_COORD'
       DataSource = BasicinfDataSource
+      Alignment = taRightJustify
       AutoSize = False
       CharCase = ecUppercase
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -835,15 +827,16 @@ object MasterDetailForm: TMasterDetailForm
       OnKeyUp = EditKeyUp
     end
     object DBEditY: TDBEdit
-      Left = 96
+      Left = 88
       Height = 22
       Top = 58
-      Width = 88
+      Width = 80
       DataField = 'Y_COORD'
       DataSource = BasicinfDataSource
+      Alignment = taRightJustify
       AutoSize = False
       CharCase = ecUppercase
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       MaxLength = 0
@@ -871,17 +864,17 @@ object MasterDetailForm: TMasterDetailForm
     Left = 152
     Top = 264
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
     Left = 480
     Top = 273
   end
   object LinkedQuery: TZQuery
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = LinkedQueryBeforeOpen
     AfterOpen = LinkedQueryAfterOpen
     BeforeRefresh = LinkedQueryBeforeRefresh
     AfterRefresh = LinkedQueryAfterRefresh
+    Connection = DataModuleMain.ZConnectionDB
     BeforePost = LinkedQueryBeforePost
     AfterPost = LinkedQueryAfterPost
     AfterCancel = LinkedQueryAfterCancel
@@ -908,83 +901,17 @@ object MasterDetailForm: TMasterDetailForm
       Size = 11
     end
   end
-  object ZReadOnlyQueryCoordAcc: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionLanguage
-    SortedFields = 'SEARCH'
-    SQL.Strings = (
-      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''COORDACC'''
-    )
-    Params = <>
-    IndexFieldNames = 'SEARCH Asc'
-    Left = 176
-    Top = 136
-    object ZReadOnlyQueryCoordAccSEARCH: TStringField
-      DisplayWidth = 3
-      FieldKind = fkData
-      FieldName = 'SEARCH'
-      Index = 0
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 1020
-    end
-    object ZReadOnlyQueryCoordAccDESCRIBE: TStringField
-      DisplayWidth = 54
-      FieldKind = fkData
-      FieldName = 'DESCRIBE'
-      Index = 1
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 1020
-    end
-  end
   object AccuDataSource: TDataSource
     AutoEdit = False
     DataSet = ZReadOnlyQueryCoordAcc
-    Left = 256
+    Left = 232
     Top = 136
-  end
-  object ZReadOnlyQuerySiteType: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionLanguage
-    SortedFields = 'SEARCH'
-    SQL.Strings = (
-      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''SITETYPE'''
-    )
-    Params = <>
-    IndexFieldNames = 'SEARCH Asc'
-    Left = 408
-    Top = 136
-    object ZReadOnlyQueryTopoSetSEARCH3: TStringField
-      DisplayWidth = 3
-      FieldKind = fkData
-      FieldName = 'SEARCH'
-      Index = 0
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 1020
-    end
-    object ZReadOnlyQueryTopoSetDESCRIBE3: TStringField
-      DisplayWidth = 54
-      FieldKind = fkData
-      FieldName = 'DESCRIBE'
-      Index = 1
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 1020
-    end
   end
   object TypeDataSource: TDataSource
     AutoEdit = False
     DataSet = ZReadOnlyQuerySiteType
-    Left = 408
-    Top = 200
+    Left = 360
+    Top = 136
   end
   object PopupMenu1: TPopupMenu
     OnPopup = PopupMenu1Popup
@@ -1017,6 +944,92 @@ object MasterDetailForm: TMasterDetailForm
         ShortCut = 16502
         OnClick = MenuItemGotoBookmark2Click
       end
+    end
+  end
+  object ZReadOnlyQueryCoordAcc: TZReadOnlyQuery
+    SortedFields = 'SEARCH'
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''COORDACC'''
+    )
+    Params = <>
+    IndexFieldNames = 'SEARCH Asc'
+    Left = 182
+    Top = 140
+    object ZReadOnlyQueryCoordAccSEARCH: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryCoordAccDESCRIBE: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object ZReadOnlyQuerySiteType: TZReadOnlyQuery
+    SortedFields = 'SEARCH'
+    Connection = DataModuleMain.ZConnectionLanguage
+    SQL.Strings = (
+      'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''SITETYPE'''
+    )
+    Params = <>
+    IndexFieldNames = 'SEARCH Asc'
+    Left = 480
+    Top = 136
+    object ZReadOnlyQueryTopoSetSEARCH3: TStringField
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'SEARCH'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+    object ZReadOnlyQueryTopoSetDESCRIBE3: TStringField
+      DisplayWidth = 54
+      FieldKind = fkData
+      FieldName = 'DESCRIBE'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1020
+    end
+  end
+  object PopupMenu2: TPopupMenu
+    OnPopup = PopupMenu2Popup
+    Left = 342
+    Top = 62
+    object MenuItem2: TMenuItem
+      Caption = '&Filter by this value'
+      OnClick = MenuItem2Click
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Filter by &not this value'
+      OnClick = MenuItem4Click
+    end
+    object Separator1: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem3: TMenuItem
+      Caption = '&Clear filter'
+      OnClick = MenuItem3Click
     end
   end
 end

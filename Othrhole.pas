@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -43,6 +43,7 @@ type
     LinkedQueryUNIT_MEAS: TStringField;
     AllsitesQuery: TZReadOnlyQuery;
     procedure LinkedQueryBeforeInsert(DataSet: TDataSet);
+    procedure LinkedQueryCOMMENTSetText(Sender: TField; const aText: string);
     procedure LinkedQueryDATE_ENDValidate(Sender: TField);
     procedure LinkedQueryDATE_STARTValidate(Sender: TField);
     procedure LinkedQueryNewRecord(DataSet: TDataSet);
@@ -75,6 +76,15 @@ begin
   PrevInfoSource := LinkedQuerySOURCE.Value;
   PrevType := LinkedQueryTYPE_MEAS.Value;
   PrevUnit := LinkedQueryUNIT_MEAS.Value;
+end;
+
+procedure TOtherHoleForm.LinkedQueryCOMMENTSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TOtherHoleForm.LinkedQueryDATE_ENDValidate(Sender: TField);

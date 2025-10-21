@@ -1,4 +1,4 @@
-{ Copyright (C) 2023 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -30,8 +30,9 @@ uses
   {$ENDIF}
   SysUtils, Classes, Graphics, Controls, PrintersDlgs, Clipbrd, Forms, Dialogs,
   Buttons, Menus, DBCtrls, ComCtrls, ZDataset, ZSqlProcessor, DBGrids, StrUtils,
-  Printers, XMLPropStorage, ExtCtrls, IniFiles, db, ftpsend, Process, FileUtil,
-  LCLType, RLPreview, RLFilters, maskedit, Grids, mvMapViewer, DefaultTranslator;
+  Printers, XMLPropStorage, ExtCtrls, IniFiles, db, ftpsend, Process,
+  FileUtil, LCLType, RLPreview, RLFilters, maskedit, Grids, mvMapViewer,
+  DefaultTranslator, StdCtrls;
 
 type
 
@@ -51,25 +52,65 @@ type
   { TMainForm }
 
   TMainForm = class(TForm)
-    AdditionalInfoButton: TToolButton;
-    BasicinfButton: TToolButton;
-    ChemistryButton: TToolButton;
-    CloseWSpaceButton: TToolButton;
-    ConstructionButton: TToolButton;
-    CopyButton: TToolButton;
-    CreateViewButton: TToolButton;
-    CutButton: TToolButton;
-    DataToolBar: TToolBar;
-    DischargeButton: TToolButton;
-    DividerPref: TToolButton;
-    DividerQGIS: TToolButton;
+    ComboBoxField: TComboBox;
+    ComboBoxSearch: TComboBox;
+    CoolBar1: TCoolBar;
+    Label1: TLabel;
+    Label2: TLabel;
+    ListBoxWSpaces: TListBox;
+    MenuItem11: TMenuItem;
+    MenuItemClearFilter: TMenuItem;
+    MenuItemQField: TMenuItem;
+    MenuItemGetChmRef: TMenuItem;
+    MenuItemQuickSearchToolBar: TMenuItem;
+    MenuItemStoredCoords: TMenuItem;
+    MenuItemOpenQGISProject: TMenuItem;
+    MenuItemPrepWSpaceQGIS: TMenuItem;
+    MenuItemRecoverIndex: TMenuItem;
+    MenuItem14: TMenuItem;
+    MenuItem19: TMenuItem;
+    MenuItem20: TMenuItem;
+    MenuItemW9: TMenuItem;
+    MenuItemW8: TMenuItem;
+    MenuItemW7: TMenuItem;
+    MenuItemW6: TMenuItem;
+    MenuItemW5: TMenuItem;
+    MenuItemW4: TMenuItem;
+    MenuItemW3: TMenuItem;
+    MenuItemW2: TMenuItem;
+    MenuItemW1: TMenuItem;
+    MenuItemW0: TMenuItem;
+    OpenDialogQGISProjects: TOpenDialog;
+    PopupMenuMeteo: TPopupMenu;
+    PopupMenuSurfaceHydr: TPopupMenu;
+    SearchQuery: TZReadOnlyQuery;
+    Separator1: TMenuItem;
+    Separator2: TMenuItem;
+    Separator3: TMenuItem;
+    Separator4: TMenuItem;
+    SpeedButtonClear: TSpeedButton;
+    ToolBar5: TToolBar;
+    ToolButtonMeteorology: TToolButton;
+    ToolButtonQuickSearch1: TToolButton;
+    ToolButtonSurfaceHydr: TToolButton;
+    ToolButtonAdditionalInfo: TToolButton;
+    ToolButtonBasicinf: TToolButton;
+    ToolButtonChemistry: TToolButton;
+    ToolButtonCloseWSpace: TToolButton;
+    ToolButtonConstruction: TToolButton;
+    ToolButtonCopy: TToolButton;
+    ToolButtonCreateView: TToolButton;
+    ToolButtonCut: TToolButton;
+    ToolBar1: TToolBar;
+    ToolButtonDischarge: TToolButton;
+    DividerViews: TToolButton;
     FontDialog1: TFontDialog;
-    GeologyButton: TToolButton;
-    HelpSpeedButton: TToolButton;
+    ToolButtonGeology: TToolButton;
+    ToolButtonHelp: TToolButton;
     MenuItem10: TMenuItem;
     MenuItemGeoSiteList: TMenuItem;
     MenuItem3: TMenuItem;
-    MenuItem7: TMenuItem;
+    S8: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItemDWSAudited: TMenuItem;
     MenuItemSYNOP: TMenuItem;
@@ -84,15 +125,15 @@ type
     MenuItemDepth: TMenuItem;
     MenuItemPrefs: TMenuItem;
     MenuItemAppFont: TMenuItem;
-    OpenWSpaceButton: TToolButton;
-    PasteButton: TToolButton;
-    PopupMenu1: TPopupMenu;
+    ToolButtonOpenWSpace: TToolButton;
+    ToolButtonPaste: TToolButton;
+    PopupMenuPrefs: TPopupMenu;
     DropdownMenuAdditional: TPopupMenu;
-    PreferencesButton: TToolButton;
-    PrintButton: TToolButton;
-    QGISGotoButton: TToolButton;
-    QGISMarkButton: TToolButton;
-    QuickSearchButton: TToolButton;
+    ToolButtonPreferences: TToolButton;
+    ToolButtonPrint: TToolButton;
+    ToolButtonQGISGoto: TToolButton;
+    ToolButtonQGISMark: TToolButton;
+    ToolButtonQuickSearch: TToolButton;
     SeparatorMaps: TMenuItem;
     MenuItemGraduated: TMenuItem;
     MenuItemAllsites: TMenuItem;
@@ -106,10 +147,10 @@ type
     MenuItemChemistry: TMenuItem;
     MenuItem1: TMenuItem;
     MenuItemColours: TMenuItem;
-    SeparatorTools1: TMenuItem;
+    S11: TMenuItem;
     MenuItem15: TMenuItem;
     MenuItem17: TMenuItem;
-    MenuItem18: TMenuItem;
+    MenuItemQGISSeparator: TMenuItem;
     MenuItemStartQGIS: TMenuItem;
     MenuItemLookupCodes: TMenuItem;
     MenuItem21: TMenuItem;
@@ -119,10 +160,9 @@ type
     MenuItem26: TMenuItem;
     MenuItem27: TMenuItem;
     MenuItem28: TMenuItem;
-    MenuItem31: TMenuItem;
+    S10: TMenuItem;
     MenuItemOnline: TMenuItem;
     MenuItemDWS: TMenuItem;
-    SeparatorSearch: TMenuItem;
     MenuItem35: TMenuItem;
     MenuItem36: TMenuItem;
     MenuItem37: TMenuItem;
@@ -152,9 +192,8 @@ type
     MenuItem2: TMenuItem;
     SeparatorMapping: TMenuItem;
     MenuItemMeterReadings: TMenuItem;
-    MenuItem12: TMenuItem;
-    MenuItem13: TMenuItem;
-    MenuItem23: TMenuItem;
+    S9: TMenuItem;
+    DistanceCharts: TMenuItem;
     MenuItemTestingDetails: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
@@ -175,8 +214,6 @@ type
     MenuItemLookups: TMenuItem;
     MenuItemCreateEditUserStandards: TMenuItem;
     MenuItemCurrentStandard: TMenuItem;
-    SeparatorViewMark: TMenuItem;
-    SeparatorCutCopyPaste: TMenuItem;
     MenuItemPaste: TMenuItem;
     MenuItemCopy: TMenuItem;
     MenuItemCut: TMenuItem;
@@ -191,21 +228,14 @@ type
     MenuItemSelectSites: TMenuItem;
     MenuItemSQLSearch: TMenuItem;
     MenuItemQuickSearch: TMenuItem;
-    MenuItemRestoreTriggers: TMenuItem;
-    MenuItemDropTriggers: TMenuItem;
     MenuVacuum: TMenuItem;
     MenuSQLiteDB: TMenuItem;
-    OpenDialog1: TOpenDialog;
+    OpenDialogWorkspace: TOpenDialog;
     MenuItemUpdateCoords: TMenuItem;
     MenuItemLithLog: TMenuItem;
-    LastWSpace6: TMenuItem;
-    LastWSpace7: TMenuItem;
-    LastWSpace8: TMenuItem;
-    LastWSpace9: TMenuItem;
-    LastWSpace10: TMenuItem;
     MenuItemEdit: TMenuItem;
     CreateEditUserStandard: TMenuItem;
-    SiteManagementButton: TToolButton;
+    ToolButtonSiteManagement: TToolButton;
     SystemSettings: TMenuItem;
     RemoveCurrentMarkedSite: TMenuItem;
     SaveMarkedSites: TMenuItem;
@@ -214,9 +244,8 @@ type
     MenuItemNewSQLite: TMenuItem;
     MenuItemApplyCoords: TMenuItem;
     MenuItemImportOldAquabase: TMenuItem;
-    SeparatorWSpace: TMenuItem;
+    S1: TMenuItem;
     N10: TMenuItem;
-    SeparatorPrefs: TMenuItem;
     N3: TMenuItem;
     MenuItemNewWorkspace: TMenuItem;
     MenuItemOpenWorkspace: TMenuItem;
@@ -263,7 +292,7 @@ type
     MenuChemistryReport: TMenuItem;
     BoreholeLog1: TMenuItem;
     ManagementRecommendation1: TMenuItem;
-    TestingButton: TToolButton;
+    ToolButtonTesting: TToolButton;
     TestPumping1: TMenuItem;
     MenuItemStatistics: TMenuItem;
     StageHeight1: TMenuItem;
@@ -286,12 +315,12 @@ type
     MenuItemInstallation: TMenuItem;
     ChemistryStandard1: TMenuItem;
     MenuItemUseView: TMenuItem;
-    ToolButton11: TToolButton;
-    ToolButtonDividerExit: TToolButton;
+    ToolBar2: TToolBar;
+    ToolBar4: TToolBar;
+    ToolBar3: TToolBar;
+    DividerCutCopyPaste: TToolButton;
     ToolButtonExit: TToolButton;
-    ToolButton4: TToolButton;
-    ToolButton8: TToolButton;
-    UseFilterDialog: TOpenDialog;
+    ToolButtonResetView: TToolButton;
     MenuItemFieldMeasurement: TMenuItem;
     MenuItemOtherHole: TMenuItem;
     MenuItemOtherIdentifier: TMenuItem;
@@ -308,10 +337,7 @@ type
     MenuItemSitespecific: TMenuItem;
     MenuItemDatabasespecific: TMenuItem;
     MenuItemReconcileSites: TMenuItem;
-    SeparatorView: TMenuItem;
-    LastWSpace1: TMenuItem;
-    LastWSpace2: TMenuItem;
-    LastWSpace3: TMenuItem;
+    S2: TMenuItem;
     PumpingTestData1: TMenuItem;
     Database1: TMenuItem;
     MenuItemMaintenance: TMenuItem;
@@ -320,7 +346,7 @@ type
     MenuItemExpenditure: TMenuItem;
     MenuItemMember: TMenuItem;
     Length1: TMenuItem;
-    UseViewButton: TToolButton;
+    ToolButtonUseView: TToolButton;
     Volume1: TMenuItem;
     Time1: TMenuItem;
     DiameterMeteor1: TMenuItem;
@@ -334,8 +360,6 @@ type
     Removelastmarkedsite1: TMenuItem;
     Marksites1: TMenuItem;
     ProjectInformation1: TMenuItem;
-    LastWSpace4: TMenuItem;
-    LastWSpace5: TMenuItem;
     SeparatorSQL: TMenuItem;
     SeparatorTools2: TMenuItem;
     MenuItemHelponShortcuts: TMenuItem;
@@ -368,7 +392,7 @@ type
     FieldMeasurements1: TMenuItem;
     MeterReading2: TMenuItem;
     SiteMonitoringReport: TMenuItem;
-    WaterLevelButton: TToolButton;
+    ToolButtonWaterLevel: TToolButton;
     XMLPropStorage1: TXMLPropStorage;
     Yield1: TMenuItem;
     GeophysicalInformation1: TMenuItem;
@@ -377,9 +401,9 @@ type
     MenuItemSiteTargets: TMenuItem;
     FillMaterialColour1: TMenuItem;
     SurfaceHydrology2: TMenuItem;
-    SeparatorImprtExp: TMenuItem;
+    S3: TMenuItem;
     MenuItemRecentWorkspaces: TMenuItem;
-    SeparatorPrint: TMenuItem;
+    S4: TMenuItem;
     N35: TMenuItem;
     MenuEditMap: TMenuItem;
     MenuItemHelp: TMenuItem;
@@ -400,9 +424,27 @@ type
     Aquifer2: TMenuItem;
     Geology2: TMenuItem;
     ZSQLProcessorSpatial: TZSQLProcessor;
+    procedure ComboBoxFieldChange(Sender: TObject);
+    procedure ComboBoxSearchChange(Sender: TObject);
+    procedure ComboBoxSearchKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure MenuItemClearFilterClick(Sender: TObject);
+    procedure MenuItemGetChmRefClick(Sender: TObject);
+    procedure MenuItemQFieldClick(Sender: TObject);
+    procedure MenuItemQuickSearchToolBarClick(Sender: TObject);
+    procedure MenuItemStoredCoordsClick(Sender: TObject);
+    procedure SearchQueryBeforeOpen(DataSet: TDataSet);
+    procedure SpeedButtonClearClick(Sender: TObject);
+    procedure ToolBar1StartDrag(Sender: TObject; var DragObject: TDragObject
+      );
+    procedure ToolBar2StartDrag(Sender: TObject;
+      var DragObject: TDragObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure MenuChemistryReportClick(Sender: TObject);
     procedure MenuItem10Click(Sender: TObject);
+    procedure MenuItemOpenQGISProjectClick(Sender: TObject);
+    procedure MenuItemPrepWSpaceQGISClick(Sender: TObject);
+    procedure MenuItemRecoverIndexClick(Sender: TObject);
     procedure MenuItemGeoSiteListClick(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem8Click(Sender: TObject);
@@ -422,7 +464,7 @@ type
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormWindowStateChange(Sender: TObject);
-    procedure MenuItem13Click(Sender: TObject);
+    procedure DistanceChartsClick(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
     procedure MenuItemBoxWhiskerClick(Sender: TObject);
     procedure MenuItemChemDataClick(Sender: TObject);
@@ -444,19 +486,20 @@ type
     procedure MenuItemOthrParamClick(Sender: TObject);
     procedure MenuItemQGISMarkClick(Sender: TObject);
     procedure MenuItemCopyClick(Sender: TObject);
-    procedure MenuItemDropTriggersClick(Sender: TObject);
     procedure MenuItemQGISGoToClick(Sender: TObject);
     procedure MenuItemReloadLookupClick(Sender: TObject);
     procedure MenuItemReportDocsClick(Sender: TObject);
-    procedure MenuItemRestoreTriggersClick(Sender: TObject);
     procedure MenuItemSaveMarkedClick(Sender: TObject);
     procedure MenuItemSiteLinkedClick(Sender: TObject);
     procedure MenuItemSiteStatusClick(Sender: TObject);
     procedure MenuItemWMSClick(Sender: TObject);
     procedure MenuItemWriteMemberClick(Sender: TObject);
     procedure MenuVacuumClick(Sender: TObject);
-    procedure OpenDialog1CanClose(Sender: TObject; var CanClose: boolean);
-    procedure OpenDialog1HelpClicked(Sender: TObject);
+    procedure OpenDialogWorkspaceCanClose(Sender: TObject; var CanClose: boolean);
+    procedure OpenDialogWorkspaceHelpClicked(Sender: TObject);
+    procedure ToolBar3StartDrag(Sender: TObject; var DragObject: TDragObject);
+    procedure ToolBar4StartDrag(Sender: TObject;
+      var DragObject: TDragObject);
     procedure TimeChartsClick(Sender: TObject);
     procedure MenuItemUpdateCoordsClick(Sender: TObject);
     procedure MenuItemResetViewClick(Sender: TObject);
@@ -476,6 +519,7 @@ type
     procedure HelpAbout(Sender: TObject);
     procedure MenuItemBasicInformationClick(Sender: TObject);
     procedure MenuItemOpenWorkspaceClick(Sender: TObject);
+    procedure ToolButtonQuickSearch1Click(Sender: TObject);
     procedure UpdateMenus;
     procedure MenuItemWaterlevelClick(Sender: TObject);
     procedure MenuItemDischargerateClick(Sender: TObject);
@@ -586,8 +630,7 @@ type
     procedure SurfaceHydrology2Click(Sender: TObject);
     procedure DatatoFC1Click(Sender: TObject);
   private
-    BackupSQLite: Boolean;
-    DefaultSettingsDir: String;
+    DefaultSettingsDir, TheSearchText: String;
     FileVer, ProdVer, FormName: ShortString;
     WspaceActive: Boolean;
   public
@@ -620,6 +663,8 @@ uses
   //New 2020
   crsinfo, mapview, graduatedmap, flagrecords, importrain, importSYNOP,
   importdwsaudited, geositelist,
+  //New 2025
+  storedcoordsin, qfieldimport,
   //Reports
   Manrecset, TRepSet, BasicSet, lookuprepset, repsettingschem, repsettingssurfwatr,
   repsettingstimechem, repsettingstimewl, repsettingstimedis, repsettingstimedepth,
@@ -703,6 +748,7 @@ begin
                  DeleteFile(GetTempDir + 'Aquabase_Update.exe');
                  DeleteFile(GetTempDir + 'aquabase_readme.txt');
                end;
+         mrIgnore: MessageDlg('Aquabase update ignored! You will be asked again next time Aquabase is started.', mtInformation, [mbOK], 0);
     end; //of case
   end
   else
@@ -757,7 +803,6 @@ begin
     FormName := Screen.ActiveForm.Name;
   if Screen.FormCount = 1 then //only the mainform
     FormName := '';
-  Application.ProcessMessages;
   //Update StatusBar
   if WSpaceActive then
     StatusBar1.Panels[1].Text := FilterName;
@@ -772,16 +817,24 @@ begin
   MenuItemCut.Enabled := HasSelection and CanCut;
   MenuItemCopy.Enabled := HasSelection;
   MenuItemPaste.Enabled := CanPaste and Clipboard.HasFormat(CF_TEXT);
-  CutButton.Enabled := HasSelection and CanCut;
-  CopyButton.Enabled := HasSelection;
-  PasteButton.Enabled := CanPaste and Clipboard.HasFormat(CF_TEXT);
-  {Update Printing Controls}
+  ToolButtonCut.Enabled := HasSelection and CanCut;
+  ToolButtonCopy.Enabled := HasSelection;
+  ToolButtonPaste.Enabled := CanPaste and Clipboard.HasFormat(CF_TEXT);
+  //Update Printing Controls
   MenuItemPrint.Enabled := FormName > '';
+  //Check for Filter on Basicinf
+  MenuItemClearFilter.Enabled := DataModuleMain.BasicinfQuery.Filter <> '';
   //check if settings need to be saved
   if SaveSettings then
   begin
     XMLPropStorage1.Save;
     SaveSettings := False;
+  end;
+  if ViewChanged then
+  begin
+    MenuItemResetView.Enabled := FilterName <> 'allsites';
+    ToolButtonResetView.Enabled := MenuItemResetView.Enabled;
+    ViewChanged := False;
   end;
   Application.ProcessMessages;
 end;
@@ -914,6 +967,138 @@ begin
     DataModuleMain.OpenHelp(Sender);
 end;
 
+procedure TMainForm.ToolBar2StartDrag(Sender: TObject;
+  var DragObject: TDragObject);
+begin
+  CoolBar1.Bands[1].Break := False;
+end;
+
+procedure TMainForm.ToolBar1StartDrag(Sender: TObject;
+  var DragObject: TDragObject);
+begin
+  CoolBar1.Bands[0].Break := False;
+end;
+
+procedure TMainForm.MenuItemStoredCoordsClick(Sender: TObject);
+begin
+  {$IFDEF WINDOWS}
+    if VerDiff > 2 then
+      MessageDlg(VersionMessage, mtError,[mbOK], 0)
+    else
+    {$ENDIF}
+  with TFormStoredCoords.Create(Application) do
+  begin
+    ShowModal;
+  end;
+end;
+
+procedure TMainForm.ComboBoxSearchChange(Sender: TObject);
+begin
+  ToolButtonQuickSearch1.Hint := 'Search';
+  ToolButtonQuickSearch1.Enabled := ComboBoxSearch.Text > '';
+  SearchQuery.Close;
+end;
+
+procedure TMainForm.ComboBoxSearchKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+    ToolButtonQuickSearch1Click(Sender);
+end;
+
+procedure TMainForm.MenuItemClearFilterClick(Sender: TObject);
+begin
+  with DataModuleMain do
+  begin
+    BasicinfQuery.Filter := '';
+    ZQueryView.Close;
+    ZQueryView.Open;
+  end;
+end;
+
+procedure TMainForm.MenuItemGetChmRefClick(Sender: TObject);
+begin
+  with DataModuleMain.CheckQuery do
+  begin
+    Connection := DataModuleMain.ZConnectionDB;
+    SQL.Clear;
+    SQL.Add('SELECT max(CHM_REF_NR) from  chem_000');
+    Open;
+    MessageDlg('The highest chemistry reference number in this database is '
+      + Fields[0].AsString + '.', mtInformation, [mbOK], 0);
+    Close;
+  end;
+end;
+
+procedure TMainForm.MenuItemQFieldClick(Sender: TObject);
+begin
+  {$IFDEF WINDOWS}
+  if VerDiff > 2 then
+    MessageDlg(VersionMessage, mtError,[mbOK], 0)
+  else
+  {$ENDIF}
+  begin
+    if not FileExists(WSpaceDir + '/QFieldProject.gpkg') then
+    begin
+      if MessageDlg('This procedure will prepare your workspace for data entry and management in QField.' +
+        ' Only sites in the current View will be transferred to the QField project database!' +
+        ' You can then transfer the QFieldProject.gpkg in the workspace to your tablet or phone into a location where QField can find it.', mtInformation, [mbOK, mbCancel], 0) = mrOK then
+        begin
+          CopyFile(ProgramDir + DirectorySeparator + 'defaults' + DirectorySeparator + 'QFieldProject_za.gpkg', WSpaceDir + DirectorySeparator + 'QFieldProject.gpkg');
+          with TFormQFieldImport.Create(Application) do
+            ShowModal;
+        end;
+    end
+    else
+    begin
+      if MessageDlg('This workspace has already been prepared for data entry and management in QField! Are you sure you want to prepare and open the workspace again?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+      begin
+        CopyFile(ProgramDir + DirectorySeparator + 'defaults' + DirectorySeparator + 'QFieldProject_za.gpkg', WSpaceDir + DirectorySeparator + 'QFieldProject.gpkg');
+        with TFormQFieldImport.Create(Application) do
+          ShowModal;
+      end;
+    end;
+  end;
+end;
+
+procedure TMainForm.MenuItemQuickSearchToolBarClick(Sender: TObject);
+begin
+  ComboBoxSearch.SetFocus;
+end;
+
+procedure TMainForm.ComboBoxFieldChange(Sender: TObject);
+begin
+  ToolButtonQuickSearch1.Hint := 'Search';
+  ToolButtonQuickSearch1.Enabled := ComboBoxSearch.Text > '';
+  SearchQuery.Close;
+end;
+
+procedure TMainForm.SearchQueryBeforeOpen(DataSet: TDataSet);
+begin
+  with SearchQuery do
+  begin
+    Connection := DataModuleMain.ZConnectionDB;
+    SQL.Clear;
+    SQL.Add('SELECT * FROM basicinf ');
+    case DataModuleMain.ZConnectionDB.Tag of
+      1: SQL.Add('WHERE ' + ComboBoxField.Text + ' LIKE ' + QuotedStr('%' + ComboBoxSearch.Text + '%'));
+      2, 3, 5: SQL.Add('WHERE LOWER(' + ComboBoxField.Text + ') LIKE LOWER(' + QuotedStr('%' + ComboBoxSearch.Text + '%') + ')');
+      4: SQL.Add('WHERE ' + ComboBoxField.Text + ' ILIKE ' + QuotedStr('%' + ComboBoxSearch.Text + '%'));
+    end; //of case
+  end;
+end;
+
+procedure TMainForm.SpeedButtonClearClick(Sender: TObject);
+begin
+  with ComboBoxSearch do
+  begin
+    TheSearchText := Text;
+    Clear;
+    Text := TheSearchText;
+    SetFocus;
+  end;
+end;
+
 procedure TMainForm.MenuChemistryReportClick(Sender: TObject);
 begin
   with TChemReportSettingsForm.Create(Application) do
@@ -931,6 +1116,111 @@ begin
   begin
     SingleSite := True;
     ShowModal;
+  end;
+end;
+
+procedure TMainForm.MenuItemOpenQGISProjectClick(Sender: TObject);
+var
+  AProcess: TProcess;
+begin
+  with OpenDialogQGISProjects do
+  begin
+    InitialDir := WSpaceDir;
+    if Execute and
+      (MessageDlg('Are you sure you want to open this project in QGIS?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+    begin
+      AProcess := TProcess.Create(nil);
+      try
+        {$IFDEF WINDOWS}
+        AProcess.Executable := QGISExe;
+        {$ENDIF}
+        {$IFDEF UNIX}
+        AProcess.Executable := 'qgis';
+        {$ENDIF}
+        AProcess.Parameters.Add('--nologo');
+        AProcess.Parameters.Add('--project');
+        AProcess.Parameters.Add(OpenDialogQGISProjects.FileName);
+        AProcess.Execute;
+        MessageDlg('QGIS has been started with project ' + OpenDialogQGISProjects.FileName + '. Please wait a few moments for the map window to open...', mtInformation, [mbOK], 0);
+      except on E: EProcess do
+        MessageDlg('QGIS could not be started! Please check the path to your QGIS executable in the Aquabase Preferences.', mtInformation, [mbOK], 0);
+      end;
+      AProcess.Free;
+    end;
+  end;
+end;
+
+procedure TMainForm.MenuItemPrepWSpaceQGISClick(Sender: TObject);
+var
+  AProcess: TProcess;
+begin
+  if not FileExists(WSpaceDir + '/Aquabase Data Management.qgz') then
+  begin
+    if MessageDlg('This procedure will prepare and open your workspace for data entry and management in QGIS.' + LineEnding + LineEnding +
+      'Make sure to enable the initial macros, which will set all necessary database settings and set the map extent to the visible sites.' +
+      ' If some layers could not be openend, you can just keep those unavailable layers, which may automatically become available at a later stage.' +
+      ' You can also remove those layers or any other layers not required.' + LineEnding + LineEnding +
+      'If all goes well you may save the project with a new name in your workspace and close and open it again to disable the macros in your QGIS project properties.' +
+      ' You can from then on open your QGIS projects in the workspace directly from Aquabase.', mtInformation, [mbOK, mbCancel], 0) = mrOK then
+      begin
+        CopyFile(ProgramDir + DirectorySeparator + 'defaults' + DirectorySeparator + 'Aquabase Data Management.qgz', WSpaceDir + DirectorySeparator + 'Aquabase Data Management.qgz');
+        AProcess := TProcess.Create(nil);
+        try
+          {$IFDEF WINDOWS}
+          AProcess.Executable := QGISExe;
+          {$ENDIF}
+          {$IFDEF UNIX}
+          AProcess.Executable := 'qgis';
+          {$ENDIF}
+          AProcess.Parameters.Add('--nologo');
+          AProcess.Parameters.Add('--project');
+          AProcess.Parameters.Add('Aquabase Data Management.qgz');
+          AProcess.Execute;
+          MessageDlg('QGIS has been started with this workspace. Make sure to enable the macros to prepare the QGIS project for this workspace! Please wait a few moments for the map window to open with the initial project...', mtInformation, [mbOK], 0);
+        except on E: EProcess do
+          MessageDlg('QGIS could not be started! Please check the path to your QGIS executable in the Aquabase Preferences.', mtInformation, [mbOK], 0);
+        end;
+        AProcess.Free;
+      end;
+  end
+  else
+  begin
+    if MessageDlg('This workspace has already been prepared for data entry and management in QGIS! Are you sure you want to prepare and open the workspace again?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+    begin
+      CopyFile(ProgramDir + DirectorySeparator + 'defaults' + DirectorySeparator + 'Aquabase Data Management.qgz', WSpaceDir + DirectorySeparator + 'Aquabase Data Management.qgz');
+      AProcess := TProcess.Create(nil);
+      try
+        {$IFDEF WINDOWS}
+        AProcess.Executable := QGISExe;
+        {$ENDIF}
+        {$IFDEF UNIX}
+        AProcess.Executable := 'qgis';
+        {$ENDIF}
+        AProcess.Parameters.Add('--nologo');
+        AProcess.Parameters.Add('--project');
+        AProcess.Parameters.Add('Aquabase Data Management.qgz');
+        AProcess.Execute;
+        MessageDlg('QGIS has been started with this workspace. Make sure to enable the macros again to prepare the QGIS project for this workspace! Please wait a few moments for the map window to open with the initial project...', mtInformation, [mbOK], 0);
+      except on E: EProcess do
+        MessageDlg('QGIS could not be started! Please check the path to your QGIS executable in the Aquabase Preferences.', mtInformation, [mbOK], 0);
+      end;
+      AProcess.Free;
+    end;
+  end;
+end;
+
+procedure TMainForm.MenuItemRecoverIndexClick(Sender: TObject);
+begin
+  if MessageDlg('Recover spatial index', 'This will recover the required SpatiaLite/Geopackage database indexes. Are you sure you want to continue?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  begin
+    Screen.Cursor := crSQLWait;
+    with DataModuleMain.ZConnectionDB do
+    begin
+      ExecuteDirect('SELECT RecoverSpatialIndex(' + QuotedStr('basicinf') + ', ' + QuotedStr('GEOMETRY') + ')');
+      ExecuteDirect('SELECT RecoverSpatialIndex(' + QuotedStr('profilng') + ', ' + QuotedStr('GEOMETRY') + ')');
+    end;
+    Screen.Cursor := crDefault;
+    ShowMessage('Spatial indexes for tables "basicinf" and "profilng" have been recovered.');
   end;
 end;
 
@@ -1048,7 +1338,7 @@ begin
     MessageDlg(VersionMessage, mtError,[mbOK], 0)
   else
   {$ENDIF}
-  if DataModuleMain.NrRecords > 5000 then
+  if DataModuleMain.ZQueryView.RecordCount > 5000 then
     if MessageDlg('The "allsites" View has more than 5000 records, which may take a while to display on the map! Are you sure you want to continue?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
       CreateTheMap := True
     else
@@ -1217,10 +1507,10 @@ end;
 
 procedure TMainForm.MenuItemOpenWorkspaceClick(Sender: TObject);
 begin
-  OpenDialog1.InitialDir := GetUserDir;
-  if OpenDialog1.Execute then
+  OpenDialogWorkspace.InitialDir := GetUserDir;
+  if OpenDialogWorkspace.Execute then
   begin
-    WSpaceDir := ExtractFileDir(OpenDialog1.FileName);
+    WSpaceDir := ExtractFileDir(OpenDialogWorkspace.FileName);
     if not FileExistsExt('workspace.ini', WSpaceDir) then
     begin
      WSpaceActive := False;
@@ -1237,19 +1527,73 @@ begin
   UpdateMenus;
 end;
 
+procedure TMainForm.ToolButtonQuickSearch1Click(Sender: TObject);
+begin
+  Screen.Cursor := crSQLWait;
+  TheSearchText := ComboBoxSearch.Text;
+  if ComboBoxSearch.Items.IndexOf(TheSearchText) = -1 then
+  begin
+    if ComboBoxSearch.Items.Count = 100 then //delete the last one
+      ComboBoxSearch.Items.Delete(99);
+    ComboBoxSearch.Items.Insert(0, TheSearchText);
+    ComboBoxSearch.ItemIndex := 0;
+  end;
+  with SearchQuery do
+  begin
+    if not Active then
+      Open;
+    if ToolButtonQuickSearch1.Hint = 'Find next' then
+    begin
+      if not EOF then
+      begin
+        Next;
+        if Pos(ComboBoxSearch.Text, SearchQuery.FieldByName(ComboBoxField.Text).AsString) > -1 then
+        begin
+          CurrentSite := SearchQuery.FieldByName('SITE_ID_NR').AsString;
+          DataModuleMain.ZQueryView.Locate('SITE_ID_NR', CurrentSite, []);
+          ToolButtonQuickSearch1.Hint := 'Find next';
+        end
+        else
+        begin
+          Screen.Cursor := crDefault;
+          MessageDlg('No match found for search criterion! Please make sure you are searching for information in the correct field and View', mtError, [mbOK], 0);
+          ToolButtonQuickSearch1.Hint := 'Search';
+          SearchQuery.Close;
+        end;
+      end
+      else
+      begin
+        Screen.Cursor := crDefault;
+        MessageDlg('No further match found for search criterion! Please make sure you are searching for information in the correct field and View', mtError, [mbOK], 0);
+        ToolButtonQuickSearch1.Hint := 'Search';
+        SearchQuery.Close;
+      end;
+    end
+    else //search first
+    begin
+      if (RecordCount > 0) and (Pos(ComboBoxSearch.Text, SearchQuery.FieldByName(ComboBoxField.Text).AsString) > -1) then
+      begin
+        CurrentSite := SearchQuery.FieldByName('SITE_ID_NR').AsString;
+        DataModuleMain.ZQueryView.Locate('SITE_ID_NR', CurrentSite, []);
+        if RecordCount > 1 then
+          ToolButtonQuickSearch1.Hint := 'Find next';
+      end
+      else
+      begin
+        Screen.Cursor := crDefault;
+        MessageDlg('No match found for search criterion! Please make sure you are searching for information in the correct field and View', mtError, [mbOK], 0);
+        ToolButtonQuickSearch1.Hint := 'Search';
+        SearchQuery.Close;
+      end;
+    end;
+  end;
+  Screen.Cursor := crDefault;
+end;
+
 procedure TMainForm.UpdateMenus;
 begin
   //Enable or disable menus when workspace is active or not
-  LastWSpace1.Enabled := not WspaceActive;
-  LastWSpace2.Enabled := not WspaceActive;
-  LastWSpace3.Enabled := not WspaceActive;
-  LastWSpace4.Enabled := not WspaceActive;
-  LastWSpace5.Enabled := not WspaceActive;
-  LastWSpace6.Enabled := not WspaceActive;
-  LastWSpace7.Enabled := not WspaceActive;
-  LastWSpace8.Enabled := not WspaceActive;
-  LastWSpace9.Enabled := not WspaceActive;
-  LastWSpace10.Enabled := not WspaceActive;
+  MenuItemRecentWorkspaces.Enabled := not WspaceActive;
   MenuItemNewWorkspace.Enabled := not WSpaceActive;
   MenuItemOpenWorkspace.Enabled := not WSpaceActive;
   MenuItemCloseWorkspace.Enabled := WSpaceActive;
@@ -1259,59 +1603,55 @@ begin
   else
     MenuItemFile.Caption := MainMenuFile;
   MenuItemAccessData.Visible := WspaceActive;
-  MenuItemUseView.Visible := WspaceActive;
-  MenuItemResetView.Visible := WspaceActive;
-  SeparatorView.Visible := WspaceActive;
+  MenuItemUseView.Enabled:= WspaceActive;
+  MenuItemResetView.Enabled := WspaceActive and (FilterName <> 'allsites');
+  S2.Visible := WspaceActive;
   MenuItemImport.Visible := WspaceActive;
   MenuItemExport.Visible := WspaceActive;
-  SeparatorImprtExp.Visible := WspaceActive;
-  MenuItemPrint.Visible := WspaceActive;
+  S3.Visible := WspaceActive;
   MenuSQLiteDB.Visible := DataModuleMain.ZConnectionDB.Tag = 1;
   MenuItemWMS.Visible := Country = 'South Africa';
   MenuItemDWS.Visible := Country = 'South Africa';
   MenuItemOnline.Visible := Country = 'South Africa';
   MenuItemDWSAudited.Visible := Country = 'South Africa';
   MenuItemGeoSiteList.Visible := Country = 'South Africa';
+  MenuItemQField.Visible := Country = 'South Africa';
   SeparatorSQLite.Visible := MenuSQLiteDB.Visible;
   //top menu items
   MenuItemEdit.Visible := WspaceActive;
   MenuItemTools.Visible := WspaceActive;
   MenuItemReports.Visible := WspaceActive;
   MenuItemCharts.Visible := WspaceActive;
-  //set buttons after QGIS buttons
-  if MenuItemQGIS.Visible then
-  begin
-    DividerPref.Left := QGISMarkButton.Left + QGISMarkButton.Width;
-    PreferencesButton.Left := DividerPref.Left + DividerPref.Width;
-    HelpSpeedButton.Left := PreferencesButton.Left + PreferencesButton.Width;
-    ToolButtonDividerExit.Left := HelpSpeedButton.Left + HelpSpeedButton.Width;
-    ToolButtonExit.Left := ToolButtonDividerExit.Left + ToolButtonDividerExit.Width;
-  end;
-  //buttons visible
-  UseViewButton.Visible := WspaceActive;
-  PrintButton.Visible := WspaceActive;
   //enable or disable buttons
-  OpenWSpaceButton.Enabled := not WSpaceActive;
-  CloseWSpaceButton.Enabled := WSpaceActive;
-  CutButton.Enabled := WSpaceActive;
-  CopyButton.Enabled := WSpaceActive;
-  PasteButton.Enabled := WSpaceActive;
-  UseViewButton.Enabled := WSpaceActive;
-  PrintButton.Enabled := WSpaceActive;
-  QuickSearchButton.Enabled := WSpaceActive;
-  CreateViewButton.Enabled := WSpaceActive;
-  BasicinfButton.Enabled := WSpaceActive;
-  ConstructionButton.Enabled := WSpaceActive;
-  WaterLevelButton.Enabled := WSpaceActive;
-  DischargeButton.Enabled := WSpaceActive;
-  TestingButton.Enabled := WSpaceActive;
-  ChemistryButton.Enabled := WSpaceActive;
-  GeologyButton.Enabled := WSpaceActive;
-  AdditionalInfoButton.Enabled := WSpaceActive;
-  SiteManagementButton.Enabled := WSpaceActive;
-  QGISGotoButton.Enabled := WSpaceActive;
-  QGISMarkButton.Enabled := WSpaceActive;
-  PreferencesButton.Enabled := WSpaceActive;
+  ToolButtonOpenWSpace.Enabled := not WSpaceActive;
+  ToolButtonCloseWSpace.Enabled := WSpaceActive;
+  ToolButtonCut.Enabled := WSpaceActive;
+  ToolButtonCopy.Enabled := WSpaceActive;
+  ToolButtonPaste.Enabled := WSpaceActive;
+  ToolButtonUseView.Enabled := WSpaceActive;
+  ToolButtonResetView.Enabled := WspaceActive and (FilterName <> 'allsites');
+  ToolButtonPrint.Enabled := WSpaceActive;
+  ToolButtonQuickSearch.Enabled := WSpaceActive;
+  ToolButtonCreateView.Enabled := WSpaceActive;
+
+  ToolButtonBasicinf.Enabled := WSpaceActive;
+  ToolButtonConstruction.Enabled := WSpaceActive;
+  ToolButtonWaterLevel.Enabled := WSpaceActive;
+  ToolButtonDischarge.Enabled := WSpaceActive;
+  ToolButtonTesting.Enabled := WSpaceActive;
+  ToolButtonChemistry.Enabled := WSpaceActive;
+  ToolButtonGeology.Enabled := WSpaceActive;
+  ToolButtonAdditionalInfo.Enabled := WSpaceActive;
+  ToolButtonSiteManagement.Enabled := WSpaceActive;
+  ToolButtonSurfaceHydr.Enabled := WSpaceActive;
+  ToolButtonMeteorology.Enabled := WSpaceActive;
+
+  ToolButtonQGISGoto.Enabled := WSpaceActive;
+  ToolButtonQGISMark.Enabled := WSpaceActive;
+  ToolButtonPreferences.Enabled := WSpaceActive;
+  ToolBar5.Enabled := WSpaceActive;
+  ComboBoxField.Height := 22;
+  ComboBoxSearch.Height := 22;
   MainForm.SetFocus;
 end;
 
@@ -1335,14 +1675,14 @@ end;
 
 procedure TMainForm.MenuItemCloseWorkspaceClick(Sender: TObject);
 var
-  i: Integer;
+  i: Word;
   CanCloseWSpace: Boolean;
   SQLiteFileName: String;
 begin
   CanCloseWSpace := True;
   if BusyNewSQLite then
   begin
-    if MessageDlg('You are busy applying a new SQLite database and should not close the workspace now! If you do you will have to start again. Are you sure you want to continue?', mtConfirmation, [mbYes, mbNo], 0) = mrNo then
+    if MessageDlg('You are busy applying a new SpatiaLite database and should not close the workspace now! If you do you will have to start again. Are you sure you want to continue?', mtConfirmation, [mbYes, mbNo], 0) = mrNo then
       CanCloseWSpace := False;
   end;
   if CanCloseWSpace then
@@ -1375,32 +1715,31 @@ begin
     begin
       if not RenameFile(SQLiteFileName, WSpaceDir + DirectorySeparator + FormatDateTime('YYYYMMDD', Date) + '-' + FormatDateTime('hhnn', Time) + '-' + ExtractFileName(SQLiteFileName)) then
         MessageDlg('Could not create backup database file from ' + ExtractFileName(SQLiteFileName) + '! Maybe it was open in another application? You have to close the workspace and rename it manually.', mtWarning, [mbOK], 0);
-      if not RenameFile(WSpaceDir + DirectorySeparator + 'aquabase_new.sqlite', SQLiteFileName) then
-        MessageDlg('Could not rename "aquabase_new.sqlite" to ' + ExtractFileName(SQLiteFileName) + '! You have to close the workspace and rename it manually.', mtWarning, [mbOK], 0);
+      if (RightStr(SQLiteFileName, 7) = '.sqlite') and not RenameFile(WSpaceDir + DirectorySeparator + 'aquabase_new.sqlite', SQLiteFileName) then
+        MessageDlg('Could not rename "aquabase_new.sqlite" to ' + ExtractFileName(SQLiteFileName) + '! You have to close the workspace and rename it manually.', mtWarning, [mbOK], 0)
+      else
+      if (RightStr(SQLiteFileName, 5) = '.gpkg') and not RenameFile(WSpaceDir + DirectorySeparator + 'aquabase_new.gpkg', SQLiteFileName) then
+        MessageDlg('Could not rename "aquabase_new.gpkg" to ' + ExtractFileName(SQLiteFileName) + '! You have to close the workspace and rename it manually.', mtWarning, [mbOK], 0);
       NewSQLite := False;
     end;
-    if BackupSQLite then
-    begin
-      Screen.Cursor := crSQLWait;
-      if not CopyFile(SQLiteFileName, WSpaceDir + DirectorySeparator + 'Backup-' + FormatDateTime('YYYYMMDD', Date) + '-' + FormatDateTime('hhnn', Time) + '-' + ExtractFileName(SQLiteFileName)) then
+    try
+      with TIniFile.Create(WSpaceDir + DirectorySeparator + 'workspace.ini') do
       begin
-        Screen.Cursor := crDefault;
-        MessageDlg('Could not create backup database file from ' + ExtractFileName(SQLiteFileName) + '! Maybe it was open in another application?', mtWarning, [mbOK], 0);
-        BackupSQLite := False;
-      end
-      else
-      begin
-        BackupSQLite := False;
-        Screen.Cursor := crDefault;
-        MessageDlg(ExtractFileName(SQLiteFileName) + ' successfully backed up!', mtInformation, [mbOK], 0);
+        WriteString('Database', 'LastView', FilterName);
+        WriteString('Database', 'LastSiteID', CurrentSite);
+        WriteBool('Database', 'Spatialite', Spatialite);
+        //for QuickSearch toolbar
+        if ComboBoxSearch.Items.Count > 0 then
+        begin
+          WriteInteger('Searches', 'SearchCount', ComboBoxSearch.Items.Count);
+          for i := 0 to ComboBoxSearch.Items.Count - 1 do
+            WriteString('Searches', 'Search' + IntToStr(i), ComboBoxSearch.Items[i]);
+          ComboBoxSearch.Clear;
+        end;
+        Free;
       end;
-    end;
-    with TIniFile.Create(WSpaceDir + DirectorySeparator + 'workspace.ini') do
-    begin
-      WriteString('Database', 'LastView', FilterName);
-      WriteString('Database', 'LastSiteID', CurrentSite);
-      WriteBool('Database', 'Spatialite', Spatialite);
-      Free;
+    except on E: Exception do
+      MessageDlg(E.Message, mtError, [mbOK], 0);
     end;
     DeleteFile(WSpaceDir + DirectorySeparator + '.workspace.lck'); //delete the lock file
     WSpaceActive := False;
@@ -1436,6 +1775,7 @@ begin
     ReadMeText.Free;
   end;
   {$ENDIF}
+  CoolBar1.Bands[2].Visible := True;
   if WSpaceActive then MenuItemCloseWorkspaceClick(Sender);
   CloseAction := caFree;
 end;
@@ -1471,6 +1811,7 @@ begin
   with TSelectViewForm.Create(Application) do
     ShowModal;
   StatusBar1.Panels[1].Text := FilterName;
+  ViewChanged := True;
 end;
 
 procedure TMainForm.MenuItemAquiferClick(Sender: TObject);
@@ -1684,7 +2025,7 @@ procedure TMainForm.MenuItemManRecClick(Sender: TObject);
 begin
   with TRecommendForm.Create(Application) do
   begin
-    Caption := 'Recommendations';
+    Caption := 'Management Recommendations';
     Show;
   end;
 end;
@@ -1708,8 +2049,6 @@ var
   FileVerInfo: TFileVersionInfo;
   plugin_ver, old_plugin_ver: Real;
 begin
-  Height := 70;
-  Constraints.MaxWidth := Screen.Width;
   XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   if WindowState = wsMinimized then WindowState := wsNormal;
   FileVerInfo := TFileVersionInfo.Create(nil);
@@ -1753,7 +2092,10 @@ begin
         CopyDirTree(ProgramDir + '\plugins\QGIS\Aquabase', GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase', [cffOverwriteFile, cffPreserveTime])
     end;
   end;
-  MenuItemQGIS.Visible := DirectoryExists(GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase');
+  MenuItemQGIS.Visible := DirectoryExists(GetUserDir + '\Application Data\QGIS\QGIS3');
+  MenuItemQGISGoto.Visible := DirectoryExists(GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase');
+  MenuItemQGISMark.Visible := DirectoryExists(GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase');
+  MenuItemQGISSeparator.Visible := DirectoryExists(GetUserDir + '\Application Data\QGIS\QGIS3\profiles\default\python\plugins\Aquabase');
   {$ENDIF}
   {$IFDEF LINUX}
   if DirectoryExists('/usr/share/aquabase/plugins/QGIS/Aquabase') and DirectoryExists(GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins') then //plugin and qgis is installed
@@ -1776,17 +2118,22 @@ begin
         CopyDirTree('/usr/share/aquabase/plugins/QGIS/Aquabase', GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase', [cffOverwriteFile, cffPreserveTime])
     end;
   end;
-  MenuItemQGIS.Visible := DirectoryExists(GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase');
+  MenuItemQGIS.Visible := DirectoryExists(GetUserDir + '/.local/share/QGIS/QGIS3');
+  MenuItemQGISGoto.Visible := DirectoryExists(GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase');
+  MenuItemQGISMark.Visible := DirectoryExists(GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase');
+  MenuItemQGISSeparator.Visible := DirectoryExists(GetUserDir + '/.local/share/QGIS/QGIS3/profiles/default/python/plugins/Aquabase');
   {$ENDIF}
-  DividerQGIS.Visible := MenuItemQGIS.Visible;
-  if DividerQGIS.Visible then
-    DividerQGIS.Left := 502;
-  QGISGotoButton.Visible := MenuItemQGIS.Visible;
-  if QGISGotoButton.Visible then
-    QGISGotoButton.Left := DividerQGIS.Left + 5;
-  QGISMarkButton.Visible := MenuItemQGIS.Visible;
-  if QGISMarkButton.Visible then
-    QGISMarkButton.Left := DividerQGIS.Left + 28;
+  with CoolBar1 do
+  begin
+    Bands[2].Visible := MenuItemQGISGoto.Visible;
+    AutosizeBands;
+  end;
+  with Constraints do
+  begin
+    MaxWidth := Screen.Width;
+    MinHeight := CoolBar1.Height + StatusBar1.Height + 10;
+  end;
+  ToolBar3.Visible := MenuItemQGISGoto.Visible;
   //update the statusbar
   StatusBar1.Panels[1].Text := SPanel1;
   StatusBar1.Panels[2].Text := SPanel2;
@@ -2080,26 +2427,17 @@ end;
 
 procedure TMainForm.LastWSpaceClick(Sender: TObject);
 begin
-  if DirectoryExists((Sender as TMenuItem).Caption) then
+  if not FileExistsExt('workspace.ini', (Sender as TMenuItem).Caption) then
   begin
-    if not FileExistsExt('workspace.ini', (Sender as TMenuItem).Caption) then
-    begin
-      WSpaceActive := False;
-      MessageDlg('This is not a valid workspace or the workspace has been removed!', mtError, [mbOk], 0);
-    end
-    else
-    begin
-      ChDir((Sender as TMenuItem).Caption);
-      WSpaceDir := (Sender as TMenuItem).Caption;
-      InitWSpace;
-      UpdateWSpaceMenu(False);
-    end;
+    WSpaceActive := False;
+    MessageDlg('This is not a valid workspace! It will be removed from the Recent Workspaces list.', mtError, [mbOk], 0);
   end
   else
   begin
-    WSpaceActive := False;
+    ChDir((Sender as TMenuItem).Caption);
+    WSpaceDir := (Sender as TMenuItem).Caption;
+    InitWSpace;
     UpdateWSpaceMenu(False);
-    MessageDlg('This workspace has been removed or renamed!', mtError, [mbOk], 0);
   end;
   UpdateMenus;
 end;
@@ -2107,52 +2445,46 @@ end;
 procedure TMainForm.UpdateWSpaceMenu(Add: Boolean);
 var
   w: Byte;
-  WSpaces: TStringList;
 begin
   if Add then //update the last workspaces menu, if workspace was opened or new one created
   begin
-    //check if this workspace has been opened before and therefore is in the menu already
-    WSpaces := TStringList.Create;
-    for w := 1 to 10 do
-      WSpaces.Add((FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption);
-    //if it is not then add the new workspace in menu on top an move the existing ones down
-    if WSpaces.IndexOf(WSpaceDir) = -1 then
+    //check if this workspace has been opened before and therefore is in the list already
+    //if it is not then add the new workspace in list on top
+    if (WSpaceDir > '') and (ListBoxWSpaces.Items.IndexOf(WSpaceDir) = -1) then
     begin
-      for w := 10 downto 2 do
-        (FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption := WSpaces[w-2];
-      (FindComponent('LastWSpace' + IntToStr(1)) as TMenuItem).Caption := WSpaceDir;
-    end
-    else
-    begin
-      WSpaces.Delete(WSpaces.IndexOf(WSpaceDir));
-      WSpaces.Insert(0, WSpaceDir);
-      for w := 1 to 10 do
-        (FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption := WSpaces[w-1];
+      ListBoxWSpaces.Items.Insert(0, WSpaceDir);
+      if ListBoxWSpaces.Count = 11 then //make sure there are always <= 10
+        ListBoxWSpaces.Items.Delete(10);
     end;
-    WSpaces.Free;
   end
   else
   begin
-    //check if the workspaces still exist and add only those that do
-    WSpaces := TStringList.Create;
-    for w := 1 to 10 do
-      if DirectoryExists((FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption) then
-        WSpaces.Add((FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption);
-    WSpaces.Delete(WSpaces.IndexOf(WSpaceDir));
-    WSpaces.Insert(0, WSpaceDir);
-    for w := 1 to WSpaces.Count do
-      (FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption := WSpaces[w-1];
-    WSpaces.Free;
+    //check if the workspaces still exists, otherwise delete from list
+    if ListBoxWSpaces.Count > 0 then
+    for w := 0 to ListBoxWSpaces.Count - 1 do
+      if not DirectoryExists(ListBoxWSpaces.Items[w]) then
+        ListBoxWSpaces.Items.Delete(w);
   end;
-  //just update the hints and visibility if there is a valid caption
-  for w := 1 to 10 do
+  //if a workspace is selected (so not on Aquabase startup)
+  if WSpaceDir > '' then
   begin
-    if (FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption > '' then
-    begin
-    MenuItemRecentWorkspaces.Enabled := True;
-    (FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Hint := 'Open Workspace "' + (FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Caption + '"';
-    (FindComponent('LastWSpace' + IntToStr(w)) as TMenuItem).Visible := True;
-    end;
+    ListBoxWSpaces.Items.Delete(ListBoxWSpaces.Items.IndexOf(WSpaceDir)); //put it on top
+    ListBoxWSpaces.Items.Insert(0, WSpaceDir);
+  end;
+  //clear the recent workspaces menu
+  for w := 0 to 9 do
+  begin
+    (FindComponent('MenuItemW' + IntToStr(w)) as TMenuItem).Caption := '';
+    (FindComponent('MenuItemW' + IntToStr(w)) as TMenuItem).Visible := False;
+  end;
+  //add the list to submenu
+  if ListBoxWSpaces.Count = 11 then //make sure there are always <= 10
+    ListBoxWSpaces.Items.Delete(10);
+  if ListBoxWSpaces.Count > 0 then
+  for w := 0 to ListBoxWSpaces.Count - 1 do
+  begin
+    (FindComponent('MenuItemW' + IntToStr(w)) as TMenuItem).Caption := ListBoxWSpaces.Items[w];
+    (FindComponent('MenuItemW' + IntToStr(w)) as TMenuItem).Visible := True;
   end;
 end;
 
@@ -2289,6 +2621,7 @@ end;
 
 function TMainForm.InitWSpace: Boolean;
 var
+  i, SCount: Word;
   WSpaceLocked: Boolean;
   LockFileText: TStringList;
   ComputerName: String;
@@ -2357,7 +2690,7 @@ begin
     except on E: Exception do
       begin
         Screen.Cursor := crDefault;
-        MessageDlg(E.Message + ': Error opening database connection! Please check your server and login settings!', mtError, [mbOK], 0);
+        MessageDlg(E.Message + ': Error opening database connection! Please check your database, server and login settings!', mtError, [mbOK], 0);
         DataModuleMain.ZConnectionDB.Disconnect;
         WSpaceActive := False;
         Result := False;
@@ -2397,6 +2730,16 @@ begin
       MarkedSiteList := TStringList.Create;
       MarkedSiteList.Sorted := True;
       MarkedSiteList.Duplicates := dupIgnore;
+      //for QuickSearch toolbar
+      ComboBoxSearch.Clear;
+      with TIniFile.Create(WSpaceDir + DirectorySeparator + 'workspace.ini') do
+      begin
+        SCount := ReadInteger('Searches', 'SearchCount', 0);
+        if SCount > 0 then
+        for i := 0 to SCount - 1 do
+          ComboBoxSearch.Items.Add(ReadString('Searches', 'Search' + IntToStr(i), '')) ;
+        Free;
+      end;
     end //of WSpaceActive
     else //reset variables and connection settings
     begin
@@ -2935,11 +3278,28 @@ begin
 end;
 
 procedure TMainForm.MenuBackUpSQLiteClick(Sender: TObject);
+var
+  SQLiteFileName: String;
 begin
-  if MessageDlg('Backup SQLite database', 'This will create a SQLite backup database in your workspace. Your workspace will be closed in the process. Are you sure you want to continue?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  if MessageDlg('Backup SQLite/Geopackage database', 'This will create a SQLite/Geopackage backup database in your workspace. Are you sure you want to continue?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
-    BackupSQLite := True;
-    MenuItemCloseWorkspaceClick(Sender);
+    Screen.Cursor := crSQLWait;
+    with DataModuleMain.ZConnectionDB do
+    begin
+      ExecuteDirect('PRAGMA journal_mode = Delete;');
+      SQLiteFileName := Database;
+    end;
+    if not CopyFile(SQLiteFileName, WSpaceDir + DirectorySeparator + 'Backup-' + FormatDateTime('YYYYMMDD', Date) + '-' + FormatDateTime('hhnn', Time) + '-' + ExtractFileName(SQLiteFileName)) then
+    begin
+      Screen.Cursor := crDefault;
+      MessageDlg('Could not create backup database file from ' + ExtractFileName(SQLiteFileName) + '! Maybe it was open in another application?', mtWarning, [mbOK], 0);
+    end
+    else
+    begin
+      Screen.Cursor := crDefault;
+      MessageDlg(ExtractFileName(SQLiteFileName) + ' successfully backed up!', mtInformation, [mbOK], 0);
+    end;
+    DataModuleMain.ZConnectionDB.ExecuteDirect('PRAGMA journal_mode = WAL;');
   end;
 end;
 
@@ -3045,7 +3405,7 @@ begin
     MessageDlg(VersionMessage, mtError,[mbOK], 0)
   else
   {$ENDIF}
-  if DataModuleMain.NrRecords > 5000 then
+  if DataModuleMain.ZQueryView.RecordCount > 5000 then
     if MessageDlg('Your current View "' + FilterName + '" has more than 5000 records, which may take a while to display on the map! Are you sure you want to continue?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
       CreateTheMap := True
     else
@@ -3190,20 +3550,6 @@ begin
   end;
 end;
 
-procedure TMainForm.MenuItemDropTriggersClick(Sender: TObject);
-begin
-  if MessageDlg('This will spatially-disable the database and prevent your geometries from updating! Are you sure you want to drop the spatial triggers?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-  with ZSQLProcessorSpatial do
-  begin
-    Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'drop_spatial_triggers.sql');
-    Delimiter := ';';
-    Execute;
-    Clear;
-    Spatialite := False;
-    ShowMessage('Spatial triggers dropped successfully!')
-  end;
-end;
-
 procedure TMainForm.MenuItemQGISGoToClick(Sender: TObject);
 begin
   with DataModuleMain.CheckQuery do
@@ -3235,20 +3581,6 @@ begin
   {$ENDIF}
   with TReportDocsForm.Create(Application) do
     Show;
-end;
-
-procedure TMainForm.MenuItemRestoreTriggersClick(Sender: TObject);
-begin
-  if MessageDlg('This will spatially-enable the database to update your geometries on-the-fly! Are you sure you want to restore the spatial triggers?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-  with ZSQLProcessorSpatial do
-  begin
-    Script.LoadFromFile(ProgramDir + DirectorySeparator + 'Databases' + DirectorySeparator + 'SQLite' + DirectorySeparator + 'create_spatial_triggers.sql');
-    Delimiter := '$$';
-    Execute;
-    Script.Clear;
-    Spatialite := True;
-    ShowMessage('Spatial triggers successfully restored!')
-  end;
 end;
 
 procedure TMainForm.MenuItemSaveMarkedClick(Sender: TObject);
@@ -3360,16 +3692,28 @@ begin
   end;
 end;
 
-procedure TMainForm.OpenDialog1CanClose(Sender: TObject; var CanClose: boolean);
+procedure TMainForm.OpenDialogWorkspaceCanClose(Sender: TObject; var CanClose: boolean);
 begin
-  CanClose := OpenDialog1.Tag = 0; //cannot close if Help was opened
-  OpenDialog1.Tag := 0; //reset so that it can be closed
+  CanClose := OpenDialogWorkspace.Tag = 0; //cannot close if Help was opened
+  OpenDialogWorkspace.Tag := 0; //reset so that it can be closed
 end;
 
-procedure TMainForm.OpenDialog1HelpClicked(Sender: TObject);
+procedure TMainForm.OpenDialogWorkspaceHelpClicked(Sender: TObject);
 begin
-  OpenDialog1.Tag := 1;
+  OpenDialogWorkspace.Tag := 1;
   DataModuleMain.OpenHelp(Sender);
+end;
+
+procedure TMainForm.ToolBar3StartDrag(Sender: TObject;
+  var DragObject: TDragObject);
+begin
+  CoolBar1.Bands[2].Break := False;
+end;
+
+procedure TMainForm.ToolBar4StartDrag(Sender: TObject;
+  var DragObject: TDragObject);
+begin
+  CoolBar1.Bands[3].Break := False;
 end;
 
 procedure TMainForm.TimeChartsClick(Sender: TObject);
@@ -3434,6 +3778,8 @@ begin
     Open;
     Locate('SITE_ID_NR', LastCurrentSite, []);
   end;
+  MenuItemResetView.Enabled := False;
+  ToolButtonResetView.Enabled := False;
   ShowMessage('The default "allsites" is now the active View.');
 end;
 
@@ -3544,17 +3890,13 @@ end;
 
 procedure TMainForm.FormShow(Sender: TObject);
 begin
-  //make sure the main form is on the screen
-  if Left < 0 then Left := 20;
-  if Left > Screen.Width then Left := 20;
-  if Top < 0 then Top := 20;
-  if Top > Screen.Height - 70 then Top := 20;
-  if Width > Screen.Width - Left then Width := Screen.Width - Left - 20;
+  DefaultMonitor := dmPrimary;
   case Tag of
     0: WindowState := wsNormal;
     1: WindowState := wsNormal; //to make sure the minimized window actually opens and the user can see it
     2: WindowState := wsMaximized;
   end;
+  UpdateWSpaceMenu(False);
   UpdateMenus;
   AppFont := MainForm.Font;
   StatusBar1.UseSystemFont := False;
@@ -3572,7 +3914,7 @@ begin
   if Tag = 2 then Height := 70;
 end;
 
-procedure TMainForm.MenuItem13Click(Sender: TObject);
+procedure TMainForm.DistanceChartsClick(Sender: TObject);
 begin
   ShowMessage('This function has not been re-implemented yet! But as they say: Watch this space!');
 end;
