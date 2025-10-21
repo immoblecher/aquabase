@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="4">
+    <Name Value="virtualtreeview_package"/>
+    <Type Value="DesignTime"/>
+    <Author Value="?"/>
+    <AutoUpdate Value="Manually"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+    </CompilerOptions>
+    <Description Value="This package is installed but the lpk file was not found. All its components are deactivated. Please fix this."/>
+    <License Value="?"/>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>

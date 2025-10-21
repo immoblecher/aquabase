@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -7,7 +7,7 @@
 
   This code is distributed in the hope that it will be useful, but WITHOUT ANY
   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
   details.
 
   A copy of the GNU General Public License is available on the World Wide Web
@@ -62,6 +62,9 @@ type
     Label6: TLabel;
     Label7: TLabel;
     LinkedLabel: TLabel;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
     MenuItemBookmark1: TMenuItem;
     MenuItemBookMark2: TMenuItem;
     MenuItemGotoBookmark1: TMenuItem;
@@ -77,16 +80,18 @@ type
     Panel3: TPanel;
     Panel4: TPanel;
     PopupMenu1: TPopupMenu;
+    PopupMenu2: TPopupMenu;
     RecordText: TStaticText;
     RxDBLookupComboAcc: TRxDBLookupCombo;
     RxDBLookupComboType: TRxDBLookupCombo;
+    Separator1: TMenuItem;
     StaticText1: TStaticText;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     TabSheet3: TTabSheet;
     TabSheet4: TTabSheet;
     TypeDataSource: TDataSource;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     DataSource1: TDataSource;
     DataSource2: TDataSource;
     DataSource3: TDataSource;
@@ -146,12 +151,16 @@ type
     procedure MaskEditEditingDone(Sender: TObject);
     procedure EditXChange(Sender: TObject);
     procedure MaskEditExit(Sender: TObject);
+    procedure MenuItem2Click(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem4Click(Sender: TObject);
     procedure MenuItemBookMark2Click(Sender: TObject);
     procedure MenuItemGotoBookmark2Click(Sender: TObject);
     procedure PageControlChange(Sender: TObject);
     procedure PageControlEnter(Sender: TObject);
     procedure PopupMenu1Popup(Sender: TObject);
     procedure GotoBookmark1Click(Sender: TObject);
+    procedure PopupMenu2Popup(Sender: TObject);
     procedure RxDBLookupComboClick(Sender: TObject);
     procedure RxDBLookupComboMouseMove(Sender: TObject; Shift: TShiftState;
       X, Y: Integer);
@@ -166,12 +175,9 @@ type
     procedure TabSheet2Exit(Sender: TObject);
     procedure TabSheet3Exit(Sender: TObject);
     procedure TabSheet4Exit(Sender: TObject);
-    procedure ZQuery2NewRecord(DataSet: TDataSet);
-    procedure ZQuery3NewRecord(DataSet: TDataSet);
-    procedure ZQuery4NewRecord(DataSet: TDataSet);
     procedure ZQueryBeforeOpen(DataSet: TDataSet);
     procedure ZQueryAfterOpen(DataSet: TDataSet);
-    procedure ZQuery1NewRecord(DataSet: TDataSet);
+    procedure ZQueryNewRecord(DataSet: TDataSet);
     procedure ZQueryPostError(DataSet: TDataSet; E: EDatabaseError;
       var DataAction: TDataAction);
     procedure ZQueryAfterCancel(DataSet: TDataSet);
@@ -202,7 +208,7 @@ uses VARINIT, MainDataModule, LOOKUP;
 procedure TTabbedMastDetailForm.FormCreate(Sender: TObject);
 begin
   Screen.Cursor := crSQLWait;
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   TDBNavigatorEx(DBFilterNavigator).Buttons[nbRefresh].Enabled := TRUE ;
   Label1.Caption := SiteIDLabel;
   Label2.Caption := NrLabel;
@@ -258,7 +264,7 @@ begin
     Editing := EditLabel + ' Basic information'
   else
     Editing := EditLabel + ' ' + Caption;
-  EditNavigator.Enabled := DataModuleMain.NrRecords > 0;
+  EditNavigator.Enabled := DataModuleMain.ZQueryView.RecordCount > 0;
   //Set formats of coordinate labels
   if dstLO then
   begin
@@ -415,32 +421,12 @@ begin
     Screen.Cursor := crDefault;
   end;
   try
-    with ZQuery1 do
-    begin
-      FetchRow := EditResults.Tag;
-      Params[0].AsString := CurrentSite;
-      Open;
-    end;
-    with ZQuery2 do
-    begin
-      FetchRow := EditResults.Tag;
-      Params[0].AsString := CurrentSite;
-      Open;
-    end;
+    ZQuery1.Open;
+    ZQuery2.Open;
     if ZQuery3.Tag > 0 then
-    with ZQuery3 do
-    begin
-      FetchRow := EditResults.Tag;
-      Params[0].AsString := CurrentSite;
-      Open;
-    end;
+      ZQuery3.Open;
     if ZQuery4.Tag > 0 then
-    with ZQuery4 do
-    begin
-      FetchRow := EditResults.Tag;
-      Params[0].AsString := CurrentSite;
-      Open;
-    end;
+      ZQuery4.Open;
   except on E: Exception do
     MessageDlg(E.Message + ' - You may have to contact your database administrator to resolve this error.', mtError, [mbOK], 0);
   end;
@@ -472,6 +458,38 @@ end;
 procedure TTabbedMastDetailForm.MaskEditExit(Sender: TObject);
 begin
 
+end;
+
+procedure TTabbedMastDetailForm.MenuItem2Click(Sender: TObject);
+begin
+  with DataModuleMain do
+  begin
+    BasicinfQuery.Filter := (TPopupMenu(TMenuItem(Sender).GetParentComponent).PopupComponent as TRxDBLookupCombo).DataField
+      + ' = "' + (TPopupMenu(TMenuItem(Sender).GetParentComponent).PopupComponent as TRxDBLookupCombo).Text + '"';
+    ZQueryView.Close;
+    ZQueryView.Open;
+  end;
+end;
+
+procedure TTabbedMastDetailForm.MenuItem3Click(Sender: TObject);
+begin
+  with DataModuleMain do
+  begin
+    BasicinfQuery.Filter := '';
+    ZQueryView.Close;
+    ZQueryView.Open;
+  end;
+end;
+
+procedure TTabbedMastDetailForm.MenuItem4Click(Sender: TObject);
+begin
+  with DataModuleMain do
+  begin
+    BasicinfQuery.Filter := (TPopupMenu(TMenuItem(Sender).GetParentComponent).PopupComponent as TRxDBLookupCombo).DataField
+      + ' <> "' + (TPopupMenu(TMenuItem(Sender).GetParentComponent).PopupComponent as TRxDBLookupCombo).Text + '"';
+    ZQueryView.Close;
+    ZQueryView.Open;
+  end;
 end;
 
 procedure TTabbedMastDetailForm.MenuItemBookMark2Click(Sender: TObject);
@@ -513,6 +531,11 @@ procedure TTabbedMastDetailForm.GotoBookmark1Click(Sender: TObject);
 begin
   with DataModuleMain do
     ZQueryView.GotoBookmark(Bookmark1);
+end;
+
+procedure TTabbedMastDetailForm.PopupMenu2Popup(Sender: TObject);
+begin
+  MenuItem3.Enabled := DataModuleMain.BasicinfQuery.Filter <> '';
 end;
 
 procedure TTabbedMastDetailForm.RxDBLookupComboClick(Sender: TObject);
@@ -642,37 +665,6 @@ begin
   JumpFieldNr := 0;
 end;
 
-procedure TTabbedMastDetailForm.ZQuery2NewRecord(DataSet: TDataSet);
-begin
-  if DataSet.FindField('REP_INST') <> NIL then
-    Dataset.FieldByName('REP_INST').Value := DataModuleMain.BasicinfQueryREP_INST.Value;
-  if JumpFieldNr > 0 then
-    DBGrid2.SelectedField := Dataset.Fields.Fields[JumpFieldNr]
-  else
-    DBGrid2.SelectedField := Dataset.Fields.Fields[1];
-
-end;
-
-procedure TTabbedMastDetailForm.ZQuery3NewRecord(DataSet: TDataSet);
-begin
-  if DataSet.FindField('REP_INST') <> NIL then
-    Dataset.FieldByName('REP_INST').Value := DataModuleMain.BasicinfQueryREP_INST.Value;
-  if JumpFieldNr > 0 then
-    DBGrid3.SelectedField := Dataset.Fields.Fields[JumpFieldNr]
-  else
-    DBGrid3.SelectedField := Dataset.Fields.Fields[1];
-end;
-
-procedure TTabbedMastDetailForm.ZQuery4NewRecord(DataSet: TDataSet);
-begin
-  if DataSet.FindField('REP_INST') <> NIL then
-    Dataset.FieldByName('REP_INST').Value := DataModuleMain.BasicinfQueryREP_INST.Value;
-  if JumpFieldNr > 0 then
-    DBGrid4.SelectedField := Dataset.Fields.Fields[JumpFieldNr]
-  else
-    DBGrid4.SelectedField := Dataset.Fields.Fields[1];
-end;
-
 procedure TTabbedMastDetailForm.ZQueryBeforeOpen(DataSet: TDataSet);
 begin
   TZQuery(DataSet).FetchRow := EditResults.Tag;
@@ -684,14 +676,14 @@ begin
   (FindComponent('DataSource' + IntToStr(Dataset.Tag)) as TDataSource).AutoEdit := AutoEditData;
 end;
 
-procedure TTabbedMastDetailForm.ZQuery1NewRecord(DataSet: TDataSet);
+procedure TTabbedMastDetailForm.ZQueryNewRecord(DataSet: TDataSet);
 begin
   if DataSet.FindField('REP_INST') <> NIL then
     Dataset.FieldByName('REP_INST').Value := DataModuleMain.BasicinfQueryREP_INST.Value;
   if JumpFieldNr > 0 then
-    DBGrid1.SelectedField := Dataset.Fields.Fields[JumpFieldNr]
+    TDBGrid(FindComponent('DBGrid' + IntToStr(DataSet.Tag))).SelectedIndex := JumpFieldNr
   else
-    DBGrid1.SelectedField := Dataset.Fields.Fields[1];
+    TDBGrid(FindComponent('DBGrid' + IntToStr(DataSet.Tag))).SelectedIndex := 1;
 end;
 
 procedure TTabbedMastDetailForm.ZQueryPostError(DataSet: TDataSet;
@@ -1018,15 +1010,9 @@ procedure TTabbedMastDetailForm.DBGridGetCellHint(Sender: TObject;
 begin
   //use the LookupKeyFields property for the code translation, which is not used otherwise
   if (col > 0) and (Column.Field.LookupKeyFields > '') then
-  begin
-    AText := DataModuleMain.TranslateCode(Column.Field.LookupKeyFields, Column.Field.AsString);
-    (Sender as TDBGrid).ShowHint := True;
-  end
+    AText := DataModuleMain.TranslateCode(Column.Field.LookupKeyFields, Column.Field.AsString)
   else
-  begin
     AText := Caption + ' Information';
-    (Sender as TDBGrid).ShowHint := False;
-  end;
 end;
 
 procedure TTabbedMastDetailForm.DBGridMouseMove(Sender: TObject;

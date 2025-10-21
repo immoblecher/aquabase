@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -40,6 +40,9 @@ type
     EditResults: TEdit;
     GotoBookmark: TMenuItem;
     GraphSpeedButton: TSpeedButton;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
     MenuItemSetBookmark1: TMenuItem;
     MenuItemSetBookMark2: TMenuItem;
     MenuItemDelete: TMenuItem;
@@ -72,9 +75,11 @@ type
     LinkedQueryCHM_REF_NR: TFloatField;
     EditNavigator: TDBNavigator;
     PopupMenu1: TPopupMenu;
+    PopupMenu2: TPopupMenu;
     RecordText: TStaticText;
     RxDBLookupComboAcc: TRxDBLookupCombo;
     RxDBLookupComboType: TRxDBLookupCombo;
+    Separator1: TMenuItem;
     StandardLabel: TLabel;
     ChemStandardLabel: TLabel;
     AMSLCheckBox: TCheckBox;
@@ -89,7 +94,7 @@ type
     EditSITE_NAME: TDBEdit;
     StaticText1: TStaticText;
     TypeDataSource: TDataSource;
-    XMLPropStorage: TXMLPropStorage;
+    XMLPropStorage1: TXMLPropStorage;
     Y_CoordLabel: TLabel;
     X_CoordLabel: TLabel;
     AccLabel: TLabel;
@@ -321,10 +326,16 @@ type
     procedure EditKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure EditResultsEditingDone(Sender: TObject);
+    procedure LinkedQueryCOMMENTSetText(Sender: TField; const aText: string);
+    procedure LinkedQueryLABSetText(Sender: TField; const aText: string);
+    procedure MenuItem2Click(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem4Click(Sender: TObject);
     procedure MenuItemGotoBookmark1Click(Sender: TObject);
     procedure MenuItemGotoBookmark2Click(Sender: TObject);
     procedure MenuItemSetBookmark1Click(Sender: TObject);
     procedure MenuItemSetBookMark2Click(Sender: TObject);
+    procedure PopupMenu2Popup(Sender: TObject);
     procedure ZQuery1BeforeOpen(DataSet: TDataSet);
     procedure ZQuery2BeforeOpen(DataSet: TDataSet);
     procedure ZQuery2NO2GetText(Sender: TField; var aText: string;
@@ -419,8 +430,6 @@ type
     procedure ZQuery6CalcFields(DataSet: TDataSet);
     procedure ZQuery6READINGGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
-    procedure UserChemTableSetText(Sender: TField;
-      const aText: String);
     procedure ZQuery6BeforeEdit(DataSet: TDataSet);
     procedure DBGrid2Enter(Sender: TObject);
     procedure DBGrid2KeyDown(Sender: TObject; var Key: Word;
@@ -445,6 +454,8 @@ type
     procedure PageControlChange(Sender: TObject);
     procedure BitBtnHelpClick(Sender: TObject);
     procedure CloseBitBtnClick(Sender: TObject);
+    procedure ZQuery7AfterPost(DataSet: TDataSet);
+    procedure ZQuery7SetText(Sender: TField; const aText: string);
     procedure ZQuery7LIMITSValidate(Sender: TField);
     function FormatTheFloat(const TheFloat: Double): ShortString;
     procedure ZQuery7NewRecord(DataSet: TDataSet);
@@ -504,7 +515,7 @@ end;
 
 procedure TUserChemistryForm.FormCreate(Sender: TObject);
 begin
-  XMLPropStorage.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml';
   TDBNavigatorEx(DBNavigatorView).Buttons[nbRefresh].Enabled := TRUE ;
   DataModuleMain.SetComponentFontAndSize(Sender, False);
   //hardcode taborder
@@ -517,9 +528,11 @@ begin
   ParameterList := TStringList.Create;
   ParameterList.Sorted := True;
   ParameterList.Duplicates := dupIgnore;
+  ParameterList.CaseSensitive := True;
   UnitList := TStringList.Create;
   UnitList.Sorted := True;
   UnitList.Duplicates := dupIgnore;
+  UnitList.CaseSensitive := True;
   DataModuleMain.CoordsEdited := False;
   ValidFound := True;
 end;
@@ -616,7 +629,7 @@ begin
       Editing := 'Editing: Samples'
     else
       Editing := 'Editing: User-defined Parameters';
-  EditNavigator.Enabled := DataModuleMain.NrRecords > 0;
+  EditNavigator.Enabled := DataModuleMain.ZQueryView.RecordCount > 0;
   //set correct label sizes according to content (autosize not working properly)
   for i := 0 to ComponentCount-1 do
   begin
@@ -1020,7 +1033,7 @@ procedure TUserChemistryForm.DataSource6DataChange(Sender: TObject;
   Field: TField);
 begin
   if ZQuery7.RecordCount> 0 then
-    TabSheet3.Caption := '-->Detection Limits'
+    TabSheet3.Caption := '! Detection Limits'
   else
     TabSheet3.Caption := 'Detection Limits';
 end;
@@ -1388,7 +1401,7 @@ end;
 procedure TUserChemistryForm.ZQuery6NewRecord(DataSet: TDataSet);
 begin
   ZQuery6UNIT.Value := 'mg/l';
-  ZQuery6READING.AsFloat := -1;
+  //ZQuery6READING.AsFloat := -1;
 end;
 
 procedure TUserChemistryForm.ZQuery6CalcFields(DataSet: TDataSet);
@@ -1423,12 +1436,6 @@ begin
     aText := Limit + FormatTheFloat(Sender.Value);
   end
   else DisplayText := False;
-end;
-
-procedure TUserChemistryForm.UserChemTableSetText(Sender: TField;
-  const aText: String);
-begin
-  Sender.Value := UpperCase(aText);
 end;
 
 procedure TUserChemistryForm.ZQuery6BeforeEdit(DataSet: TDataSet);
@@ -1869,6 +1876,44 @@ begin
   Close;
 end;
 
+procedure TUserChemistryForm.ZQuery7AfterPost(DataSet: TDataSet);
+begin
+  with ParamListQuery do
+  begin
+    SQL.Clear;
+    SQL.Add('SELECT DISTINCT CPARAMETER FROM userchem');
+    Open;
+    while not EOF do
+    begin
+      ParameterList.Add(FieldByName('CPARAMETER').AsString);
+      Next;
+    end;
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT DISTINCT UNIT FROM userchem');
+    Open;
+    while not EOF do
+    begin
+      UnitList.Add(FieldByName('UNIT').AsString);
+      Next;
+    end;
+    Close;
+  end;
+  DBGrid2.Columns[0].PickList.Clear;
+  DBGrid2.Columns[0].PickList.AddStrings(ParameterList);
+  DBGrid2.Columns[2].PickList.Clear;
+  DBGrid2.Columns[2].PickList.AddStrings(UnitList);
+end;
+
+procedure TUserChemistryForm.ZQuery7SetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
+end;
+
 procedure TUserChemistryForm.ZQuery7LIMITSValidate(Sender: TField);
 begin
   ValidFound := DataModuleMain.LookupValidFound('LIMTTYPE', Sender.AsString);
@@ -2145,6 +2190,56 @@ begin
   LinkedQuery.Refresh;
 end;
 
+procedure TUserChemistryForm.LinkedQueryCOMMENTSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
+end;
+
+procedure TUserChemistryForm.LinkedQueryLABSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
+end;
+
+procedure TUserChemistryForm.MenuItem2Click(Sender: TObject);
+begin
+  with DataModuleMain do
+  begin
+    BasicinfQuery.Filter := (TPopupMenu(TMenuItem(Sender).GetParentComponent).PopupComponent as TRxDBLookupCombo).DataField
+      + ' = "' + (TPopupMenu(TMenuItem(Sender).GetParentComponent).PopupComponent as TRxDBLookupCombo).Text + '"';
+    ZQueryView.Close;
+    ZQueryView.Open;
+  end;
+end;
+
+procedure TUserChemistryForm.MenuItem3Click(Sender: TObject);
+begin
+  with DataModuleMain do
+  begin
+    BasicinfQuery.Filter := '';
+    ZQueryView.Close;
+    ZQueryView.Open;
+  end;
+end;
+
+procedure TUserChemistryForm.MenuItem4Click(Sender: TObject);
+begin
+  with DataModuleMain do
+  begin
+    BasicinfQuery.Filter := (TPopupMenu(TMenuItem(Sender).GetParentComponent).PopupComponent as TRxDBLookupCombo).DataField
+      + ' <> "' + (TPopupMenu(TMenuItem(Sender).GetParentComponent).PopupComponent as TRxDBLookupCombo).Text + '"';
+    ZQueryView.Close;
+    ZQueryView.Open;
+  end;
+end;
+
 procedure TUserChemistryForm.MenuItemGotoBookmark1Click(Sender: TObject);
 begin
   with DataModuleMain do
@@ -2173,6 +2268,11 @@ begin
     ZQueryView.FreeBookmark(Bookmark2);
     Bookmark2 := ZQueryView.GetBookmark;
   end;
+end;
+
+procedure TUserChemistryForm.PopupMenu2Popup(Sender: TObject);
+begin
+  MenuItem3.Enabled := DataModuleMain.BasicinfQuery.Filter <> '';
 end;
 
 procedure TUserChemistryForm.ZQuery1BeforeOpen(DataSet: TDataSet);
@@ -2455,15 +2555,9 @@ procedure TUserChemistryForm.DBGridGetCellHint(Sender: TObject;
 begin
   //use the LookupKeyFields property for the code translation, which is not used otherwise
   if (col > 0) and (Column.Field.LookupKeyFields > '') then
-  begin
-    AText := DataModuleMain.TranslateCode(Column.Field.LookupKeyFields, Column.Field.AsString);
-    (Sender as TDBGrid).ShowHint := True;
-  end
+    AText := DataModuleMain.TranslateCode(Column.Field.LookupKeyFields, Column.Field.AsString)
   else
-  begin
     AText := 'Chemistry Sample Information';
-    (Sender as TDBGrid).ShowHint := False;
-  end;
 end;
 
 end.

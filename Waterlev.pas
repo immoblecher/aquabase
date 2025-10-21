@@ -1,4 +1,4 @@
-{ Copyright (C) 2021 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -24,7 +24,7 @@ interface
 uses
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs, MastDetl, Buttons,
   StdCtrls, Menus, Db, DBCtrls, ExtCtrls, LCLtype, DBGrids, MaskEdit,
-  XMLPropStorage, EditBtn, DateTimePicker, rxlookup, ZDataset;
+  EditBtn, DateTimePicker, rxlookup, ZDataset;
 
 type
 
@@ -53,6 +53,7 @@ type
     procedure LinkedQueryAfterOpen(DataSet: TDataSet);
     procedure LinkedQueryAfterRefresh(DataSet: TDataSet);
     procedure LinkedQueryBeforeInsert(DataSet: TDataSet);
+    procedure LinkedQueryCOMMENTSetText(Sender: TField; const aText: string);
     procedure LinkedQueryNewRecord(DataSet: TDataSet);
     procedure LinkedQuerySetText(Sender: TField; const aText: string);
     procedure LinkedQueryValidate(Sender: TField);
@@ -150,6 +151,15 @@ begin
   PrevMeth := LinkedQueryMETH_MEAS.Value;
   PrevStatus := LinkedQueryLEVEL_STAT.Value;
   PrevPiez := LinkedQueryPIEZOM_NR.Value;
+end;
+
+procedure TWaterlevelForm.LinkedQueryCOMMENTSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TWaterlevelForm.LinkedQueryNewRecord(DataSet: TDataSet);

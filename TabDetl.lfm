@@ -1,8 +1,8 @@
 object TabbedMastDetailForm: TTabbedMastDetailForm
   Tag = 127
-  Left = 616
+  Left = 2685
   Height = 397
-  Top = 285
+  Top = 379
   Width = 576
   ActiveControl = CloseBitBtn
   Caption = 'Tabbed Master Detail Form'
@@ -50,9 +50,8 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
   OnKeyDown = FormKeyDown
   OnMouseMove = DBGridMouseMove
   OnShow = FormShow
-  Position = poDefaultSizeOnly
   SessionProperties = 'DetailNavigator.DataSource;Height;Left;PageControl.ActivePage;Top;Width;EditResults.Tag'
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.8.0.0'
   object Panel1: TPanel
     Left = 0
     Height = 36
@@ -65,6 +64,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
+    ParentBackground = False
     ParentFont = False
     TabOrder = 0
     object DBFilterNavigator: TDBNavigator
@@ -169,24 +169,26 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
     Font.Height = -11
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
+    ParentBackground = False
     ParentFont = False
     TabOrder = 1
     object Panel3: TPanel
       Left = 5
-      Height = 251
-      Top = 109
+      Height = 244
+      Top = 116
       Width = 566
       Align = alClient
       Alignment = taLeftJustify
       BorderSpacing.Left = 4
       BorderSpacing.Right = 4
       BevelOuter = bvNone
-      ClientHeight = 251
+      ClientHeight = 244
       ClientWidth = 566
       Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
+      ParentBackground = False
       ParentFont = False
       TabOrder = 0
       object LinkedLabel: TLabel
@@ -210,7 +212,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
       end
       object PageControl: TPageControl
         Left = 0
-        Height = 200
+        Height = 193
         Top = 22
         Width = 566
         ActivePage = TabSheet1
@@ -227,7 +229,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         object TabSheet1: TTabSheet
           Tag = 1
           Caption = 'TabSheet1'
-          ClientHeight = 173
+          ClientHeight = 162
           ClientWidth = 556
           Font.Color = clBlack
           Font.Height = -12
@@ -237,7 +239,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
           object DBGrid1: TDBGrid
             Tag = 1
             Left = 0
-            Height = 173
+            Height = 162
             Hint = 'Detail Information'
             Top = 0
             Width = 556
@@ -268,7 +270,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         object TabSheet2: TTabSheet
           Tag = 2
           Caption = 'TabSheet2'
-          ClientHeight = 173
+          ClientHeight = 162
           ClientWidth = 556
           Font.Color = clBlack
           Font.Height = -12
@@ -279,10 +281,10 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
           object DBGrid2: TDBGrid
             Tag = 2
             Left = 0
-            Height = 170
+            Height = 162
             Hint = 'Detail Information'
             Top = 0
-            Width = 562
+            Width = 556
             HelpContext = 31
             Align = alClient
             Anchors = [akTop, akLeft, akRight]
@@ -309,7 +311,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         object TabSheet3: TTabSheet
           Tag = 3
           Caption = 'TabSheet3'
-          ClientHeight = 173
+          ClientHeight = 162
           ClientWidth = 556
           Font.Color = clBlack
           Font.Height = -12
@@ -320,10 +322,10 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
           object DBGrid3: TDBGrid
             Tag = 3
             Left = 0
-            Height = 167
+            Height = 162
             Hint = 'Detail Information'
             Top = 0
-            Width = 558
+            Width = 556
             HelpContext = 31
             Align = alClient
             Anchors = [akTop, akLeft, akRight]
@@ -350,7 +352,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         object TabSheet4: TTabSheet
           Tag = 4
           Caption = 'TabSheet4'
-          ClientHeight = 173
+          ClientHeight = 162
           ClientWidth = 556
           Font.Color = clBlack
           Font.Height = -12
@@ -361,10 +363,10 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
           object DBGrid4: TDBGrid
             Tag = 4
             Left = 0
-            Height = 170
+            Height = 162
             Hint = 'Detail Information'
             Top = 0
-            Width = 562
+            Width = 556
             HelpContext = 31
             Align = alClient
             Anchors = [akTop, akLeft, akRight]
@@ -392,7 +394,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
       object Panel4: TPanel
         Left = 0
         Height = 27
-        Top = 224
+        Top = 217
         Width = 566
         Align = alBottom
         BorderSpacing.Top = 2
@@ -402,12 +404,13 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
+        ParentBackground = False
         ParentFont = False
         TabOrder = 1
         object DetailNavigator: TDBNavigator
           Left = 170
           Height = 25
-          Top = 0
+          Top = -1
           Width = 262
           BeforeAction = DetailNavigatorBeforeAction
           BevelOuter = bvNone
@@ -458,16 +461,16 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
           Font.Height = -11
           Font.Name = 'MS Sans Serif'
           NumbersOnly = True
-          OnEditingDone = EditResultsEditingDone
           ParentFont = False
           TabOrder = 2
           Text = '500'
+          OnEditingDone = EditResultsEditingDone
         end
         object StaticText1: TStaticText
-          Left = 458
+          Left = 456
           Height = 21
           Top = 6
-          Width = 40
+          Width = 42
           Align = alRight
           Alignment = taRightJustify
           Anchors = [akTop, akRight]
@@ -484,7 +487,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
     end
     object GroupBox1: TGroupBox
       Left = 5
-      Height = 100
+      Height = 107
       Top = 5
       Width = 566
       Align = alTop
@@ -492,12 +495,13 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
       BorderSpacing.Around = 4
       BorderSpacing.InnerBorder = 1
       Caption = 'Basic Site Information:'
-      ClientHeight = 86
+      ClientHeight = 89
       ClientWidth = 564
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
+      ParentBackground = False
       ParentFont = False
       TabOrder = 1
       object Label1: TLabel
@@ -558,7 +562,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         ParentFont = False
       end
       object Y_CoordLabel: TLabel
-        Left = 92
+        Left = 88
         Height = 13
         Top = 44
         Width = 84
@@ -585,7 +589,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         ParentFont = False
       end
       object Label5: TLabel
-        Left = 190
+        Left = 176
         Height = 13
         Top = 44
         Width = 61
@@ -598,7 +602,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         ParentFont = False
       end
       object AltLabel: TLabel
-        Left = 250
+        Left = 234
         Height = 13
         Top = 44
         Width = 54
@@ -612,7 +616,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         ParentFont = False
       end
       object ColLabel: TLabel
-        Left = 306
+        Left = 300
         Height = 13
         Top = 44
         Width = 54
@@ -626,7 +630,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         ParentFont = False
       end
       object DepLabel: TLabel
-        Left = 360
+        Left = 356
         Height = 13
         Top = 44
         Width = 54
@@ -738,7 +742,6 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         DataSource = BasicinfDataSource
         Anchors = [akTop, akLeft, akRight]
         AutoSize = False
-        CharCase = ecUppercase
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -751,15 +754,14 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         OnKeyUp = EditKeyUp
       end
       object EditALTITUDE: TDBEdit
-        Left = 250
+        Left = 234
         Height = 22
         Top = 58
-        Width = 50
+        Width = 60
         HelpContext = 31
         DataField = 'ALTITUDE'
         DataSource = BasicinfDataSource
         AutoSize = False
-        CharCase = ecNormal
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -772,7 +774,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         OnKeyUp = EditKeyUp
       end
       object EditCOLLAR_HI: TDBEdit
-        Left = 306
+        Left = 300
         Height = 22
         Top = 58
         Width = 50
@@ -780,7 +782,6 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         DataField = 'COLLAR_HI'
         DataSource = BasicinfDataSource
         AutoSize = False
-        CharCase = ecNormal
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -793,15 +794,14 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         OnKeyUp = EditKeyUp
       end
       object EditDEPTH: TDBEdit
-        Left = 360
+        Left = 356
         Height = 22
         Top = 58
-        Width = 50
+        Width = 52
         HelpContext = 31
         DataField = 'DEPTH'
         DataSource = BasicinfDataSource
         AutoSize = False
-        CharCase = ecNormal
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -825,7 +825,6 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         ReadOnly = True
         Anchors = [akTop, akLeft, akRight]
         AutoSize = False
-        CharCase = ecNormal
         Enabled = False
         Font.Color = clBlack
         Font.Height = -12
@@ -837,8 +836,8 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         OnEnter = EditBasicinfEnter
       end
       object RxDBLookupComboAcc: TRxDBLookupCombo
-        Left = 190
-        Height = 25
+        Left = 176
+        Height = 29
         Top = 58
         Width = 38
         HelpKeyword = 'COORDACC'
@@ -873,6 +872,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         ParentColor = False
         ParentFont = False
         ParentShowHint = False
+        PopupMenu = PopupMenu2
         ReadOnly = False
         ShowHint = True
         TabOrder = 6
@@ -887,7 +887,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         Left = 416
         Height = 26
         Top = 58
-        Width = 36
+        Width = 38
         HelpKeyword = 'SITETYPE'
         HelpContext = 4
         AutoSize = True
@@ -920,6 +920,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         ParentColor = False
         ParentFont = False
         ParentShowHint = False
+        PopupMenu = PopupMenu2
         ReadOnly = False
         ShowHint = True
         TabOrder = 10
@@ -934,7 +935,7 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         Left = 4
         Height = 22
         Top = 58
-        Width = 88
+        Width = 80
         DataField = 'X_COORD'
         DataSource = BasicinfDataSource
         AutoSize = False
@@ -953,10 +954,10 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         OnKeyUp = EditKeyUp
       end
       object DBEditY: TDBEdit
-        Left = 96
+        Left = 88
         Height = 22
         Top = 58
-        Width = 88
+        Width = 80
         DataField = 'Y_COORD'
         DataSource = BasicinfDataSource
         AutoSize = False
@@ -1015,21 +1016,21 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
     Left = 352
     Top = 312
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
     Left = 458
     Top = 242
   end
   object ZQuery1: TZQuery
     Tag = 1
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = ZQueryBeforeOpen
     AfterOpen = ZQueryAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     BeforePost = ZQueryBeforePost
     AfterPost = ZQueryAfterPost
     AfterCancel = ZQueryAfterCancel
     OnPostError = ZQueryPostError
-    OnNewRecord = ZQuery1NewRecord
+    OnNewRecord = ZQueryNewRecord
     Params = <>
     FetchRow = 500
     MasterFields = 'SITE_ID_NR'
@@ -1040,14 +1041,14 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
   end
   object ZQuery2: TZQuery
     Tag = 2
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = ZQueryBeforeOpen
     AfterOpen = ZQueryAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     BeforePost = ZQueryBeforePost
     AfterPost = ZQueryAfterPost
     AfterCancel = ZQueryAfterCancel
     OnPostError = ZQueryPostError
-    OnNewRecord = ZQuery2NewRecord
+    OnNewRecord = ZQueryNewRecord
     Params = <>
     FetchRow = 500
     MasterFields = 'SITE_ID_NR'
@@ -1058,14 +1059,14 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
   end
   object ZQuery3: TZQuery
     Tag = 3
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = ZQueryBeforeOpen
     AfterOpen = ZQueryAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     BeforePost = ZQueryBeforePost
     AfterPost = ZQueryAfterPost
     AfterCancel = ZQueryAfterCancel
     OnPostError = ZQueryPostError
-    OnNewRecord = ZQuery3NewRecord
+    OnNewRecord = ZQueryNewRecord
     Params = <>
     FetchRow = 500
     MasterFields = 'SITE_ID_NR'
@@ -1076,14 +1077,14 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
   end
   object ZQuery4: TZQuery
     Tag = 4
-    Connection = DataModuleMain.ZConnectionDB
     BeforeOpen = ZQueryBeforeOpen
     AfterOpen = ZQueryAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     BeforePost = ZQueryBeforePost
     AfterPost = ZQueryAfterPost
     AfterCancel = ZQueryAfterCancel
     OnPostError = ZQueryPostError
-    OnNewRecord = ZQuery4NewRecord
+    OnNewRecord = ZQueryNewRecord
     Params = <>
     FetchRow = 500
     MasterFields = 'SITE_ID_NR'
@@ -1093,14 +1094,14 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
     Top = 199
   end
   object ZReadOnlyQueryCoordAcc: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionLanguage
     SortedFields = 'SEARCH'
+    Connection = DataModuleMain.ZConnectionLanguage
     SQL.Strings = (
       'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''COORDACC'''
     )
     Params = <>
     IndexFieldNames = 'SEARCH Asc'
-    Left = 154
+    Left = 136
     Top = 112
     object ZReadOnlyQueryCoordAccSEARCH: TStringField
       DisplayWidth = 3
@@ -1132,8 +1133,8 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
     Top = 112
   end
   object ZReadOnlyQuerySiteType: TZReadOnlyQuery
-    Connection = DataModuleMain.ZConnectionLanguage
     SortedFields = 'SEARCH'
+    Connection = DataModuleMain.ZConnectionLanguage
     SQL.Strings = (
       'SELECT USED_FOR, SEARCH, DESCRIBE FROM lookup WHERE USED_FOR = ''SITETYPE'''
     )
@@ -1201,6 +1202,26 @@ object TabbedMastDetailForm: TTabbedMastDetailForm
         ShortCut = 16502
         OnClick = MenuItemGotoBookmark2Click
       end
+    end
+  end
+  object PopupMenu2: TPopupMenu
+    OnPopup = PopupMenu2Popup
+    Left = 342
+    Top = 62
+    object MenuItem2: TMenuItem
+      Caption = '&Filter by this value'
+      OnClick = MenuItem2Click
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Filter by &not this value'
+      OnClick = MenuItem4Click
+    end
+    object Separator1: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem3: TMenuItem
+      Caption = '&Clear filter'
+      OnClick = MenuItem3Click
     end
   end
 end

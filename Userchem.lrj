@@ -5,7 +5,7 @@
 {"hash":159675027,"name":"tuserchemistryform.sampleslabel.caption","sourcebytes":[83,97,109,112,108,101,115],"value":"Samples"},
 {"hash":66406533,"name":"tuserchemistryform.image1.hint","sourcebytes":[68,114,111,112,32,112,97,114,97,109,101,116,101,114,115,32,104,101,114,101,32,116,111,32,114,101,109,111,118,101],"value":"Drop parameters here to remove"},
 {"hash":138003475,"name":"tuserchemistryform.chemlabel.caption","sourcebytes":[80,97,114,97,109,101,116,101,114,115],"value":"Parameters"},
-{"hash":199271454,"name":"tuserchemistryform.dbgrid.hint","sourcebytes":[83,97,109,112,108,101,32,73,110,102,111,114,109,97,116,105,111,110],"value":"Sample Information"},
+{"hash":231637358,"name":"tuserchemistryform.dbgrid.hint","sourcebytes":[67,104,101,109,105,115,116,114,121,32,115,97,109,112,108,101,32,105,110,102,111,114,109,97,116,105,111,110],"value":"Chemistry sample information"},
 {"hash":84239022,"name":"tuserchemistryform.amslcheckbox.caption","sourcebytes":[97,46,109,46,115,46,108,46],"value":"a.m.s.l."},
 {"hash":41726218,"name":"tuserchemistryform.groupbox1.caption","sourcebytes":[66,97,115,105,99,32,83,105,116,101,32,73,110,102,111,114,109,97,116,105,111,110,58],"value":"Basic Site Information:"},
 {"hash":265916162,"name":"tuserchemistryform.siteidlabel.caption","sourcebytes":[38,83,105,116,101,32,73,100,101,110,116,105,102,105,101,114],"value":"&Site Identifier"},
@@ -72,5 +72,8 @@
 {"hash":63026322,"name":"tuserchemistryform.menuitemsetbookmark2.caption","sourcebytes":[66,111,111,107,77,97,114,107,32,38,50],"value":"BookMark &2"},
 {"hash":78834915,"name":"tuserchemistryform.gotobookmark.caption","sourcebytes":[38,71,111,116,111,32,66,111,111,107,109,97,114,107,115],"value":"&Goto Bookmarks"},
 {"hash":46470689,"name":"tuserchemistryform.menuitemgotobookmark1.caption","sourcebytes":[71,111,116,111,32,66,111,111,107,109,97,114,107,32,38,49],"value":"Goto Bookmark &1"},
-{"hash":46470690,"name":"tuserchemistryform.menuitemgotobookmark2.caption","sourcebytes":[71,111,116,111,32,66,111,111,107,109,97,114,107,32,38,50],"value":"Goto Bookmark &2"}
+{"hash":46470690,"name":"tuserchemistryform.menuitemgotobookmark2.caption","sourcebytes":[71,111,116,111,32,66,111,111,107,109,97,114,107,32,38,50],"value":"Goto Bookmark &2"},
+{"hash":217137669,"name":"tuserchemistryform.menuitem2.caption","sourcebytes":[38,70,105,108,116,101,114,32,98,121,32,116,104,105,115,32,118,97,108,117,101],"value":"&Filter by this value"},
+{"hash":142824421,"name":"tuserchemistryform.menuitem4.caption","sourcebytes":[70,105,108,116,101,114,32,98,121,32,38,110,111,116,32,116,104,105,115,32,118,97,108,117,101],"value":"Filter by &not this value"},
+{"hash":208568994,"name":"tuserchemistryform.menuitem3.caption","sourcebytes":[38,67,108,101,97,114,32,102,105,108,116,101,114],"value":"&Clear filter"}
 ]}

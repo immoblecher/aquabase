@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -22,8 +22,8 @@ unit TIMEDEPT;
 interface
 
 uses Classes, Graphics, Forms, Controls, Buttons, DateTimePicker, ZDataset,
-  StdCtrls, ExtCtrls, ButtonPanel, SysUtils, Dialogs, ComCtrls, math, db,
-  LCLType;
+  StdCtrls, ExtCtrls, ButtonPanel, SysUtils, Dialogs, ComCtrls, math, db, StrUtils,
+  LCLType, XMLPropStorage;
 
 type
 
@@ -142,11 +142,13 @@ type
     TypeRadioGroup3: TRadioGroup;
     TypeRadioGroup4: TRadioGroup;
     ViewQuery: TZReadOnlyQuery;
+    XMLPropStorage1: TXMLPropStorage;
     YComboBox1: TComboBox;
     YComboBox2: TComboBox;
     YComboBox3: TComboBox;
     YComboBox4: TComboBox;
     AquasortQuery: TZReadOnlyQuery;
+    Chem6Query: TZReadOnlyQuery;
     procedure ComboBoxDataChange(Sender: TObject);
     procedure ComboBoxViewDropDown(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -161,6 +163,7 @@ type
     procedure YComboBoxChange(Sender: TObject);
   private
     { Private declarations }
+    IsChem6: Boolean;
   public
     { Public declarations }
     StartDate, StartTime: TDateTime;
@@ -266,6 +269,9 @@ begin
             if (Self.FindComponent('ComboBoxData' + IntToStr(c)) as TComboBox).ItemIndex = 23 then
               Add('SELECT v.SITE_ID_NR, b.NR_ON_MAP, d.CHM_REF_NR CHEMREF, ' + FilterField + ' THEFILTER, ' + DateField + ' THEDATE, ' + TimeField + ' THETIME, READING THEVALUE FROM ' + TheView + ' v')
             else
+            if IsChem6 then
+              Add('SELECT v.SITE_ID_NR, b.NR_ON_MAP, d.CHM_REF_NR CHEMREF, ' + FilterField + ' THEFILTER, ' + DateField + ' THEDATE, ' + TimeField + ' THETIME, PARAM' + IntToStr((Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).ItemIndex + 1) + ' THEVALUE FROM ' + TheView + ' v')
+            else
               Add('SELECT v.SITE_ID_NR, b.NR_ON_MAP, d.CHM_REF_NR CHEMREF, ' + FilterField + ' THEFILTER, ' + DateField + ' THEDATE, ' + TimeField + ' THETIME, ' + (Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text + ' THEVALUE FROM ' + TheView + ' v');
           end
           else
@@ -287,6 +293,9 @@ begin
             if (Self.FindComponent('ComboBoxData' + IntToStr(c)) as TComboBox).ItemIndex = 23 then
               Add('SELECT v.SITE_ID_NR, b.NR_ON_MAP, d.CHM_REF_NR CHEMREF, ' + FilterField + '  THEFILTER, d.' + DateField + ' THEDATE, d.' + TimeField + ' THETIME, MIN(READING) MINIMUM, MAX(READING) MAXIMUM, AVG(READING) AVERAGE, SUM(READING) SUMMED FROM '+ TheView + ' v')
             else
+            if IsChem6 then
+              Add('SELECT v.SITE_ID_NR, b.NR_ON_MAP, d.CHM_REF_NR CHEMREF, ' + FilterField + '  THEFILTER, d.' + DateField + ' THEDATE, d.' + TimeField + ' THETIME, MIN(PARAM' + IntToStr((Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).ItemIndex + 1) + ') MINIMUM, MAX(PARAM' + IntToStr((Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).ItemIndex + 1) + ') MAXIMUM, AVG(PARAM' + IntToStr((Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).ItemIndex + 1) + ') AVERAGE, SUM(PARAM' + IntToStr((Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).ItemIndex + 1) + ') SUMMED FROM '+ TheView + ' v')
+            else
               Add('SELECT v.SITE_ID_NR, b.NR_ON_MAP, d.CHM_REF_NR CHEMREF, ' + FilterField + '  THEFILTER, d.' + DateField + ' THEDATE, d.' + TimeField + ' THETIME, MIN(' + (Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text + ') MINIMUM, MAX(' + (Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text + ') MAXIMUM, AVG(' + (Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text + ') AVERAGE, SUM(' + (Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text + ') SUMMED FROM '+ TheView + ' v');
           end
           else
@@ -305,10 +314,15 @@ begin
             ChemTable := 'CHEM_00' + IntToStr((Self.FindComponent('ComboBoxData' + IntToStr(c)) as TComboBox).ItemIndex - 2);
           Add('JOIN ' + ChemTable + ' d1 ON (d1.CHM_REF_NR = d.CHM_REF_NR)');
           //make sure only value > -1 extracted
-          if (Self.FindComponent('ComboBoxData' + IntToStr(c)) as TComboBox).ItemIndex = 23 then
+          if (Self.FindComponent('ComboBoxData' + IntToStr(c)) as TComboBox).ItemIndex = 23 then //USERCHEM
           begin
             Add('AND d1.READING > -1');
             Add('AND CPARAMETER = ' + QuotedStr((Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text));
+          end
+          else
+          if IsChem6 then
+          begin
+            Add('AND d1.PARAM' + IntToStr((Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).ItemIndex + 1) + ' > -1');
           end
           else
             Add('AND d1.' + (Self.FindComponent('YComboBox' + IntToStr(c)) as TComboBox).Text + ' > -1');
@@ -473,6 +487,7 @@ end;
 
 procedure TTimeDeptForm.FormCreate(Sender: TObject);
 begin
+  XMLPropStorage1.FileName := GetUserDir + DirectorySeparator + '.aquabasesession.xml'; ;
   DataModuleMain.SetComponentFontAndSize(Sender, True);
   AquaSortQuery.Open;
 end;
@@ -493,32 +508,50 @@ procedure TTimeDeptForm.ComboBoxDataChange(Sender: TObject);
 var
   m: Integer;
   fname: ShortString;
-  flist: TStrings;
+  flist: TStringList;
 begin
+  IsChem6 := False;
   ButtonPanel1.OKButton.Enabled := (ComboBoxData1.Text <> '<none>')
     or (ComboBoxData2.Text <> '<none>')
     or (ComboBoxData3.Text <> '<none>')
     or (ComboBoxData4.Text <> '<none>');
   if (Sender as TComboBox).ItemIndex > 0 then //do something
   begin
-    if Copy((Sender as TComboBox).Text, 1, 9) = 'Chemistry' then //if it is chemistry
+    if LeftStr((Sender as TComboBox).Text, 9) = 'Chemistry' then //if it is chemistry
     begin
       TimeDeptTable[(Sender as TComboBox).Tag] := 'CHEM_000';
-      (FindComponent('CheckBoxLimits' + IntToStr((Sender as TComboBox).Tag)) as TCheckbox).Enabled := True;         (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Items.Clear;
+      (FindComponent('CheckBoxLimits' + IntToStr((Sender as TComboBox).Tag)) as TCheckbox).Enabled := True;
+      (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Items.Clear;
+      if LeftStr((Sender as TComboBox).Text, 17) = 'Chemistry - Other' then //if it is chemistry 6 (other)
+      with Chem6Query do
+      begin
+        Connection := DataModuleMain.ZConnectionSettings;
+        Open;
+        //fill YComboBox with all parameters
+        while not EOF do
+        begin
+          (self.FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Items.Add(FieldByName('PARAMETER').Value);
+          Next;
+        end;
+        (self.FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).ItemIndex := 0;
+        IsChem6 := True;
+      end
+      else
       with DataModuleMain.CheckQuery do
       begin
         SQL.Clear;
         SQL.Add('SELECT * FROM CHEM_00' + IntToStr((Sender as TComboBox).ItemIndex - 2) + ' WHERE 1<>1');
         Open;
+        //fill YComboBox with all parameters
+        with (self.FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
+        begin
+          for m := 1 to DataModuleMain.CheckQuery.FieldDefs.Count - 1 do
+            Items.Add(UpperCase(DataModuleMain.CheckQuery.Fields[m].FieldName));
+          ItemIndex := 0;
+        end;
+        DataModuleMain.CheckQuery.Close;
+        DataModuleMain.CheckQuery.Connection := DataModuleMain.ZConnectionDB;
       end;
-      //fill YComboBox with all parameters
-      with (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
-      begin
-        for m := 1 to DataModuleMain.CheckQuery.FieldDefs.Count - 1 do
-          Items.Add(UpperCase(DataModuleMain.CheckQuery.Fields[m].FieldName));
-        ItemIndex := 0;
-      end;
-      DataModuleMain.CheckQuery.Close;
       with (FindComponent('FilterFieldComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox) do
       begin
         Items.Clear;
@@ -545,21 +578,19 @@ begin
         Items.Clear;
         Items.Add('<none>');
       end;
+      flist := TStringList.Create;
       with DataModuleMain.CheckQuery do //get ngdb_flag, depth fields and some string fields that are not site_id_nr
       begin
+        Connection := DataModuleMain.ZConnectionDB;
         SQL.Clear;
         SQL.Add('SELECT * FROM ' + TimeDeptTable[(Sender as TComboBox).Tag] + ' WHERE 1<>1');
         Open;
         FieldDefs.Update;
-        flist := TStringList.Create;
         for m := 0 to FieldDefs.Count - 1 do
         begin
           fname := UpperCase(FieldDefs.Items[m].Name);
-          if FieldByName(fname) is TStringField then
-          begin
-            if (fname <> 'SITE_ID_NR') and (fname <> 'DATE_MEAS') and (fname <> 'TIME_MEAS') and (fname <> 'COMMENT') and (fname <> 'DATE_ENTRY') then
-              flist.Add(fname);
-          end
+          if not AnsiMatchStr(fname, ['SITE_ID_NR', 'DATE_MEAS', 'TIME_MEAS', 'COMMENT', 'COMMENTS', 'DATE_ENTRY']) then
+            flist.Add(fname)
           else
           if fname = 'NGDB_FLAG' then
             flist.Add(fname)
@@ -664,6 +695,7 @@ end;
 procedure TTimeDeptForm.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   AquasortQuery.Close;
+  Chem6Query.Close;
   CloseAction := caFree;
 end;
 
@@ -803,6 +835,12 @@ begin
     else
     if UpperCase((FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Text) = 'EC' then
       (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := ECUnit
+    else
+    if IsChem6 then
+    begin
+      Chem6Query.Locate('PARAMETER', (FindComponent('YComboBox' + IntToStr((Sender as TComboBox).Tag)) as TComboBox).Text, []);
+      (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := Chem6Query.FieldByName('PARAM_UNIT').Value;
+    end
     else
       (FindComponent('EditUnit' + IntToStr((Sender as TComboBox).Tag)) as TEdit).Caption := ChemUnit;
   end;

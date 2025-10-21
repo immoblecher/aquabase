@@ -1,6 +1,6 @@
 inherited WaterSampleForm: TWaterSampleForm
-  Left = 583
-  Top = 219
+  Left = 2842
+  Top = 258
   Caption = 'Water Sample Form'
   Icon.Data = {
     9E3D00000000010001000000000001002000883D00001600000089504E470D0A
@@ -517,11 +517,11 @@ inherited WaterSampleForm: TWaterSampleForm
     end
   end
   inherited BasicinfDataSource: TDataSource
-    left = 328
+    Left = 328
   end
   inherited LinkedDataSource: TDataSource
-    left = 136
-    top = 272
+    Left = 136
+    Top = 272
   end
   inherited LinkedQuery: TZQuery
     BeforeOpen = LinkedQueryBeforeOpen
@@ -536,15 +536,17 @@ inherited WaterSampleForm: TWaterSampleForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
-    left = 40
-    top = 272
+    Left = 40
+    Top = 272
     ParamData = <    
       item
         DataType = ftString
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQueryDATE_ENTRY: TStringField[1]
       Alignment = taCenter
@@ -627,7 +629,7 @@ inherited WaterSampleForm: TWaterSampleForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedQueryUpperSetText
+      OnSetText = LinkedQueryCOMMENTSetText
       Size = 48
     end
   end

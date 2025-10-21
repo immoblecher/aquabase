@@ -1,4 +1,4 @@
-{ Copyright (C) 2020 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -23,8 +23,7 @@ interface
 
 uses
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs, MastDetl, Menus, Db,
-  DBCtrls, ExtCtrls, Buttons, StdCtrls, DBGrids, MaskEdit, XMLPropStorage,
-  rxlookup, ZDataset;
+  DBCtrls, ExtCtrls, Buttons, StdCtrls, DBGrids, MaskEdit, rxlookup, ZDataset;
 
 type
 
@@ -54,6 +53,7 @@ type
     procedure LinkedQueryCALIBR_YLDGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
     procedure LinkedQueryCALIBR_YLDSetText(Sender: TField; const aText: string);
+    procedure LinkedQueryCOMMENTSetText(Sender: TField; const aText: string);
     procedure LinkedQueryNewRecord(DataSet: TDataSet);
     procedure LinkedQueryUpperSetText(Sender: TField; const aText: string);
     procedure LinkedQueryDATE_STARTValidate(Sender: TField);
@@ -139,13 +139,22 @@ begin
     Sender.AsFloat := StrToFloat(aText)/VolumeFactor/TimeFactor;
 end;
 
+procedure TTestDetlForm.LinkedQueryCOMMENTSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
+end;
+
 procedure TTestDetlForm.CheckBoxResDDClick(Sender: TObject);
 var
   c: Byte;
 begin
   if CheckBoxResDD.Checked then
   begin
-    LinkedLabel.Caption := Caption + ' - Dis./Yld.  [' + DisUnit
+    LinkedLabel.Caption := Caption + ' - Disch./yield.  [' + DisUnit
       + '], depth, drawd., res. drawd. [' + LengthUnit + '], T [m²/d], k [m/d]';
     for c := 0 to DBGrid.Columns.Count - 1 do
       if DBGrid.Columns[c].Title.Caption = 'Recovery' then
@@ -153,7 +162,7 @@ begin
   end
   else
   begin
-    LinkedLabel.Caption := Caption + ' - Dis./Yld. [' + DisUnit
+    LinkedLabel.Caption := Caption + ' - Disch./yield. [' + DisUnit
       + '], depth, drawd., recov. [' + LengthUnit + '], T [m²/d], k [m/d]';
     for c := 0 to DBGrid.Columns.Count - 1 do
       if DBGrid.Columns[c].Title.Caption = 'Res. drawd.' then
@@ -186,7 +195,10 @@ end;
 procedure TTestDetlForm.LinkedQueryUpperSetText(Sender: TField;
   const aText: string);
 begin
-  Sender.Value := UpperCase(aText);
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TTestDetlForm.LinkedQueryDATE_STARTValidate(Sender: TField);
@@ -324,7 +336,7 @@ begin
   inherited;
   if CheckBoxResDD.Checked then
   begin
-    LinkedLabel.Caption := Caption + ' - Dis./Yld. [' + DisUnit
+    LinkedLabel.Caption := Caption + ' - Disch./yield. [' + DisUnit
       + '], depth, drawd., res. drawd. [' + LengthUnit + '], T [m²/d], k [m/d]';
     for c := 0 to DBGrid.Columns.Count - 1 do
       if DBGrid.Columns[c].Title.Caption = 'Recovery' then
@@ -332,7 +344,7 @@ begin
   end
   else
   begin
-    LinkedLabel.Caption := Caption + ' - Dis./Yld. [' + DisUnit
+    LinkedLabel.Caption := Caption + ' - Disch./yield. [' + DisUnit
       + '], depth, drawd., recov. [' + LengthUnit + '], T [m²/d], k [m/d]';
     for c := 0 to DBGrid.Columns.Count - 1 do
       if DBGrid.Columns[c].Title.Caption = 'Res. drawd.' then

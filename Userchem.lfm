@@ -1,8 +1,8 @@
 object UserChemistryForm: TUserChemistryForm
   Tag = 127
-  Left = 632
+  Left = 2656
   Height = 500
-  Top = 190
+  Top = 286
   Width = 576
   Caption = 'User-defined Chemistry'
   ClientHeight = 500
@@ -22,7 +22,7 @@ object UserChemistryForm: TUserChemistryForm
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   SessionProperties = 'Height;Left;PageControl.ActivePage;ParameterTabSheet.Hint;Top;Width;EditResults.Text'
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.8.0.0'
   Visible = True
   object Panel3: TPanel
     Left = 0
@@ -36,12 +36,13 @@ object UserChemistryForm: TUserChemistryForm
     ClientHeight = 464
     ClientWidth = 576
     FullRepaint = False
+    ParentBackground = False
     TabOrder = 1
     object StandardLabel: TLabel
       Left = 288
-      Height = 13
-      Top = 227
-      Width = 55
+      Height = 17
+      Top = 223
+      Width = 58
       Anchors = [akLeft, akBottom]
       Caption = 'Standard:'
       Font.Color = clBlack
@@ -53,9 +54,9 @@ object UserChemistryForm: TUserChemistryForm
     end
     object ChemStandardLabel: TLabel
       Left = 348
-      Height = 13
-      Top = 227
-      Width = 110
+      Height = 17
+      Top = 223
+      Width = 114
       Anchors = [akLeft, akBottom]
       Caption = 'ChemStandardLabel'
       Font.Color = clBlack
@@ -66,9 +67,9 @@ object UserChemistryForm: TUserChemistryForm
     end
     object SamplesLabel: TLabel
       Left = 8
-      Height = 13
+      Height = 17
       Top = 118
-      Width = 50
+      Width = 51
       Caption = 'Samples'
       Font.Color = clBlack
       Font.Height = -12
@@ -107,9 +108,9 @@ object UserChemistryForm: TUserChemistryForm
     end
     object ChemLabel: TLabel
       Left = 16
-      Height = 13
-      Top = 227
-      Width = 61
+      Height = 17
+      Top = 223
+      Width = 66
       Anchors = [akLeft, akBottom]
       Caption = 'Parameters'
       Font.Color = clBlack
@@ -121,7 +122,7 @@ object UserChemistryForm: TUserChemistryForm
     object DBGrid: TDBGrid
       Left = 8
       Height = 85
-      Hint = 'Sample Information'
+      Hint = 'Chemistry sample information'
       Top = 134
       Width = 560
       HelpContext = 31
@@ -135,6 +136,7 @@ object UserChemistryForm: TUserChemistryForm
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgAutoSizeColumns, dgCellHints]
       ParentFont = False
       Scrollbars = ssAutoBoth
+      ShowHint = True
       TabOrder = 0
       OnColExit = DBGridColExit
       OnEnter = DBGridEnter
@@ -145,24 +147,24 @@ object UserChemistryForm: TUserChemistryForm
       OnTitleClick = DBGridTitleClick
     end
     object AMSLCheckBox: TCheckBox
-      Left = 495
+      Left = 494
       Height = 23
       Top = 115
-      Width = 66
+      Width = 67
       Anchors = [akTop, akRight]
       Caption = 'a.m.s.l.'
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      OnClick = AMSLCheckBoxClick
       ParentFont = False
       TabOrder = 1
       TabStop = False
+      OnClick = AMSLCheckBoxClick
     end
     object GroupBox1: TGroupBox
       Left = 8
-      Height = 102
+      Height = 109
       Top = 8
       Width = 560
       Align = alTop
@@ -170,12 +172,13 @@ object UserChemistryForm: TUserChemistryForm
       BorderSpacing.Around = 4
       BorderSpacing.InnerBorder = 2
       Caption = 'Basic Site Information:'
-      ClientHeight = 88
+      ClientHeight = 91
       ClientWidth = 558
       Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
+      ParentBackground = False
       ParentFont = False
       TabOrder = 2
       object SiteIDLabel: TLabel
@@ -290,7 +293,7 @@ object UserChemistryForm: TUserChemistryForm
         ParentFont = False
       end
       object CollarLabel: TLabel
-        Left = 306
+        Left = 308
         Height = 13
         Top = 44
         Width = 54
@@ -416,7 +419,6 @@ object UserChemistryForm: TUserChemistryForm
         DataSource = BasicinfDataSource
         Anchors = [akTop, akLeft, akRight]
         AutoSize = False
-        CharCase = ecUppercase
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -432,12 +434,11 @@ object UserChemistryForm: TUserChemistryForm
         Left = 250
         Height = 22
         Top = 58
-        Width = 50
+        Width = 54
         HelpContext = 31
         DataField = 'ALTITUDE'
         DataSource = BasicinfDataSource
         AutoSize = False
-        CharCase = ecNormal
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -450,7 +451,7 @@ object UserChemistryForm: TUserChemistryForm
         OnKeyUp = EditKeyUp
       end
       object EditCOLLAR_HI: TDBEdit
-        Left = 306
+        Left = 308
         Height = 22
         Top = 58
         Width = 50
@@ -458,7 +459,6 @@ object UserChemistryForm: TUserChemistryForm
         DataField = 'COLLAR_HI'
         DataSource = BasicinfDataSource
         AutoSize = False
-        CharCase = ecNormal
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -479,7 +479,6 @@ object UserChemistryForm: TUserChemistryForm
         DataField = 'DEPTH'
         DataSource = BasicinfDataSource
         AutoSize = False
-        CharCase = ecNormal
         Font.Color = clBlack
         Font.Height = -12
         Font.Name = 'MS Sans Serif'
@@ -503,7 +502,6 @@ object UserChemistryForm: TUserChemistryForm
         ReadOnly = True
         Anchors = [akTop, akLeft, akRight]
         AutoSize = False
-        CharCase = ecNormal
         Enabled = False
         Font.Color = clBlack
         Font.Height = -12
@@ -516,7 +514,7 @@ object UserChemistryForm: TUserChemistryForm
       end
       object RxDBLookupComboAcc: TRxDBLookupCombo
         Left = 190
-        Height = 25
+        Height = 29
         Top = 58
         Width = 36
         HelpKeyword = 'COORDACC'
@@ -673,11 +671,11 @@ object UserChemistryForm: TUserChemistryForm
       OnEnter = PageControlChange
       object TabSheet1: TTabSheet
         Caption = 'User-defined Parameters'
-        ClientHeight = 155
+        ClientHeight = 151
         ClientWidth = 550
         object DBGrid2: TDBGrid
           Left = 0
-          Height = 155
+          Height = 151
           Top = 0
           Width = 550
           HelpContext = 31
@@ -726,7 +724,7 @@ object UserChemistryForm: TUserChemistryForm
       end
       object ParameterTabSheet: TTabSheet
         Caption = 'User-defined Entry'
-        ClientHeight = 155
+        ClientHeight = 151
         ClientWidth = 550
         ImageIndex = 1
         ParentShowHint = False
@@ -1358,7 +1356,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1375,7 +1372,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1392,7 +1388,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1409,7 +1404,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1426,7 +1420,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1443,7 +1436,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1460,7 +1452,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1477,7 +1468,6 @@ object UserChemistryForm: TUserChemistryForm
           Top = 54
           Width = 70
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1493,7 +1483,6 @@ object UserChemistryForm: TUserChemistryForm
           Top = 54
           Width = 70
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1509,7 +1498,6 @@ object UserChemistryForm: TUserChemistryForm
           Top = 54
           Width = 70
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1525,7 +1513,6 @@ object UserChemistryForm: TUserChemistryForm
           Top = 54
           Width = 70
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1541,7 +1528,6 @@ object UserChemistryForm: TUserChemistryForm
           Top = 54
           Width = 70
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1557,7 +1543,6 @@ object UserChemistryForm: TUserChemistryForm
           Top = 54
           Width = 70
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1574,7 +1559,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1591,7 +1575,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1608,7 +1591,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1625,7 +1607,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1642,7 +1623,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1659,7 +1639,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1676,7 +1655,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1693,7 +1671,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1710,7 +1687,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1727,7 +1703,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1744,7 +1719,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1761,7 +1735,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1778,7 +1751,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1795,7 +1767,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1812,7 +1783,6 @@ object UserChemistryForm: TUserChemistryForm
           Width = 70
           HelpContext = 312
           AutoSize = False
-          CharCase = ecNormal
           Enabled = False
           MaxLength = 0
           ParentShowHint = False
@@ -1824,14 +1794,14 @@ object UserChemistryForm: TUserChemistryForm
       end
       object TabSheet3: TTabSheet
         Caption = 'Detection Limits'
-        ClientHeight = 155
+        ClientHeight = 151
         ClientWidth = 550
         ImageIndex = 2
         object DBGridDet: TDBGrid
           Left = 0
-          Height = 155
+          Height = 151
           Top = 0
-          Width = 556
+          Width = 550
           HelpContext = 31
           Align = alClient
           AutoFillColumns = True
@@ -1864,6 +1834,7 @@ object UserChemistryForm: TUserChemistryForm
       BevelOuter = bvNone
       ClientHeight = 29
       ClientWidth = 568
+      ParentBackground = False
       TabOrder = 4
       object DetailNavigator: TDBNavigator
         Left = 172
@@ -1910,9 +1881,9 @@ object UserChemistryForm: TUserChemistryForm
         Anchors = [akTop, akRight]
         BorderSpacing.Around = 4
         NumbersOnly = True
-        OnEditingDone = EditResultsEditingDone
         TabOrder = 2
         Text = '500'
+        OnEditingDone = EditResultsEditingDone
       end
       object StaticText1: TStaticText
         Left = 443
@@ -1940,6 +1911,7 @@ object UserChemistryForm: TUserChemistryForm
     Align = alTop
     ClientHeight = 36
     ClientWidth = 576
+    ParentBackground = False
     TabOrder = 0
     object GraphSpeedButton: TSpeedButton
       Left = 352
@@ -2086,10 +2058,10 @@ object UserChemistryForm: TUserChemistryForm
     Top = 240
   end
   object LinkedQuery: TZQuery
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'DATE_SAMPL,TIME_SAMPL,DEPTH_SAMP'
     BeforeOpen = LinkedQueryBeforeOpen
     AfterOpen = LinkedQueryAfterOpen
+    Connection = DataModuleMain.ZConnectionDB
     OnPostError = LinkedQueryPostError
     OnNewRecord = LinkedQueryNewRecord
     SQL.Strings = (
@@ -2101,6 +2073,7 @@ object UserChemistryForm: TUserChemistryForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     MasterFields = 'SITE_ID_NR'
     MasterSource = BasicinfDataSource
@@ -2114,6 +2087,7 @@ object UserChemistryForm: TUserChemistryForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     object LinkedQuerySITE_ID_NR: TStringField
       DisplayWidth = 11
@@ -2263,7 +2237,7 @@ object UserChemistryForm: TUserChemistryForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedQueryUpperSetText
+      OnSetText = LinkedQueryLABSetText
       Size = 14
     end
     object LinkedQueryALT_NR_1: TStringField
@@ -2328,14 +2302,14 @@ object UserChemistryForm: TUserChemistryForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedQueryUpperSetText
+      OnSetText = LinkedQueryCOMMENTSetText
       Size = 63
     end
   end
   object ZQuery1: TZQuery
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'CHM_REF_NR'
     BeforeOpen = ZQuery1BeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     Params = <>
     MasterFields = 'CHM_REF_NR'
     MasterSource = LinkedDataSource
@@ -2675,9 +2649,9 @@ object UserChemistryForm: TUserChemistryForm
     Top = 370
   end
   object ZQuery2: TZQuery
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'CHM_REF_NR'
     BeforeOpen = ZQuery2BeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     Params = <>
     MasterFields = 'CHM_REF_NR'
     MasterSource = LinkedDataSource
@@ -3017,9 +2991,9 @@ object UserChemistryForm: TUserChemistryForm
     Top = 370
   end
   object ZQuery3: TZQuery
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'CHM_REF_NR'
     BeforeOpen = ZQuery3BeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     Params = <>
     MasterFields = 'CHM_REF_NR'
     MasterSource = LinkedDataSource
@@ -3354,9 +3328,9 @@ object UserChemistryForm: TUserChemistryForm
     Top = 370
   end
   object ZQuery4: TZQuery
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'CHM_REF_NR'
     BeforeOpen = ZQuery4BeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     Params = <>
     MasterFields = 'CHM_REF_NR'
     MasterSource = LinkedDataSource
@@ -3544,9 +3518,9 @@ object UserChemistryForm: TUserChemistryForm
     Top = 370
   end
   object ZQuery5: TZQuery
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'CHM_REF_NR'
     BeforeOpen = ZQuery5BeforeOpen
+    Connection = DataModuleMain.ZConnectionDB
     Params = <>
     MasterFields = 'CHM_REF_NR'
     MasterSource = LinkedDataSource
@@ -3874,8 +3848,9 @@ object UserChemistryForm: TUserChemistryForm
     Top = 370
   end
   object ZQuery7: TZQuery
-    Connection = DataModuleMain.ZConnectionDB
     SortedFields = 'CPARAMETER'
+    Connection = DataModuleMain.ZConnectionDB
+    AfterPost = ZQuery7AfterPost
     OnNewRecord = ZQuery7NewRecord
     SQL.Strings = (
       'SELECT * FROM deteclim'
@@ -3908,6 +3883,7 @@ object UserChemistryForm: TUserChemistryForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
+      OnSetText = ZQuery7SetText
       Size = 24
     end
     object ZQuery7METHOD: TStringField
@@ -3920,6 +3896,7 @@ object UserChemistryForm: TUserChemistryForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      OnSetText = ZQuery7SetText
       Size = 24
     end
     object ZQuery7LIMITS: TStringField
@@ -3948,6 +3925,7 @@ object UserChemistryForm: TUserChemistryForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      OnSetText = ZQuery7SetText
       Size = 12
     end
   end
@@ -3967,11 +3945,11 @@ object UserChemistryForm: TUserChemistryForm
     Top = 424
   end
   object ZQuery6: TZQuery
-    Connection = DataModuleMain.ZConnectionDB
-    SortedFields = 'CHM_REF_NR'
+    SortType = stIgnored
     BeforeOpen = ZQuery6BeforeOpen
     AfterOpen = ZQuery6AfterOpen
     OnCalcFields = ZQuery6CalcFields
+    Connection = DataModuleMain.ZConnectionDB
     BeforeEdit = ZQuery6BeforeEdit
     AfterPost = ZQuery6AfterPost
     OnNewRecord = ZQuery6NewRecord
@@ -3979,7 +3957,6 @@ object UserChemistryForm: TUserChemistryForm
     MasterFields = 'CHM_REF_NR'
     MasterSource = LinkedDataSource
     LinkedFields = 'CHM_REF_NR'
-    IndexFieldNames = 'CHM_REF_NR Asc'
     Left = 408
     Top = 370
     object FloatField1: TFloatField
@@ -4003,7 +3980,6 @@ object UserChemistryForm: TUserChemistryForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      OnSetText = UserChemTableSetText
       OnValidate = ZQuery6CPARAMETERValidate
       Size = 24
     end
@@ -4055,7 +4031,6 @@ object UserChemistryForm: TUserChemistryForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = UserChemTableSetText
       Size = 12
     end
     object ZQuery6COMMENT: TStringField
@@ -4068,7 +4043,6 @@ object UserChemistryForm: TUserChemistryForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = UserChemTableSetText
       Size = 24
     end
   end
@@ -4166,7 +4140,7 @@ object UserChemistryForm: TUserChemistryForm
     Left = 272
     Top = 192
   end
-  object XMLPropStorage: TXMLPropStorage
+  object XMLPropStorage1: TXMLPropStorage
     StoredValues = <>
     Left = 504
     Top = 408
@@ -4282,6 +4256,26 @@ object UserChemistryForm: TUserChemistryForm
         ShortCut = 16502
         OnClick = MenuItemGotoBookmark2Click
       end
+    end
+  end
+  object PopupMenu2: TPopupMenu
+    OnPopup = PopupMenu2Popup
+    Left = 256
+    Top = 64
+    object MenuItem2: TMenuItem
+      Caption = '&Filter by this value'
+      OnClick = MenuItem2Click
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Filter by &not this value'
+      OnClick = MenuItem4Click
+    end
+    object Separator1: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem3: TMenuItem
+      Caption = '&Clear filter'
+      OnClick = MenuItem3Click
     end
   end
 end

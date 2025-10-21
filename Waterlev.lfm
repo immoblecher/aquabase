@@ -1,34 +1,7 @@
 inherited WaterlevelForm: TWaterlevelForm
-  Left = 641
-  Top = 252
+  Left = 2738
+  Top = 384
   Caption = 'Water Level Form'
-  Icon.Data = {
-    FE0200000000010001002020100000000000E802000016000000280000002000
-    0000400000000100040000000000800200000000000000000000000000000000
-    0000000000000000800000800000008080008000000080008000808000008080
-    8000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
-    FF00000000000000000000000000000000000333333333388888888883333333
-    3330033333333338CCCCCCCC833333333330033333333338CCCCCCCC83333333
-    3330033333333338CCCCCCCC833333333330033333333338CCCCCCCC83333333
-    3330033333333338CCCCCCCC833333333330033333333338CCCCCCCC83333333
-    3330033333333338CCCCCCCC833333333330033333333338CCCCCCCC83333333
-    3330033333333338CCCCCCCC833333333330033333333338CCCCCCCC83333333
-    3330033333333338CCCCCCCC833333333330033333333338CCCCCCCC83333333
-    333003333333333C77777777C33333333330033333333CC8000000008CC33333
-    33300333333CC33800000000833CC33333300333CCC333380000000083333CCC
-    33300CCC333333380000000083333333CCC00333333333380000000083333333
-    3330033333333338000000008333333333300333333333380000000083333333
-    3330033333333338000000008333333333300333333333380000000083333333
-    3330088888888888000000008888888888800888888888880000000088888888
-    8880000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    000000000000000000000000000000000000000000000000000000000000000F
-    F000000FF000000FF000000FF000000FF000000FF000000FF000000FF000000F
-    F000000FF000000FF0007FFFFFFE7FFFFFFE7FFFFFFE7FFFFFFE7FFFFFFE0000
-    0000
-  }
   OnActivate = FormActivate
   OnClose = FormClose
   OnKeyDown = FormKeyDown
@@ -36,6 +9,12 @@ inherited WaterlevelForm: TWaterlevelForm
   inherited Panel1: TPanel
     inherited ViewNavigator: TDBNavigator
       Hints.Strings = (      )
+    end
+    inherited CloseBitBtn: TBitBtn
+      Font.Color = clWindowText
+    end
+    inherited BitBtnHelp: TBitBtn
+      Font.Color = clWindowText
     end
     inherited ChartSpeedButton: TSpeedButton
       Left = 276
@@ -49,7 +28,7 @@ inherited WaterlevelForm: TWaterlevelForm
     BevelOuter = bvNone
     inherited Panel4: TPanel
       Left = 0
-      Top = 195
+      Top = 190
       Width = 576
       ClientWidth = 576
       inherited DetailNavigator: TDBNavigator
@@ -59,12 +38,12 @@ inherited WaterlevelForm: TWaterlevelForm
         Left = 508
       end
       inherited StaticText1: TStaticText
-        Left = 465
+        Left = 463
       end
     end
     inherited DBGrid: TDBGrid
       Left = 4
-      Height = 171
+      Height = 166
       Top = 22
       Width = 568
       TabOrder = 2
@@ -77,31 +56,36 @@ inherited WaterlevelForm: TWaterlevelForm
       Width = 180
     end
     object AMSLCheckBox: TCheckBox[3]
-      Left = 503
+      Left = 502
       Height = 23
       Top = 0
-      Width = 66
+      Width = 67
       Anchors = [akTop, akRight]
       Caption = 'a.m.s.l.'
       Font.CharSet = ANSI_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'MS Sans Serif'
       Font.Style = [fsBold]
-      OnChange = AMSLCheckBoxChange
       ParentFont = False
       TabOrder = 1
       TabStop = False
+      OnChange = AMSLCheckBoxChange
     end
     object DateTimePicker1: TDateTimePicker[4]
       Left = 234
-      Height = 18
+      Height = 22
       Top = 0
       Width = 77
       CenturyFrom = 1941
       DateDisplayOrder = ddoYMD
       MaxDate = 2958465
       MinDate = -53780
+      AutoSize = False
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
       TabOrder = 3
       Enabled = False
       TrailingSeparator = False
@@ -120,37 +104,47 @@ inherited WaterlevelForm: TWaterlevelForm
     end
     object Label8: TLabel[5]
       Left = 200
-      Height = 10
+      Height = 16
       Top = 5
-      Width = 29
+      Width = 32
       Alignment = taRightJustify
       Caption = 'Go to:'
-      ParentColor = False
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
     end
     object ComboBox1: TComboBox[6]
       Left = 360
-      Height = 20
+      Height = 22
       Top = 0
       Width = 142
       AutoSize = False
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
       ItemHeight = 0
       ItemIndex = 0
       Items.Strings = (
         'Date, time, secs, piez.'
         'Piez., date, time, secs'
       )
-      OnChange = ComboBox1Change
+      ParentFont = False
       Style = csDropDownList
       TabOrder = 4
       Text = 'Date, time, secs, piez.'
+      OnChange = ComboBox1Change
     end
     object Label9: TLabel[7]
       Left = 325
-      Height = 10
+      Height = 16
       Top = 5
-      Width = 32
+      Width = 34
       Caption = 'Order:'
-      ParentColor = False
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      ParentFont = False
     end
   end
   inherited BasicinfDataSource: TDataSource
@@ -175,6 +169,7 @@ inherited WaterlevelForm: TWaterlevelForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     IndexFieldNames = 'SITE_ID_NR Asc, DATE_MEAS Asc, TIME_MEAS Asc, TIME_SEC Asc, PIEZOM_NR Asc'
     Left = 104
@@ -185,6 +180,7 @@ inherited WaterlevelForm: TWaterlevelForm
         Name = 'CurSite'
         ParamType = ptInput
         Size = 11
+        SQLType = stString
       end>
     inherited LinkedQuerySITE_ID_NR: TStringField
       DisplayWidth = 44
@@ -319,21 +315,13 @@ inherited WaterlevelForm: TWaterlevelForm
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      OnSetText = LinkedQuerySetText
+      OnSetText = LinkedQueryCOMMENTSetText
       Size = 48
     end
-  end
-  inherited ZReadOnlyQueryCoordAcc: TZReadOnlyQuery
-    Left = 160
-    Top = 176
   end
   inherited AccuDataSource: TDataSource
     Left = 160
     Top = 224
-  end
-  inherited ZReadOnlyQuerySiteType: TZReadOnlyQuery
-    Left = 416
-    Top = 176
   end
   inherited TypeDataSource: TDataSource
     Left = 416

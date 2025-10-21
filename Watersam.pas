@@ -38,6 +38,7 @@ type
     LinkedQueryTIME_MEAS: TStringField;
     procedure FormActivate(Sender: TObject);
     procedure LinkedQueryBeforeInsert(DataSet: TDataSet);
+    procedure LinkedQueryCOMMENTSetText(Sender: TField; const aText: string);
     procedure LinkedQueryDATE_MEASValidate(Sender: TField);
     procedure LinkedQueryNewRecord(DataSet: TDataSet);
     procedure LinkedQueryREP_INSTValidate(Sender: TField);
@@ -70,6 +71,15 @@ procedure TWaterSampleForm.LinkedQueryBeforeInsert(DataSet: TDataSet);
 begin
   PrevDate := LinkedQueryDATE_MEAS.Value;
   PrevRepInst := LinkedQueryREP_INST.Value;
+end;
+
+procedure TWaterSampleForm.LinkedQueryCOMMENTSetText(Sender: TField;
+  const aText: string);
+begin
+  if AllowSmallChars then
+    Sender.Value := aText
+  else
+    Sender.Value := UpperCase(aText);
 end;
 
 procedure TWaterSampleForm.LinkedQueryDATE_MEASValidate(Sender: TField);

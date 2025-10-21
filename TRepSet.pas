@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2023 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -486,10 +486,11 @@ begin
   with ComboBoxWL do
   begin
     Clear;
-    while not WLQuery.EOF do
+    with WLQuery do
+    while not EOF do
     begin
-      Items.Add(WLQuery.FieldByName('DATE_MEAS').AsString + ' ' + WLQuery.FieldByName('TIME_MEAS').AsString);
-      WLQuery.Next;
+      Items.Add(FieldByName('DATE_MEAS').AsString + ' ' + FieldByName('TIME_MEAS').AsString);
+      Next;
     end;
     ItemIndex := Items.Count - 1;
   end;

@@ -1,4 +1,4 @@
-{ Copyright (C) 2022 Immo Blecher, immo@blecher.co.za
+{ Copyright (C) 2025 Immo Blecher, immo@blecher.co.za
 
   This source is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License as published by the Free
@@ -22,21 +22,27 @@ unit VARINIT;
 interface
 
 uses
-  LCLIntf, LCLType, SysUtils, Graphics, Classes, Registry, Dialogs, IniFiles,
-  LazFileUtils, FileUtil, ZCompatibility;
+  LCLIntf, LCLType, SysUtils, Graphics, Classes, Dialogs, IniFiles,
+  LazFileUtils, FileUtil, ZCompatibility
+  {$IFDEF WINDOWS}
+  , Windows, Win32Proc, Registry
+  {$ENDIF}
+  ;
 
   function  ConvertStyle(const S: String): TFontStyles;
   function  ConvertFromStyle(const Style: TFontStyles): String;
+  {$IFDEF WINDOWS}
   procedure ReadRegistry;
+  {$ENDIF}
   procedure ReadIniFile;
   procedure ReadEtc;
   function FileExistsExt(const FileName: TFileName; Directory: String): Boolean;
   function GetFileNameOnDisk(const FileName: TFileName; Directory: String): ShortString;
 
 var
-  AsN, ShowDMS, AutoEditData, UseSQLitePW, PrintNoInfo, UseWSpaceRepSet: Boolean;
+  AsN, ShowDMS, AutoEditData, PrintNoInfo, UseWSpaceRepSet, ViewChanged: Boolean;
   NewSQLite, BusyNewSQLite, Spatialite, LookForUpdate, SaveSettings, WrongDecimal: Boolean;
-  HasSelection, CanCut, CanPaste: Boolean;
+  HasSelection, CanCut, CanPaste, DarkTheme, AllowSmallChars: Boolean;
   WSpaceDir, ProgramDir, SettingsDir, QGISExe, CoordSysDescr: String;
   FilterName, Editing, Country, Language, Proj_Version: ShortString;
   ChemStandard: Byte;
@@ -75,7 +81,7 @@ const
     MySQLLib = '';  //'libmysqlclient' + SharedSuffix;
     MariaDBLib = '';  //'libmariadbclient' + SharedSuffix;
     PostgreLib = ''; //'libpq' + SharedSuffix;
-    MSsqlLib = ''; //'libsybdb' + SharedSuffix; //Sybase and MSSql via FreeTDS
+    MSsqlLib = ''; //'libsybdb' + SharedSuffix; //Sybase and MSSql
   {$ENDIF}
 
   {$IFDEF DARWIN}
@@ -83,10 +89,10 @@ const
     MySQLLib = 'libmysqlclient' + SharedSuffix;
     MariaDBLib = 'libmysqlclient' + SharedSuffix;
     PostgreLib = 'libpq' + SharedSuffix;
-    MSsqlLib = 'libsybdb' + SharedSuffix; //Sybase and MSSql via FreeTDS
+    MSsqlLib = 'libsybdb' + SharedSuffix; //Sybase and MSSql
   {$ENDIF}
 
-  SQLiteDBVer = 10;
+  SQLiteDBVer = 12;
   MySQLDBVer = 1.1;
 
   //NGDB_FLAGs constants
@@ -108,6 +114,36 @@ const
 implementation
 
 uses MainDataModule;
+
+// IsDarkTheme: Detects if the Dark Theme (true) has been enabled or not (false)
+{$IFDEF WINDOWS}
+function IsDarkTheme: boolean;
+const
+  KEYPATH = '\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize';
+  KEYNAME = 'AppsUseLightTheme';
+var
+  LightKey: boolean;
+  Registry: TRegistry;
+begin
+  Result := false;
+  Registry := TRegistry.Create;
+  try
+    Registry.RootKey := HKEY_CURRENT_USER;
+    if Registry.OpenKeyReadOnly(KEYPATH) then
+      begin
+        if Registry.ValueExists(KEYNAME) then
+          LightKey := Registry.ReadBool(KEYNAME)
+        else
+          LightKey := true;
+      end
+    else
+      LightKey := true;
+    Result := not LightKey
+  finally
+    Registry.Free;
+  end;
+end;
+{$ENDIF}
 
 function ConvertStyle(const S: String): TFontStyles;
 begin
@@ -146,9 +182,9 @@ begin
   Class4Font.Color := ClassColor[4];
 end;
 
+{$IFDEF WINDOWS}
 procedure ReadRegistry;
 begin
-  {$IFDEF WINDOWS}
   //Procedure to read Aquabase Settings
   with TRegistry.Create do
   begin
@@ -194,8 +230,8 @@ begin
     SetClassFonts;
     Free;
   end;
-  {$ENDIF}
 end;
+{$ENDIF}
 
 procedure ReadIniFile;
 begin
@@ -211,6 +247,7 @@ begin
     OrigCoordSysNr := ReadInteger('International', 'OrigCoordSysNr', 2);
     CoordSysDescr := ReadString('International', 'CoordSys', 'CRS unknown');
     ShowDMS := ReadBool('International', 'DMS', False);
+    AllowSmallChars := ReadBool('System', 'AllowSmallChars', True);
     //check if database is already connected, e.g. on new Workspace
     with DataModuleMain.ZConnectionDB do
     if not Connected then
@@ -219,9 +256,9 @@ begin
       HostName := ReadString('Database', 'HostName', '');
       Port := ReadInteger('Database', 'Port', 0);
       Protocol := ReadString('Database', 'Protocol', '');
-      if Protocol = 'sqlite-3' then
+      if (Protocol = 'sqlite-3') or (Protocol = 'sqlite') then //for old ZEOS < 8
       begin
-        UseSQLitePW := ReadBool('Database', 'Password', False);
+        Protocol := 'sqlite';
         Spatialite := ReadBool('Database', 'Spatialite', True);
         {$IFDEF WINDOWS}
         Database := ReadString('Database', 'Database', '');
@@ -247,7 +284,9 @@ begin
       else
       if Pos('mysql', Protocol) = 1 then
       begin
+        Protocol := 'mysql';
         Database := ReadString('Database', 'Database', '');
+        Port := ReadInteger('Database', 'Port', 3306);
         {$IFDEF WINDOWS}
         LibraryLocation := ProgramDir + '\' + MySQLLib;
         {$ENDIF}
@@ -257,9 +296,11 @@ begin
         Tag := 2
       end
       else
-      if Pos('MariaDB', Protocol) = 1 then
+      if (Pos('MariaDB', Protocol) = 1) or (Protocol = 'mariadb') then //for old Zeos < 8
       begin
+        Protocol := 'mariadb';
         Database := ReadString('Database', 'Database', '');
+        Port := ReadInteger('Database', 'Port', 3306);
         {$IFDEF WINDOWS}
         LibraryLocation := ProgramDir + '\' + MySQLLib;
         {$ENDIF}
@@ -269,22 +310,25 @@ begin
         Tag := 3;
       end
       else
-      if Pos('postgresql', Protocol) = 1 then
+      if LeftStr(Protocol, 10) = 'postgresql' then
       begin
+        Protocol := 'postgresql';
         Database := ReadString('Database', 'Database', '');
+        Port := ReadInteger('Database', 'Port', 5432);
         {$IFDEF WINDOWS}
         LibraryLocation := ProgramDir + '\' + PostgreLib;
         {$ENDIF}
         {$IFDEF UNIX}
         LibraryLocation := PostgreLib;
         {$ENDIF}
-        Catalog := 'pg_catalog';
+        Catalog := ReadString('Database', 'Schema', 'public');
         Tag := 4;
       end
       else
-      if (Pos('FreeTDS', Protocol) = 1) or (Protocol = 'sybase') then
+      if (Protocol = 'mssql') or (Protocol = 'sybase') then
       begin
         Database := ReadString('Database', 'Database', '');
+        Port := ReadInteger('Database', 'Port', 1433);
         {$IFDEF WINDOWS}
         ClientCodePage := 'WIN1252';
         LibraryLocation := ProgramDir + '\' + MSsqlLib;
@@ -415,4 +459,7 @@ initialization
   FCommaSeparator := DefaultFormatSettings;
   FCommaSeparator.DecimalSeparator := ',';
   FCommaSeparator.ThousandSeparator := '#';// disable the thousand separator
+  {$IFDEF WINDOWS}
+  DarkTheme := IsDarkTheme;
+  {$ENDIF}
 end.

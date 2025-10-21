@@ -63,7 +63,7 @@ implementation
 
 { TWriteMemberForm }
 
-uses MainDataModule, Strdatetime, varinit;
+uses MainDataModule, VARINIT;
 
 procedure TWriteMemberForm.FormCreate(Sender: TObject);
 var
