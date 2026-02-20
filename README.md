@@ -1,7 +1,7 @@
 # aquabase
 **Aquabase** Water Resources Management Software - developed with Lazarus/FreePascal IDE
 
-Aquabase is a powerful water resources management software application with data entry, management and presentation tools for the (ground)water scientist, water manager and engineer. The latest version is Aquabase Twenty20 (8.x.x.x), which is available for Windows 32 and 64 bit and Linux (Debian/Ubuntu). A MacOS version is planned to be available by the end of the year.
+Aquabase is a powerful water resources management software application with data entry, management and presentation tools for the (ground)water scientist, water manager and engineer. The latest version is Aquabase '25, which is available for Windows 64 bit and Linux (Debian/Ubuntu). A MacOS version is currently under development.
 
 The current version is in no way complete and development continues, as there is quite a bit of work still necessary to rewrite the reports and charting functions from old (Aquabase Ver. 6) functionality. Aquabase is developed with the Lazarus / FreePascal IDE under Ubuntu Linux and uses only open-source components, i.e. for the database access (ZeosDBO), the reports (Fortesreport CE) and some enhanced controls (rxnew) with more user-friendly functions. The Windows 32 bit and 64 bit versions are then compiled with Lazarus / FreePascal and tested under Wine before distribution (Aquabase runs perfectly under Wine).
 
@@ -18,7 +18,7 @@ What is needed to compile?
 * The simple mapping component LazMapViewer https://wiki.lazarus.freepascal.org/LazMapViewer
 * For photo EXIF functionality the DExif component https://github.com/cutec-chris/dexif
 * For spreadsheet functionalities the FPSpreadsheet components https://sourceforge.net/projects/lazarus-ccr/files/FPSpreadsheet/OPM/update_FPSpreadsheet.json/download
-* Synapse for online (ftp) functions for Aquabase update download http://www.ararat.cz/synapse/doku.php/start
+* Indy Vers. 10.x
 
 The additional requirements on top of Lazarus/FreePascal above should be installed/updated through the Online Package Manager in Lazarus. If you want to cross-compile under Windows you need to install the cross-compile packages for Lazarus as well.
 
